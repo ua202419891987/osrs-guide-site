@@ -425,3 +425,86 @@ footer {
   .category-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr; }
 }
+
+/* === SUPPORT CARD / DONATION === */
+.support-card {
+  margin: 40px 0 20px;
+  background: linear-gradient(135deg, #1a2e1a 0%, #1a2018 50%, #1a1818 100%);
+  border: 1px solid #2a5a30;
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.support-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(80,180,100,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.support-card::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  left: -5%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(200,215,80,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.support-inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+.support-icon {
+  font-size: 42px;
+  line-height: 1;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+}
+.support-text { flex: 1; }
+.support-text h3 {
+  font-size: 17px;
+  color: #a8d88a;
+  margin-bottom: 6px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.support-text p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+.support-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #3a7a40 0%, #2d6033 100%);
+  color: #d0f0d0 !important;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(58,122,64,0.35);
+}
+.support-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(58,122,64,0.5);
+  color: #fff !important;
+  text-decoration: none !important;
+}
+@media (max-width: 700px) {
+  .support-inner { flex-direction: column; text-align: center; gap: 16px; }
+  .support-btn { width: 100%; justify-content: center; }
+}
