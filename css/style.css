@@ -508,3 +508,6 @@ footer {
   .support-inner { flex-direction: column; text-align: center; gap: 16px; }
   .support-btn { width: 100%; justify-content: center; }
 }
+
+/* Hide support card until payment method is set up */
+.support-card { display: none !important; }
