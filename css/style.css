@@ -62,37 +62,37 @@ nav a:hover,nav a.active{background:rgba(255,255,255,.1);color:var(--white)}
 .btn-text{font-weight:600;font-size:.9rem}
 
 /* Guide Page - Dark Theme */
-body.dark,body{background:#0d1117;color:#c9d1d9}
-.site-header{background:#161b22;border-bottom:1px solid #30363d;padding:14px 24px;position:sticky;top:0;z-index:100}
+body.dark,body{background:#1a1510;color:#d4c5a0}
+.site-header{background:#241d15;border-bottom:1px solid #3a3024;padding:14px 24px;position:sticky;top:0;z-index:100}
 .header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.header-inner .logo{color:#f5a623;font-weight:800;font-size:1.15rem;text-decoration:none}
+.header-inner .logo{color:#c5a64a;font-weight:800;font-size:1.15rem;text-decoration:none}
 .main-nav{display:flex;gap:6px;flex-wrap:wrap}
-.main-nav a{color:#8b949e;padding:6px 14px;border-radius:6px;font-size:.88rem;font-weight:500;text-decoration:none;transition:all .2s}
-.main-nav a:hover,.main-nav a.active{background:rgba(255,255,255,.06);color:#e6edf3}
+.main-nav a{color:#8a7e6e;padding:6px 14px;border-radius:6px;font-size:.88rem;font-weight:500;text-decoration:none;transition:all .2s}
+.main-nav a:hover,.main-nav a.active{background:rgba(255,255,255,.06);color:#f0ddb0}
 .guide-article{max-width:860px;margin:0 auto;padding:32px 24px}
-.guide-article h1{color:#e6edf3;font-size:1.8rem;margin-bottom:8px}
-.guide-article h2{color:#e6edf3;font-size:1.3rem;margin:28px 0 12px;padding-bottom:6px;border-bottom:2px solid #30363d}
-.guide-article h3{font-size:1.1rem;margin:20px 0 8px;color:#e6edf3}
+.guide-article h1{color:#f0ddb0;font-size:1.8rem;margin-bottom:8px}
+.guide-article h2{color:#f0ddb0;font-size:1.3rem;margin:28px 0 12px;padding-bottom:6px;border-bottom:2px solid #3a3024}
+.guide-article h3{font-size:1.1rem;margin:20px 0 8px;color:#f0ddb0}
 .guide-article p{margin-bottom:12px;line-height:1.7}
 .guide-article ul,.guide-article ol{margin-bottom:16px;padding-left:24px}
 .guide-article li{margin-bottom:6px}
 .guide-article table{width:100%;border-collapse:collapse;margin-bottom:16px;font-size:.9rem}
-.guide-article th{background:#161b22;color:#e6edf3;font-weight:600;padding:8px 12px;border:1px solid #30363d;text-align:left}
-.guide-article td{padding:8px 12px;border:1px solid #30363d}
-.breadcrumb{color:#8b949e;font-size:.82rem;margin-bottom:20px}
-.breadcrumb a{color:#58a6ff;text-decoration:none}
-.toc{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px 20px;margin-bottom:24px}
-.toc h3{color:#e6edf3;font-size:.95rem;margin-bottom:10px}
+.guide-article th{background:#241d15;color:#f0ddb0;font-weight:600;padding:8px 12px;border:1px solid #3a3024;text-align:left}
+.guide-article td{padding:8px 12px;border:1px solid #3a3024}
+.breadcrumb{color:#8a7e6e;font-size:.82rem;margin-bottom:20px}
+.breadcrumb a{color:#c5a64a;text-decoration:none}
+.toc{background:#241d15;border:1px solid #3a3024;border-radius:8px;padding:16px 20px;margin-bottom:24px}
+.toc h3{color:#f0ddb0;font-size:.95rem;margin-bottom:10px}
 .toc ol{padding-left:20px;margin:0}
 .toc li{margin-bottom:4px;font-size:.88rem}
-.toc a{color:#58a6ff;text-decoration:none}
-.related-links{margin-top:24px;padding:16px;background:#161b22;border:1px solid #30363d;border-radius:8px}
-.related-links a{display:block;color:#58a6ff;padding:4px 0;font-size:.88rem}
-.site-footer{background:#161b22;border-top:1px solid #30363d;padding:20px 24px;text-align:center}
-.footer-inner{max-width:1100px;margin:0 auto;color:#8b949e;font-size:.82rem}
+.toc a{color:#c5a64a;text-decoration:none}
+.related-links{margin-top:24px;padding:16px;background:#241d15;border:1px solid #3a3024;border-radius:8px}
+.related-links a{display:block;color:#c5a64a;padding:4px 0;font-size:.88rem}
+.site-footer{background:#241d15;border-top:1px solid #3a3024;padding:20px 24px;text-align:center}
+.footer-inner{max-width:1100px;margin:0 auto;color:#8a7e6e;font-size:.82rem}
 .footer-nav{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:8px 0 0}
-.footer-nav a{color:#8b949e;text-decoration:none;font-size:.82rem}
-.footer-nav a:hover{color:#e6edf3}
+.footer-nav a{color:#8a7e6e;text-decoration:none;font-size:.82rem}
+.footer-nav a:hover{color:#f0ddb0}
 
 /* Guide Page */
 .guide-hero{background:var(--dark);color:#fff;padding:40px 0}
@@ -126,31 +126,31 @@ footer{background:var(--dark);color:var(--gray-light);padding:40px 0 20px;margin
 .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:16px;text-align:center;font-size:.85rem}
 
 /* Support Card (Guide Pages) */
-.support-card{background:linear-gradient(135deg,#1a2a1a 0%,#1e3a2e 100%);border-radius:12px;padding:28px 24px;margin:32px 0;border:1px solid rgba(255,255,255,.08);box-shadow:0 4px 20px rgba(0,0,0,.3);position:relative;overflow:hidden}
+.support-card{background:linear-gradient(135deg,#2a1f10 0%,#332815 100%);border-radius:12px;padding:28px 24px;margin:32px 0;border:1px solid rgba(255,255,255,.06);box-shadow:0 4px 20px rgba(0,0,0,.3);position:relative;overflow:hidden}
 .support-card::before{content:'';position:absolute;top:-20px;right:-20px;width:100px;height:100px;background:radial-gradient(circle,rgba(255,255,255,.04) 0%,transparent 70%);border-radius:50%}
 .support-inner{display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:relative}
 .support-icon{font-size:2.2rem;flex-shrink:0}
 .support-text{flex:1;min-width:200px}
-.support-text h3{color:#a8e6a1;font-size:1.15rem;font-weight:700;margin-bottom:6px;border:none;padding:0}
-.support-text p{color:rgba(255,255,255,.7);font-size:.88rem;line-height:1.5;margin:0}
-.support-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:linear-gradient(135deg,#34d399,#10b981);color:#fff;border:none;border-radius:50px;font-size:.95rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all .3s;box-shadow:0 4px 16px rgba(16,185,129,.35);white-space:nowrap;flex-shrink:0}
-.support-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(16,185,129,.5);color:#fff}
-.paypal-btn{background:linear-gradient(135deg,#0070ba,#005fa3);box-shadow:0 4px 16px rgba(0,112,186,.4)}
-.paypal-btn:hover{box-shadow:0 6px 24px rgba(0,112,186,.55)}
+.support-text h3{color:#f0ddb0;font-size:1.15rem;font-weight:700;margin-bottom:6px;border:none;padding:0}
+.support-text p{color:rgba(255,255,255,.6);font-size:.88rem;line-height:1.5;margin:0}
+.support-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:linear-gradient(135deg,#c5a64a,#a8862c);color:#1a1510;border:none;border-radius:50px;font-size:.95rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all .3s;box-shadow:0 4px 16px rgba(197,166,74,.35);white-space:nowrap;flex-shrink:0}
+.support-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(197,166,74,.5);color:#1a1510}
+.paypal-btn{background:linear-gradient(135deg,#c5a64a,#a8862c);box-shadow:0 4px 16px rgba(197,166,74,.4);color:#1a1510}
+.paypal-btn:hover{box-shadow:0 6px 24px rgba(197,166,74,.55);color:#1a1510}
 @media(max-width:640px){.support-inner{flex-direction:column;text-align:center;gap:16px}.support-text{min-width:unset}}
 
 /* Donation Widget */
-.donation-widget{background:linear-gradient(135deg,#1a3a2a 0%,#2d5a3d 100%);border-radius:16px;padding:28px 24px;margin:32px 0;text-align:center;border:1px solid rgba(255,255,255,.1);box-shadow:0 8px 32px rgba(0,0,0,.2);position:relative;overflow:hidden}
+.donation-widget{background:linear-gradient(135deg,#2a1f10 0%,#332815 100%);border-radius:16px;padding:28px 24px;margin:32px 0;text-align:center;border:1px solid rgba(255,255,255,.06);box-shadow:0 8px 32px rgba(0,0,0,.2);position:relative;overflow:hidden}
 .donation-widget::before{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(255,255,255,.06) 0%,transparent 70%);border-radius:50%}
 .donation-icon{font-size:2.8rem;margin-bottom:12px;display:block;animation:leaf-sway 3s ease-in-out infinite;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3))}
 @keyframes leaf-sway{0%,100%{transform:rotate(0deg)}25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
-.donation-widget h3{color:#a8e6a1;font-size:1.25rem;font-weight:700;margin-bottom:8px;position:relative;border:none;padding:0}
-.donation-widget .donation-desc{color:rgba(255,255,255,.75);font-size:.9rem;margin-bottom:20px;line-height:1.5;position:relative}
+.donation-widget h3{color:#f0ddb0;font-size:1.25rem;font-weight:700;margin-bottom:8px;position:relative;border:none;padding:0}
+.donation-widget .donation-desc{color:rgba(255,255,255,.6);font-size:.9rem;margin-bottom:20px;line-height:1.5;position:relative}
 .donation-widget .donation-desc strong{color:#fff}
-.donation-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 32px;background:linear-gradient(135deg,#34d399,#10b981);color:#fff;border:none;border-radius:50px;font-size:1rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all .3s;box-shadow:0 4px 16px rgba(16,185,129,.35);position:relative}
-.donation-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(16,185,129,.5);color:#fff}
+.donation-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 32px;background:linear-gradient(135deg,#c5a64a,#a8862c);color:#1a1510;border:none;border-radius:50px;font-size:1rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all .3s;box-shadow:0 4px 16px rgba(197,166,74,.35);position:relative}
+.donation-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(197,166,74,.5);color:#1a1510}
 .donation-btn i{font-size:1.2rem}
-.donation-footer{color:rgba(255,255,255,.45);font-size:.78rem;margin-top:14px;position:relative}
+.donation-footer{color:rgba(255,255,255,.35);font-size:.78rem;margin-top:14px;position:relative}
 .donation-footer i{color:#f59e0b;margin-right:4px}
 
 /* Related Guides */
