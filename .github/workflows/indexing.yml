@@ -1,0 +1,40 @@
+name: Search Engine Indexing
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:  # 支持手动触发
+
+jobs:
+  submit-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install google-auth google-api-python-client requests
+
+      - name: Write service account key
+        env:
+          GCP_SA_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+        run: |
+          echo "$GCP_SA_KEY" > scripts/osrsgu-indexin-bdd7bb3b1c82.json
+
+      - name: Submit to Google Indexing API
+        run: |
+          cd scripts
+          python submit_index.py --google-key osrsgu-indexin-bdd7bb3b1c82.json
+
+      - name: Submit via IndexNow (Bing/Yandex)
+        run: |
+          cd scripts
+          python submit_index.py --dry-run 2>/dev/null || true
+          echo "IndexNow: 见 SETUP_GUIDE.md 配置说明"

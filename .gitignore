@@ -1,0 +1,3 @@
+# Google Service Account 密钥文件（敏感信息，绝对不能提交）
+scripts/*.json
+!scripts/index_config.json
