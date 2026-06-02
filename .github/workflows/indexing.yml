@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install google-auth google-api-python-client requests
+          pip install google-auth google-api-python-client requests lxml
 
       - name: Write service account key
         env:
@@ -30,10 +30,11 @@ jobs:
         run: |
           echo "$GCP_SA_KEY" > scripts/osrsgu-indexin-bdd7bb3b1c82.json
 
-      - name: Submit to Google Indexing API
+      - name: Submit to Google Indexing API (全部URL)
         run: |
           cd scripts
-          python submit_index.py --google-key osrsgu-indexin-bdd7bb3b1c82.json
+          # 从 sitemap 批量提交所有URL
+          python submit_index.py --sitemap --google-key osrsgu-indexin-bdd7bb3b1c82.json
 
       - name: Submit via IndexNow (Bing/Yandex)
         run: |
