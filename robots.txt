@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://osrsguidehub.com/sitemap.xml
+Sitemap: https://osrsguru.com/sitemap.xml

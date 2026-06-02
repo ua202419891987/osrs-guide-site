@@ -85,8 +85,15 @@ def submit_google(url, credentials_path):
             print(f"  ⚠️  Google: {url} - 响应异常: {response}")
             return False
 
+    except json.decoder.JSONDecodeError as e:
+        print(f"  ❌ Google: {url} - API返回非JSON响应（可能API未启用或权限不足）")
+        return False
     except Exception as e:
-        print(f"  ❌ Google: {url} - {e}")
+        err_msg = str(e)
+        if "Expecting ',' delimiter" in err_msg or "JSONDecodeError" in str(type(e)):
+            print(f"  ❌ Google: {url} - API返回非JSON错误页 → 请确认已启用 Indexing API")
+        else:
+            print(f"  ❌ Google: {url} - {e}")
         return False
 
 
@@ -172,7 +179,7 @@ def main():
     parser.add_argument(
         "--sitemap",
         action="store_true",
-        help="从线上 sitemap.xml 解析URL（需要 lxml 库）",
+        help="从 sitemap.xml 解析URL（优先本地文件，回退到线上）",
     )
     parser.add_argument(
         "--google-key",
@@ -210,13 +217,24 @@ def main():
         try:
             import requests
             from lxml import etree
+            import io
 
-            sitemap_url = f"{site_url}/sitemap.xml"
-            resp = requests.get(sitemap_url, timeout=30)
-            tree = etree.fromstring(resp.content)
+            # 优先读取本地 sitemap（避免 GitHub Pages CDN 缓存延迟）
+            local_sitemap = PROJECT_DIR / "sitemap.xml"
+            if local_sitemap.exists():
+                with open(local_sitemap, "rb") as f:
+                    xml_content = f.read()
+                print(f"📄 从本地 sitemap.xml 解析到 {xml_content.count(b'<loc>')} 个URL")
+            else:
+                sitemap_url = f"{site_url}/sitemap.xml"
+                resp = requests.get(sitemap_url, timeout=30)
+                xml_content = resp.content
+                print(f"📄 从线上 sitemap 解析到 {xml_content.count(b'<loc>')} 个URL")
+
+            tree = etree.fromstring(xml_content)
             ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
             urls = [loc.text for loc in tree.findall(".//sm:loc", ns)]
-            print(f"📄 从 sitemap 解析到 {len(urls)} 个URL")
+            print(f"   共 {len(urls)} 个URL")
         except ImportError:
             print("❌ 需要 lxml 库: pip install lxml requests")
             return

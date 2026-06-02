@@ -28,13 +28,13 @@ jobs:
         env:
           GCP_SA_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
         run: |
-          echo "$GCP_SA_KEY" > scripts/osrsgu-indexin-bdd7bb3b1c82.json
+          echo "$GCP_SA_KEY" > scripts/osrsguru-site-bc6b38956cb3.json
 
       - name: Submit to Google Indexing API (全部URL)
         run: |
           cd scripts
           # 从 sitemap 批量提交所有URL
-          python submit_index.py --sitemap --google-key osrsgu-indexin-bdd7bb3b1c82.json
+          python submit_index.py --sitemap --google-key osrsguru-site-bc6b38956cb3.json
 
       - name: Submit via IndexNow (Bing/Yandex)
         run: |
