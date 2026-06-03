@@ -1,73 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://osrsguru.com/index.html</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://osrsguru.com/money-making.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://osrsguru.com/skill-training.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://osrsguru.com/quest-guides.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://osrsguru.com/boss-guides.html</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-ironman-money-making-f2p-2026.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-low-effort-money-making-beginners.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-money-making-fishing-2026.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-f2p-money-making-no-stats.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-passive-money-making-offline.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-flip-items-profit-mid-game.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-cheap-flipping-methods-new-players.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-hunter-money-making-guide-2026.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-make-money-with-crafting-low-level.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-wintertodt-money-making-per-hour.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-chambers-of-xeric-loot-profit-guide.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-f2p-ironman-money-making-early-game.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-rune-spinning-profit-2026.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-killing-green-dragons-money-per-hour.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-make-money-with-zulrah.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-fastest-99-cooking-f2p.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-1-99-thieving-guide-ironman.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-cheapest-99-runecrafting-2026.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-99-fishing-afk-method.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-1-99-woodcutting-guide-early-game.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-fastest-99-attack-strength-defence.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-train-prayer-cheap-f2p.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-1-99-hunter-guide-afk-method.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-ironman-1-99-smithing-guide.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-unlock-dinosaur-hunting-osrs.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-99-agility-fast-2026.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-low-cost-1-99-herblore-guide.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-dragon-defender-2026.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-complete-lost-city-guide.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-unlock-fairy-rings.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-desert-treasure-quest-guide-low-level.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-graceful-outfit-full-guide.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-complete-monkey-madness-quest.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-rune-pouch-guide.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-finish-dragon-slayer-2-guide.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-unlock-the-abyss-guide.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-complete-fremennik-trials-guide.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-beat-zulrah-beginners-rotation.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-low-gear-setup-vorkath-guide.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-solo-god-wars-boss-for-beginners.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-fight-corporal-beast-loot-guide.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-to-thermonuclear-smoke-devil.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-grotesque-guardians-guide-low-stats.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-to-alchemical-hydra-guide.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-sarachnis-loot-guide-for-ironman.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-to-fossil-island-quick-guide.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-increase-slayer-points-fast.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-house-teleport-tablet.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-to-kourend-castle-quick-guide.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-how-to-reclaim-twisted-bow-when-lost.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/account-security-guide-2026.html</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/quest-cape-roadmap-2026.html</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/mid-game-money-making-2026.html</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/f2p-to-p2p-bond-guide-2026.html</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/slayer-1-99-guide-2026.html</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/osrs-2026-roadmap.html</loc><priority>0.85</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/sailing-complete-guide-2026.html</loc><priority>0.85</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/vault-of-ralos-raid-guide-2026.html</loc><priority>0.85</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/blood-moon-rises-quest-guide-2026.html</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/league-6-prep-guide-2026.html</loc><priority>0.85</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/max-cape-route-2026.html</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/sailing-phase-1-training-2026.html</loc><priority>0.85</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/new-boss-loot-guide-2026.html</loc><priority>0.85</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/sailing-pvp-guide-2026.html</loc><priority>0.85</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://osrsguru.com/guides/combat-achievements-guide-2026.html</loc><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <!-- Main Pages (Priority 1.0 - 0.9) -->
+  <url><loc>https://osrsguru.com/</loc><lastmod>2026-06-03</lastmod><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://osrsguru.com/money-making.html</loc><lastmod>2026-06-03</lastmod><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://osrsguru.com/skill-training.html</loc><lastmod>2026-06-03</lastmod><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://osrsguru.com/quest-guides.html</loc><lastmod>2026-06-03</lastmod><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://osrsguru.com/boss-guides.html</loc><lastmod>2026-06-03</lastmod><priority>0.9</priority><changefreq>weekly</changefreq></url>
+
+  <!-- Weekly Beginner Series Phase 2 (Priority 0.9) -->
+  <url><loc>https://osrsguru.com/guides/best-quests-new-members-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/first-5m-gp-members-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/barrows-first-boss-gp-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.9</priority><changefreq>monthly</changefreq></url>
+
+  <!-- High-Priority Guides (Priority 0.85) -->
+  <url><loc>https://osrsguru.com/guides/osrs-new-player-guide-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-membership-guide-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/account-security-guide-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/quest-cape-roadmap-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/mid-game-money-making-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/f2p-to-p2p-bond-guide-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/slayer-1-99-guide-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-2026-roadmap.html</loc><lastmod>2026-06-03</lastmod><priority>0.85</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/sailing-complete-guide-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.85</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/vault-of-ralos-raid-guide-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.85</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/blood-moon-rises-quest-guide-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/league-6-prep-guide-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.85</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/max-cape-route-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.85</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/sailing-phase-1-training-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.85</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/new-boss-loot-guide-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.85</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/sailing-pvp-guide-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.85</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/combat-achievements-guide-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.85</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Money Making Guides (Priority 0.8) -->
+  <url><loc>https://osrsguru.com/guides/osrs-ironman-money-making-f2p-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-low-effort-money-making-beginners.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-money-making-fishing-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-f2p-money-making-no-stats.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-passive-money-making-offline.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-flip-items-profit-mid-game.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-cheap-flipping-methods-new-players.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-hunter-money-making-guide-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-make-money-with-crafting-low-level.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-wintertodt-money-making-per-hour.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-chambers-of-xeric-loot-profit-guide.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-f2p-ironman-money-making-early-game.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-rune-spinning-profit-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-killing-green-dragons-money-per-hour.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-make-money-with-zulrah.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Skill Training Guides (Priority 0.8) -->
+  <url><loc>https://osrsguru.com/guides/osrs-fastest-99-cooking-f2p.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-1-99-thieving-guide-ironman.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-cheapest-99-runecrafting-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-99-fishing-afk-method.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-1-99-woodcutting-guide-early-game.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-fastest-99-attack-strength-defence.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-train-prayer-cheap-f2p.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-1-99-hunter-guide-afk-method.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-ironman-1-99-smithing-guide.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-99-agility-fast-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-low-cost-1-99-herblore-guide.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-1-99-crafting-guide-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-fastest-1-99-crafting-guide-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-1-99-hitpoints-guide-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-1-99-hitpoints-training-guide-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-1-99-prayer-guide-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-1-99-prayer-guide-all-methods-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Quest Guides (Priority 0.8) -->
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-complete-lost-city-guide.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-unlock-fairy-rings.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-desert-treasure-quest-guide-low-level.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-complete-monkey-madness-quest.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-finish-dragon-slayer-2-guide.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-unlock-the-abyss-guide.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-complete-fremennik-trials-guide.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Boss & Combat Guides (Priority 0.8) -->
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-beat-zulrah-beginners-rotation.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-low-gear-setup-vorkath-guide.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-solo-god-wars-boss-for-beginners.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-fight-corporal-beast-loot-guide.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-to-thermonuclear-smoke-devil.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-grotesque-guardians-guide-low-stats.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-to-alchemical-hydra-guide.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-sarachnis-loot-guide-for-ironman.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-increase-slayer-points-fast.html</loc><lastmod>2026-06-03</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Utility & Unlock Guides (Priority 0.75) -->
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-dragon-defender-2026.html</loc><lastmod>2026-06-03</lastmod><priority>0.75</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-graceful-outfit-full-guide.html</loc><lastmod>2026-06-03</lastmod><priority>0.75</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-rune-pouch-guide.html</loc><lastmod>2026-06-03</lastmod><priority>0.75</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-to-fossil-island-quick-guide.html</loc><lastmod>2026-06-03</lastmod><priority>0.75</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-house-teleport-tablet.html</loc><lastmod>2026-06-03</lastmod><priority>0.75</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-get-to-kourend-castle-quick-guide.html</loc><lastmod>2026-06-03</lastmod><priority>0.75</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-reclaim-twisted-bow-when-lost.html</loc><lastmod>2026-06-03</lastmod><priority>0.75</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/guides/osrs-how-to-unlock-dinosaur-hunting-osrs.html</loc><lastmod>2026-06-03</lastmod><priority>0.75</priority><changefreq>monthly</changefreq></url>
 </urlset>
