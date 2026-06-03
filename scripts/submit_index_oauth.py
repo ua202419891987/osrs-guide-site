@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-OSRS Guru - Google Indexing API OAuth Submit v4
-Uses 'requests' library for proper proxy support.
+OSRS Guru - Google Indexing API OAuth Submit v5
+- Only submits NEW URLs (tracks submitted in submitted_urls.txt)
+- Retries on 429 quota errors with exponential backoff
+- Uses 'requests' library for proper proxy support.
 """
 
 import os
@@ -17,18 +19,18 @@ import urllib.error
 socket.setdefaulttimeout(30)
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
+SUBMITTED_FILE = os.path.join(script_dir, 'submitted_urls.txt')
 
 # ============================================================
-# Step 0: Quick network check (socket test only, no proxy test)
+# Step 0: Quick network check
 # ============================================================
 print("=" * 60)
-print("  OSRS Guru - Indexing API Submit v4")
+print("  OSRS Guru - Indexing API Submit v5")
 print("=" * 60)
 
 proxy_url = os.environ.get('HTTPS_PROXY') or os.environ.get('HTTP_PROXY') or ''
 print(f"\nProxy: {proxy_url or '(none)'}")
 
-# Quick socket test (won't hang like urllib proxy test)
 print("[TEST] Checking network to Google...")
 try:
     s = socket.create_connection(('www.google.com', 443), timeout=8)
@@ -40,7 +42,7 @@ except Exception:
     use_proxy = True
 
 # ============================================================
-# Step 1: Imports (after confirming network works)
+# Step 1: Library imports
 # ============================================================
 print("\n[INIT] Loading libraries...")
 try:
@@ -58,7 +60,7 @@ SCOPES = ['https://www.googleapis.com/auth/indexing']
 
 
 # ============================================================
-# Step 2: Get OAuth credentials
+# Step 2: OAuth credentials
 # ============================================================
 def get_credentials():
     token_file = os.path.join(script_dir, 'token.json')
@@ -108,47 +110,57 @@ def get_credentials():
 
 
 # ============================================================
-# Step 3: Submit URL using requests (BEST proxy support)
+# Step 3: Submit URL with retry on 429
 # ============================================================
-def submit_url(creds, url):
-    """Submit one URL using requests library (proper proxy support)."""
+def submit_url(creds, url, max_retries=3):
+    """Submit one URL with retry on quota errors."""
     endpoint = 'https://indexing.googleapis.com/v3/urlNotifications:publish'
     body = json.dumps({'url': url, 'type': 'URL_UPDATED'}).encode('utf-8')
 
-    # Refresh token if needed
-    if creds.expired and creds.refresh_token:
-        creds.refresh(AuthRequest())
-
-    headers = {
-        'Content-Type': 'application/json',
-        'Authorization': f'Bearer {creds.token}',
-    }
-
-    # Build proxies dict for requests
     proxies = {}
     if use_proxy and proxy_url:
         proxies['https'] = proxy_url
         proxies['http'] = proxy_url
 
-    try:
-        resp = requests.post(
-            endpoint,
-            data=body,
-            headers=headers,
-            proxies=proxies if proxies else None,
-            timeout=30,
-            verify=True,
-        )
-        if resp.status_code == 200:
-            return True, resp.json().get('urlNotificationMetadata', {})
-        else:
-            return False, f"HTTP {resp.status_code}: {resp.text[:100]}"
-    except requests.exceptions.Timeout:
-        return False, "TIMEOUT (>30s)"
-    except requests.exceptions.ConnectionError as e:
-        return False, f"CONNECTION ERROR: {str(e)[:80]}"
-    except Exception as e:
-        return False, str(e)[:120]
+    for attempt in range(1, max_retries + 1):
+        # Refresh token if needed
+        if creds.expired and creds.refresh_token:
+            creds.refresh(AuthRequest())
+
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization': f'Bearer {creds.token}',
+        }
+
+        try:
+            resp = requests.post(
+                endpoint,
+                data=body,
+                headers=headers,
+                proxies=proxies if proxies else None,
+                timeout=30,
+                verify=True,
+            )
+            if resp.status_code == 200:
+                return True, resp.json().get('urlNotificationMetadata', {})
+            elif resp.status_code == 429:
+                if attempt < max_retries:
+                    wait = 30 * attempt  # 30s, 60s, 90s
+                    print(f"          429 QUOTA - waiting {wait}s (attempt {attempt}/{max_retries})")
+                    time.sleep(wait)
+                    continue
+                else:
+                    return False, "HTTP 429 (QUOTA EXCEEDED - ran out of retries)"
+            else:
+                return False, f"HTTP {resp.status_code}: {resp.text[:80]}"
+        except requests.exceptions.Timeout:
+            return False, "TIMEOUT (>30s)"
+        except requests.exceptions.ConnectionError as e:
+            return False, f"CONNECTION ERROR: {str(e)[:80]}"
+        except Exception as e:
+            return False, str(e)[:120]
+
+    return False, "RETRIES EXHAUSTED"
 
 
 # ============================================================
@@ -168,20 +180,37 @@ def get_urls(sitemap_path):
 
 
 # ============================================================
+# Step 5: Load/update tracking file
+# ============================================================
+def load_submitted():
+    """Load list of already-submitted URLs."""
+    if os.path.exists(SUBMITTED_FILE):
+        with open(SUBMITTED_FILE, 'r') as f:
+            return set(line.strip() for line in f if line.strip())
+    return set()
+
+
+def save_submitted(url):
+    """Append one URL to tracking file."""
+    with open(SUBMITTED_FILE, 'a') as f:
+        f.write(url + '\n')
+
+
+# ============================================================
 # MAIN
 # ============================================================
 def main():
-    print("\n[Step 1/4] Authenticating with Google...")
+    print("\n[Step 1/5] Authenticating with Google...")
     creds = get_credentials()
     print("OK - Authenticated!")
 
-    print("\n[Step 2/4] Submitting URLs with requests + proxy support...")
+    print("\n[Step 2/5] Setting up network...")
     if use_proxy and proxy_url:
         print(f"  Using proxy: {proxy_url}")
     else:
         print("  Using direct connection (no proxy needed)")
 
-    print("\n[Step 3/4] Reading sitemap.xml...")
+    print("\n[Step 3/5] Reading sitemap.xml...")
     sitemap = os.path.join(script_dir, '..', 'sitemap.xml')
     if not os.path.exists(sitemap):
         sitemap = os.path.join(script_dir, 'sitemap.xml')
@@ -189,26 +218,47 @@ def main():
         print(f"ERROR: sitemap.xml not found!")
         sys.exit(1)
 
-    urls = get_urls(sitemap)
-    print(f"OK - Found {len(urls)} URLs")
+    all_urls = get_urls(sitemap)
+    print(f"OK - Total {len(all_urls)} URLs in sitemap")
 
-    print(f"\n[Step 4/4] Submitting {len(urls)} URLs to Google...")
+    # Filter: only submit new URLs
+    already = load_submitted()
+    new_urls = [u for u in all_urls if u not in already]
+    skip_count = len(all_urls) - len(new_urls)
+
+    if skip_count > 0:
+        print(f"SKIP - {skip_count} URLs already submitted")
+    print(f"NEW  - {len(new_urls)} URLs to submit")
+
+    if len(new_urls) == 0:
+        print("\nNothing to do! All URLs already submitted.")
+        return
+
+    print(f"\n[Step 4/5] Submitting {len(new_urls)} NEW URLs to Google...")
     print("-" * 60)
 
     success = 0
     failed = 0
+    failed_urls = []
 
-    for i, url in enumerate(urls, 1):
+    for i, url in enumerate(new_urls, 1):
         short = url.replace('https://osrsguru.com/', '')
-        print(f"[{i:2d}/{len(urls)}] {short[:50]}")
+        print(f"[{i:2d}/{len(new_urls)}] {short[:50]}")
         ok, result = submit_url(creds, url)
         if ok:
-            print("         OK")
+            print(f"         OK")
             success += 1
+            save_submitted(url)  # Track immediately
         else:
             print(f"         FAIL: {result}")
             failed += 1
-        time.sleep(1)
+            failed_urls.append(url)
+        time.sleep(0.5)  # Be gentle to API
+
+    print("\n[Step 5/5] Updating tracking file...")
+    print(f"  Submitted: {success}")
+    print(f"  Failed:    {failed}")
+    print(f"  Tracked:   {len(load_submitted())} total URLs in {os.path.basename(SUBMITTED_FILE)}")
 
     print("\n" + "=" * 60)
     print(f"DONE!  Success: {success}  |  Failed: {failed}")
@@ -217,10 +267,17 @@ def main():
     if success > 0:
         print(f"\n{success} URLs submitted to Google Indexing API!")
         print("Check Search Console in a few days for indexing status.")
+
     if failed > 0:
         print(f"\n{failed} URLs failed. Common reasons:")
         print("  - 403: URL not claimed in Search Console")
-        print("  - 429: Rate limited (wait and retry)")
+        print("  - 429: Daily quota reached (200/day). Retry tomorrow.")
+        print("\n=== FAILED URLs (run again tomorrow) ===")
+        for u in failed_urls:
+            print(f"  {u}")
+
+    if success == 0 and failed == 0:
+        print("\nAll URLs already submitted. Nothing new to do.")
 
 
 if __name__ == '__main__':
