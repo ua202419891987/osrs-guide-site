@@ -546,6 +546,52 @@ nav a.active{
 .guide-category.boss,
 .tag.tag-boss{background:rgba(184,74,58,0.15);color:#e88a7a;border-color:rgba(184,74,58,0.25)}
 
+/* Coming Soon Card */
+.article-card-soon{
+  background: linear-gradient(145deg, rgba(89,63,40,.25), rgba(59,39,22,.15));
+  border: 1px dashed rgba(107,80,48,.25);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-decoration: none;
+  display: block;
+  opacity: .75;
+  cursor: default;
+  box-shadow: none;
+  transition: all .3s ease;
+}
+.article-card-soon:hover{
+  opacity: .9;
+  border-color: rgba(212,160,48,.25);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+.article-card-soon h3{
+  font-family: 'Cinzel', serif;
+  font-size: .95rem;
+  color: rgba(197,167,106,.7);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.article-card-soon p{
+  font-size: .82rem;
+  color: rgba(196,168,120,.5);
+  line-height: 1.5;
+}
+.tag-soon{
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-family: 'Cinzel', serif;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  background: rgba(212,160,48,.08);
+  color: rgba(212,160,48,.5);
+  border: 1px dashed rgba(212,160,48,.2);
+}
+
 .article-meta,
 .guide-date{
   display:flex;gap:12px;font-size:.76rem;color:var(--text-muted);margin-top:8px;
