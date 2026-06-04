@@ -1266,3 +1266,18 @@ footer{
   .new-guides-2026{padding:32px 0}
   .guide-article,.guide-content{padding:24px 16px}
 }
+
+/* ---------- Free Content Disclaimer Banner ---------- */
+.free-disclaimer{
+  background: rgba(76,175,80,0.12);
+  border: 1px solid var(--green-border, #2e7d32);
+  border-radius: 8px;
+  padding: 12px 18px;
+  margin: 20px 0;
+  color: var(--green-light, #a5d6a7);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.free-disclaimer strong{
+  color: var(--green, #4caf50);
+}
