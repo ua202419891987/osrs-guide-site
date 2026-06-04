@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSRS Guru - GA4 流量仪表盘</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #1a120b 0%, #2d1810 50%, #1a0f08 100%);
+    color: #e8dcc8;
+    padding: 24px;
+    min-height: 100vh;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 32px;
+    padding: 24px;
+    background: linear-gradient(135deg, rgba(139,90,43,0.25) 0%, rgba(101,67,33,0.18) 100%);
+    border: 1px solid rgba(210,160,80,0.25);
+    border-radius: 14px;
+  }
+  h1 { color: #d4a855; font-size: 28px; margin-bottom: 6px; letter-spacing: 1px; }
+  .subtitle { color: #a08860; font-size: 13px; margin-bottom: 4px; }
+  .update-time { color: #7a6545; font-size: 12px; }
+
+  /* KPI Cards */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .card {
+    background: linear-gradient(145deg, rgba(42,28,16,0.92) 0%, rgba(30,20,12,0.96) 100%);
+    border: 1px solid rgba(180,140,70,0.22);
+    border-radius: 12px;
+    padding: 22px 18px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #d4a855, transparent);
+  }
+  .card-icon { font-size: 28px; margin-bottom: 10px; }
+  .card h3 { color: #a08860; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; font-weight: 600; }
+  .card .num { font-size: 36px; font-weight: 800; color: #f0c850; text-shadow: 0 0 20px rgba(240,200,80,0.2); }
+  .card .sub { font-size: 12px; color: #7a6545; margin-top: 6px; }
+  .card .badge {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .badge-good { background: rgba(76,175,80,0.18); color: #66bb6a; border: 1px solid rgba(76,175,80,0.35); }
+  .badge-warn { background: rgba(255,152,0,0.15); color: #ffb74d; border: 1px solid rgba(255,152,0,0.3); }
+  .badge-info { background: rgba(100,150,220,0.15); color: #82b1ff; border: 1px solid rgba(100,150,220,0.3); }
+
+  /* Chart sections */
+  .chart-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .chart-box {
+    background: linear-gradient(145deg, rgba(42,28,16,0.88) 0%, rgba(30,20,12,0.94) 100%);
+    border: 1px solid rgba(180,140,70,0.18);
+    border-radius: 12px;
+    padding: 22px;
+  }
+  .chart-box h2 {
+    color: #d4a855;
+    font-size: 16px;
+    margin-bottom: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .chart-box canvas { max-height: 280px !important; }
+
+  /* Tables */
+  .table-box {
+    background: linear-gradient(145deg, rgba(42,28,16,0.88) 0%, rgba(30,20,12,0.94) 100%);
+    border: 1px solid rgba(180,140,70,0.18);
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 24px;
+    overflow-x: auto;
+  }
+  .table-box h2 {
+    color: #d4a855;
+    font-size: 16px;
+    margin-bottom: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    background: rgba(139,90,43,0.35);
+    color: #d4a855;
+    padding: 10px 14px;
+    text-align: right;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 2px solid rgba(212,168,85,0.3);
+  }
+  th.left, td.left { text-align: left; }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(180,140,70,0.1);
+    text-align: right;
+    color: #c8baa0;
+  }
+  tr:hover { background: rgba(212,168,85,0.07); }
+  .rank {
+    width: 36px; height: 36px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 8px;
+    font-weight: 800; font-size: 13px;
+  }
+  .rank-1 { background: linear-gradient(135deg,#c9a227,#f0c850); color: #1a120b; }
+  .rank-2 { background: linear-gradient(135deg,#8c8c8c,#c0c0c0); color: #1a120b; }
+  .rank-3 { background: linear-gradient(135deg,#a0522d,#cd853f); color: #fff; }
+  .rank-n { background: rgba(180,140,70,0.15); color: #a08860; }
+
+  /* Insight panel */
+  .insight {
+    background: linear-gradient(135deg, rgba(139,90,43,0.2) 0%, rgba(101,67,33,0.15) 100%);
+    border-left: 4px solid #d4a855;
+    border-radius: 0 12px 12px 0;
+    padding: 22px 26px;
+    margin-bottom: 24px;
+  }
+  .insight h2 { color: #d4a855; font-size: 17px; margin-bottom: 14px; font-weight: 700; }
+  .insight ul { list-style: none; padding: 0; }
+  .insight li {
+    padding: 8px 0; color: #c8baa0; font-size: 14.5px;
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(180,140,70,0.08);
+  }
+  .insight li:last-child { border: none; }
+  .insight li strong { color: #f0c850; }
+  .insight b { color: #f0c850; }
+  .insight .arrow { color: #d4a855; margin-right: 8px; font-weight: bold; }
+
+  /* Action items */
+  .actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .action-card {
+    background: linear-gradient(145deg, rgba(42,28,16,0.88) 0%, rgba(30,20,12,0.94) 100%);
+    border: 1px solid rgba(180,140,70,0.18);
+    border-radius: 12px;
+    padding: 18px 20px;
+    position: relative;
+  }
+  .action-priority {
+    position: absolute; top: 14px; right: 14px;
+    padding: 3px 10px; border-radius: 20px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .priority-high { background: rgba(244,67,54,0.2); color: #ef5350; border: 1px solid rgba(244,67,54,0.3); }
+  .priority-med { background: rgba(255,152,0,0.2); color: #ffa726; border: 1px solid rgba(255,152,0,0.3); }
+  .priority-low { background: rgba(76,175,80,0.2); color: #66bb6a; border: 1px solid rgba(76,175,80,0.3); }
+  .action-card h3 { color: #d4a855; font-size: 14px; margin-bottom: 8px; }
+  .action-card p { color: #a08860; font-size: 12.5px; line-height: 1.55; }
+
+  @media (max-width: 900px) {
+    .chart-row { grid-template-columns: 1fr; }
+    body { padding: 12px; }
+  }
+
+  /* Footer */
+  .footer { text-align: center; color: #5a4a35; font-size: 11px; padding: 20px 0; margin-top: 16px; border-top: 1px solid rgba(180,140,70,0.1); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📊 OSRS Guru — 流量分析仪表盘</h1>
+  <p class="subtitle">Google Analytics 4 数据报告 · 第二阶段决策支撑</p>
+  <p class="update-time">数据周期：最近 28 天（2026-05-09 ~ 2026-06-06）| 更新时间：2026-06-05 06:26 CST</p>
+</div>
+
+<!-- KPI Cards -->
+<div class="grid">
+  <div class="card">
+    <div class="card-icon">👥</div>
+    <h3>活跃用户</h3>
+    <div class="num">19</div>
+    <div class="sub">最近 28 天</div>
+    <span class="badge badge-info">新站启动期</span>
+  </div>
+  <div class="card">
+    <div class="card-icon">🆕</div>
+    <h3>新用户占比</h3>
+    <div class="num">100%</div>
+    <div class="sub">19 / 19 全部为新访客</div>
+    <span class="badge badge-warn">暂无回头客</span>
+  </div>
+  <div class="card">
+    <div class="card-icon">⏱️</div>
+    <h3>平均参与时长</h3>
+    <div class="num">2:02</div>
+    <div class="sub">每用户平均停留</div>
+    <span class="badge badge-good">内容有吸引力 ✅</span>
+  </div>
+  <div class="card">
+    <div class="card-icon">🎯</div>
+    <h3>跳出率</h3>
+    <div class="num">3%</div>
+    <div class="sub">极低跳出</div>
+    <span class="badge badge-good">优秀 ✅</span>
+  </div>
+  <div class="card">
+    <div class="card-icon">🔥</div>
+    <h3>总事件数</h3>
+    <div class="num">374</div>
+    <div class="sub">平均每人 19.7 次</div>
+  </div>
+</div>
+
+<!-- Insight Panel -->
+<div class="insight">
+  <h2>💡 关键发现 &amp; 第二阶段决策建议</h2>
+  <ul>
+    <li><span class="arrow">▸</span><strong>流量质量极高：</strong>跳出率仅 <strong>3%</strong>，远超行业平均水平（40-60%），说明用户进来后<strong>真的在认真阅读攻略内容</strong></li>
+    <li><span class="arrow">▸</span><strong>SEO 已开始生效：</strong><strong>Organic Search 占 21%</strong>（4 用户），说明 Google 已经开始收录并推荐我们的页面了</li>
+    <li><span class="arrow">▸</span><strong>Direct 流量为主（79%）：</strong>大部分是自己访问或直接输入网址，说明品牌认知度还在建立中，需要加强外链和推广引流</li>
+    <li><span class="arrow">▸</span><strong>(not set) / Unassigned 异常：</strong>16% 的用户来源不明但停留极长（11分39秒），可能是爬虫或追踪配置问题，建议排查</li>
+    <li><span class="arrow">▸</span><strong>Edge 浏览器贡献最大事件量（87%）：</strong>Edge 用户虽然只有 26%，但产生了 87% 的事件——说明 Edge 用户阅读深度更高，可能是在用你自己的电脑测试</li>
+    <li><span class="arrow">▸</span><strong>100% 新用户，0 回访：</strong>目前没有回访者。第二阶段应优先考虑：<b>订阅功能、邮件列表、社区建设</b>来提升留存</li>
+  </ul>
+</div>
+
+<!-- Action Items -->
+<h2 style="color:#d4a855;font-size:17px;margin-bottom:16px;">🚀 第二阶段行动清单</h2>
+<div class="actions">
+  <div class="action-card">
+    <span class="action-priority priority-high">高优先级</span>
+    <h3>🔗 加强外链建设</h3>
+    <p>Direct 占比过高（79%）。继续在 Reddit r/2007scape 发帖、Medium 写深度文章、联系 OSRS YouTuber 做客座链接。</p>
+  </div>
+  <div class="action-card">
+    <span class="action-priority priority-high">高优先级</span>
+    <h3>📧 建立邮件订阅</h3>
+    <p>0 回访用户是最大风险。在每篇攻略底部加 Newsletter 订阅框，推送每周 OSRS 攻略精选，把流量变成资产。</p>
+  </div>
+  <div class="action-card">
+    <span class="action-priority priority-med">中优先级</span>
+    <h3>📝 补充中级/高级攻略</h3>
+    <p>新人 10 篇已完成，接下来写 Ironman 指南、Boss 攻略（如 Zulrah/Vorkath）、Money Making 进阶版。</p>
+  </div>
+  <div class="action-card">
+    <span class="action-priority priority-low">低优先级</span>
+    <h3>🛠️ 排查 (not set) 问题</h3>
+    <p>16% 用户来源未设置，检查 GA4 追踪代码是否正确部署在所有页面，确认 referrer 信息正常传递。</p>
+  </div>
+</div>
+
+<!-- Charts Row 1 -->
+<div class="chart-row">
+  <div class="chart-box">
+    <h2>📈 流量来源渠道分布</h2>
+    <canvas id="sourceChart"></canvas>
+  </div>
+  <div class="chart-box">
+    <h2>🌐 浏览器分布</h2>
+    <canvas id="browserChart"></canvas>
+  </div>
+</div>
+
+<!-- Data Tables -->
+<div class="table-box">
+  <h2>🔗 渠道来源明细（默认渠道组）</h2>
+  <table>
+    <tr><th>#</th><th class="left">渠道</th><th>用户</th><th>占比</th><th>新用户</th><th>平均时长</th><th>事件数</th><th>事件占比</th></tr>
+    <tr>
+      <td><span class="rank rank-1">1</span></td>
+      <td class="left"><strong>(none)</strong> 直接流量</td>
+      <td><strong>15</strong></td>
+      <td>78.95%</td>
+      <td>15 (78.95%)</td>
+      <td>3秒</td>
+      <td>57</td>
+      <td>15.24%</td>
+    </tr>
+    <tr>
+      <td><span class="rank rank-2">2</span></td>
+      <td class="left"><strong>(not set)</strong> ⚠️ 来源未设置</td>
+      <td>3</td>
+      <td>15.79%</td>
+      <td>3 (15.79%)</td>
+      <td><strong>11分39秒</strong></td>
+      <td><strong>304</strong></td>
+      <td><strong>81.28%</strong></td>
+    </tr>
+    <tr>
+      <td><span class="rank rank-3">3</span></td>
+      <td class="left"><strong>organic</strong> 自然搜索 🌿</td>
+      <td>3</td>
+      <td>15.79%</td>
+      <td>3 (15.79%)</td>
+      <td>59秒</td>
+      <td>16</td>
+      <td>4.28%</td>
+    </tr>
+    <tr>
+      <td><span class="rank rank-n">4</span></td>
+      <td class="left"><strong>referral</strong> 外链引荐</td>
+      <td>1</td>
+      <td>5.26%</td>
+      <td>1 (5.26%)</td>
+      <td>0秒</td>
+      <td>3</td>
+      <td>0.80%</td>
+    </tr>
+  </table>
+</div>
+
+<div class="table-box">
+  <h2>🔍 会话来源/媒介明细</h2>
+  <table>
+    <tr><th>#</th><th class="left">来源/媒介</th><th>用户</th><th>占比</th><th>新用户</th><th>平均时长</th><th>事件数</th><th>事件占比</th></tr>
+    <tr>
+      <td><span class="rank rank-1">1</span></td>
+      <td class="left"><strong>Direct</strong></td>
+      <td><strong>15</strong></td>
+      <td>78.95%</td>
+      <td>15 (78.95%)</td>
+      <td>3秒</td>
+      <td>57</td>
+      <td>15.24%</td>
+    </tr>
+    <tr>
+      <td><span class="rank rank-2">2</span></td>
+      <td class="left"><strong>Organic Search</strong> 🔍</td>
+      <td>4</td>
+      <td>21.05%</td>
+      <td>4 (21.05%)</td>
+      <td>44秒</td>
+      <td>13</td>
+      <td>3.48%</td>
+    </tr>
+    <tr>
+      <td><span class="rank rank-3">3</span></td>
+      <td class="left"><strong>Unassigned</strong> ⚠️ 未分配</td>
+      <td>3</td>
+      <td>15.79%</td>
+      <td>0 (0%)</td>
+      <td><strong>11分39秒</strong></td>
+      <td><strong>304</strong></td>
+      <td><strong>81.25%</strong></td>
+    </tr>
+  </table>
+</div>
+
+<div class="table-box">
+  <h2>🖥️ 浏览器技术明细</h2>
+  <table>
+    <tr><th>#</th><th class="left">浏览器</th><th>用户</th><th>用户占比</th><th>新用户</th><th>新用户占比</th><th>平均停留</th><th>事件数</th><th>事件占比</th></tr>
+    <tr>
+      <td><span class="rank rank-1">1</span></td>
+      <td class="left"><strong>Chrome</strong></td>
+      <td>13</td>
+      <td>68.42%</td>
+      <td>12</td>
+      <td>63.16%</td>
+      <td>1秒</td>
+      <td>42</td>
+      <td>11.23%</td>
+    </tr>
+    <tr>
+      <td><span class="rank rank-2">2</span></td>
+      <td class="left"><strong>Microsoft Edge</strong> ⭐</td>
+      <td>5</td>
+      <td>26.32%</td>
+      <td>5</td>
+      <td>26.32%</td>
+      <td><strong>7分39秒</strong></td>
+      <td><strong>326</strong></td>
+      <td><strong>87.17%</strong></td>
+    </tr>
+    <tr>
+      <td><span class="rank rank-3">3</span></td>
+      <td class="left"><strong>Firefox</strong></td>
+      <td>1</td>
+      <td>5.26%</td>
+      <td>1</td>
+      <td>5.26%</td>
+      <td>0秒</td>
+      <td>3</td>
+      <td>0.80%</td>
+    </tr>
+    <tr>
+      <td><span class="rank rank-n">4</span></td>
+      <td class="left"><strong>Safari</strong></td>
+      <td>1</td>
+      <td>5.26%</td>
+      <td>1</td>
+      <td>5.26%</td>
+      <td>0秒</td>
+      <td>3</td>
+      <td>0.80%</td>
+    </tr>
+  </table>
+</div>
+
+<script>
+// 流量来源渠道（默认渠道组）— 饼图
+new Chart(document.getElementById('sourceChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Direct 直接流量', '(not set) 未设置', 'organic 自然搜索', 'referral 外链'],
+    datasets: [{
+      data: [15, 3, 3, 1],
+      backgroundColor: [
+        '#d4a855',
+        '#ef5350',
+        '#66bb6a',
+        '#42a5f5',
+      ],
+      borderWidth: 0,
+      hoverOffset: 8,
+    }]
+  },
+  options: {
+    responsive: true,
+    cutout: '55%',
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          color: '#a08860',
+          padding: 16,
+          font: { size: 12 },
+          generateLabels: function(chart) {
+            const data = chart.data;
+            return data.labels.map((label, i) => ({
+              text: `${label}  (${data.datasets[0].data[i]} 用户 · ${(data.datasets[0].data[i]/19*100).toFixed(1)}%)`,
+              fillStyle: data.datasets[0].backgroundColor[i],
+              hidden: false,
+              index: i
+            }));
+          }
+        }
+      }
+    }
+  }
+});
+
+// 浏览器分布 — 环形图
+new Chart(document.getElementById('browserChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Chrome', 'Edge', 'Firefox', 'Safari'],
+    datasets: [{
+      data: [13, 5, 1, 1],
+      backgroundColor: ['#4285F4', '#0078D7', '#FF7139', '#006CFF'],
+      borderWidth: 0,
+      hoverOffset: 8,
+    }]
+  },
+  options: {
+    responsive: true,
+    cutout: '58%',
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          color: '#a08860',
+          padding: 12,
+          font: { size: 11 },
+          generateLabels: function(chart) {
+            const data = chart.data;
+            return data.labels.map((label, i) => ({
+              text: `${label}  ${data.datasets[0].data[i]} (${(data.datasets[0].data[i]/19*100).toFixed(0)}%)`,
+              fillStyle: data.datasets[0].backgroundColor[i],
+              hidden: false,
+              index: i
+            }));
+          }
+        }
+      }
+    }
+  }
+});
+</script>
+
+<div class="footer">
+  OSRS Guru GA4 Dashboard · Powered by Google Analytics 4 · 数据来源手动录入 · 建议每日更新
+</div>
+
+</body>
+</html>
