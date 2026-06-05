@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Main Pages (Priority 1.0 - 0.9) -->
-  <url><loc>https://osrsguru.com/</loc><lastmod>2026-06-04</lastmod><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://osrsguru.com/</loc><lastmod>2026-06-05</lastmod><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://osrsguru.com/about.html</loc><lastmod>2026-06-05</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://osrsguru.com/privacy-policy.html</loc><lastmod>2026-06-05</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://osrsguru.com/money-making.html</loc><lastmod>2026-06-04</lastmod><priority>0.9</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://osrsguru.com/skill-training.html</loc><lastmod>2026-06-04</lastmod><priority>0.9</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://osrsguru.com/quest-guides.html</loc><lastmod>2026-06-04</lastmod><priority>0.9</priority><changefreq>weekly</changefreq></url>
