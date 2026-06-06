@@ -891,6 +891,26 @@ footer{
 .paypal-btn:hover{box-shadow:0 6px 24px rgba(46,125,50,.6);color:#fff}
 @media(max-width:640px){.support-inner{flex-direction:column;text-align:center;gap:16px}.support-text{min-width:unset}}
 
+/* Support Card — Amount Selection Buttons */
+.support-amounts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;width:100%}
+.support-amount-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;background:rgba(255,255,255,.08);border:1px solid rgba(76,175,80,.3);border-radius:50px;color:#e8f5e9;font-size:.9rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all .25s;flex-shrink:0;white-space:nowrap}
+.support-amount-btn:hover{background:rgba(76,175,80,.2);border-color:rgba(76,175,80,.55);transform:translateY(-1px);color:#fff}
+.support-amount-btn.recommended{background:linear-gradient(135deg,rgba(212,175,55,.2),rgba(212,175,55,.1));border-color:rgba(212,175,55,.5);color:#d4af37;position:relative}
+.support-amount-btn.recommended:hover{background:linear-gradient(135deg,rgba(212,175,55,.3),rgba(212,175,55,.15));border-color:#d4af37}
+.support-amount-custom{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;background:transparent;border:1px dashed rgba(255,255,255,.3);border-radius:50px;color:rgba(255,255,255,.5);font-size:.9rem;font-weight:500;cursor:pointer;text-decoration:none;transition:all .25s}
+.support-amount-custom:hover{border-color:rgba(255,255,255,.5);color:rgba(255,255,255,.75)}
+.support-alt-pay{margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08);width:100%}
+.support-alt-pay p{color:rgba(255,255,255,.45);font-size:.82rem;margin:0 0 6px;line-height:1.4}
+.support-alt-links{display:flex;gap:10px;flex-wrap:wrap}
+.support-alt-link{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:20px;color:rgba(255,255,255,.6);font-size:.8rem;text-decoration:none;transition:all .2s}
+.support-alt-link:hover{background:rgba(255,255,255,.1);color:rgba(255,255,255,.85)}
+@media(max-width:480px){.support-amounts{justify-content:center}.support-amount-btn,.support-amount-custom{padding:8px 16px;font-size:.85rem}}
+
+/* Inline support hint - placed mid-article */
+.inline-support-hint{text-align:center;margin:36px 0 20px;padding:14px 20px;border-left:3px solid var(--gold);background:rgba(212,175,55,.05);border-radius:0 8px 8px 0}
+.inline-support-hint p{margin:0;color:var(--text-secondary);font-size:.9rem;line-height:1.6}
+.inline-support-hint strong{color:var(--gold)}
+
 .donation-widget{background:linear-gradient(135deg,#0f2a0f 0%,#1a3a1a 100%);border-radius:16px;padding:28px 24px;margin:32px 0;text-align:center;border:1px solid rgba(76,175,80,.12);box-shadow:0 8px 32px rgba(0,0,0,.25);position:relative;overflow:hidden}
 .donation-widget::before{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(76,175,80,.08) 0%,transparent 70%);border-radius:50%}
 .donation-icon{font-size:2.8rem;margin-bottom:12px;display:block;animation:leaf-sway 3s ease-in-out infinite;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3))}

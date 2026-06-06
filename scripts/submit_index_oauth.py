@@ -28,7 +28,7 @@ print("=" * 60)
 print("  OSRS Guru - Indexing API Submit v5")
 print("=" * 60)
 
-proxy_url = os.environ.get('HTTPS_PROXY') or os.environ.get('HTTP_PROXY') or ''
+proxy_url = os.environ.get('HTTPS_PROXY') or os.environ.get('HTTP_PROXY') or 'http://127.0.0.1:7897'
 print(f"\nProxy: {proxy_url or '(none)'}")
 
 print("[TEST] Checking network to Google...")
