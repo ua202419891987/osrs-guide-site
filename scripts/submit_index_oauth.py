@@ -113,7 +113,9 @@ def get_credentials():
 # Step 3: Submit URL with retry on 429
 # ============================================================
 def submit_url(creds, url, max_retries=3):
-    """Submit one URL with retry on quota errors."""
+    """Submit one URL with retry on quota errors.
+    Returns: (success: bool, result: str, quota_exceeded: bool)
+    """
     endpoint = 'https://indexing.googleapis.com/v3/urlNotifications:publish'
     body = json.dumps({'url': url, 'type': 'URL_UPDATED'}).encode('utf-8')
 
@@ -142,25 +144,20 @@ def submit_url(creds, url, max_retries=3):
                 verify=True,
             )
             if resp.status_code == 200:
-                return True, resp.json().get('urlNotificationMetadata', {})
+                return True, resp.json().get('urlNotificationMetadata', {}), False
             elif resp.status_code == 429:
-                if attempt < max_retries:
-                    wait = 30 * attempt  # 30s, 60s, 90s
-                    print(f"          429 QUOTA - waiting {wait}s (attempt {attempt}/{max_retries})")
-                    time.sleep(wait)
-                    continue
-                else:
-                    return False, "HTTP 429 (QUOTA EXCEEDED - ran out of retries)"
+                # QUOTA EXCEEDED - stop entire batch
+                return False, "HTTP 429 (QUOTA EXCEEDED)", True
             else:
-                return False, f"HTTP {resp.status_code}: {resp.text[:80]}"
+                return False, f"HTTP {resp.status_code}: {resp.text[:80]}", False
         except requests.exceptions.Timeout:
-            return False, "TIMEOUT (>30s)"
+            return False, "TIMEOUT (>30s)", False
         except requests.exceptions.ConnectionError as e:
-            return False, f"CONNECTION ERROR: {str(e)[:80]}"
+            return False, f"CONNECTION ERROR: {str(e)[:80]}", False
         except Exception as e:
-            return False, str(e)[:120]
+            return False, str(e)[:120], False
 
-    return False, "RETRIES EXHAUSTED"
+    return False, "RETRIES EXHAUSTED", False
 
 
 # ============================================================
@@ -240,11 +237,21 @@ def main():
     success = 0
     failed = 0
     failed_urls = []
+    quota_exceeded = False
+    connection_errors = 0
 
     for i, url in enumerate(new_urls, 1):
         short = url.replace('https://osrsguru.com/', '')
+
+        # Stop entirely if quota already exceeded
+        if quota_exceeded:
+            print(f"  SKIP (quota exceeded): {short[:50]}")
+            failed += 1
+            failed_urls.append(url)
+            continue
+
         print(f"[{i:2d}/{len(new_urls)}] {short[:50]}")
-        ok, result = submit_url(creds, url)
+        ok, result, quota = submit_url(creds, url)
         if ok:
             print(f"         OK")
             success += 1
@@ -253,6 +260,22 @@ def main():
             print(f"         FAIL: {result}")
             failed += 1
             failed_urls.append(url)
+            # QUOTA EXCEEDED - stop all remaining submissions
+            if quota:
+                quota_exceeded = True
+                print("\n" + "!" * 60)
+                print("  DAILY QUOTA (200) EXCEEDED!")
+                print("  Stopping all remaining submissions.")
+                print("  Resume tomorrow (200 fresh quota).")
+                print("!" * 60)
+            # Track consecutive connection errors
+            elif "CONNECTION ERROR" in result:
+                connection_errors += 1
+                if connection_errors >= 5:
+                    print("\n  TOO MANY CONNECTION ERRORS - stopping.")
+                    break
+            else:
+                connection_errors = 0
         time.sleep(0.5)  # Be gentle to API
 
     print("\n[Step 5/5] Updating tracking file...")
