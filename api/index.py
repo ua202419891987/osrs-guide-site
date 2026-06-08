@@ -35,13 +35,13 @@ DEEPSEEK_API_KEY = os.environ.get(
 DEEPSEEK_BASE_URL = "https://api.deepseek.com/v1"
 DEEPSEEK_MODEL = "deepseek-chat"
 
-# --- GPT-4o-mini (备用模型，美国节点) ---
-OPENAI_API_KEY = os.environ.get(
-    "OPENAI_API_KEY",
+# --- Groq/Llama3 (备用模型，美国节点，免费) ---
+GROQ_API_KEY = os.environ.get(
+    "GROQ_API_KEY",
     "",
 )
-OPENAI_BASE_URL = "https://api.openai.com/v1"
-OPENAI_MODEL = "gpt-4o-mini"
+GROQ_BASE_URL = "https://api.groq.com/openai/v1"
+GROQ_MODEL = "llama-3.3-70b-versatile"
 
 # --- OSRS Wiki ---
 WIKI_API_BASE = "https://oldschool.runescape.wiki/api.php"
@@ -57,8 +57,8 @@ WIKI_TRIGGER_THRESHOLD = 0.15  # RAG 最高分低于此值时触发 Wiki 查询
 # ============================================================
 app = FastAPI(
     title="OSRS Guru RAG API",
-    description="Three-layer RAG: Local Guides + OSRS Wiki + Dual LLM",
-    version="2.0.0",
+    description="Three-layer RAG: Local Guides + OSRS Wiki + DeepSeek/Groq",
+    version="2.1.0",
 )
 
 app.add_middleware(
@@ -292,13 +292,13 @@ async def _call_deepseek(context: str, question: str) -> str:
     )
 
 
-async def _call_gpt4o_mini(context: str, question: str) -> str:
-    """Layer 3b: GPT-4o-mini (备用模型，美国 OpenAI)"""
+async def _call_groq(context: str, question: str) -> str:
+    """Layer 3b: Groq/Llama3 (备用模型，美国节点，免费)"""
     return await _call_llm(
         context, question,
-        model=OPENAI_MODEL,
-        api_key=OPENAI_API_KEY,
-        base_url=OPENAI_BASE_URL,
+        model=GROQ_MODEL,
+        api_key=GROQ_API_KEY,
+        base_url=GROQ_BASE_URL,
     )
 
 
@@ -321,8 +321,8 @@ async def health():
         "index_loaded": index_loaded,
         "num_chunks": len(chunks) if index_loaded else 0,
         "vocab_size": len(vocab) if index_loaded else 0,
-        "gpt4o_configured": bool(OPENAI_API_KEY),
-        "version": "2.0.0",
+        "groq_configured": bool(GROQ_API_KEY),
+        "version": "2.1.0",
     }
 
 
@@ -420,19 +420,19 @@ async def search(q: str = Query(..., min_length=1, max_length=500, description="
     except Exception as e:
         print(f"[LLM] DeepSeek failed: {e}, trying GPT-4o-mini...")
 
-    # DeepSeek 失败，尝试 GPT-4o-mini（备用）
-    if OPENAI_API_KEY:
+    # DeepSeek 失败，尝试 Groq（美国备用）
+    if GROQ_API_KEY:
         try:
-            answer = await _call_gpt4o_mini(combined_context, query)
+            answer = await _call_groq(combined_context, query)
             return {
                 "answer": answer,
                 "source": source,
-                "model": "gpt4o-mini",
+                "model": "groq-llama3",
                 "chunks_used": len(relevant) if rag_context else 0,
                 "wiki_used": bool(wiki_context),
             }
         except Exception as e:
-            print(f"[LLM] GPT-4o-mini also failed: {e}")
+            print(f"[LLM] Groq also failed: {e}")
 
     # 两个模型都失败了，返回原文
     fallback_text = rag_context or wiki_context or "No info found."
