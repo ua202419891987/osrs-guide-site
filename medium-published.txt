@@ -1,0 +1,20 @@
+# OSRS Guru - Medium 外链发布记录
+
+## 发布记录
+
+| # | 发布日期 | 文章标题 | Medium 链接 | 对应网站攻略 | 状态 |
+|---|---|---|---|---|---|
+| 1 | 2026-06-08 | OSRS Money Making Guide 2026: 12 Proven Methods Ranked by GP/Hour | https://medium.com/p/ac4a6c7b063c | /guides/osrs-money-making-beginner-2026.html | ✅ 已发布 |
+
+## 待发布文章（Medium）
+
+- [ ] OSRS 新手入门完整指南
+- [ ] OSRS Sailing 1-99 攻略（2026新版）
+- [ ] OSRS PvM 进阶技巧合集
+- [ ] OSRS 建造训练省钱攻略
+
+## 备注
+
+- Medium Partner Program 要求：100 followers + 6个月内文章被推荐
+- 当前状态：not currently eligible to earn money（需积累关注者）
+- 外链效果：dofollow，有助于 SEO 权重提升
