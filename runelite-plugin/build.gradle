@@ -1,12 +1,14 @@
 plugins {
     id 'java'
-    id 'application'
 }
 
 group = 'com.osrsguru'
 version = '1.0.0'
-sourceCompatibility = '11'
-targetCompatibility = '11'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
 
 repositories {
     mavenCentral()
@@ -14,34 +16,39 @@ repositories {
 }
 
 dependencies {
-    // RuneLite API
-    compileOnly 'net.runelite:client:1.10.45'
+    // RuneLite Plugin API
     compileOnly 'net.runelite:runelite-api:1.10.45'
+    compileOnly 'net.runelite:runelite-client:1.10.45'
 
-    // HTTP client (for calling RAG API)
+    // HTTP client
     implementation 'com.squareup.okhttp3:okhttp:4.12.0'
 
-    // JSON parsing
+    // JSON
     implementation 'com.google.code.gson:gson:2.10.1'
 
-    // Lombok
+    // Lombok (RuneLite client includes it, but declare for IDE support)
     compileOnly 'org.projectlombok:lombok:1.18.34'
     annotationProcessor 'org.projectlombok:lombok:1.18.34'
 
-    // Testing
+    // Test
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.mockito:mockito-core:5.11.0'
+    testImplementation 'net.runelite:runelite-client:1.10.45'
 }
 
-application {
-    mainClass = 'com.osrsguru.plugin.OSRSGuruPlugin'
+// Build a fat JAR with all dependencies (OkHttp + Gson)
+task fatJar(type: Jar) {
+    archiveClassifier.set('all')
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from sourceSets.main.output
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
 
 jar {
     manifest {
         attributes(
             'RuneLite-Plugin-Class': 'com.osrsguru.plugin.OSRSGuruPlugin',
-            'Plugin-Version': version,
+            'Plugin-Version': project.version,
             'Plugin-Name': 'OSRS Guru AI',
             'Plugin-Description': 'AI-powered OSRS guide — ask questions, get boss tips, and check GE prices without leaving the game.',
             'Plugin-Author': 'OSRS Guru',
@@ -50,9 +57,9 @@ jar {
     }
 }
 
-// Task to copy built JAR to RuneLite plugins folder
+// Deploy JAR to RuneLite plugins folder for local testing
 task deployToRuneLite(type: Copy) {
-    dependsOn jar
-    from jar
+    dependsOn fatJar
+    from fatJar
     into "${System.getProperty('user.home')}/.runelite/externalmanager"
 }
