@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.osrsguru'
+version = '1.0.0'
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.runelite.net' }
+}
+
+dependencies {
+    // RuneLite API
+    compileOnly 'net.runelite:client:1.10.45'
+    compileOnly 'net.runelite:runelite-api:1.10.45'
+
+    // HTTP client (for calling RAG API)
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+
+    // JSON parsing
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.34'
+    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+
+    // Testing
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.mockito:mockito-core:5.11.0'
+}
+
+application {
+    mainClass = 'com.osrsguru.plugin.OSRSGuruPlugin'
+}
+
+jar {
+    manifest {
+        attributes(
+            'RuneLite-Plugin-Class': 'com.osrsguru.plugin.OSRSGuruPlugin',
+            'Plugin-Version': version,
+            'Plugin-Name': 'OSRS Guru AI',
+            'Plugin-Description': 'AI-powered OSRS guide — ask questions, get boss tips, and check GE prices without leaving the game.',
+            'Plugin-Author': 'OSRS Guru',
+            'Plugin-URL': 'https://osrsguru.com',
+        )
+    }
+}
+
+// Task to copy built JAR to RuneLite plugins folder
+task deployToRuneLite(type: Copy) {
+    dependsOn jar
+    from jar
+    into "${System.getProperty('user.home')}/.runelite/externalmanager"
+}
