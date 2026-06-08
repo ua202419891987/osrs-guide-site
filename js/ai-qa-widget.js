@@ -438,7 +438,14 @@
     if (!isLoading && source) {
       const sourceTag = document.createElement('div');
       sourceTag.className = 'qa-source';
-      sourceTag.textContent = `Source: ${source === 'osrsguru_rag' ? '📚 OSRS Guru' : source === 'osrs_wiki' ? '📖 Wiki' : source === 'deepseek' ? '🤖 DeepSeek' : 'GPT-4o'}`;
+      // 三段式 source 标签：数据源 + AI 模型
+      let sourceLabel = '';
+      if (source === 'osrsguru_rag') sourceLabel = '📚 OSRS Guru';
+      else if (source === 'osrsguru_wiki') sourceLabel = '📚+📖 Guides + Wiki';
+      else if (source === 'osrs_wiki') sourceLabel = '📖 OSRS Wiki';
+      else if (source === 'osrsguru_fallback') sourceLabel = '⚠️ OSRS Guru (offline)';
+      else sourceLabel = '📚 OSRS Guru';
+      sourceTag.textContent = `Source: ${sourceLabel}`;
       messageDiv.appendChild(sourceTag);
     }
 

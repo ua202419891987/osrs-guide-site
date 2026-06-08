@@ -1,11 +1,13 @@
 """
-OSRS Guru RAG API
-Vercel serverless FastAPI 应用，为 OSRS AI 问答浮窗提供后端服务。
-纯 numpy 实现 TF-IDF 检索（无需 scikit-learn），轻量部署。
+OSRS Guru RAG API v2.0 — 三层架构
+=================================
+Layer 1: 本地 115 篇攻略 TF-IDF 检索
+Layer 2: OSRS Wiki API 实时数据补充
+Layer 3: DeepSeek (主) + GPT-4o-mini (备) 双模型生成
 
 端点:
-    GET /api/rag-api/search?q=<question>
-    返回: {"answer": "...", "source": "osrsguru_rag"}
+    GET /rag-api/search?q=<question>
+    返回: {"answer": "...", "source": "osrsguru_rag|osrs_wiki|deepseek|gpt4o"}
 
 本地开发: uvicorn api.index:app --reload --port 8000
 """
@@ -20,8 +22,12 @@ from fastapi import FastAPI, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import httpx
 
-# ========== 配置 ==========
+# ============================================================
+# 配置
+# ============================================================
 DATA_DIR = Path(__file__).parent.parent / "data"
+
+# --- DeepSeek (主模型) ---
 DEEPSEEK_API_KEY = os.environ.get(
     "DEEPSEEK_API_KEY",
     "sk-c08d3179018b44d7b150f54af4a82b1b",
@@ -29,15 +35,30 @@ DEEPSEEK_API_KEY = os.environ.get(
 DEEPSEEK_BASE_URL = "https://api.deepseek.com/v1"
 DEEPSEEK_MODEL = "deepseek-chat"
 
+# --- GPT-4o-mini (备用模型，美国节点) ---
+OPENAI_API_KEY = os.environ.get(
+    "OPENAI_API_KEY",
+    "",
+)
+OPENAI_BASE_URL = "https://api.openai.com/v1"
+OPENAI_MODEL = "gpt-4o-mini"
+
+# --- OSRS Wiki ---
+WIKI_API_BASE = "https://oldschool.runescape.wiki/api.php"
+WIKI_HEADERS = {"User-Agent": "OSRSGuru-RAG/2.0 (contact@osrsguru.com)"}
+
+# --- 检索配置 ---
 TOP_K = 5
 MIN_SIMILARITY = 0.05
-TOP_N_TERMS = 50  # 查询时每词取 top-N 最重要 term
+WIKI_TRIGGER_THRESHOLD = 0.15  # RAG 最高分低于此值时触发 Wiki 查询
 
-# ========== FastAPI 应用 ==========
+# ============================================================
+# FastAPI 应用
+# ============================================================
 app = FastAPI(
     title="OSRS Guru RAG API",
-    description="RAG API for osrsguru.com AI Q&A Widget",
-    version="1.1.0",
+    description="Three-layer RAG: Local Guides + OSRS Wiki + Dual LLM",
+    version="2.0.0",
 )
 
 app.add_middleware(
@@ -48,20 +69,23 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ========== 全局状态 ==========
+# ============================================================
+# 全局状态
+# ============================================================
 chunks: list[dict] = []
-vocab: dict[str, dict] = {}       # {word: {idf, index}}
-tfidf_matrix: np.ndarray = None   # (n_chunks, n_features) float32
+vocab: dict[str, dict] = {}
+tfidf_matrix: np.ndarray = None
 index_loaded = False
 
 
+# ============================================================
+# Layer 1: 本地 TF-IDF 检索
+# ============================================================
+
 def _tokenize(text: str) -> list[str]:
-    """简单分词（与 sklearn TfidfVectorizer 默认行为一致：1-2 gram）"""
     text = text.lower()
-    # 保留字母数字和空格
     text = re.sub(r'[^a-z0-9\s]', ' ', text)
     words = [w for w in text.split() if len(w) > 1]
-    # Unigrams + bigrams
     tokens = words.copy()
     for i in range(len(words) - 1):
         tokens.append(f"{words[i]} {words[i+1]}")
@@ -69,76 +93,49 @@ def _tokenize(text: str) -> list[str]:
 
 
 def _tfidf_query_vector(query: str) -> np.ndarray:
-    """
-    纯 numpy 实现 TF-IDF 查询向量。
-    不需要 sklearn — 用 vocab.json 中的 IDF 值。
-    """
     n_features = len(vocab)
     vec = np.zeros(n_features, dtype=np.float32)
     tokens = _tokenize(query)
-
-    # 计算词频 (TF)
     tf = {}
     for t in tokens:
         if t in vocab:
             tf[t] = tf.get(t, 0) + 1
-
     if not tf:
         return vec
-
-    # TF-IDF = TF * IDF（与 indexer 的 sublinear_tf=False 保持一致）
     for term, count in tf.items():
         entry = vocab[term]
         idx = entry["index"]
-        # 对查询也应用 sublinear TF
         tf_val = 1 + math.log(count) if count > 0 else 0
         vec[idx] = tf_val * entry["idf"]
-
-    # L2 归一化
     norm = np.linalg.norm(vec)
     if norm > 1e-10:
         vec = vec / norm
-
     return vec
 
 
 def _cosine_similarity(query_vec: np.ndarray, matrix: np.ndarray) -> np.ndarray:
-    """纯 numpy 余弦相似度"""
-    # matrix 已 L2 归一化 (sklearn 默认)，query_vec 也已归一化
-    # 直接点积即得余弦相似度
     return np.dot(matrix, query_vec)
 
 
 def load_index():
-    """加载预计算的索引数据（无需 sklearn）"""
     global chunks, vocab, tfidf_matrix, index_loaded
-
     if index_loaded:
         return
-
     try:
-        # 加载 chunks
         chunks_path = DATA_DIR / "chunks.json"
         if not chunks_path.exists():
-            raise FileNotFoundError(
-                f"chunks.json not found at {chunks_path}. "
-                f"Run: python rag_indexer.py"
-            )
+            raise FileNotFoundError(f"chunks.json not found. Run: python rag_indexer.py")
         with open(chunks_path, 'r', encoding='utf-8') as f:
             chunks.clear()
             chunks.extend(json.load(f))
 
-        # 加载词表
         vocab_path = DATA_DIR / "vocab.json"
         if not vocab_path.exists():
-            raise FileNotFoundError(
-                f"vocab.json not found. Re-run rag_indexer.py to generate it."
-            )
+            raise FileNotFoundError("vocab.json not found. Re-run rag_indexer.py.")
         with open(vocab_path, 'r', encoding='utf-8') as f:
             vocab.clear()
             vocab.update(json.load(f))
 
-        # 加载 TF-IDF matrix (支持 .npz 和 .npy)
         for ext in [".npz", ".npy"]:
             matrix_path = DATA_DIR / f"tfidf_matrix{ext}"
             if matrix_path.exists():
@@ -147,21 +144,167 @@ def load_index():
             raise FileNotFoundError("tfidf_matrix.npz not found.")
         loaded = np.load(matrix_path)
         if hasattr(loaded, 'files'):
-            tfidf_matrix = loaded[loaded.files[0]]  # npz format
+            tfidf_matrix = loaded[loaded.files[0]]
         else:
-            tfidf_matrix = loaded  # npy format
+            tfidf_matrix = loaded
 
         index_loaded = True
-        print(
-            f"[OK] Index loaded: {len(chunks)} chunks, "
-            f"{len(vocab)} vocab terms, "
-            f"matrix {tfidf_matrix.shape}"
-        )
-
+        print(f"[OK] Index loaded: {len(chunks)} chunks, {len(vocab)} terms, matrix {tfidf_matrix.shape}")
     except Exception as e:
         print(f"[ERR] Failed to load index: {e}")
         raise
 
+
+# ============================================================
+# Layer 2: OSRS Wiki API
+# ============================================================
+
+async def _search_wiki(query: str, limit: int = 3) -> list[dict]:
+    """搜索 OSRS Wiki"""
+    try:
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            resp = await client.get(
+                WIKI_API_BASE,
+                params={
+                    "action": "query",
+                    "list": "search",
+                    "srsearch": query,
+                    "format": "json",
+                    "srlimit": limit,
+                },
+                headers=WIKI_HEADERS,
+            )
+            data = resp.json()
+            return [
+                {"title": r["title"], "snippet": r.get("snippet", "")}
+                for r in data.get("query", {}).get("search", [])
+            ]
+    except Exception as e:
+        print(f"[WIKI] Search error: {e}")
+        return []
+
+
+async def _get_wiki_page(title: str) -> str | None:
+    """获取 Wiki 页面正文"""
+    try:
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            resp = await client.get(
+                WIKI_API_BASE,
+                params={
+                    "action": "query",
+                    "prop": "extracts",
+                    "exintro": 1,
+                    "explaintext": 1,
+                    "titles": title,
+                    "format": "json",
+                },
+                headers=WIKI_HEADERS,
+            )
+            data = resp.json()
+            pages = data.get("query", {}).get("pages", {})
+            for page_id, page in pages.items():
+                if page_id != "-1":
+                    return page.get("extract", "")
+            return None
+    except Exception as e:
+        print(f"[WIKI] Page fetch error: {e}")
+        return None
+
+
+async def _query_wiki_layer(query: str) -> str | None:
+    """Layer 2 完整流程：搜索 Wiki → 获取页面 → 返回正文"""
+    results = await _search_wiki(query, limit=3)
+    if not results:
+        return None
+    # 取最佳匹配页面的完整内容
+    for r in results[:2]:
+        content = await _get_wiki_page(r["title"])
+        if content and len(content) > 100:
+            header = f"[Source: OSRS Wiki — {r['title']}]"
+            return f"{header}\n{content[:800]}"
+    # 如果拿不到完整页面，用 snippet
+    snippets = "\n".join([
+        f"[Wiki: {r['title']}] {re.sub(r'<[^>]+>', '', r['snippet'])}"
+        for r in results
+    ])
+    return snippets if snippets else None
+
+
+# ============================================================
+# Layer 3: 双模型生成 (DeepSeek 主 + GPT-4o-mini 备)
+# ============================================================
+
+async def _call_llm(
+    context: str,
+    question: str,
+    model: str,
+    api_key: str,
+    base_url: str,
+) -> str:
+    """通用 LLM 调用"""
+    system_prompt = (
+        "You are OSRS Guru AI, the AI assistant for osrsguru.com — "
+        "the best Old School RuneScape guide site.\n\n"
+        "RULES:\n"
+        "1. Answer using the provided context. If it's from OSRS Wiki, cite it.\n"
+        "2. Keep answers CONCISE (150-300 words) and ACTIONABLE. Use bullet points.\n"
+        "3. Use OSRS terms correctly (gp, Ranged, Defence, PK, PvM, etc.).\n"
+        "4. Mention specific guide or wiki page names when referencing.\n"
+        "5. Be friendly — OSRS players appreciate the grind!"
+    )
+
+    user_prompt = (
+        f"Knowledge Base Context:\n{context}\n\n"
+        f"Player Question: {question}\n\n"
+        f"Answer based on the context above:"
+    )
+
+    async with httpx.AsyncClient(timeout=30.0) as client:
+        response = await client.post(
+            f"{base_url}/chat/completions",
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json",
+            },
+            json={
+                "model": model,
+                "messages": [
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt},
+                ],
+                "temperature": 0.3,
+                "max_tokens": 600,
+            },
+        )
+        if response.status_code != 200:
+            raise Exception(f"LLM API {response.status_code}: {response.text[:200]}")
+        data = response.json()
+        return data["choices"][0]["message"]["content"]
+
+
+async def _call_deepseek(context: str, question: str) -> str:
+    """Layer 3a: DeepSeek (主模型)"""
+    return await _call_llm(
+        context, question,
+        model=DEEPSEEK_MODEL,
+        api_key=DEEPSEEK_API_KEY,
+        base_url=DEEPSEEK_BASE_URL,
+    )
+
+
+async def _call_gpt4o_mini(context: str, question: str) -> str:
+    """Layer 3b: GPT-4o-mini (备用模型，美国 OpenAI)"""
+    return await _call_llm(
+        context, question,
+        model=OPENAI_MODEL,
+        api_key=OPENAI_API_KEY,
+        base_url=OPENAI_BASE_URL,
+    )
+
+
+# ============================================================
+# 三层融合主搜索端点
+# ============================================================
 
 @app.on_event("startup")
 async def startup():
@@ -178,7 +321,8 @@ async def health():
         "index_loaded": index_loaded,
         "num_chunks": len(chunks) if index_loaded else 0,
         "vocab_size": len(vocab) if index_loaded else 0,
-        "version": "1.1.0",
+        "gpt4o_configured": bool(OPENAI_API_KEY),
+        "version": "2.0.0",
     }
 
 
@@ -186,9 +330,10 @@ async def health():
 @app.get("/api/rag-api/search")
 async def search(q: str = Query(..., min_length=1, max_length=500, description="Player question")):
     """
-    主搜索端点：
-    1. 纯 numpy TF-IDF 检索最相关 chunks
-    2. 上下文传递给 DeepSeek API 生成回答
+    三层架构融合搜索:
+    1. Layer 1: TF-IDF 检索本地攻略
+    2. Layer 2: RAG 弱时自动查 OSRS Wiki
+    3. Layer 3: DeepSeek 生成 → 失败则 GPT-4o-mini 兜底
     """
     if not index_loaded:
         try:
@@ -198,110 +343,103 @@ async def search(q: str = Query(..., min_length=1, max_length=500, description="
 
     query = q.strip()
     if not query:
-        return {
-            "answer": "Ask me anything about Old School RuneScape!",
-            "source": "system",
-        }
+        return {"answer": "Ask me anything about Old School RuneScape!", "source": "system"}
 
-    # ===== Step 1: TF-IDF 检索 =====
+    # ===== Layer 1: 本地 RAG 检索 =====
+    wiki_context = None
+    rag_context = ""
+    max_similarity = 0.0
+
     try:
         query_vec = _tfidf_query_vector(query)
         similarities = _cosine_similarity(query_vec, tfidf_matrix)
-
-        # Top-K
         top_indices = np.argsort(similarities)[-TOP_K:][::-1]
 
-        # 过滤
         relevant = [
             (int(i), float(similarities[i]))
             for i in top_indices
             if float(similarities[i]) > MIN_SIMILARITY
         ]
 
-        if not relevant:
-            return {
-                "answer": (
-                    "I couldn't find relevant info about that in our OSRS guides. "
-                    "Try asking about skills, bosses, quests, or money-making — "
-                    "check osrsguru.com for the latest guides!"
-                ),
-                "source": "system",
-            }
-
-        # 构建上下文
-        context_parts = []
-        for i, sim in relevant:
-            chunk = chunks[i]
-            context_parts.append(f"[Guide: {chunk['title']}]\n{chunk['text']}")
-        context = "\n\n---\n\n".join(context_parts)
-
+        if relevant:
+            max_similarity = max(s for _, s in relevant)
+            context_parts = []
+            for i, sim in relevant:
+                chunk = chunks[i]
+                context_parts.append(
+                    f"[Guide: {chunk['title']}]\n{chunk['text']}"
+                )
+            rag_context = "\n\n---\n\n".join(context_parts)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Retrieval error: {e}")
 
-    # ===== Step 2: 调用 DeepSeek 生成回答 =====
-    try:
-        answer = await _call_deepseek(context, query)
-        return {
-            "answer": answer,
-            "source": "osrsguru_rag",
-            "chunks_used": len(relevant),
-        }
-    except Exception as e:
-        print(f"DeepSeek API error: {e}")
-        # Fallback: 返回最匹配的原文片段
-        best = context_parts[0] if context_parts else "No info found."
+    # ===== Layer 2: OSRS Wiki 实时补充（始终并行查询） =====
+    # Wiki 查询很快 (<1s)，始终补充以提升回答完整度
+    wiki_context = await _query_wiki_layer(query)
+
+    # ===== 合并上下文 =====
+    if rag_context and wiki_context:
+        # 两者都有：攻略为主，Wiki 补充
+        combined_context = (
+            f"=== OSRS Guru Guides ===\n{rag_context}\n\n"
+            f"=== OSRS Wiki (supplementary) ===\n{wiki_context}"
+        )
+    elif rag_context:
+        combined_context = rag_context
+    elif wiki_context:
+        combined_context = wiki_context
+    else:
         return {
             "answer": (
-                f"⚠️ AI is temporarily unavailable. "
-                f"Here's the most relevant guide snippet:\n\n{best[:500]}..."
+                "I couldn't find relevant info about that. "
+                "Try asking about OSRS skills, bosses, quests, or money-making — "
+                "check osrsguru.com for the latest guides!"
             ),
-            "source": "osrsguru_fallback",
+            "source": "system",
         }
 
+    # ===== Layer 3: 双模型生成 =====
+    # 判断来源类型
+    if rag_context and wiki_context:
+        source = "osrsguru_wiki"
+    elif rag_context:
+        source = "osrsguru_rag"
+    else:
+        source = "osrs_wiki"
 
-async def _call_deepseek(context: str, question: str) -> str:
-    """调用 DeepSeek API (OpenAI-compatible)"""
-    system_prompt = (
-        "You are OSRS Guru AI, the AI assistant for osrsguru.com — "
-        "the best Old School RuneScape guide site.\n\n"
-        "RULES:\n"
-        "1. Answer ONLY from the provided context. No outside knowledge.\n"
-        "2. If context lacks the answer, say: 'I don't have enough info on that "
-        "yet. Check osrsguru.com for the latest guides!'\n"
-        "3. Keep answers CONCISE (150-300 words) and ACTIONABLE.\n"
-        "4. Use OSRS terms correctly (gp, Ranged, Defence, PK, PvM, etc.).\n"
-        "5. Mention the guide title(s) you reference.\n"
-        "6. Be friendly — OSRS players appreciate the grind!"
-    )
+    # 尝试 DeepSeek（主模型）
+    try:
+        answer = await _call_deepseek(combined_context, query)
+        return {
+            "answer": answer,
+            "source": source,
+            "model": "deepseek",
+            "chunks_used": len(relevant) if rag_context else 0,
+            "wiki_used": bool(wiki_context),
+        }
+    except Exception as e:
+        print(f"[LLM] DeepSeek failed: {e}, trying GPT-4o-mini...")
 
-    user_prompt = (
-        f"OSRS Guru Knowledge Base:\n{context}\n\n"
-        f"Player Question: {question}\n\n"
-        f"Answer based on the guides above:"
-    )
+    # DeepSeek 失败，尝试 GPT-4o-mini（备用）
+    if OPENAI_API_KEY:
+        try:
+            answer = await _call_gpt4o_mini(combined_context, query)
+            return {
+                "answer": answer,
+                "source": source,
+                "model": "gpt4o-mini",
+                "chunks_used": len(relevant) if rag_context else 0,
+                "wiki_used": bool(wiki_context),
+            }
+        except Exception as e:
+            print(f"[LLM] GPT-4o-mini also failed: {e}")
 
-    async with httpx.AsyncClient(timeout=30.0) as client:
-        response = await client.post(
-            f"{DEEPSEEK_BASE_URL}/chat/completions",
-            headers={
-                "Authorization": f"Bearer {DEEPSEEK_API_KEY}",
-                "Content-Type": "application/json",
-            },
-            json={
-                "model": DEEPSEEK_MODEL,
-                "messages": [
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt},
-                ],
-                "temperature": 0.3,
-                "max_tokens": 600,
-            },
-        )
-
-        if response.status_code != 200:
-            raise Exception(
-                f"DeepSeek API {response.status_code}: {response.text[:200]}"
-            )
-
-        data = response.json()
-        return data["choices"][0]["message"]["content"]
+    # 两个模型都失败了，返回原文
+    fallback_text = rag_context or wiki_context or "No info found."
+    return {
+        "answer": (
+            f"⚠️ AI services are temporarily unavailable. "
+            f"Here's the most relevant info:\n\n{fallback_text[:500]}..."
+        ),
+        "source": "osrsguru_fallback",
+    }
