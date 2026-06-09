@@ -1,0 +1,38 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+}
+
+group = 'com.example.gradle'
+version = '1.0.0'
+description = 'A demo Gradle plugin'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+}
+
+gradlePlugin {
+    plugins {
+        demoPlugin {
+            id = 'com.example.demo'
+            implementationClass = 'com.example.gradle.DemoPlugin'
+            displayName = 'Demo Gradle Plugin'
+            description = 'A simple demo plugin for Gradle'
+        }
+    }
+}
+
+publishing {
+    repositories {
+        mavenLocal()
+    }
+}
