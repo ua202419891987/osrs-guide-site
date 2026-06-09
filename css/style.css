@@ -406,10 +406,8 @@ nav a.active{
 }
 .whats-new-header{
   display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  flex-wrap:wrap;
+  align-items:baseline;
+  gap:8px;
   margin-bottom:16px;
   padding-bottom:12px;
   border-bottom:1px solid var(--border-bronze);
@@ -420,16 +418,25 @@ nav a.active{
   gap:8px;
 }
 .whats-new-promo{
-  font-size:.95rem;
-  color:var(--gold-light);
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:1.3rem;
+  font-weight:600;
+  color:#fff;
   font-family:'Crimson Pro',serif;
-  font-style:italic;
+  background:linear-gradient(135deg,rgba(212,160,48,0.22) 0%,rgba(212,160,48,0.10) 100%);
+  border:1px solid rgba(212,160,48,0.35);
+  border-radius:8px;
+  padding:12px 18px;
+  margin-bottom:14px;
   text-shadow:0 1px 3px rgba(0,0,0,.4);
 }
 .whats-new-promo a{
   color:var(--gold-light);
   text-decoration:underline;
-  text-underline-offset:2px;
+  text-underline-offset:3px;
+  font-weight:700;
   transition:color .2s;
 }
 .whats-new-promo a:hover{
@@ -514,7 +521,7 @@ nav a.active{
   .whats-new-name{font-size:1.15rem}
   .whats-new-tag{display:none}
   .whats-new-date-inline{font-size:.92rem}
-  .whats-new-promo{font-size:.85rem;width:100%;text-align:center}
+  .whats-new-promo{font-size:1.1rem;padding:10px 14px;text-align:center;flex-wrap:wrap}
   .whats-new-promo a{color:var(--gold-light)}
 }
 
