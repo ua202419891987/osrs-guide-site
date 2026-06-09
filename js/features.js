@@ -1,30 +1,12 @@
 /**
- * OSRS Guru — 收藏 / 进度条 / 游戏化 Checklist
- * 动态注入所有 UI，无需手动修改 115 篇文章
+ * OSRS Guru — 进度条 / 游戏化 Checklist
+ * 动态注入所有 UI，无需手动修改文章
  */
 (function () {
   'use strict';
 
   /* ========== 1. 注入 CSS ========== */
   const CSS = `
-/* 收藏按钮 */
-.guide-bookmark-btn{
-  position:absolute;top:18px;right:18px;z-index:10;
-  background:rgba(59,38,21,0.85);border:1px solid var(--border-bronze,#8b6914);
-  border-radius:50%;width:38px;height:38px;
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;transition:all .25s ease;font-size:1.15rem;
-  color:var(--text-secondary,#c8aa6d);
-}
-.guide-bookmark-btn:hover{
-  background:rgba(212,175,55,0.18);border-color:var(--gold,#d4af37);
-  color:var(--gold,#d4af37);transform:scale(1.12);
-}
-.guide-bookmark-btn.bookmarked{
-  color:#ff6b6b;border-color:rgba(255,107,107,0.5);
-  background:rgba(255,107,107,0.10);
-}
-
 /* 进度条 */
 .progress-widget{
   background:linear-gradient(145deg,rgba(74,51,32,0.7),rgba(59,38,21,0.7));
@@ -50,8 +32,6 @@
   display:flex;justify-content:space-between;align-items:center;
   margin-top:10px;font-size:0.8rem;color:var(--text-muted,#8a7a5a);
 }
-.progress-widget .progress-link{color:var(--gold,#d4af37);text-decoration:none;font-size:0.82rem}
-.progress-widget .progress-link:hover{text-decoration:underline}
 
 /* Checklist */
 .guide-checklist{margin:20px 0}
@@ -97,38 +77,6 @@
 }
 .osrs-toast.show{transform:translateY(0);opacity:1;pointer-events:auto}
 .osrs-toast .toast-icon{margin-right:8px}
-
-/* 收藏面板 */
-.bookmark-panel{
-  position:fixed;top:0;right:-360px;width:340px;height:100vh;
-  background:linear-gradient(180deg,var(--brown-deep,#3b2615),#1a0f08);
-  border-left:2px solid var(--border-bronze,#8b6914);z-index:9998;
-  transition:right .35s cubic-bezier(.4,0,.2,1);
-  overflow-y:auto;padding:20px;box-shadow:-4px 0 24px rgba(0,0,0,0.5);
-}
-.bookmark-panel.open{right:0}
-.bookmark-panel .panel-header{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:16px;
-}
-.bookmark-panel .panel-header h3{
-  font-family:'Cinzel',serif;color:var(--gold,#d4af37);font-size:1.05rem;
-}
-.bookmark-panel .panel-close{
-  background:none;border:none;color:var(--text-muted,#8a7a5a);
-  font-size:1.3rem;cursor:pointer;
-}
-.bookmark-panel .bm-empty{
-  text-align:center;color:var(--text-muted,#8a7a5a);font-size:0.88rem;
-  padding:40px 0;
-}
-.bookmark-panel .bm-item{
-  display:block;padding:10px 12px;border-radius:6px;
-  color:var(--text-secondary,#c8aa6d);text-decoration:none;
-  font-size:0.85rem;transition:background .2s;margin-bottom:4px;
-}
-.bookmark-panel .bm-item:hover{background:rgba(212,175,55,0.08);color:var(--gold-light,#f0d080)}
-.bookmark-panel .bm-item .bm-item-cat{font-size:0.75rem;color:var(--gold,#d4af37);opacity:0.7}
 
 /* 订阅浮条 */
 .subscribe-bar{
@@ -183,40 +131,8 @@
     setTimeout(() => t.classList.remove('show'), 2800);
   }
 
-  /* ========== 3. 收藏按钮 ========== */
-  function injectBookmarkBtn() {
-    const hero = document.querySelector('.guide-hero');
-    if (!hero) return;
-    const slug = getArticleSlug();
-    if (!slug) return;
-    const bms = JSON.parse(localStorage.getItem('osrs-bm') || '{}');
-    const btn = document.createElement('div');
-    btn.className = 'guide-bookmark-btn' + (bms[slug] ? ' bookmarked' : '');
-    btn.title = bms[slug] ? 'Bookmarked ✓ — click to remove' : 'Bookmark this guide';
-    btn.innerHTML = bms[slug] ? '❤️' : '🤍';
-    btn.addEventListener('click', () => {
-      const cur = JSON.parse(localStorage.getItem('osrs-bm') || '{}');
-      if (cur[slug]) {
-        delete cur[slug];
-        btn.classList.remove('bookmarked');
-        btn.innerHTML = '🤍';
-        btn.title = 'Bookmark this guide';
-        showToast('🤍', 'Bookmark removed');
-      } else {
-        cur[slug] = { title: getArticleTitle(), url: window.location.pathname, t: Date.now() };
-        btn.classList.add('bookmarked');
-        btn.innerHTML = '❤️';
-        btn.title = 'Bookmarked ✓ — click to remove';
-        showToast('❤️', 'Bookmarked! Find all in your bookmarks.');
-      }
-      localStorage.setItem('osrs-bm', JSON.stringify(cur));
-    });
-    hero.style.position = hero.style.position || 'relative';
-    hero.appendChild(btn);
-  }
-
-  /* ========== 5. 进度条 ========== */
-  const TOTAL_GUIDES = 115;
+  /* ========== 3. 进度条 ========== */
+  const TOTAL_GUIDES = 120;
 
   function getReadSet() {
     return new Set(JSON.parse(localStorage.getItem('osrs-read') || '[]'));
@@ -248,48 +164,12 @@
       </div>
       <div class="progress-footer">
         <span>${readSet.size < TOTAL_GUIDES ? 'Keep reading to unlock all!' : '🏆 All guides tracked!'}</span>
-        <a class="progress-link" href="#" onclick="document.querySelector('.bookmark-panel')?.classList.toggle('open');return false;">📖 My Bookmarks</a>
       </div>
     `;
     content.insertBefore(widget, content.firstElementChild);
   }
 
-  /* ========== 6. 收藏面板 ========== */
-  function injectBookmarkPanel() {
-    const panel = document.createElement('div');
-    panel.className = 'bookmark-panel';
-    panel.innerHTML = `
-      <div class="panel-header">
-        <h3>📖 My Bookmarks</h3>
-        <button class="panel-close" onclick="this.parentElement.parentElement.classList.remove('open')">✕</button>
-      </div>
-      <div class="bm-list"></div>
-    `;
-    document.body.appendChild(panel);
-
-    function render() {
-      const bms = JSON.parse(localStorage.getItem('osrs-bm') || '{}');
-      const list = panel.querySelector('.bm-list');
-      const keys = Object.keys(bms);
-      if (!keys.length) {
-        list.innerHTML = '<div class="bm-empty">No bookmarks yet.<br>Click 🤍 on any guide to save it.</div>';
-        return;
-      }
-      list.innerHTML = keys.reverse().map(k => {
-        const g = bms[k];
-        return `<a class="bm-item" href="${g.url || '/guides/' + k + '.html'}">
-          <div style="font-weight:600">${g.title || k}</div>
-          <div class="bm-item-cat">Bookmarked</div>
-        </a>`;
-      }).join('');
-    }
-    render();
-    // Re-render when panel opens (in case changed in another tab)
-    const observer = new MutationObserver(render);
-    observer.observe(panel, { attributes: true, attributeFilter: ['class'] });
-  }
-
-  /* ========== 7. 订阅浮条 ========== */
+  /* ========== 4. 订阅浮条 ========== */
   function injectSubscribeBar() {
     if (localStorage.getItem('osrs-sub-dismissed')) return;
     const bar = document.createElement('div');
@@ -303,7 +183,7 @@
     setTimeout(() => bar.classList.add('show'), 6000);
   }
 
-  /* ========== 8. 自动将 TOC 变成可勾选 Checklist ========== */
+  /* ========== 5. 自动将 TOC 变成可勾选 Checklist ========== */
   function enhanceTOC() {
     const toc = document.querySelector('.toc');
     if (!toc) return;
@@ -334,12 +214,10 @@
     });
   }
 
-  /* ========== 9. 初始化 ========== */
+  /* ========== 6. 初始化 ========== */
   function init() {
     injectCSS();
-    injectBookmarkBtn();
     injectProgressBar();
-    injectBookmarkPanel();
     injectSubscribeBar();
     enhanceTOC();
   }
