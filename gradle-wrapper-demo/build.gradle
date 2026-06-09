@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.demo'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+}
+
+// 自定义任务：打个招呼
+tasks.register('hello') {
+    doLast {
+        println "Hello from Gradle Wrapper Demo!"
+        println "Java version: " + JavaVersion.current()
+        println "Project: " + project.name + " v" + project.version
+    }
+}
