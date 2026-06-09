@@ -412,16 +412,16 @@ nav a.active{
   padding-bottom:12px;
   border-bottom:1px solid var(--border-bronze);
 }
-.whats-new-icon{font-size:1.6rem;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3))}
+.whats-new-icon{font-size:1.8rem;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3))}
 .whats-new-title{
   font-family:'Cinzel',serif;
-  font-size:1.35rem;
+  font-size:1.6rem;
   font-weight:700;
   color:var(--gold-light);
   letter-spacing:.5px;
 }
 .whats-new-date{
-  font-size:.92rem;
+  font-size:1rem;
   color:var(--text-muted);
   font-style:italic;
 }
@@ -442,17 +442,17 @@ nav a.active{
   text-decoration:none;
   transform:translateX(4px);
 }
-.whats-new-badge{font-size:1.05rem;flex-shrink:0}
+.whats-new-badge{font-size:1.3rem;flex-shrink:0;text-shadow:0 1px 3px rgba(0,0,0,.4)}
 .whats-new-name{
   flex:1;
   font-family:'Crimson Pro',serif;
-  font-size:1.1rem;
+  font-size:1.35rem;
   color:var(--text-primary);
   font-weight:600;
 }
 .whats-new-item:hover .whats-new-name{color:var(--gold-light)}
 .whats-new-tag{
-  font-size:.78rem;
+  font-size:.88rem;
   padding:3px 10px;
   border-radius:10px;
   font-weight:600;
@@ -465,10 +465,10 @@ nav a.active{
 .whats-new-tag.tag-boss{background:rgba(184,74,58,0.25);color:#ef9a9a;border:1px solid rgba(184,74,58,0.4)}
 .whats-new-tag.tag-money{background:rgba(212,160,48,0.2);color:var(--gold-light);border:1px solid rgba(212,160,48,0.4)}
 .whats-new-date-inline{
-  font-size:.88rem;
+  font-size:1rem;
   color:var(--text-muted);
   flex-shrink:0;
-  min-width:56px;
+  min-width:60px;
   text-align:right;
 }
 .whats-new-footer{
@@ -479,7 +479,7 @@ nav a.active{
 }
 .whats-new-footer a{
   font-family:'Crimson Pro',serif;
-  font-size:1rem;
+  font-size:1.15rem;
   color:var(--gold);
   text-decoration:none;
   transition:color .2s;
@@ -488,9 +488,9 @@ nav a.active{
 
 @media(max-width:768px){
   .whats-new-section{padding:18px 20px;margin-bottom:28px}
-  .whats-new-name{font-size:1rem}
+  .whats-new-name{font-size:1.15rem}
   .whats-new-tag{display:none}
-  .whats-new-date-inline{font-size:.82rem}
+  .whats-new-date-inline{font-size:.92rem}
 }
 
 

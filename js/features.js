@@ -7,23 +7,6 @@
 
   /* ========== 1. 注入 CSS ========== */
   const CSS = `
-/* 书签引导 */
-.bookmark-hint{
-  display:flex;align-items:center;gap:10px;
-  background:linear-gradient(135deg,rgba(212,175,55,0.10),rgba(212,175,55,0.04));
-  border:1px solid rgba(212,175,55,0.25);border-left:4px solid var(--gold,#d4af37);
-  border-radius:8px;padding:12px 18px;margin:18px 0 28px;
-  font-size:0.88rem;color:var(--gold-light,#d4af37);line-height:1.5;
-}
-.bookmark-hint .hint-icon{font-size:1.3rem;flex-shrink:0}
-.bookmark-hint .hint-text{flex:1}
-.bookmark-hint .hint-kbd{
-  display:inline-block;background:rgba(212,175,55,0.18);
-  border:1px solid rgba(212,175,55,0.35);border-radius:4px;
-  padding:1px 7px;font-size:0.82rem;font-family:monospace;
-  color:var(--gold-light,#d4af37);margin:0 2px;
-}
-
 /* 收藏按钮 */
 .guide-bookmark-btn{
   position:absolute;top:18px;right:18px;z-index:10;
@@ -200,20 +183,7 @@
     setTimeout(() => t.classList.remove('show'), 2800);
   }
 
-  /* ========== 3. 书签引导 ========== */
-  function injectBookmarkHint() {
-    const hero = document.querySelector('.guide-hero') || document.querySelector('main');
-    if (!hero) return;
-    const hint = document.createElement('div');
-    hint.className = 'bookmark-hint';
-    hint.innerHTML = `
-      <span class="hint-icon">🔖</span>
-      <span class="hint-text">Bookmark this guide — OSRS updates often! Press <kbd class="hint-kbd">Ctrl+D</kbd> (Windows) or <kbd class="hint-kbd">⌘+D</kbd> (Mac) to save.</span>
-    `;
-    hero.insertAdjacentElement('afterend', hint);
-  }
-
-  /* ========== 4. 收藏按钮 ========== */
+  /* ========== 3. 收藏按钮 ========== */
   function injectBookmarkBtn() {
     const hero = document.querySelector('.guide-hero');
     if (!hero) return;
@@ -367,7 +337,6 @@
   /* ========== 9. 初始化 ========== */
   function init() {
     injectCSS();
-    injectBookmarkHint();
     injectBookmarkBtn();
     injectProgressBar();
     injectBookmarkPanel();
