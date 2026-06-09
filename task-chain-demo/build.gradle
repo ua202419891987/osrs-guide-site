@@ -1,0 +1,96 @@
+// =========================================
+// Gradle Task 依赖链 — 完整演示
+// =========================================
+
+plugins {
+    id 'java'
+}
+
+// =============================================
+// 概念1: dependsOn — "A 依赖 B，B 必须先跑完"
+// =============================================
+
+tasks.register('compileCode') {
+    doLast { println "  🔨 compileCode — 编译代码" }
+}
+
+tasks.register('runTests') {
+    dependsOn 'compileCode'    // ← 依赖编译
+    doLast { println "  🧪 runTests — 跑单元测试" }
+}
+
+tasks.register('packageApp') {
+    dependsOn 'runTests', 'compileCode'    // ← 可以依赖多个
+    doLast { println "  📦 packageApp — 打成 JAR" }
+}
+
+// =============================================
+// 概念2: finalizedBy — "A 跑完后，无论如何都跑 B"
+//   即使 A 失败，B 也会执行（常用于清理/通知）
+// =============================================
+
+tasks.register('deploy') {
+    doLast { println "  🚀 deploy — 部署到服务器" }
+}
+
+tasks.register('deployNotifier') {
+    doLast { println "  📢 deployNotifier — 不管部署成不成功，都发通知" }
+}
+
+// deploy 被 deployNotifier 收尾
+tasks.named('deploy').configure {
+    finalizedBy 'deployNotifier'
+}
+
+// =============================================
+// 概念3: mustRunAfter — "A 必须在 B 之后执行"
+//   只是排序约束，不是依赖关系
+//   如果只跑 A，B 不会被触发
+// =============================================
+
+tasks.register('initialize') {
+    doLast { println "  ⚙️  initialize — 初始化环境" }
+}
+
+tasks.register('simulateProd') {
+    dependsOn 'deploy'
+    doLast { println "  🔬 simulateProd — 线上模拟测试" }
+}
+
+tasks.register('cleanup') {
+    doLast { println "  🧹 cleanup — 清理资源" }
+}
+
+// simulateProd 必须在 cleanup 之后跑
+tasks.named('simulateProd').configure {
+    mustRunAfter 'cleanup'
+}
+
+// =============================================
+// 概念4: doFirst / doLast — 任务生命周期
+//   doFirst { }  → 任务开始时执行
+//   doLast { }   → 任务结束时执行
+// =============================================
+
+tasks.register('lifecycleDemo') {
+    println "  💬 配置阶段就打印了！（不是执行阶段）"
+
+    doFirst { println "  🟢 doFirst — 任务刚开始" }
+    doLast { println "  🔴 doLast — 任务收尾" }
+    doLast { println "  ⚡ 可以有多个 doLast（按顺序执行）" }
+}
+
+// =============================================
+// 综合演示 — 完整 CI/CD 流水线
+// =============================================
+
+tasks.register('ci') {
+    group = 'pipeline'
+    description = '完整 CI/CD 流水线'
+    dependsOn 'clean', 'compileCode', 'runTests', 'packageApp', 'deploy'
+    finalizedBy 'ciDone'
+}
+
+tasks.register('ciDone') {
+    doLast { println "\n  ✅ CI/CD 流水线完成!" }
+}
