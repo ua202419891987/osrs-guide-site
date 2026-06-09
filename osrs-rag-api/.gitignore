@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.py[cod]
+.env
+
+# ChromaDB (too large for git)
+chroma_db/
+
+# Vercel
+.vercel/
