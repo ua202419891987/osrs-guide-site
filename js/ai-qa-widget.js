@@ -448,12 +448,15 @@
           loadingMsg.remove();
         }
 
-        // 显示错误消息
-        addMessage(
-          messagesContainer, 
-          'Sorry, I couldn\'t reach the knowledge base. Please try again.',
-          'assistant'
-        );
+        // AI 后端升级中，显示友好提示
+        const offlineMsg = 'AI Assistant is being upgraded!\\n\\n'
+          + 'We are building a smarter knowledge base with 115+ OSRS guides,\\n'
+          + 'real-time GE prices, and boss strategies.\\n\\n'
+          + 'In the meantime:\\n'
+          + '  Browse osrsguru.com for all guides\\n'
+          + '  Check the OSRS Wiki for live GE prices\\n\\n'
+          + 'Expected back online soon!';
+        addMessage(messagesContainer, offlineMsg, 'assistant', false, 'osrsguru_rag');
       } finally {
         sendBtn.disabled = false;
       }
