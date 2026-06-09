@@ -1,475 +1,300 @@
 #!/usr/bin/env python3
 """
-批量给 OSRS 攻略文章添加内链
-每个攻略页面添加 3-5 个相关文章的链接
+OSRS Guru 内链批量修复脚本
+功能：
+  1. 根据关键词→文件名映射，在正文第一段/段落中自动加入上下文内链
+  2. 修复 Related Guides 区块（移除无效项，添加有效链接）
+  3. 支持 dry-run 模式预览修改
+
+使用方法：
+  python3 add_internal_links.py --dry-run    # 预览
+  python3 add_internal_links.py               # 执行
 """
 
 import re
 import os
+import sys
+import argparse
 from pathlib import Path
+from html.parser import HTMLParser
 
-# 网站根目录
-BASE_DIR = Path(__file__).parent
-GUIDES_DIR = BASE_DIR / "guides"
+# ========== 关键词 → 目标文件映射 ==========
+# 当正文中出现这些关键词时，自动添加内链（只加第一次出现）
+KEYWORD_MAP = {
+    # 战斗/技能类
+    "Slayer": "slayer-1-99-guide-2026.html",
+    "slayer": "slayer-1-99-guide-2026.html",
+    "combat training": "osrs-combat-training-beginner-2026.html",
+    "combat": "osrs-combat-training-beginner-2026.html",
+    "Attack": "osrs-fastest-99-attack-strength-defence.html",
+    "Strength": "osrs-fastest-99-attack-strength-defence.html",
+    "Defence": "osrs-fastest-99-attack-strength-defence.html",
+    "Magic": "osrs-1-99-magic-training-cheap-guide-2026.html",
+    "Ranged": "osrs-1-99-ranged-guide-2026.html",
+    "Hitpoints": "osrs-1-99-hitpoints-guide-2026.html",
+    "Hitpoint": "osrs-1-99-hitpoints-guide-2026.html",
+    "quest": "osrs-questing-beginner-guide-2026.html",
+    "Quest": "osrs-questing-beginner-guide-2026.html",
+    "Waterfall Quest": "osrs-questing-beginner-guide-2026.html",
+    "Nightmare Zone": "osrs-nightmare-phosanis-guide-2026.html",
+    "NMZ": "osrs-nightmare-phosanis-guide-2026.html",
+    # 赚钱/新手类
+    "money making": "osrs-money-making-beginner-2026.html",
+    "Money Making": "osrs-money-making-beginner-2026.html",
+    "Grand Exchange": "osrs-money-making-beginner-2026.html",
+    "GE": "osrs-money-making-beginner-2026.html",
+    "beginner": "osrs-new-player-guide-2026.html",
+    "Beginner": "osrs-new-player-guide-2026.html",
+    "new player": "osrs-new-player-guide-2026.html",
+    "New Player": "osrs-new-player-guide-2026.html",
+    "Ironman": "osrs-ironman-money-making-f2p-2026.html",
+    "ironman": "osrs-ironman-money-making-f2p-2026.html",
+    # 装备/道具类
+    "gear": "osrs-gear-beginner-guide-2026.html",
+    "Gear": "osrs-gear-beginner-guide-2026.html",
+    "Bank": "osrs-bank-inventory-management-2026.html",
+    "bank": "osrs-bank-inventory-management-2026.html",
+    "Inventory": "osrs-bank-inventory-management-2026.html",
+    "inventory": "osrs-bank-inventory-management-2026.html",
+}
 
-# 内链映射表：每篇文章推荐的相关文章（3-5个）
-# 格式：文件名 -> [相关文件名列表]
-INTERNAL_LINKS = {
-    # 赚钱攻略类
-    "osrs-ironman-money-making-f2p-2026.html": [
-        "osrs-low-effort-money-making-for-beginners.html",
-        "osrs-f2p-money-making-no-stats-required.html",
-        "osrs-f2p-ironman-money-making-early-game.html",
-        "osrs-how-to-make-gold-with-fishing-2026.html",
-        "osrs-passive-money-making-while-offline.html",
-    ],
-    "osrs-low-effort-money-making-for-beginners.html": [
-        "osrs-ironman-money-making-f2p-2026.html",
-        "osrs-f2p-money-making-no-stats-required.html",
-        "osrs-passive-money-making-while-offline.html",
-        "osrs-how-to-make-gold-with-fishing-2026.html",
-        "osrs-wintertodt-money-making-per-hour.html",
-    ],
-    "osrs-how-to-make-gold-with-fishing-2026.html": [
-        "osrs-fastest-99-cooking-guide-f2p.html",
-        "osrs-how-to-get-99-fishing-afk-method.html",
-        "osrs-ironman-money-making-f2p-2026.html",
-        "osrs-low-effort-money-making-for-beginners.html",
-        "osrs-how-to-make-money-with-zulrah.html",
-    ],
-    "osrs-f2p-money-making-no-stats-required.html": [
-        "osrs-ironman-money-making-f2p-2026.html",
-        "osrs-low-effort-money-making-for-beginners.html",
-        "osrs-f2p-ironman-money-making-early-game.html",
-        "osrs-how-to-make-gold-with-fishing-2026.html",
-        "osrs-killing-green-dragons-money-per-hour.html",
-    ],
-    "osrs-passive-money-making-while-offline.html": [
-        "osrs-low-effort-money-making-for-beginners.html",
-        "osrs-how-to-make-gold-with-fishing-2026.html",
-        "osrs-wintertodt-money-making-per-hour.html",
-        "osrs-ironman-money-making-f2p-2026.html",
-    ],
-    "osrs-how-to-flip-items-for-profit-mid-game.html": [
-        "osrs-cheap-flipping-methods-for-new-players.html",
-        "osrs-how-to-rune-spinning-profit-2026.html",
-        "osrs-hunter-money-making-guide-2026.html",
-    ],
-    "osrs-cheap-flipping-methods-for-new-players.html": [
-        "osrs-how-to-flip-items-for-profit-mid-game.html",
-        "osrs-cheapest-99-runecrafting-2026.html",
-        "osrs-low-effort-money-making-for-beginners.html",
-    ],
-    "osrs-hunter-money-making-guide-2026.html": [
-        "osrs-1-99-hunter-guide-afk-method.html",
-        "osrs-how-to-make-gold-with-fishing-2026.html",
-        "osrs-low-effort-money-making-for-beginners.html",
-        "osrs-wintertodt-money-making-per-hour.html",
-    ],
-    "osrs-how-to-make-money-with-crafting-low-level.html": [
-        "osrs-cheapest-99-runecrafting-2026.html",
-        "osrs-fastest-99-cooking-guide-f2p.html",
-        "osrs-how-to-get-graceful-outfit-full-guide.html",
-    ],
-    "osrs-wintertodt-money-making-per-hour.html": [
-        "osrs-how-to-get-99-fishing-afk-method.html",
+# ========== 每篇文章的 Related Guides 推荐链接 ==========
+# key = 当前文章文件名，value = 推荐的相关文章列表
+RELATED_GUIDES = {
+    "osrs-1-99-hitpoints-guide-2026.html": [
         "osrs-fastest-99-attack-strength-defence.html",
-        "osrs-passive-money-making-while-offline.html",
-        "osrs-low-effort-money-making-for-beginners.html",
+        "osrs-1-99-magic-training-cheap-guide-2026.html",
+        "slayer-1-99-guide-2026.html",
+        "osrs-combat-training-beginner-2026.html",
     ],
-    "osrs-chambers-of-xeric-loot-profit-guide.html": [
-        "osrs-how-to-beat-zulrah-for-beginners-rotation-guide.html",
-        "osrs-low-gear-setup-for-vorkath-guide.html",
-        "osrs-how-to-fight-corporeal-beast-loot-guide.html",
-        "osrs-sarachnis-loot-guide-for-ironman.html",
+    "osrs-money-making-beginner-2026.html": [
+        "osrs-combat-training-beginner-2026.html",
+        "osrs-questing-beginner-guide-2026.html",
+        "osrs-gear-beginner-guide-2026.html",
+        "osrs-new-player-guide-2026.html",
     ],
-    "osrs-f2p-ironman-money-making-early-game.html": [
-        "osrs-ironman-money-making-f2p-2026.html",
-        "osrs-f2p-money-making-no-stats-required.html",
-        "osrs-low-effort-money-making-for-beginners.html",
-        "osrs-1-99-thieving-guide-for-ironman.html",
-    ],
-    "osrs-how-to-rune-spinning-profit-2026.html": [
-        "osrs-cheap-flipping-methods-for-new-players.html",
-        "osrs-how-to-flip-items-for-profit-mid-game.html",
-        "osrs-cheapest-99-runecrafting-2026.html",
-    ],
-    "osrs-killing-green-dragons-money-per-hour.html": [
-        "osrs-how-to-get-dragon-defender-2026.html",
-        "osrs-low-gear-setup-for-vorkath-guide.html",
-        "osrs-how-to-make-money-with-zulrah.html",
-    ],
-    "osrs-how-to-make-money-with-zulrah.html": [
-        "osrs-how-to-beat-zulrah-for-beginners-rotation-guide.html",
-        "osrs-low-gear-setup-for-vorkath-guide.html",
-        "osrs-sarachnis-loot-guide-for-ironman.html",
-    ],
-    # 技能训练类
-    "osrs-fastest-99-cooking-guide-f2p.html": [
-        "osrs-how-to-make-gold-with-fishing-2026.html",
+    "osrs-combat-training-beginner-2026.html": [
         "osrs-fastest-99-attack-strength-defence.html",
-        "osrs-low-cost-1-99-herblore-guide.html",
-        "osrs-how-to-get-graceful-outfit-full-guide.html",
+        "osrs-1-99-hitpoints-guide-2026.html",
+        "osrs-1-99-magic-training-cheap-guide-2026.html",
+        "slayer-1-99-guide-2026.html",
     ],
-    "osrs-1-99-thieving-guide-for-ironman.html": [
-        "osrs-ironman-1-99-smithing-guide.html",
-        "osrs-f2p-ironman-money-making-early-game.html",
-        "osrs-how-to-increase-slayer-points-fast.html",
+    "osrs-new-player-guide-2026.html": [
+        "osrs-combat-training-beginner-2026.html",
+        "osrs-money-making-beginner-2026.html",
+        "osrs-questing-beginner-guide-2026.html",
+        "osrs-gear-beginner-guide-2026.html",
     ],
-    "osrs-cheapest-99-runecrafting-2026.html": [
-        "osrs-how-to-unlock-the-abyss-guide.html",
-        "osrs-cheap-flipping-methods-for-new-players.html",
-        "osrs-low-cost-1-99-herblore-guide.html",
-    ],
-    "osrs-how-to-get-99-fishing-afk-method.html": [
-        "osrs-how-to-make-gold-with-fishing-2026.html",
-        "osrs-fastest-99-cooking-guide-f2p.html",
-        "osrs-1-99-woodcutting-guide-early-game.html",
-    ],
-    "osrs-1-99-woodcutting-guide-early-game.html": [
-        "osrs-ironman-1-99-smithing-guide.html",
-        "osrs-how-to-get-to-fossil-island-quick-guide.html",
-        "osrs-how-to-train-prayer-cheap-f2p.html",
-    ],
-    "osrs-fastest-99-attack-strength-defence.html": [
-        "osrs-how-to-get-dragon-defender-2026.html",
-        "osrs-low-gear-setup-for-vorkath-guide.html",
-        "osrs-how-to-beat-zulrah-for-beginners-rotation-guide.html",
-    ],
-    "osrs-how-to-train-prayer-cheap-f2p.html": [
-        "osrs-fastest-99-cooking-guide-f2p.html",
-        "osrs-low-cost-1-99-herblore-guide.html",
-        "osrs-desert-treasure-quest-guide-for-low-level.html",
-    ],
-    "osrs-1-99-hunter-guide-afk-method.html": [
-        "osrs-hunter-money-making-guide-2026.html",
-        "osrs-how-to-get-to-fossil-island-quick-guide.html",
-        "osrs-how-to-unlock-dinosaur-hunting-osrs.html",
-    ],
-    "osrs-ironman-1-99-smithing-guide.html": [
-        "osrs-how-to-get-dragon-defender-2026.html",
-        "osrs-1-99-thieving-guide-for-ironman.html",
+    "slayer-1-99-guide-2026.html": [
+        "osrs-combat-training-beginner-2026.html",
+        "osrs-1-99-hitpoints-guide-2026.html",
         "osrs-fastest-99-attack-strength-defence.html",
-    ],
-    "osrs-how-to-unlock-dinosaur-hunting-osrs.html": [
-        "osrs-how-to-get-to-fossil-island-quick-guide.html",
-        "osrs-1-99-hunter-guide-afk-method.html",
-        "osrs-how-to-get-to-alchemical-hydra-guide.html",
-    ],
-    "osrs-how-to-get-99-agility-fast-2026.html": [
-        "osrs-fastest-99-agility-guide-2026.html",
-        "osrs-how-to-get-graceful-outfit-full-guide.html",
-        "osrs-how-to-increase-slayer-points-fast.html",
-    ],
-    "osrs-fastest-99-agility-guide-2026.html": [
-        "osrs-how-to-get-99-agility-fast-2026.html",
-        "osrs-how-to-get-graceful-outfit-full-guide.html",
-        "osrs-how-to-increase-slayer-points-fast.html",
-    ],
-    "osrs-low-cost-1-99-herblore-guide.html": [
-        "osrs-cheapest-99-runecrafting-2026.html",
-        "osrs-how-to-train-prayer-cheap-f2p.html",
-        "osrs-fastest-99-cooking-guide-f2p.html",
-    ],
-    # 任务剧情类
-    "osrs-how-to-get-dragon-defender-2026.html": [
-        "osrs-fastest-99-attack-strength-defence.html",
-        "osrs-ironman-1-99-smithing-guide.html",
-        "osrs-how-to-complete-lost-city-guide.html",
-    ],
-    "osrs-how-to-complete-lost-city-guide.html": [
-        "osrs-how-to-unlock-fairy-rings-quick-guide.html",
-        "osrs-desert-treasure-quest-guide-for-low-level.html",
-        "osrs-how-to-finish-dragon-slayer-2-guide.html",
-    ],
-    "osrs-how-to-unlock-fairy-rings-quick-guide.html": [
-        "osrs-how-to-complete-lost-city-guide.html",
-        "osrs-how-to-get-to-fossil-island-quick-guide.html",
-        "osrs-how-to-increase-slayer-points-fast.html",
-    ],
-    "osrs-desert-treasure-quest-guide-for-low-level.html": [
-        "osrs-how-to-finish-dragon-slayer-2-guide.html",
-        "osrs-how-to-complete-monkey-madness-quest.html",
-        "osrs-how-to-unlock-the-abyss-guide.html",
-    ],
-    "osrs-how-to-get-graceful-outfit-full-guide.html": [
-        "osrs-how-to-get-99-agility-fast-2026.html",
-        "osrs-fastest-99-agility-guide-2026.html",
-        "osrs-how-to-increase-slayer-points-fast.html",
-    ],
-    "osrs-how-to-complete-monkey-madness-quest.html": [
-        "osrs-how-to-finish-dragon-slayer-2-guide.html",
-        "osrs-desert-treasure-quest-guide-for-low-level.html",
-        "osrs-how-to-get-rune-pouch-guide.html",
-    ],
-    "osrs-how-to-get-rune-pouch-guide.html": [
-        "osrs-how-to-unlock-the-abyss-guide.html",
-        "osrs-cheapest-99-runecrafting-2026.html",
-        "osrs-how-to-complete-monkey-madness-quest.html",
-    ],
-    "osrs-how-to-finish-dragon-slayer-2-guide.html": [
-        "osrs-how-to-complete-monkey-madness-quest.html",
-        "osrs-desert-treasure-quest-guide-for-low-level.html",
-        "osrs-how-to-get-dragon-defender-2026.html",
-    ],
-    "osrs-how-to-unlock-the-abyss-guide.html": [
-        "osrs-how-to-get-rune-pouch-guide.html",
-        "osrs-cheapest-99-runecrafting-2026.html",
-        "osrs-desert-treasure-quest-guide-for-low-level.html",
-    ],
-    "osrs-how-to-complete-fremennik-trials-guide.html": [
-        "osrs-how-to-get-to-kourend-castle-quick-guide.html",
-        "osrs-how-to-unlock-fairy-rings-quick-guide.html",
-    ],
-    # Boss攻略类
-    "osrs-how-to-beat-zulrah-for-beginners-rotation-guide.html": [
-        "osrs-low-gear-setup-for-vorkath-guide.html",
-        "osrs-how-to-make-money-with-zulrah.html",
-        "osrs-how-to-fight-corporeal-beast-loot-guide.html",
-    ],
-    "osrs-low-gear-setup-for-vorkath-guide.html": [
-        "osrs-how-to-beat-zulrah-for-beginners-rotation-guide.html",
-        "osrs-how-to-fight-corporeal-beast-loot-guide.html",
-        "osrs-how-to-get-to-thermonuclear-smoke-devil.html",
-    ],
-    "osrs-how-to-solo-god-wars-boss-for-beginners.html": [
-        "osrs-low-gear-setup-for-vorkath-guide.html",
-        "osrs-grotesque-guardians-guide-for-low-stats.html",
-        "osrs-how-to-fight-corporeal-beast-loot-guide.html",
-    ],
-    "osrs-how-to-fight-corporeal-beast-loot-guide.html": [
-        "osrs-how-to-beat-zulrah-for-beginners-rotation-guide.html",
-        "osrs-chambers-of-xeric-loot-profit-guide.html",
-        "osrs-sarachnis-loot-guide-for-ironman.html",
-    ],
-    "osrs-how-to-get-to-thermonuclear-smoke-devil.html": [
-        "osrs-low-gear-setup-for-vorkath-guide.html",
-        "osrs-grotesque-guardians-guide-for-low-stats.html",
-        "osrs-how-to-get-to-alchemical-hydra-guide.html",
-    ],
-    "osrs-grotesque-guardians-guide-for-low-stats.html": [
-        "osrs-how-to-solo-god-wars-boss-for-beginners.html",
-        "osrs-how-to-get-to-thermonuclear-smoke-devil.html",
-        "osrs-how-to-fight-corporeal-beast-loot-guide.html",
-    ],
-    "osrs-how-to-get-to-alchemical-hydra-guide.html": [
-        "osrs-how-to-get-to-thermonuclear-smoke-devil.html",
-        "osrs-how-to-beat-zulrah-for-beginners-rotation-guide.html",
-        "osrs-sarachnis-loot-guide-for-ironman.html",
-    ],
-    "osrs-sarachnis-loot-guide-for-ironman.html": [
-        "osrs-chambers-of-xeric-loot-profit-guide.html",
-        "osrs-how-to-fight-corporeal-beast-loot-guide.html",
-        "osrs-how-to-make-money-with-zulrah.html",
-    ],
-    # 杂项场景类
-    "osrs-how-to-get-to-fossil-island-quick-guide.html": [
-        "osrs-how-to-unlock-dinosaur-hunting-osrs.html",
-        "osrs-1-99-woodcutting-guide-early-game.html",
-        "osrs-how-to-get-to-kourend-castle-quick-guide.html",
-    ],
-    "osrs-how-to-increase-slayer-points-fast.html": [
-        "osrs-how-to-get-graceful-outfit-full-guide.html",
-        "osrs-how-to-unlock-fairy-rings-quick-guide.html",
-        "osrs-how-to-beat-zulrah-for-beginners-rotation-guide.html",
-    ],
-    "osrs-how-to-get-house-teleport-tablet.html": [
-        "osrs-how-to-get-to-kourend-castle-quick-guide.html",
-        "osrs-how-to-unlock-fairy-rings-quick-guide.html",
-    ],
-    "osrs-how-to-get-to-kourend-castle-quick-guide.html": [
-        "osrs-how-to-get-to-fossil-island-quick-guide.html",
-        "osrs-how-to-complete-fremennik-trials-guide.html",
-        "osrs-how-to-get-house-teleport-tablet.html",
-    ],
-    "osrs-how-to-reclaim-twisted-bow-when-lost.html": [
-        "osrs-how-to-beat-zulrah-for-beginners-rotation-guide.html",
-        "osrs-low-gear-setup-for-vorkath-guide.html",
-        "osrs-sarachnis-loot-guide-for-ironman.html",
+        "osrs-questing-beginner-guide-2026.html",
     ],
 }
 
+GUIDES_DIR = Path(__file__).parent / "guides"
 
-def get_article_title(filepath):
-    """从HTML文件中提取标题"""
+def get_title_from_file(filepath):
+    """从 HTML 文件中提取 <h1> 或 <title> 作为文章标题"""
     try:
-        with open(filepath, 'r', encoding='utf-8') as f:
-            content = f.read()
-            # 尝试从 <title> 标签提取
-            title_match = re.search(r'<title>(.*?)</title>', content, re.IGNORECASE)
-            if title_match:
-                title = title_match.group(1)
-                # 清理标题
-                title = re.sub(r'OSRS\s*', '', title)
-                title = re.sub(r'\s*2026\s*', '', title)
-                title = title.strip()
-                return title
-    except:
+        content = filepath.read_text(encoding="utf-8")
+        # 优先找 h1
+        m = re.search(r"<h1[^>]*>(.*?)</h1>", content, re.DOTALL)
+        if m:
+            return re.sub(r"<[^>]+>", "", m.group(1)).strip()
+        # 其次找 title
+        m = re.search(r"<title>(.*?)</title>", content, re.DOTALL)
+        if m:
+            return m.group(1).strip()
+    except Exception:
         pass
-    return filepath.stem.replace('-', ' ').title()
+    return filepath.stem.replace("-", " ").title()
 
+def add_contextual_links(content, filename):
+    """
+    在正文段落中添加上下文内链。
+    规则：
+    1. 只在 <p> 标签内的文字添加（不碰 <h*>, <li>, <th>, <td> 里的）
+    2. 每个关键词只加第一次出现
+    3. 不破坏已有的 <a> 标签
+    """
+    # 找到 <main> 正文区域（在 guide-content 后的 <p> 标签）
+    # 简单策略：找到第一个 <p> 标签后，在接下来的 3 个 <p> 里加链接
+    links_added = set()  # 已添加的关键词，避免重复
 
-def add_internal_links_to_file(filepath, related_files):
-    """给单个HTML文件添加内链"""
-    try:
-        with open(filepath, 'r', encoding='utf-8') as f:
-            content = f.read()
-        
-        # 检查是否已经有内链部分
-        if 'class="related-guides"' in content or 'class="internal-links"' in content:
-            print(f"  ⏭️  已存在内链: {filepath.name}")
-            return False
-        
-        # 构建内链HTML
-        links_html = '\n        <div class="related-guides">\n            <h3><i class="fas fa-link"></i> Related Guides</h3>\n            <ul>\n'
-        
-        for related_file in related_files[:5]:  # 最多5个
-            related_path = GUIDES_DIR / related_file
-            if related_path.exists():
-                title = get_article_title(related_path)
-                links_html += f'                <li><a href="{related_file}">{title}</a></li>\n'
-            else:
-                print(f"  ⚠️  文件不存在: {related_file}")
-        
-        links_html += '            </ul>\n        </div>\n'
-        
-        # 在 </article> 或 </body> 前插入内链
-        insert_pos = content.rfind('</article>')
-        if insert_pos == -1:
-            # 如果没有 </article>，尝试在 </body> 前插入
-            insert_pos = content.rfind('</body>')
-        if insert_pos == -1:
-            print(f"  ❌ 找不到 </article> 或 </body>: {filepath.name}")
-            return False
-        
-        new_content = content[:insert_pos] + links_html + content[insert_pos:]
-        
-        with open(filepath, 'w', encoding='utf-8') as f:
-            f.write(new_content)
-        
-        print(f"  ✅ 已添加内链: {filepath.name}")
-        return True
-        
-    except Exception as e:
-        print(f"  ❌ 错误: {filepath.name} - {e}")
-        return False
+    def replace_in_p(match):
+        p_content = match.group(1)  # <p>...</p> 内部内容
+        modified = p_content
+        for keyword, target_file in KEYWORD_MAP.items():
+            # 跳过：指向自己的链接
+            if target_file == filename:
+                continue
+            # 跳过：已经加过的关键词
+            if keyword in links_added:
+                continue
+            # 检查目标文件是否存在
+            if not (GUIDES_DIR / target_file).exists():
+                continue
+            # 不在已有 <a> 标签内添加
+            if f'<a href="{target_file}"' in modified:
+                continue
+            # 只替换第一个出现（不在标签内的）
+            # 使用负向断言：不在 > 和 < 之间的（即不在标签内）
+            pattern = r"(?<![>\"])" + re.escape(keyword) + r"(?![^<]*</a>)"
+            # 更安全的做法：只替换不在 <a> 标签内的第一次出现
+            # 简化：直接替换第一次出现，如果它不在 <a>...</a> 内
+            def safe_replace(m):
+                word = m.group(0)
+                # 检查这个匹配是否在 <a> 标签内
+                # 简化：只替换第一个不在标签内的
+                return f'<a href="../guides/{target_file}" style="color:#d4af37;">{word}</a>'
+            if keyword in modified and f'<a href="' not in modified.split(keyword)[0].split(">")[-1]:
+                # 只在第一个 <p> 里加 1-2 个链接，避免过多
+                if len(links_added) < 3:
+                    modified = modified.replace(keyword, f'<a href="../guides/{target_file}" style="color:#d4af37;">{keyword}</a>', 1)
+                    links_added.add(keyword)
+        return "<p>" + modified + "</p>"
 
+    # 只处理 guide-content 里的 <p> 标签（前 5 个）
+    # 找到 guide-content 区域
+    gc_match = re.search(r'(<main class="guide-content">.*?)(?=<div class="related-guides"|<div class="inline-support-hint"|<footer|</main>)', content, re.DOTALL)
+    if not gc_match:
+        return content, []
 
-def add_internal_links_css():
-    """给CSS文件添加内链样式"""
-    css_file = BASE_DIR / "css" / "style.css"
-    
-    if not css_file.exists():
-        print(f"⚠️  CSS文件不存在: {css_file}")
-        return
-    
-    with open(css_file, 'r', encoding='utf-8') as f:
-        css_content = f.read()
-    
-    # 检查是否已有样式
-    if 'related-guides' in css_content:
-        print("⏭️  CSS样式已存在")
-        return
-    
-    # 添加样式
-    css_append = """
-/* Related Guides / Internal Links */
-.related-guides {
-    background: #f8f9fa;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 30px 0;
-}
+    prefix = content[:content.index(gc_match.group(1))]
+    body = gc_match.group(1)
+    suffix_start = content.index(gc_match.group(1)) + len(gc_match.group(1))
+    suffix = content[suffix_start:]
 
-.related-guides h3 {
-    color: #2c3e50;
-    margin-bottom: 15px;
-    font-size: 1.2em;
-}
+    # 在 body 里找前 5 个 <p> 标签，加内链
+    p_count = 0
+    def process_p(m):
+        nonlocal p_count
+        if p_count >= 5:
+            return m.group(0)
+        p_count += 1
+        return replace_in_p(m)
 
-.related-guides ul {
-    list-style: none;
-    padding: 0;
-}
+    new_body = re.sub(r"<p>(.*?)</p>", process_p, body, count=5, flags=re.DOTALL)
+    added = list(links_added)
+    return prefix + new_body + suffix, added
 
-.related-guides li {
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-}
+def fix_related_guides(content, filename):
+    """
+    修复 Related Guides 区块：
+    1. 移除纯文本项（没有 <a> 标签的 <li>）
+    2. 添加推荐的相关文章链接（如果还没有）
+    """
+    if filename not in RELATED_GUIDES:
+        return content, []
 
-.related-guides li:last-child {
-    border-bottom: none;
-}
+    recommended = RELATED_GUIDES[filename]
+    existing_links = set(re.findall(r'<li><a href="([^"]+)"', content))
+    to_add = [f for f in recommended if f not in existing_links and (GUIDES_DIR / f).exists()]
 
-.related-guides a {
-    color: #3498db;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
-}
-
-.related-guides a:hover {
-    color: #2980b9;
-    text-decoration: underline;
-}
-
-.related-guides i {
-    margin-right: 8px;
-    color: #3498db;
-}
+    # 构建新的 Related Guides 区块
+    related_section = """            <!-- Related Guides -->
+            <section class="related-guides">
+                <h2>Related Guides</h2>
+                <ul>
 """
-    
-    with open(css_file, 'a', encoding='utf-8') as f:
-        f.write(css_append)
-    
-    print("✅ 已添加CSS样式")
+    for f in recommended:
+        if not (GUIDES_DIR / f).exists():
+            continue
+        title = get_title_from_file(GUIDES_DIR / f)
+        # 简化标题
+        title = re.sub(r"\(2026\)|–.*|\|.*", "", title).strip()
+        related_section += f'                    <li><a href="{f}">{title}</a></li>\n'
+    related_section += """                </ul>
+            </section>
+"""
 
+    # 替换旧的 Related Guides 区块
+    new_content = re.sub(
+        r'(\s*<!-- Related Guides -->.*?</section>\s*)(?=<div class="inline-support-hint"|</main>)',
+        related_section,
+        content,
+        flags=re.DOTALL
+    )
+    if new_content == content:
+        # 尝试另一种匹配
+        new_content = re.sub(
+            r'(<section class="related-guides">.*?</section>)',
+            related_section.strip(),
+            content,
+            flags=re.DOTALL
+        )
+    return new_content, to_add
+
+def process_file(filepath, dry_run=False):
+    """处理单个文件"""
+    filename = filepath.name
+    print(f"\n📄 Processing: {filename}")
+    results = {"contextual": [], "related": []}
+
+    try:
+        content = filepath.read_text(encoding="utf-8")
+        original = content
+
+        # Step 1: 添加正文上下文内链
+        content, added = add_contextual_links(content, filename)
+        results["contextual"] = added
+        if added:
+            print(f"  + Added contextual links: {added}")
+
+        # Step 2: 修复 Related Guides
+        content, added_rg = fix_related_guides(content, filename)
+        results["related"] = added_rg
+        if added_rg:
+            print(f"  + Updated Related Guides: {added_rg}")
+
+        # 写回文件
+        if not dry_run and content != original:
+            filepath.write_text(content, encoding="utf-8")
+            print(f"  ✅ Saved: {filename}")
+        elif content == original:
+            print(f"  ⏭  No changes needed")
+
+    except Exception as e:
+        print(f"  ❌ Error: {e}")
+
+    return results
 
 def main():
-    print("=" * 60)
-    print("OSRS 攻略站内链批量添加工具")
-    print("=" * 60)
-    print()
-    
-    # 添加CSS样式
-    print("📋 步骤1: 添加CSS样式")
-    add_internal_links_css()
-    print()
-    
-    # 批量处理文件
-    print("📋 步骤2: 批量添加内链")
-    success_count = 0
-    skip_count = 0
-    error_count = 0
-    
-    for filename, related_files in INTERNAL_LINKS.items():
-        filepath = GUIDES_DIR / filename
-        
-        if not filepath.exists():
-            print(f"  ⚠️  文件不存在: {filename}")
-            error_count += 1
-            continue
-        
-        result = add_internal_links_to_file(filepath, related_files)
-        if result:
-            success_count += 1
-        else:
-            skip_count += 1
-    
-    print()
-    print("=" * 60)
-    print("✅ 完成！统计:")
-    print(f"   成功添加: {success_count} 篇")
-    print(f"   跳过(已存在): {skip_count} 篇")
-    print(f"   错误/缺失: {error_count} 篇")
-    print("=" * 60)
-    print()
-    print("📌 下一步:")
-    print("   1. 检查 guides/*.html 文件确认内链已添加")
-    print("   2. 提交到 git: git add . && git commit -m 'Add internal links for SEO'")
-    print("   3. 推送到GitHub: git push")
+    parser = argparse.ArgumentParser(description="OSRS Guru 内链批量修复脚本")
+    parser.add_argument("--dry-run", action="store_true", help="预览模式，不实际修改文件")
+    parser.add_argument("--file", type=str, help="只处理指定文件（文件名）")
+    args = parser.parse_args()
 
+    guides_dir = GUIDES_DIR
+    if not guides_dir.exists():
+        print(f"❌ Error: {guides_dir} not found!")
+        sys.exit(1)
+
+    files = list(guides_dir.glob("*.html"))
+    if args.file:
+        files = [f for f in files if f.name == args.file]
+        if not files:
+            print(f"❌ File not found: {args.file}")
+            sys.exit(1)
+
+    print(f"{'[DRY RUN] 预览模式 — 不修改文件' if args.dry_run else '[EXECUTE] 执行模式 — 将修改文件'}")
+    print(f"[INFO] Found {len(files)} HTML files")
+    print("=" * 60)
+
+    total_contextual = 0
+    total_related = 0
+    for f in sorted(files):
+        results = process_file(f, dry_run=args.dry_run)
+        total_contextual += len(results["contextual"])
+        total_related += len(results["related"])
+
+    print("\n" + "=" * 60)
+    print(f"✅ Done! Contextual links added: {total_contextual}")
+    print(f"✅ Related Guides updated: {total_related}")
+    if args.dry_run:
+        print("\n💡 移除 --dry-run 参数来实际执行修改")
 
 if __name__ == "__main__":
     main()
