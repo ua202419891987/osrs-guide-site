@@ -1,0 +1,15 @@
+// app 模块 build.gradle
+// 依赖 core + api
+
+description = '主应用'
+
+dependencies {
+    implementation project(':core')
+    implementation project(':api')
+}
+
+// 打包成可运行的 fat JAR
+tasks.register('runApp', JavaExec) {
+    mainClass = 'com.demo.app.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}

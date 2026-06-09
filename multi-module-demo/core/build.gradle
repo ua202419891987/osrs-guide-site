@@ -1,0 +1,4 @@
+// core 模块 build.gradle
+// 独立模块，不依赖其他子模块
+
+description = '共享工具库'

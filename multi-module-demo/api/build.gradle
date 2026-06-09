@@ -1,0 +1,8 @@
+// api 模块 build.gradle
+// 依赖 core 模块
+
+description = 'API 服务层'
+
+dependencies {
+    implementation project(':core')   // ← 关键！模块间依赖
+}

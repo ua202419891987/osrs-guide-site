@@ -1,0 +1,23 @@
+// =========================================
+// 根项目 build.gradle — 公共配置
+// 所有子模块共享这里的设置
+// =========================================
+
+// 不 apply java plugin，只做公共管理
+subprojects {
+    // 对所有子模块生效的配置
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    dependencies {
+        testImplementation 'junit:junit:4.13.2'
+    }
+}

@@ -1,0 +1,10 @@
+// =========================================
+// settings.gradle — 项目注册表
+// 告诉 Gradle 有哪些子模块
+// =========================================
+
+rootProject.name = 'multi-module-demo'
+
+include 'core'   // 共享工具库
+include 'api'    // API 层（依赖 core）
+include 'app'    // 主应用（依赖 core + api）
