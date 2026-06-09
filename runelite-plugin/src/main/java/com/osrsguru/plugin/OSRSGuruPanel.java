@@ -1,5 +1,7 @@
 package com.osrsguru.plugin;
 
+import net.runelite.client.ui.PluginPanel;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -27,7 +29,7 @@ import java.util.concurrent.Executors;
  * │  [Item name] [Check]     │
  * └──────────────────────────┘
  */
-public class OSRSGuruPanel extends JPanel {
+public class OSRSGuruPanel extends PluginPanel {
 
     private static final Color BG_COLOR = new Color(39, 33, 26);      // Dark brown
     private static final Color GOLD = new Color(212, 175, 55);

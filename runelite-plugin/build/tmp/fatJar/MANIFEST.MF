@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+RuneLite-Plugin-Class: com.osrsguru.plugin.OSRSGuruPlugin
+Plugin-Version: 1.0.0
+Plugin-Name: OSRS Guru AI
+Plugin-Description: AI-powered OSRS guide — ask questions, get boss ti
+ ps, and check GE prices without leaving the game.
+Plugin-Author: OSRS Guru
+Plugin-URL: https://osrsguru.com
+

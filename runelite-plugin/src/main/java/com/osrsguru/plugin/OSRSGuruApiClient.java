@@ -67,7 +67,7 @@ public class OSRSGuruApiClient {
      * Uses the OSRS Wiki real-time price API via the RAG backend.
      */
     public String checkPrice(String itemName) throws IOException {
-        String result = search("What is the current Grand Exchange price of " + itemName + "?");
+        SearchResult result = search("What is the current Grand Exchange price of " + itemName + "?");
         return result.answer;
     }
 

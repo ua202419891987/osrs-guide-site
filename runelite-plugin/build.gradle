@@ -6,8 +6,8 @@ group = 'com.osrsguru'
 version = '1.0.0'
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 repositories {
@@ -16,9 +16,9 @@ repositories {
 }
 
 dependencies {
-    // RuneLite Plugin API
-    compileOnly 'net.runelite:runelite-api:1.10.45'
-    compileOnly 'net.runelite:runelite-client:1.10.45'
+    // RuneLite Plugin API (compileOnly = provided by RuneLite at runtime)
+    compileOnly 'net.runelite:runelite-api:1.12.28'
+    compileOnly 'net.runelite:client:1.12.28'
 
     // HTTP client
     implementation 'com.squareup.okhttp3:okhttp:4.12.0'
@@ -32,7 +32,7 @@ dependencies {
 
     // Test
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'net.runelite:runelite-client:1.10.45'
+    testImplementation 'net.runelite:client:1.12.28'
 }
 
 // Build a fat JAR with all dependencies (OkHttp + Gson)
@@ -41,7 +41,16 @@ task fatJar(type: Jar) {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     from sourceSets.main.output
     from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
+    manifest {
+        attributes(
+            'RuneLite-Plugin-Class': 'com.osrsguru.plugin.OSRSGuruPlugin',
+            'Plugin-Version': project.version,
+            'Plugin-Name': 'OSRS Guru AI',
+            'Plugin-Description': 'AI-powered OSRS guide — ask questions, get boss tips, and check GE prices without leaving the game.',
+            'Plugin-Author': 'OSRS Guru',
+            'Plugin-URL': 'https://osrsguru.com',
+        )
+    }
 }
 
 jar {
