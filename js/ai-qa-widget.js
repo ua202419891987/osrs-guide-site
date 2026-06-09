@@ -236,31 +236,73 @@
   cursor: not-allowed;
 }
 
-/* 浮窗打开按钮 */
+/* 浮窗打开按钮 - 蓝色水蜜桃型卡通AI */
 #osrs-qa-toggle-btn {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 56px;
-  height: 56px;
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.6), rgba(212, 175, 55, 0.4));
-  border: 2px solid rgba(212, 175, 55, 0.8);
-  border-radius: 50%;
-  color: #1a0f08;
-  font-size: 24px;
+  width: 100px;
+  height: 108px;
+  background: #4A90D9;
+  border: none;
+  border-radius: 42% 42% 50% 50% / 44% 44% 58% 58%;
   cursor: pointer;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 9999;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 4px 20px rgba(74,144,217,0.45);
+  gap: 0;
+  outline: none;
+  padding: 0;
+  color: #fff;
+}
+
+/* 卡通脸 */
+#osrs-qa-toggle-btn .peach-face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+#osrs-qa-toggle-btn .peach-eyes {
+  display: flex;
+  gap: 14px;
+}
+
+#osrs-qa-toggle-btn .peach-eyes span {
+  display: block;
+  width: 10px;
+  height: 11px;
+  background: #1a3a5c;
+  border-radius: 50%;
+}
+
+#osrs-qa-toggle-btn .peach-mouth {
+  width: 22px;
+  height: 10px;
+  border-bottom: 2.5px solid #1a3a5c;
+  border-radius: 0 0 14px 14px;
+}
+
+/* AI 文字标签 */
+#osrs-qa-toggle-btn .ai-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  font-family: 'Segoe UI', 'Cinzel', sans-serif;
+  line-height: 1;
+  margin-top: 4px;
 }
 
 #osrs-qa-toggle-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.8), rgba(212, 175, 55, 0.6));
+  transform: scale(1.07);
+  box-shadow: 0 6px 28px rgba(74,144,217,0.6);
+  background: #5A9DE5;
 }
 
 #osrs-qa-toggle-btn.hide {
@@ -335,7 +377,7 @@
     // 打开按钮
     const toggleBtn = document.createElement('button');
     toggleBtn.id = CONFIG.widgetButtonId;
-    toggleBtn.innerHTML = '💬';
+    toggleBtn.innerHTML = '<div class="peach-face"><div class="peach-eyes"><span></span><span></span></div><div class="peach-mouth"></div></div><span class="ai-label">AI</span>';
     toggleBtn.title = 'Open OSRS AI Assistant';
 
     // 添加到页面
