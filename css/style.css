@@ -406,11 +406,34 @@ nav a.active{
 }
 .whats-new-header{
   display:flex;
-  align-items:baseline;
-  gap:8px;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
   margin-bottom:16px;
   padding-bottom:12px;
   border-bottom:1px solid var(--border-bronze);
+}
+.whats-new-header-left{
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+}
+.whats-new-promo{
+  font-size:.95rem;
+  color:var(--gold-light);
+  font-family:'Crimson Pro',serif;
+  font-style:italic;
+  text-shadow:0 1px 3px rgba(0,0,0,.4);
+}
+.whats-new-promo a{
+  color:var(--gold-light);
+  text-decoration:underline;
+  text-underline-offset:2px;
+  transition:color .2s;
+}
+.whats-new-promo a:hover{
+  color:#fff;
 }
 .whats-new-icon{font-size:1.8rem;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3))}
 .whats-new-title{
@@ -491,6 +514,8 @@ nav a.active{
   .whats-new-name{font-size:1.15rem}
   .whats-new-tag{display:none}
   .whats-new-date-inline{font-size:.92rem}
+  .whats-new-promo{font-size:.85rem;width:100%;text-align:center}
+  .whats-new-promo a{color:var(--gold-light)}
 }
 
 
