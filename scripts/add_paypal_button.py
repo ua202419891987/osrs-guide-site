@@ -9,7 +9,7 @@ GUIDES_DIR = r"C:\Users\Lenovo\osrs-guide-site\guides"
 ROOT_DIR = r"C:\Users\Lenovo\osrs-guide-site"
 
 # The PayPal button HTML to insert after </div> of support-amounts
-PAYPAL_BTN = """<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Support+OSRSGuru+-+Buy+me+a+pack+of+gum&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-btn paypal-btn" style="margin-top:12px;display:inline-block">Support on PayPal &#128179;</a>"""
+PAYPAL_BTN = """<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=m15881172167@163.com&amp;item_name=Support+OSRSGuru+-+Buy+me+a+pack+of+gum&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-btn paypal-btn" style="margin-top:12px;display:inline-block">Support on PayPal &#128179;</a>"""
 
 # Pattern: find support-amount-custom line, then its closing </div>
 # We match: ...support-amount-custom...Custom...</a> then \n + whitespace* + </div> (the amounts div close)

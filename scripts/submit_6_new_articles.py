@@ -83,7 +83,7 @@ def get_credentials():
             print("  Google OAuth Authorization Required")
             print("=" * 60)
             print("\n1. A browser tab will open")
-            print("2. Log in with: 1530398390@qq.com")
+            print("2. Log in with: m15881172167@163.com")
             print("3. Click 'Allow'")
             print("4. Browser will show 'This site can't be reached' - THAT'S OK!")
             print("   The script already received the token.\n")

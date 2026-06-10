@@ -34,3 +34,15 @@
 - 结果: **429 QUOTA EXCEEDED** — 连续第四天。15 个 URL 全部因配额跳过
 - 已提交累计: 96 URLs，待提交: 15 URLs（5 个 Batch 2 指南 + 5 个 6/6 新指南 + 5 个 ZH 页面）
 - ⚠️ 连续 4 天 429：建议将自动化执行时间改为北京时间下午 4 点后（太平洋时间午夜后），或暂停此自动化直到手动验证配额可用
+
+### 2026-06-10（上午 9:44）
+- 代理正常 (127.0.0.1:7897)
+- Sitemap: 111 URLs，96 已提交，15 新 URL 待提交
+- OAuth 脚本: **TOKEN EXPIRED** — `invalid_grant: Token has been expired or revoked`，Refresh token 被吊销
+- 新写 SA 脚本 `daily_indexing_submit.py`：使用服务账号 + requests + 代理，代理通道正常
+- SA 脚本结果: **HTTP 403 × 15** — `indexing-ap@osrsgu-indexin.iam.gserviceaccount.com` 无 Search Console 权限
+- 成功提交: **0**，失败: **15**（全部 403），剩余: **15**
+- 🔴 **根本原因**：双重封锁 — OAuth token 过期 + SA 无 Search Console 权限
+- 📋 **修复建议**：
+  1. 优先：在 Search Console 添加 SA 邮箱 `indexing-ap@osrsgu-indexin.iam.gserviceaccount.com` 为 Owner（一劳永逸）
+  2. 备选：本地手动运行 `submit_index_oauth.py` 重新 OAuth 授权

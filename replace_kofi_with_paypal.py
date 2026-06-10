@@ -8,7 +8,7 @@ import re
 PAYPAL_URL = (
     "https://www.paypal.com/cgi-bin/webscr"
     "?cmd=_xclick"
-    "&business=1530398390@qq.com"
+    "&business=m15881172167@163.com"
     "&item_name=Support+OSRSGuru+-+Buy+me+a+pack+of+gum"
     "&currency_code=USD"
     "&no_shipping=1"

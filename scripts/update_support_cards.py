@@ -49,13 +49,13 @@ NEW_CARD = """<!-- Support Card -->
             <h3>Buy me a pack of gum &mdash; let&apos;s be friends!</h3>
             <p>I&apos;m a game guide creator dedicated to helping OSRS players level up faster. Every donation goes directly into keeping this site updated with fresh content for the community. Support is always optional &mdash; pay what feels right.</p>
             <div class="support-amounts">
-                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Support+OSRSGuru&amp;amount=3&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$3</a>
-                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Support+OSRSGuru&amp;amount=5&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn recommended">$5 &#9733;</a>
-                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Support+OSRSGuru&amp;amount=10&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$10</a>
-                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Support+OSRSGuru+-+Buy+me+a+pack+of+gum&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-custom">Custom &#9998;</a>
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=m15881172167@163.com&amp;item_name=Support+OSRSGuru&amp;amount=3&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$3</a>
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=m15881172167@163.com&amp;item_name=Support+OSRSGuru&amp;amount=5&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn recommended">$5 &#9733;</a>
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=m15881172167@163.com&amp;item_name=Support+OSRSGuru&amp;amount=10&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$10</a>
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=m15881172167@163.com&amp;item_name=Support+OSRSGuru+-+Buy+me+a+pack+of+gum&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-custom">Custom &#9998;</a>
             </div>
             <div class="support-alt-pay">
-                <p>&#127468;&#127463; Chinese users prefer Alipay or WeChat? <a href="mailto:1530398390@qq.com?subject=OSRSGuru+Support" style="color:#d4af37;text-decoration:none;font-weight:600">Email me</a> for alternative payment.</p>
+                <p>&#127468;&#127463; Chinese users prefer Alipay or WeChat? <a href="mailto:m15881172167@163.com?subject=OSRSGuru+Support" style="color:#d4af37;text-decoration:none;font-weight:600">Email me</a> for alternative payment.</p>
             </div>
         </div>
     </div>
