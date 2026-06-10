@@ -181,6 +181,33 @@
   font-style: italic;
 }
 
+/* 引用文章链接 */
+#osrs-qa-widget .qa-article-link {
+  display: block;
+  margin-top: 8px;
+  padding: 8px 10px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 6px;
+  font-size: 12px;
+  color: #d4af37;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#osrs-qa-widget .qa-article-link:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.5);
+  color: #f0d060;
+}
+
+#osrs-qa-widget .qa-article-link .qa-link-icon {
+  margin-right: 5px;
+  font-size: 13px;
+}
+
 /* 输入区域 */
 #osrs-qa-widget .qa-input-group {
   border-top: 1px solid rgba(212, 175, 55, 0.2);
@@ -438,7 +465,9 @@
         // 显示 AI 回复
         const answer = data.answer || 'No answer available';
         const source = data.source || 'unknown';
-        addMessage(messagesContainer, answer, 'assistant', false, source);
+        const title = data.title || '';
+        const url = data.url || '';
+        addMessage(messagesContainer, answer, 'assistant', false, source, title, url);
       } catch (error) {
         console.error('RAG API error:', error);
         
@@ -469,7 +498,7 @@
   }
 
   // ========== 辅助函数 ==========
-  function addMessage(container, text, role = 'user', isLoading = false, source = null) {
+  function addMessage(container, text, role = 'user', isLoading = false, source = null, title = '', url = '') {
     const messageDiv = document.createElement('div');
     messageDiv.className = `qa-message ${role}`;
 
@@ -485,13 +514,24 @@
       sourceTag.className = 'qa-source';
       // 三段式 source 标签：数据源 + AI 模型
       let sourceLabel = '';
-      if (source === 'osrsguru_rag') sourceLabel = '📚 OSRS Guru';
-      else if (source === 'osrsguru_wiki') sourceLabel = '📚+📖 Guides + Wiki';
+      if (source === 'osrsguru') sourceLabel = '📚 OSRS Guru';
+      else if (source === 'osrs_wiki+deepseek') sourceLabel = '📚+🤖 Wiki + DeepSeek';
       else if (source === 'osrs_wiki') sourceLabel = '📖 OSRS Wiki';
-      else if (source === 'osrsguru_fallback') sourceLabel = '⚠️ OSRS Guru (offline)';
+      else if (source === 'deepseek') sourceLabel = '🤖 DeepSeek AI';
       else sourceLabel = '📚 OSRS Guru';
       sourceTag.textContent = `Source: ${sourceLabel}`;
       messageDiv.appendChild(sourceTag);
+
+      // 如果来自自己文章，添加可点击跳转链接
+      if (source === 'osrsguru' && title && url) {
+        const articleLink = document.createElement('a');
+        articleLink.className = 'qa-article-link';
+        articleLink.href = url;
+        articleLink.target = '_blank';
+        articleLink.rel = 'noopener';
+        articleLink.innerHTML = '<span class="qa-link-icon">📖</span>Read full guide: ' + title;
+        messageDiv.appendChild(articleLink);
+      }
     }
 
     container.appendChild(messageDiv);
