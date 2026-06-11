@@ -912,7 +912,7 @@ nav a.active{
 /* ========== FOOTER — Stone Tablet Style ========== */
 .site-footer,
 footer{
-  background:linear-gradient(180deg, var(--brown-deep), #1a0f08);
+  background:linear-gradient(180deg, var(--brown-deep), #3b2615);
   border-top:4px solid var(--gold-dark);
   color:var(--text-muted);
   padding:44px 0 24px;margin-top:56px;
