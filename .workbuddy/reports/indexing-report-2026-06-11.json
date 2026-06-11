@@ -1,0 +1,29 @@
+{
+  "date": "2026-06-11 09:29:44",
+  "status": "CONNECTION_ERROR",
+  "total_sitemap": 111,
+  "already_submitted_before": 96,
+  "new_found": 15,
+  "submitted_ok": 0,
+  "failed": 15,
+  "quota_exceeded": false,
+  "remaining_after": 15,
+  "failed_urls": [
+    "https://osrsguru.com/guides/osrs-1-99-magic-training-cheap-guide-2026.html",
+    "https://osrsguru.com/guides/osrs-1-99-farming-guide-beginner-profit-2026.html",
+    "https://osrsguru.com/guides/osrs-1-99-mining-guide-beginner-2026.html",
+    "https://osrsguru.com/guides/osrs-f2p-combat-training-guide-2026.html",
+    "https://osrsguru.com/guides/osrs-mid-game-breakthrough-guide-2026.html",
+    "https://osrsguru.com/guides/osrs-sailing-ship-crew-guide-2026.html",
+    "https://osrsguru.com/guides/osrs-sailing-afk-training-guide-2026.html",
+    "https://osrsguru.com/guides/osrs-toa-solo-beginner-guide-2026.html",
+    "https://osrsguru.com/guides/osrs-slayer-block-skip-list-2026.html",
+    "https://osrsguru.com/guides/osrs-corrupted-gauntlet-guide-2026.html",
+    "https://osrsguru.com/zh/index.html",
+    "https://osrsguru.com/zh/money-making.html",
+    "https://osrsguru.com/zh/skill-training.html",
+    "https://osrsguru.com/zh/quest-guides.html",
+    "https://osrsguru.com/zh/boss-guides.html"
+  ],
+  "failure_reason": "CONNECTION_TIMEOUT"
+}

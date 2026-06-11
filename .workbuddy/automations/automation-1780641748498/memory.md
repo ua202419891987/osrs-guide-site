@@ -46,3 +46,12 @@
 - 📋 **修复建议**：
   1. 优先：在 Search Console 添加 SA 邮箱 `indexing-ap@osrsgu-indexin.iam.gserviceaccount.com` 为 Owner（一劳永逸）
   2. 备选：本地手动运行 `submit_index_oauth.py` 重新 OAuth 授权
+
+### 2026-06-11（上午 9:28）
+- 代理正常 (127.0.0.1:7897)，SA Token 获取成功
+- Sitemap: 111 URLs，96 已提交，15 新 URL 待提交（与昨日相同，无新页面）
+- 脚本: `daily_indexing_submit.py` (SA + requests)
+- 结果: **HTTP 403 × 15** — 全部失败，SA 仍无 Search Console 权限
+- 成功: **0**，失败: **15**，剩余: **15**
+- 🔴 **连续 2 天 403** — SA `indexing-ap@osrsgu-indexin.iam.gserviceaccount.com` 未被添加为 Search Console Owner
+- ⚠️ **自动化已完全阻塞，直到手动修复 SA 权限为止。每日运行不会改变结果。**
