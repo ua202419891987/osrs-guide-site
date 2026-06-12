@@ -1,15 +1,20 @@
 @echo off
 chcp 65001 >nul
+echo ===== OSRS Guru - Git Push =====
+echo.
+
 cd /d "C:\Users\Lenovo\osrs-guide-site"
 
-echo [1/2] Staging all changes...
+echo [1/3] Staging all changes...
 git add -A
 
-echo.
-echo [2/2] Committing and pushing...
-git commit -m "4 fixes: logo swords+purple, nav black+white, HD images deduped, community forum page"
+echo [2/3] Committing...
+git commit -m "Giscus community forum + index image fixes"
+
+echo [3/3] Pushing to GitHub Pages...
 git push origin main
 
 echo.
-echo All done!
+echo ===== All done! =====
+echo Pages will be live in ~30 seconds.
 pause
