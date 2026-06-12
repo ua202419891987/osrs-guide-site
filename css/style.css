@@ -132,12 +132,12 @@ nav ul{
 
 .main-nav a,
 nav a{
-  color:var(--text-secondary);
-  padding:7px 14px;
+  color:#1a1a1a;
+  padding:8px 16px;
   border-radius:var(--radius-sm);
   font-family:'Inter',sans-serif;
-  font-size:.82rem;
-  font-weight:600;
+  font-size:1.25rem;
+  font-weight:700;
   letter-spacing:0.2px;
   text-decoration:none;
   border:1px solid transparent;
@@ -289,29 +289,30 @@ nav a.active{
   bottom:24px;
   right:24px;
   z-index:999;
-  background:linear-gradient(135deg,var(--lavender),var(--lavender-dark));
+  background:linear-gradient(135deg,#5B8DEF,#3B6FE8);
   color:#fff;
   border:none;
-  border-radius:50px;
-  padding:14px 24px;
+  border-radius:50%;
+  width:56px;
+  height:56px;
   font-family:'Inter',sans-serif;
-  font-size:.9rem;
+  font-size:1.5rem;
   font-weight:700;
   cursor:pointer;
-  box-shadow:0 4px 20px rgba(155,132,212,0.4);
+  box-shadow:0 4px 20px rgba(91,141,239,0.5);
   transition:all .3s ease;
-  display:flex;align-items:center;gap:8px;
+  display:flex;align-items:center;justify-content:center;
 }
 .ai-float-btn:hover{
-  transform:translateY(-2px) scale(1.02);
-  box-shadow:0 6px 28px rgba(155,132,212,0.5);
+  transform:translateY(-3px) scale(1.08);
+  box-shadow:0 8px 30px rgba(91,141,239,0.6);
 }
-.ai-float-btn .ai-icon{font-size:1.2rem}
+.ai-float-btn .ai-icon{font-size:1.5rem;line-height:1}
 .ai-float-btn .ai-pulse{
   position:absolute;
   top:0;left:0;right:0;bottom:0;
-  border-radius:50px;
-  background:rgba(155,132,212,0.3);
+  border-radius:50%;
+  background:rgba(91,141,239,0.3);
   animation:ai-pulse 2s ease-in-out infinite;
   z-index:-1;
 }
@@ -478,14 +479,16 @@ nav a.active{
 }
 .game-cat-body h3{
   font-family:'Cinzel',serif;
-  font-size:1rem;
+  font-size:1.15rem;
+  font-weight:700;
   color:var(--text-bright);
-  margin-bottom:4px;
+  margin-bottom:6px;
+  letter-spacing:0.02em;
 }
 .game-cat-body p{
-  font-size:.8rem;
+  font-size:.9rem;
   color:var(--text-secondary);
-  line-height:1.4;
+  line-height:1.5;
 }
 .game-cat-count{
   display:inline-block;
@@ -1328,15 +1331,21 @@ footer{
 .support-card{background:linear-gradient(135deg,#0f2a0f 0%,#1a3a1a 100%);border-radius:12px;padding:28px 24px;margin:32px 0;border:1px solid rgba(76,175,80,.15);box-shadow:0 4px 20px rgba(0,0,0,.35);position:relative;overflow:hidden}
 .support-card::before{content:'';position:absolute;top:-20px;right:-20px;width:100px;height:100px;background:radial-gradient(circle,rgba(76,175,80,.06) 0%,transparent 70%);border-radius:50%}
 .support-inner{display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:relative}
+.support-leaf{font-size:2rem;flex-shrink:0}
 .support-icon{font-size:2.2rem;flex-shrink:0}
 .support-text{flex:1;min-width:200px}
 .support-text h3{color:#e8f5e9;font-size:1.15rem;font-weight:700;margin-bottom:6px;border:none;padding:0}
 .support-text p{color:rgba(255,255,255,.6);font-size:.88rem;line-height:1.5;margin:0}
-.support-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:linear-gradient(135deg,#2e7d32,#1b5e20);color:#fff;border:none;border-radius:50px;font-size:.95rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all .3s;box-shadow:0 4px 16px rgba(46,125,50,.4);white-space:nowrap;flex-shrink:0}
-.support-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(46,125,50,.55);color:#fff}
+.support-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;position:relative}
+.support-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:50px;font-size:.95rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all .3s;white-space:nowrap}
+.support-btn:hover{background:rgba(76,175,80,.3);border-color:rgba(76,175,80,.6);transform:translateY(-2px);color:#fff}
+.support-btn-featured{background:linear-gradient(135deg,#2e7d32,#1b5e20)!important;border-color:rgba(76,175,80,.6)!important;box-shadow:0 4px 16px rgba(46,125,50,.4)}
+.support-btn-featured:hover{box-shadow:0 6px 24px rgba(46,125,50,.55)!important}
+.support-btn-custom{background:transparent!important;border-style:dashed!important;color:rgba(255,255,255,.7)!important}
+.support-btn-custom:hover{background:rgba(255,255,255,.08)!important;color:#fff!important}
 .paypal-btn{background:linear-gradient(135deg,#2e7d32,#1b5e20);box-shadow:0 4px 16px rgba(46,125,50,.45);color:#fff}
 .paypal-btn:hover{box-shadow:0 6px 24px rgba(46,125,50,.6);color:#fff}
-@media(max-width:640px){.support-inner{flex-direction:column;text-align:center;gap:16px}.support-text{min-width:unset}}
+@media(max-width:640px){.support-inner{flex-direction:column;text-align:center;gap:16px}.support-text{min-width:unset}.support-btns{justify-content:center}}
 
 /* Support Card — Amount Selection Buttons */
 .support-amounts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;width:100%}
