@@ -122,7 +122,7 @@ header .logo{
   transition:text-shadow .3s ease;
 }
 header .logo:hover{text-decoration:none;color:var(--lavender)}
-header .logo span{color:var(--gold)}
+header .logo span{color:var(--lavender-dark)}
 
 .main-nav,
 nav,
@@ -153,15 +153,10 @@ nav a.active{
   text-decoration:none;
 }
 
-/* AI nav highlight */
+/* AI Q&A nav — same style as other nav items */
 .nav-ai{
-  background:linear-gradient(135deg,var(--lavender),var(--lavender-dark))!important;
-  color:#1a1a1a!important;
+  background:none!important;
   border-color:transparent!important;
-}
-.nav-ai:hover{
-  background:linear-gradient(135deg,var(--lavender-dark),var(--lavender))!important;
-  color:#1a1a1a!important;
 }
 
 
@@ -401,9 +396,9 @@ nav a.active{
 }
 .task-cta-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:16px;
-  max-width:900px;
+  max-width:1100px;
   margin:0 auto;
 }
 .task-cta-card{
@@ -895,13 +890,6 @@ nav a.active{
 .new-guide-card p{font-size:.88rem;color:var(--text-secondary);line-height:1.55;margin-bottom:8px}
 
 /* Featured New Player Guide Card */
-.nav-highlight{
-  color: var(--gold) !important;
-  font-weight: 700;
-  text-shadow: 0 0 8px rgba(230,168,23,.3);
-  animation: nav-pulse 2s ease-in-out infinite;
-}
-@keyframes nav-pulse{0%,100%{text-shadow:0 0 8px rgba(230,168,23,.3)}50%{text-shadow:0 0 16px rgba(230,168,23,.6)}}
 
 .featured-guide-card{
   display: block;

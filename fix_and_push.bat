@@ -7,7 +7,7 @@ git add -A
 
 echo.
 echo [2/2] Committing and pushing...
-git commit -m "UI update: remove hero, nav black bold, HD images for CTAs and categories, img height 200px"
+git commit -m "4 fixes: logo swords+purple, nav black+white, HD images deduped, community forum page"
 git push origin main
 
 echo.
