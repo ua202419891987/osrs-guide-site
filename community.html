@@ -3,8 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OSRS Guru Community Forum — Connect &amp; Discuss</title>
-<meta name="description" content="Join the OSRS Guru community. Ask questions, share strategies, and connect with other Old School RuneScape players. Powered by GitHub Discussions.">
+<title>OSRS Community Forum — Discuss & Share Strategies | OSRS Guru</title>
+<link rel="alternate" hreflang="en" href="https://osrsguru.com/community.html">
+<link rel="alternate" hreflang="x-default" href="https://osrsguru.com/community.html">
+<meta name="description" content="Join the OSRS Guru community forum. Ask questions, share strategies, and connect with Old School RuneScape players worldwide.">
+<meta name="keywords" content="OSRS community, OSRS forum, OSRS discussion, Old School RuneScape community">
+<meta property="og:title" content="OSRS Community Forum — OSRS Guru">
+<meta property="og:description" content="Ask questions, share strategies, and connect with OSRS players. Join the OSRS Guru community!">
+<meta property="og:type" content="website">
 <link rel="canonical" href="https://osrsguru.com/community.html">
 <link rel="stylesheet" href="css/style.css">
 <!-- Google tag (gtag.js) -->
@@ -15,15 +21,30 @@
   gtag('js', new Date());
   gtag('config', 'G-S1BGC91MYV');
 </script>
+<script>
+if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.location.href.replace(/^https?:\/\/www\./,'https://')}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "OSRS Community Forum",
+  "url": "https://osrsguru.com/community.html",
+  "description": "OSRS community forum for discussing strategies and sharing tips",
+  "isPartOf": {"@type": "WebSite", "name": "OSRS Guru", "url": "https://osrsguru.com"}
+}
+</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
 </head>
 <body>
 
+<!-- ========== HEADER ========== -->
 <header class="site-header">
   <div class="header-inner">
-    <a href="index.html" class="logo">⚔️ OSRS <span>Guru</span> ⚔️</a>
+    <a href="index.html" class="logo">⚔ OSRS <span>Guru</span></a>
+    <div class="logo-badge">150+ Guides · Free</div>
     <nav class="main-nav">
-      <a href="guides/osrs-new-player-guide-2026.html">New Players</a>
+      <a href="guides/osrs-new-player-guide-2026.html" class="nav-cta">🆕 New Players</a>
       <a href="money-making.html">Money Making</a>
       <a href="skill-training.html">Skills</a>
       <a href="quest-guides.html">Quests</a>
@@ -33,124 +54,160 @@
   </div>
 </header>
 
-<div class="container" style="padding-top:32px;padding-bottom:40px">
-
-  <div class="section-header">
-    <div class="section-title">Community Forum</div>
+<!-- ========== HERO ========== -->
+<section class="guide-hero">
+  <h1>Community Forum</h1>
+  <p class="guide-subtitle">Ask questions. Share strategies. Connect with OSRS players worldwide.</p>
+  <div class="article-meta" style="justify-content:center;margin-top:12px">
+    <span>🎯 Updated June 2026</span>
   </div>
-  <p style="color:#7B768A;font-size:1.05rem;margin-bottom:28px;text-align:center">Your private hub for OSRS discussions. Ask questions, share strategies, and connect with fellow players.</p>
+</section>
 
-  <!-- ========== DISQUS DISCUSSION FORUM ========== -->
-  <div style="background:#fff;border:1px solid #D4CDE0;border-radius:12px;padding:32px 28px;margin-bottom:28px;box-shadow:0 2px 12px rgba(26,22,37,0.06)">
-    <h2 style="font-family:'Cinzel',serif;color:#1A1625;font-size:1.35rem;margin-bottom:6px;text-align:center">💬 Player Discussions</h2>
-    <p style="color:#7B768A;font-size:0.92rem;text-align:center;margin-bottom:20px">Ask a question, share a strategy, or start a discussion. Sign in with Google, Twitter, Facebook, or email — no GitHub required!</p>
+<div class="container">
+
+  <!-- ========== COMMUNITY INTRO ========== -->
+  <div class="guide-content" style="max-width:800px;margin:0 auto;padding:40px 24px">
+
+    <h2>Welcome to the OSRS Guru Community</h2>
+    <p>This is your space to discuss Old School RuneScape strategies, ask questions, and share your achievements with fellow players. Whether you're a new player or a veteran, everyone is welcome!</p>
+
+    <h2>How to Participate</h2>
+    <ul>
+      <li><strong>Ask Questions</strong> — Stuck on a quest? Can't beat a boss? Ask below and get help from experienced players.</li>
+      <li><strong>Share Strategies</strong> — Found a great money-making method? Discovered an efficient training route? Share it with the community!</li>
+      <li><strong>Show Off</strong> — Got a drop? Reached 99? Celebrate your achievements with others.</li>
+      <li><strong>Discuss Updates</strong> — Talk about the latest OSRS updates, meta changes, and game developments.</li>
+    </ul>
+
+    <h2>Community Guidelines</h2>
+    <ul>
+      <li>Be respectful and helpful to other players.</li>
+      <li>No spam, scams, or malicious content.</li>
+      <li>Keep discussions OSRS-related.</li>
+      <li>Don't share account credentials or encourage rule-breaking.</li>
+    </ul>
+
+    <hr style="margin:32px 0;border:none;border-top:1px solid var(--border-bronze)">
+
+    <!-- ========== DISQUS COMMENTS ========== -->
+    <h2>Join the Discussion</h2>
+    <p style="color:var(--text-secondary);margin-bottom:20px">Logged-in users can comment below. Make sure to follow our community guidelines.</p>
+
     <div id="disqus_thread"></div>
     <script>
-      var disqus_config = function () {
-        this.page.url = 'https://osrsguru.com/community.html';
-        this.page.identifier = 'osrs-guru-community';
-      };
-      (function() {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://osrs-guru-community.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-      })();
+        var disqus_config = function () {
+            this.page.url = 'https://osrsguru.com/community.html';
+            this.page.identifier = 'community-forum';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://osrsguru.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
   </div>
 
-  <!-- ========== DISCORD COMMUNITY ========== -->
-  <div style="background:#fff;border:1px solid #D4CDE0;border-radius:12px;padding:36px 32px;margin-bottom:28px;text-align:center;box-shadow:0 2px 12px rgba(26,22,37,0.08)">
-    <span style="font-size:2.8rem;display:block;margin-bottom:12px">🎮</span>
-    <h2 style="font-family:'Cinzel',serif;color:#1A1625;font-size:1.4rem;margin-bottom:10px">Join Our Discord Community</h2>
-    <p style="color:#7B768A;font-size:1rem;max-width:560px;margin:0 auto 20px;line-height:1.65">
-      Connect with 500+ OSRS players in real time. Get instant help with quests, share your achievements, vote on upcoming guides, and be part of the community that shapes OSRS Guru.
-    </p>
-    <a href="https://discord.gg/osrsguru" target="_blank" rel="noopener" style="display:inline-block;padding:14px 36px;background:linear-gradient(180deg,#9B84D4,#7A64B8);color:#fff;font-family:'Inter',sans-serif;font-weight:700;font-size:1rem;border-radius:8px;text-decoration:none;border:2px solid #7A64B8;box-shadow:0 3px 12px rgba(122,100,184,0.25);transition:all .25s">Join Discord Community →</a>
-    <p style="color:#A098B0;font-size:0.82rem;margin-top:14px">Prefer async discussion? Use the forum above. For real-time chat, join us on Discord.</p>
-  </div>
-
-  <!-- Features Grid -->
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-bottom:28px">
-    <div style="background:#fff;border:1px solid #D4CDE0;border-radius:10px;padding:24px 20px;text-align:center;box-shadow:0 2px 12px rgba(26,22,37,0.06)">
-      <span style="font-size:2rem;display:block;margin-bottom:10px">❓</span>
-      <h3 style="font-family:'Cinzel',serif;color:#1A1625;font-size:1.05rem;margin-bottom:8px">Ask Questions</h3>
-      <p style="color:#7B768A;font-size:0.88rem;line-height:1.55">Stuck on a quest or need gear advice? Our community has your back 24/7.</p>
+  <!-- ========== SUPPORT CARD ========== -->
+  <div class="support-card">
+    <div class="support-inner">
+      <span class="support-leaf">🌿</span>
+      <div class="support-text">
+        <h3>Enjoying the community?</h3>
+        <p>Support OSRS Guru to keep this community thriving. Every contribution helps keep the site updated with fresh content for everyone!</p>
+      </div>
     </div>
-    <div style="background:#fff;border:1px solid #D4CDE0;border-radius:10px;padding:24px 20px;text-align:center;box-shadow:0 2px 12px rgba(26,22,37,0.06)">
-      <span style="font-size:2rem;display:block;margin-bottom:10px">📊</span>
-      <h3 style="font-family:'Cinzel',serif;color:#1A1625;font-size:1.05rem;margin-bottom:8px">Share Strategies</h3>
-      <p style="color:#7B768A;font-size:0.88rem;line-height:1.55">Post your money making methods, boss setups, and training routes. Help others level up.</p>
+    <div class="support-btns">
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="m15881172167@163.com">
+        <input type="hidden" name="amount" value="3">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="item_name" value="OSRS Guru Support">
+        <button type="submit" class="support-btn">$3</button>
+      </form>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="m15881172167@163.com">
+        <input type="hidden" name="amount" value="5">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="item_name" value="OSRS Guru Support">
+        <button type="submit" class="support-btn support-btn-featured">$5 ⭐</button>
+      </form>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="m15881172167@163.com">
+        <input type="hidden" name="amount" value="10">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="item_name" value="OSRS Guru Support">
+        <button type="submit" class="support-btn">$10</button>
+      </form>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="m15881172167@163.com">
+        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="item_name" value="OSRS Guru Support">
+        <button type="submit" class="support-btn support-btn-custom">Custom 🪄</button>
+      </form>
     </div>
-    <div style="background:#fff;border:1px solid #D4CDE0;border-radius:10px;padding:24px 20px;text-align:center;box-shadow:0 2px 12px rgba(26,22,37,0.06)">
-      <span style="font-size:2rem;display:block;margin-bottom:10px">🗳️</span>
-      <h3 style="font-family:'Cinzel',serif;color:#1A1625;font-size:1.05rem;margin-bottom:8px">Vote on Guides</h3>
-      <p style="color:#7B768A;font-size:0.88rem;line-height:1.55">Decide what guides we write next. Your voice shapes the future of OSRS Guru.</p>
-    </div>
-    <div style="background:#fff;border:1px solid #D4CDE0;border-radius:10px;padding:24px 20px;text-align:center;box-shadow:0 2px 12px rgba(26,22,37,0.06)">
-      <span style="font-size:2rem;display:block;margin-bottom:10px">🤝</span>
-      <h3 style="font-family:'Cinzel',serif;color:#1A1625;font-size:1.05rem;margin-bottom:8px">Find Teammates</h3>
-      <p style="color:#7B768A;font-size:0.88rem;line-height:1.55">Looking for a raid team or duo partner? Connect with players at your level.</p>
-    </div>
-  </div>
-
-  <!-- Community Guidelines -->
-  <div style="background:#fff;border:1px solid #D4CDE0;border-radius:12px;padding:28px 32px;box-shadow:0 2px 12px rgba(26,22,37,0.06)">
-    <h3 style="font-family:'Cinzel',serif;color:#7A64B8;font-size:1.15rem;margin-bottom:14px">Community Guidelines</h3>
-    <ul style="color:#2D2A33;font-size:0.95rem;line-height:2;padding-left:20px">
-      <li><strong>Be respectful</strong> — Treat others the way you want to be treated in Gielinor.</li>
-      <li><strong>No RWT / botting</strong> — We follow Jagex rules. Real-world trading and bot discussions are not allowed.</li>
-      <li><strong>Help others</strong> — If someone asks a question you know the answer to, share your knowledge.</li>
-      <li><strong>Keep it OSRS</strong> — This is an Old School RuneScape community. Stay on topic.</li>
-      <li><strong>No spam</strong> — Self-promotion, advertising, and spam will be removed.</li>
-    </ul>
   </div>
 
 </div>
 
-<!-- FOOTER -->
+<!-- ========== FOOTER ========== -->
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">OSRS Guru</div>
         <p>Your go-to resource for OSRS strategy guides. 150+ verified articles updated for 2026. AI-powered Q&A included.</p>
-        <p style="margin-top:8px"><a href="about.html" style="color:#A098B0">About</a> · <a href="privacy-policy.html" style="color:#A098B0">Privacy Policy</a> · <a href="mailto:1530398390@qq.com" style="color:#A098B0">Contact</a></p>
+        <p style="margin-top:8px"><a href="about.html" style="color:var(--text-muted)">About</a> · <a href="privacy-policy.html" style="color:var(--text-muted)">Privacy Policy</a> · <a href="mailto:1530398390@qq.com" style="color:var(--text-muted)">Contact</a></p>
       </div>
-      <div class="footer-col"><h4>Community</h4><ul>
-        <li><a href="community.html">Forum</a></li>
-        <li><a href="https://discord.gg/osrsguru" target="_blank">Discord</a></li>
-        <li><a href="mailto:1530398390@qq.com">Contact</a></li>
+      <div class="footer-col"><h4>Money Making</h4><ul>
+        <li><a href="guides/osrs-ironman-money-making-f2p-2026.html">Ironman F2P</a></li>
+        <li><a href="guides/osrs-killing-green-dragons-money-per-hour.html">Green Dragons</a></li>
+        <li><a href="guides/osrs-wintertodt-money-making-per-hour.html">Wintertodt GP</a></li>
+        <li><a href="money-making.html">All Methods →</a></li>
       </ul></div>
-      <div class="footer-col"><h4>Guides</h4><ul>
-        <li><a href="money-making.html">Money Making</a></li>
-        <li><a href="skill-training.html">Skills</a></li>
-        <li><a href="quest-guides.html">Quests</a></li>
-        <li><a href="boss-guides.html">Bosses</a></li>
+      <div class="footer-col"><h4>Skill Training</h4><ul>
+        <li><a href="guides/osrs-fastest-99-cooking-f2p.html">99 Cooking F2P</a></li>
+        <li><a href="guides/osrs-cheapest-99-runecrafting-2026.html">99 Runecrafting</a></li>
+        <li><a href="guides/osrs-how-to-get-99-agility-fast-2026.html">99 Agility Fast</a></li>
+        <li><a href="skill-training.html">All Skills →</a></li>
       </ul></div>
-      <div class="footer-col"><h4>New Players</h4><ul>
-        <li><a href="guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
-        <li><a href="monthly-updates.html">Monthly Updates</a></li>
-        <li><a href="weekly-updates.html">Weekly Updates</a></li>
+      <div class="footer-col"><h4>🗺️ New Players</h4><ul>
+        <li><a href="guides/osrs-new-player-guide-2026.html">New Player Guide 2026</a></li>
+        <li><a href="guides/osrs-interface-controls-beginner-guide-2026.html">🎮 Interface & Controls</a></li>
+        <li><a href="guides/osrs-combat-triangle-explained-2026.html">⚔️ Combat Triangle</a></li>
+        <li><a href="guides/osrs-all-skills-overview-guide-2026.html">🎯 All Skills Overview</a></li>
       </ul></div>
-      <div class="footer-col"><h4>Chinese</h4><ul>
-        <li><a href="zh/index.html">Chinese Station</a></li>
-        <li><a href="zh/monthly-updates.html">Monthly CN</a></li>
-        <li><a href="zh/weekly-updates.html">Weekly CN</a></li>
+      <div class="footer-col"><h4>Boss & Quests</h4><ul>
+        <li><a href="guides/osrs-how-to-beat-zulrah-beginners-rotation.html">Zulrah Guide</a></li>
+        <li><a href="guides/osrs-low-gear-setup-vorkath-guide.html">Vorkath Guide</a></li>
+        <li><a href="guides/osrs-how-to-get-dragon-defender-2026.html">Dragon Defender</a></li>
+        <li><a href="quest-guides.html">All Quests →</a></li>
       </ul></div>
     </div>
-    <div class="footer-bottom"><span>&copy; 2026 OSRS Guru — Fan site, not affiliated with Jagex Ltd.</span><span>Old School RuneScape is a trademark of Jagex Ltd.</span></div>
+    <div class="footer-bottom"><span>© 2026 OSRS Guru — Fan site, not affiliated with Jagex Ltd.</span><span>Old School RuneScape is a trademark of Jagex Ltd.</span></div>
     <p class="footer-disclaimer">This site may contain affiliate links. We earn a small commission at no extra cost to you.</p>
   </div>
 </footer>
 
+<!-- ========== AI FLOATING BUTTON ========== -->
 <div id="osrs-qa-toggle-btn" class="ai-float-btn" title="Ask OSRS AI">
   <span class="ai-pulse"></span>
   <span class="ai-icon">🤖</span>
 </div>
 
+<!-- ========== RANDOM GUIDE FLOAT BUTTON ========== -->
+<div id="random-guide-btn" class="random-float-btn" title="Random Guide" onclick="openRandomGuide()">🎲</div>
+
 <script src="js/features.js"></script>
 <script src="js/ai-qa-widget.js"></script>
+<script src="js/random-guide.js"></script>
+<!-- Bottom style fix -->
+<style>.guide-content li{color:#e8d5b7!important}</style>
 </body>
 </html>
