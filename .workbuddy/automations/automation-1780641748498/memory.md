@@ -2,6 +2,18 @@
 
 ## 执行历史
 
+### 2026-06-13（上午 9:10）
+- 代理正常 (127.0.0.1:7897)，OAuth Token 刷新成功
+- Sitemap: 111 URLs 总计，96 已提交，15 新 URL 待提交
+- 脚本: submit_index_oauth.py (OAuth + requests)
+- 🟢 **突破！成功提交 5 个 URL！** — 连续 8 天失败后首次成功
+- 成功: **5** (Batch 2 指南: magic/farming/mining/f2p-combat/mid-game)，失败: **10**（全部 429 配额耗尽）
+- 第 6 个 URL 开始触发 429，说明 200 次/天配额在 09:10 仍有少量剩余
+- 成功 URL（5）：osrs-1-99-magic-training-cheap-guide-2026 / osrs-1-99-farming-guide-beginner-profit-2026 / osrs-1-99-mining-guide-beginner-2026 / osrs-f2p-combat-training-guide-2026 / osrs-mid-game-breakthrough-guide-2026
+- 失败 URL（10）：5 个 June 新指南 + 5 个 ZH 页面
+- 已提交累计: 101 URLs，待提交: 10 URLs
+- 📊 剩余: sailing-ship-crew / sailing-afk-training / toa-solo-beginner / slayer-block-skip / corrupted-gauntlet / zh首页 / zh-money / zh-skill / zh-quest / zh-boss
+
 ### 2026-06-06
 - 代理状态: Clash Verge 127.0.0.1:7897 可用
 - 脚本执行成功，OAuth 认证通过

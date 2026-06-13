@@ -124,6 +124,21 @@ header .logo{
 header .logo:hover{text-decoration:none;color:var(--lavender)}
 header .logo span{color:var(--lavender-dark)}
 
+.logo-badge{
+  display:inline-flex;align-items:center;
+  font-family:'Inter',sans-serif;
+  font-size:.72rem;
+  font-weight:700;
+  color:#fff;
+  background:linear-gradient(135deg,#9B84D4,#7A64B8);
+  padding:4px 12px;
+  border-radius:20px;
+  letter-spacing:0.5px;
+  margin-left:10px;
+  vertical-align:middle;
+  box-shadow:0 2px 8px rgba(122,100,184,0.3);
+}
+
 .main-nav,
 nav,
 nav ul{
@@ -157,6 +172,26 @@ nav a.active{
 .nav-ai{
   background:none!important;
   border-color:transparent!important;
+}
+
+/* New Players — purple medieval capsule CTA */
+.nav-cta{
+  background:#6b4fa3!important;
+  color:#f0d68c!important;
+  border-radius:20px;
+  padding:6px 16px;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  text-decoration:none;
+  border:2px solid #8b6fc8;
+  transition:background .2s,transform .15s;
+}
+.nav-cta:hover{
+  background:#7c5fb8!important;
+  color:#fff6d0!important;
+  transform:translateY(-1px);
 }
 
 
@@ -384,10 +419,11 @@ nav a.active{
 }
 .task-cta-title{
   font-family:'Cinzel',serif;
-  font-size:1.6rem;
-  font-weight:700;
+  font-size:2.4rem;
+  font-weight:900;
   color:var(--text-bright);
   margin-bottom:8px;
+  letter-spacing:0.5px;
 }
 .task-cta-subtitle{
   color:var(--text-secondary);
@@ -514,6 +550,21 @@ nav a.active{
   font-weight:600;
 }
 .verified-badge .v-icon{font-size:.9rem}
+
+/* Starting Point Badge — Stage 0.1 */
+.start-badge{
+  position:absolute;
+  top:12px;right:12px;
+  background:linear-gradient(135deg,#d4af37,#f0d060);
+  color:#1a1a1a;
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:.78rem;
+  font-weight:700;
+  display:inline-flex;align-items:center;gap:4px;
+  box-shadow:0 2px 8px rgba(212,175,55,.4);
+  z-index:2;
+}
 
 
 /* ========== DISCORD SECTION ========== */
@@ -1389,6 +1440,21 @@ footer{
 }
 .badge-icon { font-size: 1.1rem; }
 
+/* Guide Banner — top of article */
+.guide-banner{
+  background:linear-gradient(135deg,#2C8C7A 0%,#3AAF8A 100%);
+  color:#000;
+  border-radius:12px;
+  padding:14px 20px;
+  margin:16px 0;
+  font-size:1rem;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  box-shadow:0 2px 8px rgba(44,140,122,.2);
+}
+
 /* Stage Roadmap */
 .stage-roadmap {
   display: flex;
@@ -1873,4 +1939,32 @@ footer{
   .newsletter-section{padding: 28px 20px}
   .newsletter-section h3{font-size: 1.1rem}
   .newsletter-inline{flex-direction: column; text-align: center}
+}
+
+/* ===== RANDOM GUIDE FLOAT BUTTON ===== */
+.random-float-btn{
+  position: fixed;
+  bottom: 100px;
+  right: 32px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f9a825, #f57f17);
+  color: #1a1a1a;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(249, 168, 37, 0.4);
+  z-index: 999;
+  transition: transform 0.2s, box-shadow 0.2s;
+  user-select: none;
+}
+.random-float-btn:hover{
+  transform: scale(1.12);
+  box-shadow: 0 6px 28px rgba(249, 168, 37, 0.6);
+}
+@media(max-width:640px){
+  .random-float-btn{bottom: 80px; right: 20px; width: 48px; height: 48px; font-size: 1.3rem}
 }
