@@ -771,9 +771,19 @@ nav a.active{
   background:#fff;
   border:1px solid var(--border-bronze);
   border-radius:var(--radius-lg);
-  padding:28px 32px;
+  padding:0;
   margin:0 0 40px 0;
   box-shadow:var(--shadow-soft);
+  overflow:hidden;
+}
+.whats-new-body{
+  padding:16px 18px;
+}
+.whats-new-img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  display:block;
 }
 .whats-new-header{
   display:flex;
@@ -887,7 +897,7 @@ nav a.active{
 .whats-new-footer a:hover{color:var(--lavender-dark);text-decoration:underline}
 
 @media(max-width:768px){
-  .whats-new-section{padding:18px 20px;margin-bottom:28px}
+  .whats-new-body{padding:18px 20px}
   .whats-new-name{font-size:1.15rem}
   .whats-new-tag{display:none}
   .whats-new-date-inline{font-size:.92rem}
