@@ -116,7 +116,7 @@ header .logo{
   font-family:'Cinzel',serif;
   color:var(--lavender-dark);
   font-weight:900;
-  font-size:1.25rem;
+  font-size:1.65rem;
   letter-spacing:0.5px;
   text-decoration:none;
   transition:text-shadow .3s ease;
@@ -151,7 +151,7 @@ nav a{
   padding:8px 16px;
   border-radius:var(--radius-sm);
   font-family:'Inter',sans-serif;
-  font-size:1.25rem;
+  font-size:1.15rem;
   font-weight:700;
   letter-spacing:0.2px;
   text-decoration:none;

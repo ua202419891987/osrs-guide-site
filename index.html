@@ -55,7 +55,7 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
       <a href="skill-training.html">Skills</a>
       <a href="quest-guides.html">Quests</a>
       <a href="boss-guides.html">Bosses</a>
-      <a href="#" onclick="document.querySelector('.ai-float-btn').click();return false;">AI Q&A</a>
+      <a href="#" onclick="document.getElementById('osrs-qa-toggle-btn').click();return false;">AI Q&A</a>
     </nav>
   </div>
 </header>
@@ -561,17 +561,7 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
   </div>
 </footer>
 
-<!-- ========== AI FLOATING BUTTON ========== -->
-<div id="osrs-qa-toggle-btn" class="ai-float-btn" title="Ask OSRS AI">
-  <span class="ai-pulse"></span>
-  <span class="ai-icon">🤖</span>
-</div>
-
-<!-- ========== RANDOM GUIDE FLOAT BUTTON ========== -->
-<div id="random-guide-btn" class="random-float-btn" title="Random Guide" onclick="openRandomGuide()">🎲</div>
-
 <script src="js/features.js"></script>
 <script src="js/ai-qa-widget.js"></script>
-<script src="js/random-guide.js"></script>
 </body>
 </html>
