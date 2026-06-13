@@ -1260,6 +1260,11 @@ nav a.active{
 .guide-meta{display:flex;gap:12px;margin-bottom:14px;flex-wrap:wrap}
 .guide-meta span{font-size:.8rem;color:var(--text-muted);background:rgba(155,132,212,0.05);padding:3px 10px;border-radius:10px}
 
+/* Guide Images (in-article screenshots) */
+.guide-img{margin:24px 0;text-align:center}
+.guide-img img{max-width:100%;height:auto;border-radius:var(--radius-md);border:1px solid var(--border-bronze);box-shadow:var(--shadow-soft)}
+.guide-img figcaption{font-size:.82rem;color:var(--text-muted);margin-top:8px;font-style:italic;line-height:1.5}
+
 
 /* ========== TABLE OF CONTENTS ========== */
 .toc{
