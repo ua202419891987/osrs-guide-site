@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Windrose Guides — Pirate Survival, Combat &amp; Base Building 2026 | Windrose Guru</title>
+<meta name="description" content="Windrose Guru — your complete guide hub for pirate survival with soulslite combat. Day 1 survival, naval battles, crafting & gear, treasure maps, boss strategies, and base building. All 6 guides verified for 2026.">
+<meta name="keywords" content="Windrose guide, Windrose beginner guide, Windrose survival, Windrose ship combat, Windrose crafting, Windrose bosses, Windrose base building, pirate game 2026">
+<link rel="canonical" href="https://osrsguru.com/guides/windrose/">
+<link rel="stylesheet" href="../../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+<style>
+.guide-content li{color:#e8d5b7!important}
+.progress-widget{display:none!important}
+
+/* Subsite hero */
+.subsite-hero{
+  background:linear-gradient(135deg,#0a1628 0%,#2980b9 50%,#1a3a52 100%);
+  padding:60px 24px 50px;
+  text-align:center;
+  border-bottom:3px solid #d4af37;
+}
+.subsite-hero .sub-icon{font-size:4rem;margin-bottom:12px;display:block}
+.subsite-hero h1{font-family:'Cinzel',serif;font-size:2.6rem;color:#fff;margin:0 0 8px;letter-spacing:.06em;text-shadow:0 2px 20px rgba(0,0,0,.4)}
+.subsite-hero .sub-tagline{font-size:1.15rem;color:rgba(255,255,255,.82);margin:0 0 16px;letter-spacing:.02em}
+.subsite-hero .sub-meta{display:inline-flex;gap:16px;justify-content:center;flex-wrap:wrap;font-size:.88rem;color:rgba(255,255,255,.6)}
+.subsite-hero .sub-meta span{background:rgba(255,255,255,.1);padding:4px 14px;border-radius:20px;border:1px solid rgba(212,175,55,.3)}
+
+/* Guide grid */
+.sub-guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:40px 24px;max-width:1120px;margin:0 auto}
+.sub-guide-card{
+  background:#fff;
+  border:1.5px solid #d4af37;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  transition:all .3s ease;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+  display:flex;
+  flex-direction:column;
+}
+.sub-guide-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 28px rgba(41,128,185,.18);
+  border-color:#2980b9;
+}
+.sub-card-badge{
+  padding:8px 16px;
+  font-size:.78rem;font-weight:700;letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.badge-start{background:#2980b9;color:#fff}
+.badge-combat{background:#2471a3;color:#fff}
+.badge-gear{background:#1a5276;color:#fff}
+.badge-quest{background:#154360;color:#fff}
+.badge-boss{background:#0e2f44;color:#fff}
+.badge-build{background:#091f33;color:#fff}
+.sub-card-body{padding:18px 20px;flex:1;display:flex;flex-direction:column}
+.sub-card-body h3{font-family:'Cinzel',serif;font-size:1.15rem;color:#2d2a33;margin:0 0 8px;line-height:1.35}
+.sub-card-body p{color:#666;font-size:.9rem;line-height:1.6;margin:0 0 14px;flex:1}
+.sub-card-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:12px;border-top:1px solid #eee;
+  font-size:.78rem;color:#999;
+}
+.sub-card-read{color:#2980b9;font-weight:700}
+.sub-card-date{background:#eaf4fb;color:#2980b9;padding:2px 10px;border-radius:10px}
+
+/* Support card */
+.sub-support{max-width:700px;margin:30px auto 50px;background:#2e7d32;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 4px 20px rgba(46,125,50,.2)}
+.sub-support-header{padding:18px 24px;text-align:center;border-bottom:1px solid rgba(255,255,255,.15)}
+.sub-support-header h3{color:#fff;margin:0;font-family:'Cinzel',serif;font-size:1.25rem}
+.sub-support-header p{color:rgba(255,255,255,.75);font-size:.85rem;margin:6px 0 0}
+.sub-support-body{padding:24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center}
+.support-btn-sub{
+  background:#fff;color:#2e7d32;border:none;padding:11px 26px;
+  border-radius:8px;font-weight:800;font-size:.92rem;cursor:pointer;
+  transition:all .2s ease;box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+.support-btn-sub:hover{transform:scale(1.05);box-shadow:0 4px 14px rgba(0,0,0,.2)}
+
+/* Responsive */
+@media(max-width:900px){.sub-guide-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.sub-guide-grid{grid-template-columns:1fr}.subsite-hero h1{font-size:1.9rem}}
+
+/* Back to OSRS link in nav */
+.nav-osrs-back{
+  background:rgba(255,255,255,.1);
+  color:#e8d5b7 !important;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:.82rem;
+  font-weight:600;
+  letter-spacing:.03em;
+  border:1px solid rgba(212,175,55,.3);
+  transition:all .2s;
+  text-decoration:none;
+}
+.nav-osrs-back:hover{
+  background:rgba(212,175,55,.2);
+  color:#d4af37 !important;
+  text-decoration:none;
+}
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="site-header" style="border-bottom:2px solid #2980b9">
+  <div class="header-inner" style="position:relative">
+    <a href="../../index.html" class="logo">⛵ Windrose <span>Guru</span></a>
+    <div class="logo-badge">6 Guides · Free · Updated 2026</div>
+    <nav class="main-nav">
+      <a href="#start">🆕 Beginner</a>
+      <a href="#combat">Combat</a>
+      <a href="#gear">Crafting</a>
+      <a href="#quest">Explore</a>
+      <a href="#boss">Bosses</a>
+      <a href="#build">Base</a>
+      <a href="../../index.html" class="nav-osrs-back">← OSRS GURU</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<div class="subsite-hero">
+  <span class="sub-icon">⛵</span>
+  <h1>Windrose Guides</h1>
+  <p class="sub-tagline">Complete Strategy Hub for the Open Seas — By OSRS Guru</p>
+  <div class="sub-meta">
+    <span>🏴‍☠️ Pirate Survival</span>
+    <span>⚔️ Soulslite Combat</span>
+    <span>📅 June 2026</span>
+    <span>📘 6 Expert Guides</span>
+  </div>
+</div>
+
+<!-- ========== GUIDE GRID ========== -->
+<div class="sub-guide-grid">
+
+  <!-- Card 1: Beginner -->
+  <a href="windrose-beginner-guide-2026.html" class="sub-guide-card" id="start">
+    <div class="sub-card-badge badge-start">🆕 Start Here</div>
+    <div class="sub-card-body">
+      <h3>Beginner Guide — Day 1 Survival</h3>
+      <p>Your first hours on the open sea: build your first raft (Raft), master basic combat, find early islands, and establish your first safe haven.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- Card 2: Combat + Ship -->
+  <a href="windrose-combat-ship-guide-2026.html" class="sub-guide-card" id="combat">
+    <div class="sub-card-badge badge-combat">⚓ Combat</div>
+    <div class="sub-card-body">
+      <h3>Combat &amp; Ship Guide — Land and Sea</h3>
+      <p>Master parry/dodge on land, naval cannon positioning, boarding tactics, all ship types compared, and ammo type strategies for every encounter.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- Card 3: Crafting -->
+  <a href="windrose-crafting-gear-guide-2026.html" class="sub-guide-card" id="gear">
+    <div class="sub-card-badge badge-gear">🔧 Crafting</div>
+    <div class="sub-card-body">
+      <h3>Crafting &amp; Gear — Best Weapons &amp; Tools</h3>
+      <p>All crafting stations unlocked by tier, weapon tier list for soulslite combat, armor sets, ship upgrade paths, rare resource locations, and consumables.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- Card 4: Quest + Explore -->
+  <a href="windrose-quest-exploration-guide-2026.html" class="sub-guide-card" id="quest">
+    <div class="sub-card-badge badge-quest">🗺️ Explore</div>
+    <div class="sub-card-body">
+      <h3>Quest &amp; Exploration — Treasure Maps &amp; Lore</h3>
+      <p>Main quest walkthrough across 5 chapters, buried treasure map locations, lore fragments to collect, exploration route optimization, and hidden content.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- Card 5: Bosses -->
+  <a href="windrose-boss-guide-2026.html" class="sub-guide-card" id="boss">
+    <div class="sub-card-badge badge-boss">👾 Bosses</div>
+    <div class="sub-card-body">
+      <h3>Boss Guide — All Tiers &amp; Farming Routes</h3>
+      <p>Tier 1–3 bosses and final encounters ranked by difficulty. Attack patterns, ship combat vs melee phases, best farming routes per boss type.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- Card 6: Base Building -->
+  <a href="windrose-base-building-tips-2026.html" class="sub-guide-card" id="build">
+    <div class="sub-card-badge badge-build">🏠 Base</div>
+    <div class="sub-card-body">
+      <h3>Base Building — Layouts, Defenses &amp; Fleet</h3>
+      <p>Optimal island layouts, wall/trap defense strategies, fleet management tips, trade route planning, and endgame goals for your pirate stronghold.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+</div><!-- /guide-grid -->
+
+<!-- ========== SUPPORT CARD ========== -->
+<div class="sub-support">
+  <div class="sub-support-header">
+    <h3>🌿 Buy Me a Pack of Gum</h3>
+    <p>If these guides saved your time, consider supporting our work!</p>
+  </div>
+  <div class="sub-support-body">
+    <form action="https://www.paypal.com/donate" method="post" target="_blank">
+      <input type="hidden" name="business" value="1530398390@qq.com">
+      <input type="hidden" name="currency_code" value="USD">
+      <input type="hidden" name="item_name" value="Windrose Guru Support - $3">
+      <button type="submit" class="support-btn-sub">$3 🍬</button>
+    </form>
+    <form action="https://www.paypal.com/donate" method="post" target="_blank">
+      <input type="hidden" name="business" value="1530398390@qq.com">
+      <input type="hidden" name="currency_code" value="USD">
+      <input type="hidden" name="item_name" value="Windrose Guru Support - $5">
+      <button type="submit" class="support-btn-sub">$5 ⭐</button>
+    </form>
+    <form action="https://www.paypal.com/donate" method="post" target="_blank">
+      <input type="hidden" name="business" value="1530398390@qq.com">
+      <input type="hidden" name="currency_code" value="USD">
+      <input type="hidden" name="item_name" value="Windrose Guru Support - $10">
+      <button type="submit" class="support-btn-sub">$10 💎</button>
+    </form>
+    <form action="https://www.paypal.com/donate" method="post" target="_blank">
+      <input type="hidden" name="business" value="1530398390@qq.com">
+      <input type="hidden" name="currency_code" value="USD">
+      <input type="hidden" name="item_name" value="Windrose Guru Custom Amount">
+      <button type="submit" class="support-btn-sub">Custom 🪄</button>
+    </form>
+  </div>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer style="background:linear-gradient(135deg,#0a1628,#1a3a52);padding:32px 24px;text-align:center;border-top:3px solid #2980b9">
+  <p style="color:rgba(255,255,255,.7);font-size:.88rem;margin:0 0 8px">&copy; 2026 Windrose Guru — Fan site, not affiliated with the respective owners.</p>
+  <p style="color:rgba(255,255,255,.45);font-size:.78rem;margin:0">All game content and trademarks belong to their respective owners.</p>
+  <p style="margin-top:14px"><a href="../../index.html" style="color:#d4af37;font-size:.85rem;text-decoration:none">← Back to OSRS Guru</a></p>
+</footer>
+
+<script src="../../js/ai-qa-widget.js"></script>
+</body>
+</html>
