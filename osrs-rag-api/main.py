@@ -110,22 +110,32 @@ async def search_item_price(item_name: str) -> Optional[dict]:
 # ============================================================
 # Layer 3 — LLM Fallback (DeepSeek + GPT-4o-mini)
 # ============================================================
-async def call_deepseek(prompt: str) -> str:
+async def call_deepseek(prompt: str, game: str = "osrs") -> str:
+    """根据游戏选择系统提示词"""
     try:
         from openai import AsyncOpenAI
         client = AsyncOpenAI(
             api_key=os.getenv("DEEPSEEK_API_KEY"),
             base_url=os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com/v1")
         )
+        # 根据游戏选择系统提示
+        system_prompts = {
+            "osrs": "You are an OSRS (Old School RuneScape) expert assistant. Answer accurately, concisely, based on game facts. Use English.",
+            "crimson-desert": "You are a Crimson Desert (2026 action RPG by Pearl Abyss) expert assistant. Answer accurately about combat, quests, weapons, skills, bosses. Use English.",
+            "windrose": "You are a Windrose (2026 pirate survival game) expert assistant. Answer accurately about survival, ship combat, crafting, exploration, bosses. Use English.",
+        }
+        system_content = system_prompts.get(game, system_prompts["osrs"])
+
         resp = await client.chat.completions.create(
             model=os.getenv("DEEPSEEK_MODEL", "deepseek-chat"),
             messages=[
-                {"role": "system", "content": "你是OSRS专家助手。回答要精确、简洁、基于游戏事实。用英文回答。"},
+                {"role": "system", "content": system_content},
                 {"role": "user", "content": prompt}
             ], max_tokens=500, temperature=0.3
         )
         return resp.choices[0].message.content or ""
-    except Exception:
+    except Exception as e:
+        print(f"DeepSeek error: {e}")
         return ""
 
 async def call_gpt4o_mini(prompt: str) -> str:
@@ -134,12 +144,26 @@ async def call_gpt4o_mini(prompt: str) -> str:
 # ============================================================
 # Core RAG Query — 三层融合
 # ============================================================
-async def rag_query(question: str) -> dict:
-    """Vercel-optimized: Wiki API → DeepSeek (skips heavy ChromaDB for serverless)"""
+async def rag_query(question: str, game: str = "osrs") -> dict:
+    """多游戏支持：OSRS用Wiki+DeepSeek，CD/WR直接用DeepSeek"""
     source = "unknown"
     answer = ""
 
-    # Layer 1: OSRS Wiki API (fast, no model needed)
+    # 非OSRS游戏：跳过Wiki，直接用DeepSeek
+    if game and game != "osrs":
+        try:
+            ds_answer = await call_deepseek(question, game)
+            if ds_answer:
+                return {"answer": ds_answer, "source": "deepseek", "game": game}
+        except Exception as e:
+            print(f"DeepSeek error for {game}: {e}")
+        return {
+            "answer": f"Sorry, I could not find an answer about {game}. Please browse osrsguru.com/guides/{game}/ for guides.",
+            "source": "fallback",
+            "game": game
+        }
+
+    # OSRS：Layer 1: OSRS Wiki API
     try:
         wiki_results = await search_wiki(question)
         if wiki_results:
@@ -155,7 +179,7 @@ async def rag_query(question: str) -> dict:
 
     # Layer 2: DeepSeek AI Fallback
     try:
-        ds_answer = await call_deepseek(question)
+        ds_answer = await call_deepseek(question, "osrs")
         if ds_answer:
             return {"answer": ds_answer, "source": "deepseek"}
     except Exception:
@@ -176,8 +200,8 @@ async def root():
     return {"service": "OSRS Guru RAG API", "version": "1.0", "status": "running"}
 
 @app.get("/rag-api/search")
-async def search(q: str = Query(..., description="搜索问题")):
-    result = await rag_query(q)
+async def search(q: str = Query(..., description="搜索问题"), game: Optional[str] = Query(None, description="游戏类型: osrs/crimson-desert/windrose")):
+    result = await rag_query(q, game or "osrs")
     return result
 
 @app.get("/rag-api/price")
