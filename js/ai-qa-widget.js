@@ -336,7 +336,8 @@
     }
 
     matches.sort(function(a, b) { return b.score - a.score; });
-    return matches.slice(0, 3);
+    // v2.9: 返回更多候选，确保 OSRS 阶段分组每阶段至少有1篇
+    return matches.slice(0, 12);
   }
 
   // ========== CSS 注入 ==========
@@ -735,7 +736,7 @@
     injectStyles();
     var elements = createWidget();
     setupEventHandlers(elements.widget, elements.toggleBtn);
-    console.log('✅ ' + CONFIG.assistantTitle + ' v2.9 initialized (smart display: links-only for local, concise for API)');
+    console.log('✅ ' + CONFIG.assistantTitle + ' v2.9.1 initialized (12 matches for stage coverage)');
   }
 
   if (document.readyState === 'loading') {
