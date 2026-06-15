@@ -1,10 +1,11 @@
 /**
  * OSRS Guru AI Question & Answer Widget
  * 右下角悬浮窗 - AI 问答系统
- * v2.3 - 多游戏感知 + 本地文章匹配
- *   - OSRS 页面：保持原有 Wiki → DeepSeek 逻辑
- *   - Crimson Desert 页面：先本地匹配12篇CD文章 → DeepSeek fallback
- *   - Windrose 页面：先本地匹配12篇Windrose文章 → DeepSeek fallback
+ * v2.5 - 动态TOC锚点跳转 + OSRS本地文章匹配 + 停留时间优化
+ *   - 所有页面：动态提取当前页面TOC，匹配问题后直接跳转到对应段落
+ *   - CD/Windrose：本地12篇文章关键词匹配 + 锚点
+ *   - OSRS：Top 60篇热门文章本地匹配 + 后端API兜底
+ *   - 推荐文案优化：告诉用户点进去能看到什么
  */
 
 (function () {
@@ -22,43 +23,256 @@
 
   // ========== 配置 ==========
   var CONFIG = {
-    apiBase: window.location.hostname === 'localhost' 
-      ? 'http://localhost:8000' 
+    apiBase: window.location.hostname === 'localhost'
+      ? 'http://localhost:8000'
       : 'https://osrs-rag-api.vercel.app',
     widgetId: 'osrs-qa-widget',
     widgetButtonId: 'osrs-qa-toggle-btn',
     maxMessages: 10,
     game: GAME,
-    // 根据游戏动态文本
     gameName: GAME === 'crimson-desert' ? 'Crimson Desert' : (GAME === 'windrose' ? 'Windrose' : 'OSRS'),
-    gameIcon: GAME === 'crimson-desert' ? '\u2694\uFE0F' : (GAME === 'windrose' ? '\u26F5' : '\u2694\uFE0F'),
+    gameIcon: GAME === 'crimson-desert' ? '⚔️' : (GAME === 'windrose' ? '⚓' : '⚔️'),
     assistantTitle: GAME === 'crimson-desert' ? 'Crimson Desert AI Assistant' : (GAME === 'windrose' ? 'Windrose AI Assistant' : 'OSRS AI Assistant'),
     inputPlaceholder: GAME === 'crimson-desert' ? 'Ask about Crimson Desert...' : (GAME === 'windrose' ? 'Ask about Windrose...' : 'Ask about OSRS guides...'),
     sourceGuruLabel: GAME === 'crimson-desert' ? 'Crimson Desert Guru' : (GAME === 'windrose' ? 'Windrose Guru' : 'OSRS Guru'),
   };
 
-  // ========== CD/Windrose 本地文章索引（关键词 + URL） ==========
+  // ========== 动态TOC提取 ==========
+  function extractPageTOC() {
+    var toc = [];
+    // 通用选择器：取所有有id的h2/h3，排除导航/侧栏
+    var allHeadings = document.querySelectorAll('h2[id], h3[id]');
+    for (var i = 0; i < allHeadings.length; i++) {
+      if (allHeadings[i].closest('nav, footer, header, aside, .sidebar, .navigation, .qa-header, .qa-input-group, .qa-messages')) continue;
+      var text = (allHeadings[i].textContent || '').replace(/^\d+[\.:]\s*/, '').replace(/^Section\s+\d+[\.:]?\s*/i, '').trim();
+      toc.push({
+        id: allHeadings[i].id,
+        text: text,
+        rawText: (allHeadings[i].textContent || '').trim(),
+        element: allHeadings[i]
+      });
+    }
+    return toc;
+  }
+
+  // ========== 问题匹配TOC段落 ==========
+  function matchTOCSections(question, toc) {
+    if (!toc || toc.length === 0) return [];
+    var lowerQ = question.toLowerCase();
+    // 提取问题中的关键词（去掉标点，取长度>3的词）
+    var qWords = lowerQ.replace(/[?.,!;:'"()\[\]{}]/g, ' ').split(/\s+/).filter(function(w) { return w.length > 3; });
+    var matches = [];
+
+    for (var i = 0; i < toc.length; i++) {
+      var hText = toc[i].text.toLowerCase();
+      var hRaw = toc[i].rawText.toLowerCase();
+      var bestScore = 0;
+      var matchedWord = '';
+
+      for (var w = 0; w < qWords.length; w++) {
+        var word = qWords[w];
+        if (hText.indexOf(word) !== -1 || hRaw.indexOf(word) !== -1) {
+          // 越长的关键词匹配得分越高
+          var score = word.length + (hText.indexOf(word) === 0 ? 2 : 0);
+          if (score > bestScore) {
+            bestScore = score;
+            matchedWord = word;
+          }
+        }
+      }
+
+      if (bestScore > 0) {
+        matches.push({ tocItem: toc[i], score: bestScore, matchedWord: matchedWord });
+      }
+    }
+
+    matches.sort(function(a, b) { return b.score - a.score; });
+    return matches.slice(0, 2); // 最多返回2个最相关段落
+  }
+
+  // ========== 本地文章索引（自动扫描165篇，2026-06-15） ==========
   var CD_ARTICLES = [
-    { title: 'Crimson Desert New Player Guide 2026', url: 'guides/crimson-desert/crimson-desert-new-player-guide-2026.html', keywords: 'new player beginner start starting intro introduction how to play basics first steps getting started tutorial controls interface character creation guide walkthrough overview' },
-    { title: 'Crimson Desert Combat Guide 2026', url: 'guides/crimson-desert/crimson-desert-combat-guide-2026.html', keywords: 'combat fight fighting parry dodge block combos stamina spirit surge grapple counter attack deal damage sword spear axe melee ranged magic battle duel' },
-    { title: 'Crimson Desert Weapons & Gear Guide 2026', url: 'guides/crimson-desert/crimson-desert-weapons-gear-guide-2026.html', keywords: 'weapons weapon gear equipment armor best strongest tier list ranking upgrade enhance blacksmith crafting sword greatsword bow shield offhand accessories stats' },
-    { title: 'Crimson Desert Quest Walkthrough 2026', url: 'guides/crimson-desert/crimson-desert-quest-walkthrough-2026.html', keywords: 'quest quests story main quest walkthrough mission chapter act faction choice dialogue decision hidden secret ending side quest' },
-    { title: 'Crimson Desert Boss Guide 2026', url: 'guides/crimson-desert/crimson-desert-boss-guide-2026.html', keywords: 'boss bosses boss fight enemy pattern attack parry window weak point weak spot strategy how to beat kill defeat all bosses ranked difficulty tier' },
-    { title: 'Crimson Desert Skills & Builds Guide 2026', url: 'guides/crimson-desert/crimson-desert-skills-builds-guide-2026.html', keywords: 'skill skills build builds keen senses tree stat stats allocation spirit arts respec reset best build talent class warrior mage assassin archer hybrid' },
+    { label: 'Crimson Desert Boss Guide 2026 \u2014 Every Boss, Strategy &amp; Rewards', url: 'guides/crimson-desert/crimson-desert-boss-guide-2026.html', kw: 'boss bosses bossing cd crimson desert pvm pywel kliff strategy' },
+    { label: 'Crimson Desert Combat Guide 2026 \u2014 Master Parry, Dodge &amp; Combo Chains', url: 'guides/crimson-desert/crimson-desert-combat-guide-2026.html', kw: 'combat cd crimson desert dodge parry pywel kliff attack defence defense strength', anchorMap: { 'parry': 'section2', 'dodge': 'section2', 'combo': 'section3', 'stamina': 'section4', 'spirit': 'section5', 'surge': 'section5', 'grapple': 'section6', 'counter': 'section2', 'fight': 'section1', 'combat': 'section1' } },
+    { label: 'Crimson Desert Beginner Guide 2026 \u2014 How to Start Strong in Pywel', url: 'guides/crimson-desert/crimson-desert-new-player-guide-2026.html', kw: 'beginner cd crimson desert pywel kliff start strong new player' },
+    { label: 'Crimson Desert Quest Walkthrough 2026 \u2014 Main Story &amp; Side Quests', url: 'guides/crimson-desert/crimson-desert-quest-walkthrough-2026.html', kw: 'cd choices crimson desert diary quest questing quests story walkthrough kliff pywel' },
+    { label: 'Crimson Desert Skills &amp; Builds Guide 2026', url: 'guides/crimson-desert/crimson-desert-skills-builds-guide-2026.html', kw: 'build builds cd crimson desert skills skill trees paths pywel kliff' },
+    { label: 'Crimson Desert Weapons &amp; Equipment Guide 2026', url: 'guides/crimson-desert/crimson-desert-weapons-gear-guide-2026.html', kw: 'armor armour cd crimson desert equipment gear weapons stats locations pywel kliff' },
   ];
 
   var WINDROSE_ARTICLES = [
-    { title: 'Windrose Beginner Guide 2026', url: 'guides/windrose/windrose-beginner-guide-2026.html', keywords: 'beginner new player start guide how to play first steps survival day 1 starting island raft first ship early game basics tutorial' },
-    { title: 'Windrose Combat & Ship Guide 2026', url: 'guides/windrose/windrose-combat-ship-guide-2026.html', keywords: 'combat fight fighting ship naval cannon sailing parry dodge boarding weapons melee land battle sea pirate ammunition ammo cannonball ship types' },
-    { title: 'Windrose Crafting & Gear Guide 2026', url: 'guides/windrose/windrose-crafting-gear-guide-2026.html', keywords: 'crafting craft gear equipment weapon tier list best weapons armor ship upgrades rare resource resources consumables station bench materials' },
-    { title: 'Windrose Quest & Exploration Guide 2026', url: 'guides/windrose/windrose-quest-exploration-guide-2026.html', keywords: 'quest quests exploration explore treasure map lore fragment hidden secret island route main story chapter' },
-    { title: 'Windrose Boss Guide 2026', url: 'guides/windrose/windrose-boss-guide-2026.html', keywords: 'boss bosses boss fight tier 1 tier 2 tier 3 final boss attack pattern farming route strategy how to beat kill defeat enemy monster' },
-    { title: 'Windrose Base Building Tips 2026', url: 'guides/windrose/windrose-base-building-tips-2026.html', keywords: 'base building tips layout defense walls traps fleet management trade routes endgame goal settle settlement home island fortification' },
+    { label: 'Windrose Base Building &amp; Advanced Tips 2026', url: 'guides/windrose/windrose-base-building-tips-2026.html', kw: 'base building defenses endgame naval pirate sailing ship windrose' },
+    { label: 'Windrose Beginner Guide 2026 \u2014 Survive &amp; Thrive in the Age of Piracy', url: 'guides/windrose/windrose-beginner-guide-2026.html', kw: 'beginner naval new player piracy pirate sailing ship start survive thrive windrose' },
+    { label: 'Windrose Boss Guide 2026 \u2014 Every Boss, Strategy &amp; Drops', url: 'guides/windrose/windrose-boss-guide-2026.html', kw: 'boss bosses bossing drops naval pirate pvm sailing ship strategy windrose' },
+    { label: 'Windrose Combat &amp; Naval Guide 2026 \u2014 Ship Battles &amp; Boarding', url: 'guides/windrose/windrose-combat-ship-guide-2026.html', kw: 'combat naval parry dodge ship battles boarding pirate sailing windrose attack defence defense strength' },
+    { label: 'Windrose Crafting &amp; Gear Guide 2026 \u2014 Best Weapons, Armor &amp; Ship Upgrades', url: 'guides/windrose/windrose-crafting-gear-guide-2026.html', kw: 'armor armour crafting equipment gear weapons ship upgrades naval pirate sailing windrose' },
+    { label: 'Windrose Quest &amp; Exploration Guide 2026 \u2014 Hidden Treasures &amp; Lore', url: 'guides/windrose/windrose-quest-exploration-guide-2026.html', kw: 'exploration lore naval pirate quest questing quests routes sailing ship treasures windrose' },
   ];
 
-  // ========== 本地文章匹配（仅 CD/Windrose 使用） ==========
+  // OSRS 165篇全索引（自动扫描 guides/ 目录生成）
+  var OSRS_ARTICLES = [
+    { label: 'Account Security \u2014 Protect From Hackers', url: 'guides/account-security-guide-2026.html', kw: 'account authenticator bank hackers protect security' },
+    { label: 'Barrows \u2014 First Boss GP', url: 'guides/barrows-first-boss-gp-2026.html', kw: 'ahrim barrows boss bosses bossing brothers dharok gp pvm' },
+    { label: 'Best Quests for New Members', url: 'guides/best-quests-new-members-2026.html', kw: 'diary members quest questing quests roadmap' },
+    { label: 'Blood Moon Rises Quest Walkthrough', url: 'guides/blood-moon-rises-quest-guide-2026.html', kw: 'blood moon quest questing rises walkthrough diary' },
+    { label: 'Combat Achievements \u2014 Easy to Grandmaster', url: 'guides/combat-achievements-guide-2026.html', kw: 'achievements attack combat defence defense grandmaster strength' },
+    { label: 'F2P to P2P Bond \u2014 Earn Membership', url: 'guides/f2p-to-p2p-bond-guide-2026.html', kw: 'bond f2p free play member membership p2p' },
+    { label: 'First 5M GP for New Members', url: 'guides/first-5m-gp-members-2026.html', kw: 'gp money members first' },
+    { label: 'League 6 Preparation \u2014 Predictions & Strategy', url: 'guides/league-6-prep-guide-2026.html', kw: 'league leagues preparation seasonal strategy' },
+    { label: 'Max Cape Efficient Route', url: 'guides/max-cape-route-2026.html', kw: 'cape efficient max record' },
+    { label: 'Mid-Game Money Making 1M to 100M', url: 'guides/mid-game-money-making-2026.html', kw: 'flip flipping gp intermediate mid game money profit' },
+    { label: 'New Boss Guide \u2014 Kill Strategy & Loot', url: 'guides/new-boss-loot-guide-2026.html', kw: 'boss bosses bossing kill loot pvm strategy' },
+    { label: '1-99 Crafting \u2014 Fast, Cheap & Ironman', url: 'guides/osrs-1-99-crafting-guide-2026.html', kw: 'battlestaff cheap crafting gems ironman jewelry methods' },
+    { label: '1-99 Farming \u2014 Profit Focused', url: 'guides/osrs-1-99-farming-guide-beginner-profit-2026.html', kw: 'allotment beginner farming herb patch profit' },
+    { label: '1-99 Hitpoints Training Methods & XP', url: 'guides/osrs-1-99-hitpoints-guide-2026.html', kw: 'hitpoints methods training xp' },
+    { label: '1-99 Hitpoints Training', url: 'guides/osrs-1-99-hitpoints-training-guide-2026.html', kw: 'hitpoints training' },
+    { label: '1-99 Hunter AFK Method \u2014 Birdhouses & Chinchompas', url: 'guides/osrs-1-99-hunter-guide-afk-method.html', kw: 'afk bird birdhouses chinchompa herbiboar hunter trap monkeys' },
+    { label: '1-99 Magic Training Cheap Methods', url: 'guides/osrs-1-99-magic-training-cheap-guide-2026.html', kw: 'cheap enchant mage magic methods spell training' },
+    { label: '1-99 Mining Beginner', url: 'guides/osrs-1-99-mining-guide-beginner-2026.html', kw: 'beginner mining ore pickaxe rock' },
+    { label: '1-99 Prayer \u2014 Fast, Cheap & Ironman', url: 'guides/osrs-1-99-prayer-guide-2026.html', kw: 'altar bones cheap gilded ironman methods prayer' },
+    { label: '1-99 Prayer All Methods Fastest & Cheapest', url: 'guides/osrs-1-99-prayer-guide-all-methods-2026.html', kw: 'altar bones cheapest fastest gilded methods prayer' },
+    { label: '1-99 Thieving Ironman \u2014 Pyramid Plunder & Knights', url: 'guides/osrs-1-99-thieving-guide-ironman.html', kw: 'farmers iron ironman ironmen knight pickpocket plunder pyramid thieving xp' },
+    { label: '1-99 Woodcutting Early Game F2P to Redwoods', url: 'guides/osrs-1-99-woodcutting-guide-early-game.html', kw: 'axe log redwood tree woodcutting f2p' },
+    { label: '2026 Roadmap \u2014 New Skills, Raids & Quests', url: 'guides/osrs-2026-roadmap.html', kw: 'quests raids roadmap skills updates map teleport transport travel' },
+    { label: 'Achievement Diary \u2014 All Diaries & Rewards', url: 'guides/osrs-achievement-diary-guide-2026.html', kw: 'achievement diaries diary order rewards task' },
+    { label: 'Affordable Leveling on a Budget', url: 'guides/osrs-affordable-leveling-guide-2026.html', kw: 'affordable budget leveling methods' },
+    { label: 'Agility Training 1-99 Rooftop Courses', url: 'guides/osrs-agility-training-guide-2026.html', kw: 'agility course courses graceful rooftop training xp' },
+    { label: 'All Skills Overview Beginner Reference', url: 'guides/osrs-all-skills-overview-guide-2026.html', kw: 'beginner overview reference skills' },
+    { label: 'Araxxor Boss \u2014 Slayer Strategy & Noxious Halberd', url: 'guides/osrs-araxxor-guide-2026.html', kw: 'araxxor boss gear halberd noxious slayer strategy' },
+    { label: 'Bank & Inventory Management', url: 'guides/osrs-bank-inventory-management-2026.html', kw: 'bank inventory items organize' },
+    { label: 'Blood Moon Rises Prep Checklist (June 30)', url: 'guides/osrs-blood-moon-prep-checklist-2026.html', kw: 'blood checklist june moon prep rises' },
+    { label: 'Blood Moon Rises \u2014 Myreque Finale', url: 'guides/osrs-blood-moon-rises-guide-2026.html', kw: 'blood finale june moon myreque rises' },
+    { label: 'Boss Profit Tier List \u2014 Ranked by GP/hr', url: 'guides/osrs-boss-profit-tier-list-2026.html', kw: 'boss bosses bossing gp profit pvm ranked meta' },
+    { label: 'Cerberus Boss \u2014 Mid-Game Slayer', url: 'guides/osrs-cerberus-boss-guide-2026.html', kw: 'boss cerberus hellhound midgame primordial pvm slayer' },
+    { label: 'Chambers of Xeric Loot & Profit \u2014 Twisted Bow', url: 'guides/osrs-chambers-of-xeric-loot-profit-guide.html', kw: 'bow chambers drops gp loot olm profit twisted xeric' },
+    { label: 'Cheap Flipping Methods 100K Capital', url: 'guides/osrs-cheap-flipping-methods-new-players.html', kw: 'capital cheap flipping methods players' },
+    { label: 'Cheapest 99 Runecrafting \u2014 Lava Runes, ZMI & GOTR', url: 'guides/osrs-cheapest-99-runecrafting-2026.html', kw: 'cheapest essence gems gotr guardians lava rune runecrafting zmi' },
+    { label: 'Combat Training 1-99 Beginners', url: 'guides/osrs-combat-training-beginner-2026.html', kw: 'attack beginner beginners combat defence defense strength training' },
+    { label: 'Combat Triangle Explained', url: 'guides/osrs-combat-triangle-explained-2026.html', kw: 'attack combat defence defense magic melee ranged strength triangle' },
+    { label: 'Complete Skill Training 1-99 All Skills', url: 'guides/osrs-complete-skill-training-guide-2026.html', kw: 'methods skill skills training complete' },
+    { label: 'Corrupted Gauntlet Advanced Boss Mechanics', url: 'guides/osrs-corrupted-gauntlet-advanced-guide-2026.html', kw: 'advanced boss corrupted crystal gauntlet hunllef strategy deathless' },
+    { label: 'Corrupted Gauntlet \u2014 Budget Setup & Strategy', url: 'guides/osrs-corrupted-gauntlet-guide-2026.html', kw: 'budget corrupted crystal gauntlet hunllef setup strategy' },
+    { label: 'Dagannoth Kings DKs Solo/Duo/Tribrid', url: 'guides/osrs-dagannoth-kings-guide-2026.html', kw: 'dagannoth dks kings rex ring solo strategy tribrid farming' },
+    { label: 'Desert Treasure Quest \u2014 Low Level', url: 'guides/osrs-desert-treasure-quest-guide-low-level.html', kw: 'ancient desert diary quest questing requirements treasure bosses' },
+    { label: 'Efficient Training Routes Beginners', url: 'guides/osrs-efficient-training-routes-beginners-2026.html', kw: 'beginner beginners efficient routes training' },
+    { label: 'F2P Combat Training Level 3-30+', url: 'guides/osrs-f2p-combat-training-guide-2026.html', kw: 'attack combat defence defense f2p free play strength training' },
+    { label: 'F2P Ironman Money Making Early Game', url: 'guides/osrs-f2p-ironman-money-making-early-game.html', kw: 'alching cowhides crafting f2p flip flipping free gp iron ironman ironmen money profit' },
+    { label: 'F2P Money Making No Stats Required', url: 'guides/osrs-f2p-money-making-no-stats.html', kw: 'f2p flip flipping free gp money methods profit stats' },
+    { label: 'F2P to P2P Membership When & How', url: 'guides/osrs-f2p-to-p2p-membership-guide-2026.html', kw: 'f2p free member membership p2p' },
+    { label: 'Fastest 1-99 Crafting', url: 'guides/osrs-fastest-1-99-crafting-guide-2026.html', kw: 'battlestaff crafting gems jewelry' },
+    { label: 'Fastest 99 Attack/Strength/Defence \u2014 NMZ & Crabs', url: 'guides/osrs-fastest-99-attack-strength-defence.html', kw: 'attack crabs defence fastest methods nmz strength xp' },
+    { label: 'Fastest 99 Cooking F2P \u2014 Wines & Karambwans', url: 'guides/osrs-fastest-99-cooking-f2p.html', kw: 'budget cooking f2p food karambwan methods wine' },
+    { label: 'Fighter Torso & Barbarian Assault', url: 'guides/osrs-fighter-torso-barbarian-assault-guide-2026.html', kw: 'assault barbarian fighter queen role strategies torso' },
+    { label: 'Fire Cape \u2014 Jad Strategy & Fight Caves', url: 'guides/osrs-fire-cape-jad-guide-2026.html', kw: 'budget cape caves fight fire jad setup strategy tzhaar walkthrough' },
+    { label: 'Fire Cape to Infernal Cape Progression', url: 'guides/osrs-fire-cape-to-infernal-progression-2026.html', kw: 'cape fire infernal inferno progression pvm zuk' },
+    { label: 'First 100M GP Mid Level to Wealthy', url: 'guides/osrs-first-100m-gp-mid-level-2026.html', kw: 'gp intermediate mid game money wealthy' },
+    { label: 'First Week Progression Day-by-Day', url: 'guides/osrs-first-week-progression-guide-2026.html', kw: 'week progression' },
+    { label: 'Gauntlet & PvM Meta Changes Post-Sweep-Up', url: 'guides/osrs-gauntlet-meta-changes-2026.html', kw: 'changes corrupted crystal gauntlet hunllef meta pvm' },
+    { label: 'Gear for Beginners \u2014 Equipment at Every Level', url: 'guides/osrs-gear-beginner-guide-2026.html', kw: 'armor armour beginner equipment gear level weapon' },
+    { label: 'Gear Upgrade Priority Order Mid to High', url: 'guides/osrs-gear-upgrade-priority-order-2026.html', kw: 'armor armour equipment gear order priority upgrade weapon' },
+    { label: 'Goraik Quest Walkthrough', url: 'guides/osrs-goraik-quest-guide-2026.html', kw: 'goraik quest questing varlamore walkthrough diary' },
+    { label: 'Goraik Rewards Worth It?', url: 'guides/osrs-goraik-rewards-worth-it-2026.html', kw: 'analysis goraik rewards varlamore worth' },
+    { label: 'Grotesque Guardians \u2014 Dawn & Dusk Low Stats', url: 'guides/osrs-grotesque-guardians-guide-low-stats.html', kw: 'dawn dusk gargoyle grotesque guardians stats strategy' },
+    { label: 'Guardians of the Rift \u2014 Fast Runecrafting', url: 'guides/osrs-guardians-of-the-rift-guide-2026.html', kw: 'guardians rewards rift runecrafting strategy' },
+    { label: 'Herb Run Mastery \u2014 Passive Millions', url: 'guides/osrs-herb-run-mastery-guide-2026.html', kw: 'herb mastery patches profit routes' },
+    { label: 'How to Beat Zulrah \u2014 Full Rotation for Beginners', url: 'guides/osrs-how-to-beat-zulrah-beginners-rotation.html', kw: 'beat beginner gp poison rotation snake zulrah' },
+    { label: 'Fremennik Trials Quest', url: 'guides/osrs-how-to-complete-fremennik-trials-guide.html', kw: 'fremennik helm neitiznot trials' },
+    { label: 'Lost City Quest \u2014 Dramen Staff & Fairy Rings', url: 'guides/osrs-how-to-complete-lost-city-guide.html', kw: 'city dramen fairy lost quest rings staff' },
+    { label: 'Monkey Madness Quest Walkthrough', url: 'guides/osrs-how-to-complete-monkey-madness-quest.html', kw: 'madness monkey quest walkthrough diary' },
+    { label: 'Corporeal Beast Loot Table & Strategy', url: 'guides/osrs-how-to-fight-corporal-beast-loot-guide.html', kw: 'beast corporeal loot setup solo strategy table' },
+    { label: 'Dragon Slayer 2 \u2014 Full Quest Walkthrough', url: 'guides/osrs-how-to-finish-dragon-slayer-2-guide.html', kw: 'dragon slayer ds2 block master task vorkath' },
+    { label: 'Flip Items for Profit Mid Game', url: 'guides/osrs-how-to-flip-items-profit-mid-game.html', kw: 'capital flip flipping ge intermediate mid game profit' },
+    { label: 'How to Get 99 Agility Fast', url: 'guides/osrs-how-to-get-99-agility-fast-2026.html', kw: 'agility course graceful rooftop' },
+    { label: 'How to Get 99 Fishing AFK Method', url: 'guides/osrs-how-to-get-99-fishing-afk-method.html', kw: 'afk fish fishing harpoon net' },
+    { label: 'Dragon Defender \u2014 Warriors Guild', url: 'guides/osrs-how-to-get-dragon-defender-2026.html', kw: 'defender dragon guild warrior' },
+    { label: 'Graceful Outfit \u2014 Marks of Grace Fastest Route', url: 'guides/osrs-how-to-get-graceful-outfit-full-guide.html', kw: 'grace graceful marks outfit recolors route' },
+    { label: 'House Teleport Tablet', url: 'guides/osrs-how-to-get-house-teleport-tablet.html', kw: 'house tablet teleport' },
+    { label: 'Rune Pouch \u2014 Slayer & NPC Contact', url: 'guides/osrs-how-to-get-rune-pouch-guide.html', kw: 'contact npc pouch rune slayer' },
+    { label: 'Alchemical Hydra \u2014 Access & Profit', url: 'guides/osrs-how-to-get-to-alchemical-hydra-guide.html', kw: 'access alchemical claw hydra profit slayer' },
+    { label: 'Fossil Island Quick Unlock & Activities', url: 'guides/osrs-how-to-get-to-fossil-island-quick-guide.html', kw: 'activities fossil island quick transport unlock' },
+    { label: 'Kourend Castle Quick Guide', url: 'guides/osrs-how-to-get-to-kourend-castle-quick-guide.html', kw: 'castle kourend quick' },
+    { label: 'Thermonuclear Smoke Devil \u2014 Location & Strategy', url: 'guides/osrs-how-to-get-to-thermonuclear-smoke-devil.html', kw: 'boss devil gear location smoke strategy thermonuclear' },
+    { label: 'Increase Slayer Points Fast \u2014 9+1 Method', url: 'guides/osrs-how-to-increase-slayer-points-fast.html', kw: 'block increase master masters method points slayer task' },
+    { label: 'Crafling Money Making Low Level', url: 'guides/osrs-how-to-make-money-with-crafting-low-level.html', kw: 'battlestaff crafting flip flipping gems gp make money profit' },
+    { label: 'Make Money with Zulrah \u2014 GP/Kill & Rotations', url: 'guides/osrs-how-to-make-money-with-zulrah.html', kw: 'budget flip flipping gp kill money poison profit rotation snake zulrah' },
+    { label: 'Reclaim Twisted Bow When Lost', url: 'guides/osrs-how-to-reclaim-twisted-bow-when-lost.html', kw: 'bow death lost mechanics reclaim recovery twisted' },
+    { label: 'Rune Spinning Profit \u2014 Flax to Bowstrings', url: 'guides/osrs-how-to-rune-spinning-profit-2026.html', kw: 'bowstrings flax gp locations profit rune spinning' },
+    { label: 'Solo God Wars Boss for Beginners \u2014 Bandos & Armadyl', url: 'guides/osrs-how-to-solo-god-wars-boss-for-beginners.html', kw: 'armadyl bandos beginner boss bosses god pvm solo wars' },
+    { label: 'Train Prayer Cheap F2P \u2014 Big Bones & Ectofuntus', url: 'guides/osrs-how-to-train-prayer-cheap-f2p.html', kw: 'altar bones cheap ectofuntus f2p gilded prayer train' },
+    { label: 'Unlock Dinosaur Hunting \u2014 Fossil Island Hunter', url: 'guides/osrs-how-to-unlock-dinosaur-hunting-osrs.html', kw: 'dinosaur fossil herbiboar hunter hunting island unlock' },
+    { label: 'Unlock Fairy Rings \u2014 Lost City & Fairy Tale', url: 'guides/osrs-how-to-unlock-fairy-rings.html', kw: 'fairy lost city rings tale unlock' },
+    { label: 'Unlock the Abyss', url: 'guides/osrs-how-to-unlock-the-abyss-guide.html', kw: 'abyss unlock' },
+    { label: 'Hunter Money Making \u2014 Black/Red Chins & Herbiboar', url: 'guides/osrs-hunter-money-making-guide-2026.html', kw: 'bird chinchompa chins flip flipping gp herbiboar hunter money profit trap' },
+    { label: 'Hunter Training 1-99 All Methods', url: 'guides/osrs-hunter-training-guide-2026.html', kw: 'bird chinchompa hunter methods profit training trap xp' },
+    { label: 'Interface & Controls Beginner', url: 'guides/osrs-interface-controls-beginner-guide-2026.html', kw: 'beginner controls game interface ui' },
+    { label: 'Ironman 1-99 Smithing', url: 'guides/osrs-ironman-1-99-smithing-guide.html', kw: 'anvil bar blast furnace iron ironman smithing' },
+    { label: 'Ironman Money Making F2P', url: 'guides/osrs-ironman-money-making-f2p-2026.html', kw: 'f2p flip flipping free gp iron ironman money profit' },
+    { label: 'Kalphite Queen KQ Beginner \u2014 Stop Dying!', url: 'guides/osrs-kalphite-queen-kq-beginner-guide-2026.html', kw: 'beginner kalphite kq queen' },
+    { label: 'Khopesh \u2014 How to Get & Worth It?', url: 'guides/osrs-khopesh-guide-2026.html', kw: 'khopesh melee worth' },
+    { label: 'Khopesh vs Alternative Weapons Comparison', url: 'guides/osrs-khopesh-vs-alternative-weapons-2026.html', kw: 'comparison gear khopesh melee weapons' },
+    { label: 'Killing Green Dragons 400K-800K GP/hr', url: 'guides/osrs-killing-green-dragons-money-per-hour.html', kw: 'dragons flip flipping gp green killing money profit wilderness' },
+    { label: 'Low Cost 1-99 Herblore', url: 'guides/osrs-low-cost-1-99-herblore-guide.html', kw: 'herb herblore potion' },
+    { label: 'Low Effort Money Making Beginners 10 Methods', url: 'guides/osrs-low-effort-money-making-beginners.html', kw: 'beginner effort flip flipping gp money profit stats' },
+    { label: 'Low Gear Vorkath \u2014 Budget Setup & Woox Walk', url: 'guides/osrs-low-gear-setup-vorkath-guide.html', kw: 'armor armour budget dragon equipment gear kill profit setup undead vorkath walk woox' },
+    { label: 'Maps & Fast Travel \u2014 Navigate Gielinor', url: 'guides/osrs-maps-travel-guide-2026.html', kw: 'map maps navigate teleport transport travel' },
+    { label: 'Maxing \u2014 Which 99 First? Optimal Order', url: 'guides/osrs-maxing-99-order-guide-2026.html', kw: 'maxing order optimal' },
+    { label: 'Membership \u2014 Is It Worth Buying?', url: 'guides/osrs-membership-guide-2026.html', kw: 'members membership worth f2p p2p comparison' },
+    { label: 'Mid-Game Breakthrough \u2014 Stop Being Stuck', url: 'guides/osrs-mid-game-breakthrough-guide-2026.html', kw: 'breakthrough intermediate mid game progress stuck' },
+    { label: 'Mid Level Bossing Ladder \u2014 First 10 Bosses', url: 'guides/osrs-mid-level-bossing-ladder-2026.html', kw: 'boss bosses bossing intermediate mid level order pvm' },
+    { label: 'Mid to High Level Progression Roadmap', url: 'guides/osrs-mid-to-high-progression-roadmap-2026.html', kw: 'advanced endgame high intermediate mid progression roadmap' },
+    { label: 'Mobile Membership Purchase Android & iOS', url: 'guides/osrs-mobile-membership-guide-2026.html', kw: 'android ios membership mobile purchase' },
+    { label: 'Money Making Beginners \u2014 0 GP to 500K', url: 'guides/osrs-money-making-beginner-2026.html', kw: 'beginner flip flipping gp money profit zero' },
+    { label: 'Money Making with Fishing \u2014 Lobsters to Eels', url: 'guides/osrs-money-making-fishing-2026.html', kw: 'eels fish fishing flip flipping gp lobster money net profit' },
+    { label: 'Money Making Tier List \u2014 All Methods Ranked', url: 'guides/osrs-money-making-tier-list-2026.html', kw: 'flip flipping gp money methods profit ranked' },
+    { label: 'New Player Handbook \u2014 Zero to Bossing', url: 'guides/osrs-new-player-guide-2026.html', kw: 'beginner bossing player zero' },
+    { label: 'Nex \u2014 Strategy, Gear & Loot Table', url: 'guides/osrs-nex-guide-2026.html', kw: 'god wars gear loot nex setup strategy zaros' },
+    { label: 'Nightmare & Phosanis \u2014 Curse Flicking & Inquisitor', url: 'guides/osrs-nightmare-phosanis-guide-2026.html', kw: 'curse flicking inquisitor nightmare phosani sleepwalker' },
+    { label: 'Optimal Leveling \u2014 Maximize XP/Hour', url: 'guides/osrs-optimal-leveling-guide-2026.html', kw: 'leveling maximize optimal xp skill' },
+    { label: 'Passive Money Making \u2014 Earn GP Overnight', url: 'guides/osrs-passive-money-making-offline.html', kw: 'flip flipping gp herbs kingdom money offline overnight passive profit' },
+    { label: 'Pest Control & Void Knight \u2014 Full Void Set', url: 'guides/osrs-pest-control-void-guide-2026.html', kw: 'control knight pest void xp strategy' },
+    { label: 'Phantom Muspah \u2014 Boss Strategy & Profit', url: 'guides/osrs-phantom-muspah-guide-2026.html', kw: 'ancient boss gear muspah phantom profit setup strategy' },
+    { label: 'POH Optimal Layout \u2014 Best House for PvM', url: 'guides/osrs-poh-optimal-layout-guide-2026.html', kw: 'house layout poh pvm skilling' },
+    { label: 'Prayer Training Beginners \u2014 Protect Prayers', url: 'guides/osrs-prayer-training-beginner-guide-2026.html', kw: 'altar beginner bones efficient gilded prayer prayers protect training' },
+    { label: 'Questing Beginners \u2014 Best Starter Quests', url: 'guides/osrs-questing-beginner-guide-2026.html', kw: 'beginner diary quest questing quests rewards starter' },
+    { label: 'Raid Entry Requirements \u2014 CoX/ToB/ToA', url: 'guides/osrs-raid-entry-requirements-2026.html', kw: 'amascut chambers raid requirements theatre tombs xeric' },
+    { label: 'Range Training 1-99 Fastest', url: 'guides/osrs-range-training-1-99-guide-2026.html', kw: 'arrow bow crossbow range ranged training' },
+    { label: 'Regional Worlds \u2014 Japan/Singapore/South Africa', url: 'guides/osrs-regional-worlds-guide-2026.html', kw: 'regional servers singapore south worlds' },
+    { label: 'Royal Titans \u2014 Duo Boss & Deadeye Prayers', url: 'guides/osrs-royal-titans-guide-2026.html', kw: 'boss deadeye duo loot prayers royal titans vigor' },
+    { label: 'RuneLite Setup \u2014 Better Than Steam!', url: 'guides/osrs-runelite-setup-guide-2026.html', kw: 'runelite setup steam' },
+    { label: 'Safe Spots Beginners \u2014 Fight Without Taking Damage', url: 'guides/osrs-safe-spots-beginner-2026.html', kw: 'beginner damage fight safe spots without' },
+    { label: 'Sailing 1-99 Complete \u2014 Fastest Routes & AFK', url: 'guides/osrs-sailing-1-99-guide-2026.html', kw: 'afk boat crew naval profit routes sailing ship training' },
+    { label: 'Sailing AFK \u2014 Shipwreck Salvaging 1-99', url: 'guides/osrs-sailing-afk-training-guide-2026.html', kw: 'afk boat crew naval sailing salvaging ship shipwreck training' },
+    { label: 'Sailing Money Making \u2014 GP/hr Ranked', url: 'guides/osrs-sailing-money-making-guide-2026.html', kw: 'boat crew flip flipping gp money naval profit ranked sailing ship' },
+    { label: 'Sailing Ship Upgrades & Crew \u2014 Best Boats & Setup', url: 'guides/osrs-sailing-ship-crew-guide-2026.html', kw: 'boat boats crew facilities naval sailing setup ship upgrades' },
+    { label: 'Sailing & Wyrmscraig Preview \u2014 Everything We Know', url: 'guides/osrs-sailing-wyrmscraig-guide-2026.html', kw: 'boat crew naval preview sailing ship wyrmscraig' },
+    { label: 'Sarachnis Loot Ironman \u2014 Cudgel & Seeds', url: 'guides/osrs-sarachnis-loot-guide-for-ironman.html', kw: 'cudgel gear iron ironman loot sarachnis seeds spider' },
+    { label: 'Sarachnis Solo \u2014 Best Beginner Boss', url: 'guides/osrs-sarachnis-solo-guide-2026.html', kw: 'beginner boss cudgel sarachnis solo spider' },
+    { label: 'Skills Overview Beginners \u2014 All 23 Skills', url: 'guides/osrs-skills-overview-beginner-2026.html', kw: 'beginner overview skills' },
+    { label: 'Skill Progression Path Optimal Route', url: 'guides/osrs-skills-progression-path-2026.html', kw: 'path progression route skill' },
+    { label: 'Slayer 70-95 Money Making Best Tasks', url: 'guides/osrs-slayer-70-to-95-money-makers-2026.html', kw: 'block flip flipping gp making master money profit slayer task xp' },
+    { label: 'Slayer Block & Skip List Optimal Tasks', url: 'guides/osrs-slayer-block-skip-list-2026.html', kw: 'block gp master masters skip slayer task xp' },
+    { label: 'Summer Sweep-Up \u2014 Rebuild Account Strategy', url: 'guides/osrs-summer-sweep-up-2026-account-guide.html', kw: 'account authenticator bank rebuild security summer sweep update' },
+    { label: 'Summer Sweep-Up Complete \u2014 Gauntlet & Meta Changes', url: 'guides/osrs-summer-sweep-up-2026-guide.html', kw: 'changes gauntlet gear meta rebuild summer sweep' },
+    { label: 'Tempoross \u2014 Fishing Boss Strategy & Rewards', url: 'guides/osrs-tempoross-guide-2026.html', kw: 'boss fishing rates rewards strategy tempoross xp' },
+    { label: 'Theatre of Blood \u2014 Complete ToB Walkthrough', url: 'guides/osrs-theatre-of-blood-guide-2026.html', kw: 'blood rooms scythe theatre tob verzik walkthrough' },
+    { label: 'ToA Solo Beginner \u2014 Tombs of Amascut 0-150 Invo', url: 'guides/osrs-toa-solo-beginner-guide-2026.html', kw: 'amascut beginner invo solo toa tombs' },
+    { label: 'Wintertodt Complete \u2014 Fast 99 Firemaking', url: 'guides/osrs-wintertodt-complete-guide-2026.html', kw: 'firemaking mass profit solo strategy wintertodt' },
+    { label: 'Wintertodt Money Making Per Hour', url: 'guides/osrs-wintertodt-money-making-per-hour.html', kw: 'crates firemaking flip flipping gp money profit wintertodt' },
+    { label: 'Quest Cape Roadmap \u2014 Optimal Order & Strategy', url: 'guides/quest-cape-roadmap-2026.html', kw: 'cape diary map order quest questing roadmap strategy' },
+    { label: 'Sailing Skill Complete Level 1-99', url: 'guides/sailing-complete-guide-2026.html', kw: 'boat crew naval sailing ship skill' },
+    { label: 'Sailing Phase 1 Training Maps & Profit Spots', url: 'guides/sailing-phase-1-training-2026.html', kw: 'boat crew maps naval phase profit sailing ship training' },
+    { label: 'Sailing PvP \u2014 Naval Combat & Piracy Mechanics', url: 'guides/sailing-pvp-guide-2026.html', kw: 'boat combat crew mechanics naval piracy pvp sailing ship' },
+    { label: 'Slayer Training 1-99 Best Tasks & Masters', url: 'guides/slayer-1-99-guide-2026.html', kw: 'block gp master slayer task training' },
+    { label: 'Vault of Ralos Raid Walkthrough & Strategy', url: 'guides/vault-of-ralos-raid-guide-2026.html', kw: 'raid ralos strategy vault walkthrough' },
+  ];
+
+  // ========== 本地文章匹配（CD/Windrose/OSRS 通用） ==========
   function matchLocalArticles(question, game) {
-    var articles = game === 'crimson-desert' ? CD_ARTICLES : WINDROSE_ARTICLES;
+    var articles;
+    if (game === 'crimson-desert') articles = CD_ARTICLES;
+    else if (game === 'windrose') articles = WINDROSE_ARTICLES;
+    else articles = OSRS_ARTICLES;
+
     var lowerQ = question.toLowerCase();
     var matches = [];
 
@@ -75,32 +289,31 @@
       'howto': 'how to', 'howdoi': 'how do i', 'du': 'do', 'waht': 'what', 'whats': "what's",
       'crimson': 'crimson desert', 'desert': 'crimson desert',
       'windros': 'windrose', 'windose': 'windrose', 'windroses': 'windrose',
+      'zulrah': 'zulrah', 'vorkath': 'vorkath', 'corp': 'corporeal',
+      'tob': 'theatre of blood', 'cox': 'chambers of xeric', 'toa': 'tombs of amascut',
+      'gauntlet': 'gauntlet', 'cg': 'corrupted gauntlet',
     };
 
-    // 预处理问题文本：替换常见拼写错误
     var cleanedQ = lowerQ;
     for (var typo in typos) {
       if (cleanedQ.indexOf(typo) !== -1) {
         cleanedQ = cleanedQ.replace(new RegExp(typo, 'g'), typos[typo]);
       }
     }
-    // 合并原始+纠正后的文本用于匹配
     var searchQ = lowerQ + ' ' + cleanedQ;
 
     for (var i = 0; i < articles.length; i++) {
       var score = 0;
-      var keywords = articles[i].keywords.split(' ');
-      var titleLower = articles[i].title.toLowerCase();
+      var keywords = (articles[i].kw || articles[i].keywords).split(' ');
+      var titleLower = (articles[i].label || articles[i].title).toLowerCase();
 
-      // 关键词匹配（在合并后的搜索文本中查找）
       for (var k = 0; k < keywords.length; k++) {
         if (searchQ.indexOf(keywords[k]) !== -1) {
           score += (keywords[k].length > 4 ? 3 : 1);
         }
       }
 
-      // 标题词匹配
-      var titleWords = titleLower.replace(/crimson desert |windrose |2026|guide /g, '').split(' ');
+      var titleWords = titleLower.replace(/osrs |guide |2026|beginner| /g, ' ').split(' ');
       for (var w = 0; w < titleWords.length; w++) {
         if (titleWords[w].length > 2 && searchQ.indexOf(titleWords[w]) !== -1) {
           score += 2;
@@ -108,11 +321,20 @@
       }
 
       if (score > 0) {
-        matches.push({ article: articles[i], score: score });
+        // 找最佳锚点
+        var bestAnchor = '';
+        if (articles[i].anchorMap) {
+          for (var key in articles[i].anchorMap) {
+            if (searchQ.indexOf(key) !== -1 && articles[i].anchorMap[key]) {
+              bestAnchor = articles[i].anchorMap[key];
+              break;
+            }
+          }
+        }
+        matches.push({ article: articles[i], score: score, anchor: bestAnchor });
       }
     }
 
-    // 按匹配分数降序排列，取 top 3
     matches.sort(function(a, b) { return b.score - a.score; });
     return matches.slice(0, 3);
   }
@@ -120,22 +342,60 @@
   // ========== CSS 注入 ==========
   function injectStyles() {
     var style = document.createElement('style');
-    style.textContent = '\n/* AI \u95ee\u7b54\u6d6e\u7a97 - \u6838\u5fc3\u6837\u5f0f */\n#osrs-qa-widget {\n  position: fixed;\n  bottom: 20px;\n  right: 20px;\n  width: 420px;\n  max-height: 600px;\n  background: linear-gradient(135deg, rgba(39, 33, 26, 0.98), rgba(59, 38, 21, 0.95));\n  border: 2px solid rgba(212, 175, 55, 0.4);\n  border-radius: 12px;\n  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), \n              0 0 20px rgba(212, 175, 55, 0.15);\n  display: none;\n  flex-direction: column;\n  z-index: 10000;\n  font-family: \'Segoe UI\', Tahoma, Geneva, sans-serif;\n  overflow: hidden;\n}\n\n#osrs-qa-widget.open {\n  display: flex;\n  animation: slideUp 0.3s ease-out;\n}\n\n@keyframes slideUp {\n  from {\n    opacity: 0;\n    transform: translateY(20px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n\n/* \u5934\u90e8 */\n#osrs-qa-widget .qa-header {\n  background: linear-gradient(90deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.08));\n  border-bottom: 1px solid rgba(212, 175, 55, 0.25);\n  padding: 16px 18px;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  flex-shrink: 0;\n}\n\n#osrs-qa-widget .qa-header-title {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 15px;\n  font-weight: 600;\n  color: #d4af37;\n  font-family: \'Cinzel\', serif;\n}\n\n#osrs-qa-widget .qa-header-title .qa-icon {\n  font-size: 18px;\n}\n\n#osrs-qa-widget .qa-close-btn {\n  background: none;\n  border: none;\n  color: rgba(212, 175, 55, 0.6);\n  font-size: 20px;\n  cursor: pointer;\n  padding: 4px;\n  transition: color 0.2s;\n}\n\n#osrs-qa-widget .qa-close-btn:hover {\n  color: #d4af37;\n}\n\n/* \u6d88\u606f\u533a\u57df */\n#osrs-qa-widget .qa-messages {\n  flex: 1;\n  overflow-y: auto;\n  padding: 16px;\n  display: flex;\n  flex-direction: column;\n  gap: 12px;\n}\n\n#osrs-qa-widget .qa-message {\n  display: flex;\n  gap: 8px;\n  animation: fadeIn 0.3s ease-out;\n}\n\n@keyframes fadeIn {\n  from {\n    opacity: 0;\n    transform: translateY(8px);\n  }\n  to {\n    opacity: 1;\n    transform: translateY(0);\n  }\n}\n\n#osrs-qa-widget .qa-message.user {\n  justify-content: flex-end;\n}\n\n#osrs-qa-widget .qa-message.assistant {\n  justify-content: flex-start;\n}\n\n#osrs-qa-widget .qa-message-bubble {\n  max-width: 85%;\n  padding: 10px 14px;\n  border-radius: 8px;\n  font-size: 13px;\n  line-height: 1.5;\n  word-wrap: break-word;\n}\n\n#osrs-qa-widget .qa-message.user .qa-message-bubble {\n  background: rgba(212, 175, 55, 0.25);\n  border: 1px solid rgba(212, 175, 55, 0.35);\n  color: #e8d5b5;\n}\n\n#osrs-qa-widget .qa-message.assistant .qa-message-bubble {\n  background: rgba(100, 80, 60, 0.4);\n  border: 1px solid rgba(212, 175, 55, 0.2);\n  color: #d4af37;\n}\n\n#osrs-qa-widget .qa-message.assistant .qa-message-bubble.loading {\n  display: flex;\n  align-items: center;\n  gap: 6px;\n  min-height: 24px;\n}\n\n#osrs-qa-widget .qa-message.assistant .qa-message-bubble.loading::after {\n  content: \'\';\n  display: inline-block;\n  width: 4px;\n  height: 4px;\n  background: #d4af37;\n  border-radius: 50%;\n  animation: blink 1s infinite;\n}\n\n@keyframes blink {\n  0%, 100% { opacity: 0.3; }\n  50% { opacity: 1; }\n}\n\n/* \u4fe1\u606f\u6e90\u6807\u7b7e */\n#osrs-qa-widget .qa-source {\n  font-size: 11px;\n  color: rgba(212, 175, 55, 0.6);\n  margin-top: 4px;\n  font-style: italic;\n}\n\n/* \u5f15\u7528\u6587\u7ae0\u94fe\u63a5 */\n#osrs-qa-widget .qa-article-link {\n  display: block;\n  margin-top: 8px;\n  padding: 8px 10px;\n  background: rgba(212, 175, 55, 0.1);\n  border: 1px solid rgba(212, 175, 55, 0.25);\n  border-radius: 6px;\n  font-size: 12px;\n  color: #d4af37;\n  text-decoration: none;\n  transition: all 0.2s;\n  font-weight: 500;\n  cursor: pointer;\n}\n\n#osrs-qa-widget .qa-article-link:hover {\n  background: rgba(212, 175, 55, 0.2);\n  border-color: rgba(212, 175, 55, 0.5);\n  color: #f0d060;\n}\n\n#osrs-qa-widget .qa-article-link .qa-link-icon {\n  margin-right: 5px;\n  font-size: 13px;\n}\n\n/* 多文章匹配列表 */\n#osrs-qa-widget .qa-match-list {\n  margin-top: 6px;\n}\n\n#osrs-qa-widget .qa-match-intro {\n  font-size: 12px;\n  color: rgba(232, 213, 181, 0.7);\n  margin-bottom: 4px;\n}\n\n/* \u8f93\u5165\u533a\u57df */\n#osrs-qa-widget .qa-input-group {\n  border-top: 1px solid rgba(212, 175, 55, 0.2);\n  padding: 12px;\n  background: rgba(0, 0, 0, 0.2);\n  display: flex;\n  gap: 8px;\n  flex-shrink: 0;\n}\n\n#osrs-qa-widget .qa-input-group input {\n  flex: 1;\n  background: rgba(59, 38, 21, 0.6);\n  border: 1px solid rgba(212, 175, 55, 0.25);\n  border-radius: 6px;\n  padding: 8px 12px;\n  color: #d4af37;\n  font-size: 13px;\n  font-family: inherit;\n  transition: border-color 0.2s;\n}\n\n#osrs-qa-widget .qa-input-group input::placeholder {\n  color: rgba(212, 175, 55, 0.4);\n}\n\n#osrs-qa-widget .qa-input-group input:focus {\n  outline: none;\n  border-color: rgba(212, 175, 55, 0.5);\n  background: rgba(59, 38, 21, 0.8);\n}\n\n#osrs-qa-widget .qa-send-btn {\n  background: linear-gradient(135deg, rgba(212, 175, 55, 0.35), rgba(212, 175, 55, 0.2));\n  border: 1px solid rgba(212, 175, 55, 0.4);\n  border-radius: 6px;\n  color: #d4af37;\n  font-size: 15px;\n  cursor: pointer;\n  padding: 6px 12px;\n  transition: all 0.2s;\n  font-weight: 600;\n}\n\n#osrs-qa-widget .qa-send-btn:hover:not(:disabled) {\n  background: linear-gradient(135deg, rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0.35));\n  border-color: rgba(212, 175, 55, 0.6);\n  transform: scale(1.02);\n}\n\n#osrs-qa-widget .qa-send-btn:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n\n/* \u6d6e\u7a97\u6253\u5f00\u6309\u94ae - \u84dd\u8272\u6c34\u871c\u6843\u578b\u5361\u901aAI */\n#osrs-qa-toggle-btn {\n  position: fixed;\n  bottom: 20px;\n  right: 20px;\n  width: 100px;\n  height: 108px;\n  background: #4A90D9;\n  border: none;\n  border-radius: 42% 42% 50% 50% / 44% 44% 58% 58%;\n  cursor: pointer;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n  transition: all 0.3s ease;\n  box-shadow: 0 4px 20px rgba(74,144,217,0.45);\n  gap: 0;\n  outline: none;\n  padding: 0;\n  color: #fff;\n}\n\n/* \u5361\u901a\u8138 */\n#osrs-qa-toggle-btn .peach-face {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 5px;\n}\n\n#osrs-qa-toggle-btn .peach-eyes {\n  display: flex;\n  gap: 14px;\n}\n\n#osrs-qa-toggle-btn .peach-eyes span {\n  display: block;\n  width: 10px;\n  height: 11px;\n  background: #1a3a5c;\n  border-radius: 50%;\n}\n\n#osrs-qa-toggle-btn .peach-mouth {\n  width: 22px;\n  height: 10px;\n  border-bottom: 2.5px solid #1a3a5c;\n  border-radius: 0 0 14px 14px;\n}\n\n/* AI \u6587\u5b57\u6807\u7b7e */\n#osrs-qa-toggle-btn .ai-label {\n  font-size: 15px;\n  font-weight: 700;\n  color: #fff;\n  letter-spacing: 1px;\n  font-family: \'Segoe UI\', \'Cinzel\', sans-serif;\n  line-height: 1;\n  margin-top: 4px;\n}\n\n#osrs-qa-toggle-btn:hover {\n  transform: scale(1.07);\n  box-shadow: 0 6px 28px rgba(74,144,217,0.6);\n  background: #5A9DE5;\n}\n\n#osrs-qa-toggle-btn.hide {\n  display: none;\n}\n\n/* \u54cd\u5e94\u5f0f\u8bbe\u8ba1 */\n@media (max-width: 600px) {\n  #osrs-qa-widget {\n    width: 100%;\n    height: 100%;\n    max-height: 100%;\n    bottom: 0;\n    right: 0;\n    border-radius: 0;\n    max-height: 80vh;\n  }\n  \n  #osrs-qa-toggle-btn {\n    bottom: 20px;\n    right: 20px;\n  }\n}\n\n/* \u6d88\u606f\u6eda\u52a8\u6761\u6837\u5f0f */\n#osrs-qa-widget .qa-messages::-webkit-scrollbar {\n  width: 6px;\n}\n\n#osrs-qa-widget .qa-messages::-webkit-scrollbar-track {\n  background: rgba(0, 0, 0, 0.1);\n  border-radius: 3px;\n}\n\n#osrs-qa-widget .qa-messages::-webkit-scrollbar-thumb {\n  background: rgba(212, 175, 55, 0.25);\n  border-radius: 3px;\n}\n\n#osrs-qa-widget .qa-messages::-webkit-scrollbar-thumb:hover {\n  background: rgba(212, 175, 55, 0.4);\n}\n    ';
+    style.textContent = 
+      '#osrs-qa-widget{position:fixed;bottom:20px;right:20px;width:420px;max-height:600px;background:linear-gradient(135deg,rgba(39,33,26,0.98),rgba(59,38,21,0.95));border:2px solid rgba(212,175,55,0.4);border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.5),0 0 20px rgba(212,175,55,0.15);display:none;flex-direction:column;z-index:10000;font-family:"Segoe UI",Tahoma,Geneva,sans-serif;overflow:hidden;}' +
+      '#osrs-qa-widget.open{display:flex;animation:qaSlideUp 0.3s ease-out;}' +
+      '@keyframes qaSlideUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}' +
+      '#osrs-qa-widget .qa-header{background:linear-gradient(90deg,rgba(212,175,55,0.15),rgba(212,175,55,0.08));border-bottom:1px solid rgba(212,175,55,0.25);padding:16px 18px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}' +
+      '#osrs-qa-widget .qa-header-title{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:#d4af37;font-family:"Cinzel",serif;}' +
+      '#osrs-qa-widget .qa-close-btn{background:none;border:none;color:rgba(212,175,55,0.6);font-size:20px;cursor:pointer;padding:4px;transition:color 0.2s;}' +
+      '#osrs-qa-widget .qa-close-btn:hover{color:#d4af37;}' +
+      '#osrs-qa-widget .qa-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;}' +
+      '#osrs-qa-widget .qa-message{display:flex;gap:8px;animation:qaFadeIn 0.3s ease-out;}' +
+      '@keyframes qaFadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}' +
+      '#osrs-qa-widget .qa-message.user{justify-content:flex-end;}' +
+      '#osrs-qa-widget .qa-message.assistant{justify-content:flex-start;}' +
+      '#osrs-qa-widget .qa-message-bubble{max-width:85%;padding:10px 14px;border-radius:8px;font-size:13px;line-height:1.5;word-wrap:break-word;}' +
+      '#osrs-qa-widget .qa-message.user .qa-message-bubble{background:rgba(212,175,55,0.25);border:1px solid rgba(212,175,55,0.35);color:#e8d5b7;}' +
+      '#osrs-qa-widget .qa-message.assistant .qa-message-bubble{background:rgba(100,80,60,0.4);border:1px solid rgba(212,175,55,0.2);color:#d4af37;}' +
+      '#osrs-qa-widget .qa-message.assistant .qa-message-bubble.loading{display:flex;align-items:center;gap:6px;min-height:24px;}' +
+      '#osrs-qa-widget .qa-source{font-size:11px;color:rgba(212,175,55,0.6);margin-top:4px;font-style:italic;}' +
+      '#osrs-qa-widget .qa-input-group{border-top:1px solid rgba(212,175,55,0.2);padding:12px;background:rgba(0,0,0,0.2);display:flex;gap:8px;flex-shrink:0;}' +
+      '#osrs-qa-widget .qa-input-group input{flex:1;background:rgba(59,38,21,0.6);border:1px solid rgba(212,175,55,0.25);border-radius:6px;padding:8px 12px;color:#d4af37;font-size:13px;font-family:inherit;transition:border-color 0.2s;}' +
+      '#osrs-qa-widget .qa-input-group input::placeholder{color:rgba(212,175,55,0.4);}' +
+      '#osrs-qa-widget .qa-input-group input:focus{outline:none;border-color:rgba(212,175,55,0.5);background:rgba(59,38,21,0.8);}' +
+      '#osrs-qa-widget .qa-send-btn{background:linear-gradient(135deg,rgba(212,175,55,0.35),rgba(212,175,55,0.2));border:1px solid rgba(212,175,55,0.4);border-radius:6px;color:#d4af37;font-size:15px;cursor:pointer;padding:6px 12px;transition:all 0.2s;font-weight:600;}' +
+      '#osrs-qa-widget .qa-send-btn:hover:not(:disabled){background:linear-gradient(135deg,rgba(212,175,55,0.5),rgba(212,175,55,0.35));border-color:rgba(212,175,55,0.6);transform:scale(1.02);}' +
+      '#osrs-qa-widget .qa-send-btn:disabled{opacity:0.5;cursor:not-allowed;}' +
+      '#osrs-qa-toggle-btn{position:fixed;bottom:20px;right:20px;width:100px;height:108px;background:#4A90D9;border:none;border-radius:42% 42% 50% 50% / 44% 44% 58% 58%;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;transition:all 0.3s ease;box-shadow:0 4px 20px rgba(74,144,217,0.45);gap:0;outline:none;padding:0;color:#fff;}' +
+      '#osrs-qa-toggle-btn .peach-face{display:flex;flex-direction:column;align-items:center;gap:5px;}' +
+      '#osrs-qa-toggle-btn .peach-eyes{display:flex;gap:14px;}' +
+      '#osrs-qa-toggle-btn .peach-eyes span{display:block;width:10px;height:11px;background:#1a3a5c;border-radius:50%;}' +
+      '#osrs-qa-toggle-btn .peach-mouth{width:22px;height:10px;border-bottom:2.5px solid #1a3a5c;border-radius:0 0 14px 14px;}' +
+      '#osrs-qa-toggle-btn .ai-label{font-size:15px;font-weight:700;color:#fff;letter-spacing:1px;font-family:"Segoe UI","Cinzel",sans-serif;line-height:1;margin-top:4px;}' +
+      '#osrs-qa-toggle-btn:hover{transform:scale(1.07);box-shadow:0 6px 28px rgba(74,144,217,0.6);background:#5A9DE5;}' +
+      '#osrs-qa-toggle-btn.hide{display:none;}' +
+      '@media(max-width:600px){#osrs-qa-widget{width:100%;height:100%;max-height:100%;bottom:0;right:0;border-radius:0;max-height:80vh;}}' +
+      '#osrs-qa-widget .qa-article-link{display:block;margin-top:6px;padding:8px 12px;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.25);border-radius:6px;color:#d4af37;text-decoration:none;font-size:12px;line-height:1.4;transition:all 0.2s;}' +
+      '#osrs-qa-widget .qa-article-link:hover{background:rgba(212,175,55,0.2);border-color:rgba(212,175,55,0.5);}' +
+      '#osrs-qa-widget .qa-article-link .qa-link-icon{margin-right:6px;}' +
+      '#osrs-qa-widget .qa-toc-match{display:block;margin-top:4px;padding:6px 10px;background:rgba(212,175,55,0.08);border-left:3px solid #d4af37;border-radius:0 4px 4px 0;color:#e8d5b7;text-decoration:none;font-size:12px;line-height:1.4;transition:all 0.2s;}' +
+      '#osrs-qa-widget .qa-toc-match:hover{background:rgba(212,175,55,0.15);color:#d4af37;}' +
+      '#osrs-qa-widget .qa-section-label{font-size:11px;color:rgba(212,175,55,0.7);margin-top:8px;margin-bottom:2px;font-weight:600;}';
     document.head.appendChild(style);
   }
 
   // ========== HTML 结构创建 ==========
   function createWidget() {
-    // 浮窗主体 - 动态标题和占位文字
     var widget = document.createElement('div');
     widget.id = CONFIG.widgetId;
-    widget.innerHTML = 
+    widget.innerHTML =
       '<div class="qa-header">' +
         '<div class="qa-header-title">' +
           '<span class="qa-icon">' + CONFIG.gameIcon + '</span>' +
           '<span>' + CONFIG.assistantTitle + '</span>' +
         '</div>' +
-        '<button class="qa-close-btn" aria-label="Close AI widget">\u2715</button>' +
+        '<button class="qa-close-btn" aria-label="Close AI widget">✕</button>' +
       '</div>' +
       '<div class="qa-messages"></div>' +
       '<div class="qa-input-group">' +
@@ -143,13 +403,11 @@
         '<button class="qa-send-btn" aria-label="Send message">Send</button>' +
       '</div>';
 
-    // 打开按钮
     var toggleBtn = document.createElement('button');
     toggleBtn.id = CONFIG.widgetButtonId;
     toggleBtn.innerHTML = '<div class="peach-face"><div class="peach-eyes"><span></span><span></span></div><div class="peach-mouth"></div></div><span class="ai-label">AI</span>';
     toggleBtn.title = 'Open ' + CONFIG.assistantTitle;
 
-    // 添加到页面
     document.body.appendChild(widget);
     document.body.appendChild(toggleBtn);
 
@@ -163,65 +421,123 @@
     var input = widget.querySelector('.qa-input');
     var messagesContainer = widget.querySelector('.qa-messages');
 
-    // 打开/关闭浮窗
     toggleBtn.addEventListener('click', function() {
       widget.classList.toggle('open');
-      if (widget.classList.contains('open')) {
-        input.focus();
-      }
+      if (widget.classList.contains('open')) input.focus();
     });
 
     closeBtn.addEventListener('click', function() {
       widget.classList.remove('open');
     });
 
-    // 发送消息
     var sendMessage = function() {
       var message = input.value.trim();
       if (!message) return;
 
-      // 显示用户消息
       addMessage(messagesContainer, message, 'user');
       input.value = '';
       sendBtn.disabled = true;
-
-      // 显示加载状态
       addMessage(messagesContainer, 'Searching...', 'assistant', true);
 
-      // === CD/Windrose 页面：先本地匹配 ===
-      if (GAME === 'crimson-desert' || GAME === 'windrose') {
-        var matches = matchLocalArticles(message, GAME);
+      // === 优先：动态TOC匹配（所有页面通用） ===
+      var toc = extractPageTOC();
+      var tocMatches = matchTOCSections(message, toc);
 
-        // 移除加载消息
-        var loadingMsg = messagesContainer.lastElementChild;
-        if (loadingMsg && loadingMsg.querySelector('.qa-message-bubble.loading')) {
-          loadingMsg.remove();
+      // === 本地文章匹配 ===
+      var localMatches = matchLocalArticles(message, GAME);
+
+      // 移除加载消息
+      var loadingMsg = messagesContainer.lastElementChild;
+      if (loadingMsg && loadingMsg.querySelector('.qa-message-bubble.loading')) {
+        loadingMsg.remove();
+      }
+
+      // 显示TOC匹配结果（跳转到当前页面段落）
+      if (tocMatches.length > 0) {
+        var tocIntro = document.createElement('div');
+        tocIntro.className = 'qa-message assistant';
+        tocIntro.innerHTML = '<div class="qa-message-bubble">📍 <b>Found on this page:</b> Click to jump to the exact section:</div>';
+        messagesContainer.appendChild(tocIntro);
+
+        for (var t = 0; t < tocMatches.length; t++) {
+          var tocLink = document.createElement('a');
+          tocLink.className = 'qa-toc-match';
+          tocLink.href = '#' + tocMatches[t].tocItem.id;
+          tocLink.textContent = '👉 ' + tocMatches[t].tocItem.rawText;
+          tocLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('href').substring(1);
+            var target = document.getElementById(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              // 高亮效果
+              target.style.transition = 'background 0.5s';
+              target.style.background = 'rgba(212,175,55,0.25)';
+              setTimeout(function() { target.style.background = ''; }, 2000);
+            }
+            widget.classList.remove('open');
+          });
+
+          var tocMsg = document.createElement('div');
+          tocMsg.className = 'qa-message assistant';
+          tocMsg.appendChild(tocLink);
+          messagesContainer.appendChild(tocMsg);
         }
+      }
 
-        if (matches.length > 0) {
-          // 本地匹配成功 → 直接返回文章链接
-          var answerText = 'Here are the most relevant guides for your question:\n\n' +
-            matches.map(function(m, idx) {
-              return (idx + 1) + '. ' + m.article.title;
-            }).join('\n');
+      // 显示本地文章匹配结果
+      if (localMatches.length > 0) {
+        var prefixText = tocMatches.length > 0
+          ? '📚 <b>Related guides:</b>'
+          : 'Found the best guides for your question:';
+        var articleIntro = document.createElement('div');
+        articleIntro.className = 'qa-message assistant';
+        articleIntro.innerHTML = '<div class="qa-message-bubble">' + prefixText + '</div>';
+        messagesContainer.appendChild(articleIntro);
 
-          addMessage(messagesContainer, answerText, 'assistant', false, 'osrsguru', '', '');
-
-          // 添加文章链接
-          for (var i = 0; i < matches.length; i++) {
-            addArticleLink(messagesContainer, matches[i].article.title, matches[i].article.url);
+        for (var i = 0; i < localMatches.length; i++) {
+          var article = localMatches[i].article;
+          var url = article.url;
+          // 如果有锚点，加到URL后面
+          if (localMatches[i].anchor) {
+            url += '#' + localMatches[i].anchor;
           }
-          sendBtn.disabled = false;
-          return; // 不调用后端 API
+
+          var link = document.createElement('a');
+          link.className = 'qa-article-link';
+          link.href = url;
+          link.target = '_blank';
+          link.rel = 'noopener';
+          var displayLabel = article.label || article.title;
+          link.innerHTML = '<span class="qa-link-icon">📖</span>' + displayLabel + (localMatches[i].anchor ? ' <span style="color:rgba(212,175,55,0.6);font-size:11px;">(jump to section)</span>' : '');
+
+          var linkMsg = document.createElement('div');
+          linkMsg.className = 'qa-message assistant';
+          linkMsg.appendChild(link);
+          messagesContainer.appendChild(linkMsg);
         }
 
-        // 本地未匹配 → 调用后端 API (DeepSeek V3 fallback，带游戏上下文)
-        callBackendAPI(message, messagesContainer, sendBtn, GAME);
+        // 裁剪消息数量
+        while (messagesContainer.children.length > CONFIG.maxMessages + 4) {
+          messagesContainer.firstChild.remove();
+        }
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        sendBtn.disabled = false;
+
+        // CD/Windrose：本地匹配成功 → 不调API，直接返回
+        if (GAME === 'crimson-desert' || GAME === 'windrose') return;
+        // OSRS：继续调API，TOC和本地链接作为补充显示
+        callBackendAPI(message, messagesContainer, sendBtn, null, tocMatches, localMatches);
         return;
       }
 
-      // === OSRS 页面：保持原有逻辑 ===
-      callBackendAPI(message, messagesContainer, sendBtn);
+      // OSRS：继续调API，TOC和本地链接作为补充显示
+      callBackendAPI(message, messagesContainer, sendBtn, null, tocMatches, localMatches);
+        return;
+      }
+
+      // === CD/Windrose 本地未匹配 → 调用后端API ===
+      callBackendAPI(message, messagesContainer, sendBtn, GAME);
     };
 
     sendBtn.addEventListener('click', sendMessage);
@@ -230,10 +546,11 @@
     });
   }
 
-  // ========== 调用后端 API ==========
-  function callBackendAPI(message, messagesContainer, sendBtn, gameContext) {
+  // ========== 调用后端API ==========
+  function callBackendAPI(message, messagesContainer, sendBtn, gameContext, tocMatches, alreadyShownMatches) {
+    if (!alreadyShownMatches) alreadyShownMatches = [];
+    var shownUrls = alreadyShownMatches.map(function(m) { return m.article.url; });
     var apiUrl = CONFIG.apiBase + '/rag-api/search?q=' + encodeURIComponent(message);
-    // CD/Windrose 页面：传递游戏上下文给后端
     if (gameContext && gameContext !== 'osrs') {
       apiUrl += '&game=' + encodeURIComponent(gameContext);
     }
@@ -244,60 +561,64 @@
         return response.json();
       })
       .then(function(data) {
-        // 移除加载消息
         var loadingMsg = messagesContainer.lastElementChild;
         if (loadingMsg && loadingMsg.querySelector('.qa-message-bubble.loading')) {
           loadingMsg.remove();
         }
 
-        // 显示 AI 回复
         var answer = data.answer || 'No answer available';
         var source = data.source || 'unknown';
-        var title = data.title || '';
-        var url = data.url || '';
-        addMessage(messagesContainer, answer, 'assistant', false, source, title, url);
+        addMessage(messagesContainer, answer, 'assistant', false, source);
+
+        // 如果API返回了相关文章标题和URL，也显示链接
+        if (data.title && data.url) {
+          var link = document.createElement('a');
+          link.className = 'qa-article-link';
+          link.href = data.url;
+          link.target = '_blank';
+          link.rel = 'noopener';
+          link.innerHTML = '<span class="qa-link-icon">📖</span>Read full guide: ' + data.title;
+          var linkMsg = document.createElement('div');
+          linkMsg.className = 'qa-message assistant';
+          linkMsg.appendChild(link);
+          messagesContainer.appendChild(linkMsg);
+        }
+
+        // 补充显示未重复的本地相关文章（过滤已显示的）
+        var extra = matchLocalArticles(message, GAME).filter(function(m) {
+          return shownUrls.indexOf(m.article.url) === -1;
+        }).slice(0, 3);
+        if (extra.length > 0) {
+          var label = document.createElement('div');
+          label.className = 'qa-section-label';
+          label.textContent = 'You may also like:';
+          messagesContainer.appendChild(label);
+          for (var i = 0; i < extra.length; i++) {
+            var exArticle = extra[i].article;
+            var exLink = document.createElement('a');
+            exLink.className = 'qa-article-link';
+            exLink.href = exArticle.url;
+            exLink.target = '_blank';
+            exLink.rel = 'noopener';
+            exLink.innerHTML = '<span class="qa-link-icon">📖</span>' + (exArticle.label || exArticle.title);
+            var exMsg = document.createElement('div');
+            exMsg.className = 'qa-message assistant';
+            exMsg.appendChild(exLink);
+            messagesContainer.appendChild(exMsg);
+          }
+        }
       })
       .catch(function(error) {
         console.error('RAG API error:', error);
-
-        // 移除加载消息
         var loadingMsg = messagesContainer.lastElementChild;
         if (loadingMsg && loadingMsg.querySelector('.qa-message-bubble.loading')) {
           loadingMsg.remove();
         }
-
-        // 根据当前游戏显示不同的友好提示
-        var offlineMsg;
-        if (gameContext === 'crimson-desert') {
-          offlineMsg = "I couldn't find a specific match for your question.\n\n" +
-            'Here are our Crimson Desert guides that might help:\n\n' +
-            '  \u27a1\ufe0f New Player Guide — Getting started in Pywel\n' +
-            '  \u27a1\ufe0f Combat Mastery — Parry, dodge & combos\n' +
-            '  \u27a1\ufe0f Weapons & Gear — Best loadouts ranked\n' +
-            '  \u27a1\ufe0f Quest Walkthrough — Main story guide\n' +
-            '  \u27a1\ufe0f Boss Guide — All bosses & strategies\n' +
-            '  \u27a1\ufe0f Skills & Builds — Best builds for every playstyle\n\n' +
-            'You can also browse all guides at osrsguru.com/guides/crimson-de sert/';
-        } else if (gameContext === 'windrose') {
-          offlineMsg = "I couldn't find a specific match for your question.\n\n" +
-            'Here are our Windrose guides that might help:\n\n' +
-            '  \u27a1\ufe0f Beginner Guide — Day 1 survival basics\n' +
-            '  \u27a1\ufe0f Combat & Ship — Land + naval combat\n' +
-            '  \u27a1\ufe0f Crafting & Gear — Best weapons & upgrades\n' +
-            '  \u27a1\ufe0f Quest & Exploration — Treasure maps & secrets\n' +
-            '  \u27a1\ufe0f Boss Guide — All bosses & farming routes\n' +
-            '  \u27a1\ufe0f Base Building — Defenses & layout tips\n\n' +
-            'You can also browse all guides at osrsguru.com/guides/windrose/';
-        } else {
-          // OSRS 默认
-          offlineMsg = 'AI Assistant is being upgraded!\n\n' +
-            'We are building a smarter knowledge base with 115+ guides,\n' +
-            'real-time GE prices, and boss strategies.\n\n' +
-            'In the meantime:\n' +
-            '  Browse osrsguru.com for all guides\n' +
-            '  Check the OSRS section for game-specific help\n\n' +
-            'Expected back online soon!';
-        }
+        var offlineMsg = GAME === 'crimson-desert'
+          ? "Sorry, I couldn't find a specific match.\n\nHere are our Crimson Desert guides:\n• New Player Guide\n• Combat Guide\n• Weapons & Gear\n• Quest Walkthrough\n• Boss Guide\n• Skills & Builds\n\nBrowse all: osrsguru.com/guides/crimson-desert/"
+          : (GAME === 'windrose'
+            ? "Sorry, I couldn't find a specific match.\n\nHere are our Windrose guides:\n• Beginner Guide\n• Combat & Ship Guide\n• Crafting & Gear\n• Quest & Exploration\n• Boss Guide\n• Base Building\n\nBrowse all: osrsguru.com/guides/windrose/"
+            : 'AI Assistant is being upgraded!\n\nWe are building a smarter knowledge base with 150+ guides.\n\nBrowse osrsguru.com for all guides.');
         addMessage(messagesContainer, offlineMsg, 'assistant', false, CONFIG.sourceGuruLabel);
       })
       .then(function() {
@@ -305,12 +626,40 @@
       });
   }
 
+  // ========== 显示相关文章推荐 ==========
+  function showRelatedArticles(container, question) {
+    var matches = matchLocalArticles(question, GAME);
+    if (matches.length === 0) return;
+
+    var label = document.createElement('div');
+    label.className = 'qa-section-label';
+    label.textContent = 'More guides you may like:';
+    container.appendChild(label);
+
+    for (var i = 0; i < matches.length; i++) {
+      var article = matches[i].article;
+      var link = document.createElement('a');
+      link.className = 'qa-article-link';
+      link.href = article.url;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.innerHTML = '<span class="qa-link-icon">📖</span>' + (article.label || article.title);
+      var msg = document.createElement('div');
+      msg.className = 'qa-message assistant';
+      msg.appendChild(link);
+      container.appendChild(msg);
+    }
+
+    while (container.children.length > CONFIG.maxMessages + 6) {
+      container.firstChild.remove();
+    }
+    container.scrollTop = container.scrollHeight;
+  }
+
   // ========== 辅助函数 ==========
-  function addMessage(container, text, role, isLoading, source, title, url) {
+  function addMessage(container, text, role, isLoading, source) {
     if (isLoading === undefined) isLoading = false;
     if (source === undefined) source = null;
-    if (title === undefined) title = '';
-    if (url === undefined) url = '';
 
     var messageDiv = document.createElement('div');
     messageDiv.className = 'qa-message ' + role;
@@ -321,85 +670,35 @@
 
     messageDiv.appendChild(bubble);
 
-    // 添加来源标签
     if (!isLoading && source) {
       var sourceTag = document.createElement('div');
       sourceTag.className = 'qa-source';
       var sourceLabel = '';
-      if (source === 'osrsguru') sourceLabel = '\uD83D\uDCDA ' + CONFIG.sourceGuruLabel;
-      else if (source === 'osrs_wiki+deepseek') sourceLabel = '\uD83D\uDCDA+\uD83E\uDD16 Wiki + DeepSeek';
-      else if (source === 'osrs_wiki') sourceLabel = '\uD83D\uDCD6 OSRS Wiki';
-      else if (source === 'deepseek') sourceLabel = '\uD83E\uDD16 DeepSeek V3';
-      else sourceLabel = '\uD83D\uDCDA ' + CONFIG.sourceGuruLabel;
+      if (source === 'osrsguru') sourceLabel = '📚 ' + CONFIG.sourceGuruLabel;
+      else if (source === 'osrs_wiki+deepseek') sourceLabel = '📚+🤖 Wiki + DeepSeek';
+      else if (source === 'osrs_wiki') sourceLabel = '📖 OSRS Wiki';
+      else if (source === 'deepseek') sourceLabel = '🤖 DeepSeek V3';
+      else sourceLabel = '📚 ' + CONFIG.sourceGuruLabel;
       sourceTag.textContent = 'Source: ' + sourceLabel;
       messageDiv.appendChild(sourceTag);
-
-      // 如果来自自己文章，添加可点击跳转链接
-      if (source === 'osrsguru' && title && url) {
-        addArticleLinkToDiv(messageDiv, title, url);
-      }
     }
 
     container.appendChild(messageDiv);
 
-    // 保持只显示最新 N 条消息
-    while (container.children.length > CONFIG.maxMessages) {
-      container.firstChild.remove();
-    }
-
-    // 自动滚动到最新消息
-    container.scrollTop = container.scrollHeight;
-  }
-
-  // 直接在容器中添加文章链接（用于本地匹配结果）
-  function addArticleLink(container, title, url) {
-    var link = document.createElement('a');
-    link.className = 'qa-article-link';
-    link.href = url;
-    link.target = '_blank';
-    link.rel = 'noopener';
-    link.innerHTML = '<span class="qa-link-icon">\uD83D\uDCD6</span>Read full guide: ' + title;
-
-    var messageDiv = document.createElement('div');
-    messageDiv.className = 'qa-message assistant';
-    messageDiv.appendChild(link);
-    container.appendChild(messageDiv);
-
-    // 保持消息数量限制
     while (container.children.length > CONFIG.maxMessages) {
       container.firstChild.remove();
     }
     container.scrollTop = container.scrollHeight;
-  }
-
-  // 在已有消息div中添加文章链接
-  function addArticleLinkToDiv(messageDiv, title, url) {
-    var link = document.createElement('a');
-    link.className = 'qa-article-link';
-    link.href = url;
-    link.target = '_blank';
-    link.rel = 'noopener';
-    link.innerHTML = '<span class="qa-link-icon">\uD83D\uDCD6</span>Read full guide: ' + title;
-    messageDiv.appendChild(link);
   }
 
   // ========== 初始化 ==========
   function init() {
-    // 注入样式
     injectStyles();
-
-    // 创建浮窗
     var elements = createWidget();
-    var widget = elements.widget;
-    var toggleBtn = elements.toggleBtn;
-
-    // 设置交互
-    setupEventHandlers(widget, toggleBtn);
-
-    console.log('\u2705 ' + CONFIG.assistantTitle + ' initialized');
+    setupEventHandlers(elements.widget, elements.toggleBtn);
+    console.log('✅ ' + CONFIG.assistantTitle + ' v2.5 initialized (TOC + local match)');
   }
 
-  // 等待 DOM 加载完成后初始化
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
