@@ -68,6 +68,17 @@
 - 🔴 **连续 2 天 403** — SA `indexing-ap@osrsgu-indexin.iam.gserviceaccount.com` 未被添加为 Search Console Owner
 - ⚠️ **自动化已完全阻塞，直到手动修复 SA 权限为止。每日运行不会改变结果。**
 
+### 2026-06-15（上午 10:24）
+- 代理正常 (127.0.0.1:7897)，OAuth Token 刷新成功
+- Sitemap: 163 URLs 总计，101 已提交，62 新 URL 待提交
+- 新增 7 个 Jun 14 页面（KQ / RuneLite / Range / Cerberus / Sarachnis / Mobile / Regional）
+- 脚本: `submit_index_oauth.py` (OAuth + requests)，认证通过
+- 结果: **HTTP 429 × 62** — 第一个 URL 就返回 429，配额在上午 10:24 已耗尽
+- 成功: **0**，失败: **62**（全部 429 Quota Exceeded），剩余: **62**
+- 🔴 **连续 9 天配额耗尽**（Jun 6–9, Jun 12, Jun 15；Jun 10-11 为 403）：上午时段配额始终不可用
+- 📊 已提交累计: 101 URLs，待提交: 62 URLs
+- ⚠️ **强烈建议改为凌晨 0:30 CST 执行（配额刚重置）**，当前时间窗口无法有效提交
+
 ### 2026-06-12（上午 9:10）
 - 代理正常 (127.0.0.1:7897)
 - Sitemap: 110 URLs（去重），96 唯一已提交，15 新 URL 待提交
