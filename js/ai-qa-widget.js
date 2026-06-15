@@ -1,11 +1,10 @@
 /**
  * OSRS Guru AI Question & Answer Widget
  * 右下角悬浮窗 - AI 问答系统
- * v2.6 - 全165篇索引 + 修复syntax error导致widget不显示
- *   - 所有页面：动态提取当前页面TOC，匹配问题后直接跳转到对应段落
- *   - CD/Windrose：本地12篇文章关键词匹配 + 锚点
- *   - OSRS：全165篇本地匹配 + 后端API兜底
- *   - 推荐文案优化：告诉用户点进去能看到什么
+ * v2.8 - Stage selector for OSRS + Wiki fallback for OSRS API
+ *   - OSRS: local match grouped by stage (beginner/mid/boss), display as "Pick your stage"
+ *   - CD/Windrose: flat list (all beginners)
+ *   - Backend: OSRS → Wiki → DeepSeek V3; CD/Windrose → DeepSeek V3 only
  */
 
 (function () {
@@ -111,159 +110,159 @@
 
   // OSRS 165篇全索引（自动扫描 guides/ 目录生成）
   var OSRS_ARTICLES = [
-    { label: 'Account Security \u2014 Protect From Hackers', url: 'guides/account-security-guide-2026.html', kw: 'account authenticator bank hackers protect security' },
-    { label: 'Barrows \u2014 First Boss GP', url: 'guides/barrows-first-boss-gp-2026.html', kw: 'ahrim barrows boss bosses bossing brothers dharok gp pvm' },
-    { label: 'Best Quests for New Members', url: 'guides/best-quests-new-members-2026.html', kw: 'diary members quest questing quests roadmap' },
-    { label: 'Blood Moon Rises Quest Walkthrough', url: 'guides/blood-moon-rises-quest-guide-2026.html', kw: 'blood moon quest questing rises walkthrough diary' },
-    { label: 'Combat Achievements \u2014 Easy to Grandmaster', url: 'guides/combat-achievements-guide-2026.html', kw: 'achievements attack combat defence defense grandmaster strength' },
-    { label: 'F2P to P2P Bond \u2014 Earn Membership', url: 'guides/f2p-to-p2p-bond-guide-2026.html', kw: 'bond f2p free play member membership p2p' },
-    { label: 'First 5M GP for New Members', url: 'guides/first-5m-gp-members-2026.html', kw: 'gp money members first' },
-    { label: 'League 6 Preparation \u2014 Predictions & Strategy', url: 'guides/league-6-prep-guide-2026.html', kw: 'league leagues preparation seasonal strategy' },
-    { label: 'Max Cape Efficient Route', url: 'guides/max-cape-route-2026.html', kw: 'cape efficient max record' },
-    { label: 'Mid-Game Money Making 1M to 100M', url: 'guides/mid-game-money-making-2026.html', kw: 'flip flipping gp intermediate mid game money profit' },
-    { label: 'New Boss Guide \u2014 Kill Strategy & Loot', url: 'guides/new-boss-loot-guide-2026.html', kw: 'boss bosses bossing kill loot pvm strategy' },
-    { label: '1-99 Crafting \u2014 Fast, Cheap & Ironman', url: 'guides/osrs-1-99-crafting-guide-2026.html', kw: 'battlestaff cheap crafting gems ironman jewelry methods' },
-    { label: '1-99 Farming \u2014 Profit Focused', url: 'guides/osrs-1-99-farming-guide-beginner-profit-2026.html', kw: 'allotment beginner farming herb patch profit' },
-    { label: '1-99 Hitpoints Training Methods & XP', url: 'guides/osrs-1-99-hitpoints-guide-2026.html', kw: 'hitpoints methods training xp' },
-    { label: '1-99 Hitpoints Training', url: 'guides/osrs-1-99-hitpoints-training-guide-2026.html', kw: 'hitpoints training' },
-    { label: '1-99 Hunter AFK Method \u2014 Birdhouses & Chinchompas', url: 'guides/osrs-1-99-hunter-guide-afk-method.html', kw: 'afk bird birdhouses chinchompa herbiboar hunter trap monkeys' },
-    { label: '1-99 Magic Training Cheap Methods', url: 'guides/osrs-1-99-magic-training-cheap-guide-2026.html', kw: 'cheap enchant mage magic methods spell training' },
-    { label: '1-99 Mining Beginner', url: 'guides/osrs-1-99-mining-guide-beginner-2026.html', kw: 'beginner mining ore pickaxe rock' },
-    { label: '1-99 Prayer \u2014 Fast, Cheap & Ironman', url: 'guides/osrs-1-99-prayer-guide-2026.html', kw: 'altar bones cheap gilded ironman methods prayer' },
-    { label: '1-99 Prayer All Methods Fastest & Cheapest', url: 'guides/osrs-1-99-prayer-guide-all-methods-2026.html', kw: 'altar bones cheapest fastest gilded methods prayer' },
-    { label: '1-99 Thieving Ironman \u2014 Pyramid Plunder & Knights', url: 'guides/osrs-1-99-thieving-guide-ironman.html', kw: 'farmers iron ironman ironmen knight pickpocket plunder pyramid thieving xp' },
-    { label: '1-99 Woodcutting Early Game F2P to Redwoods', url: 'guides/osrs-1-99-woodcutting-guide-early-game.html', kw: 'axe log redwood tree woodcutting f2p' },
-    { label: '2026 Roadmap \u2014 New Skills, Raids & Quests', url: 'guides/osrs-2026-roadmap.html', kw: 'quests raids roadmap skills updates map teleport transport travel' },
-    { label: 'Achievement Diary \u2014 All Diaries & Rewards', url: 'guides/osrs-achievement-diary-guide-2026.html', kw: 'achievement diaries diary order rewards task' },
-    { label: 'Affordable Leveling on a Budget', url: 'guides/osrs-affordable-leveling-guide-2026.html', kw: 'affordable budget leveling methods' },
-    { label: 'Agility Training 1-99 Rooftop Courses', url: 'guides/osrs-agility-training-guide-2026.html', kw: 'agility course courses graceful rooftop training xp' },
-    { label: 'All Skills Overview Beginner Reference', url: 'guides/osrs-all-skills-overview-guide-2026.html', kw: 'beginner overview reference skills' },
-    { label: 'Araxxor Boss \u2014 Slayer Strategy & Noxious Halberd', url: 'guides/osrs-araxxor-guide-2026.html', kw: 'araxxor boss gear halberd noxious slayer strategy' },
-    { label: 'Bank & Inventory Management', url: 'guides/osrs-bank-inventory-management-2026.html', kw: 'bank inventory items organize' },
-    { label: 'Blood Moon Rises Prep Checklist (June 30)', url: 'guides/osrs-blood-moon-prep-checklist-2026.html', kw: 'blood checklist june moon prep rises' },
-    { label: 'Blood Moon Rises \u2014 Myreque Finale', url: 'guides/osrs-blood-moon-rises-guide-2026.html', kw: 'blood finale june moon myreque rises' },
-    { label: 'Boss Profit Tier List \u2014 Ranked by GP/hr', url: 'guides/osrs-boss-profit-tier-list-2026.html', kw: 'boss bosses bossing gp profit pvm ranked meta' },
-    { label: 'Cerberus Boss \u2014 Mid-Game Slayer', url: 'guides/osrs-cerberus-boss-guide-2026.html', kw: 'boss cerberus hellhound midgame primordial pvm slayer' },
-    { label: 'Chambers of Xeric Loot & Profit \u2014 Twisted Bow', url: 'guides/osrs-chambers-of-xeric-loot-profit-guide.html', kw: 'bow chambers drops gp loot olm profit twisted xeric' },
-    { label: 'Cheap Flipping Methods 100K Capital', url: 'guides/osrs-cheap-flipping-methods-new-players.html', kw: 'capital cheap flipping methods players' },
-    { label: 'Cheapest 99 Runecrafting \u2014 Lava Runes, ZMI & GOTR', url: 'guides/osrs-cheapest-99-runecrafting-2026.html', kw: 'cheapest essence gems gotr guardians lava rune runecrafting zmi' },
-    { label: 'Combat Training 1-99 Beginners', url: 'guides/osrs-combat-training-beginner-2026.html', kw: 'attack beginner beginners combat defence defense strength training' },
-    { label: 'Combat Triangle Explained', url: 'guides/osrs-combat-triangle-explained-2026.html', kw: 'attack combat defence defense magic melee ranged strength triangle' },
-    { label: 'Complete Skill Training 1-99 All Skills', url: 'guides/osrs-complete-skill-training-guide-2026.html', kw: 'methods skill skills training complete' },
-    { label: 'Corrupted Gauntlet Advanced Boss Mechanics', url: 'guides/osrs-corrupted-gauntlet-advanced-guide-2026.html', kw: 'advanced boss corrupted crystal gauntlet hunllef strategy deathless' },
-    { label: 'Corrupted Gauntlet \u2014 Budget Setup & Strategy', url: 'guides/osrs-corrupted-gauntlet-guide-2026.html', kw: 'budget corrupted crystal gauntlet hunllef setup strategy' },
-    { label: 'Dagannoth Kings DKs Solo/Duo/Tribrid', url: 'guides/osrs-dagannoth-kings-guide-2026.html', kw: 'dagannoth dks kings rex ring solo strategy tribrid farming' },
-    { label: 'Desert Treasure Quest \u2014 Low Level', url: 'guides/osrs-desert-treasure-quest-guide-low-level.html', kw: 'ancient desert diary quest questing requirements treasure bosses' },
-    { label: 'Efficient Training Routes Beginners', url: 'guides/osrs-efficient-training-routes-beginners-2026.html', kw: 'beginner beginners efficient routes training' },
-    { label: 'F2P Combat Training Level 3-30+', url: 'guides/osrs-f2p-combat-training-guide-2026.html', kw: 'attack combat defence defense f2p free play strength training' },
-    { label: 'F2P Ironman Money Making Early Game', url: 'guides/osrs-f2p-ironman-money-making-early-game.html', kw: 'alching cowhides crafting f2p flip flipping free gp iron ironman ironmen money profit' },
-    { label: 'F2P Money Making No Stats Required', url: 'guides/osrs-f2p-money-making-no-stats.html', kw: 'f2p flip flipping free gp money methods profit stats' },
-    { label: 'F2P to P2P Membership When & How', url: 'guides/osrs-f2p-to-p2p-membership-guide-2026.html', kw: 'f2p free member membership p2p' },
-    { label: 'Fastest 1-99 Crafting', url: 'guides/osrs-fastest-1-99-crafting-guide-2026.html', kw: 'battlestaff crafting gems jewelry' },
-    { label: 'Fastest 99 Attack/Strength/Defence \u2014 NMZ & Crabs', url: 'guides/osrs-fastest-99-attack-strength-defence.html', kw: 'attack crabs defence fastest methods nmz strength xp' },
-    { label: 'Fastest 99 Cooking F2P \u2014 Wines & Karambwans', url: 'guides/osrs-fastest-99-cooking-f2p.html', kw: 'budget cooking f2p food karambwan methods wine' },
-    { label: 'Fighter Torso & Barbarian Assault', url: 'guides/osrs-fighter-torso-barbarian-assault-guide-2026.html', kw: 'assault barbarian fighter queen role strategies torso' },
-    { label: 'Fire Cape \u2014 Jad Strategy & Fight Caves', url: 'guides/osrs-fire-cape-jad-guide-2026.html', kw: 'budget cape caves fight fire jad setup strategy tzhaar walkthrough' },
-    { label: 'Fire Cape to Infernal Cape Progression', url: 'guides/osrs-fire-cape-to-infernal-progression-2026.html', kw: 'cape fire infernal inferno progression pvm zuk' },
-    { label: 'First 100M GP Mid Level to Wealthy', url: 'guides/osrs-first-100m-gp-mid-level-2026.html', kw: 'gp intermediate mid game money wealthy' },
-    { label: 'First Week Progression Day-by-Day', url: 'guides/osrs-first-week-progression-guide-2026.html', kw: 'week progression' },
-    { label: 'Gauntlet & PvM Meta Changes Post-Sweep-Up', url: 'guides/osrs-gauntlet-meta-changes-2026.html', kw: 'changes corrupted crystal gauntlet hunllef meta pvm' },
-    { label: 'Gear for Beginners \u2014 Equipment at Every Level', url: 'guides/osrs-gear-beginner-guide-2026.html', kw: 'armor armour beginner equipment gear level weapon' },
-    { label: 'Gear Upgrade Priority Order Mid to High', url: 'guides/osrs-gear-upgrade-priority-order-2026.html', kw: 'armor armour equipment gear order priority upgrade weapon' },
-    { label: 'Goraik Quest Walkthrough', url: 'guides/osrs-goraik-quest-guide-2026.html', kw: 'goraik quest questing varlamore walkthrough diary' },
-    { label: 'Goraik Rewards Worth It?', url: 'guides/osrs-goraik-rewards-worth-it-2026.html', kw: 'analysis goraik rewards varlamore worth' },
-    { label: 'Grotesque Guardians \u2014 Dawn & Dusk Low Stats', url: 'guides/osrs-grotesque-guardians-guide-low-stats.html', kw: 'dawn dusk gargoyle grotesque guardians stats strategy' },
-    { label: 'Guardians of the Rift \u2014 Fast Runecrafting', url: 'guides/osrs-guardians-of-the-rift-guide-2026.html', kw: 'guardians rewards rift runecrafting strategy' },
-    { label: 'Herb Run Mastery \u2014 Passive Millions', url: 'guides/osrs-herb-run-mastery-guide-2026.html', kw: 'herb mastery patches profit routes' },
-    { label: 'How to Beat Zulrah \u2014 Full Rotation for Beginners', url: 'guides/osrs-how-to-beat-zulrah-beginners-rotation.html', kw: 'beat beginner gp poison rotation snake zulrah' },
-    { label: 'Fremennik Trials Quest', url: 'guides/osrs-how-to-complete-fremennik-trials-guide.html', kw: 'fremennik helm neitiznot trials' },
-    { label: 'Lost City Quest \u2014 Dramen Staff & Fairy Rings', url: 'guides/osrs-how-to-complete-lost-city-guide.html', kw: 'city dramen fairy lost quest rings staff' },
-    { label: 'Monkey Madness Quest Walkthrough', url: 'guides/osrs-how-to-complete-monkey-madness-quest.html', kw: 'madness monkey quest walkthrough diary' },
-    { label: 'Corporeal Beast Loot Table & Strategy', url: 'guides/osrs-how-to-fight-corporal-beast-loot-guide.html', kw: 'beast corporeal loot setup solo strategy table' },
-    { label: 'Dragon Slayer 2 \u2014 Full Quest Walkthrough', url: 'guides/osrs-how-to-finish-dragon-slayer-2-guide.html', kw: 'dragon slayer ds2 block master task vorkath' },
-    { label: 'Flip Items for Profit Mid Game', url: 'guides/osrs-how-to-flip-items-profit-mid-game.html', kw: 'capital flip flipping ge intermediate mid game profit' },
-    { label: 'How to Get 99 Agility Fast', url: 'guides/osrs-how-to-get-99-agility-fast-2026.html', kw: 'agility course graceful rooftop' },
-    { label: 'How to Get 99 Fishing AFK Method', url: 'guides/osrs-how-to-get-99-fishing-afk-method.html', kw: 'afk fish fishing harpoon net' },
-    { label: 'Dragon Defender \u2014 Warriors Guild', url: 'guides/osrs-how-to-get-dragon-defender-2026.html', kw: 'defender dragon guild warrior' },
-    { label: 'Graceful Outfit \u2014 Marks of Grace Fastest Route', url: 'guides/osrs-how-to-get-graceful-outfit-full-guide.html', kw: 'grace graceful marks outfit recolors route' },
-    { label: 'House Teleport Tablet', url: 'guides/osrs-how-to-get-house-teleport-tablet.html', kw: 'house tablet teleport' },
-    { label: 'Rune Pouch \u2014 Slayer & NPC Contact', url: 'guides/osrs-how-to-get-rune-pouch-guide.html', kw: 'contact npc pouch rune slayer' },
-    { label: 'Alchemical Hydra \u2014 Access & Profit', url: 'guides/osrs-how-to-get-to-alchemical-hydra-guide.html', kw: 'access alchemical claw hydra profit slayer' },
-    { label: 'Fossil Island Quick Unlock & Activities', url: 'guides/osrs-how-to-get-to-fossil-island-quick-guide.html', kw: 'activities fossil island quick transport unlock' },
-    { label: 'Kourend Castle Quick Guide', url: 'guides/osrs-how-to-get-to-kourend-castle-quick-guide.html', kw: 'castle kourend quick' },
-    { label: 'Thermonuclear Smoke Devil \u2014 Location & Strategy', url: 'guides/osrs-how-to-get-to-thermonuclear-smoke-devil.html', kw: 'boss devil gear location smoke strategy thermonuclear' },
-    { label: 'Increase Slayer Points Fast \u2014 9+1 Method', url: 'guides/osrs-how-to-increase-slayer-points-fast.html', kw: 'block increase master masters method points slayer task' },
-    { label: 'Crafling Money Making Low Level', url: 'guides/osrs-how-to-make-money-with-crafting-low-level.html', kw: 'battlestaff crafting flip flipping gems gp make money profit' },
-    { label: 'Make Money with Zulrah \u2014 GP/Kill & Rotations', url: 'guides/osrs-how-to-make-money-with-zulrah.html', kw: 'budget flip flipping gp kill money poison profit rotation snake zulrah' },
-    { label: 'Reclaim Twisted Bow When Lost', url: 'guides/osrs-how-to-reclaim-twisted-bow-when-lost.html', kw: 'bow death lost mechanics reclaim recovery twisted' },
-    { label: 'Rune Spinning Profit \u2014 Flax to Bowstrings', url: 'guides/osrs-how-to-rune-spinning-profit-2026.html', kw: 'bowstrings flax gp locations profit rune spinning' },
-    { label: 'Solo God Wars Boss for Beginners \u2014 Bandos & Armadyl', url: 'guides/osrs-how-to-solo-god-wars-boss-for-beginners.html', kw: 'armadyl bandos beginner boss bosses god pvm solo wars' },
-    { label: 'Train Prayer Cheap F2P \u2014 Big Bones & Ectofuntus', url: 'guides/osrs-how-to-train-prayer-cheap-f2p.html', kw: 'altar bones cheap ectofuntus f2p gilded prayer train' },
-    { label: 'Unlock Dinosaur Hunting \u2014 Fossil Island Hunter', url: 'guides/osrs-how-to-unlock-dinosaur-hunting-osrs.html', kw: 'dinosaur fossil herbiboar hunter hunting island unlock' },
-    { label: 'Unlock Fairy Rings \u2014 Lost City & Fairy Tale', url: 'guides/osrs-how-to-unlock-fairy-rings.html', kw: 'fairy lost city rings tale unlock' },
-    { label: 'Unlock the Abyss', url: 'guides/osrs-how-to-unlock-the-abyss-guide.html', kw: 'abyss unlock' },
-    { label: 'Hunter Money Making \u2014 Black/Red Chins & Herbiboar', url: 'guides/osrs-hunter-money-making-guide-2026.html', kw: 'bird chinchompa chins flip flipping gp herbiboar hunter money profit trap' },
-    { label: 'Hunter Training 1-99 All Methods', url: 'guides/osrs-hunter-training-guide-2026.html', kw: 'bird chinchompa hunter methods profit training trap xp' },
-    { label: 'Interface & Controls Beginner', url: 'guides/osrs-interface-controls-beginner-guide-2026.html', kw: 'beginner controls game interface ui' },
-    { label: 'Ironman 1-99 Smithing', url: 'guides/osrs-ironman-1-99-smithing-guide.html', kw: 'anvil bar blast furnace iron ironman smithing' },
-    { label: 'Ironman Money Making F2P', url: 'guides/osrs-ironman-money-making-f2p-2026.html', kw: 'f2p flip flipping free gp iron ironman money profit' },
-    { label: 'Kalphite Queen KQ Beginner \u2014 Stop Dying!', url: 'guides/osrs-kalphite-queen-kq-beginner-guide-2026.html', kw: 'beginner kalphite kq queen' },
-    { label: 'Khopesh \u2014 How to Get & Worth It?', url: 'guides/osrs-khopesh-guide-2026.html', kw: 'khopesh melee worth' },
-    { label: 'Khopesh vs Alternative Weapons Comparison', url: 'guides/osrs-khopesh-vs-alternative-weapons-2026.html', kw: 'comparison gear khopesh melee weapons' },
-    { label: 'Killing Green Dragons 400K-800K GP/hr', url: 'guides/osrs-killing-green-dragons-money-per-hour.html', kw: 'dragons flip flipping gp green killing money profit wilderness' },
-    { label: 'Low Cost 1-99 Herblore', url: 'guides/osrs-low-cost-1-99-herblore-guide.html', kw: 'herb herblore potion' },
-    { label: 'Low Effort Money Making Beginners 10 Methods', url: 'guides/osrs-low-effort-money-making-beginners.html', kw: 'beginner effort flip flipping gp money profit stats' },
-    { label: 'Low Gear Vorkath \u2014 Budget Setup & Woox Walk', url: 'guides/osrs-low-gear-setup-vorkath-guide.html', kw: 'armor armour budget dragon equipment gear kill profit setup undead vorkath walk woox' },
-    { label: 'Maps & Fast Travel \u2014 Navigate Gielinor', url: 'guides/osrs-maps-travel-guide-2026.html', kw: 'map maps navigate teleport transport travel' },
-    { label: 'Maxing \u2014 Which 99 First? Optimal Order', url: 'guides/osrs-maxing-99-order-guide-2026.html', kw: 'maxing order optimal' },
-    { label: 'Membership \u2014 Is It Worth Buying?', url: 'guides/osrs-membership-guide-2026.html', kw: 'members membership worth f2p p2p comparison' },
-    { label: 'Mid-Game Breakthrough \u2014 Stop Being Stuck', url: 'guides/osrs-mid-game-breakthrough-guide-2026.html', kw: 'breakthrough intermediate mid game progress stuck' },
-    { label: 'Mid Level Bossing Ladder \u2014 First 10 Bosses', url: 'guides/osrs-mid-level-bossing-ladder-2026.html', kw: 'boss bosses bossing intermediate mid level order pvm' },
-    { label: 'Mid to High Level Progression Roadmap', url: 'guides/osrs-mid-to-high-progression-roadmap-2026.html', kw: 'advanced endgame high intermediate mid progression roadmap' },
-    { label: 'Mobile Membership Purchase Android & iOS', url: 'guides/osrs-mobile-membership-guide-2026.html', kw: 'android ios membership mobile purchase' },
-    { label: 'Money Making Beginners \u2014 0 GP to 500K', url: 'guides/osrs-money-making-beginner-2026.html', kw: 'beginner flip flipping gp money profit zero' },
-    { label: 'Money Making with Fishing \u2014 Lobsters to Eels', url: 'guides/osrs-money-making-fishing-2026.html', kw: 'eels fish fishing flip flipping gp lobster money net profit' },
-    { label: 'Money Making Tier List \u2014 All Methods Ranked', url: 'guides/osrs-money-making-tier-list-2026.html', kw: 'flip flipping gp money methods profit ranked' },
-    { label: 'New Player Handbook \u2014 Zero to Bossing', url: 'guides/osrs-new-player-guide-2026.html', kw: 'beginner bossing player zero' },
-    { label: 'Nex \u2014 Strategy, Gear & Loot Table', url: 'guides/osrs-nex-guide-2026.html', kw: 'god wars gear loot nex setup strategy zaros' },
-    { label: 'Nightmare & Phosanis \u2014 Curse Flicking & Inquisitor', url: 'guides/osrs-nightmare-phosanis-guide-2026.html', kw: 'curse flicking inquisitor nightmare phosani sleepwalker' },
-    { label: 'Optimal Leveling \u2014 Maximize XP/Hour', url: 'guides/osrs-optimal-leveling-guide-2026.html', kw: 'leveling maximize optimal xp skill' },
-    { label: 'Passive Money Making \u2014 Earn GP Overnight', url: 'guides/osrs-passive-money-making-offline.html', kw: 'flip flipping gp herbs kingdom money offline overnight passive profit' },
-    { label: 'Pest Control & Void Knight \u2014 Full Void Set', url: 'guides/osrs-pest-control-void-guide-2026.html', kw: 'control knight pest void xp strategy' },
-    { label: 'Phantom Muspah \u2014 Boss Strategy & Profit', url: 'guides/osrs-phantom-muspah-guide-2026.html', kw: 'ancient boss gear muspah phantom profit setup strategy' },
-    { label: 'POH Optimal Layout \u2014 Best House for PvM', url: 'guides/osrs-poh-optimal-layout-guide-2026.html', kw: 'house layout poh pvm skilling' },
-    { label: 'Prayer Training Beginners \u2014 Protect Prayers', url: 'guides/osrs-prayer-training-beginner-guide-2026.html', kw: 'altar beginner bones efficient gilded prayer prayers protect training' },
-    { label: 'Questing Beginners \u2014 Best Starter Quests', url: 'guides/osrs-questing-beginner-guide-2026.html', kw: 'beginner diary quest questing quests rewards starter' },
-    { label: 'Raid Entry Requirements \u2014 CoX/ToB/ToA', url: 'guides/osrs-raid-entry-requirements-2026.html', kw: 'amascut chambers raid requirements theatre tombs xeric' },
-    { label: 'Range Training 1-99 Fastest', url: 'guides/osrs-range-training-1-99-guide-2026.html', kw: 'arrow bow crossbow range ranged training' },
-    { label: 'Regional Worlds \u2014 Japan/Singapore/South Africa', url: 'guides/osrs-regional-worlds-guide-2026.html', kw: 'regional servers singapore south worlds' },
-    { label: 'Royal Titans \u2014 Duo Boss & Deadeye Prayers', url: 'guides/osrs-royal-titans-guide-2026.html', kw: 'boss deadeye duo loot prayers royal titans vigor' },
-    { label: 'RuneLite Setup \u2014 Better Than Steam!', url: 'guides/osrs-runelite-setup-guide-2026.html', kw: 'runelite setup steam' },
-    { label: 'Safe Spots Beginners \u2014 Fight Without Taking Damage', url: 'guides/osrs-safe-spots-beginner-2026.html', kw: 'beginner damage fight safe spots without' },
-    { label: 'Sailing 1-99 Complete \u2014 Fastest Routes & AFK', url: 'guides/osrs-sailing-1-99-guide-2026.html', kw: 'afk boat crew naval profit routes sailing ship training' },
-    { label: 'Sailing AFK \u2014 Shipwreck Salvaging 1-99', url: 'guides/osrs-sailing-afk-training-guide-2026.html', kw: 'afk boat crew naval sailing salvaging ship shipwreck training' },
-    { label: 'Sailing Money Making \u2014 GP/hr Ranked', url: 'guides/osrs-sailing-money-making-guide-2026.html', kw: 'boat crew flip flipping gp money naval profit ranked sailing ship' },
-    { label: 'Sailing Ship Upgrades & Crew \u2014 Best Boats & Setup', url: 'guides/osrs-sailing-ship-crew-guide-2026.html', kw: 'boat boats crew facilities naval sailing setup ship upgrades' },
-    { label: 'Sailing & Wyrmscraig Preview \u2014 Everything We Know', url: 'guides/osrs-sailing-wyrmscraig-guide-2026.html', kw: 'boat crew naval preview sailing ship wyrmscraig' },
-    { label: 'Sarachnis Loot Ironman \u2014 Cudgel & Seeds', url: 'guides/osrs-sarachnis-loot-guide-for-ironman.html', kw: 'cudgel gear iron ironman loot sarachnis seeds spider' },
-    { label: 'Sarachnis Solo \u2014 Best Beginner Boss', url: 'guides/osrs-sarachnis-solo-guide-2026.html', kw: 'beginner boss cudgel sarachnis solo spider' },
-    { label: 'Skills Overview Beginners \u2014 All 23 Skills', url: 'guides/osrs-skills-overview-beginner-2026.html', kw: 'beginner overview skills' },
-    { label: 'Skill Progression Path Optimal Route', url: 'guides/osrs-skills-progression-path-2026.html', kw: 'path progression route skill' },
-    { label: 'Slayer 70-95 Money Making Best Tasks', url: 'guides/osrs-slayer-70-to-95-money-makers-2026.html', kw: 'block flip flipping gp making master money profit slayer task xp' },
-    { label: 'Slayer Block & Skip List Optimal Tasks', url: 'guides/osrs-slayer-block-skip-list-2026.html', kw: 'block gp master masters skip slayer task xp' },
-    { label: 'Summer Sweep-Up \u2014 Rebuild Account Strategy', url: 'guides/osrs-summer-sweep-up-2026-account-guide.html', kw: 'account authenticator bank rebuild security summer sweep update' },
-    { label: 'Summer Sweep-Up Complete \u2014 Gauntlet & Meta Changes', url: 'guides/osrs-summer-sweep-up-2026-guide.html', kw: 'changes gauntlet gear meta rebuild summer sweep' },
-    { label: 'Tempoross \u2014 Fishing Boss Strategy & Rewards', url: 'guides/osrs-tempoross-guide-2026.html', kw: 'boss fishing rates rewards strategy tempoross xp' },
-    { label: 'Theatre of Blood \u2014 Complete ToB Walkthrough', url: 'guides/osrs-theatre-of-blood-guide-2026.html', kw: 'blood rooms scythe theatre tob verzik walkthrough' },
-    { label: 'ToA Solo Beginner \u2014 Tombs of Amascut 0-150 Invo', url: 'guides/osrs-toa-solo-beginner-guide-2026.html', kw: 'amascut beginner invo solo toa tombs' },
-    { label: 'Wintertodt Complete \u2014 Fast 99 Firemaking', url: 'guides/osrs-wintertodt-complete-guide-2026.html', kw: 'firemaking mass profit solo strategy wintertodt' },
-    { label: 'Wintertodt Money Making Per Hour', url: 'guides/osrs-wintertodt-money-making-per-hour.html', kw: 'crates firemaking flip flipping gp money profit wintertodt' },
-    { label: 'Quest Cape Roadmap \u2014 Optimal Order & Strategy', url: 'guides/quest-cape-roadmap-2026.html', kw: 'cape diary map order quest questing roadmap strategy' },
-    { label: 'Sailing Skill Complete Level 1-99', url: 'guides/sailing-complete-guide-2026.html', kw: 'boat crew naval sailing ship skill' },
-    { label: 'Sailing Phase 1 Training Maps & Profit Spots', url: 'guides/sailing-phase-1-training-2026.html', kw: 'boat crew maps naval phase profit sailing ship training' },
-    { label: 'Sailing PvP \u2014 Naval Combat & Piracy Mechanics', url: 'guides/sailing-pvp-guide-2026.html', kw: 'boat combat crew mechanics naval piracy pvp sailing ship' },
-    { label: 'Slayer Training 1-99 Best Tasks & Masters', url: 'guides/slayer-1-99-guide-2026.html', kw: 'block gp master slayer task training' },
-    { label: 'Vault of Ralos Raid Walkthrough & Strategy', url: 'guides/vault-of-ralos-raid-guide-2026.html', kw: 'raid ralos strategy vault walkthrough' },
+    { label: 'Account Security \u2014 Protect From Hackers', url: 'guides/account-security-guide-2026.html', stage: 'beginner', kw: 'account authenticator bank hackers protect security' },
+    { label: 'Barrows \u2014 First Boss GP', url: 'guides/barrows-first-boss-gp-2026.html', stage: 'beginner', kw: 'ahrim barrows boss bosses bossing brothers dharok gp pvm' },
+    { label: 'Best Quests for New Members', url: 'guides/best-quests-new-members-2026.html', stage: 'beginner', kw: 'diary members quest questing quests roadmap' },
+    { label: 'Blood Moon Rises Quest Walkthrough', url: 'guides/blood-moon-rises-quest-guide-2026.html', stage: 'mid', kw: 'blood moon quest questing rises walkthrough diary' },
+    { label: 'Combat Achievements \u2014 Easy to Grandmaster', url: 'guides/combat-achievements-guide-2026.html', stage: 'mid', kw: 'achievements attack combat defence defense grandmaster strength' },
+    { label: 'F2P to P2P Bond \u2014 Earn Membership', url: 'guides/f2p-to-p2p-bond-guide-2026.html', stage: 'beginner', kw: 'bond f2p free play member membership p2p' },
+    { label: 'First 5M GP for New Members', url: 'guides/first-5m-gp-members-2026.html', stage: 'beginner', kw: 'gp money members first' },
+    { label: 'League 6 Preparation \u2014 Predictions & Strategy', url: 'guides/league-6-prep-guide-2026.html', stage: 'mid', kw: 'league leagues preparation seasonal strategy' },
+    { label: 'Max Cape Efficient Route', url: 'guides/max-cape-route-2026.html', stage: 'boss', kw: 'cape efficient max record' },
+    { label: 'Mid-Game Money Making 1M to 100M', url: 'guides/mid-game-money-making-2026.html', stage: 'mid', kw: 'flip flipping gp intermediate mid game money profit' },
+    { label: 'New Boss Guide \u2014 Kill Strategy & Loot', url: 'guides/new-boss-loot-guide-2026.html', stage: 'mid', kw: 'boss bosses bossing kill loot pvm strategy' },
+    { label: '1-99 Crafting \u2014 Fast, Cheap & Ironman', url: 'guides/osrs-1-99-crafting-guide-2026.html', stage: 'mid', kw: 'battlestaff cheap crafting gems ironman jewelry methods' },
+    { label: '1-99 Farming \u2014 Profit Focused', url: 'guides/osrs-1-99-farming-guide-beginner-profit-2026.html', stage: 'mid', kw: 'allotment beginner farming herb patch profit' },
+    { label: '1-99 Hitpoints Training Methods & XP', url: 'guides/osrs-1-99-hitpoints-guide-2026.html', stage: 'mid', kw: 'hitpoints methods training xp' },
+    { label: '1-99 Hitpoints Training', url: 'guides/osrs-1-99-hitpoints-training-guide-2026.html', stage: 'mid', kw: 'hitpoints training' },
+    { label: '1-99 Hunter AFK Method \u2014 Birdhouses & Chinchompas', url: 'guides/osrs-1-99-hunter-guide-afk-method.html', stage: 'mid', kw: 'afk bird birdhouses chinchompa herbiboar hunter trap monkeys' },
+    { label: '1-99 Magic Training Cheap Methods', url: 'guides/osrs-1-99-magic-training-cheap-guide-2026.html', stage: 'mid', kw: 'cheap enchant mage magic methods spell training' },
+    { label: '1-99 Mining Beginner', url: 'guides/osrs-1-99-mining-guide-beginner-2026.html', stage: 'beginner', kw: 'beginner mining ore pickaxe rock' },
+    { label: '1-99 Prayer \u2014 Fast, Cheap & Ironman', url: 'guides/osrs-1-99-prayer-guide-2026.html', stage: 'mid', kw: 'altar bones cheap gilded ironman methods prayer' },
+    { label: '1-99 Prayer All Methods Fastest & Cheapest', url: 'guides/osrs-1-99-prayer-guide-all-methods-2026.html', stage: 'mid', kw: 'altar bones cheapest fastest gilded methods prayer' },
+    { label: '1-99 Thieving Ironman \u2014 Pyramid Plunder & Knights', url: 'guides/osrs-1-99-thieving-guide-ironman.html', stage: 'mid', kw: 'farmers iron ironman ironmen knight pickpocket plunder pyramid thieving xp' },
+    { label: '1-99 Woodcutting Early Game F2P to Redwoods', url: 'guides/osrs-1-99-woodcutting-guide-early-game.html', stage: 'beginner', kw: 'axe log redwood tree woodcutting f2p' },
+    { label: '2026 Roadmap \u2014 New Skills, Raids & Quests', url: 'guides/osrs-2026-roadmap.html', stage: 'mid', kw: 'quests raids roadmap skills updates map teleport transport travel' },
+    { label: 'Achievement Diary \u2014 All Diaries & Rewards', url: 'guides/osrs-achievement-diary-guide-2026.html', stage: 'mid', kw: 'achievement diaries diary order rewards task' },
+    { label: 'Affordable Leveling on a Budget', url: 'guides/osrs-affordable-leveling-guide-2026.html', stage: 'beginner', kw: 'affordable budget leveling methods' },
+    { label: 'Agility Training 1-99 Rooftop Courses', url: 'guides/osrs-agility-training-guide-2026.html', stage: 'mid', kw: 'agility course courses graceful rooftop training xp' },
+    { label: 'All Skills Overview Beginner Reference', url: 'guides/osrs-all-skills-overview-guide-2026.html', stage: 'beginner', kw: 'beginner overview reference skills' },
+    { label: 'Araxxor Boss \u2014 Slayer Strategy & Noxious Halberd', url: 'guides/osrs-araxxor-guide-2026.html', stage: 'boss', kw: 'araxxor boss gear halberd noxious slayer strategy' },
+    { label: 'Bank & Inventory Management', url: 'guides/osrs-bank-inventory-management-2026.html', stage: 'mid', kw: 'bank inventory items organize' },
+    { label: 'Blood Moon Rises Prep Checklist (June 30)', url: 'guides/osrs-blood-moon-prep-checklist-2026.html', stage: 'mid', kw: 'blood checklist june moon prep rises' },
+    { label: 'Blood Moon Rises \u2014 Myreque Finale', url: 'guides/osrs-blood-moon-rises-guide-2026.html', stage: 'mid', kw: 'blood finale june moon myreque rises' },
+    { label: 'Boss Profit Tier List \u2014 Ranked by GP/hr', url: 'guides/osrs-boss-profit-tier-list-2026.html', stage: 'boss', kw: 'boss bosses bossing gp profit pvm ranked meta' },
+    { label: 'Cerberus Boss \u2014 Mid-Game Slayer', url: 'guides/osrs-cerberus-boss-guide-2026.html', stage: 'boss', kw: 'boss cerberus hellhound midgame primordial pvm slayer' },
+    { label: 'Chambers of Xeric Loot & Profit \u2014 Twisted Bow', url: 'guides/osrs-chambers-of-xeric-loot-profit-guide.html', stage: 'boss', kw: 'bow chambers drops gp loot olm profit twisted xeric' },
+    { label: 'Cheap Flipping Methods 100K Capital', url: 'guides/osrs-cheap-flipping-methods-new-players.html', stage: 'beginner', kw: 'capital cheap flipping methods players' },
+    { label: 'Cheapest 99 Runecrafting \u2014 Lava Runes, ZMI & GOTR', url: 'guides/osrs-cheapest-99-runecrafting-2026.html', stage: 'mid', kw: 'cheapest essence gems gotr guardians lava rune runecrafting zmi' },
+    { label: 'Combat Training 1-99 Beginners', url: 'guides/osrs-combat-training-beginner-2026.html', stage: 'beginner', kw: 'attack beginner beginners combat defence defense strength training' },
+    { label: 'Combat Triangle Explained', url: 'guides/osrs-combat-triangle-explained-2026.html', stage: 'beginner', kw: 'attack combat defence defense magic melee ranged strength triangle' },
+    { label: 'Complete Skill Training 1-99 All Skills', url: 'guides/osrs-complete-skill-training-guide-2026.html', stage: 'beginner', kw: 'methods skill skills training complete' },
+    { label: 'Corrupted Gauntlet Advanced Boss Mechanics', url: 'guides/osrs-corrupted-gauntlet-advanced-guide-2026.html', stage: 'boss', kw: 'advanced boss corrupted crystal gauntlet hunllef strategy deathless' },
+    { label: 'Corrupted Gauntlet \u2014 Budget Setup & Strategy', url: 'guides/osrs-corrupted-gauntlet-guide-2026.html', stage: 'boss', kw: 'budget corrupted crystal gauntlet hunllef setup strategy' },
+    { label: 'Dagannoth Kings DKs Solo/Duo/Tribrid', url: 'guides/osrs-dagannoth-kings-guide-2026.html', stage: 'boss', kw: 'dagannoth dks kings rex ring solo strategy tribrid farming' },
+    { label: 'Desert Treasure Quest \u2014 Low Level', url: 'guides/osrs-desert-treasure-quest-guide-low-level.html', stage: 'beginner', kw: 'ancient desert diary quest questing requirements treasure bosses' },
+    { label: 'Efficient Training Routes Beginners', url: 'guides/osrs-efficient-training-routes-beginners-2026.html', stage: 'beginner', kw: 'beginner beginners efficient routes training' },
+    { label: 'F2P Combat Training Level 3-30+', url: 'guides/osrs-f2p-combat-training-guide-2026.html', stage: 'beginner', kw: 'attack combat defence defense f2p free play strength training' },
+    { label: 'F2P Ironman Money Making Early Game', url: 'guides/osrs-f2p-ironman-money-making-early-game.html', stage: 'beginner', kw: 'alching cowhides crafting f2p flip flipping free gp iron ironman ironmen money profit' },
+    { label: 'F2P Money Making No Stats Required', url: 'guides/osrs-f2p-money-making-no-stats.html', stage: 'beginner', kw: 'f2p flip flipping free gp money methods profit stats' },
+    { label: 'F2P to P2P Membership When & How', url: 'guides/osrs-f2p-to-p2p-membership-guide-2026.html', stage: 'beginner', kw: 'f2p free member membership p2p' },
+    { label: 'Fastest 1-99 Crafting', url: 'guides/osrs-fastest-1-99-crafting-guide-2026.html', stage: 'mid', kw: 'battlestaff crafting gems jewelry' },
+    { label: 'Fastest 99 Attack/Strength/Defence \u2014 NMZ & Crabs', url: 'guides/osrs-fastest-99-attack-strength-defence.html', stage: 'mid', kw: 'attack crabs defence fastest methods nmz strength xp' },
+    { label: 'Fastest 99 Cooking F2P \u2014 Wines & Karambwans', url: 'guides/osrs-fastest-99-cooking-f2p.html', stage: 'beginner', kw: 'budget cooking f2p food karambwan methods wine' },
+    { label: 'Fighter Torso & Barbarian Assault', url: 'guides/osrs-fighter-torso-barbarian-assault-guide-2026.html', stage: 'mid', kw: 'assault barbarian fighter queen role strategies torso' },
+    { label: 'Fire Cape \u2014 Jad Strategy & Fight Caves', url: 'guides/osrs-fire-cape-jad-guide-2026.html', stage: 'mid', kw: 'budget cape caves fight fire jad setup strategy tzhaar walkthrough' },
+    { label: 'Fire Cape to Infernal Cape Progression', url: 'guides/osrs-fire-cape-to-infernal-progression-2026.html', stage: 'boss', kw: 'cape fire infernal inferno progression pvm zuk' },
+    { label: 'First 100M GP Mid Level to Wealthy', url: 'guides/osrs-first-100m-gp-mid-level-2026.html', stage: 'mid', kw: 'gp intermediate mid game money wealthy' },
+    { label: 'First Week Progression Day-by-Day', url: 'guides/osrs-first-week-progression-guide-2026.html', stage: 'beginner', kw: 'week progression' },
+    { label: 'Gauntlet & PvM Meta Changes Post-Sweep-Up', url: 'guides/osrs-gauntlet-meta-changes-2026.html', stage: 'boss', kw: 'changes corrupted crystal gauntlet hunllef meta pvm' },
+    { label: 'Gear for Beginners \u2014 Equipment at Every Level', url: 'guides/osrs-gear-beginner-guide-2026.html', stage: 'beginner', kw: 'armor armour beginner equipment gear level weapon' },
+    { label: 'Gear Upgrade Priority Order Mid to High', url: 'guides/osrs-gear-upgrade-priority-order-2026.html', stage: 'mid', kw: 'armor armour equipment gear order priority upgrade weapon' },
+    { label: 'Goraik Quest Walkthrough', url: 'guides/osrs-goraik-quest-guide-2026.html', stage: 'mid', kw: 'goraik quest questing varlamore walkthrough diary' },
+    { label: 'Goraik Rewards Worth It?', url: 'guides/osrs-goraik-rewards-worth-it-2026.html', stage: 'mid', kw: 'analysis goraik rewards varlamore worth' },
+    { label: 'Grotesque Guardians \u2014 Dawn & Dusk Low Stats', url: 'guides/osrs-grotesque-guardians-guide-low-stats.html', stage: 'boss', kw: 'dawn dusk gargoyle grotesque guardians stats strategy' },
+    { label: 'Guardians of the Rift \u2014 Fast Runecrafting', url: 'guides/osrs-guardians-of-the-rift-guide-2026.html', stage: 'mid', kw: 'guardians rewards rift runecrafting strategy' },
+    { label: 'Herb Run Mastery \u2014 Passive Millions', url: 'guides/osrs-herb-run-mastery-guide-2026.html', stage: 'mid', kw: 'herb mastery patches profit routes' },
+    { label: 'How to Beat Zulrah \u2014 Full Rotation for Beginners', url: 'guides/osrs-how-to-beat-zulrah-beginners-rotation.html', stage: 'boss', kw: 'beat beginner gp poison rotation snake zulrah' },
+    { label: 'Fremennik Trials Quest', url: 'guides/osrs-how-to-complete-fremennik-trials-guide.html', stage: 'beginner', kw: 'fremennik helm neitiznot trials' },
+    { label: 'Lost City Quest \u2014 Dramen Staff & Fairy Rings', url: 'guides/osrs-how-to-complete-lost-city-guide.html', stage: 'beginner', kw: 'city dramen fairy lost quest rings staff' },
+    { label: 'Monkey Madness Quest Walkthrough', url: 'guides/osrs-how-to-complete-monkey-madness-quest.html', stage: 'mid', kw: 'madness monkey quest walkthrough diary' },
+    { label: 'Corporeal Beast Loot Table & Strategy', url: 'guides/osrs-how-to-fight-corporal-beast-loot-guide.html', stage: 'boss', kw: 'beast corporeal loot setup solo strategy table' },
+    { label: 'Dragon Slayer 2 \u2014 Full Quest Walkthrough', url: 'guides/osrs-how-to-finish-dragon-slayer-2-guide.html', stage: 'boss', kw: 'dragon slayer ds2 block master task vorkath' },
+    { label: 'Flip Items for Profit Mid Game', url: 'guides/osrs-how-to-flip-items-profit-mid-game.html', stage: 'mid', kw: 'capital flip flipping ge intermediate mid game profit' },
+    { label: 'How to Get 99 Agility Fast', url: 'guides/osrs-how-to-get-99-agility-fast-2026.html', stage: 'mid', kw: 'agility course graceful rooftop' },
+    { label: 'How to Get 99 Fishing AFK Method', url: 'guides/osrs-how-to-get-99-fishing-afk-method.html', stage: 'mid', kw: 'afk fish fishing harpoon net' },
+    { label: 'Dragon Defender \u2014 Warriors Guild', url: 'guides/osrs-how-to-get-dragon-defender-2026.html', stage: 'beginner', kw: 'defender dragon guild warrior' },
+    { label: 'Graceful Outfit \u2014 Marks of Grace Fastest Route', url: 'guides/osrs-how-to-get-graceful-outfit-full-guide.html', stage: 'beginner', kw: 'grace graceful marks outfit recolors route' },
+    { label: 'House Teleport Tablet', url: 'guides/osrs-how-to-get-house-teleport-tablet.html', stage: 'beginner', kw: 'house tablet teleport' },
+    { label: 'Rune Pouch \u2014 Slayer & NPC Contact', url: 'guides/osrs-how-to-get-rune-pouch-guide.html', stage: 'mid', kw: 'contact npc pouch rune slayer' },
+    { label: 'Alchemical Hydra \u2014 Access & Profit', url: 'guides/osrs-how-to-get-to-alchemical-hydra-guide.html', stage: 'boss', kw: 'access alchemical claw hydra profit slayer' },
+    { label: 'Fossil Island Quick Unlock & Activities', url: 'guides/osrs-how-to-get-to-fossil-island-quick-guide.html', stage: 'beginner', kw: 'activities fossil island quick transport unlock' },
+    { label: 'Kourend Castle Quick Guide', url: 'guides/osrs-how-to-get-to-kourend-castle-quick-guide.html', stage: 'beginner', kw: 'castle kourend quick' },
+    { label: 'Thermonuclear Smoke Devil \u2014 Location & Strategy', url: 'guides/osrs-how-to-get-to-thermonuclear-smoke-devil.html', stage: 'boss', kw: 'boss devil gear location smoke strategy thermonuclear' },
+    { label: 'Increase Slayer Points Fast \u2014 9+1 Method', url: 'guides/osrs-how-to-increase-slayer-points-fast.html', stage: 'mid', kw: 'block increase master masters method points slayer task' },
+    { label: 'Crafling Money Making Low Level', url: 'guides/osrs-how-to-make-money-with-crafting-low-level.html', stage: 'mid', kw: 'battlestaff crafting flip flipping gems gp make money profit' },
+    { label: 'Make Money with Zulrah \u2014 GP/Kill & Rotations', url: 'guides/osrs-how-to-make-money-with-zulrah.html', stage: 'boss', kw: 'budget flip flipping gp kill money poison profit rotation snake zulrah' },
+    { label: 'Reclaim Twisted Bow When Lost', url: 'guides/osrs-how-to-reclaim-twisted-bow-when-lost.html', stage: 'boss', kw: 'bow death lost mechanics reclaim recovery twisted' },
+    { label: 'Rune Spinning Profit \u2014 Flax to Bowstrings', url: 'guides/osrs-how-to-rune-spinning-profit-2026.html', stage: 'beginner', kw: 'bowstrings flax gp locations profit rune spinning' },
+    { label: 'Solo God Wars Boss for Beginners \u2014 Bandos & Armadyl', url: 'guides/osrs-how-to-solo-god-wars-boss-for-beginners.html', stage: 'beginner', kw: 'armadyl bandos beginner boss bosses god pvm solo wars' },
+    { label: 'Train Prayer Cheap F2P \u2014 Big Bones & Ectofuntus', url: 'guides/osrs-how-to-train-prayer-cheap-f2p.html', stage: 'beginner', kw: 'altar bones cheap ectofuntus f2p gilded prayer train' },
+    { label: 'Unlock Dinosaur Hunting \u2014 Fossil Island Hunter', url: 'guides/osrs-how-to-unlock-dinosaur-hunting-osrs.html', stage: 'beginner', kw: 'dinosaur fossil herbiboar hunter hunting island unlock' },
+    { label: 'Unlock Fairy Rings \u2014 Lost City & Fairy Tale', url: 'guides/osrs-how-to-unlock-fairy-rings.html', stage: 'beginner', kw: 'fairy lost city rings tale unlock' },
+    { label: 'Unlock the Abyss', url: 'guides/osrs-how-to-unlock-the-abyss-guide.html', stage: 'beginner', kw: 'abyss unlock' },
+    { label: 'Hunter Money Making \u2014 Black/Red Chins & Herbiboar', url: 'guides/osrs-hunter-money-making-guide-2026.html', stage: 'mid', kw: 'bird chinchompa chins flip flipping gp herbiboar hunter money profit trap' },
+    { label: 'Hunter Training 1-99 All Methods', url: 'guides/osrs-hunter-training-guide-2026.html', stage: 'mid', kw: 'bird chinchompa hunter methods profit training trap xp' },
+    { label: 'Interface & Controls Beginner', url: 'guides/osrs-interface-controls-beginner-guide-2026.html', stage: 'beginner', kw: 'beginner controls game interface ui' },
+    { label: 'Ironman 1-99 Smithing', url: 'guides/osrs-ironman-1-99-smithing-guide.html', stage: 'mid', kw: 'anvil bar blast furnace iron ironman smithing' },
+    { label: 'Ironman Money Making F2P', url: 'guides/osrs-ironman-money-making-f2p-2026.html', stage: 'beginner', kw: 'f2p flip flipping free gp iron ironman money profit' },
+    { label: 'Kalphite Queen KQ Beginner \u2014 Stop Dying!', url: 'guides/osrs-kalphite-queen-kq-beginner-guide-2026.html', stage: 'beginner', kw: 'beginner kalphite kq queen' },
+    { label: 'Khopesh \u2014 How to Get & Worth It?', url: 'guides/osrs-khopesh-guide-2026.html', stage: 'mid', kw: 'khopesh melee worth' },
+    { label: 'Khopesh vs Alternative Weapons Comparison', url: 'guides/osrs-khopesh-vs-alternative-weapons-2026.html', stage: 'mid', kw: 'comparison gear khopesh melee weapons' },
+    { label: 'Killing Green Dragons 400K-800K GP/hr', url: 'guides/osrs-killing-green-dragons-money-per-hour.html', stage: 'beginner', kw: 'dragons flip flipping gp green killing money profit wilderness' },
+    { label: 'Low Cost 1-99 Herblore', url: 'guides/osrs-low-cost-1-99-herblore-guide.html', stage: 'mid', kw: 'herb herblore potion' },
+    { label: 'Low Effort Money Making Beginners 10 Methods', url: 'guides/osrs-low-effort-money-making-beginners.html', stage: 'beginner', kw: 'beginner effort flip flipping gp money profit stats' },
+    { label: 'Low Gear Vorkath \u2014 Budget Setup & Woox Walk', url: 'guides/osrs-low-gear-setup-vorkath-guide.html', stage: 'boss', kw: 'armor armour budget dragon equipment gear kill profit setup undead vorkath walk woox' },
+    { label: 'Maps & Fast Travel \u2014 Navigate Gielinor', url: 'guides/osrs-maps-travel-guide-2026.html', stage: 'mid', kw: 'map maps navigate teleport transport travel' },
+    { label: 'Maxing \u2014 Which 99 First? Optimal Order', url: 'guides/osrs-maxing-99-order-guide-2026.html', stage: 'mid', kw: 'maxing order optimal' },
+    { label: 'Membership \u2014 Is It Worth Buying?', url: 'guides/osrs-membership-guide-2026.html', stage: 'beginner', kw: 'members membership worth f2p p2p comparison' },
+    { label: 'Mid-Game Breakthrough \u2014 Stop Being Stuck', url: 'guides/osrs-mid-game-breakthrough-guide-2026.html', stage: 'mid', kw: 'breakthrough intermediate mid game progress stuck' },
+    { label: 'Mid Level Bossing Ladder \u2014 First 10 Bosses', url: 'guides/osrs-mid-level-bossing-ladder-2026.html', stage: 'mid', kw: 'boss bosses bossing intermediate mid level order pvm' },
+    { label: 'Mid to High Level Progression Roadmap', url: 'guides/osrs-mid-to-high-progression-roadmap-2026.html', stage: 'mid', kw: 'advanced endgame high intermediate mid progression roadmap' },
+    { label: 'Mobile Membership Purchase Android & iOS', url: 'guides/osrs-mobile-membership-guide-2026.html', stage: 'beginner', kw: 'android ios membership mobile purchase' },
+    { label: 'Money Making Beginners \u2014 0 GP to 500K', url: 'guides/osrs-money-making-beginner-2026.html', stage: 'beginner', kw: 'beginner flip flipping gp money profit zero' },
+    { label: 'Money Making with Fishing \u2014 Lobsters to Eels', url: 'guides/osrs-money-making-fishing-2026.html', stage: 'mid', kw: 'eels fish fishing flip flipping gp lobster money net profit' },
+    { label: 'Money Making Tier List \u2014 All Methods Ranked', url: 'guides/osrs-money-making-tier-list-2026.html', stage: 'mid', kw: 'flip flipping gp money methods profit ranked' },
+    { label: 'New Player Handbook \u2014 Zero to Bossing', url: 'guides/osrs-new-player-guide-2026.html', stage: 'beginner', kw: 'beginner bossing player zero' },
+    { label: 'Nex \u2014 Strategy, Gear & Loot Table', url: 'guides/osrs-nex-guide-2026.html', stage: 'mid', kw: 'god wars gear loot nex setup strategy zaros' },
+    { label: 'Nightmare & Phosanis \u2014 Curse Flicking & Inquisitor', url: 'guides/osrs-nightmare-phosanis-guide-2026.html', stage: 'boss', kw: 'curse flicking inquisitor nightmare phosani sleepwalker' },
+    { label: 'Optimal Leveling \u2014 Maximize XP/Hour', url: 'guides/osrs-optimal-leveling-guide-2026.html', stage: 'mid', kw: 'leveling maximize optimal xp skill' },
+    { label: 'Passive Money Making \u2014 Earn GP Overnight', url: 'guides/osrs-passive-money-making-offline.html', stage: 'mid', kw: 'flip flipping gp herbs kingdom money offline overnight passive profit' },
+    { label: 'Pest Control & Void Knight \u2014 Full Void Set', url: 'guides/osrs-pest-control-void-guide-2026.html', stage: 'mid', kw: 'control knight pest void xp strategy' },
+    { label: 'Phantom Muspah \u2014 Boss Strategy & Profit', url: 'guides/osrs-phantom-muspah-guide-2026.html', stage: 'boss', kw: 'ancient boss gear muspah phantom profit setup strategy' },
+    { label: 'POH Optimal Layout \u2014 Best House for PvM', url: 'guides/osrs-poh-optimal-layout-guide-2026.html', stage: 'mid', kw: 'house layout poh pvm skilling' },
+    { label: 'Prayer Training Beginners \u2014 Protect Prayers', url: 'guides/osrs-prayer-training-beginner-guide-2026.html', stage: 'beginner', kw: 'altar beginner bones efficient gilded prayer prayers protect training' },
+    { label: 'Questing Beginners \u2014 Best Starter Quests', url: 'guides/osrs-questing-beginner-guide-2026.html', stage: 'beginner', kw: 'beginner diary quest questing quests rewards starter' },
+    { label: 'Raid Entry Requirements \u2014 CoX/ToB/ToA', url: 'guides/osrs-raid-entry-requirements-2026.html', stage: 'mid', kw: 'amascut chambers raid requirements theatre tombs xeric' },
+    { label: 'Range Training 1-99 Fastest', url: 'guides/osrs-range-training-1-99-guide-2026.html', stage: 'mid', kw: 'arrow bow crossbow range ranged training' },
+    { label: 'Regional Worlds \u2014 Japan/Singapore/South Africa', url: 'guides/osrs-regional-worlds-guide-2026.html', stage: 'beginner', kw: 'regional servers singapore south worlds' },
+    { label: 'Royal Titans \u2014 Duo Boss & Deadeye Prayers', url: 'guides/osrs-royal-titans-guide-2026.html', stage: 'boss', kw: 'boss deadeye duo loot prayers royal titans vigor' },
+    { label: 'RuneLite Setup \u2014 Better Than Steam!', url: 'guides/osrs-runelite-setup-guide-2026.html', stage: 'beginner', kw: 'runelite setup steam' },
+    { label: 'Safe Spots Beginners \u2014 Fight Without Taking Damage', url: 'guides/osrs-safe-spots-beginner-2026.html', stage: 'beginner', kw: 'beginner damage fight safe spots without' },
+    { label: 'Sailing 1-99 Complete \u2014 Fastest Routes & AFK', url: 'guides/osrs-sailing-1-99-guide-2026.html', stage: 'mid', kw: 'afk boat crew naval profit routes sailing ship training' },
+    { label: 'Sailing AFK \u2014 Shipwreck Salvaging 1-99', url: 'guides/osrs-sailing-afk-training-guide-2026.html', stage: 'mid', kw: 'afk boat crew naval sailing salvaging ship shipwreck training' },
+    { label: 'Sailing Money Making \u2014 GP/hr Ranked', url: 'guides/osrs-sailing-money-making-guide-2026.html', stage: 'mid', kw: 'boat crew flip flipping gp money naval profit ranked sailing ship' },
+    { label: 'Sailing Ship Upgrades & Crew \u2014 Best Boats & Setup', url: 'guides/osrs-sailing-ship-crew-guide-2026.html', stage: 'mid', kw: 'boat boats crew facilities naval sailing setup ship upgrades' },
+    { label: 'Sailing & Wyrmscraig Preview \u2014 Everything We Know', url: 'guides/osrs-sailing-wyrmscraig-guide-2026.html', stage: 'mid', kw: 'boat crew naval preview sailing ship wyrmscraig' },
+    { label: 'Sarachnis Loot Ironman \u2014 Cudgel & Seeds', url: 'guides/osrs-sarachnis-loot-guide-for-ironman.html', stage: 'mid', kw: 'cudgel gear iron ironman loot sarachnis seeds spider' },
+    { label: 'Sarachnis Solo \u2014 Best Beginner Boss', url: 'guides/osrs-sarachnis-solo-guide-2026.html', stage: 'beginner', kw: 'beginner boss cudgel sarachnis solo spider' },
+    { label: 'Skills Overview Beginners \u2014 All 23 Skills', url: 'guides/osrs-skills-overview-beginner-2026.html', stage: 'beginner', kw: 'beginner overview skills' },
+    { label: 'Skill Progression Path Optimal Route', url: 'guides/osrs-skills-progression-path-2026.html', stage: 'mid', kw: 'path progression route skill' },
+    { label: 'Slayer 70-95 Money Making Best Tasks', url: 'guides/osrs-slayer-70-to-95-money-makers-2026.html', stage: 'mid', kw: 'block flip flipping gp making master money profit slayer task xp' },
+    { label: 'Slayer Block & Skip List Optimal Tasks', url: 'guides/osrs-slayer-block-skip-list-2026.html', stage: 'mid', kw: 'block gp master masters skip slayer task xp' },
+    { label: 'Summer Sweep-Up \u2014 Rebuild Account Strategy', url: 'guides/osrs-summer-sweep-up-2026-account-guide.html', stage: 'mid', kw: 'account authenticator bank rebuild security summer sweep update' },
+    { label: 'Summer Sweep-Up Complete \u2014 Gauntlet & Meta Changes', url: 'guides/osrs-summer-sweep-up-2026-guide.html', stage: 'mid', kw: 'changes gauntlet gear meta rebuild summer sweep' },
+    { label: 'Tempoross \u2014 Fishing Boss Strategy & Rewards', url: 'guides/osrs-tempoross-guide-2026.html', stage: 'mid', kw: 'boss fishing rates rewards strategy tempoross xp' },
+    { label: 'Theatre of Blood \u2014 Complete ToB Walkthrough', url: 'guides/osrs-theatre-of-blood-guide-2026.html', stage: 'boss', kw: 'blood rooms scythe theatre tob verzik walkthrough' },
+    { label: 'ToA Solo Beginner \u2014 Tombs of Amascut 0-150 Invo', url: 'guides/osrs-toa-solo-beginner-guide-2026.html', stage: 'boss', kw: 'amascut beginner invo solo toa tombs' },
+    { label: 'Wintertodt Complete \u2014 Fast 99 Firemaking', url: 'guides/osrs-wintertodt-complete-guide-2026.html', stage: 'mid', kw: 'firemaking mass profit solo strategy wintertodt' },
+    { label: 'Wintertodt Money Making Per Hour', url: 'guides/osrs-wintertodt-money-making-per-hour.html', stage: 'mid', kw: 'crates firemaking flip flipping gp money profit wintertodt' },
+    { label: 'Quest Cape Roadmap \u2014 Optimal Order & Strategy', url: 'guides/quest-cape-roadmap-2026.html', stage: 'mid', kw: 'cape diary map order quest questing roadmap strategy' },
+    { label: 'Sailing Skill Complete Level 1-99', url: 'guides/sailing-complete-guide-2026.html', stage: 'mid', kw: 'boat crew naval sailing ship skill' },
+    { label: 'Sailing Phase 1 Training Maps & Profit Spots', url: 'guides/sailing-phase-1-training-2026.html', stage: 'mid', kw: 'boat crew maps naval phase profit sailing ship training' },
+    { label: 'Sailing PvP \u2014 Naval Combat & Piracy Mechanics', url: 'guides/sailing-pvp-guide-2026.html', stage: 'mid', kw: 'boat combat crew mechanics naval piracy pvp sailing ship' },
+    { label: 'Slayer Training 1-99 Best Tasks & Masters', url: 'guides/slayer-1-99-guide-2026.html', stage: 'mid', kw: 'block gp master slayer task training' },
+    { label: 'Vault of Ralos Raid Walkthrough & Strategy', url: 'guides/vault-of-ralos-raid-guide-2026.html', stage: 'boss', kw: 'raid ralos strategy vault walkthrough' },
   ];
 
   // ========== 本地文章匹配（CD/Windrose/OSRS 通用） ==========
@@ -381,8 +380,12 @@
       '#osrs-qa-widget .qa-article-link .qa-link-icon{margin-right:6px;}' +
       '#osrs-qa-widget .qa-toc-match{display:block;margin-top:4px;padding:6px 10px;background:rgba(212,175,55,0.08);border-left:3px solid #d4af37;border-radius:0 4px 4px 0;color:#e8d5b7;text-decoration:none;font-size:12px;line-height:1.4;transition:all 0.2s;}' +
       '#osrs-qa-widget .qa-toc-match:hover{background:rgba(212,175,55,0.15);color:#d4af37;}' +
-      '#osrs-qa-widget .qa-section-label{font-size:11px;color:rgba(212,175,55,0.7);margin-top:8px;margin-bottom:2px;font-weight:600;}';
-    document.head.appendChild(style);
+      '#osrs-qa-widget .qa-section-label{font-size:11px;color:rgba(212,175,55,0.7);margin-top:8px;margin-bottom:2px;font-weight:600;}' +
+      '#osrs-qa-widget .qa-article-link.qa-stage-beginner{border-left:3px solid #4caf50;}' +
+      '#osrs-qa-widget .qa-article-link.qa-stage-mid{border-left:3px solid #ff9800;}' +
+      '#osrs-qa-widget .qa-article-link.qa-stage-boss{border-left:3px solid #f44336;}';
+      // 裁剪消息数量
+      document.head.appendChild(style);
   }
 
   // ========== HTML 结构创建 ==========
@@ -487,51 +490,82 @@
 
       // 显示本地文章匹配结果
       if (localMatches.length > 0) {
-        var prefixText = tocMatches.length > 0
-          ? '📚 <b>Related guides:</b>'
-          : 'Found the best guides for your question:';
-        var articleIntro = document.createElement('div');
-        articleIntro.className = 'qa-message assistant';
-        articleIntro.innerHTML = '<div class="qa-message-bubble">' + prefixText + '</div>';
-        messagesContainer.appendChild(articleIntro);
-
-        for (var i = 0; i < localMatches.length; i++) {
-          var article = localMatches[i].article;
-          var url = article.url;
-          // 如果有锚点，加到URL后面
-          if (localMatches[i].anchor) {
-            url += '#' + localMatches[i].anchor;
+        if (GAME === 'osrs') {
+          // === OSRS: 按阶段分组显示 ===
+          var stageGroups = { 'beginner': [], 'mid': [], 'boss': [] };
+          for (var i = 0; i < localMatches.length; i++) {
+            var s = (localMatches[i].article.stage || 'mid');
+            if (!stageGroups[s]) stageGroups[s] = [];
+            stageGroups[s].push(localMatches[i]);
           }
-
-          var link = document.createElement('a');
-          link.className = 'qa-article-link';
-          link.href = url;
-          link.target = '_blank';
-          link.rel = 'noopener';
-          var displayLabel = article.label || article.title;
-          link.innerHTML = '<span class="qa-link-icon">📖</span>' + displayLabel + (localMatches[i].anchor ? ' <span style="color:rgba(212,175,55,0.6);font-size:11px;">(jump to section)</span>' : '');
-
-          var linkMsg = document.createElement('div');
-          linkMsg.className = 'qa-message assistant';
-          linkMsg.appendChild(link);
-          messagesContainer.appendChild(linkMsg);
+          var stageIntro = document.createElement('div');
+          stageIntro.className = 'qa-message assistant';
+          stageIntro.innerHTML = '<div class="qa-message-bubble">🎯 <b>Pick your stage:</b></div>';
+          messagesContainer.appendChild(stageIntro);
+          var stageConfigs = [
+            { key: 'beginner', emoji: '🟢', label: 'New Player' },
+            { key: 'mid',       emoji: '🟡', label: 'Mid-Game' },
+            { key: 'boss',      emoji: '🔴', label: 'Boss Hunter' }
+          ];
+          for (var si = 0; si < stageConfigs.length; si++) {
+            var sc = stageConfigs[si];
+            var group = stageGroups[sc.key] || [];
+            if (group.length === 0) continue;
+            var best = group[0];
+            var article = best.article;
+            var url = article.url;
+            if (best.anchor) url += '#' + best.anchor;
+            var displayLabel = article.label || article.title;
+            var link = document.createElement('a');
+            link.className = 'qa-article-link qa-stage-' + sc.key;
+            link.href = url;
+            link.target = '_blank';
+            link.rel = 'noopener';
+            link.innerHTML = '<span class="qa-link-icon">' + sc.emoji + '</span> ' + sc.label + ' → ' + displayLabel;
+            var linkMsg = document.createElement('div');
+            linkMsg.className = 'qa-message assistant';
+            linkMsg.appendChild(link);
+            messagesContainer.appendChild(linkMsg);
+          }
+        } else {
+          // === CD/Windrose: 平铺列表 ===
+          var prefixText = tocMatches.length > 0
+            ? '📚 <b>Related guides:</b>'
+            : 'Found the best guides for your question:';
+          var articleIntro = document.createElement('div');
+          articleIntro.className = 'qa-message assistant';
+          articleIntro.innerHTML = '<div class="qa-message-bubble">' + prefixText + '</div>';
+          messagesContainer.appendChild(articleIntro);
+          for (var i = 0; i < localMatches.length; i++) {
+            var article = localMatches[i].article;
+            var url = article.url;
+            if (localMatches[i].anchor) {
+              url += '#' + localMatches[i].anchor;
+            }
+            var link = document.createElement('a');
+            link.className = 'qa-article-link';
+            link.href = url;
+            link.target = '_blank';
+            link.rel = 'noopener';
+            var displayLabel = article.label || article.title;
+            link.innerHTML = '<span class="qa-link-icon">📖</span>' + displayLabel + (localMatches[i].anchor ? ' <span style="color:rgba(212,175,55,0.6);font-size:11px;">(jump to section)</span>' : '');
+            var linkMsg = document.createElement('div');
+            linkMsg.className = 'qa-message assistant';
+            linkMsg.appendChild(link);
+            messagesContainer.appendChild(linkMsg);
+          }
         }
-
         // 裁剪消息数量
         while (messagesContainer.children.length > CONFIG.maxMessages + 4) {
           messagesContainer.firstChild.remove();
         }
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
         sendBtn.disabled = false;
-
-        // CD/Windrose：本地匹配成功 → 不调API，直接返回
-        if (GAME === 'crimson-desert' || GAME === 'windrose') return;
-        // OSRS：继续调API，TOC和本地链接作为补充显示
-        callBackendAPI(message, messagesContainer, sendBtn, null, tocMatches, localMatches);
+        // === 本地匹配成功 → 秒回链接，不调API ===
         return;
       }
 
-      // === 所有游戏：本地未匹配 → 调用后端API ===
+      // === 本地0匹配 → 调用后端API兜底 ===
       callBackendAPI(message, messagesContainer, sendBtn, GAME);
     };
 
@@ -691,7 +725,7 @@
     injectStyles();
     var elements = createWidget();
     setupEventHandlers(elements.widget, elements.toggleBtn);
-    console.log('✅ ' + CONFIG.assistantTitle + ' v2.5 initialized (TOC + local match)');
+    console.log('✅ ' + CONFIG.assistantTitle + ' v2.8 initialized (stage selector + Wiki fallback)');
   }
 
   if (document.readyState === 'loading') {
