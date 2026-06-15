@@ -1,10 +1,10 @@
 /**
  * OSRS Guru AI Question & Answer Widget
  * 右下角悬浮窗 - AI 问答系统
- * v2.5 - 动态TOC锚点跳转 + OSRS本地文章匹配 + 停留时间优化
+ * v2.6 - 全165篇索引 + 修复syntax error导致widget不显示
  *   - 所有页面：动态提取当前页面TOC，匹配问题后直接跳转到对应段落
  *   - CD/Windrose：本地12篇文章关键词匹配 + 锚点
- *   - OSRS：Top 60篇热门文章本地匹配 + 后端API兜底
+ *   - OSRS：全165篇本地匹配 + 后端API兜底
  *   - 推荐文案优化：告诉用户点进去能看到什么
  */
 
@@ -531,12 +531,7 @@
         return;
       }
 
-      // OSRS：继续调API，TOC和本地链接作为补充显示
-      callBackendAPI(message, messagesContainer, sendBtn, null, tocMatches, localMatches);
-        return;
-      }
-
-      // === CD/Windrose 本地未匹配 → 调用后端API ===
+      // === 所有游戏：本地未匹配 → 调用后端API ===
       callBackendAPI(message, messagesContainer, sendBtn, GAME);
     };
 
