@@ -1,10 +1,11 @@
 /**
  * OSRS Guru AI Question & Answer Widget
  * 右下角悬浮窗 - AI 问答系统
- * v2.8 - Stage selector for OSRS + Wiki fallback for OSRS API
+ * v2.9 - Smart response: osrsguru source shows links only, Wiki/DS truncated
  *   - OSRS: local match grouped by stage (beginner/mid/boss), display as "Pick your stage"
  *   - CD/Windrose: flat list (all beginners)
  *   - Backend: OSRS → Wiki → DeepSeek V3; CD/Windrose → DeepSeek V3 only
+ *   - v2.9 fix: source=osrsguru → NO text bubble, just link; others → max 300 chars
  */
 
 (function () {
@@ -597,7 +598,16 @@
 
         var answer = data.answer || 'No answer available';
         var source = data.source || 'unknown';
-        addMessage(messagesContainer, answer, 'assistant', false, source);
+
+        // === v2.9: 智能显示策略 — 根据来源决定显示方式 ===
+        // osrsguru: 只显示链接，不显示文字（用户要的是文章不是段落）
+        if (source !== 'osrsguru') {
+          // Wiki/DeepSeek 来源：截断过长回答（>300字）
+          if (answer.length > 300) {
+            answer = answer.substring(0, 297) + '...';
+          }
+          addMessage(messagesContainer, answer, 'assistant', false, source);
+        }
 
         // 如果API返回了相关文章标题和URL，也显示链接
         if (data.title && data.url) {
@@ -725,7 +735,7 @@
     injectStyles();
     var elements = createWidget();
     setupEventHandlers(elements.widget, elements.toggleBtn);
-    console.log('✅ ' + CONFIG.assistantTitle + ' v2.8 initialized (stage selector + Wiki fallback)');
+    console.log('✅ ' + CONFIG.assistantTitle + ' v2.9 initialized (smart display: links-only for local, concise for API)');
   }
 
   if (document.readyState === 'loading') {
