@@ -1,6 +1,8 @@
 /**
  * OSRS Guru AI Question & Answer Widget
  * 右下角悬浮窗 - AI 问答系统
+ * v2.10.0 - Add 22 new OSRS guides to article index (Skill Training + Money Making + Slayer + Boss + Quest)
+ *   - OSRS_ARTICLES: 154 → 176 entries
  * v2.9.2 - FIX: Add leading / to all URLs (404 fix)
  *   - OSRS: local match grouped by stage (beginner/mid/boss), display as "Pick your stage"
  *   - CD/Windrose: flat list (all beginners)
@@ -90,7 +92,7 @@
     return matches.slice(0, 2); // 最多返回2个最相关段落
   }
 
-  // ========== 本地文章索引（自动扫描165篇，2026-06-15） ==========
+  // ========== 本地文章索引（188篇，2026-06-16） ==========
   var CD_ARTICLES = [
     { label: 'Crimson Desert Boss Guide 2026 \u2014 Every Boss, Strategy &amp; Rewards', url: '/guides/crimson-desert/crimson-desert-boss-guide-2026.html', kw: 'boss bosses bossing cd crimson desert pvm pywel kliff strategy' },
     { label: 'Crimson Desert Combat Guide 2026 \u2014 Master Parry, Dodge &amp; Combo Chains', url: '/guides/crimson-desert/crimson-desert-combat-guide-2026.html', kw: 'combat cd crimson desert dodge parry pywel kliff attack defence defense strength', anchorMap: { 'parry': 'section2', 'dodge': 'section2', 'combo': 'section3', 'stamina': 'section4', 'spirit': 'section5', 'surge': 'section5', 'grapple': 'section6', 'counter': 'section2', 'fight': 'section1', 'combat': 'section1' } },
@@ -109,7 +111,7 @@
     { label: 'Windrose Quest &amp; Exploration Guide 2026 \u2014 Hidden Treasures &amp; Lore', url: '/guides/windrose/windrose-quest-exploration-guide-2026.html', kw: 'exploration lore naval pirate quest questing quests routes sailing ship treasures windrose' },
   ];
 
-  // OSRS 165篇全索引（自动扫描 guides/ 目录生成）
+  // OSRS 176篇全索引（154篇原有 + 22篇新增，2026-06-16）
   var OSRS_ARTICLES = [
     { label: 'Account Security \u2014 Protect From Hackers', url: '/guides/account-security-guide-2026.html', stage: 'beginner', kw: 'account authenticator bank hackers protect security' },
     { label: 'Barrows \u2014 First Boss GP', url: '/guides/barrows-first-boss-gp-2026.html', stage: 'beginner', kw: 'ahrim barrows boss bosses bossing brothers dharok gp pvm' },
@@ -264,6 +266,28 @@
     { label: 'Sailing PvP \u2014 Naval Combat & Piracy Mechanics', url: '/guides/sailing-pvp-guide-2026.html', stage: 'mid', kw: 'boat combat crew mechanics naval piracy pvp sailing ship' },
     { label: 'Slayer Training 1-99 Best Tasks & Masters', url: '/guides/slayer-1-99-guide-2026.html', stage: 'mid', kw: 'block gp master slayer task training' },
     { label: 'Vault of Ralos Raid Walkthrough & Strategy', url: '/guides/vault-of-ralos-raid-guide-2026.html', stage: 'boss', kw: 'raid ralos strategy vault walkthrough' },
+    { label: 'Skill Training \u2014 Beginner Complete Guide 2026', url: '/guides/osrs-skill-training-beginner-complete-guide-2026.html', stage: 'beginner', kw: 'beginner complete guide level 1 skill skills training' },
+    { label: 'Skill Training \u2014 Beginner Fast Track 2026', url: '/guides/osrs-skill-training-beginner-fast-track-2026.html', stage: 'beginner', kw: 'beginner fast leveling shortcut skill skills track training' },
+    { label: 'Skill Training \u2014 Mid-Game Guide 2026', url: '/guides/osrs-skill-training-mid-game-guide-2026.html', stage: 'mid', kw: 'efficiency method mid game skill skills training xp' },
+    { label: 'Skill Training \u2014 Mid-Game Optimization 2026', url: '/guides/osrs-skill-training-mid-game-optimization-2026.html', stage: 'mid', kw: 'afk efficiency gp hr optimization profit skill skills training' },
+    { label: 'Skill Training \u2014 Endgame Guide 2026', url: '/guides/osrs-skill-training-endgame-guide-2026.html', stage: 'mid', kw: 'endgame fast level 80 99 max skill skills tick training' },
+    { label: 'Skill Training \u2014 Max Account Ultimate 2026', url: '/guides/osrs-skill-training-max-account-2026.html', stage: 'mid', kw: '2277 all 99 complete guide max skill skills total ultimate' },
+    { label: 'Money Making Summer Sweep-Up 2026', url: '/guides/osrs-money-making-summer-sweep-up-2026.html', stage: 'mid', kw: 'gold gp making money profit summer sweep' },
+    { label: 'Money Making Under 1M Investment 2026', url: '/guides/osrs-money-making-under-1m-investment-2026.html', stage: 'beginner', kw: 'budget cheap gp investment low making money one million under' },
+    { label: 'Slayer Beginner First Master Guide 2026', url: '/guides/osrs-slayer-beginner-first-master-guide-2026.html', stage: 'beginner', kw: 'beginner first guide master slayer task turael vannaka' },
+    { label: 'Slayer Low-Level Money Makers 2026', url: '/guides/osrs-slayer-low-level-money-makers-2026.html', stage: 'beginner', kw: 'gold gp guide low level making money slayer' },
+    { label: 'Combat Achievements Easy Walkthrough 2026', url: '/guides/osrs-combat-achievements-easy-walkthrough-2026.html', stage: 'beginner', kw: 'achievement ca combat easy ghommal hilt task walkthrough' },
+    { label: 'Ghommal Hilt Fast Guide 2026', url: '/guides/osrs-ghommal-hilt-fast-guide-2026.html', stage: 'mid', kw: 'achievement ca combat fast ghommal hilt teleport unlock' },
+    { label: 'First Boss Progression Roadmap 2026', url: '/guides/osrs-first-boss-progression-roadmap-2026.html', stage: 'beginner', kw: 'boss bryophyta first obor order progression pvm roadmap' },
+    { label: 'Obor & Bryophyta F2P Boss Guide 2026', url: '/guides/osrs-obor-bryophyta-f2p-boss-guide-2026.html', stage: 'beginner', kw: 'boss bryophyta f2p free giant hill moss obor play' },
+    { label: 'Returning Player Catch-Up Guide 2026', url: '/guides/osrs-returning-player-catch-up-guide-2026.html', stage: 'beginner', kw: '2026 back break catch coming guide returning up' },
+    { label: 'Returning Player Fast Track 2026', url: '/guides/osrs-returning-player-fast-track-2026.html', stage: 'mid', kw: '2026 fast gear guide progression returning route track' },
+    { label: 'Achievement Diary Priority Order Beginner 2026', url: '/guides/osrs-diary-priority-order-beginner-2026.html', stage: 'beginner', kw: 'achievement beginner diary easy first order priority task' },
+    { label: 'Achievement Diary Easy & Medium Complete 2026', url: '/guides/osrs-diary-easy-medium-complete-guide-2026.html', stage: 'mid', kw: 'achievement complete diary easy medium requirement reward task' },
+    { label: 'Skill Training After Sweep-Up 2026', url: '/guides/osrs-skill-training-after-sweep-up-2026.html', stage: 'mid', kw: 'after guide meta new skill sweep training update' },
+    { label: 'Top 10 Skills to Train First 2026', url: '/guides/osrs-top-10-skills-to-train-first-2026.html', stage: 'beginner', kw: 'best first priority skills ten to top train training' },
+    { label: 'Blood Moon Rises Prep Checklist Detailed 2026', url: '/guides/osrs-blood-moon-rises-prep-checklist-detailed-2026.html', stage: 'mid', kw: 'blood checklist guide moon prepared quest requirement rises' },
+    { label: 'Best Quests Per Skill 2026', url: '/guides/osrs-best-quests-per-skill-2026.html', stage: 'mid', kw: 'best cape experience per quest quests reward skill xp' },
   ];
 
   // ========== 本地文章匹配（CD/Windrose/OSRS 通用） ==========
