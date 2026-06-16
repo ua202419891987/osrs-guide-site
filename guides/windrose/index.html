@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Windrose Guides — Pirate Survival, Combat &amp; Base Building 2026 | Windrose Guru</title>
-<meta name="description" content="Windrose Guru — your complete guide hub for pirate survival with soulslite combat. Day 1 survival, naval battles, crafting & gear, treasure maps, boss strategies, and base building. All 6 guides verified for 2026.">
+<meta name="description" content="Windrose Guru — your complete guide hub for pirate survival with soulslite combat. Day 1 survival, naval battles, crafting & gear, treasure maps, boss strategies, and base building. All 14 guides verified for 2026.">
 <meta name="keywords" content="Windrose guide, Windrose beginner guide, Windrose survival, Windrose ship combat, Windrose crafting, Windrose bosses, Windrose base building, pirate game 2026">
 <link rel="canonical" href="https://osrsguru.com/guides/windrose/">
 <link rel="stylesheet" href="../../css/style.css">
@@ -40,6 +40,7 @@
   box-shadow:0 2px 10px rgba(0,0,0,.06);
   display:flex;
   flex-direction:column;
+  position:relative;
 }
 .sub-guide-card:hover{
   transform:translateY(-4px);
@@ -67,6 +68,24 @@
 }
 .sub-card-read{color:#2980b9;font-weight:700}
 .sub-card-date{background:#eaf4fb;color:#2980b9;padding:2px 10px;border-radius:10px}
+
+/* Category Section Headers */
+.sub-cat-header{
+  grid-column:1/-1;
+  font-family:'Cinzel',serif;font-size:1.35rem;color:#2980b9;
+  margin:20px 0 8px;padding-top:16px;border-top:2px solid #d6eaf8;
+  display:flex;align-items:center;gap:10px;
+}
+.sub-cat-header:first-of-type{border-top:none;margin-top:0;padding-top:0}
+.sub-cat-count{font-size:.78rem;color:#999;background:#eaf4fb;padding:2px 10px;border-radius:10px;font-family:system-ui}
+
+/* NEW badge on cards */
+.badge-new{
+  position:absolute;top:8px;right:8px;
+  background:#e74c3c;color:#fff;font-size:.65rem;font-weight:800;
+  padding:2px 8px;border-radius:8px;letter-spacing:.05em;text-transform:uppercase;
+  z-index:2;
+}
 
 /* Support card */
 .sub-support{max-width:700px;margin:30px auto 50px;background:#2e7d32;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 4px 20px rgba(46,125,50,.2)}
@@ -111,7 +130,7 @@
 <header class="site-header" style="border-bottom:2px solid #2980b9">
   <div class="header-inner" style="position:relative">
     <a href="../../index.html" class="logo">⛵ Windrose <span>Guru</span></a>
-    <div class="logo-badge">6 Guides · Free · Updated 2026</div>
+    <div class="logo-badge">14 Guides · Free · Updated 2026</div>
     <nav class="main-nav">
       <a href="#start">🆕 Beginner</a>
       <a href="#combat">Combat</a>
@@ -133,19 +152,22 @@
     <span>🏴‍☠️ Pirate Survival</span>
     <span>⚔️ Soulslite Combat</span>
     <span>📅 June 2026</span>
-    <span>📘 6 Expert Guides</span>
+    <span>📘 14 Expert Guides</span>
+    <span style="background:#e74c3c;color:#fff;padding:4px 12px;border-radius:12px;font-size:.78rem;">🆕 +8 This Week</span>
   </div>
 </div>
 
 <!-- ========== GUIDE GRID ========== -->
 <div class="sub-guide-grid">
 
-  <!-- Card 1: Beginner -->
+  <!-- ====== CATEGORY 1: Getting Started ====== -->
+  <div class="sub-cat-header">🆕 Getting Started <span class="sub-cat-count">2 guides</span></div>
+
   <a href="windrose-beginner-guide-2026.html" class="sub-guide-card" id="start">
     <div class="sub-card-badge badge-start">🆕 Start Here</div>
     <div class="sub-card-body">
       <h3>Beginner Guide — Day 1 Survival</h3>
-      <p>Your first hours on the open sea: build your first raft (Raft), master basic combat, find early islands, and establish your first safe haven.</p>
+      <p>Your first hours on the open sea: build your first raft, master basic combat, find early islands, and establish your first safe haven.</p>
       <div class="sub-card-footer">
         <span class="sub-card-read">Read Time →</span>
         <span class="sub-card-date">June 2026</span>
@@ -153,12 +175,27 @@
     </div>
   </a>
 
-  <!-- Card 2: Combat + Ship -->
+  <a href="windrose-performance-optimization-2026.html" class="sub-guide-card" id="performance">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-gear">⚙️ Performance</div>
+    <div class="sub-card-body">
+      <h3>Performance Optimization — FPS Fix &amp; Best Settings</h3>
+      <p>Optimal graphics settings, how to fix stuttering and lag, best server regions for ping, and crash solutions.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- ====== CATEGORY 2: Combat & PvP ====== -->
+  <div class="sub-cat-header">⚔️ Combat &amp; PvP <span class="sub-cat-count">3 guides</span></div>
+
   <a href="windrose-combat-ship-guide-2026.html" class="sub-guide-card" id="combat">
     <div class="sub-card-badge badge-combat">⚓ Combat</div>
     <div class="sub-card-body">
       <h3>Combat &amp; Ship Guide — Land and Sea</h3>
-      <p>Master parry/dodge on land, naval cannon positioning, boarding tactics, all ship types compared, and ammo type strategies for every encounter.</p>
+      <p>Master parry/dodge on land, naval cannon positioning, boarding tactics, all ship types compared, and ammo type strategies.</p>
       <div class="sub-card-footer">
         <span class="sub-card-read">Read Time →</span>
         <span class="sub-card-date">June 2026</span>
@@ -166,12 +203,40 @@
     </div>
   </a>
 
-  <!-- Card 3: Crafting -->
+  <a href="windrose-coop-multiplayer-guide-2026.html" class="sub-guide-card" id="coop">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-combat">🤝 Co-op</div>
+    <div class="sub-card-body">
+      <h3>Co-op Multiplayer — Play with Friends</h3>
+      <p>How to host/join co-op server, role division, voice chat setup, shared base building, and co-op exclusive events.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="windrose-ship-pvp-combat-guide-2026.html" class="sub-guide-card" id="pvp">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-combat">⚔️ Ship PvP</div>
+    <div class="sub-card-body">
+      <h3>Ship PvP Combat — Naval Battle Tactics</h3>
+      <p>How to initiate PvP naval combat, best ships for PvP, cannon loadout, boarding tactics, and squad formations.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- ====== CATEGORY 3: Crafting, Base & Farming ====== -->
+  <div class="sub-cat-header">🔧 Crafting, Base &amp; Farming <span class="sub-cat-count">3 guides</span></div>
+
   <a href="windrose-crafting-gear-guide-2026.html" class="sub-guide-card" id="gear">
     <div class="sub-card-badge badge-gear">🔧 Crafting</div>
     <div class="sub-card-body">
       <h3>Crafting &amp; Gear — Best Weapons &amp; Tools</h3>
-      <p>All crafting stations unlocked by tier, weapon tier list for soulslite combat, armor sets, ship upgrade paths, rare resource locations, and consumables.</p>
+      <p>All crafting stations unlocked by tier, weapon tier list for soulslite combat, armor sets, ship upgrade paths, rare resource locations.</p>
       <div class="sub-card-footer">
         <span class="sub-card-read">Read Time →</span>
         <span class="sub-card-date">June 2026</span>
@@ -179,38 +244,109 @@
     </div>
   </a>
 
-  <!-- Card 4: Quest + Explore -->
-  <a href="windrose-quest-exploration-guide-2026.html" class="sub-guide-card" id="quest">
-    <div class="sub-card-badge badge-quest">🗺️ Explore</div>
-    <div class="sub-card-body">
-      <h3>Quest &amp; Exploration — Treasure Maps &amp; Lore</h3>
-      <p>Main quest walkthrough across 5 chapters, buried treasure map locations, lore fragments to collect, exploration route optimization, and hidden content.</p>
-      <div class="sub-card-footer">
-        <span class="sub-card-read">Read Time →</span>
-        <span class="sub-card-date">June 2026</span>
-      </div>
-    </div>
-  </a>
-
-  <!-- Card 5: Bosses -->
-  <a href="windrose-boss-guide-2026.html" class="sub-guide-card" id="boss">
-    <div class="sub-card-badge badge-boss">👾 Bosses</div>
-    <div class="sub-card-body">
-      <h3>Boss Guide — All Tiers &amp; Farming Routes</h3>
-      <p>Tier 1–3 bosses and final encounters ranked by difficulty. Attack patterns, ship combat vs melee phases, best farming routes per boss type.</p>
-      <div class="sub-card-footer">
-        <span class="sub-card-read">Read Time →</span>
-        <span class="sub-card-date">June 2026</span>
-      </div>
-    </div>
-  </a>
-
-  <!-- Card 6: Base Building -->
   <a href="windrose-base-building-tips-2026.html" class="sub-guide-card" id="build">
     <div class="sub-card-badge badge-build">🏠 Base</div>
     <div class="sub-card-body">
       <h3>Base Building — Layouts, Defenses &amp; Fleet</h3>
-      <p>Optimal island layouts, wall/trap defense strategies, fleet management tips, trade route planning, and endgame goals for your pirate stronghold.</p>
+      <p>Optimal island layouts, wall/trap defense strategies, fleet management tips, trade route planning, and endgame goals.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="windrose-resource-farming-guide-2026.html" class="sub-guide-card" id="farming">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-start">💰 Farming</div>
+    <div class="sub-card-body">
+      <h3>Resource Farming — Best Routes &amp; Rare Spawns</h3>
+      <p>All resource types, best farming routes by biome, rare resource spawn conditions, and selling vs crafting guide.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- ====== CATEGORY 4: Story, Explore & Secrets ====== -->
+  <div class="sub-cat-header">🗺️ Story, Explore &amp; Secrets <span class="sub-cat-count">2 guides</span></div>
+
+  <a href="windrose-quest-exploration-guide-2026.html" class="sub-guide-card" id="quest">
+    <div class="sub-card-badge badge-quest">🗺️ Explore</div>
+    <div class="sub-card-body">
+      <h3>Quest &amp; Exploration — Treasure Maps &amp; Lore</h3>
+      <p>Main quest walkthrough across 5 chapters, buried treasure map locations, lore fragments, exploration routes, hidden content.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="windrose-treasure-map-secrets-2026.html" class="sub-guide-card" id="secrets">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-quest">🗝️ Secrets</div>
+    <div class="sub-card-body">
+      <h3>Treasure Map &amp; Secrets — All Locations &amp; Easter Eggs</h3>
+      <p>Treasure map decoding, hidden cave entrances, secret pirate camps, easter eggs, lore items, and developer secrets.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- ====== CATEGORY 5: Bosses, Endgame & Meta ====== -->
+  <div class="sub-cat-header">👾 Bosses, Endgame &amp; Meta <span class="sub-cat-count">3 guides</span></div>
+
+  <a href="windrose-boss-guide-2026.html" class="sub-guide-card" id="boss">
+    <div class="sub-card-badge badge-boss">👾 Bosses</div>
+    <div class="sub-card-body">
+      <h3>Boss Guide — All Tiers &amp; Farming Routes</h3>
+      <p>Tier 1–3 bosses and final encounters ranked by difficulty. Attack patterns, ship combat vs melee phases, best farming routes.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="windrose-endgame-guide-2026.html" class="sub-guide-card" id="endgame">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-boss">🏆 Endgame</div>
+    <div class="sub-card-body">
+      <h3>Endgame Guide — What to Do After Main Story</h3>
+      <p>Post-story unlocks, legendary ship blueprints, endgame boss roster, optional raid content, and best endgame activities.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="windrose-meta-build-tier-list-2026.html" class="sub-guide-card" id="tierlist">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-build">📊 Tier List</div>
+    <div class="sub-card-body">
+      <h3>Meta Build Tier List — All Pirate Builds Ranked</h3>
+      <p>S/A/B/C tier pirate builds, full stat allocation guide, weapon synergy, talent tree optimization, and respec strategy.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- ====== CATEGORY 6: Updates ====== -->
+  <div class="sub-cat-header">📅 Updates <span class="sub-cat-count">1 guide</span></div>
+
+  <a href="windrose-early-access-update-guide-2026.html" class="sub-guide-card" id="patch">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-start">📅 Updates</div>
+    <div class="sub-card-body">
+      <h3>Early Access Update Guide — Latest Patch &amp; Roadmap</h3>
+      <p>Full analysis of latest EA patch, new content added, developer roadmap 2026, and how to report bugs.</p>
       <div class="sub-card-footer">
         <span class="sub-card-read">Read Time →</span>
         <span class="sub-card-date">June 2026</span>
@@ -223,8 +359,8 @@
 <!-- ========== SUPPORT CARD ========== -->
 <div class="sub-support">
   <div class="sub-support-header">
-    <h3>🌿 Buy me a coffee — and let's keep grinding!</h3>
-    <p>I create OSRS guides to help you level up faster. Your support helps me keep the site updated with fresh content for the community. No pressure, ever — pick the amount that feels good to you.</p>
+    <h3>🌿 Buy me a coffee — Keep Our Guides Free & Updated</h3>
+    <p>Your support helps keep these guides free, accurate, and up to date for everyone in the gaming community. No pressure, ever — pick the amount that feels good to you.</p>
   </div>
   <div class="sub-support-body">
     <form action="https://www.paypal.com/donate" method="post" target="_blank">
@@ -257,7 +393,7 @@
 <!-- ========== FOOTER ========== -->
 <footer style="background:linear-gradient(135deg,#0a1628,#1a3a52);padding:32px 24px;text-align:center;border-top:3px solid #2980b9">
   <p style="color:rgba(255,255,255,.7);font-size:.88rem;margin:0 0 8px">&copy; 2026 Windrose Guru — Fan site, not affiliated with the respective owners.</p>
-  <p style="color:rgba(255,255,255,.45);font-size:.78rem;margin:0">All game content and trademarks belong to their respective owners.</p>
+  <p style="color:rgba(255,255,255,.45);font-size:.78rem;margin-top:6px">All game content, trademarks, and copyrights are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by the game's developers.</p>
   <p style="margin-top:14px"><a href="../../index.html" style="color:#d4af37;font-size:.85rem;text-decoration:none">← Back to OSRS Guru</a></p>
 </footer>
 

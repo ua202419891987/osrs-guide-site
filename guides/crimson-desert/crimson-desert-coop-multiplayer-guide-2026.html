@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert Co-op Multiplayer Guide 2026 — How to Play with Friends, Boss Phases, Loot Sharing & Server Tips | CD Guru</title>
+    <meta name="description" content="Crimson Desert co-op multiplayer guide 2026 — learn how to invite friends, master co-op boss mechanics, understand loot sharing system, optimize class synergy, and choose the best servers for seamless cooperative play.">
+    <meta name="keywords" content="Crimson Desert co-op, multiplayer, play with friends, co-op boss, loot sharing, server regions, class synergy, cross-region play, co-op builds, communication tips">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-coop-multiplayer-guide-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        /* ── 浅色主题 — 匹配 Violet Sunrise 全局CSS ── */
+        /* 字号放大：h2=1.85rem, h3=1.35rem, 正文=1.08rem */
+
+        .guide-content h2{font-size:1.85rem !important}
+        .guide-content h3{font-size:1.35rem !important}
+        .guide-content h3 strong{font-size:1.35rem}
+        .guide-content p{font-size:1.08rem !important;line-height:1.85 !important}
+        .guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+
+        /* 自定义提示/警告框 — 浅色底，四边完整边框 */
+        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .tip-box strong{color:#7a64b8;font-size:1.06rem}
+        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .warn-box strong{color:#b84a3a;font-size:1.06rem}
+
+        /* 行动步骤 — 浅色风格，标题×1.4 */
+        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}
+        .action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+        .action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+        .action-step p{color:#2d2a33;font-size:1.08rem;line-height:1.75}
+
+        /* 方法盒子 — 浅色，标题×1.4 */
+        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}
+        .method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .method-box p{color:#2d2a33;font-size:1.06rem;line-height:1.75}
+
+        /* FAQ */
+        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .faq-item p{color:#2d2a33;font-size:1.03rem;line-height:1.7}
+
+        /* TOC — 四边完整边框，去掉单侧装饰 */
+        .toc{background:#fff;border:1px solid #e0d8f0 !important;border-left:1px solid #e0d8f0 !important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .toc h3{color:#7a64b8 !important;font-size:1.1rem !important;margin-bottom:12px}
+        .guide-hero .subtitle{font-size:1.15rem !important;max-width:700px;margin:0 auto 1.2rem}
+        .guide-hero .breadcrumb{font-size:.95rem !important}
+        .guide-hero .weekly-badge{font-size:1rem !important}
+
+        /* 图片说明 */
+        .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}
+
+        /* 打赏前置提示 */
+        .inline-support-hint p{font-size:1rem}
+
+        /* li 文字颜色提升可读性 */
+        .guide-content li{color:#2d2a33 !important}
+
+        /* 隐藏 OSRS 进度条 — Crimson Desert 页面不需要 */
+        .progress-widget{display:none !important}
+
+        /* 合作模式特有样式 */
+        .coop-class{background:#f0f4ff;border:1px solid #c8d4f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}
+        .coop-class h4{color:#5a6ab8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .coop-class p{color:#2d2a33;font-size:1.06rem;line-height:1.75}
+
+        .loot-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:1.03rem}
+        .loot-table th{background:#7a64b8;color:#fff;padding:10px 14px;text-align:left}
+        .loot-table td{padding:10px 14px;border-bottom:1px solid #e0d8f0}
+        .loot-table tr:nth-child(even){background:#faf8fc}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">CD <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section1">Inviting Friends</a></li>
+                    <li><a href="#section2">Boss Mechanics</a></li>
+                    <li><a href="#section3">Loot Sharing</a></li>
+                    <li><a href="#section4">Class Synergy</a></li>
+                    <li><a href="#section5">Server Selection</a></li>
+                    <li><a href="#section6">Advanced Tips</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#crimson-desert">Crimson Desert</a> / Co-op Multiplayer Guide</p>
+            <h1>Crimson Desert Co-op Multiplayer Guide 2026</h1>
+            <p class="subtitle">How to Play with Friends — Master co-op boss phases, loot sharing rules, class synergy, server selection, and everything you need for seamless cooperative play in Pywel.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>CD Guide</strong> — Part of the <strong>Crimson Desert Series</strong> · 18 min read
+            </div>
+            <p class="publish-date" style="color:#c8a87a;margin-top:8px;font-size:.85rem;">Published: June 17, 2026</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <!-- TOC -->
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ol>
+                    <li><a href="#section1">How to Invite Friends — Step-by-Step Co-op Setup</a></li>
+                    <li><a href="#section2">Co-op Boss Mechanics — Phases, Aggro, and Role Assignment</a></li>
+                    <li><a href="#section3">Loot Sharing System — Distribution Rules and Fair Play</a></li>
+                    <li><a href="#section4">Class Synergy — Best Co-op Build Combinations</a></li>
+                    <li><a href="#section5">Server Selection and Cross-Region Play</a></li>
+                    <li><a href="#section6">2-Player vs 4-Player — Differences and Strategies</a></li>
+                    <li><a href="#section7">Co-op Exclusive Content and Rewards</a></li>
+                    <li><a href="#faq">FAQ — Co-op Multiplayer Questions Answered</a></li>
+                </ol>
+            </div>
+
+            <!-- Section 1 -->
+            <h2 id="section1">1. How to Invite Friends — Step-by-Step Co-op Setup</h2>
+            <p>Crimson Desert's co-op multiplayer system is designed to be seamless, but the initial setup process has several steps that are not immediately obvious to new players. Unlike games that dump you into a lobby, Crimson Desert integrates co-op directly into the single-player world — your friends join <em>your</em> game session, meaning the host's story progress and world state are what everyone experiences. Understanding how to properly invite friends, manage session privacy, and troubleshoot connection issues will save you significant frustration and ensure your co-op sessions run smoothly from the very first minute.</p>
+            <p>The co-op system becomes available after you complete the "Mercenary Camp" story mission, which typically occurs around hour 4-5 of gameplay. Before this point, the multiplayer menu is locked. Once unlocked, you can invite up to three friends (for a total of four players) to join your session. The host retains full control over story decisions, but all players earn experience, loot, and progression toward their own individual quest objectives. This design means that co-op is not just a side mode — it is a fully integrated way to experience the entire game with friends.</p>
+            <div class="action-step">
+                <div class="step-num">1</div>
+                <h4>Unlock the Co-op Feature</h4>
+                <p>Progress through the main story until you receive the "Mercenary Network" notification, which appears after completing the fourth story mission. This unlocks the "Social" tab in your pause menu. If you are playing with friends who have not reached this point, only the host needs to have co-op unlocked — friends can join even if they are earlier in the story, though they will experience spoilers for story content they have not yet reached.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">2</div>
+                <h4>Set Your Session to Public or Friends-Only</h4>
+                <p>Open the pause menu, navigate to the "Social" tab, and select "Session Settings." You have three options: Private (only people you explicitly invite can join), Friends-Only (anyone on your friends list can join without an invite), and Public (any random player can join your session). For playing with specific friends, "Friends-Only" is the recommended setting — it allows your friends to join freely without you needing to send invites each time, while still keeping random players out.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">3</div>
+                <h4>Send Invites or Share Your Session ID</h4>
+                <p>If your session is set to Private, you need to send explicit invites. From the Social tab, select "Invite Friend" and choose from your platform friends list (Steam, PlayStation Network, Xbox Live, depending on your platform). Alternatively, you can share your Session ID — a six-digit code displayed in the Session Settings menu — which friends can enter in their own Social tab under "Join by ID" to connect directly to your session. The Session ID method is the most reliable for cross-platform play.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">4</div>
+                <h4>Coordinate Loadouts Before Starting</h4>
+                <p>Before beginning a co-op session, communicate with your friends about your intended builds and roles. Crimson Desert does not enforce class roles, but coordinated teams perform dramatically better than uncoordinated ones. At minimum, discuss who will be the tank (high defense, shield user), who will be the damage dealer (two-handed weapons, glass cannon), and who will be the support (healing items, buffs). Having at least one player focused on defense is strongly recommended for boss fights.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">5</div>
+                <h4>Join Your Friends and Test the Connection</h4>
+                <p>Once your friends have joined your session, spend a few minutes in a safe area (like Uzkigrad city) testing your connection. Look for signs of lag: delayed hit registration, teleporting player models, or desynchronized enemy animations. If you notice significant lag, the host should consider changing their server region (covered in Section 5) or asking the player with the best internet connection to become the new host. A smooth connection is essential for enjoyable co-op, especially during intense boss fights.</p>
+            </div>
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> If you are playing on PC, Crimson Desert supports cross-play between Steam and other PC platforms, but console cross-play may be limited by platform policies. Always check the latest patch notes for the most up-to-date cross-play compatibility information. The Session ID system works across all platforms that support cross-play.
+            </div>
+            <p>It is also worth understanding what happens to your individual progress when playing co-op. All players earn experience points, skill points, and loot from enemies and bosses defeated during the session. However, story progression is tied to the host's game. If you join a friend's session and they advance the story, <em>your</em> character does not receive that story progression — you will need to play through those story segments in your own single-player game. This design prevents story spoilers and ensures that every player experiences the narrative in their preferred order. Side contracts, however, are individual — you can all accept the same contract and complete it together, and each player gets credit.</p>
+            <p>Voice communication is not built into Crimson Desert, so you will need to use external voice chat software. Discord is the most popular choice for PC players, while console players can use the platform's built-in voice chat (Party Chat on PlayStation, Xbox Game Chat on Xbox). Even if you do not use voice chat, using the in-game emoji and ping system (hold the touchpad or select button to bring up the communication wheel) is essential for coordinating during combat. Marking enemy targets, calling for help, and indicating loot are all possible with the ping system, and mastering it will significantly improve your co-op experience.</p>
+
+            <!-- Section 2 -->
+            <h2 id="section2">2. Co-op Boss Mechanics — Phases, Aggro, and Role Assignment</h2>
+            <p>Boss fights in Crimson Desert are challenging in single-player, but they undergo significant changes in co-op mode. The game dynamically scales boss health, damage, and attack patterns based on the number of players in the session. A boss that is manageable solo can become an entirely different — and often more exciting — encounter with three friends by your side. However, the increased complexity also means that uncoordinated teams will struggle more than they would in single-player. Understanding how boss mechanics change in co-op, how aggro (enemy attention) is determined, and how to assign roles will transform your co-op boss fights from chaotic to tactical.</p>
+            <p>The most important change in co-op boss fights is the health scaling. Boss health increases by approximately 60% for two players, 120% for three players, and 180% for four players. This means that while more players means more damage output, the boss also becomes significantly tankier. Damage scaling is less aggressive — boss attack damage increases by about 15% per additional player. The result is that co-op boss fights are not necessarily "easier" — they are <em>different</em>. You will survive longer because enemies are splitting their attention, but the fight will also last longer because the boss has more health. This is by design, as it encourages coordinated play rather than simply overpowering the boss through numbers.</p>
+            <h3>Understanding Aggro and Threat Generation</h3>
+            <p>In co-op mode, bosses and elite enemies use an aggro system to determine which player to target. Aggro is primarily determined by three factors: deal damage (the more damage you deal, the more aggro you generate), proximity (being closest to the boss increases your aggro), and defense rating (players with high defense and shields generate more aggro passively). The tank role in a co-op group should focus on maintaining aggro through a combination of shielding (which passively generates threat), staying close to the boss, and using defensive skills that explicitly generate threat. If the tank loses aggro and the boss turns toward a squishy damage dealer, that damage dealer will likely die quickly — aggro management is a team responsibility, not just the tank's job.</p>
+            <p>When the boss switches aggro targets, there is a brief "taunt window" of about 1.5 seconds during which the tank can use a shield bash or other threat-generating move to reclaim aggro. Communication is critical here — the tank should call out when they are about to lose aggro, and the damage dealers should back off or use defensive cooldowns when the boss turns toward them. With practice, your team can maintain smooth aggro transitions that keep the boss focused on the tank almost 100% of the time. This is the single biggest factor in co-op boss success.</p>
+            <h3>Boss Phases in Co-op — What Changes</h3>
+            <p>Most boss fights in Crimson Desert have multiple phases, triggered when the boss loses a certain percentage of health (typically at 75%, 50%, and 25% health). In co-op mode, these phase transitions can behave differently. Some bosses gain new attacks or become more aggressive in co-op, while others have phase transitions that are synchronized across all players — meaning if one player triggers a phase transition, it happens for everyone simultaneously. This synchronization is important because it prevents situations where different players are fighting the boss at different phases, which would be visually confusing and mechanically inconsistent.</p>
+            <div class="warn-box">
+                <strong>Warning:</strong> During boss phase transitions, the boss typically becomes invulnerable and performs a scripted animation. In co-op, <em>all</em> players must survive this phase transition sequence. If even one player dies during the transition, the boss may reset or the dead player may be locked out of the rest of the fight. Always use healing items proactively before a phase transition, not reactively after.
+            </div>
+            <h3>Role Assignment for Boss Fights</h3>
+            <div class="method-box">
+                <h4>🛡️ Tank Role — The Anchor</h4>
+                <p>The tank's primary job is to keep the boss's attention and survive its attacks. Equip a shield, wear heavy or medium-heavy armor, and prioritize health and defense upgrades. Use shield blocks to mitigate damage, and never dodge away from the boss — dodge <em>toward</em> or perpendicular to the boss to maintain proximity and aggro. The tank should also bring healing items and defensive buffs to share with the team. A good tank makes the fight feel manageable; a bad tank makes it feel impossible.</p>
+            </div>
+            <div class="method-box">
+                <h4>⚔️ Damage Dealer — The Hammer</h4>
+                <p>Damage dealers focus on dealing as much damage as possible while staying alive. Two-handed weapons, dual-wielding, and glass cannon builds are common here. The key to successful damage dealing in co-op is patience — do not attack when the boss is targeting you (unless you are confident in your dodge timing), and always attack from the boss's flank or rear where possible. Backstab attacks deal 1.5x damage and cannot be blocked by the boss's frontal guard. Coordinate with the tank to only go all-out when the boss's attention is securely on the tank.</p>
+            </div>
+            <div class="method-box">
+                <h4>🏹 Ranged Support — The Sniper</h4>
+                <p>Ranged players provide consistent damage from a safe distance, which is invaluable for phases where melee players need to focus on survival. Bows and crossbows are the primary ranged options. Ranged players should also bring interrupt shots (special ammunition that staggers enemies) to disrupt boss casting animations. In co-op, a well-timed interrupt from a ranged player can prevent a devastating AOE attack and save the entire team. Always keep moving — a stationary ranged target is an easy target for add spawns.</p>
+            </div>
+            <div class="method-box">
+                <h4>💚 Support/Utility — The Glue</h4>
+                <p>While Crimson Desert does not have dedicated healer classes, the support role is played by players who focus on consumables, buffs, and crowd control. Support players should stock up on area-of-effect healing items, buff potions that increase the team's damage or defense, and crowd control tools like flash grenades or caltrops. The support role is often the difference between a narrow victory and a wipe. Even a primarily damage-focused player should carry at least 3-5 healing items to share with downed teammates.</p>
+            </div>
+            <p>One of the most enjoyable aspects of co-op boss fights is the "revive" mechanic. When a player is downed (not dead, but in a downed state after losing all health), teammates can revive them by interacting with their body. Reviving takes about 3 seconds and leaves the reviving player vulnerable, so it requires coordination and often a distraction from the other players. If all players are downed, the boss fight resets and the team must try again. This creates tension and excitement — clutch revives in the middle of a boss's ultimate attack are some of the most memorable moments in co-op play.</p>
+
+            <!-- Section 3 -->
+            <h2 id="section3">3. Loot Sharing System — Distribution Rules and Fair Play</h2>
+            <p>The loot system in Crimson Desert's co-op mode is one of its most thoughtful design elements. Pearl Abyss clearly put significant effort into ensuring that loot distribution feels fair and does not create friction between friends. However, the system has specific rules that are not fully explained in the game, and understanding them will help you set expectations and avoid disputes. This section covers exactly how loot is distributed in co-op sessions, what each player receives, and best practices for ensuring everyone gets their fair share of the rewards.</p>
+            <p>When an enemy or boss is defeated in co-op mode, loot is generated individually for each player. This means that if four players defeat a boss, <em>four separate loot drops</em> are generated — one for each player. Each player sees only their own loot, and there is no "loot stealing" in the traditional MMO sense. However, the quality and quantity of loot each player receives is influenced by several factors: the player's individual contribution to the fight (damage dealt, healing done, revives performed), the player's level relative to the enemy, and whether the player is the host or a guest. Understanding these factors will help you maximize your loot returns.</p>
+            <h3>Individual Loot Generation — How It Works</h3>
+            <p>Each player's loot is determined independently at the moment the enemy dies. The game rolls a loot table for each player based on that player's character stats, contribution score, and the enemy's loot table. Contribution score is calculated from a combination of damage dealt (60% weight), damage prevented through blocking/parrying (20% weight), healing done to self and others (10% weight), and revives performed (10% weight). This means that even if you are not the highest damage dealer, you can still earn high-quality loot by playing a supportive role effectively.</p>
+            <p>The host of the session receives a small loot quantity bonus — approximately 10% more items on average — as compensation for hosting the session and the associated server costs. This bonus is intentional and explained in the game's multiplayer FAQ, but many players miss it. If you are concerned about fairness, remember that the host is also the one whose game world is being affected, whose story progresses, and who bears the responsibility if the session disconnects. The 10% loot bonus is a reasonable trade-off.</p>
+            <div class="loot-table">
+                <tr><th>Factor</th><th>Weight in Loot Quality</th><th>How to Maximize</th></tr>
+                <tr><td>Damage Dealt</td><td>High (60%)</td><td>Use high-damage weapons, focus fire on priority targets</td></tr>
+                <tr><td>Damage Prevented (Block/Parry)</td><td>Medium (20%)</td><td>Play tank role, use shield, parry boss attacks</td></tr>
+                <tr><td>Healing Done</td><td>Low-Medium (10%)</td><td>Carry healing items, use them proactively on teammates</td></tr>
+                <tr><td>Revives Performed</td><td>Low-Medium (10%)</td><td>Prioritize reviving downed teammates quickly</td></tr>
+                <tr><td>Host Bonus</td><td>Flat +10% quantity</td><td>Host the session if you want slightly more loot</td></tr>
+                <tr><td>Level Scaling</td><td>Variable</td><td>Fight enemies close to your level for best loot quality</td></tr>
+            </div>
+            <h3>Loot Trading and Dropping Items</h3>
+            <p>Even though loot is generated individually, Crimson Desert allows players to drop items from their inventory and let other players pick them up. This is useful when one player receives a duplicate item or an item that does not match their build, while another player desperately needs that exact item. To drop an item, open your inventory, select the item, and choose "Drop." There is a 60-second timer before a dropped item despawn, so communicate quickly. Note that some quest-unique items cannot be dropped, and dropped items cannot be recovered once despawned, so be careful with what you drop.</p>
+            <p>There is also a "Trade" system for more formal item transfers. Stand near a party member and initiate a trade (default key: T). Both players place items into the trade window, then both must confirm. This system is safer than dropping items because it prevents accidents and ensures both players agree to the exchange. Trades cannot be canceled once both players confirm, so double-check the items before accepting. The trade system is the recommended way to share loot equitably among friends, especially for high-value items like legendary weapons or rare crafting materials.</p>
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> Before starting a co-op session, agree on a loot distribution philosophy with your friends. Some groups prefer "need before greed" (players who can use the item get priority), while others prefer rotating who gets the best loot. Having this conversation <em>before</em> the first boss drop prevents awkward moments and preserves friendships. The best co-op groups are those where everyone feels they are getting a fair share.
+            </div>
+            <h3>Crafting Materials and Resource Sharing</h3>
+            <p>Crafting materials and resources (ore, herbs, monster parts) are also generated individually, but they stack and can be traded easily. In co-op sessions, it is common for players to specialize in gathering — one player focuses on mining, another on herb gathering, a third on hunting Monster materials. After a session, the group can pool their resources and distribute them according to each player's crafting needs. This specialization approach is far more efficient than everyone trying to gather everything, and it is a great way to simulate a "guild" experience within the game.</p>
+            <p>It is also worth noting that some co-op exclusive rewards — covered in Section 7 — are account-bound and cannot be traded. These rewards are typically cosmetic (unique armor skins, weapon variants, emotes) and are designed to encourage every player to participate in co-op content rather than relying on a friend to carry them through. If you see a co-op exclusive item that you want, you will need to earn it yourself by playing co-op — it cannot be gifted or traded.</p>
+
+            <!-- Section 4 -->
+            <h2 id="section4">4. Class Synergy — Best Co-op Build Combinations</h2>
+            <p>Crimson Desert does not have rigid character classes, but the community has developed a set of "effective classes" based on popular weapon and skill combinations. In co-op play, certain combinations of these effective classes create powerful synergies that make difficult content feel manageable and fun content feel trivial. Understanding which builds complement each other, how to coordinate your skills for maximum effect, and what to avoid when building a co-op group will significantly enhance your multiplayer experience. This section analyzes the best co-op build combinations and explains the theory behind why they work.</p>
+            <p>The fundamental principle of co-op build synergy is "role complementarity." You want each player in your group to fulfill a distinct role that the other players cannot easily perform themselves. If all four players are glass cannon damage dealers, you will deal incredible damage but likely wipe repeatedly because no one can survive the boss's attacks. Conversely, if all four players are tanks, you will never die but the boss fight will take forever because your damage output is too low. The ideal co-op group has a mix of roles that cover all necessary functions: damage, defense, healing/support, and crowd control.</p>
+            <div class="coop-class">
+                <h4>🛡️⚔️ The "Iron Triangle" — Tank + Damage Dealer + Support (3-Player Optimal)</h4>
+                <p>This is the most balanced and effective 3-player composition. The tank holds aggro and absorbs damage, the damage dealer focuses on dealing consistent high damage from flanks/rear, and the support provides healing, buffs, and crowd control. In this composition, the tank should prioritize defense and threat generation, the damage dealer should maximize DPS (damage per second) while staying mobile, and the support should carry a mix of healing items and utility tools. This composition can handle almost all co-op content in the game and is recommended for players who want a reliable, low-stress co-op experience.</p>
+            </div>
+            <div class="coop-class">
+                <h4>⚔️⚔️🏹 The "Alpha Strike" — Two Damage Dealers + Ranged (High Risk, High Reward)</h4>
+                <p>This composition sacrifices defense for overwhelming damage output. The two melee damage dealers focus on dealing as much damage as possible, while the ranged player provides interrupt shots and emergency healing. This composition requires excellent dodge timing from all players, as there is no dedicated tank to absorb attacks. The payoff is that boss fights are significantly shorter — often 30-40% faster than with a tank composition. This is the preferred composition for experienced players who are confident in their combat skills and want to farm bosses quickly.</p>
+            </div>
+            <div class="coop-class">
+                <h4>🛡️🛡️⚔️⚔️ The "Phalanx" — Two Tanks + Two Damage Dealers (4-Player Balanced)</h4>
+                <p>With four players, the "Phalanx" composition provides the best balance of survivability and damage. Two tanks can alternate aggro, ensuring that one tank always has stamina available for blocking while the other recovers. The two damage dealers can freely attack without worrying about survival, as the bosses attention is divided between two tanks. This composition is nearly unkillable in normal co-op content and is the recommended setup for players attempting high-difficulty co-op bosses for the first time. The only downside is that boss fights take longer, but the reduced stress is often worth it.</p>
+            </div>
+            <h3>Skill Synergy — Combining Abilities for Devastating Effect</h3>
+            <p>Beyond role complementarity, specific skills can be combined for powerful synergistic effects. For example, the tank's "Shield Bash" skill stuns enemies for 2 seconds — during this stun window, all melee attacks from teammates deal 2x damage. Coordinating skill usage so that the tank stuns the boss immediately before the damage dealers unleash their heaviest attacks can dramatically increase your team's DPS. Similarly, the support's "Group Heal" skill has a 30-second cooldown and heals all nearby teammates — timing this skill to activate just before a boss's AOE attack can prevent wipes and keep the team fighting at full effectiveness.</p>
+            <p>Another powerful synergy is between the ranged player's "Pinning Shot" (which immobilizes an enemy for 3 seconds) and the melee players' heavy attacks. An immobilized enemy cannot dodge or block, meaning every heavy attack will land and deal full damage. Coordinated teams can chain crowd control effects — one player uses Pinning Shot, another uses a stun grenade, a third uses a parry to stagger the boss — to keep enemies locked down for extended periods. This "CC chain" strategy is advanced but incredibly effective against tough bosses and elite enemy groups.</p>
+            <div class="warn-box">
+                <strong>Warning:</strong> Avoid "negative synergy" builds where players' abilities interfere with each other. For example, if one player uses a knockback attack while another player is trying to land a precise parry, the knockback can disrupt the parry timing and cause both players to take damage. Similarly, area-of-effect attacks from one player can accidentally hit and interrupt a teammate who is in the middle of a long casting animation. Communication and awareness of your teammates' positions and actions are essential to avoid these negative synergies.
+            </div>
+            <h3>Building for Co-op vs. Building for Solo</h3>
+            <p>Many players wonder whether they need separate builds for solo and co-op play. The answer is: it depends on your playstyle. If you primarily play co-op with a consistent group of friends, you can specialize heavily into a specific role (e.g., pure tank, pure support) because your friends will cover the other roles. However, if you also play solo frequently, you need a more balanced build that can handle all situations. A good compromise is to have a "primary build" that leans toward your preferred co-op role, and then respec (using the respec NPC in Uzkigrad) when you want to play solo with a more balanced setup.</p>
+            <p>The skill tree system supports this flexibility. Each weapon type's skill cluster has both "general" nodes that are useful in all situations and "specialist" nodes that are only valuable in specific roles. For example, the sword-and-shield skill cluster has a "Shield Wall" node that reduces damage taken by 15% when blocking — this is essential for tanks but less valuable for damage dealers. By choosing which specialist nodes to invest in, you can effectively "build" your character for co-op without needing completely separate characters. The respec cost is low enough that experimenting with different co-op builds is encouraged.</p>
+
+            <!-- Section 5 -->
+            <h2 id="section5">5. Server Selection and Cross-Region Play</h2>
+            <p>Server selection is one of the most overlooked aspects of co-op multiplayer in Crimson Desert, yet it has a massive impact on your experience. The game uses a region-based server system, where your session is hosted on a server in a specific geographic region. If all players in a co-op session are in the same region (or nearby regions), the connection will be smooth and responsive. However, if players are spread across distant regions (e.g., one player in North America, another in Europe, a third in Asia), the connection quality can degrade significantly, leading to lag, desynchronization, and a frustrating experience for everyone. This section explains how server selection works, how to choose the best server for your group, and what to do when playing with friends across different regions.</p>
+            <p>Crimson Desert has servers in six regions: North America East, North America West, Europe West, Europe North, Asia East, and Asia Southeast. When you start a co-op session, the game automatically selects a server based on your geographic location and internet service provider. However, the host can manually change the server region in the Session Settings menu before inviting friends. The key principle is: <em>the server should be as close as possible to the majority of players, or at the geographic midpoint if players are spread across regions.</em> There is no "best" server region universally — the best region is the one that provides the lowest latency (ping) for your specific group.</p>
+            <h3>How to Check Your Ping to Different Servers</h3>
+            <p>The game does not have a built-in ping display, but you can check your approximate ping to each server region using platform-specific tools. On PC (Steam), you can enable the in-game FPS and ping overlay in the settings menu — this will show your current ping to the server you are connected to. On console, you can check your network statistics in the system settings to see your overall connection quality. As a general rule, a ping below 80ms is good for co-op play, 80-120ms is acceptable but noticeable, and above 120ms will result in significant lag that makes precise combat difficult.</p>
+            <p>If you and your friends are in different regions, the best approach is to have the player with the most central location host the session, and then that host should select the server region that is closest to them. The other players will have higher ping, but as long as the host's connection is stable, the session should be playable. Alternatively, if one player has significantly better internet than the others (e.g., fiber optic vs. satellite internet), that player should host regardless of their geographic location. A host with excellent internet can compensate for suboptimal server region selection.</p>
+            <div class="action-step">
+                <div class="step-num">1</div>
+                <h4>Decide Who Should Host</h4>
+                <p>The host should be the player with the most stable internet connection (prioritize wired Ethernet over Wi-Fi, fiber over DSL) and, ideally, the player who is geographically central to the group. If you are unsure who has the best connection, have each player run a speed test (speedtest.net) and compare results — the player with the lowest latency (ping) and highest upload speed should host.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">2</div>
+                <h4>Select the Optimal Server Region</h4>
+                <p>The host should go to Session Settings > Server Region and select the region that is closest to their physical location. If the host is in a region that is not listed (e.g., South America, Africa, Middle East), they should select the closest available region — typically North America East for South America, Europe West for Africa and Middle East. The goal is to minimize the physical distance that data must travel.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">3</div>
+                <h4>Test the Connection Before Starting Serious Content</h4>
+                <p>Before attempting a difficult boss or starting a long co-op session, spend 5-10 minutes in a low-stakes area fighting regular enemies. Pay attention to how the game feels — are attacks registering smoothly? Do enemies appear to teleport or glitch? Is there a delay between your inputs and on-screen actions? If anything feels off, consider having a different player host or selecting a different server region. It is much better to discover connection issues during trivial content than during a boss fight where a disconnect means losing progress.</p>
+            </div>
+            <h3>Cross-Region Play — Making It Work</h3>
+            <p>Cross-region play is possible and can be enjoyable, but it requires compromise and realistic expectations. If you are playing with friends in a different region, accept that there will be some lag — the question is whether the lag is manageable. Here are specific strategies for making cross-region co-op work:</p>
+            <p>First, avoid high-precision combat roles if you have high ping. If you are the player with 150ms ping to the host's server, do not play a parry-heavy build — the delay between seeing an enemy attack and your parry registering will make successful parries nearly impossible. Instead, play a ranged or support role where precise timing is less critical. Second, the host should avoid using "Pause" (private lobby) if playing with cross-region friends — the pause menu can desynchronize players with high latency. Third, consider using a VPN to route your connection through a server that is closer to the host's region, though this is an advanced solution and may violate some platform terms of service.</p>
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> If you frequently play co-op with friends in different regions, consider creating a dedicated co-op group with predetermined roles and server settings. Write down your group's preferred server region, who hosts for different group compositions, and what to do if connection issues arise. Having these decisions made in advance prevents arguments and ensures that every co-op session starts smoothly.
+            </div>
+            <p>Finally, it is worth noting that Crimson Desert's developers have stated that they plan to improve the server infrastructure and add more server regions post-launch. If you are reading this guide at a later date, check the official Crimson Desert website or community forums for updates on new server regions. The addition of servers in previously underserved regions (South America, Africa, Oceania) would significantly improve the cross-region co-op experience for many players.</p>
+
+            <!-- Section 6 -->
+            <h2 id="section6">6. 2-Player vs 4-Player — Differences and Strategies</h2>
+            <p>The number of players in your co-op session fundamentally changes the gameplay experience, enemy behavior, and optimal strategies. While the core loop of exploring, fighting, and looting remains the same, the specific tactics and priorities shift depending on whether you are playing with one friend (2-player) or a full group of four (4-player). Understanding these differences will help you adapt your playstyle and expectations, and ensure that you have fun regardless of your group size. This section breaks down the unique characteristics, challenges, and opportunities of 2-player and 4-player co-op, and provides specific strategies for each.</p>
+            <h3>2-Player Co-op — Intimate and Tactical</h3>
+            <p>Two-player co-op is the most popular group size for Crimson Desert, and for good reason. With only two players, communication is seamless (you can easily voice chat and coordinate without confusion), the game world feels like <em>your</em> shared adventure rather than a chaotic multiplayer session, and the challenge level is perfectly tuned for duos. Enemy scaling in 2-player mode is fair — boss health is increased by about 60%, which means the fight is longer than solo but not dramatically so. The intimacy of 2-player co-op makes it ideal for playing with a close friend or romantic partner, as you can roleplay, explore at your own pace, and tackle the story together without the chaos of a larger group.</p>
+            <p>In 2-player co-op, the optimal strategy is typically "Tank + Damage Dealer" or "Two Damage Dealers with self-healing." With only two players, you cannot afford to have a dedicated support who does not deal damage — every player needs to contribute to DPS. The tank role is even more important in 2-player than in 4-player, because if the tank goes down, the damage dealer will be overwhelmed almost immediately. Communication is also more critical — with only two of you, there is no one to fill in if one player makes a mistake. You need to trust each other and coordinate your actions seamlessly.</p>
+            <div class="method-box">
+                <h4>Best 2-Player Compositions</h4>
+                <p><strong>Tank + Glass Cannon:</strong> The tank holds aggro and survives, the glass cannon deals massive damage from safety. This is the most reliable 2-player setup.<br><br>
+                <strong>Dual Damage Dealers:</strong> Both players focus on damage and use healing items to sustain. This setup is higher risk but clears content faster.<br><br>
+                <strong>Ranged + Melee:</strong> One player kites enemies and provides interrupt shots, the other engages in melee. This setup is versatile and works well for most content.</p>
+            </div>
+            <h3>4-Player Co-op — Chaotic and Epic</h3>
+            <p>Four-player co-op is where Crimson Desert's multiplayer truly shines as a spectacle. With four players, the screen is filled with action — every player using their abilities simultaneously, bosses with multiple aggro targets, and the sheer joy of overcoming impossible odds as a team. However, 4-player co-op also introduces challenges that do not exist in smaller groups: coordination complexity (four players need to communicate and synchronize), loot competition (even with individual loot generation, players may want the same rare drop), and performance issues (some players may experience frame rate drops with four players and many enemies on screen).</p>
+            <p>In 4-player co-op, you can afford to have a dedicated support player who carries healing items and buffs but deals minimal damage. You can also have two tanks to alternate aggro, or two ranged players for consistent damage and interrupts. The increased boss health (180% of solo health) means that fights last longer, but with four players dealing damage, the effective DPS is often higher than the boss's increased health justifies — meaning 4-player boss fights are not necessarily longer than 2-player fights, and can sometimes be shorter if the group is well-coordinated.</p>
+            <div class="method-box">
+                <h4>Best 4-Player Compositions</h4>
+                <p><strong>Phalanx (2 Tanks + 2 Damage Dealers):</strong> Nearly unkillable, steady damage, ideal for learning new bosses.<br><br>
+                <strong>Iron Triangle + Ranged (Tank + Damage Dealer + Support + Ranged):</strong> Balanced and versatile, handles all situations well.<br><br>
+                <strong>Alpha Strike (1 Tank + 3 Damage Dealers):</strong> High risk, extremely fast boss kills, requires excellent tank play and DPS coordination.</p>
+            </div>
+            <h3>Key Differences at a Glance</h3>
+            <table>
+                <tr><th>Aspect</th><th>2-Player</th><th>4-Player</th></tr>
+                <tr><td>Boss Health Scaling</td><td>+60%</td><td>+180%</td></tr>
+                <tr><td>Boss Damage Scaling</td><td>+15%</td><td>+45%</td></tr>
+                <tr><td>Optimal Role Distribution</td><td>Tank + DPS, or 2 DPS</td><td>2 Tanks + 2 DPS, or full role coverage</td></tr>
+                <tr><td>Communication Complexity</td><td>Low — easy to coordinate</td><td>High — needs designated caller</td></tr>
+                <tr><td>Loot Competition</td><td>Low</td><td>Moderate (individual loot reduces but does not eliminate)</td></tr>
+                <tr><td>Performance Impact</td><td>Minimal</td><td>May cause frame rate drops on older hardware</td></tr>
+                <tr><td>Fun Factor</td><td>Intimate, story-focused</td><td>Epic, action-focused</td></tr>
+            </table>
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> If you are playing 4-player co-op with a group that has not played together before, start with easier content to build coordination and trust. Attempting a difficult boss as your first 4-player activity is a recipe for frustration. Instead, do a few side contracts or explore a dangerous region together — this will help you learn each other's playstyles and build the communication habits that are essential for success in harder content.
+            </div>
+
+            <!-- Section 7 -->
+            <h2 id="section7">7. Co-op Exclusive Content and Rewards</h2>
+            <p>One of the most compelling reasons to play Crimson Desert in co-op mode is the existence of exclusive content that cannot be accessed in solo play. Pearl Abyss has designed specific dungeons, boss fights, quests, and rewards that are only available when playing with friends. This content is not just "solo content with more players" — it is specifically designed to require coordination, role synergy, and teamwork. Attempting this content solo is impossible not because the enemies are too hard, but because the mechanics literally require multiple players to complete. This section details all known co-op exclusive content, the unique rewards available, and strategies for completing this content efficiently.</p>
+            <p>The co-op exclusive content is accessed through the "Mercenary Contracts" board in Uzkigrad, which has a dedicated "Co-op" tab. These contracts are marked with a special icon (two crossed swords) and explicitly state the recommended number of players and the minimum recommended level. Do not attempt co-op exclusive contracts below the recommended level — the enemies are scaled assuming a full group of players at that level, and being under-leveled will make the content brutally difficult. That said, being over-leveled does not trivialize the content, as the mechanics still require coordination regardless of your stats.</p>
+            <h3>Co-op Dungeons — The "Mercenary Hideout" Series</h3>
+            <p>The primary co-op exclusive content consists of a series of dungeons called the "Mercenary Hideout" dungeons. There are currently six dungeons in the series, each with a unique theme, boss, and reward. These dungeons are designed for 4-player groups and feature mechanics that require all four players to perform specific actions simultaneously or in sequence. For example, the first dungeon, "The Forgotten Cellar," has a boss that periodically becomes invulnerable and summons four crystals — each player must destroy their assigned crystal within 10 seconds, or the boss regains full health and enrages. This mechanic is impossible to complete solo and requires coordination even with four players.</p>
+            <p>The rewards for completing these dungeons are substantial. Each dungeon has a unique "Mercenary" equipment set that provides set bonuses when equipped together. The "Mercenary's Resolve" set (from the first dungeon) provides +10% health and +5% damage reduction when all four pieces are equipped — a moderate bonus, but valuable for tank builds. Later dungeons provide more powerful sets, including sets that enhance co-op-specific abilities like revive speed and shared healing effectiveness. These sets are best-in-slot for many co-op builds and are a major incentive to play co-op regularly.</p>
+            <div class="method-box">
+                <h4>🌟 Exclusive Reward: "Oathkeeper" Greatsword</h4>
+                <p>The Oathkeeper greatsword is a legendary weapon obtained by completing all six Mercenary Hideout dungeons on "Mercenary" difficulty (the highest difficulty). This weapon has a unique passive effect: when a nearby party member is downed, the Oathkeeper wielder gains a temporary damage boost and healing-over-time effect. This effect encourages selfless play and makes the Oathkeeper an excellent weapon for players who frequently play support or tank roles. The weapon also has high base damage and a favorable move set, making it viable in both co-op and solo play.</p>
+            </div>
+            <h3>Co-op World Bosses — Community Events</h3>
+            <p>In addition to instanced co-op dungeons, Crimson Desert features open-world co-op bosses that any player in the area can join. These "World Bosses" spawn on a timer (typically every 4 hours) at fixed locations across Pywel. When a World Boss spawns, a server-wide notification is sent out, and any player in the region can travel to the location and participate. There is no group size limit for World Bosses — you can fight them with 2 players or 20 players, though the boss's health scales dynamically based on the number of participants.</p>
+            <p>World Bosses drop unique loot that cannot be obtained anywhere else, including cosmetic items, mount skins, and crafting recipes for high-end gear. The loot distribution for World Bosses uses a "personal loot" system similar to regular co-op, but with one key difference: the quality of loot is influenced by your contribution ranking among all participants. If you are in the top 10% of damage dealers, you have a significantly higher chance of receiving rare loot. This design encourages players to bring their best builds and play seriously, rather than just showing up and AFK-farming (which is not possible anyway, as World Bosses require active participation to defeat).</p>
+            <div class="warn-box">
+                <strong>Warning:</strong> World Bosses are not soloable, even for high-level players with optimized gear. The boss's damage output and health are scaled assuming multiple players, and some mechanics (like simultaneous crystal destruction, mentioned earlier) literally require multiple players. Do not attempt World Bosses alone — you will waste time and get nothing for your effort. Instead, use the World Boss notification as an opportunity to meet other players and form impromptu co-op groups.
+            </div>
+            <h3>Co-op Achievements and Titles</h3>
+            <p>Crimson Desert has an extensive achievement system, and many of the most prestigious achievements are co-op exclusive. Completing these achievements grants unique titles that are displayed next to your name in multiplayer sessions, signaling your accomplishments to other players. Examples include "Mercenary Commander" (complete all six Mercenary Hideout dungeons), "Oathkeeper" (obtain the Oathkeeper greatsword), and "World Boss Slayer" (defeat 10 World Bosses). These titles are purely cosmetic but are a point of pride for dedicated co-op players and can help you find like-minded players for future co-op sessions.</p>
+            <p>In addition to titles, co-op exclusive achievements sometimes unlock emotes, costume pieces, and other cosmetic items. The "Victory Dance" emote, for example, is obtained by completing a Mercenary Hideout dungeon without any player being downed — a challenging achievement that requires excellent coordination and skill. Cosmetic items are account-bound and cannot be traded, so if you want to unlock all the co-op cosmetics, you will need to earn them yourself through dedicated co-op play. This design encourages repeated co-op play and gives players a long-term goal beyond just "getting the best gear."</p>
+
+            <!-- FAQ -->
+            <h2 id="faq">FAQ — Co-op Multiplayer Questions Answered</h2>
+            <div class="faq-item">
+                <h4>Can I play the entire Crimson Desert story campaign in co-op mode?</h4>
+                <p>Yes, the entire main story campaign is playable in co-op mode. However, only the host's story progression is saved — guests will need to play through the story in their own save file to experience the narrative. That said, guests still earn experience, loot, and skill points, and they can complete side contracts and explore the world. Co-op is a great way to experience the story "with" friends even if you are at different story progression points.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Do I need a subscription or online pass to play co-op?</h4>
+                <p>On PC (Steam), no subscription is required — you can play co-op for free as long as you have an internet connection. On PlayStation and Xbox, you need an active PlayStation Plus or Xbox Game Pass Core subscription to access online multiplayer, as is standard for those platforms. There are no additional fees or microtransactions required for co-op play.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What happens if the host disconnects during a co-op session?</h4>
+                <p>If the host disconnects, the co-op session ends and all guests are returned to their own single-player games. Progress made during the session (experience, loot, side contract progress) is saved for all players, but the host's story progression may not be saved if the disconnect occurred during a story mission. To minimize this risk, the host should ensure their internet connection is stable before starting a co-op session, and the group should take frequent breaks to allow the host to save their game manually.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Is there a level difference limit for co-op play?</h4>
+                <p>There is no hard level difference limit — a level 10 player can join a level 50 player's session. However, the level 10 player will have a very difficult time in high-level areas, and the level 50 player will find low-level areas trivial. For the best experience, try to keep the level difference within 10-15 levels. The game does have a "level sync" system that temporarily reduces a high-level player's stats to match the area's recommended level, but this system is optional and must be enabled in the settings.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Can I play co-op with friends on different platforms (cross-play)?</h4>
+                <p>Crimson Desert supports cross-play between PC (Steam) and other PC platforms. Console cross-play depends on platform policies — PlayStation and Xbox typically do not allow cross-play with each other, but both may allow cross-play with PC. Check the latest patch notes and platform store page for the most up-to-date cross-play information, as the developers have stated they are working on expanding cross-play support post-launch.</p>
+            </div>
+
+            <!-- Support Card -->
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🌿</span>
+                    <div class="support-text">
+                        <h3>Buy me a pack of gum — and let's keep grinding!</h3>
+                        <p>I create Crimson Desert guides to help you and your friends conquer Pywel together. Your support helps me keep the site updated with fresh co-op strategies and multiplayer tips. No pressure, ever — pick the amount that feels good to you.</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson Desert Guru Support - $3&amp;amount=3&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$3</a>
+                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson Desert Guru Support - $5&amp;amount=5&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn recommended">$5 ★</a>
+                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson Desert Guru Support - $10&amp;amount=10&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$10</a>
+                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson Desert+Guru+Custom+Amount&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-custom">Custom ✏️</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-bottom">&copy; 2026 CDGuru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p>
+            
+                    <p style="font-size:.78rem;color:#999;margin-top:4px">Crimson Desert&trade; is a trademark of Pearl Abyss Corp. All game content and materials are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by Pearl Abyss.</p>
+        </div>
+    </footer>
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>.guide-content li{color:#2d2a33!important}</style>
+</body>
+</html>

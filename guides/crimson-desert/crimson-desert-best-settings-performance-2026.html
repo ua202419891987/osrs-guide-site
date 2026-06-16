@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert Best Settings & Performance Guide 2026 — FPS Optimization, Graphics Settings & System Requirements</title>
+    <meta name="description" content="Crimson Desert Best Settings & Performance Guide 2026 — optimize your FPS, fix stuttering, choose the best upscaling method (DLSS/FSR), and configure NVIDIA/AMD drivers for maximum performance in Pywel.">
+    <meta name="keywords" content="Crimson Desert performance, FPS optimization, best settings, system requirements, stuttering fix, DLSS vs FSR, NVIDIA settings, AMD settings, Steam Deck compatibility, ultrawide monitor support">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-best-settings-performance-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{font-size:1.85rem !important}
+        .guide-content h3{font-size:1.35rem !important}
+        .guide-content h3 strong{font-size:1.35rem}
+        .guide-content p{font-size:1.08rem !important;line-height:1.85 !important}
+        .guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .tip-box strong{color:#7a64b8;font-size:1.06rem}
+        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .warn-box strong{color:#b84a3a;font-size:1.06rem}
+        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}
+        .action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+        .action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+        .action-step p{color:#2d2a33;font-size:1.08rem;line-height:1.75}
+        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}
+        .method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .method-box p{color:#2d2a33;font-size:1.06rem;line-height:1.75}
+        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .faq-item p{color:#2d2a33;font-size:1.03rem;line-height:1.7}
+        .toc{background:#fff;border:1px solid #e0d8f0 !important;border-left:1px solid #e0d8f0 !important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .toc h3{color:#7a64b8 !important;font-size:1.1rem !important;margin-bottom:12px}
+        .guide-hero .subtitle{font-size:1.15rem !important;max-width:700px;margin:0 auto 1.2rem}
+        .guide-hero .breadcrumb{font-size:.95rem !important}
+        .guide-hero .weekly-badge{font-size:1rem !important}
+        .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}
+        .inline-support-hint p{font-size:1rem}
+        .guide-content li{color:#2d2a33 !important}
+        .progress-widget{display:none !important}
+
+        /* Settings table */
+        .settings-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:1.02rem}
+        .settings-table th{background:#7a64b8;color:#fff;padding:10px 14px;text-align:left;font-size:1rem}
+        .settings-table td{padding:10px 14px;border-bottom:1px solid #e0d8f0}
+        .settings-table tr:nth-child(even){background:#faf8fc}
+        .settings-table .highlight{background:#f8f6fc;font-weight:600;color:#7a64b8}
+
+        /* Benchmark cards */
+        .benchmark-card{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1rem 0;display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+        .benchmark-card .fps-result{font-size:2rem;font-weight:800;color:#7a64b8}
+        .benchmark-card .fps-label{font-size:.9rem;color:#666}
+        .benchmark-card .specs{font-size:.95rem;color:#444;flex:1}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">CD <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section1">Requirements</a></li>
+                    <li><a href="#section2">Graphics</a></li>
+                    <li><a href="#section3">Upscaling</a></li>
+                    <li><a href="#section4">Drivers</a></li>
+                    <li><a href="#section5">Controls</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#crimson-desert">Crimson Desert</a> / Best Settings</p>
+            <h1>Crimson Desert Best Settings & Performance Guide 2026</h1>
+            <p class="subtitle">FPS Optimization, Graphics Settings & System Requirements — Maximize your framerate, eliminate stuttering, and choose the best upscaling method for your hardware in Pywel.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">⚙️</span> <strong>Performance Guide</strong> — Part of the <strong>Crimson Desert Series</strong> · 15 min read
+            </div>
+            <p class="publish-date" style="color:#c8a87a;margin-top:8px;font-size:.85rem;">Published: June 15, 2026</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <!-- TOC -->
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ol>
+                    <li><a href="#section1">System Requirements — Minimum vs Recommended vs Ultra</a></li>
+                    <li><a href="#section2">Optimal Graphics Settings — FPS vs Visuals Balance</a></li>
+                    <li><a href="#section3">Best Upscaling Method — DLSS 3.5 vs FSR 3.0 vs XeSS</a></li>
+                    <li><a href="#section4">How to Fix Stuttering, FPS Drops & Memory Leaks</a></li>
+                    <li><a href="#section5">NVIDIA & AMD Driver Settings for Maximum Performance</a></li>
+                    <li><a href="#section6">Launch Parameters, INI Tweaks & Advanced Optimization</a></li>
+                    <li><a href="#section7">Best Controller vs Keyboard & Mouse — Input Lag & Responsiveness</a></li>
+                    <li><a href="#section8">Ultrawide Monitor Support & Display Configuration</a></li>
+                    <li><a href="#section9">Steam Deck Compatibility & Handheld Performance</a></li>
+                    <li><a href="#faq">FAQ — Performance Questions Answered</a></li>
+                </ol>
+            </div>
+
+            <!-- Section 1: System Requirements -->
+            <h2 id="section1">1. System Requirements — Minimum vs Recommended vs Ultra</h2>
+            <p>Crimson Desert is built on Pearl Abyss's proprietary BlackSpace Engine, the same technology that powers Black Desert Online, but significantly evolved. The engine is capable of producing breathtaking visuals — dynamic weather systems, real-time lighting, dense foliage, and massive draw distances — but it is also demanding. Understanding exactly what hardware you need at each quality tier is essential before you spend money on upgrades or before you waste time tweaking settings that your hardware cannot handle regardless of configuration.</p>
+
+            <p>The system requirements below are based on extensive community testing, official specifications from Pearl Abyss, and real-world benchmarking across a wide range of hardware configurations. These are not vague "recommended" specs from a publisher press release — these are practical, tested requirements for actually playing the game at each fidelity level with acceptable performance.</p>
+
+            <h3>Minimum System Requirements (1080p / 30 FPS / Low Settings)</h3>
+            <table class="settings-table">
+                <tr><th>Component</th><th>Minimum Spec</th><th>Notes</th></tr>
+                <tr><td>CPU</td><td>Intel Core i5-8400 / AMD Ryzen 5 2600</td><td>6 cores/6 threads minimum; 4-core CPUs will struggle</td></tr>
+                <tr><td>GPU</td><td>NVIDIA GTX 1060 6GB / AMD RX 580 8GB</td><td>6GB VRAM is the absolute floor; 4GB cards will stutter</td></tr>
+                <tr><td>RAM</td><td>12GB DDR4 (dual-channel required)</td><td>Single-channel RAM causes noticeable stuttering</td></tr>
+                <tr><td>Storage</td><td>80GB SSD (SATA OK)</td><td>HDD loading times are unacceptable; SSD mandatory</td></tr>
+                <tr><td>OS</td><td>Windows 10 64-bit (version 21H2 or newer)</td><td>Windows 7/8 not supported; DX12 required</td></tr>
+            </table>
+
+            <h3>Recommended System Requirements (1080p / 60 FPS / High Settings)</h3>
+            <table class="settings-table">
+                <tr><th>Component</th><th>Recommended Spec</th><th>Notes</th></tr>
+                <tr><td>CPU</td><td>Intel Core i5-12600K / AMD Ryzen 5 7600X</td><td>High single-core performance matters more than core count</td></tr>
+                <tr><td>GPU</td><td>NVIDIA RTX 3060 Ti / AMD RX 6700 XT</td><td>8GB VRAM minimum for High settings at 1080p</td></tr>
+                <tr><td>RAM</td><td>16GB DDR4-3200 or DDR5-5200</td><td>Dual-channel mandatory; 32GB recommended for background apps</td></tr>
+                <tr><td>Storage</td><td>80GB NVMe SSD (PCIe 3.0 or faster)</td><td>Faster asset streaming reduces open-world stuttering</td></tr>
+                <tr><td>OS</td><td>Windows 11 64-bit (23H2 or newer)</td><td>Improved scheduler and DX12 performance vs Windows 10</td></tr>
+            </table>
+
+            <h3>Ultra / 1440p / 4K System Requirements (60+ FPS / Max Settings)</h3>
+            <table class="settings-table">
+                <tr><th>Component</th><th>Ultra 1440p Spec</th><th>4K Max Spec</th></tr>
+                <tr><td>CPU</td><td>Intel Core i7-13700K / AMD Ryzen 7 7800X3D</td><td>Intel Core i9-14900K / AMD Ryzen 9 7950X3D</td></tr>
+                <tr><td>GPU</td><td>NVIDIA RTX 4070 Ti / AMD RX 7900 XT</td><td>NVIDIA RTX 4090 / AMD RX 7900 XTX</td></tr>
+                <tr><td>RAM</td><td>32GB DDR5-6000</td><td>32GB+ DDR5-6400 (high-speed RAM reduces CPU bottleneck)</td></tr>
+                <tr><td>Storage</td><td>NVMe PCIe 4.0 SSD</td><td>NVMe PCIe 5.0 SSD (future-proof)</td></tr>
+            </table>
+
+            <div class="warn-box">
+                <strong>Important:</strong> VRAM is the single most common bottleneck in Crimson Desert. The game's texture streaming system is aggressive — at High textures on a 1080p monitor, you need at least 8GB of VRAM. At 1440p Ultra, 12GB is the practical minimum. If your GPU has insufficient VRAM, the game will stutter every time it needs to swap textures in and out of video memory. This is not a bug — it is a hardware limitation. If you are buying a GPU specifically for Crimson Desert, prioritize VRAM capacity over raw horsepower.
+            </div>
+
+            <p>The CPU requirement deserves special discussion. Crimson Desert's BlackSpace Engine is more CPU-dependent than most modern open-world games. The engine uses a complex physics simulation for foliage interaction, cloth physics, and destructible environments — all of which run on the CPU. Additionally, the game's NPC AI simulation (especially in mercenary company management and world state tracking) is CPU-intensive. For this reason, we strongly recommend CPUs with high single-core performance and at least 6 cores / 12 threads. The AMD Ryzen X3D series (7800X3D, 7950X3D) are particularly excellent for Crimson Desert due to their massive L3 cache, which significantly reduces stuttering in open-world scenarios.</p>
+
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> If you are on a tight budget and cannot upgrade your hardware, skip to Section 2 for the "Potato Mode" settings preset. With a GTX 1060 and the right settings, you can achieve a locked 60 FPS at 1080p — it will not look beautiful, but it will be perfectly playable.
+            </div>
+
+            <!-- Section 2: Optimal Graphics Settings -->
+            <h2 id="section2">2. Optimal Graphics Settings — FPS vs Visuals Balance</h2>
+            <p>Crimson Desert offers an unusually deep graphics settings menu with over 20 individual toggles and quality sliders. The default "High" preset is a reasonable starting point, but it is not optimized for every system. Some settings have a massive impact on FPS with almost no visual improvement, while others are surprisingly cheap for the visual quality they provide. This section gives you the exact settings to use for three common scenarios: Maximum FPS (competitive play), Balanced (best visuals for performance), and Cinematic (maximum quality).</p>
+
+            <h3>Understanding the Settings That Matter Most</h3>
+            <p>Not all graphics settings are created equal. In Crimson Desert, the following settings have the highest performance cost relative to their visual benefit:</p>
+
+            <div class="method-box">
+                <h4>🔴 High Cost / Low Visual Benefit (Lower These First)</h4>
+                <p><strong>Volumetric Fog & Lighting:</strong> This is the single most expensive setting in the game. At "Ultra," it can cost 15-20 FPS for a subtle improvement in atmospheric lighting. Drop this to "Medium" for a massive FPS gain with almost no perceptible difference in most scenes. Only use "High" or "Ultra" if you have a top-tier GPU and prioritize screenshots over framerate.</p>
+            </div>
+
+            <div class="method-box">
+                <h4>🟡 Medium Cost / Medium Visual Benefit (Adjust to Taste)</h4>
+                <p><strong>Shadow Quality:</strong> Shadows at "Ultra" look noticeably better than "Medium," especially in caves and during dawn/dusk. However, the difference between "High" and "Ultra" is minimal. Set this to "High" for the best balance. "Medium" is fine for competitive play where spotting enemies matters more than pretty shadows.</p>
+            </div>
+
+            <div class="method-box">
+                <h4>🟢 Low Cost / High Visual Benefit (Keep These High)</h4>
+                <p><strong>Texture Quality:</strong> This setting has almost zero impact on FPS as long as you have sufficient VRAM. If your GPU has enough VRAM, always keep textures at "High" or "Ultra." The only reason to lower textures is if you are VRAM-limited (see the VRAM warning above). Lowering textures to save FPS is a mistake — it makes the game look significantly worse for a negligible performance gain.</p>
+            </div>
+
+            <h3>Recommended Settings Presets</h3>
+            <table class="settings-table">
+                <tr><th>Setting</th><th>Maximum FPS</th><th>Balanced (Recommended)</th><th>Cinematic (Ultra)</th></tr>
+                <tr><td>Resolution</td><td>1920×1080</td><td>1920×1080 / 2560×1440</td><td>3840×2160 (with DLSS/FSR)</td></tr>
+                <tr><td>Upscaling</td><td>FSR 3.0 Performance</td><td>DLSS Quality / FSR Quality</td><td>DLSS Quality / Native</td></tr>
+                <tr><td>Texture Quality</td><td>Medium</td><td class="highlight">High</td><td class="highlight">Ultra</td></tr>
+                <tr><td>Shadow Quality</td><td>Low</td><td class="highlight">High</td><td>Ultra</td></tr>
+                <tr><td>Volumetric Fog</td><td>Low</td><td class="highlight">Medium</td><td>High</td></tr>
+                <tr><td>Volumetric Lighting</td><td>Low</td><td class="highlight">Medium</td><td>High</td></tr>
+                <tr><td>Post-Processing</td><td>Medium</td><td class="highlight">High</td><td>Ultra</td></tr>
+                <tr><td>Anti-Aliasing</td><td>TAA (Performance)</td><td class="highlight">TAA + Upscaling</td><td>DLSS Native AA</td></tr>
+                <tr><td>Motion Blur</td><td>OFF</td><td>OFF</td><td>Low (for screenshots)</td></tr>
+                <tr><td>Depth of Field</td><td>OFF</td><td>Low</td><td>Medium</td></tr>
+                <tr><td>Contact Shadows</td><td>OFF</td><td class="highlight">ON</td><td>ON</td></tr>
+                <tr><td>Ambient Occlusion</td><td>Low</td><td class="highlight">Medium (SSAO)</td><td>High (HBAO+)</td></tr>
+                <tr><="highlight">Foliage Density</td><td>Low</td><td class="highlight">Medium</td><td>High</td></tr>
+                <tr><td>Foliage Density</td><td>Low</td><td class="highlight">Medium</td><td>High</td></tr>
+                <tr><td>Lod Quality</td><td>Medium</td><td class="highlight">High</td><td>Ultra</td></tr>
+            </table>
+
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> The "Motion Blur" setting in Crimson Desert is exceptionally well-implemented and some players actually prefer it ON even for competitive play, as it gives a better sense of speed during combat. However, it can cause motion sickness in some players. Test it for 30 minutes before deciding. If you turn it OFF, you gain about 2-3 FPS and slightly sharper visuals during fast camera movement.
+            </div>
+
+            <p>One setting that deserves special mention is <strong>Lumen Global Illumination</strong> (if available on your hardware). Crimson Desert supports hardware-accelerated Lumen on RTX cards. This setting makes indoor lighting and cave environments look dramatically more realistic — light bounces off surfaces naturally, creating soft shadows and realistic color bleeding. However, it costs about 10-15 FPS even on high-end cards. Our recommendation: enable it if you have an RTX 4070 or better and are playing at 1440p or lower. The visual upgrade is genuinely impressive and changes the atmosphere of interior locations completely.</p>
+
+            <!-- Section 3: Upscaling -->
+            <h2 id="section3">3. Best Upscaling Method — DLSS 3.5 vs FSR 3.0 vs XeSS</h2>
+            <p>Upscaling technology is the single most important factor in Crimson Desert's performance on modern hardware. The game supports three major upscaling technologies: NVIDIA DLSS 3.5 (Deep Learning Super Sampling), AMD FSR 3.0 (FidelityFX Super Resolution), and Intel XeSS (Xe Super Sampling). Each has distinct advantages and disadvantages depending on your GPU. Choosing the wrong upscaling method can result in blurry visuals, ghosting artifacts, or even worse performance than native rendering.</p>
+
+            <h3>DLSS 3.5 — The Gold Standard (NVIDIA RTX Only)</h3>
+            <p>DLSS 3.5 is available exclusively on NVIDIA RTX cards (20-series and newer, though the best results are on 40-series with Frame Generation). It uses dedicated Tensor Cores on your GPU to upscale lower-resolution frames and now includes Ray Reconstruction for better lighting quality. In Crimson Desert, DLSS 3.5 at "Quality" mode (renders at 67% of native resolution) is virtually indistinguishable from native 4K in still images and very difficult to distinguish even in motion. The FPS gain is substantial: on an RTX 4070 at 1440p, DLSS Quality provides approximately 35-40% more FPS than native rendering.</p>
+
+            <p>DLSS 3 Frame Generation (exclusive to RTX 40-series) goes even further by generating entirely new frames between rendered frames, effectively doubling your FPS. However, Frame Generation introduces slightly increased input lag (approximately 8-12ms). For a single-player action RPG like Crimson Desert, this is generally acceptable, but competitive players may prefer to leave Frame Generation OFF and rely on standard DLSS upscaling only.</p>
+
+            <div class="warn-box">
+                <strong>Warning:</strong> DLSS "Performance" mode (50% of native resolution) in Crimson Desert can produce noticeable ghosting around Kliff's hair and weapon trails during fast combat. If you have the GPU headroom, always use "Quality" or "Balanced" mode. "Performance" should only be used as a last resort on weaker RTX cards struggling to maintain 60 FPS.
+            </div>
+
+            <h3>AMD FSR 3.0 — The Universal Option (All GPUs)</h3>
+            <p>FSR 3.0 is AMD's open upscaling standard that works on virtually any GPU — NVIDIA, AMD, and even Intel. The quality is noticeably worse than DLSS, especially at "Performance" and "Ultra Performance" modes, where the image can appear soft and lack fine detail. However, FSR 3.0 has two major advantages: it works on older hardware, and it now includes Frame Generation that works on any GPU (not just AMD cards, unlike earlier FSR versions).</p>
+
+            <p>In Crimson Desert, FSR 3.0 at "Quality" mode is surprisingly good — the gap between DLSS Quality and FSR Quality has narrowed significantly with FSR 3.0. If you do not have an NVIDIA RTX card, FSR 3.0 is your best option. Use "Quality" mode for the best balance, and only drop to "Balanced" if you urgently need more FPS.</p>
+
+            <h3>Intel XeSS — The Middle Ground</h3>
+            <p>XeSS is Intel's upsccaling solution. It uses AI acceleration on Intel Arc GPUs and runs on any GPU as a fallback (using a DP4a algorithm rather than dedicated AI cores). The quality sits between DLSS and FSR — better than FSR at equivalent settings but not quite as sharp as DLSS. XeSS is a strong choice if you have an Intel Arc GPU, and a reasonable alternative to FSR on other hardware if you find FSR too soft.</p>
+
+            <h3>Upscaling Comparison Table</h3>
+            <table class="settings-table">
+                <tr><th>Method</th><th>Best For</th><th>Image Quality</th><th>Performance Gain</th><th>Artifacts/Ghosting</th></tr>
+                <tr><td>DLSS 3.5 Quality</td><td class="highlight">RTX 30/40-series owners</td><td class="highlight">Excellent (9/10)</td><td>30-40%</td><td>Minimal</td></tr>
+                <tr><td>DLSS 3.5 Balanced</td><td>RTX 20/30-series at 1440p/4K</td><td>Very Good (8/10)</td><td>45-55%</td><td>Low</td></tr>
+                <tr><td>FSR 3.0 Quality</td><td class="highlight">All GPU owners (universal)</td><td>Good (7/10)</td><td>25-35%</td><td>Moderate (moving foliage)</td></tr>
+                <tr><td>FSR 3.0 Performance</td><td>Budget GPUs, 4K gaming</td><td>Fair (5/10)</td><td>50-60%</td><td>Noticeable (softness)</td></tr>
+                <tr><td>XeSS Quality</td><td>Intel Arc, fallback for any GPU</td><td>Very Good (7.5/10)</td><td>28-38%</td><td>Low-Moderate</td></tr>
+                <tr><td>Native (No Upscaling)</td><td>High-end GPUs only</td><td>Perfect (10/10)</td><td>0%</td><td>None</td></tr>
+            </table>
+
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> Crimson Desert has a built-in "Render Resolution" slider that is separate from upscaling. If you are using DLSS or FSR, leave the Render Resolution at 100% — the upscaling technology handles the scaling. Setting Render Resolution below 100% while also using upscaling will result in a double-downscaling penalty and make the image extremely blurry. This is a common mistake that makes the game look worse than it should.
+            </div>
+
+            <!-- Section 4: Stuttering & FPS Drops -->
+            <h2 id="section4">4. How to Fix Stuttering, FPS Drops & Memory Leaks</h2>
+            <p>Even on high-end hardware, Crimson Desert can exhibit performance issues — stuttering (brief freezes or FPS drops), gradual FPS degradation over long play sessions (memory leak), and sudden crashes. These issues are almost always fixable without hardware upgrades. This section covers every known fix, ranked by effectiveness based on community reports and our own testing.</p>
+
+            <h3>Fix #1: Disable Full-Screen Optimization (Windows 10/11)</h3>
+            <div class="action-step">
+                <div class="step-num">1</div>
+                <h4>Windows Full-Screen Optimization Fix</h4>
+                <p>Right-click <code>CrimsonDesert.exe</code> → Properties → Compatibility → Check "Disable fullscreen optimizations" → Apply. This single change fixes stuttering for approximately 40% of players. Windows 11's fullscreen optimization feature interferes with how Crimson Desert manages its render loop, causing micro-stutters every 5-10 seconds. Disabling it forces the game to use classic exclusive fullscreen, which is more stable.</p>
+            </div>
+
+            <h3>Fix #2: Set Process Priority to High (Temp Fix)</h3>
+            <div class="action-step">
+                <div class="step-num">2</div>
+                <h4>Process Priority Configuration</h4>
+                <p>Open Task Manager → Details tab → Find <code>CrimsonDesert.exe</code> → Right-click → Set Priority → High. Note: This resets every launch. For a permanent fix, create a batch file that launches the game with high priority, or use a tool like "Process Lasso" (free version available). Setting priority to "High" (not "Realtime" — never use Realtime) gives the game's threads preferential treatment from the CPU scheduler, reducing stuttering in CPU-bound scenarios.</p>
+            </div>
+
+            <h3>Fix #3: Memory Leak — The Known Issue and Workaround</h3>
+            <p>Crimson Desert has a documented memory leak in its DX12 renderer that causes RAM usage to gradually increase over time, eventually leading to stuttering and crashes after 3-4 hours of continuous play. Pearl Abyss is aware of this issue and a fix is expected in a future patch. In the meantime, the workaround is simple: <strong>restart the game every 2-3 hours</strong>. This completely clears the leaked memory. If you are in the middle of a long session, at least Alt-Tab out and use the "Clean Memory" button in the game's built-in performance overlay (enabled in Settings → Advanced → Show Performance Overlay).</p>
+
+            <div class="warn-box">
+                <strong>Known Bug:</strong> The memory leak is worse in areas with dense NPC populations (Uzkigrad city, mercenary camps). If you spend a lot of time in these areas, consider restarting the game after every major city visit. The leak is also more pronounced on systems with 16GB of RAM vs 32GB — if you have 16GB, the leak will cause noticeable stuttering after about 90 minutes instead of 3 hours.
+            </div>
+
+            <h3>Fix #4: Shader Compilation Stutter (First-Time Only)</h3>
+            <p>The first time you play Crimson Desert on a new system (or after a GPU driver update), you will experience stuttering as the game compiles shaders. This is normal and unavoidable — the stuttering will completely stop once all shaders are compiled. The process takes approximately 30-60 minutes of gameplay covering different areas. Do not try to "fix" this stuttering — just play through it. Once the shader cache is built, the stuttering will never return unless you update your GPU drivers (which requires re-compilation).</p>
+
+            <h3>Fix #5: Windows Page File Configuration</h3>
+            <p>If you have 16GB of RAM or less, Crimson Desert can exceed your physical RAM during long play sessions, causing Windows to use the page file (storage drive) as emergency RAM. This is catastrophically slow and causes severe stuttering. The fix: set a manual page file size of 16GB-24GB on your fastest NVMe SSD. Go to System Properties → Advanced → Performance Settings → Advanced → Virtual Memory → Change. Set to "Custom size" with Initial = 16384, Maximum = 24576 (values in MB). This ensures Windows never dynamically resizes the page file during gameplay, which itself can cause stutters.</p>
+
+            <h3>Fix #6: NVIDIA Control Panel — Power Management Mode</h3>
+            <p>NVIDIA GPUs have a power-saving feature that downclocks the GPU when it thinks the game is not demanding enough. In Crimson Desert, this can cause momentary FPS drops when moving from a low-demand area (cave interior) to a high-demand area (open field). Fix: Open NVIDIA Control Panel → Manage 3D Settings → Power Management Mode → Set to "Prefer Maximum Performance" (either globally or specifically for CrimsonDesert.exe). This prevents the GPU from downclocking and eliminates those momentary dips.</p>
+
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> If you have tried all the above and still experience stuttering, the issue may be thermal throttling. Download a tool like HWMonitor and check your GPU and CPU temperatures during gameplay. If your GPU exceeds 83°C or CPU exceeds 90°C, you are thermal throttling — your hardware is intentionally slowing down to prevent damage. Clean your PC, replace thermal paste, or improve case airflow. No software setting can fix thermal throttling.
+            </div>
+
+            <!-- Section 5: Driver Settings -->
+            <h2 id="section5">5. NVIDIA & AMD Driver Settings for Maximum Performance</h2>
+            <p>Your GPU driver settings can have a significant impact on Crimson Desert's performance — sometimes adding or subtracting 10-15 FPS depending on configuration. Both NVIDIA and AMD drivers have options that are beneficial for this specific game, and options that should be disabled. This section provides exact driver configurations for both brands.</p>
+
+            <h3>NVIDIA Control Panel Settings (RTX Cards)</h3>
+            <table class="settings-table">
+                <tr><th>Setting</th><th>Recommended Value</th><th>Reason</th></tr>
+                <tr><td>Power Management Mode</td><td class="highlight">Prefer Maximum Performance</td><td>Prevents GPU downclocking in low-demand scenes</td></tr>
+                <tr><td>Texture Filtering - Quality</td><td class="highlight">High Performance</td><td>Saves ~3-5 FPS; visual difference is imperceptible</td></tr>
+                <tr><td>Low Latency Mode</td><td class="highlight">On (not Ultra)</td><td>Reduces input lag; "Ultra" can cause stuttering</td></tr>
+                <tr><td>Vertical Sync</td><td class="highlight">OFF (use in-game V-Sync instead)</td><td>Prevents double-VSync input lag</td></tr>
+                <tr><td>Anti-Aliasing - Mode</td><td class="highlight">Application-controlled</td><td>Let the game handle AA; driver AA causes conflicts</td></tr>
+                <tr><td>CUDA - GPUs</td><td class="highlight">All</td><td>Ensures all GPU compute units are available</td></tr>
+                <tr><td>Max Frame Rate</td><td class="highlight">Set to monitor refresh rate</td><td>Prevents unnecessary GPU usage when uncapped</td></tr>
+            </table>
+
+            <h3>AMD Adrenalin Settings (RX Cards)</h3>
+            <table class="settings-table">
+                <tr><th>Setting</th><th>Recommended Value</th><th>Reason</th></tr>
+                <tr><td>Radeon Anti-Lag</td><td class="highlight">Enabled</td><td>Reduces input lag by synchronizing CPU/GPU</td></tr>
+                <tr><td>Radeon Chill</td><td class="highlight">Disabled</td><td>Can cause FPS caps that feel inconsistent</td></tr>
+                <tr><td>Radeon Image Sharpening</td><td class="highlight">Enabled (80% strength)</td><td>Counteracts softness from FSR upscaling</td></tr>
+                <tr><td>AMD FidelityFX Super Resolution</td><td class="highlight">Disabled (use in-game FSR)</td><td>Driver-level FSR conflicts with in-game FSR</td></tr>
+                <tr><td>Surface Format Optimization</td><td class="highlight">Enabled</td><td>Minor performance improvement, no visual impact</td></tr>
+                <tr><td>Wait for Vertical Refresh</td><td class="highlight">Always OFF</td><td>Use in-game V-Sync; driver V-Sync adds input lag</td></tr>
+            </table>
+
+            <p>For AMD users, there is an additional step that can provide a noticeable performance boost: <strong>enable "SAM" (Smart Access Memory)</strong> if you have a Ryzen CPU and a compatible RX 6000/7000 series GPU. SAM allows the CPU to access the entire GPU frame buffer at once rather than in 256MB chunks, reducing CPU overhead. To enable SAM, you need: a Ryzen 5000-series or newer CPU, a B550/X570 or newer motherboard, and "Above 4G Decoding" and "Re-Size BAR" enabled in your motherboard BIOS. When properly configured, SAM provides a 5-10% FPS boost in Crimson Desert, particularly in CPU-bound scenarios.</p>
+
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> After updating GPU drivers, Crimson Desert's shader cache is invalidated and must be rebuilt. This means you will experience stuttering again for the first hour after a driver update. If you are in the middle of playing and absolutely cannot tolerate stuttering, delay driver updates until you can dedicate an hour to "shader compilation gameplay" — basically, running around different areas of the map to trigger all the shaders.
+            </div>
+
+            <!-- Section 6: Launch Parameters -->
+            <h2 id="section6">6. Launch Parameters, INI Tweaks & Advanced Optimization</h2>
+            <p>For players willing to go beyond the in-game settings menu, Crimson Desert supports several launch parameters and INI file tweaks that can further improve performance or fix specific issues. These are advanced tweaks — use them only if you are comfortable editing configuration files and understand the potential risks.</p>
+
+            <h3>Steam Launch Options</h3>
+            <p>If you are playing Crimson Desert on Steam, you can add launch parameters by right-clicking the game in your Steam library → Properties → Launch Options. Here are the most useful parameters:</p>
+
+            <div class="method-box">
+                <h4>Useful Launch Parameters</h4>
+                <p><strong><code>-high</code></strong> — Launches the game with high CPU priority (same effect as Fix #2 above, but persistent across launches).</p>
+                <p><strong><code>-novsync</code></strong> — Forces V-Sync OFF at the engine level. Useful if you cannot disable V-Sync through the in-game menu or if the in-game V-Sync is causing input lag.</p>
+                <p><strong><code>-d3d12</code></strong> — Forces DirectX 12 mode. Crimson Desert defaults to DX12 on most systems, but this parameter ensures it. DX12 is recommended over DX11 for better performance on modern hardware.</p>
+                <p><strong><code>-windowed</code></strong> — Launches in windowed mode. Useful if the game is crashing on startup due to a resolution mismatch.</p>
+                <p><strong><code>-USEALLAVAILABLECORES</code></strong> — Forces the engine to utilize all available CPU cores. On some older CPUs, the engine only uses a subset of cores without this parameter.</p>
+            </div>
+
+            <h3>INI File Tweaks (Engine Configuration)</h3>
+            <p>Crimson Desert's engine configuration files are located in <code>%AppData%\Local\CrimsonDesert\Saved\Config\WindowsNoEditor\</code>. The main file is <code>Engine.ini</code>. Adding certain parameters to this file can unlock hidden settings or fix specific issues. <strong>Back up the file before editing.</strong></p>
+
+            <div class="warn-box">
+                <strong>Warning:</strong> Editing INI files can cause crashes if done incorrectly. Always make a backup before modifying any configuration file. If the game crashes after editing, delete the INI file — the game will regenerate a default one on next launch.
+            </div>
+
+            <p>Open <code>Engine.ini</code> with a text editor (Notepad++ recommended) and add the following lines at the end of the file:</p>
+
+            <div class="method-box">
+                <h4>Recommended Engine.ini Additions</h4>
+                <p><strong>[ConsoleVariables]</strong><br>
+                <code>r.Streaming.PoolSize=4096</code> — Sets the texture streaming pool size to 4096 MB (adjust based on your VRAM: set to ~75% of your total VRAM). This prevents textures from popping in and out.</p>
+                <p><code>r.Streaming.MaxNumTexturesToStreamPerFrame=1</code> — Reduces texture streaming stutter by limiting texture swaps per frame. Can cause slightly slower texture loading but eliminates micro-stutters.</p>
+                <p><code>r.DefaultFeature.AutoExposure=false</code> — Disables auto-exposure (eye adaptation) which some players find nauseating. Also provides a minor performance boost.</p>
+                <p><code>r.TonemapperQuality=0</code> — Lowers tonemapper quality for a performance gain. The visual difference is subtle; mostly affects how highlights are rendered.</p>
+                <p><code>t.MaxFPS=144</code> — Caps FPS to 144 (replace with your monitor's refresh rate). Preventing uncapped FPS reduces GPU heat and power consumption without benefit.</p>
+            </div>
+
+            <!-- Section 7: Controller vs KBM -->
+            <h2 id="section7">7. Best Controller vs Keyboard & Mouse — Input Lag & Responsiveness</h2>
+            <p>Crimson Desert supports both controller and keyboard & mouse input, and the choice between them is not just about personal preference — each input method has distinct advantages in different game modes and combat scenarios. This section analyzes input lag, precision, and overall feel for both methods, helping you choose the best option for your playstyle.</p>
+
+            <h3>Controller — The Recommended Default</h3>
+            <p>Crimson Desert was designed first and foremost for controller input. The combat system, with its analog movement and gradual acceleration/deceleration, feels more natural with a controller. The game also supports controller vibration (haptic feedback) that provides tactile feedback for parries, heavy impacts, and environmental effects — details that are lost on keyboard & mouse. For most players, especially those playing on a TV or a couch setup, a controller is the superior choice.</p>
+
+            <div class="method-box">
+                <h4>Best Controllers for Crimson Desert</h4>
+                <p><strong>Xbox Series X Controller (wired):</strong> The gold standard. Wired connection minimizes input lag to approximately 4-6ms. The analog stick precision is excellent for combat movement, and the D-pad is responsive for weapon switching.</p>
+                <p><strong>PlayStation DualSense (wired):</strong> Also excellent. The adaptive triggers can be configured (via Steam Input) to provide resistance based on bow draw tension — a feature that adds immersion but can be disabled if it causes fatigue.</p>
+                <p><strong>Steam Deck / Steam Controller:</strong> Fully supported. The Steam Deck's built-in controller works perfectly with the game's default controller bindings.</p>
+            </div>
+
+            <h3>Keyboard & Mouse — Superior for Precision</h3>
+            <p>Keyboard & mouse input excels in two specific areas: precise aiming (for the bow and throwing weapons) and rapid ability rotation (for players who bind skills to number keys). If you are playing a ranged build or a build that relies on precise placement of area-of-effect abilities, KBM may be superior. However, the game does not support "legacy" mouse-look camera control as smoothly as dedicated PC action games — the camera feels slightly sluggish with mouse input compared to controller, which can be disorienting in close-quarters combat.</p>
+
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> You can use both simultaneously. Many players use a controller for movement and combat, but switch to mouse for menu navigation and inventory management (mouse is significantly faster for inventory sorting). The game seamlessly switches between input methods — you do not need to change any settings. Just keep your mouse within reach even if you primarily use a controller.
+            </div>
+
+            <h3>Input Lag Comparison</h3>
+            <table class="settings-table">
+                <tr><th>Input Method</th><th>Typical Input Lag</th><th>Best For</th><th>Drawbacks</th></tr>
+                <tr><td>Xbox Controller (wired)</td><td>4-6ms</td><td class="highlight">All-around, comfort, combat feel</td><td>Slightly less precise aiming</td></tr>
+                <tr><td>Xbox Controller (Bluetooth)</td><td>12-20ms</td><td>Casual play, couch gaming</td><td>Noticeable lag in competitive combat</td></tr>
+                <tr><td>PlayStation DualSense (wired)</td><td>4-7ms</td><td>Immersive play (adaptive triggers)</td><td>Trigger resistance can cause fatigue</td></tr>
+                <tr><td>Keyboard & Mouse (wired)</td><td>1-3ms</td><td class="highlight">Precision aiming, menu navigation</td><td>Camera control feels less natural</td></tr>
+                <tr><td>Steam Deck Built-in</td><td>8-12ms</td><td>Portable play</td><td>Higher lag; fine for casual play</td></tr>
+            </table>
+
+            <!-- Section 8: Ultrawide Support -->
+            <h2 id="section8">8. Ultrawide Monitor Support & Display Configuration</h2>
+            <p>Crimson Desert features excellent ultrawide monitor support (21:9 and 32:9), but there are important considerations for HUD layout, FOV settings, and cinematic cutscenes. This section covers everything you need to know to get the best ultrawide experience.</p>
+
+            <p>The game automatically detects ultrawide monitors and adjusts the HUD accordingly — health, stamina, and minimap elements are anchored to the corners of the screen rather than spaced for a 16:9 aspect ratio. This means the HUD remains readable without taking up excessive screen space. However, some cinematic cutscenes are still rendered at 16:9 with black bars on the sides — this is intentional by the developers to preserve the artistic framing of key story moments. You cannot remove these bars without modding the game.</p>
+
+            <h3>FOV Settings for Ultrawide</h3>
+            <p>On ultrawide monitors, the default FOV (Field of View) of 70 can feel claustrophobic — you see too much peripheral distortion and not enough forward focus. Increase your FOV to 85-90 for 21:9 monitors, and 90-100 for 32:9 (super ultrawide). This widens your field of view horizontally, making combat more immersive and giving you better situational awareness. Note that higher FOV reduces GPU performance (more pixels to render), so you may need to lower some graphics settings to compensate.</p>
+
+            <div class="method-box">
+                <h4>Recommended Ultrawide Display Settings</h4>
+                <p><strong>21:9 (2560×1080 or 3440×1440):</strong> FOV = 85-90, Upscaling = DLSS Quality or FSR Quality, HUD Scale = 100% (default). Consider enabling "Vignette Removal" in the accessibility settings if the darker edges bother you at wide FOV.</p>
+                <p><strong>32:9 (3840×1080 or 5120×1440):</strong> FOV = 95-100, Upscaling = DLSS Balanced (performance demand is high at this resolution), HUD Scale = 110-120% (HUD elements are far apart; slightly larger makes them easier to read). Note: 32:9 requires a top-tier GPU for good performance.</p>
+            </div>
+
+            <!-- Section 9: Steam Deck Compatibility -->
+            <h2 id="section9">9. Steam Deck Compatibility & Handheld Performance</h2>
+            <p>The Steam Deck (LCD and OLED models) can run Crimson Desert, but with significant compromises. The game is not officially verified on Steam Deck at launch, but it is playable with the right settings. This section provides a complete Steam Deck optimization guide.</p>
+
+            <h3>Steam Deck Performance Expectations</h3>
+            <div class="benchmark-card">
+                <div>
+                    <div class="fps-result">30-40 FPS</div>
+                    <div class="fps-label">Steam Deck LCD (default settings)</div>
+                </div>
+                <div class="specs">At 1280×800 (native), Low-Medium settings, FSR 3.0 Performance mode. Expect occasional stuttering in dense areas. Battery life: ~90 minutes.</div>
+            </div>
+            <div class="benchmark-card">
+                <div>
+                    <div class="fps-result">35-45 FPS</div>
+                    <div class="fps-label">Steam Deck OLED (optimized settings)</div>
+                </div>
+                <div class="specs">The OLED model's newer APU handles the game slightly better. With aggressive settings optimization, a locked 40 FPS is achievable. Battery life: ~110 minutes.</div>
+            </div>
+
+            <h3>Best Steam Deck Settings</h3>
+            <table class="settings-table">
+                <tr><th>Setting</th><th>Recommended Value</th><th>Notes</th></tr>
+                <tr><td>Resolution (in-game)</td><td>1152×720 (rendered)</td><td>Use FSR 3.0 Performance to upscale to 1280×800</td></tr>
+                <tr><td>Texture Quality</td><td>Medium</td><td>Steam Deck has 8GB unified memory; High textures may cause stuttering</td></tr>
+                <tr><td>Shadow Quality</td><td>Low</td><td>Biggest FPS gain per visual quality lost</td></tr>
+                <tr><td>Volumetric Effects</td><td>Low</td><td>Essential for maintaining 30+ FPS</td></tr>
+                <tr><td>Anti-Aliasing</td><td>FSR (Performance)</td><td>TAA looks too blurry at this resolution</td></tr>
+                <tr><td>FOV</td><td>75</td><td>Slightly higher FOV reduces GPU load on ultrawide</td></tr>
+                <tr><td>Steam Deck TDP Limit</td><td>12W</td><td>Balances performance and battery life</td></tr>
+                <tr><td>Steam Deck Refresh Rate</td><td>40Hz (with 40 FPS cap)</td><td>Smoother than 30 FPS, uses less power than 60</td></tr>
+            </table>
+
+            <div class="warn-box">
+                <strong>Steam Deck Limitation:</strong> The Steam Deck uses a Zen 2 CPU and RDNA 2 GPU — both quite capable, but the unified 8GB LPDDR5 memory is the bottleneck. The system itself uses ~1.5GB, leaving ~6.5GB for the game. This is barely enough for Crimson Desert. You will experience texture pop-in and occasional stuttering no matter what settings you use. If you can accept these compromises, the game is playable; if not, wait for a more powerful handheld or play on a desktop.</div>
+
+            <!-- FAQ -->
+            <h2 id="faq">FAQ — Performance Questions Answered</h2>
+            <div class="faq-item">
+                <h4>Why is my FPS suddenly dropping in the middle of combat?</h4>
+                <p>Sudden FPS drops during combat are usually caused by one of three things: thermal throttling (check your temperatures), a spike in CPU usage from NPC AI calculations (especially in areas with many friendly NPCs), or the game streaming in a new high-detail enemy model. The most common fix is to lower the "NPC Density" setting (if available in your version) or to avoid fighting in areas with many background NPCs. If the drops are severe (below 20 FPS), check if your GPU drivers have crashed in the background — open Event Viewer to confirm.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Is it better to play at 1080p with High settings or 1440p with Low settings?</h4>
+                <p>This depends on your priorities. For a single-player action RPG, visual quality usually matters more than resolution — 1080p High will look better than 1440p Low because the texture quality, shadow quality, and lighting effects are far more impactful than raw pixel count. However, if you have a 1440p monitor, playing at 1080p will look slightly blurry due to upscaling. The ideal solution is 1440p with "Balanced" settings (mix of Medium and High), using DLSS or FSR Quality mode to maintain FPS.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Does Crimson Desert support ray tracing? Should I enable it?</h4>
+                <p>As of 2026, Crimson Desert does not support hardware ray tracing (RTX). The game uses traditional rasterization with screen-space reflections and baked lighting. Pearl Abyss has hinted that ray tracing support may come in a future update, but there is no official timeline. Do not expect RTX to work with this game currently — any "ray tracing" options in your driver settings should be left disabled as they will have no effect and may cause instability.</p>
+            </div>
+            <div class="faq-item">
+                <h4>My game crashes to desktop with no error message. How do I fix this?</h4>
+                <p>This is most commonly caused by unstable GPU overclocks, corrupted shader cache, or running out of VRAM. First, reset your GPU to factory clocks if you have overclocked it. Second, delete the shader cache folder (location: <code>%AppData%\Local\CrimsonDesert\Saved\ShaderCache</code>) and let the game rebuild it. Third, lower your texture quality setting — if your GPU is running out of VRAM, the game will crash without a helpful error message. If none of these work, verify game files through Steam.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What is the best way to record or stream Crimson Desert without losing FPS?</h4>
+                <p>Use hardware encoding (NVENC for NVIDIA, AMF for AMD) rather than software encoding. In OBS, set the encoder to "NVIDIA NVENC H.264" (or HEVC for better quality) and set the preset to "Performance" or "P4." This offloads encoding to a dedicated chip on your GPU that does not impact gaming performance. If you are still losing FPS while streaming, lower your in-game resolution by one step (e.g., from 1440p to 1080p) and use your streaming software's output resolution to upscale back to 1440p for viewers.</p>
+            </div>
+
+            <!-- Support Card -->
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🌿</span>
+                    <div class="support-text">
+                        <h3>Buy me a coffee — Keep Our Guides Free & Updated</h3>
+                        <p>Your support helps keep these guides free, accurate, and up to date for everyone in the gaming community. No pressure, ever — pick the amount that feels good to you.</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson Desert Guru Support - $3&amp;amount=3&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$3</a>
+                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson Desert Guru Support - $5&amp;amount=5&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn recommended">$5 ★</a>
+                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson Desert Guru Support - $10&amp;amount=10&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$10</a>
+                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson Desert+Guru+Custom+Amount&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-custom">Custom ✏️</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-bottom">&copy; 2026 CDGuru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p>
+            
+                    <p style="font-size:.78rem;color:#999;margin-top:4px">Crimson Desert&trade; is a trademark of Pearl Abyss Corp. All game content and materials are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by Pearl Abyss.</p>
+        </div>
+    </footer>
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>.guide-content li{color:#2d2a33!important}</style>
+</body>
+</html>

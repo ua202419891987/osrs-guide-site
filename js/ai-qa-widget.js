@@ -1,6 +1,7 @@
 /**
  * OSRS Guru AI Question & Answer Widget
  * 右下角悬浮窗 - AI 问答系统
+ * v2.11.0 - Add 16 new CD+Windrose guides to article index (Co-op, Farming, Build, Endgame, PvP, Secrets, Performance, Patch)
  * v2.10.0 - Add 22 new OSRS guides to article index (Skill Training + Money Making + Slayer + Boss + Quest)
  *   - OSRS_ARTICLES: 154 → 176 entries
  * v2.9.2 - FIX: Add leading / to all URLs (404 fix)
@@ -100,6 +101,14 @@
     { label: 'Crimson Desert Quest Walkthrough 2026 \u2014 Main Story &amp; Side Quests', url: '/guides/crimson-desert/crimson-desert-quest-walkthrough-2026.html', kw: 'cd choices crimson desert diary quest questing quests story walkthrough kliff pywel' },
     { label: 'Crimson Desert Skills &amp; Builds Guide 2026', url: '/guides/crimson-desert/crimson-desert-skills-builds-guide-2026.html', kw: 'build builds cd crimson desert skills skill trees paths pywel kliff' },
     { label: 'Crimson Desert Weapons &amp; Equipment Guide 2026', url: '/guides/crimson-desert/crimson-desert-weapons-gear-guide-2026.html', kw: 'armor armour cd crimson desert equipment gear weapons stats locations pywel kliff' },
+    { label: 'Crimson Desert Co-op Multiplayer Guide 2026', url: '/guides/crimson-desert/crimson-desert-coop-multiplayer-guide-2026.html', kw: 'co-op multiplayer friends boss coop loot sharing server' },
+    { label: 'Crimson Desert Money Farming Guide 2026', url: '/guides/crimson-desert/crimson-desert-money-farming-guide-2026.html', kw: 'money farming gold resource grinding route crimson desert' },
+    { label: 'Crimson Desert Meta Build Tier List 2026', url: '/guides/crimson-desert/crimson-desert-meta-build-tier-list-2026.html', kw: 'build tier list meta best builds damage calculation crimson desert' },
+    { label: 'Crimson Desert Endgame Guide 2026', url: '/guides/crimson-desert/crimson-desert-endgame-guide-2026.html', kw: 'endgame post-game legendary gear ng+ crimson desert' },
+    { label: 'Crimson Desert PvP Arena Guide 2026', url: '/guides/crimson-desert/crimson-desert-pvp-arena-guide-2026.html', kw: 'pvp arena ranking rewards pvp builds crimson desert' },
+    { label: 'Crimson Desert Hidden Secrets &amp; Easter Eggs 2026', url: '/guides/crimson-desert/crimson-desert-hidden-secrets-easter-eggs-2026.html', kw: 'secrets easter eggs hidden locations lore items crimson desert' },
+    { label: 'Crimson Desert Best Settings &amp; Performance 2026', url: '/guides/crimson-desert/crimson-desert-best-settings-performance-2026.html', kw: 'performance fps optimization settings stuttering fix crimson desert' },
+    { label: 'Crimson Desert Patch Notes Analysis 2026', url: '/guides/crimson-desert/crimson-desert-patch-notes-analysis-2026.html', kw: 'patch notes updates changes nerfs buffs crimson desert' },
   ];
 
   var WINDROSE_ARTICLES = [
@@ -109,6 +118,14 @@
     { label: 'Windrose Combat &amp; Naval Guide 2026 \u2014 Ship Battles &amp; Boarding', url: '/guides/windrose/windrose-combat-ship-guide-2026.html', kw: 'combat naval parry dodge ship battles boarding pirate sailing windrose attack defence defense strength' },
     { label: 'Windrose Crafting &amp; Gear Guide 2026 \u2014 Best Weapons, Armor &amp; Ship Upgrades', url: '/guides/windrose/windrose-crafting-gear-guide-2026.html', kw: 'armor armour crafting equipment gear weapons ship upgrades naval pirate sailing windrose' },
     { label: 'Windrose Quest &amp; Exploration Guide 2026 \u2014 Hidden Treasures &amp; Lore', url: '/guides/windrose/windrose-quest-exploration-guide-2026.html', kw: 'exploration lore naval pirate quest questing quests routes sailing ship treasures windrose' },
+    { label: 'Windrose Co-op Multiplayer Guide 2026', url: '/guides/windrose/windrose-coop-multiplayer-guide-2026.html', kw: 'co-op multiplayer friends server hosting roles voice chat windrose' },
+    { label: 'Windrose Resource Farming Guide 2026', url: '/guides/windrose/windrose-resource-farming-guide-2026.html', kw: 'resource farming routes rare materials grinding windrose' },
+    { label: 'Windrose Meta Build Tier List 2026', url: '/guides/windrose/windrose-meta-build-tier-list-2026.html', kw: 'build tier list meta best builds stat allocation windrose' },
+    { label: 'Windrose Endgame Guide 2026', url: '/guides/windrose/windrose-endgame-guide-2026.html', kw: 'endgame post-game legendary ships challenges windrose' },
+    { label: 'Windrose Ship PvP Combat Guide 2026', url: '/guides/windrose/windrose-ship-pvp-combat-guide-2026.html', kw: 'ship pvp combat naval battle tactics boarding windrose' },
+    { label: 'Windrose Treasure Map &amp; Secrets Guide 2026', url: '/guides/windrose/windrose-treasure-map-secrets-2026.html', kw: 'treasure map secrets hidden caves easter eggs windrose' },
+    { label: 'Windrose Performance Optimization 2026', url: '/guides/windrose/windrose-performance-optimization-2026.html', kw: 'performance fps optimization lag fix settings windrose' },
+    { label: 'Windrose Early Access Update Guide 2026', url: '/guides/windrose/windrose-early-access-update-guide-2026.html', kw: 'early access updates patch notes roadmap windrose' },
   ];
 
   // OSRS 176篇全索引（154篇原有 + 22篇新增，2026-06-16）

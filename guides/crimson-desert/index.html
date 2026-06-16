@@ -81,6 +81,25 @@
 }
 .support-btn-sub:hover{transform:scale(1.05);box-shadow:0 4px 14px rgba(0,0,0,.2)}
 
+/* Category Section Headers */
+.sub-cat-header{
+  grid-column:1/-1;
+  font-family:'Cinzel',serif;font-size:1.35rem;color:#c0392b;
+  margin:20px 0 8px;padding-top:16px;border-top:2px solid #f0e0d0;
+  display:flex;align-items:center;gap:10px;
+}
+.sub-cat-header:first-of-type{border-top:none;margin-top:0;padding-top:0}
+.sub-cat-count{font-size:.78rem;color:#999;background:#fef5f5;padding:2px 10px;border-radius:10px;font-family:system-ui}
+
+/* NEW badge on cards */
+.badge-new{
+  position:absolute;top:8px;right:8px;
+  background:#e74c3c;color:#fff;font-size:.65rem;font-weight:800;
+  padding:2px 8px;border-radius:8px;letter-spacing:.05em;text-transform:uppercase;
+  z-index:2;
+}
+.sub-guide-card{position:relative}
+
 /* Responsive */
 @media(max-width:900px){.sub-guide-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.sub-guide-grid{grid-template-columns:1fr}.subsite-hero h1{font-size:1.9rem}}
@@ -111,7 +130,7 @@
 <header class="site-header" style="border-bottom:2px solid #c0392b">
   <div class="header-inner" style="position:relative">
     <a href="../../index.html" class="logo">⚔ Crimson Desert <span>Guru</span></a>
-    <div class="logo-badge">6 Guides · Free · Updated 2026</div>
+    <div class="logo-badge">14 Guides · Free · Updated 2026</div>
     <nav class="main-nav">
       <a href="#start">🆕 New Players</a>
       <a href="#combat">Combat</a>
@@ -133,14 +152,17 @@
     <span>🎮 Pearl Abyss</span>
     <span>🌍 Open-World Action RPG</span>
     <span>📅 June 2026</span>
-    <span>📘 6 Expert Guides</span>
+    <span>📘 14 Expert Guides</span>
+    <span style="background:#e74c3c;color:#fff;padding:4px 12px;border-radius:12px;font-size:.78rem;">🆕 +8 This Week</span>
   </div>
 </div>
 
 <!-- ========== GUIDE GRID ========== -->
 <div class="sub-guide-grid">
 
-  <!-- Card 1: New Player -->
+  <!-- ====== CATEGORY 1: Getting Started ====== -->
+  <div class="sub-cat-header">🆕 Getting Started <span class="sub-cat-count">2 guides</span></div>
+
   <a href="crimson-desert-new-player-guide-2026.html" class="sub-guide-card" id="start">
     <div class="sub-card-badge badge-start">🆕 Start Here</div>
     <div class="sub-card-body">
@@ -153,11 +175,26 @@
     </div>
   </a>
 
-  <!-- Card 2: Combat -->
+  <a href="crimson-desert-best-settings-performance-2026.html" class="sub-guide-card" id="performance">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-gear">⚙️ Performance</div>
+    <div class="sub-card-body">
+      <h3>Best Settings &amp; Performance — FPS Optimization</h3>
+      <p>Optimal graphics settings, how to fix stuttering, server region selection, and Steam Deck compatibility.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- ====== CATEGORY 2: Combat & PvP ====== -->
+  <div class="sub-cat-header">⚔️ Combat &amp; PvP <span class="sub-cat-count">3 guides</span></div>
+
   <a href="crimson-desert-combat-guide-2026.html" class="sub-guide-card" id="combat">
     <div class="sub-card-badge badge-combat">⚔️ Combat</div>
     <div class="sub-card-body">
-      <h3>Combat Mastery — Parry, Dodge & Combos</h3>
+      <h3>Combat Mastery — Parry, Dodge &amp; Combos</h3>
       <p>Master every combat mechanic: perfect parry windows, dodge i-frames, stamina management, Spirit Surge activation, and grapple breaks.</p>
       <div class="sub-card-footer">
         <span class="sub-card-read">Read Time →</span>
@@ -166,7 +203,35 @@
     </div>
   </a>
 
-  <!-- Card 3: Weapons -->
+  <a href="crimson-desert-coop-multiplayer-guide-2026.html" class="sub-guide-card" id="coop">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-combat">🤝 Co-op</div>
+    <div class="sub-card-body">
+      <h3>Co-op Multiplayer — Play with Friends</h3>
+      <p>How to invite friends, co-op boss mechanics, loot sharing, class synergy, server selection, and co-op exclusive content.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="crimson-desert-pvp-arena-guide-2026.html" class="sub-guide-card" id="pvp">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-combat">⚔️ PvP</div>
+    <div class="sub-card-body">
+      <h3>PvP Arena Guide — Arena Mechanics &amp; Rankings</h3>
+      <p>How to enter PvP arena, matchmaking, best PvP builds, arena map strategies, ranking tiers and rewards.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- ====== CATEGORY 3: Gear, Builds & Farming ====== -->
+  <div class="sub-cat-header">💰 Gear, Builds &amp; Farming <span class="sub-cat-count">4 guides</span></div>
+
   <a href="crimson-desert-weapons-gear-guide-2026.html" class="sub-guide-card" id="gear">
     <div class="sub-card-badge badge-gear">🛡️ Gear</div>
     <div class="sub-card-body">
@@ -179,33 +244,6 @@
     </div>
   </a>
 
-  <!-- Card 4: Quest -->
-  <a href="crimson-desert-quest-walkthrough-2026.html" class="sub-guide-card" id="quest">
-    <div class="sub-card-badge badge-quest">📜 Quest</div>
-    <div class="sub-card-body">
-      <h3>Main Story Walkthrough — Acts 1 to 5</h3>
-      <p>Faction choices, dialogue decisions with consequences, hidden side quests, and complete act-by-act story progression.</p>
-      <div class="sub-card-footer">
-        <span class="sub-card-read">Read Time →</span>
-        <span class="sub-card-date">June 2026</span>
-      </div>
-    </div>
-  </a>
-
-  <!-- Card 5: Boss -->
-  <a href="crimson-desert-boss-guide-2026.html" class="sub-guide-card" id="boss">
-    <div class="sub-card-badge badge-boss">👹 Bosses</div>
-    <div class="sub-card-body">
-      <h3>Boss Guide — All Bosses Ranked &amp; Strategies</h3>
-      <p>Every boss fight broken down: attack patterns, parry windows, armor break timing, terrain usage, and recommended gear per encounter.</p>
-      <div class="sub-card-footer">
-        <span class="sub-card-read">Read Time →</span>
-        <span class="sub-card-date">June 2026</span>
-      </div>
-    </div>
-  </a>
-
-  <!-- Card 6: Builds -->
   <a href="crimson-desert-skills-builds-guide-2026.html" class="sub-guide-card" id="build">
     <div class="sub-card-badge badge-build">🎯 Builds</div>
     <div class="sub-card-body">
@@ -218,13 +256,108 @@
     </div>
   </a>
 
+  <a href="crimson-desert-money-farming-guide-2026.html" class="sub-guide-card" id="farming">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-start">💰 Farming</div>
+    <div class="sub-card-body">
+      <h3>Money Farming — Best Gold &amp; Resource Routes</h3>
+      <p>Best money making methods by level, farm routes with map references, GP/hr comparison table, and selling tips.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="crimson-desert-meta-build-tier-list-2026.html" class="sub-guide-card" id="tierlist">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-build">📊 Tier List</div>
+    <div class="sub-card-body">
+      <h3>Meta Build Tier List — All Classes Ranked</h3>
+      <p>S/A/B/C tier builds, full damage calculation formula, stat allocation, weapon synergy, and respec strategy.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- ====== CATEGORY 4: Story & Secrets ====== -->
+  <div class="sub-cat-header">📜 Story &amp; Secrets <span class="sub-cat-count">2 guides</span></div>
+
+  <a href="crimson-desert-quest-walkthrough-2026.html" class="sub-guide-card" id="quest">
+    <div class="sub-card-badge badge-quest">📜 Quest</div>
+    <div class="sub-card-body">
+      <h3>Main Story Walkthrough — Acts 1 to 5</h3>
+      <p>Faction choices, dialogue decisions with consequences, hidden side quests, and complete act-by-act story progression.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="crimson-desert-hidden-secrets-easter-eggs-2026.html" class="sub-guide-card" id="secrets">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-quest">🗝️ Secrets</div>
+    <div class="sub-card-body">
+      <h3>Hidden Secrets &amp; Easter Eggs — All Secret Locations</h3>
+      <p>All hidden caves, easter egg references, secret boss unlock, lore item locations, and developer room.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- ====== CATEGORY 5: Bosses, Endgame & Updates ====== -->
+  <div class="sub-cat-header">🏆 Bosses, Endgame &amp; Updates <span class="sub-cat-count">3 guides</span></div>
+
+  <a href="crimson-desert-boss-guide-2026.html" class="sub-guide-card" id="boss">
+    <div class="sub-card-badge badge-boss">👹 Bosses</div>
+    <div class="sub-card-body">
+      <h3>Boss Guide — All Bosses Ranked &amp; Strategies</h3>
+      <p>Every boss fight broken down: attack patterns, parry windows, armor break timing, terrain usage, and recommended gear per encounter.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="crimson-desert-endgame-guide-2026.html" class="sub-guide-card" id="endgame">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-boss">🏆 Endgame</div>
+    <div class="sub-card-body">
+      <h3>Endgame Guide — What to Do After Main Story</h3>
+      <p>Post-story unlocks, legendary gear locations, NG+ preparation, endgame boss roster, and best endgame activities.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="crimson-desert-patch-notes-analysis-2026.html" class="sub-guide-card" id="patch">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-start">📅 Updates</div>
+    <div class="sub-card-body">
+      <h3>Patch Notes Analysis — Latest Changes &amp; Meta Shifts</h3>
+      <p>Latest patch summary, major nerfs/buffs, new content evaluation, community reaction, and future predictions.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
 </div><!-- /guide-grid -->
 
 <!-- ========== SUPPORT CARD ========== -->
 <div class="sub-support">
   <div class="sub-support-header">
-    <h3>🌿 Buy me a coffee — and let's keep grinding!</h3>
-    <p>I create OSRS guides to help you level up faster. Your support helps me keep the site updated with fresh content for the community. No pressure, ever — pick the amount that feels good to you.</p>
+    <h3>🌿 Buy me a coffee — Keep Our Guides Free & Updated</h3>
+    <p>Your support helps keep these guides free, accurate, and up to date for everyone in the gaming community. No pressure, ever — pick the amount that feels good to you.</p>
   </div>
   <div class="sub-support-body">
     <form action="https://www.paypal.com/donate" method="post" target="_blank">
