@@ -1,6 +1,7 @@
 /**
  * OSRS Guru AI Question & Answer Widget
  * 右下角悬浮窗 - AI 问答系统
+ * v2.12.0 - Add 12 new Money Making Deep Dive guides (Slayer Money, Boss Profit, Flipping, Mid-Game, AFK, Daily Routine, Quest-Unlocked, Wilderness, Ironman P2P, Skilling Post-Sailing, Non-Boss Combat, Spend GP Wisely)
  * v2.11.0 - Add 16 new CD+Windrose guides to article index (Co-op, Farming, Build, Endgame, PvP, Secrets, Performance, Patch)
  * v2.10.0 - Add 22 new OSRS guides to article index (Skill Training + Money Making + Slayer + Boss + Quest)
  *   - OSRS_ARTICLES: 154 → 176 entries
@@ -93,7 +94,7 @@
     return matches.slice(0, 2); // 最多返回2个最相关段落
   }
 
-  // ========== 本地文章索引（188篇，2026-06-16） ==========
+  // ========== 本地文章索引（200篇，2026-06-17） ==========
   var CD_ARTICLES = [
     { label: 'Crimson Desert Boss Guide 2026 \u2014 Every Boss, Strategy &amp; Rewards', url: '/guides/crimson-desert/crimson-desert-boss-guide-2026.html', kw: 'boss bosses bossing cd crimson desert pvm pywel kliff strategy' },
     { label: 'Crimson Desert Combat Guide 2026 \u2014 Master Parry, Dodge &amp; Combo Chains', url: '/guides/crimson-desert/crimson-desert-combat-guide-2026.html', kw: 'combat cd crimson desert dodge parry pywel kliff attack defence defense strength', anchorMap: { 'parry': 'section2', 'dodge': 'section2', 'combo': 'section3', 'stamina': 'section4', 'spirit': 'section5', 'surge': 'section5', 'grapple': 'section6', 'counter': 'section2', 'fight': 'section1', 'combat': 'section1' } },
@@ -305,6 +306,18 @@
     { label: 'Top 10 Skills to Train First 2026', url: '/guides/osrs-top-10-skills-to-train-first-2026.html', stage: 'beginner', kw: 'best first priority skills ten to top train training' },
     { label: 'Blood Moon Rises Prep Checklist Detailed 2026', url: '/guides/osrs-blood-moon-rises-prep-checklist-detailed-2026.html', stage: 'mid', kw: 'blood checklist guide moon prepared quest requirement rises' },
     { label: 'Best Quests Per Skill 2026', url: '/guides/osrs-best-quests-per-skill-2026.html', stage: 'mid', kw: 'best cape experience per quest quests reward skill xp' },
+    { label: 'Slayer Money Making Guide 2026 — Best Tasks & GP/hr', url: '/guides/osrs-slayer-money-making-guide-2026.html', stage: 'mid', kw: 'block list skip slayer monetary task gp per hour profit' },
+    { label: 'Boss Profit Comparison 2026 — All Bosses Ranked by GP', url: '/guides/osrs-boss-profit-comparison-2026.html', stage: 'boss', kw: 'bosses comparison gp per kill profit ranked ranking tier' },
+    { label: 'GE Flipping Guide for Beginners 2026 — Start With 100K', url: '/guides/osrs-flipping-guide-beginners-2026.html', stage: 'beginner', kw: 'beginner capital flip flipping ge guide low margin profit' },
+    { label: 'Mid-Game Money Making Roadmap 2026 — Combat 60-100', url: '/guides/osrs-mid-game-money-making-roadmap-2026.html', stage: 'mid', kw: '60 100 combat intermediate middle game roadmap making money' },
+    { label: 'AFK Money Making Ultimate Guide 2026 — 20+ Low-Attention Methods', url: '/guides/osrs-afk-money-making-ultimate-guide-2026.html', stage: 'mid', kw: 'afk attention low afkable idle passive second screen methods' },
+    { label: 'Daily & Weekly Money Routine 2026 — Maximize Passive Income', url: '/guides/osrs-daily-weekly-money-routine-2026.html', stage: 'mid', kw: 'daily weekly routine birdhouse herb run kingdom miscellania staves' },
+    { label: 'Quest-Unlocked Money Methods 2026 — Best Quests for GP', url: '/guides/osrs-quest-unlocked-money-methods-2026.html', stage: 'mid', kw: 'dragon slayer ii ds2 sote song elves quests unlock gp methods' },
+    { label: 'Wilderness Money Making Guide 2026 — High Risk High Reward', url: '/guides/osrs-wilderness-money-making-2026.html', stage: 'mid', kw: 'wilderness pvp pk risk revs revenant lava dragon black chin' },
+    { label: 'Ironman P2P Money Making Guide 2026 — Mid-Game Gold', url: '/guides/osrs-ironman-p2p-money-making-2026.html', stage: 'mid', kw: 'ironman iron ironmen p2p mid game gold self sufficient alchemy' },
+    { label: 'Skilling Money Post-Sailing Update 2026 — All Profitable Skills', url: '/guides/osrs-skilling-money-post-sailing-2026.html', stage: 'mid', kw: 'mining runecrafting hunter farming fishing woodcutting sailing post update profit' },
+    { label: 'Combat Money Making Non-Boss 2026 — Monsters That Drop GP', url: '/guides/osrs-combat-money-making-non-boss-2026.html', stage: 'beginner', kw: 'monster non boss combat dragon brutal gargoyle wyvern rune' },
+    { label: 'How to Spend Your GP Wisely 2026 — Best Investments Per Budget', url: '/guides/osrs-how-to-spend-gp-wisely-2026.html', stage: 'mid', kw: 'budget gold gp investment roi spend wisely gear upgrade priority' },
   ];
 
   // ========== 本地文章匹配（CD/Windrose/OSRS 通用） ==========
