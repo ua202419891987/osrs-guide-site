@@ -541,7 +541,6 @@ nav a.active{
 /* ========== NEW GAMES BAR (Compact Horizontal Strip) ========== */
 .new-games-bar{
   background:var(--bg-light, #F5F2F8);
-  border-bottom:1px solid #d4af37;
   padding:16px 0;
 }
 
