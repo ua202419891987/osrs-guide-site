@@ -92,6 +92,18 @@
   1. 将自动化执行时间改为北京时间凌晨 0:30（太平洋时间上午 9:30，配额刚重置）
   2. 或手动在上午其他时段运行一次 `submit_index_oauth.py` 验证配额窗口
 
+### 2026-06-18（凌晨 0:25 CST — 新配额窗口）
+- 代理正常 (127.0.0.1:7897)
+- 🔴 **OAuth Token 过期**: `invalid_grant: Token has been expired or revoked`，无法刷新
+- SA 方案: JWT 获取成功，代理通道正常
+- Sitemap: 213 URLs（比上次少 3，sitemap 自动更新去重），已提交: 101，新 URL: 112
+- 脚本: `daily_indexing_submit.py` (SA + requests)
+- 结果: **HTTP 403 × 107 + Connection Error × 3 + Timeout × 2** — 全部失败
+- 成功: **0**，失败: **112**，剩余: **112**
+- 🔴 **双重阻塞重启**: OAuth token expired（Jun 10 同样问题）+ SA 无 Search Console 权限（Jun 10-11 同样问题）
+- 📋 **唯一修复路径**: 用户手动 OAuth 重新授权 OR 在 Search Console 为 SA `indexing-ap@osrsgu-indexin.iam.gserviceaccount.com` 添加 Owner 权限
+- 💡 **推荐方案**: 二者任选其一即可解除阻塞
+
 ### 2026-06-17（上午 9:22）
 - 代理正常 (127.0.0.1:7897)，OAuth Token 刷新成功
 - Sitemap: 201 URLs 总计（新增 38 个页面：6/16 skill/combat/diary 系列 + 6/17 Crimson Desert 8篇 + Windrose 8篇）

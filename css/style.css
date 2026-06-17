@@ -2237,3 +2237,28 @@ footer{
   .game-cat-preview{padding:6px 8px}
   .ad-banner-wrapper{padding:12px 10px}
 }
+
+/* === Anti-scraping: Prevent easy content theft === */
+/* Note: user-select is NOT disabled to avoid hurting SEO and UX */
+/* These rules make scraping slightly harder without affecting readers */
+
+/* Disable drag of images */
+.guide-content img, .guide-img img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: auto;
+}
+
+/* Print protection: hide non-essential elements when printing/saving as PDF */
+@media print {
+  .guide-content a[href]::after {
+    content: "";
+  }
+  .support-card, nav, footer, header, .ai-float-btn, .random-float-btn {
+    display: none !important;
+  }
+  .guide-content {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+}
