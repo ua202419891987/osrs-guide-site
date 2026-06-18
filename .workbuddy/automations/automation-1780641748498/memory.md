@@ -115,3 +115,20 @@
 - 📊 已提交累计: 101 URLs，待提交: 100 URLs
 - ⚠️ **必须将自动化时间改为凌晨 0:30 CST**，当前 9:20 AM 执行时间永远无法获得配额
 - 📋 自动化已更新为 0:30 AM CST 执行
+
+### 2026-06-19（凌晨 0:25 CST）
+- 代理正常 (127.0.0.1:7897)，SA Token 获取成功
+- Sitemap: 213 URLs 总计，101 已提交，112 新 URL 待提交
+- 脚本: `daily_indexing_submit.py` (SA + requests)
+- 结果: **HTTP 403 × 112** — 全部失败，SA 无 Search Console 权限
+- 1 个连接错误 (connection error)，1 个超时 (timeout)
+- 成功: **0**，失败: **112**，剩余: **112**
+- 🔴 **连续阻塞**: SA `indexing-ap@osrsgu-indexin.iam.gserviceaccount.com` 未被添加为 Search Console Owner
+- 📋 **修复步骤**（二选一）:
+  1. 【推荐】GSC 添加 SA 邮箱为 Owner（一劳永逸）:
+     - 打开 https://search.google.com/search-console
+     - 选择 osrsguru.com → 设置 → 用户和权限 → 添加用户
+     - 输入: `indexing-ap@osrsgu-indexin.iam.gserviceaccount.com`
+     - 权限: **所有者 (Owner)**
+  2. 本地重新 OAuth 授权: 运行 `python scripts/submit_index_oauth.py`
+- ⚠️ **自动化将持续失败直到权限修复**，建议暂停此自动化或先完成上述修复
