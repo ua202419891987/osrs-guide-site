@@ -96,11 +96,28 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
   </div>
 </div>
 
-<!-- ========== TASK-ORIENTED CTAs ========== -->
-<div class="container">
-  <div class="task-cta-section">
-    <div class="task-cta-title">What do you want to do today?</div>
-    <div class="task-cta-subtitle">Pick your goal and we'll show you exactly how to get there</div>
+    <!-- ========== SEARCH BOX (Compact) ========== -->
+    <div class="container">
+    <div class="home-search-box" style="background:#fff;border-radius:10px;padding:16px 20px;margin-top:0;text-align:center;border:2px solid #D4CDE0;box-shadow:0 2px 12px rgba(122,100,184,0.08);">
+      <div style="color:#5B4A9C;font-size:1.15rem;font-weight:800;margin-bottom:4px;">🔍 Find Your Perfect OSRS Guide</div>
+      <div style="color:#888;font-size:.8rem;margin-bottom:10px;">Search 180+ verified guides — money making, bosses, skills, quests</div>
+      <form onsubmit="event.preventDefault();const q=document.getElementById('homeSearchInput').value.trim();if(q){window.location.href='guides/osrs-'+q.toLowerCase().replace(/\s+/g,'-')+'.html'}" style="display:flex;max-width:560px;margin:0 auto;gap:6px;">
+        <input id="homeSearchInput" type="text" placeholder="e.g., Zulrah, Prayer, Money Making..." style="flex:1;padding:10px 14px;border-radius:6px;border:1.5px solid #D4CDE0;background:#FAF9FC;color:#2D2A33;font-size:.92rem;outline:none;" autocomplete="off">
+        <button type="submit" style="background:linear-gradient(135deg,#7A64B8,#5B4A9C);color:#fff;border:none;padding:10px 18px;border-radius:6px;font-weight:700;font-size:.92rem;cursor:pointer;white-space:nowrap;box-shadow:0 2px 8px rgba(91,74,156,0.25);">🔍 Search</button>
+      </form>
+      <div style="margin-top:8px;font-size:.72rem;color:#aaa;">
+        <span>🔥 Popular:</span>
+        <a href="guides/osrs-how-to-beat-zulrah-beginners-rotation.html" style="color:#7A64B8;margin:0 3px;">Zulrah</a>·
+        <a href="guides/osrs-fire-cape-jad-guide-2026.html" style="color:#7A64B8;margin:0 3px;">Fire Cape</a>·
+        <a href="guides/osrs-money-making-beginner-2026.html" style="color:#7A64B8;margin:0 3px;">Money</a>·
+        <a href="guides/osrs-1-99-prayer-guide-2026.html" style="color:#7A64B8;margin:0 3px;">Prayer</a>·
+        <a href="guides/osrs-new-player-guide-2026.html" style="color:#7A64B8;margin:0 3px;">New Player</a>
+      </div>
+    </div>
+    </div>
+
+    <!-- ========== TASK CARDS (No Title — Search Box Above) ========== -->
+    <div class="container">
     <div class="task-cta-grid">
       <a href="money-making.html" class="task-cta-card">
         <img src="https://oldschool.runescape.wiki/images/thumb/Grand_Exchange.png/640px-Grand_Exchange.png" alt="Grand Exchange" class="cta-img" loading="lazy" onerror="this.style.display='none'">
@@ -127,20 +144,24 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
         <span class="cta-arrow">Join Now →</span>
       </a>
     </div>
+    </div>
 
     <!-- ========== NEW PLAYER BANNER ========== -->
-    <a href="guides/osrs-new-player-guide-2026.html" class="newplayer-banner">
+    <div class="container">
+    <a href="#stage-0" class="newplayer-banner">
       <div class="newplayer-banner-left">
         <div class="newplayer-banner-title">
           <strong>New to OSRS?</strong>
-          <span class="newplayer-badge">⭐ Newbie Guide</span>
+          <span class="newplayer-badge">⭐ 15-Part Beginner Series</span>
         </div>
-        <div class="newplayer-banner-sub">Start from zero — follow our 30-day roadmap to become a true adventurer</div>
+        <div class="newplayer-banner-sub">Stage 0.1 → 0.12: From game interface to membership transition — all 15 beginner guides in order</div>
       </div>
-      <span class="newplayer-banner-btn">🧭 30-Day Roadmap →</span>
+      <span class="newplayer-banner-btn">🧭 Start Your Journey →</span>
     </a>
+    </div>
 
   <!-- ========== PAIN POINTS SOLVED THIS WEEK ========== -->
+  <div class="container">
   <div id="pain-points" class="pain-points-header" style="background:#fff;padding:20px 24px;border-radius:var(--border-radius-lg);border:1px solid #d4af37;margin-top:24px;">
     <div style="color:#3b2615;font-size:34px;font-weight:900;text-align:left;">🔥⚡🔥 Pain Points Solved This Week 🔥⚡🔥</div>
     <div style="color:#666;font-size:17px;margin-top:8px;text-align:left;">From real player discussions — the guides you actually need right now</div>
@@ -193,6 +214,7 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
   </div>
 
   <!-- ========== AD BANNER (728x90) ========== -->
+  <div class="container">
   <div class="ad-banner-wrapper">
     <span class="ad-label">Sponsor Recommendation</span>
     <ins class="adsbygoogle"
@@ -200,10 +222,12 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
          data-ad-client="ca-pub-8532760886171435"
          data-ad-slot="homepage-leaderboard-01"
          data-ad-format="horizontal"
-         data-full-width-responsive="true"></ins>
+         data-full-width-responsive="true">    </ins>
+  </div>
   </div>
 
   <!-- ========== 8 GAME IMAGE CATEGORIES ========== -->
+  <div class="container">
   <div class="section-header">
     <div class="section-title">Explore Gielinor</div>
     <div class="explore-links">
@@ -331,8 +355,10 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
       </div>
     </a>
   </div>
+  </div>
 
   <!-- ========== MONTHLY UPDATES ========== -->
+  <div class="container">
   <div class="whats-new-section">
     <div class="whats-new-banner"><span class="ad-label">Sponsor Recommendation</span></div>
     <div class="whats-new-content">
@@ -378,8 +404,10 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
     <img src="https://oldschool.runescape.wiki/images/thumb/Blood_Moon.png/640px-Blood_Moon.png" alt="Blood Moon" class="whats-new-thumb" loading="lazy" onerror="this.style.display='none'">
     </div>
   </div>
+  </div>
 
   <!-- ========== WEEKLY UPDATES ========== -->
+  <div class="container">
   <div class="whats-new-section">
     <div class="whats-new-banner"><span class="ad-label">Sponsor Recommendation</span></div>
     <div class="whats-new-content">
@@ -391,7 +419,7 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
         <span class="whats-new-date">— June 9, 2026</span>
       </div>
     </div>
-    <div class="whats-new-promo">📬 Can't find a guide? <a href="mailto:m15881172167@163.com">Request it here</a> — we update weekly based on player feedback!</div>
+    <div class="whats-new-promo">📬 Can't find a guide? <a href="mailto:1530398390@qq.com">Request it here</a> — we update weekly based on player feedback!</div>
     <div class="whats-new-list">
       <a href="guides/osrs-goraik-quest-guide-2026.html" class="whats-new-item">
         <span class="whats-new-badge">🆕</span>
@@ -425,8 +453,10 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
     <img src="https://oldschool.runescape.wiki/images/thumb/Prifddinas.png/640px-Prifddinas.png" alt="Prifddinas" class="whats-new-thumb" loading="lazy" onerror="this.style.display='none'">
     </div>
   </div>
+  </div>
 
   <!-- ========== HOT PICKS ========== -->
+  <div class="container">
   <div class="whats-new-section" id="hot-picks">
     <div class="whats-new-banner"><span class="ad-label">🔥 Community Hot Picks</span></div>
     <div class="whats-new-content">
@@ -498,11 +528,13 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
     <img src="https://oldschool.runescape.wiki/images/thumb/Vorkath.png/640px-Vorkath.png" alt="OSRS Vorkath Boss — Top Money Maker" class="whats-new-thumb" loading="lazy" onerror="this.style.display='none'">
     </div>
   </div>
+  </div>
 
   <!-- ========== BEGINNER SERIES ========== -->
+  <div class="container">
   <div class="section-header" style="background:#fff;padding:20px 24px;border-radius:var(--radius-lg);border:1px solid var(--border-bronze)">
     <div class="section-title" id="stage-0">🗺️ Stage 0: Complete Beginner Series — Start Here!</div>
-    <a href="guides/osrs-new-player-guide-2026.html" class="see-all">View All Beginner Guides →</a>
+    <a href="#stage-0" class="see-all">📚 All 15 Beginner Guides (Stage 0.1–0.12) →</a>
   </div>
   <div class="article-grid" style="margin-top:16px">
     <a href="guides/osrs-interface-controls-beginner-guide-2026.html" class="article-card" id="stage-0.1" style="position:relative;border-color:var(--lavender);box-shadow:0 0 12px rgba(155,132,212,0.1)">
@@ -579,8 +611,10 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
       <div class="article-meta"><span>📖 Stage 0.12</span><span>13 min</span><span class="verified-badge"><span class="v-icon">✓</span> June 2026 Verified</span></div>
     </a>
   </div>
+  </div>
 
   <!-- ========== MONEY MAKING ========== -->
+  <div class="container">
   <div class="section-header"><div class="section-title">💰 Top Money Making Guides</div><a href="money-making.html" class="see-all">All 23 guides →</a></div>
   <div class="article-grid">
     <a href="guides/osrs-ironman-money-making-f2p-2026.html" class="article-card">
@@ -620,8 +654,10 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
       <div class="article-meta"><span>💰 May 2026</span><span>10 min</span><span class="verified-badge"><span class="v-icon">✓</span> Verified</span></div>
     </a>
   </div>
+  </div>
 
   <!-- ========== SKILL TRAINING ========== -->
+  <div class="container">
   <div class="section-header"><div class="section-title">🎯 Popular Skill Guides</div><a href="skill-training.html" class="see-all">All 27 guides →</a></div>
   <div class="article-grid">
     <a href="guides/osrs-fastest-99-cooking-f2p.html" class="article-card">
@@ -661,6 +697,7 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
       <div class="article-meta"><span>🎯 May 2026</span><span>10 min</span><span class="verified-badge"><span class="v-icon">✓</span> Verified</span></div>
     </a>
   </div>
+  </div>
 
   <!-- ========== SUPPORT CARD ========== -->
   <div class="support-card">
@@ -674,7 +711,7 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
     <div class="support-btns">
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline">
         <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="m15881172167@163.com">
+        <input type="hidden" name="business" value="1530398390@qq.com">
         <input type="hidden" name="amount" value="3">
         <input type="hidden" name="currency_code" value="USD">
         <input type="hidden" name="item_name" value="OSRS Guru Support">
@@ -682,7 +719,7 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
       </form>
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline">
         <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="m15881172167@163.com">
+        <input type="hidden" name="business" value="1530398390@qq.com">
         <input type="hidden" name="amount" value="5">
         <input type="hidden" name="currency_code" value="USD">
         <input type="hidden" name="item_name" value="OSRS Guru Support">
@@ -690,7 +727,7 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
       </form>
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline">
         <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="m15881172167@163.com">
+        <input type="hidden" name="business" value="1530398390@qq.com">
         <input type="hidden" name="amount" value="10">
         <input type="hidden" name="currency_code" value="USD">
         <input type="hidden" name="item_name" value="OSRS Guru Support">
@@ -698,7 +735,7 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
       </form>
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline">
         <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="m15881172167@163.com">
+        <input type="hidden" name="business" value="1530398390@qq.com">
         <input type="hidden" name="currency_code" value="USD">
         <input type="hidden" name="item_name" value="OSRS Guru Support">
         <button type="submit" class="support-btn support-btn-custom">Custom ✏️</button>
@@ -724,7 +761,7 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
       <div class="footer-brand">
         <div class="footer-logo">OSRS Guru</div>
         <p>Your go-to resource for OSRS strategy guides. 150+ verified articles updated for 2026. AI-powered Q&A included.</p>
-        <p style="margin-top:8px"><a href="about.html" style="color:var(--text-muted)">About</a> · <a href="privacy-policy.html" style="color:var(--text-muted)">Privacy Policy</a> · <a href="mailto:m15881172167@163.com" style="color:var(--text-muted)">Contact</a></p>
+        <p style="margin-top:8px"><a href="about.html" style="color:var(--text-muted)">About</a> · <a href="privacy-policy.html" style="color:var(--text-muted)">Privacy Policy</a> · <a href="mailto:1530398390@qq.com" style="color:var(--text-muted)">Contact</a></p>
       </div>
       <div class="footer-col"><h4>Money Making</h4><ul>
         <li><a href="guides/osrs-ironman-money-making-f2p-2026.html">Ironman F2P</a></li>
