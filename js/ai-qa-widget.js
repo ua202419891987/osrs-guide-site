@@ -785,12 +785,53 @@
     container.scrollTop = container.scrollHeight;
   }
 
+  // ========== 全局API（搜索框联动）==========
+  // 搜索框无匹配时调用此API打开AI浮窗并发送问题
+  window.OSRSQA = {
+    /**
+     * 打开/关闭AI浮窗
+     * @param {boolean} [forceOpen] - 传true强制打开，false强制关闭，不传则toggle
+     */
+    open: function(forceOpen) {
+      if (!widget) return;
+      if (forceOpen === true) {
+        widget.classList.add('open');
+        if (input) input.focus();
+      } else if (forceOpen === false) {
+        widget.classList.remove('open');
+      } else {
+        widget.classList.toggle('open');
+        if (widget.classList.contains('open') && input) input.focus();
+      }
+    },
+
+    /**
+     * 向AI助手发送问题（搜索框联动主入口）
+     * @param {string} query - 用户输入的搜索词
+     */
+    ask: function(query) {
+      if (!widget || !input || !sendBtn) {
+        console.warn('OSRSQA: widget not ready');
+        return;
+      }
+      // 1. 打开浮窗并聚焦输入框
+      widget.classList.add('open');
+      // 2. 填入问题
+      input.value = query;
+      input.focus();
+      // 3. 启用发送按钮（程序赋值不会触发input事件）
+      sendBtn.disabled = false;
+      // 4. 触发发送
+      sendBtn.click();
+    }
+  };
+
   // ========== 初始化 ==========
   function init() {
     injectStyles();
     var elements = createWidget();
     setupEventHandlers(elements.widget, elements.toggleBtn);
-    console.log('✅ ' + CONFIG.assistantTitle + ' v2.9.1 initialized (12 matches for stage coverage)');
+    console.log('✅ ' + CONFIG.assistantTitle + ' v2.12.1 initialized (search box integration ready)');
   }
 
   if (document.readyState === 'loading') {
