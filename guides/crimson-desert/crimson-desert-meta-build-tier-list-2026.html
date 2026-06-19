@@ -94,7 +94,11 @@
         /* 武器协同卡片 */
         .synergy-card{background:#f8f6fc;border:1px solid #d4c8e8;border-radius:8px;padding:1.2rem;margin:1rem 0}
         .synergy-card h5{color:#7a64b8;font-size:1.15rem;margin:0 0 .5rem 0}
-    </style>
+    
+        /* FORCE: Light theme background for content area */
+        .guide-content{background:#F5F2F8 !important}
+        body{background:#F5F2F8 !important}
+</style>
 </head>
 <body>
     <header>
@@ -140,6 +144,22 @@
                     <li><a href="#faq">FAQ — Build & Meta Questions Answered</a></li>
                 </ol>
             </div>
+
+            <div class="inline-support-hint" style="text-align:center;margin:40px 0 12px 0"><p>If this guide helped you, consider supporting the author below — it keeps this site free and updated for everyone. ❤️</p></div>
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🌿</span>
+                    <div class="support-text">
+                        <h3>Buy me a coffee — Keep Our Guides Free & Updated</h3>
+                        <p>Your support helps keep these guides free, accurate, and up to date for everyone in the gaming community. No pressure, ever — pick the amount that feels good to you.</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson Desert Guru Support - $3&amp;amount=3&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$3</a>
+                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson Desert Guru Support - $5&amp;amount=5&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn recommended">$5 ★</a>
+                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson Desert Guru Support - $10&amp;amount=10&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$10</a>
+                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson Desert+Guru+Custom+Amount&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-custom">Custom ✏️</a>
+                        </div>
+                    </div>
+        
 
             <!-- Section 1 -->
             <h2 id="section1">1. 2026 Meta Build Tier List — S / A / B / C Tiers</h2>
@@ -214,7 +234,7 @@
             </div>
 
             <!-- Section 2 -->
-            <h2 id="section2">2. Full Damage Calculation Formula Explained</h2>
+            <h2 id="section2">📌 2. Full Damage Calculation Formula Explained</h2>
             <p>Understanding how damage is calculated in Crimson Desert is the difference between guessing and optimizing. The game does not show you the raw numbers, but through community datamining and extensive testing, we now have a reliable model of the damage formula. Knowing this formula allows you to make informed decisions about stat allocation, weapon upgrades, and skill point investment. You do not need to be a mathematician — just understand the factors that matter.</p>
 
             <div class="formula-box">
@@ -229,22 +249,22 @@
 
             <p>Let us break down each component of this formula so you can see where your damage actually comes from and how to maximize it.</p>
 
-            <h3>Base Weapon Damage</h3>
+            <h3>① Base Weapon Damage</h3>
             <p>This is the raw damage number shown on your weapon in the inventory screen. It scales with weapon upgrade level — each upgrade level adds a flat amount of damage. A +5 legendary greatsword has roughly 40% more base damage than a +0 version of the same weapon. This is why weapon upgrades are almost always a better investment than minor stat increases in the early game. Prioritize upgrading your main weapon before anything else.</p>
 
-            <h3>Strength Multiplier (Strength × 1.8)</h3>
+            <h3>② Strength Multiplier (Strength × 1.8)</h3>
             <p>Strength is the primary damage stat for all physical weapons (swords, greatswords, maces, spears, daggers). Each point of Strength adds 1.8 points of damage to physical attacks. This multiplier is additive with your base weapon damage, not multiplicative — meaning it has diminishing returns as your base damage increases. However, Strength also affects your stamina capacity and carry weight, so it remains a valuable stat even for non-pure-DPS builds. For reference, at level 80, a dedicated DPS build should have 55-65 Strength.</p>
 
-            <h3>Skill Bonus</h3>
+            <h3>③ Skill Bonus</h3>
             <p>This is the hidden damage bonus from your skill tree nodes. Each weapon type has a "Weapon Proficiency" branch in the skill tree that provides a percentage damage increase when maxed out. For example, the Greatsword Proficiency node gives +25% damage with two-handed swords when fully upgraded. This is why committing to one weapon type and maxing its skill branch is more important than spreading points across multiple weapon types. The skill bonus is applied after base damage and Strength, making it one of the most impactful sources of damage in the game.</p>
 
-            <h3>Critical Multiplier</h3>
+            <h3>④ Critical Multiplier</h3>
             <p>Critical hits in Crimson Desert deal 1.5x damage by default, but this can be increased to 2.0x with critical damage skill nodes and certain armor set bonuses. Critical chance is determined by a combination of your Dexterity stat, weapon inherent crit chance, and buff effects. The formula for critical chance is approximately: <code>Crit Chance = Weapon Base Crit + (Dexterity × 0.3) + Buff Bonuses</code>. For most endgame builds, you want 25-35% crit chance — enough to proc regularly without sacrificing too much from other stats.</p>
 
-            <h3>Enemy Defense Penetration</h3>
+            <h3>⑤ Enemy Defense Penetration</h3>
             <p>The <code>100 / (100 + Enemy Defense)</code> portion of the formula is the defense penetration calculation. This is why high-defense enemies (like late-game bosses and PvP opponents in heavy armor) feel like damage sponges. Each point of enemy defense reduces your damage by approximately 1% in a diminishing return curve. The solution is armor penetration stats, which are available on certain weapons (look for the "Ignores X% of enemy defense" modifier) and through specific skill tree nodes. If you are struggling against a high-defense boss, check if your weapon has armor penetration — it matters more than raw damage.</p>
 
-            <h3>Random Variance</h3>
+            <h3>⑥ Random Variance</h3>
             <p>The game applies a random multiplier between 0.95 and 1.05 to every hit. This means the same attack can deal slightly different damage each time. This variance prevents damage output from feeling completely static and adds a small element of RNG to combat. It is not something you can optimize for — just be aware that damage numbers will fluctuate slightly even when everything else is identical.</p>
 
             <table class="stat-table">
@@ -261,10 +281,10 @@
             </div>
 
             <!-- Section 3 -->
-            <h2 id="section3">3. Stat Allocation Guide for Every Build</h2>
+            <h2 id="section3">🏆 3. Stat Allocation Guide for Every Build</h2>
             <p>Stat allocation in Crimson Desert uses a flexible point-buy system. Every time you level up, you receive stat points that can be distributed into six primary attributes: Strength, Dexterity, Vitality, Spirit, Endurance, and Willpower. There is no "wrong" way to allocate stats, but there are certainly optimal ways for each build. This section provides recommended stat allocation templates for each tier-list build, along with explanations of why each stat matters.</p>
 
-            <h3>Understanding the Six Attributes</h3>
+            <h3>⑦ Understanding the Six Attributes</h3>
             <p>Before diving into build-specific allocations, here is what each attribute does in practice:</p>
             <ul>
                 <li><strong>Strength:</strong> Increases physical attack damage, carry capacity, and stamina pool. Primary stat for all melee builds.</li>
@@ -275,7 +295,7 @@
                 <li><strong>Willpower:</strong> Increases resistances to crowd control, reduces Spirit casting time, and increases buff duration. Niche but valuable for PvP and mage builds.</li>
             </ul>
 
-            <h3>S-Tier: Berserker Greatsword Build — Stat Allocation</h3>
+            <h3>⑧ S-Tier: Berserker Greatsword Build — Stat Allocation</h3>
             <p>This build prioritizes raw damage while maintaining enough survivability to survive mistakes. The exact numbers assume you are allocating 150 total stat points (approximately level 80 with side quest bonuses).</p>
             <table class="stat-table">
                 <tr><th>Attribute</th><th>Recommended Value</th><th>Reason</th></tr>
@@ -288,7 +308,7 @@
             </table>
             <p><strong>Alternative allocation for PvP:</strong> Drop Strength to 55, move 10 points to Vitality. In PvP, survivability matters more than maximum burst because opponents can heal between engagements.</p>
 
-            <h3>S-Tier: Spirit Archer Build — Stat Allocation</h3>
+            <h3>⑨ S-Tier: Spirit Archer Build — Stat Allocation</h3>
             <table class="stat-table">
                 <tr><th>Attribute</th><th>Recommended Value</th><th>Reason</th></tr>
                 <tr><td>Dexterity</td><td>50</td><td>Primary damage stat for bows, also boosts crit chance</td></tr>
@@ -299,7 +319,7 @@
                 <tr><td>Willpower</td><td>0</td><td>Not needed for PvE archer play</td></tr>
             </table>
 
-            <h3>A-Tier: Sword & Board Tank — Stat Allocation</h3>
+            <h3>⑩ A-Tier: Sword & Board Tank — Stat Allocation</h3>
             <table class="stat-table">
                 <tr><th>Attribute</th><th>Recommended Value</th><th>Reason</th></tr>
                 <tr><td>Vitality</td><td>50</td><td>You are the tank — max health is your priority</td></tr>
@@ -310,7 +330,7 @@
                 <tr><td>Spirit</td><td>0</td><td>No Spirit investment needed</td></tr>
             </table>
 
-            <h3>A-Tier: Dual-Wield Bleed Build — Stat Allocation</h3>
+            <h3>⑪ A-Tier: Dual-Wield Bleed Build — Stat Allocation</h3>
             <table class="stat-table">
                 <tr><th>Attribute</th><th>Recommended Value</th><th>Reason</th></tr>
                 <tr><td>Dexterity</td><td>55</td><td>Bleed stacks scale with Dexterity; also boost crit for bleed procs</td></tr>
@@ -326,10 +346,10 @@
             </div>
 
             <!-- Section 4 -->
-            <h2 id="section4">4. Weapon Synergy & Armor Set Bonuses</h2>
+            <h2 id="section4">🗡️ 4. Weapon Synergy & Armor Set Bonuses</h2>
             <p>Gear in Crimson Desert is not just about equipping the highest-damage weapon and the highest-defense armor. The game features a deep synergy system where specific weapon and armor combinations unlock hidden bonuses, passive effects, and even unique skills. Understanding these synergies is what separates a good build from a great one. This section catalogs the most powerful synergies available in the 2026 meta.</p>
 
-            <h3>Weapon Synergy: What "Synergy" Means</h3>
+            <h3>⑫ Weapon Synergy: What "Synergy" Means</h3>
             <p>Weapon synergy in Crimson Desert refers to bonus effects that activate when specific conditions are met. These conditions fall into three categories: (1) equipping a matched set (weapon + off-hand or secondary weapon), (2) having specific skill tree nodes unlocked, and (3) wearing armor that complements the weapon's damage type. The game does not always tell you about these synergies explicitly — you discover them through experimentation or community resources like this guide.</p>
 
             <div class="synergy-card">
@@ -352,7 +372,7 @@
                 <p><strong>Bonus:</strong> Bleed stacks applied 15% faster, +10% movement speed while dual-wielding. The Shadow Step armor set is designed specifically for dual-wielders. The movement speed bonus may sound small, but in practice it allows you to stay in melee range of fast bosses much more easily. Combined with the bleed damage ignoring armor, this synergy makes the Dual-Wield Bleed build surprisingly effective against late-game content.</p>
             </div>
 
-            <h3>Armor Set Bonuses: Full Sets vs. Mixing Pieces</h3>
+            <h3>⑬ Armor Set Bonuses: Full Sets vs. Mixing Pieces</h3>
             <p>Most armor sets in Crimson Desert provide a bonus when 3 or 4 pieces are equipped. However, you can also mix pieces from different sets to create "hybrid" bonuses — equipping 2 pieces of one set and 2 pieces of another gives you a reduced version of both set bonuses. The community refers to this as "mixing," and it is a legitimate optimization strategy for endgame builds that need specific stat combinations.</p>
 
             <table class="stat-table">
@@ -371,10 +391,10 @@
             </div>
 
             <!-- Section 5 -->
-            <h2 id="section5">5. PvE vs PvP Build Differences & Respec Strategy</h2>
+            <h2 id="section5">⚔️ 5. PvE vs PvP Build Differences & Respec Strategy</h2>
             <p>A common mistake among Crimson Desert players is assuming that a build optimized for PvE (fighting AI enemies and bosses) will also be optimal for PvP (fighting other players). The two modes have fundamentally different demands. PvE rewards sustained DPS, AOE damage, and survivability against predictable enemy patterns. PvP rewards burst damage, crowd control resistance, and adaptability against unpredictable opponents. This section explains how to adjust your build for each mode and how to respec efficiently when switching between them.</p>
 
-            <h3>PvE Build Priorities</h3>
+            <h3>⑭ PvE Build Priorities</h3>
             <p>In PvE, your primary goal is to kill enemies efficiently while managing your resources (health, stamina, Spirit). Enemy AI follows predictable patterns, which means you can optimize for sustained damage over time. Key PvE priorities include:</p>
             <ul>
                 <li><strong>Sustained DPS:</strong> Abilities that deal damage over time (bleed, burn, Spirit dots) are more valuable than one-shot bursts because bosses have enormous health pools.</li>
@@ -383,7 +403,7 @@
                 <li><strong>Armor Penetration:</strong> Late-game bosses have high defense stats. Weapon enchantments and skill nodes that ignore defense are far more valuable in PvE than in PvP.</li>
             </ul>
 
-            <h3>PvP Build Priorities</h3>
+            <h3>⑮ PvP Build Priorities</h3>
             <p>In PvP, fights are shorter, faster, and less predictable. You are fighting other humans who will dodge your attacks, punish your recovery frames, and adapt to your strategy in real time. Key PvP priorities include:</p>
             <ul>
                 <li><strong>Burst Damage:</strong> You want to delete an opponent's health bar before they can react. One-shot potential matters more than sustained DPS.</li>
@@ -392,7 +412,7 @@
                 <li><strong>Unpredictability:</strong> In PvE, enemies fall for the same combos every time. In PvP, opponents learn your patterns. Mixing up your playstyle and having a "backup" weapon for different ranges is crucial.</li>
             </ul>
 
-            <h3>Respec Cost and Strategy</h3>
+            <h3>⑯ Respec Cost and Strategy</h3>
             <p>Crimson Desert allows you to respec your character at any time by visiting the Mirror of Refinement in Uzkigrad (unlocked after completing the "Secrets of the Abyss" side quest, approximately hour 10 of gameplay). The cost scales with your level and the number of times you have respecced.</p>
 
             <table class="stat-table">
@@ -460,19 +480,7 @@
             </div>
 
             <!-- Support Card -->
-            <div class="support-card" style="margin:32px 0 0 0">
-                <div class="support-inner">
-                    <span class="support-icon">🌿</span>
-                    <div class="support-text">
-                        <h3>Buy me a coffee — Keep Our Guides Free & Updated</h3>
-                        <p>Your support helps keep these guides free, accurate, and up to date for everyone in the gaming community. No pressure, ever — pick the amount that feels good to you.</p>
-                        <div class="support-amounts">
-                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson Desert Guru Support - $3&amp;amount=3&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$3</a>
-                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson Desert Guru Support - $5&amp;amount=5&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn recommended">$5 ★</a>
-                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson Desert Guru Support - $10&amp;amount=10&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$10</a>
-                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson Desert+Guru+Custom+Amount&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-custom">Custom ✏️</a>
-                        </div>
-                    </div>
+            
                 </div>
             </div>
         </div>

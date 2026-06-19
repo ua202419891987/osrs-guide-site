@@ -28,7 +28,11 @@
         .route-box{background:#faf8fc;border:2px solid #7a64b8;border-radius:10px;padding:1.5rem;margin:1.5rem 0;position:relative}.route-box h4{color:#7a64b8;margin:0 0 .8rem 0;font-size:1.5rem}.route-box .route-meta{display:flex;gap:1.5rem;flex-wrap:wrap;margin:.8rem 0}.route-box .route-meta span{background:#7a64b8;color:#2d2a33;padding:.3rem .8rem;border-radius:20px;font-size:.9rem}
         .compare-table{width:100%;border-collapse:collapse;margin:1.5rem 0}.compare-table th{background:#7a64b8;color:#2d2a33;padding:.8rem 1rem;text-align:left}.compare-table td{padding:.8rem 1rem;border-bottom:1px solid #e0d8f0}.compare-table tr:nth-child(even){background:#faf8fc}
         .loot-tier{display:inline-block;padding:.2rem .6rem;border-radius:12px;font-size:.85rem;font-weight:700;margin-right:.5rem}.tier-common{background:#e8f5e9;color:#2e7d32}.tier-uncommon{background:#e3f2fd;color:#1565c0}.tier-rare{background:#f3e5f5;color:#7b1fa2}.tier-legendary{background:#fff3e0;color:#e65100}
-    </style>
+    
+        /* FORCE: Light theme background for content area */
+        .guide-content{background:#F5F2F8 !important}
+        body{background:#F5F2F8 !important}
+</style>
 </head>
 <body>
     <header>
@@ -75,16 +79,20 @@
                 <li><a href="#faq">FAQ</a></li>
             </ol></div>
 
+            <div class="inline-support-hint" style="text-align:center;margin:40px 0 12px 0"><p>If this guide helped you, consider supporting the author below — it keeps this site free and updated for everyone. ❤️</p></div>
+            <div class="support-card" style="margin:32px 0 0 0"><div class="support-inner"><span class="support-icon">🌿</span><div class="support-text"><h3>Buy me a coffee — Keep Our Guides Free & Updated</h3><p>Your support helps keep these guides free, accurate, and up to date for everyone in the gaming community. No pressure, ever — pick the amount that feels good to you.</p><div class="support-amounts"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Windrose Guru Support - $3&amp;amount=3&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$3</a><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Windrose Guru Support - $5&amp;amount=5&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn recommended">$5 ★</a><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Windrose Guru Support - $10&amp;amount=10&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$10</a><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Windrose+Guru+Custom+Amount&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-custom">Custom ✏️</a></div></div>
+        
+
             <h2 id="section1">1. Resource Farming — The Core Loop of Windrose</h2>
             <p>Everything you build, craft, sail, and fight with in Windrose comes from resources you gather. There is no "buy gear from NPC" shortcut — every sword, every ship plank, every cannonball is crafted from materials you farmed. Understanding resource farming is not just "helpful" — it is the single most important skill in the game. A player who knows exactly where to find obsidian, how to farm it efficiently, and when to sell the surplus will progress 3x faster than a player who aimlessly gathers whatever they stumble across.</p>
             <p>This guide covers the COMPLETE resource farming system: every resource type, exactly where it spawns, the best farming routes to maximize yield per hour, rare resource spawn mechanics (including the hidden conditions most players never discover), tool upgrade paths that cut farming time in half, inventory management strategies that prevent "inventory full" frustration, and the eternal question of whether to sell your farmed materials or craft with them. Whether you are a new player struggling to find iron ore, or an endgame player optimizing your obsidian farming route, this guide has you covered.</p>
 
             <div class="tip-box"><strong>Farming Mindset:</strong> The most efficient farmers in Windrose do not "farm until they have enough." They farm with a PURPOSE — a specific ship upgrade, a specific weapon, a specific base expansion. Always know what you are farming FOR before you start. Wandering around gathering "a bit of everything" is the biggest time-waster in the game.</div>
 
-            <h2 id="section2">2. All Resource Types & Where to Find Them</h2>
+            <h2 id="section2">💰 2. All Resource Types & Where to Find Them</h2>
             <p>Windrose has 30+ distinct resource types across 6 categories. Each biome specializes in certain resources. If you are looking for a specific material, go to the correct biome — do not waste time mining stone on a Tropical Island when you could be on a Rocky Outcrop getting 3x the yield.</p>
 
-            <h3>Wood & Plant Resources (Tropical & Jungle Biomes)</h3>
+            <h3>① Wood & Plant Resources (Tropical & Jungle Biomes)</h3>
             <table class="compare-table">
                 <tr><th>Resource</th><th>Source</th><th>Biome</th><th>Yield per Node</th><th>Notes</th></tr>
                 <tr><td>Wood Log</td><td>Chop trees</td><td>Tropical, Jungle</td><td>5-10 per tree</td><td>Basic building material. Use Iron Axe for 2x yield.</td></tr>
@@ -94,7 +102,7 @@
                 <tr><td>Coconut</td><td>Shake or chop coconut trees</td><td>Tropical Islands</td><td>1-3 per tree</td><td>Restores 30% hunger + 20% thirst. Rare drop: Coconut Husk (crafts tropical armor).</td></tr>
             </table>
 
-            <h3>Stone & Ore Resources (Rocky Outcrops & Volcanic Biomes)</h3>
+            <h3>② Stone & Ore Resources (Rocky Outcrops & Volcanic Biomes)</h3>
             <table class="compare-table">
                 <tr><th>Resource</th><th>Source</th><th>Biome</th><th>Yield per Node</th><th>Notes</th></tr>
                 <tr><td>Stone</td><td>Mine stone nodes</td><td>Rocky Outcrops, Mountains</td><td>10-20 per node</td><td>Basic building. Upgrade to Stone Pickaxe before mining anything else.</td></tr>
@@ -105,7 +113,7 @@
                 <tr><td>Obsidian</td><td>Mine obsidian nodes (black glass-like)</td><td>Volcanic Islands ONLY</td><td>1-2 per node</td><td>Endgame material. Crafts Obsidian Armor (highest defense in game). <span class="loot-tier tier-rare">RARE</span></td></tr>
             </table>
 
-            <h3>Food & Organic Resources (All Biomes)</h3>
+            <h3>③ Food & Organic Resources (All Biomes)</h3>
             <table class="compare-table">
                 <tr><th>Resource</th><th>Source</th><th>Biome</th><th>Yield</th><th>Notes</th></tr>
                 <tr><td>Raw Meat</td><td>Hunt boars, deer, crocodiles</td><td>All biomes</td><td>1-3 per animal</td><td>Cook before eating. Cooked meat = 2x hunger restore.</td></tr>
@@ -115,7 +123,7 @@
                 <tr><td>Honey</td><td>Harvest beehives (bring smoke!)</td><td>Jungle canopy</td><td>1-2 honeycomb per hive</td><td>Crafts health potions. Bees will attack if you harvest without a Torch (smoke calms them).</td></tr>
             </table>
 
-            <h3>Rare & Exclusive Resources</h3>
+            <h3>④ Rare & Exclusive Resources</h3>
             <table class="compare-table">
                 <tr><th>Resource</th><th>Source</th><th>Spawn Condition</th><th>Rarity</th><th>Best Use</th></tr>
                 <tr><td>Ghost Essence</td><td>Defeat Ghost Ships, Haunted Islands</td><td>Nighttime only (8 PM - 5 AM in-game)</td><td><span class="loot-tier tier-uncommon">Uncommon</span></td><td>Crafts ethereal weapons (ignore 20% enemy defense).</td></tr>
@@ -125,7 +133,7 @@
                 <tr><td>Phantom Silk</td><td>Harvest Phantom Spiders (Swamp caves)</td><td>Only spawns during rain (swamp biome)</td><td><span class="loot-tier tier-rare">Rare</span></td><td>Crafts stealth armor (enemy detection range -50%). PvP essential.</td></tr>
             </table>
 
-            <h2 id="section3">3. Best Farming Routes by Biome (With Maps)</h2>
+            <h2 id="section3">💰 3. Best Farming Routes by Biome (With Maps)</h2>
             <p>A "farming route" is a pre-planned path that maximizes resource yield per minute by minimizing backtracking and empty sailing. The best routes form a loop — you start at point A, follow the route, and end up back at point A with a full inventory. Here are the optimized farming routes for each biome, tested by experienced players to yield the highest resources per hour.</p>
 
             <div class="route-box">
@@ -180,7 +188,7 @@
                 <p><strong>Expected Hourly Yield:</strong> 30-50 Herbs, 20-30 Mushrooms, 5-10 Crocodile Leather, 0-3 Phantom Silk (rain dependent).</p>
             </div>
 
-            <h2 id="section4">4. Rare Resource Spawn Conditions & Respawn Timers</h2>
+            <h2 id="section4">💰 4. Rare Resource Spawn Conditions & Respawn Timers</h2>
             <p>Rare resources in Windrose do not simply "spawn randomly." Each rare resource has specific spawn conditions — time of day, weather, player actions, or world state. Most players never discover these conditions because they assume rares are pure RNG. They are not. If you meet the conditions, rares spawn reliably. Here is the complete list of rare resource spawn mechanics.</p>
 
             <div class="action-step"><div class="step-num">1</div><h4>Obsidian — Volcanic Island, Summit Chamber, 60-Minute Timer</h4><p>Obsidian nodes spawn in the summit chamber of Volcanic Islands. They have a 60-minute respawn timer (real time, not in-game time). However, there is a hidden condition: you must have mined at least 10 stone nodes on the same island during your current session. This "mining progress" flag triggers obsidian node regeneration. If you mine 3 obsidian nodes and leave, the nodes will NOT respawn until you mine 10 stone nodes elsewhere on the island. This is why most players think obsidian "does not respawn" — they are not meeting the hidden condition.</p></div>
@@ -195,10 +203,10 @@
 
             <div class="warn-box"><strong>Rare Resource Warning:</strong> Rare resources are called "rare" for a reason — they are meant to be farmed over multiple play sessions, not obtained in one afternoon. If you find yourself spending 4+ hours grinding for a single rare resource, take a break. Windrose is designed for long-term play. The "grind" is part of the game's identity, not a bug.</div>
 
-            <h2 id="section5">5. Tool Upgrades for Faster Farming</h2>
+            <h2 id="section5">💰 5. Tool Upgrades for Faster Farming</h2>
             <p>Your tool tier directly determines your farming speed and yield. Using a Stone Axe to chop endgame trees is not just slow — it gives you 50% less yield than using an Iron Axe. Always upgrade your tools before attempting a new farming route. Here is the complete tool upgrade path for farming tools, with exact material costs and efficiency gains.</p>
 
-            <h3>Axes (Wood Chopping)</h3>
+            <h3>⑤ Axes (Wood Chopping)</h3>
             <table class="compare-table">
                 <tr><th>Tool Tier</th><th>Materials to Craft</th><th>Chop Speed</th><th>Yield Bonus</th><th>Durability</th><th>When to Upgrade</th></tr>
                 <tr><td>Stone Axe</td><td>2 Wood + 3 Stone</td><td>1x (baseline)</td><td>0%</td><td>50 hits</td><td>Starting tool. Replace ASAP.</td></tr>
@@ -208,7 +216,7 @@
                 <tr><td>Obsidian Axe</td><td>5 Obsidian + 3 Steel Ingot + 2 Leather</td><td>3x</td><td>+100%</td><td>300 hits</td><td>Endgame. Doubles your wood yield. Craft only after you have spare obsidian.</td></tr>
             </table>
 
-            <h3>Pickaxes (Mining)</h3>
+            <h3>⑥ Pickaxes (Mining)</h3>
             <table class="compare-table">
                 <tr><th>Tool Tier</th><th>Materials to Craft</th><th>Mine Speed</th><th>Yield Bonus</th><th>Durability</th><th>When to Upgrade</th></tr>
                 <tr><td>Stone Pickaxe</td><td>2 Wood + 3 Stone</td><td>1x</td><td>0%</td><td>50 hits</td><td>Starting tool. Cannot mine iron ore.</td></tr>
@@ -219,7 +227,7 @@
 
             <div class="tip-box"><strong>Tool Durability Tip:</strong> Always carry a spare tool of each type. When your main tool breaks mid-farming, you lose momentum swapping to a new one. Carry 2 of each tool (main + backup). Store spare tools in your ship's storage chest so you can resupply during long farming sessions without returning to base.</div>
 
-            <h2 id="section6">6. Storage & Inventory Management While Farming</h2>
+            <h2 id="section6">💰 6. Storage & Inventory Management While Farming</h2>
             <p>Nothing kills farming efficiency faster than a full inventory. Every time you have to sail back to base to deposit materials, you lose 5-10 minutes of farming time. Here is how to maximize your time between base runs.</p>
 
             <div class="action-step"><div class="step-num">1</div><h4>Upgrade Your Inventory Capacity (Skills & Armor)</h4><p>Your base inventory is 20 slots. You can increase this by: (1) Investing skill points in the "Inventory Management" skill (each point = +4 slots, max +20 slots at 5 points). (2) Wearing the "Quartermaster's Vest" (crafted from 10 leather + 5 iron ingots, gives +8 slots). (3) Using a Backpack item (craft: 6 leather + 3 cloth, gives +10 slots, takes a weapon slot). With all three, you can reach 62 inventory slots — enough for a full 40-minute Volcanic farming run without returning to base.</p></div>
@@ -262,10 +270,10 @@
 
             <div class="tip-box"><strong>Hybrid Approach (Recommended):</strong> Speed-farm during the day (enemies are fewer, visibility is good, you can push for max efficiency). Switch to safe farming at night (enemies spawn more frequently, visibility is poor, and death is more likely). This gives you 80% of the speed-farming yield with 50% of the risk.</div>
 
-            <h2 id="section8">8. Day vs Night Farming Differences</h2>
+            <h2 id="section8">💰 8. Day vs Night Farming Differences</h2>
             <p>Windrose has a dynamic day-night cycle (24 in-game minutes = 1 real-time minute). Farming during the day and farming at night are fundamentally different experiences with different resource availability, enemy density, and visibility conditions. Here is the complete comparison.</p>
 
-            <h3>Daytime Farming (6 AM - 6 PM In-Game)</h3>
+            <h3>⑦ Daytime Farming (6 AM - 6 PM In-Game)</h3>
             <ul>
                 <li><strong>Visibility:</strong> Excellent. You can see resource nodes from 50+ meters. No need for Torches.</li>
                 <li><strong>Enemy Spawns:</strong> Reduced. Hostile spawns are 50% less frequent during the day. Exceptions: Crocodiles (always spawn) and Skeleton Pirates (always spawn in caves regardless of time).</li>
@@ -274,7 +282,7 @@
                 <li><strong>Best Activity:</strong> Wood/fiber farming, ore mining, base building, exploration.</li>
             </ul>
 
-            <h3>Nighttime Farming (6 PM - 6 AM In-Game)</h3>
+            <h3>⑧ Nighttime Farming (6 PM - 6 AM In-Game)</h3>
             <ul>
                 <li><strong>Visibility:</strong> Poor. Without a Torch or glowing armor, you can only see 10-15 meters. Resource nodes are hard to spot.</li>
                 <li><strong>Enemy Spawns:</strong> Increased. Hostile spawns are 2x more frequent at night. Ghost Ships spawn in open ocean. Werewolves (special night-only enemy) spawn on all islands.</li>
@@ -308,7 +316,7 @@
                 </ul>
             </div>
 
-            <h3>Specific Resource Decision Cheat Sheet</h3>
+            <h3>⑨ Specific Resource Decision Cheat Sheet</h3>
             <table class="compare-table">
                 <tr><th>Resource</th><th>Sell or Craft?</th><th>Reason</th></tr>
                 <tr><td>Wood Log (Surplus >100)</td><td><strong>SELL</strong></td><td>Abundant. Sells for 1 gold each. Use gold to buy ship blueprints.</td></tr>
@@ -328,8 +336,7 @@
             <div class="faq-item"><h4>Q: Is there a limit to how much I can farm in one play session?</h4><p>No hard limit, but there are soft limits. Resource nodes have respawn timers (5-60 minutes). Once you have farmed all nodes on an island, you must wait for respawns or sail to a new island. Also, after 3-4 hours of continuous farming, the game's "difficulty creep" mechanic increases enemy spawn rates in explored areas — farming becomes more dangerous the longer you stay in one region. Most players farm for 1.5-2 hours, then do something else (base building, boss fighting, exploration) before returning to farming.</p></div>
             <div class="faq-item"><h4>Q: Can I automate farming (farms, planters, etc.)?</h4><p>Partially. You can build Planter Boxes at your base (unlocked after researching "Basic Agriculture" at the Research Table). Planter Boxes grow herbs, berries, and fiber automatically over time (no watering needed). However, you cannot automate mining or chopping trees — those require manual labor. Planter Boxes are best for passive herb/fiber generation while you are off farming other resources or doing boss runs. Build 6-8 Planter Boxes per base for a steady passive income of herbs and fiber.</p></div>
 
-            <div class="inline-support-hint" style="text-align:center;margin:40px 0 12px 0"><p>Your support helps keep these guides free, accurate, and up to date for everyone in the gaming community. No pressure, ever — pick the amount that feels good to you.</p></div>
-            <div class="support-card" style="margin:32px 0 0 0"><div class="support-inner"><span class="support-icon">🌿</span><div class="support-text"><h3>Buy me a coffee — Keep Our Guides Free & Updated</h3><p>Your support helps keep these guides free, accurate, and up to date for everyone in the gaming community. No pressure, ever — pick the amount that feels good to you.</p><div class="support-amounts"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Windrose Guru Support - $3&amp;amount=3&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$3</a><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Windrose Guru Support - $5&amp;amount=5&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn recommended">$5 ★</a><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Windrose Guru Support - $10&amp;amount=10&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$10</a><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Windrose+Guru+Custom+Amount&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-custom">Custom ✏️</a></div></div></div></div>
+            .paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Windrose+Guru+Custom+Amount&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-custom">Custom ✏️</a></div></div></div></div>
         </div>
     </main>
 
