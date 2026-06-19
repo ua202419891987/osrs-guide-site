@@ -1,4 +1,5 @@
 // Search Results Panel — show ALL matching articles instead of single redirect
+// Hot keywords → direct redirect to hub/summary pages (skip article matching)
 (function() {
   var panel = document.getElementById('searchResultsPanel');
   var grid = document.getElementById('searchResultsGrid');
@@ -7,13 +8,77 @@
 
   if (!panel || !grid) return;
 
+  // ── Hot Keyword → Hub Page Redirect Map ──────────────────────────
+  // When user searches these keywords, jump directly to the column summary page
+  var HUB_REDIRECTS = [
+    { page: 'skill-training.html',
+      keywords: ['skill','skills','skill training','training hub','1-99','99 skill',
+                 'leveling','level up','crafting guide','prayer guide','hitpoints',
+                 'cooking guide','thieving guide','runecrafting','smithing guide',
+                 'herblore guide','magic training','mining guide','woodcutting',
+                 'fishing afk','hunter guide','agility training','fletching',
+                 'construction','farming guide','slayer guide'] },
+    { page: 'money-making.html',
+      keywords: ['money making','money-making','make money','earn money','gp per hour',
+                 'gp/hour','gold farming','profit','afk money','get rich','wealth',
+                 'flipping','merching','moneymaking'] },
+    { page: 'boss-guides.html',
+      keywords: ['boss','bosses','boss guide','pvm','raids','cox','tob','chambers of xeric',
+                 'theatre of blood','god wars','gwd','nex','zulrah','barrows',
+                 'cerberus','araxxor','corporeal beast','kalphite queen','king black dragon',
+                 'kbd','dagannoth kings','dks','giant mole','skotizo','venenatis',
+                 'vetion','callisto','chaos elemental','saradomin','zamorak','bandos',
+                 'armadyl'] },
+    { page: 'quest-guides.html',
+      keywords: ['quest','quests','quest guide','quest walkthrough','dragon slayer',
+                 'recipe for disaster','monkey madness','desert treasure','song of the elves',
+                 'sins of the father','dream mentor','regicide','underground pass',
+                 'horror from the deep','bone Voyage','the great brain robbery',
+                 'between a rock','olaf\'s quest','fairy tale'] },
+    { page: 'mid-to-high.html',
+      keywords: ['mid game','mid-game','breakthrough','mid to high','progression',
+                 'high level','endgame prep','pvm progression','late game','gear upgrade',
+                 'midgame'] },
+    { page: 'weekly-updates.html',
+      keywords: ['weekly update','weekly updates','this week','osrs news',
+                 'patch notes','jagex update','game update','new update'] },
+    { page: 'monthly-updates.html',
+      keywords: ['monthly update','monthly updates','month in review','month recap',
+                 'monthly roundup'] }
+  ];
+
+  function checkHubRedirect(q) {
+    var ql = q.toLowerCase().trim();
+    for (var i = 0; i < HUB_REDIRECTS.length; i++) {
+      var hub = HUB_REDIRECTS[i];
+      for (var k = 0; k < hub.keywords.length; k++) {
+        var kw = hub.keywords[k];
+        // Exact match or contains-as-whole-word match
+        if (ql === kw || (' ' + ql + ' ').indexOf(' ' + kw + ' ') !== -1 ||
+            ql.indexOf(kw) !== -1) {
+          window.location.href = hub.page;
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
   window.OSRSSearch = {
     /**
-     * Perform search — finds ALL matching articles and displays results panel
+     * Perform search — checks hot keyword redirects first,
+     * then falls back to article fuzzy matching
      * @param {string} rawQuery - original user input
      */
     run: function(rawQuery) {
       if (!rawQuery || !rawQuery.trim()) return;
+
+      // ── STEP 1: Check hot keyword → direct hub redirect ──
+      if (checkHubRedirect(rawQuery)) {
+        return; // Redirected, done!
+      }
+
+      // ── STEP 2: No hot keyword match → fuzzy match articles ──
       var q = rawQuery.toLowerCase().trim();
       var qw = q.split(/\s+/);
       var matches = [];
