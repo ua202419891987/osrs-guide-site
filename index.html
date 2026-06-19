@@ -178,8 +178,12 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
     <div style="color:#3b2615;font-size:34px;font-weight:900;text-align:left;">🔥⚡🔥 Pain Points Solved This Week 🔥⚡🔥</div>
     <div style="color:#666;font-size:17px;margin-top:8px;text-align:left;">From real player discussions — the guides you actually need right now</div>
   </div>
-  <div class="article-grid" style="margin-bottom:0;">
-    <div class="article-card" style="border-color:#d4af37;box-shadow:0 0 20px rgba(212,175,55,0.15);padding:20px;">
+  <div class="article-grid" style="margin-bottom:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;align-items:stretch;margin-top:20px;">
+    <div class="article-card" style="border-color:#d4af37;box-shadow:0 0 20px rgba(212,175,55,0.15);padding:20px;display:flex;flex-direction:column;height:100%;">
+      <span class="tag tag-skill">🔰 Skill Training</span>
+      <h3>🎯 Skill Training 2026 — 6 New Deep Dive Guides</h3>
+      <p>From Beginner to Max Account. Complete skill training roadmap across all 23 skills.</p>
+      <ul style="font-size:1.2rem;color:#000;text-align:left;padding-left:0;line-height:2.0;list-style:none;margin:12px 0 0 0;flex-grow:1;">
       <span class="tag tag-skill">🔰 Skill Training</span>
       <h3>🎯 Skill Training 2026 — 6 New Deep Dive Guides</h3>
       <p>From Beginner to Max Account. Complete skill training roadmap across all 23 skills.</p>
@@ -192,11 +196,11 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
         <li><a href="guides/osrs-skill-training-max-account-2026.html" style="color:#000;">🔴 Max Account Ultimate 2026</a></li>
       </ul>
     </div>
-    <div class="article-card" style="border-color:#d4af37;box-shadow:0 0 20px rgba(212,175,55,0.15);padding:20px;">
+    <div class="article-card" style="border-color:#d4af37;box-shadow:0 0 20px rgba(212,175,55,0.15);padding:20px;display:flex;flex-direction:column;height:100%;">
       <span class="tag tag-money">⚔️ Combat & Money</span>
       <h3>💰 Slayer, Boss & Money Making — 8 New Guides</h3>
       <p>Beginner-friendly money makers, Slayer progression, and first boss strategies.</p>
-      <ul style="font-size:1.2rem;color:#000;text-align:left;padding-left:0;line-height:2.0;list-style:none;margin:12px 0 0 0;">
+      <ul style="font-size:1.2rem;color:#000;text-align:left;padding-left:0;line-height:2.0;list-style:none;margin:12px 0 0 0;flex-grow:1;">
         <li><a href="guides/osrs-money-making-summer-sweep-up-2026.html" style="color:#000;">💰 Money Making Summer Sweep-Up 2026</a></li>
         <li><a href="guides/osrs-money-making-under-1m-investment-2026.html" style="color:#000;">💰 Under 1M Investment Money Making</a></li>
         <li><a href="guides/osrs-slayer-beginner-first-master-guide-2026.html" style="color:#000;">🗡 Slayer Beginner First Master</a></li>
@@ -207,11 +211,11 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
         <li><a href="guides/osrs-obor-bryophyta-f2p-boss-guide-2026.html" style="color:#000;">👹 Obor & Bryophyta F2P Boss Guide</a></li>
       </ul>
     </div>
-    <div class="article-card" style="border-color:#d4af37;box-shadow:0 0 20px rgba(212,175,55,0.15);padding:20px;">
+    <div class="article-card" style="border-color:#d4af37;box-shadow:0 0 20px rgba(212,175,55,0.15);padding:20px;display:flex;flex-direction:column;height:100%;">
       <span class="tag tag-quest">🗺 Returning & Progression</span>
       <h3>📋 Returning Player, Diary & Quest — 8 New Guides</h3>
       <p>Catch up from a break, complete achievement diaries, and master key quests.</p>
-      <ul style="font-size:1.2rem;color:#000;text-align:left;padding-left:0;line-height:2.0;list-style:none;margin:12px 0 0 0;">
+      <ul style="font-size:1.2rem;color:#000;text-align:left;padding-left:0;line-height:2.0;list-style:none;margin:12px 0 0 0;flex-grow:1;">
         <li><a href="guides/osrs-returning-player-catch-up-guide-2026.html" style="color:#000;">🏠 Returning Player Catch-Up 2026</a></li>
         <li><a href="guides/osrs-returning-player-fast-track-2026.html" style="color:#000;">🏠 Returning Player Fast Track 2026</a></li>
         <li><a href="guides/osrs-diary-priority-order-beginner-2026.html" style="color:#000;">📋 Diary Priority Order Beginner</a></li>
@@ -504,6 +508,23 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
       .sr-path { font-size:.75rem; color:#999; }
       .sr-more { grid-column:1/-1; text-align:center; padding:10px; color:#999; font-size:.82rem; }
       @media(max-width:600px){ #searchResultsGrid{ grid-template-columns:1fr !important; } }
+
+      /* ===== CARD ALIGNMENT FIX ===== */
+      /* 让所有卡片网格的卡片等高 */
+      .article-grid, .game-cat-grid, .hp-grid {
+        align-items: stretch !important;
+      }
+      .article-card, .game-cat-card, .hp-mini-card {
+        height: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+      }
+      /* 把每张卡片的最后一段文字/链接推到卡片底部 */
+      .article-card > *:last-child,
+      .game-cat-card > *:last-child,
+      .hp-mini-card > *:last-child {
+        margin-top: auto !important;
+      }
     </style>
     <div class="hp-grid">
       <!-- Card 1 -->
