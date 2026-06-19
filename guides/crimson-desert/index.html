@@ -21,16 +21,16 @@
 
 /* Subsite hero */
 .subsite-hero{
-  background:linear-gradient(135deg,#f8f6fc 0%,#e8e0f9 50%,#f0ecfb 100%);
+  background:linear-gradient(135deg,#1a0a0a 0%,#c0392b 50%,#2a1515 100%);
   padding:60px 24px 50px;
   text-align:center;
   border-bottom:3px solid #d4af37;
 }
 .subsite-hero .sub-icon{font-size:4rem;margin-bottom:12px;display:block}
-.subsite-hero h1{font-family:'Cinzel',serif;font-size:2.6rem;color:#5B4A9C;margin:0 0 8px;letter-spacing:.06em;text-shadow:0 1px 8px rgba(122,100,184,.15)}
-.subsite-hero .sub-tagline{font-size:1.15rem;color:#7A64B8;margin:0 0 16px;letter-spacing:.02em}
-.subsite-hero .sub-meta{display:inline-flex;gap:16px;justify-content:center;flex-wrap:wrap;font-size:.88rem;color:#7A64B8}
-.subsite-hero .sub-meta span{background:#f8f6fc;padding:4px 14px;border-radius:20px;border:1px solid #e0d8f0}
+.subsite-hero h1{font-family:'Cinzel',serif;font-size:2.6rem;color:#fff;margin:0 0 8px;letter-spacing:.06em;text-shadow:0 2px 20px rgba(0,0,0,.4)}
+.subsite-hero .sub-tagline{font-size:1.15rem;color:rgba(255,255,255,.82);margin:0 0 16px;letter-spacing:.02em}
+.subsite-hero .sub-meta{display:inline-flex;gap:16px;justify-content:center;flex-wrap:wrap;font-size:.88rem;color:rgba(255,255,255,.6)}
+.subsite-hero .sub-meta span{background:rgba(255,255,255,.1);padding:4px 14px;border-radius:20px;border:1px solid rgba(212,175,55,.3)}
 
 /* Guide grid */
 .sub-guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:40px 24px;max-width:1120px;margin:0 auto}
@@ -54,12 +54,12 @@
   font-size:.78rem;font-weight:700;letter-spacing:.04em;
   text-transform:uppercase;
 }
-.badge-start{background:#f5d0d0;color:#c0392b}
-.badge-combat{background:#e8c8c8;color:#922B21}
-.badge-gear{background:#dab8b8;color:#7B241C}
-.badge-quest{background:#cca8a8;color:#641E16}
-.badge-boss{background:#be9898;color:#512E1F}
-.badge-build{background:#b08888}
+.badge-start{background:#e74c3c;color:#fff}
+.badge-combat{background:#c0392b;color:#fff}
+.badge-gear{background:#922b21;color:#fff}
+.badge-quest{background:#7b241c;color:#fff}
+.badge-boss{background:#641e16;color:#fff}
+.badge-build{background:#512e1f;color:#fff}
 .sub-card-body{padding:18px 20px;flex:1;display:flex;flex-direction:column}
 .sub-card-body h3{font-family:'Cinzel',serif;font-size:1.15rem;color:#2d2a33;margin:0 0 8px;line-height:1.35}
 .sub-card-body p{color:#666;font-size:.9rem;line-height:1.6;margin:0 0 14px;flex:1}
@@ -73,9 +73,9 @@
 
 /* Support card */
 .sub-support{max-width:700px;margin:30px auto 50px;background:#2e7d32;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 4px 20px rgba(46,125,50,.2)}
-.sub-support-header{padding:18px 24px;text-align:center;border-bottom:1px solid #e0d8f0}
-.sub-support-header h3{color:#7A64B8;margin:0;font-family:'Cinzel',serif;font-size:1.25rem}
-.sub-support-header p{color:#666;font-size:.85rem;margin:6px 0 0}
+.sub-support-header{padding:18px 24px;text-align:center;border-bottom:1px solid rgba(255,255,255,.15)}
+.sub-support-header h3{color:#fff;margin:0;font-family:'Cinzel',serif;font-size:1.25rem}
+.sub-support-header p{color:rgba(255,255,255,.75);font-size:.85rem;margin:6px 0 0}
 .sub-support-body{padding:24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center}
 .support-btn-sub{
   background:#fff;color:#2e7d32;border:none;padding:11px 26px;
@@ -97,7 +97,7 @@
 /* NEW badge on cards */
 .badge-new{
   position:absolute;top:8px;right:8px;
-  background:#f5d0d0;color:#c0392b;font-size:.65rem;font-weight:800;
+  background:#e74c3c;color:#fff;font-size:.65rem;font-weight:800;
   padding:2px 8px;border-radius:8px;letter-spacing:.05em;text-transform:uppercase;
   z-index:2;
 }
@@ -156,7 +156,7 @@
     <span>🌍 Open-World Action RPG</span>
     <span>📅 June 2026</span>
     <span>📘 14 Expert Guides</span>
-    <span style="background:#f5d0d0;color:#c0392b;padding:4px 12px;border-radius:12px;font-size:.78rem;">🆕 +8 This Week</span>
+    <span style="background:#e74c3c;color:#fff;padding:4px 12px;border-radius:12px;font-size:.78rem;">🆕 +8 This Week</span>
   </div>
 </div>
 
@@ -391,9 +391,9 @@
 </div>
 
 <!-- ========== FOOTER ========== -->
-<footer style="background:#f8f6fc;padding:32px 24px;text-align:center;border-top:3px solid #e0d8f0">
-  <p style="color:#666;font-size:.88rem;margin:0 0 8px">&copy; 2026 Crimson Desert Guru — Fan site, not affiliated with Pearl Abyss Corporation.</p>
-  <p style="color:#999;font-size:.78rem;margin:0">Crimson Desert is a trademark of Pearl Abyss. All rights reserved.</p>
+<footer style="background:linear-gradient(135deg,#1a0a0a,#2a1515);padding:32px 24px;text-align:center;border-top:3px solid #c0392b">
+  <p style="color:rgba(255,255,255,.7);font-size:.88rem;margin:0 0 8px">&copy; 2026 Crimson Desert Guru — Fan site, not affiliated with Pearl Abyss Corporation.</p>
+  <p style="color:rgba(255,255,255,.45);font-size:.78rem;margin:0">Crimson Desert is a trademark of Pearl Abyss. All rights reserved.</p>
   <p style="margin-top:14px"><a href="../../index.html" style="color:#d4af37;font-size:.85rem;text-decoration:none">← Back to OSRS Guru</a></p>
 </footer>
 
