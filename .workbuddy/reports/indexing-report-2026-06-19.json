@@ -1,12 +1,12 @@
 {
-  "date": "2026-06-19 00:41:38",
-  "status": "CONNECTION_ERROR",
+  "date": "2026-06-19 09:33:56",
+  "status": "QUOTA_EXCEEDED",
   "total_sitemap": 213,
   "already_submitted_before": 101,
   "new_found": 112,
   "submitted_ok": 0,
   "failed": 112,
-  "quota_exceeded": false,
+  "quota_exceeded": true,
   "remaining_after": 112,
   "failed_urls": [
     "https://osrsguru.com/guides/osrs-achievement-diary-guide-2026.html",
@@ -122,5 +122,5 @@
     "https://osrsguru.com/guides/osrs-combat-money-making-non-boss-2026.html",
     "https://osrsguru.com/guides/osrs-how-to-spend-gp-wisely-2026.html"
   ],
-  "failure_reason": "CONNECTION_TIMEOUT"
+  "failure_reason": "QUOTA_EXCEEDED"
 }
