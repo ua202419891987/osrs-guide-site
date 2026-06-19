@@ -1249,6 +1249,32 @@ nav a.active{
   color:var(--lavender);
 }
 
+/* +N New This Week Badge */
+.new-week-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  background:linear-gradient(135deg,#e74c3c,#c0392b);
+  color:#fff;
+  font-family:'Inter',sans-serif;
+  font-size:.72rem;
+  font-weight:700;
+  padding:5px 14px;
+  border-radius:20px;
+  letter-spacing:.03em;
+  box-shadow:0 2px 8px rgba(231,76,60,.25);
+  text-decoration:none;
+  transition:all .25s ease;
+  border:none;
+  cursor:pointer;
+  white-space:nowrap
+}
+.new-week-badge:hover{
+  transform:translateY(-1px);
+  box-shadow:0 4px 14px rgba(231,76,60,.35);
+  background:linear-gradient(135deg,#d63031,#b71c1c)
+}
+
 /* Featured New Player Guide Card */
 
 .featured-guide-card{

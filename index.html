@@ -573,9 +573,10 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
 
   <!-- ========== BEGINNER SERIES ========== -->
   <div class="container">
-  <div class="section-header" style="background:#fff;padding:20px 24px;border-radius:var(--radius-lg);border:1px solid var(--border-bronze)">
-    <div class="section-title" id="stage-0">🗺️ Stage 0: 8-Week Beginner Roadmap — Start Here!</div>
-    <a href="#stage-0" class="see-all">📚 All 24+ Beginner Guides →</a>
+  <div class="section-header" style="background:#fff;padding:20px 24px;border-radius:var(--radius-lg);border:1px solid var(--border-bronze);display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+    <div class="section-title" id="stage-0" style="margin:0">🗺️ Stage 0: 8-Week Beginner Roadmap — Start Here!</div>
+    <span class="new-week-badge">📝 +19 New This Week</span>
+    <a href="#stage-0" class="see-all" style="margin-left:auto">📚 All 31 Beginner Guides →</a>
   </div>
 
   <!-- 8-WEEK LEARNING PATH GRID -->
@@ -590,12 +591,13 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
       <h3 class="week-card-title">🎮 First Steps</h3>
       <p class="week-card-desc">Master controls, navigation, and core game mechanics.</p>
       <ul class="week-guide-list">
-        <li><a href="guides/osrs-interface-controls-beginner-guide-2026.html">Game Interface & Controls</a> <span class="wk-badge wk-badge-starting">🌟 Starting Point</span></li>
-        <li><a href="guides/osrs-bank-inventory-management-2026.html">Bank & Inventory Management</a></li>
+        <li><a href="guides/osrs-new-player-guide-2026.html">New Player Guide (Complete Overview)</a> <span class="wk-badge wk-badge-starting">🌟 Starting Point</span></li>
+        <li><a href="guides/osrs-interface-controls-beginner-guide-2026.html">Game Interface & Controls</a></li>
+        <li class="hidden"><a href="guides/osrs-bank-inventory-management-2026.html">Bank & Inventory Management</a></li>
         <li class="hidden"><a href="guides/osrs-maps-travel-guide-2026.html">Maps & Fast Travel Guide</a></li>
         <li class="hidden"><a href="guides/osrs-combat-triangle-explained-2026.html">Combat Triangle Explained</a></li>
       </ul>
-      <button class="week-card-expand-btn" onclick="toggleWeekCard('week-1', this)">View all 4 guides</button>
+      <button class="week-card-expand-btn" onclick="toggleWeekCard('week-1', this)">View all 5 guides</button>
     </div>
 
     <!-- WEEK 2: Build Character -->
