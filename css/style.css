@@ -2174,8 +2174,27 @@ footer{
   .stats-bar-inner{gap:16px}
   .stat-item .num{font-size:1.2rem}
   .new-guides-2026{padding:32px 0}
-  .guide-article,.guide-content{padding:24px 16px}
+  .guide-article,.guide-content{padding:20px 14px}
   .game-cat-grid{grid-template-columns:1fr}
+
+  /* Mobile font size increases */
+  .guide-content h2{font-size:1.15rem !important}
+  .guide-content h3{font-size:1.02rem !important}
+  .guide-content p,.guide-content li{font-size:0.95rem !important;line-height:1.7 !important}
+  .guide-content{min-width:unset;overflow-x:hidden}
+
+  /* Mobile button size increases */
+  .support-amount-btn,.support-amount-custom{padding:12px 20px !important;font-size:0.95rem !important;min-width:60px}
+  .week-card-expand-btn{padding:10px 0 !important;font-size:0.85rem !important}
+  .btn-primary,.btn-text{padding:12px 24px !important;font-size:0.9rem !important;min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+
+  /* Mobile table fixes */
+  .guide-content table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+  .guide-content img{max-width:100%;height:auto}
+
+  /* Mobile TOC fix */
+  .toc{padding:14px 16px !important}
+  .toc li{font-size:0.85rem !important}
 }
 
 /* ---------- Free Content Disclaimer Banner ---------- */
