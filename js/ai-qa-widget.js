@@ -422,7 +422,7 @@
       '#osrs-qa-widget .qa-send-btn{background:linear-gradient(135deg,rgba(212,175,55,0.35),rgba(212,175,55,0.2));border:1px solid rgba(212,175,55,0.4);border-radius:6px;color:#d4af37;font-size:15px;cursor:pointer;padding:6px 12px;transition:all 0.2s;font-weight:600;}' +
       '#osrs-qa-widget .qa-send-btn:hover:not(:disabled){background:linear-gradient(135deg,rgba(212,175,55,0.5),rgba(212,175,55,0.35));border-color:rgba(212,175,55,0.6);transform:scale(1.02);}' +
       '#osrs-qa-widget .qa-send-btn:disabled{opacity:0.5;cursor:not-allowed;}' +
-      '#osrs-qa-toggle-btn{position:fixed;bottom:20px;right:20px;width:100px;height:108px;background:#4A90D9;border:none;border-radius:42% 42% 50% 50% / 44% 44% 58% 58%;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;transition:all 0.3s ease;box-shadow:0 4px 20px rgba(74,144,217,0.45);gap:0;outline:none;padding:0;color:#fff;}' +
+      '#osrs-qa-toggle-btn{position:fixed;bottom:35vh;right:20px;width:100px;height:108px;background:#4A90D9;border:none;border-radius:42% 42% 50% 50% / 44% 44% 58% 58%;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;transition:all 0.3s ease;box-shadow:0 4px 24px rgba(74,144,217,0.55);gap:0;outline:none;padding:0;color:#fff;animation:aiFloat 3s ease-in-out infinite;}' +
       '#osrs-qa-toggle-btn .peach-face{display:flex;flex-direction:column;align-items:center;gap:5px;}' +
       '#osrs-qa-toggle-btn .peach-eyes{display:flex;gap:14px;}' +
       '#osrs-qa-toggle-btn .peach-eyes span{display:block;width:10px;height:11px;background:#1a3a5c;border-radius:50%;}' +
@@ -439,7 +439,8 @@
       '#osrs-qa-widget .qa-section-label{font-size:11px;color:rgba(212,175,55,0.7);margin-top:8px;margin-bottom:2px;font-weight:600;}' +
       '#osrs-qa-widget .qa-article-link.qa-stage-beginner{border-left:3px solid #4caf50;}' +
       '#osrs-qa-widget .qa-article-link.qa-stage-mid{border-left:3px solid #ff9800;}' +
-      '#osrs-qa-widget .qa-article-link.qa-stage-boss{border-left:3px solid #f44336;}';
+      '#osrs-qa-widget .qa-article-link.qa-stage-boss{border-left:3px solid #f44336;}' +
+      '@keyframes aiFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}';
       // 裁剪消息数量
       document.head.appendChild(style);
   }
