@@ -10,7 +10,7 @@
 <link rel="dns-prefetch" href="//www.google-analytics.com">
     <meta name="keywords" content="Crimson Desert build tier list, best builds 2026, meta builds, class ranking, damage calculation, Crimson Desert endgame builds, stat allocation, weapon synergy, armor set bonuses, respec cost">
     <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-meta-build-tier-list-2026.html">
-    <link rel="stylesheet" href="../../css/style.css">
+    <!-- External CSS removed - using inline light theme -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
@@ -95,10 +95,18 @@
         .synergy-card{background:#f8f6fc;border:1px solid #d4c8e8;border-radius:8px;padding:1.2rem;margin:1rem 0}
         .synergy-card h5{color:#7a64b8;font-size:1.15rem;margin:0 0 .5rem 0}
     
-        /* FORCE: Light theme background for content area */
-        .guide-content{background:#F5F2F8 !important}
-        body{background:#F5F2F8 !important}
-</style>
+
+
+        body{background:var(--bg-page,#F5F2F8)!important}
+
+        /* NUCLEAR_FORCE_LIGHT: ONLY support-card may be green, EVERYTHING else MUST be white/light */
+        main[style],main.guide-content,.guide-content{background:#F5F2F8!important}
+        .guide-content>.container{background:#F5F2F8!important}
+        .guide-content>*{background:transparent!important}
+        .guide-content h2{background:transparent!important;border-color:#D4CDE0!important}
+        .guide-content h3,.guide-content p,.guide-content ul,.guide-content ol,
+        .guide-content li,.guide-content table,.guide-content figure,
+        .guide-content div:not(.support-card):not(.support-inner):not(.support-amounts){background:transparent!important}</style>
 </head>
 <body>
     <header>
@@ -130,8 +138,8 @@
         </div>
     </section>
 
-    <main class="guide-content">
-        <div class="container">
+    <main class="guide-content" style="background:#F5F2F8!important">
+        <div class="container" style="background:#F5F2F8">
             <!-- TOC -->
             <div class="toc">
                 <h3>Table of Contents</h3>

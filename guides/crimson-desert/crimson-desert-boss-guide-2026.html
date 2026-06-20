@@ -10,7 +10,7 @@
 <link rel="dns-prefetch" href="//www.google-analytics.com">
     <meta name="keywords" content="Crimson Desert boss guide, Crimson Desert boss fights, Crimson Desert boss strategies, Kliff boss tips, Crimson Desert boss rewards">
     <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-boss-guide-2026.html">
-    <link rel="stylesheet" href="../../css/style.css">
+    <!-- External CSS removed - using inline light theme -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
@@ -25,10 +25,18 @@
         .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}.inline-support-hint p{font-size:1rem}
         .guide-content li{color:#2d2a33 !important}.progress-widget{display:none !important}
     
-        /* FORCE: Light theme background for content area */
-        .guide-content{background:#F5F2F8 !important}
-        body{background:#F5F2F8 !important}
-</style>
+
+
+        body{background:var(--bg-page,#F5F2F8)!important}
+
+        /* NUCLEAR_FORCE_LIGHT: ONLY support-card may be green, EVERYTHING else MUST be white/light */
+        main[style],main.guide-content,.guide-content{background:#F5F2F8!important}
+        .guide-content>.container{background:#F5F2F8!important}
+        .guide-content>*{background:transparent!important}
+        .guide-content h2{background:transparent!important;border-color:#D4CDE0!important}
+        .guide-content h3,.guide-content p,.guide-content ul,.guide-content ol,
+        .guide-content li,.guide-content table,.guide-content figure,
+        .guide-content div:not(.support-card):not(.support-inner):not(.support-amounts){background:transparent!important}</style>
 </head>
 <body>
     <header>
@@ -60,8 +68,8 @@
         </div>
     </section>
 
-    <main class="guide-content">
-        <div class="container">
+    <main class="guide-content" style="background:#F5F2F8!important">
+        <div class="container" style="background:#F5F2F8">
             <div class="toc"><h3>Table of Contents</h3><ol>
                 <li><a href="#section1">How Bosses Work — Phases, Weak Points &amp; Armor Break</a></li>
                 <li><a href="#section2">Act 1 &amp; 2 Bosses (Early Game)</a></li>

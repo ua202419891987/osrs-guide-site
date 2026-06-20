@@ -10,7 +10,7 @@
 <link rel="dns-prefetch" href="//www.google-analytics.com">
     <meta name="keywords" content="Windrose endgame, post-game content, legendary ships, endgame challenges, what to do after story, Windrose post-game, legendary ship blueprints, endgame boss roster">
     <link rel="canonical" href="https://osrsguru.com/guides/windrose/windrose-endgame-guide-2026.html">
-    <link rel="stylesheet" href="../../css/style.css">
+    <!-- External CSS removed - using inline light theme -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
@@ -43,10 +43,18 @@
         .activity-rank .rank-info h4{margin:0;font-size:1.05rem;color:#2d2a33}.activity-rank .rank-info p{margin:2px 0 0 0;font-size:.9rem;color:#666}
         .faction-reward{background:#fff;border:1px solid #e0d8f0;border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0;display:flex;gap:12px;align-items:center}.faction-reward .fact-icon{font-size:1.8rem}.faction-reward .fact-details{flex:1}.faction-reward h4{margin:0 0 4px 0;color:#7a64b8;font-size:1.1rem}
     
-        /* FORCE: Light theme background for content area */
-        .guide-content{background:#F5F2F8 !important}
-        body{background:#F5F2F8 !important}
-</style>
+
+
+        body{background:var(--bg-page,#F5F2F8)!important}
+
+        /* NUCLEAR_FORCE_LIGHT: ONLY support-card may be green, EVERYTHING else MUST be white/light */
+        main[style],main.guide-content,.guide-content{background:#F5F2F8!important}
+        .guide-content>.container{background:#F5F2F8!important}
+        .guide-content>*{background:transparent!important}
+        .guide-content h2{background:transparent!important;border-color:#D4CDE0!important}
+        .guide-content h3,.guide-content p,.guide-content ul,.guide-content ol,
+        .guide-content li,.guide-content table,.guide-content figure,
+        .guide-content div:not(.support-card):not(.support-inner):not(.support-amounts){background:transparent!important}</style>
 </head>
 <body>
     <header>
@@ -78,8 +86,8 @@
         </div>
     </section>
 
-    <main class="guide-content">
-        <div class="container">
+    <main class="guide-content" style="background:#F5F2F8!important">
+        <div class="container" style="background:#F5F2F8">
             <div class="toc"><h3>Table of Contents</h3><ol>
                 <li><a href="#section1">You Beat the Story — Now What?</a></li>
                 <li><a href="#section2">What Unlocks After the Main Story (Full List)</a></li>

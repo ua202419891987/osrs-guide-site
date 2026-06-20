@@ -10,7 +10,7 @@
 <link rel="dns-prefetch" href="//www.google-analytics.com">
     <meta name="keywords" content="Windrose resource farming, Windrose best farming routes, Windrose rare resources, Windrose efficient grinding, Windrose material farming, Windrose farming routes by biome, Windrose rare resource spawn conditions, Windrose tool upgrades, Windrose inventory management, Windrose selling vs crafting">
     <link rel="canonical" href="https://osrsguru.com/guides/windrose/windrose-resource-farming-guide-2026.html">
-    <link rel="stylesheet" href="../../css/style.css">
+    <!-- External CSS removed - using inline light theme -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
@@ -29,10 +29,18 @@
         .compare-table{width:100%;border-collapse:collapse;margin:1.5rem 0}.compare-table th{background:#7a64b8;color:#2d2a33;padding:.8rem 1rem;text-align:left}.compare-table td{padding:.8rem 1rem;border-bottom:1px solid #e0d8f0}.compare-table tr:nth-child(even){background:#faf8fc}
         .loot-tier{display:inline-block;padding:.2rem .6rem;border-radius:12px;font-size:.85rem;font-weight:700;margin-right:.5rem}.tier-common{background:#e8f5e9;color:#2e7d32}.tier-uncommon{background:#e3f2fd;color:#1565c0}.tier-rare{background:#f3e5f5;color:#7b1fa2}.tier-legendary{background:#fff3e0;color:#e65100}
     
-        /* FORCE: Light theme background for content area */
-        .guide-content{background:#F5F2F8 !important}
-        body{background:#F5F2F8 !important}
-</style>
+
+
+        body{background:var(--bg-page,#F5F2F8)!important}
+
+        /* NUCLEAR_FORCE_LIGHT: ONLY support-card may be green, EVERYTHING else MUST be white/light */
+        main[style],main.guide-content,.guide-content{background:#F5F2F8!important}
+        .guide-content>.container{background:#F5F2F8!important}
+        .guide-content>*{background:transparent!important}
+        .guide-content h2{background:transparent!important;border-color:#D4CDE0!important}
+        .guide-content h3,.guide-content p,.guide-content ul,.guide-content ol,
+        .guide-content li,.guide-content table,.guide-content figure,
+        .guide-content div:not(.support-card):not(.support-inner):not(.support-amounts){background:transparent!important}</style>
 </head>
 <body>
     <header>
@@ -64,8 +72,8 @@
         </div>
     </section>
 
-    <main class="guide-content">
-        <div class="container">
+    <main class="guide-content" style="background:#F5F2F8!important">
+        <div class="container" style="background:#F5F2F8">
             <div class="toc"><h3>Table of Contents</h3><ol>
                 <li><a href="#section1">Resource Farming — The Core Loop of Windrose</a></li>
                 <li><a href="#section2">All Resource Types & Where to Find Them</a></li>

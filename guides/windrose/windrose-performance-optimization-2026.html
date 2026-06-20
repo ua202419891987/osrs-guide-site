@@ -10,7 +10,7 @@
 <link rel="dns-prefetch" href="//www.google-analytics.com">
     <meta name="keywords" content="Windrose performance, FPS optimization, lag fix, best settings, crash solutions, server selection, Windrose system requirements, Steam Deck Windrose, upscaling method, memory leak fix">
     <link rel="canonical" href="https://osrsguru.com/guides/windrose/windrose-performance-optimization-2026.html">
-    <link rel="stylesheet" href="../../css/style.css">
+    <!-- External CSS removed - using inline light theme -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
@@ -29,10 +29,18 @@
         .spec-card{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem;margin:1rem 0}.spec-card h4{color:#7a64b8;margin:0 0 .5rem 0;font-size:1.2rem}
         .benchmark-bar{height:20px;border-radius:10px;margin:.3rem 0;position:relative}.benchmark-bar span{position:absolute;left:8px;top:0;line-height:20px;font-size:.78rem;color:#2d2a33;font-weight:600}
     
-        /* FORCE: Light theme background for content area */
-        .guide-content{background:#F5F2F8 !important}
-        body{background:#F5F2F8 !important}
-</style>
+
+
+        body{background:var(--bg-page,#F5F2F8)!important}
+
+        /* NUCLEAR_FORCE_LIGHT: ONLY support-card may be green, EVERYTHING else MUST be white/light */
+        main[style],main.guide-content,.guide-content{background:#F5F2F8!important}
+        .guide-content>.container{background:#F5F2F8!important}
+        .guide-content>*{background:transparent!important}
+        .guide-content h2{background:transparent!important;border-color:#D4CDE0!important}
+        .guide-content h3,.guide-content p,.guide-content ul,.guide-content ol,
+        .guide-content li,.guide-content table,.guide-content figure,
+        .guide-content div:not(.support-card):not(.support-inner):not(.support-amounts){background:transparent!important}</style>
 </head>
 <body>
     <header>
@@ -64,8 +72,8 @@
         </div>
     </section>
 
-    <main class="guide-content">
-        <div class="container">
+    <main class="guide-content" style="background:#F5F2F8!important">
+        <div class="container" style="background:#F5F2F8">
             <div class="toc"><h3>Table of Contents</h3><ol>
                 <li><a href="#section1">Understanding Windrose Performance — Engine & System Demands</a></li>
                 <li><a href="#section2">Optimal Graphics Settings for Maximum FPS</a></li>
