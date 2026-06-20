@@ -10,7 +10,7 @@
 <link rel="dns-prefetch" href="//www.google-analytics.com">
     <meta name="keywords" content="Crimson Desert patch notes, updates 2026, latest changes, nerfs and buffs, version history, meta analysis, community reaction, future patches">
     <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-patch-notes-analysis-2026.html">
-    <!-- External CSS removed - using inline light theme -->
+    <link rel="stylesheet" href="../../css/style.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
@@ -68,18 +68,10 @@
         .meta-shift .shift-text{flex:1}
         .meta-shift .shift-text strong{color:#7a64b8}
     
-
-
-        body{background:var(--bg-page,#F5F2F8)!important}
-
-        /* NUCLEAR_FORCE_LIGHT: ONLY support-card may be green, EVERYTHING else MUST be white/light */
-        main[style],main.guide-content,.guide-content{background:#F5F2F8!important}
-        .guide-content>.container{background:#F5F2F8!important}
-        .guide-content>*{background:transparent!important}
-        .guide-content h2{background:transparent!important;border-color:#D4CDE0!important}
-        .guide-content h3,.guide-content p,.guide-content ul,.guide-content ol,
-        .guide-content li,.guide-content table,.guide-content figure,
-        .guide-content div:not(.support-card):not(.support-inner):not(.support-amounts){background:transparent!important}</style>
+        /* FORCE: Light theme background for content area */
+        .guide-content{background:#F5F2F8 !important}
+        body{background:#F5F2F8 !important}
+</style>
 </head>
 <body>
     <header>
@@ -111,8 +103,8 @@
         </div>
     </section>
 
-    <main class="guide-content" style="background:#F5F2F8!important">
-        <div class="container" style="background:#F5F2F8">
+    <main class="guide-content">
+        <div class="container">
             <!-- TOC -->
             <div class="toc">
                 <h3>Table of Contents</h3>
