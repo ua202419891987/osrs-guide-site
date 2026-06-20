@@ -72,7 +72,7 @@
                 <li><a href="#faq">FAQ</a></li>
             </ol></div>
 
-            <h2 id="section1">1. Understanding Windrose Performance — Engine & System Demands</h2>
+            <h2 id="section1">⚡ 1. Understanding Windrose Performance — Engine & System Demands</h2>
             <p>Windrose runs on Unreal Engine 5, which delivers stunning visuals but places significant demands on your hardware. The game features a fully simulated ocean with real-time wave physics, dynamic weather systems, procedurally generated islands with dense vegetation, and complex naval physics. All of these systems run simultaneously, which means performance bottlenecks can occur in multiple places: CPU (physics simulations, AI pathfinding for enemies, ship collisions), GPU (ocean rendering, lighting, shadows, particle effects), and RAM (loading/unloading island chunks as you sail).</p>
             <p>Understanding where your system struggles is the first step to fixing it. If your FPS drops when looking at the ocean or during storms, your GPU is the bottleneck. If FPS drops when sailing near islands with many trees and enemies, your CPU is struggling. If the game crashes after 1-2 hours of play, you likely have a memory leak issue. If the game stutters every few seconds, you may have insufficient RAM or a slow storage drive. This guide will help you diagnose and fix all of these issues systematically.</p>
 
@@ -89,7 +89,7 @@
                 <p style="margin-top:.8rem;font-size:.95rem;color:#666"><strong>Note:</strong> Windrose is surprisingly CPU-dependent due to Unreal Engine 5's Nanite and Lumen technologies. A strong single-core CPU performance matters more than core count. The AMD Ryzen X3D series (with 3D V-Cache) performs exceptionally well in Windrose due to the large cache reducing stuttering.</p>
             </div>
 
-            <h2 id="section2">2. Optimal Graphics Settings for Maximum FPS</h2>
+            <h2 id="section2">⚡ 2. Optimal Graphics Settings for Maximum FPS</h2>
             <p>The default "Auto" graphics preset in Windrose often overshoots your hardware capabilities, especially on mid-range systems. Manually configuring your settings is the single most effective way to boost FPS without sacrificing too much visual quality. Below is the optimal settings configuration tested across 15 different GPU/CPU combinations, ranked by performance impact (highest impact settings first).</p>
 
             <div class="method-box">
@@ -119,7 +119,7 @@
 
             <div class="tip-box"><strong>Settings Pro Tip:</strong> Windrose's "Global Illumination" setting (Lumen) is the most demanding graphics option. If you need more FPS, drop this from High to Medium first before touching anything else. The visual difference is barely noticeable during daytime sailing, but the FPS gain is substantial (10-15 FPS on most systems).</div>
 
-            <h2 id="section3">3. How to Fix Stuttering, Low FPS & Frame Drops</h2>
+            <h2 id="section3">⚡ 3. How to Fix Stuttering, Low FPS & Frame Drops</h2>
             <p>Stuttering (micro-stutters where the game briefly freezes for 0.1-0.5 seconds) is the most common performance complaint in Windrose. Unlike consistent low FPS (where the game runs slowly but smoothly), stuttering makes the game feel unplayable even when average FPS is high. The root causes are usually: shader compilation stuttering (common in Unreal Engine 5 games), background processes eating CPU, thermal throttling, or insufficient RAM causing constant asset streaming hiccups.</p>
 
             <div class="method-box">
@@ -133,7 +133,7 @@
 
             <div class="warn-box"><strong>Performance Warning:</strong> Running Windrose from an HDD (hard disk drive) instead of an SSD causes severe stuttering when sailing between islands. The game streams island data from storage as you explore. An HDD has seek times of 10-15ms, while an SSD has seek times &lt; 1ms. If you must use an HDD, expect stutters every time you discover a new island. Upgrade to at least a SATA SSD for a dramatically smoother experience.</div>
 
-            <h2 id="section4">4. Server Region Selection & Ping Optimization</h2>
+            <h2 id="section4">🤝 4. Server Region Selection & Ping Optimization</h2>
             <p>While Windrose is primarily a PvE game, some multiplayer features (co-op sailing, shared islands, trading) require connecting to Windrose servers. Server region selection directly impacts your ping (latency), which affects: ship controls responsiveness, multiplayer synchronization (if playing co-op), and saving/loading times for shared bases. High ping (&gt; 150ms) causes "rubber-banding" where your ship snaps back to a previous position after turning.</p>
 
             <div class="method-box">
@@ -156,7 +156,7 @@
 
             <div class="tip-box"><strong>Server Tip:</strong> Windrose allows you to change server regions without restarting the game. If you experience high ping during a co-op session, have the host (the player whose world it is) switch to a lower-population server. All connected players will migrate automatically with a 10-15 second reconnect delay.</div>
 
-            <h2 id="section5">5. Memory Leak & Crash Solutions</h2>
+            <h2 id="section5">⚡ 5. Memory Leak & Crash Solutions</h2>
             <p>Memory leaks occur when a program allocates RAM but fails to release it after use, causing RAM usage to grow over time until the system runs out of memory and crashes. Windrose has known memory leak issues in certain scenarios: leaving the game running for &gt; 3 hours without restarting, sailing long distances without Intermediate save points, and having many crafting stations active simultaneously in your base. Below are the confirmed fixes.</p>
 
             <div class="method-box">
@@ -169,7 +169,7 @@
 
             <div class="warn-box"><strong>Crash Warning:</strong> If Windrose crashes to desktop with no error message, check Windows Event Viewer: Press Win+R → type <code>eventvwr.msc</code> → Windows Logs → Application. Look for "Error" entries from "Windrose-Win64-Shipping.exe". If the error mentions "D3D Device Removed" or "Out of Video Memory", your GPU ran out of VRAM. Lower your Texture Quality setting and ensure no other GPU-intensive apps (like Chrome with many tabs, or OBS) are running simultaneously.</div>
 
-            <h2 id="section6">6. Upscaling Methods, Input Lag & Steam Deck Compatibility</h2>
+            <h2 id="section6">⚡ 6. Upscaling Methods, Input Lag & Steam Deck Compatibility</h2>
             <p>Choosing the right upscaling method and understanding input lag (the delay between your input and the game's response) can dramatically improve your Windrose experience, especially on lower-end hardware or handheld devices like the Steam Deck. This section covers the best upscaling technology for your GPU, whether to use controller or keyboard/mouse, and how to get Windrose running well on Steam Deck.</p>
 
             <div class="method-box">
@@ -210,7 +210,7 @@
 
             <div class="tip-box"><strong>Steam Deck Pro Tip:</strong> Windrose's "Sailing" gameplay (which is 70% of the game) is actually better with a controller than KBM, and the Steam Deck's built-in controller is excellent for this. The analog stick gives you precise rudder control that keyboard turning (A/D) cannot match. If you own a gaming PC and a Steam Deck, consider using the Deck specifically for long sailing sessions while docked to a TV.</div>
 
-            <h2 id="faq">FAQ — Performance Questions</h2>
+            <h2 id="faq">❓ FAQ — Performance Questions</h2>
             <div class="faq-item"><h4>Q: Why does my FPS drop dramatically during storms?</h4><p>Storms in Windrose trigger multiple expensive visual effects simultaneously: heavy rain particles, lightning flashes (screen-space light), choppy ocean physics (increased simulation frequency), and reduced visibility volumetric fog. This is the most demanding scene in the game. To maintain FPS during storms, lower "Effects Quality" to Low and "Post-Processing" to Low. The FPS drop is normal and expected — even high-end systems (RTX 4090) drop ~15-20 FPS during intense storms.</p></div>
             <div class="faq-item"><h4>Q: Is it better to play Windrose on Windows 10 or Windows 11?</h4><p>Windows 11 23H2 or newer is recommended. Windows 11 includes scheduler improvements for hybrid CPUs (Intel 12th-gen and newer, which have "P-cores" and "E-cores") that significantly reduce stuttering in Unreal Engine 5 games. Windows 10 users should at minimum update to version 22H2. If you must use Windows 10, disable "Game Mode" (Settings → Gaming → Game Mode → Off) as it can cause stuttering in some configurations.</p></div>
             <div class="faq-item"><h4>Q: Can I play Windrose on a laptop with integrated graphics (Intel Iris, AMD Radeon 680M)?</h4><p>Yes, but with significant compromises. Set all graphics settings to Low, resolution to 1280×720, and use FSR 2.2 on "Performance" mode. Expect 25-35 FPS. The game is playable but not ideal. The integrated Radeon 680M/780M (in AMD Ryzen 6000/7000-series laptops) performs surprisingly well — you can get 40+ FPS at 720p Low. Intel Iris Xe is weaker — expect 20-25 FPS. Consider upgrading to a laptop with a dedicated GPU (even a GTX 1660 Ti or RTX 3050) for a much better experience.</p></div>
