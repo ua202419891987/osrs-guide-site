@@ -4,8 +4,7 @@
    Green support card sections preserved exactly as-is
    ============================================================ */
 
-/* ---------- Google Fonts Import ---------- */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:wght@300;400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+/* ---------- Google Fonts: use <link rel="preload"> in HTML instead ---------- */
 
 /* ========== COLOR SYSTEM — Violet Sunrise ========== */
 :root{
