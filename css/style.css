@@ -446,6 +446,8 @@ nav a.active{
   text-decoration:none;
   transition:all .3s ease;
   box-shadow:var(--shadow-soft);
+  display:flex;
+  flex-direction:column;
 }
 .task-cta-card:hover{
   transform:translateY(-4px);
@@ -466,6 +468,7 @@ nav a.active{
   font-size:.85rem;
   color:var(--text-secondary);
   margin-bottom:14px;
+  flex:1;
 }
 .task-cta-card .cta-arrow{
   display:inline-flex;
@@ -477,6 +480,8 @@ nav a.active{
   border-radius:20px;
   font-size:.82rem;
   font-weight:700;
+  margin-top:auto;
+  align-self:center;
 }
 
 
