@@ -132,3 +132,14 @@
      - 权限: **所有者 (Owner)**
   2. 本地重新 OAuth 授权: 运行 `python scripts/submit_index_oauth.py`
 - ⚠️ **自动化将持续失败直到权限修复**，建议暂停此自动化或先完成上述修复
+
+### 2026-06-20（凌晨 06:15 CST）
+- 代理正常 (127.0.0.1:7897)，SA JWT Token 获取成功
+- OAuth: `token.json` 缺失（6/18 `invalid_grant` 后未重建）
+- Sitemap: 213 URLs 总计，101 已提交，112 新 URL 待提交
+- 脚本: `daily_indexing_submit.py` (SA + requests)
+- 结果: **HTTP 403 × 112** — 全部失败，SA 无 Search Console 权限
+- 成功: **0**，失败: **112**，剩余: **112**
+- 🔴 **连续 10+ 天阻塞**: SA 403 + OAuth expired 双重封锁未解除
+- ⚠️ 与 6/19 结果完全相同，自动化每日运行无意义
+- 📋 报告已生成: `.workbuddy/reports/indexing-report-2026-06-20.md`

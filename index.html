@@ -52,15 +52,20 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
   <div class="header-inner">
     <a href="index.html" class="logo">⚔ OSRS <span>Guru</span></a>
     <div class="logo-badge">200+ Guides · Free</div>
-    <nav class="main-nav">
-      <a href="#hot-picks" class="nav-cta" style="color:#d4af37;">🔥 Hot Picks</a>
-      <a href="#pain-points" class="nav-cta">🔥 This Week's Hot</a>
-      <a href="#stage-0" class="nav-cta">🆕 New Players</a>
-      <a href="money-making.html">Money Making</a>
-      <a href="skill-training.html">Skills</a>
-      <a href="quest-guides.html">Quests</a>
-      <a href="boss-guides.html">Bosses</a>
-      <a href="#" onclick="document.getElementById('osrs-qa-toggle-btn').click();return false;">AI Q&A</a>
+    <nav class="main-nav" style="display:flex;flex-direction:column;gap:6px;">
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+        <a href="#membership-hub" class="nav-cta" style="color:#d4af37;font-weight:700;">🔥 Membership Guide <span style="background:#e74c33;color:#fff;padding:1px 6px;border-radius:3px;font-size:.65em;margin-left:3px;vertical-align:middle;">NEW</span></a>
+        <a href="#hot-picks" class="nav-cta" style="color:#d4af37;">🔥 Hot Picks</a>
+        <a href="#pain-points" class="nav-cta">🔥 This Week's Hot</a>
+        <a href="#stage-0" class="nav-cta">🆕 New Players</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+        <a href="money-making.html">Money Making</a>
+        <a href="skill-training.html">Skills</a>
+        <a href="quest-guides.html">Quests</a>
+        <a href="boss-guides.html">Bosses</a>
+        <a href="#" onclick="document.getElementById('osrs-qa-toggle-btn').click();return false;">AI Q&A</a>
+      </div>
     </nav>
   </div>
 </header>
@@ -507,6 +512,8 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
       .hp-mini-card ul li a::before { content:"▸"; color:#d4af37; flex-shrink:0; font-size:.75rem; margin-top:1px; }
       .hp-mini-tag { display:inline-block; background:#f0e6d3; color:#8b6914; font-size:.6rem; padding:1px 6px; border-radius:6px; margin-left:4px; vertical-align:middle; white-space:nowrap; }
       @media(max-width:768px){ .hp-grid{flex-direction:column} }
+      @media(max-width:1200px){ #membership-hub .week-path-grid{grid-template-columns:repeat(2,1fr)!important;} }
+      @media(max-width:680px){ #membership-hub .week-path-grid{grid-template-columns:1fr!important;} }
 
       /* ========== Search Results Panel Styles ========== */
       .search-result-card { display:block; padding:12px 14px; background:#fff; border:1.5px solid #E8E2F0; border-radius:8px; text-decoration:none; color:#2D2A33; transition:all .2s ease; }
@@ -731,6 +738,80 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
   </div>
   </div>
 
+  <!-- ========== MEMBERSHIP GUIDE HUB ========== -->
+  <div class="container" id="membership-hub">
+  <div class="section-header" style="background:linear-gradient(135deg,#fffbf0,#fff);padding:20px 24px;border-radius:var(--radius-lg);border:2px solid #d4af37;display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:32px;">
+    <div class="section-title" style="margin:0;color:#8b6914;">🔥 OSRS Membership Guide Hub — 2026 Price Hike & Everything You Need</div>
+    <span style="background:#d4af37;color:#fff;padding:3px 10px;border-radius:10px;font-size:.72rem;font-weight:700;letter-spacing:.5px;">📰 JUST PUBLISHED</span>
+    <a href="guides/osrs-membership-hub.html" class="see-all" style="margin-left:auto;color:#b8960f;">View Full Hub →</a>
+  </div>
+
+  <div class="week-path-grid" style="margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+
+    <!-- Card 1: Price Increase -->
+    <div class="week-card" style="border-color:#d4af37;">
+      <div class="week-card-header" style="background:#d4af37;">
+        <span class="week-number" style="background:#b8960f;">JUNE 2026</span>
+        <span class="week-goal">🚨 Price Hike</span>
+      </div>
+      <h3 class="week-card-title">2026 Price Increase</h3>
+      <p class="week-card-desc">Jagex raised prices in March 2026. Monthly $11.99→$14.99, yearly almost doubled!</p>
+      <ul class="week-guide-list">
+        <li><a href="guides/osrs-membership-price-increase-2026.html">Full Breakdown</a> <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;">🚨 NEW</span> <span style="font-size:.72rem;color:#999;margin-left:4px;">~2800w · 8min</span></li>
+      </ul>
+    </div>
+
+    <!-- Card 2: Worth It? -->
+    <div class="week-card" style="border-color:#d4af37;">
+      <div class="week-card-header" style="background:#d4af37;">
+        <span class="week-number" style="background:#b8960f;">ANALYSIS</span>
+        <span class="week-goal">🤔 Value Check</span>
+      </div>
+      <h3 class="week-card-title">Still Worth It in 2026?</h3>
+      <p class="week-card-desc">Deep cost-benefit analysis. Is OSRS membership still good value after the price hike?</p>
+      <ul class="week-guide-list">
+        <li><a href="guides/osrs-membership-worth-it-2026.html">Worth It Analysis</a> <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;">🤔 NEW</span> <span style="font-size:.72rem;color:#999;margin-left:4px;">~3000w · 10min</span></li>
+      </ul>
+    </div>
+
+    <!-- Card 3: Bond vs Sub -->
+    <div class="week-card" style="border-color:#d4af37;">
+      <div class="week-card-header" style="background:#d4af37;">
+        <span class="week-number" style="background:#b8960f;">SAVINGS</span>
+        <span class="week-goal">💰 Compare</span>
+      </div>
+      <h3 class="week-card-title">Bond vs Subscription</h3>
+      <p class="week-card-desc">Which saves more money? Bond prices, GP conversion rates, and best buying strategy.</p>
+      <ul class="week-guide-list">
+        <li><a href="guides/osrs-bond-vs-subscription-2026.html">Compare & Save</a> <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;">💰 NEW</span> <span style="font-size:.72rem;color:#999;margin-left:4px;">~3200w · 11min</span></li>
+      </ul>
+    </div>
+
+    <!-- Card 4: Complete Guide + Price Table -->
+    <div class="week-card" style="border-color:#d4af37;">
+      <div class="week-card-header" style="background:#d4af37;">
+        <span class="week-number" style="background:#b8960f;">⭐ #1 MOST READ</span>
+        <span class="week-goal">📘 Complete Guide</span>
+      </div>
+      <h3 class="week-card-title">Membership Complete Guide</h3>
+      <p class="week-card-desc">The definitive guide. What it unlocks, how to buy, F2P vs Members comparison.</p>
+      <ul class="week-guide-list">
+        <li><a href="guides/osrs-membership-guide-2026.html">Complete Guide 2026</a> <span class="wk-badge wk-badge-starting">🌟 Starting Point</span> <span style="font-size:.72rem;color:#999;margin-left:4px;">~4000w · 13min</span></li>
+        <li><a href="guides/osrs-f2p-to-p2p-membership-guide-2026.html">F2P → P2P Transition</a> <span style="font-size:.72rem;color:#999;margin-left:4px;">For free players</span></li>
+      </ul>
+      <div style="margin-top:10px;padding:10px;background:#fffbf0;border-radius:8px;border:1.5px solid #d4af37;">
+        <table style="width:100%;font-size:.78rem;">
+          <tr><td style="padding:1px 0;color:#888;">Monthly</td><td style="text-align:right;font-weight:700;color:#c0392b;">$14.99</td></tr>
+          <tr><td style="padding:1px 0;color:#888;">Bond</td><td style="text-align:right;font-weight:700;color:#c0392b;">$9.99</td></tr>
+          <tr><td style="padding:1px 0;color:#888;">Yearly</td><td style="text-align:right;font-weight:700;color:#c0392b;">$131.88/yr</td></tr>
+          <tr><td style="padding:1px 0;color:#888;">Skills</td><td style="text-align:right;font-weight:600;color:#3b2615;">15 exclusive</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
   <!-- ========== MONEY MAKING ========== -->
   <div class="container">
   <div class="section-header"><div class="section-title">💰 Top Money Making Guides</div><a href="money-making.html" class="see-all">All 23 guides →</a></div>
@@ -817,58 +898,60 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
   </div>
   </div>
 
-  <!-- ========== SUPPORT CARD ========== -->
-  <div class="support-card">
-    <div class="support-inner">
-      <span class="support-leaf">🌿</span>
-      <div class="support-text">
-        <h3>Buy me a coffee — and let's keep grinding!</h3>
-        <p>I create OSRS guides to help you level up faster. Your support helps me keep the site updated with fresh content for the community. No pressure, ever — pick the amount that feels good to you.</p>
+  <!-- ========== SUPPORT CARD (Top) ========== -->
+  <div style="margin-top:40px;margin-bottom:0;">
+    <div class="support-card">
+      <div class="support-inner" style="padding:20px 24px;">
+        <span class="support-leaf">🌿</span>
+        <div class="support-text">
+          <h3 style="margin-bottom:6px;">Buy me a coffee — let's keep grinding!</h3>
+          <p style="font-size:.88rem;color:#c8e6c9;margin:0;">Your support keeps this site free & updated. No pressure — pick what feels good.</p>
+        </div>
+      </div>
+      <div class="support-btns" style="padding:0 24px 18px;display:flex;gap:8px;flex-wrap:wrap;">
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="1530398390@qq.com">
+          <input type="hidden" name="amount" value="3">
+          <input type="hidden" name="currency_code" value="USD">
+          <input type="hidden" name="item_name" value="OSRS Guru Support">
+          <button type="submit" class="support-btn">$3</button>
+        </form>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="1530398390@qq.com">
+          <input type="hidden" name="amount" value="5">
+          <input type="hidden" name="currency_code" value="USD">
+          <input type="hidden" name="item_name" value="OSRS Guru Support">
+          <button type="submit" class="support-btn support-btn-featured">$5 ⭐</button>
+        </form>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="1530398390@qq.com">
+          <input type="hidden" name="amount" value="10">
+          <input type="hidden" name="currency_code" value="USD">
+          <input type="hidden" name="item_name" value="OSRS Guru Support">
+          <button type="submit" class="support-btn">$10</button>
+        </form>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="1530398390@qq.com">
+          <input type="hidden" name="currency_code" value="USD">
+          <input type="hidden" name="item_name" value="OSRS Guru Support">
+          <button type="submit" class="support-btn support-btn-custom">Custom ✏️</button>
+        </form>
       </div>
     </div>
-    <div class="support-btns">
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline">
-        <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="1530398390@qq.com">
-        <input type="hidden" name="amount" value="3">
-        <input type="hidden" name="currency_code" value="USD">
-        <input type="hidden" name="item_name" value="OSRS Guru Support">
-        <button type="submit" class="support-btn">$3</button>
-      </form>
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline">
-        <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="1530398390@qq.com">
-        <input type="hidden" name="amount" value="5">
-        <input type="hidden" name="currency_code" value="USD">
-        <input type="hidden" name="item_name" value="OSRS Guru Support">
-        <button type="submit" class="support-btn support-btn-featured">$5 ⭐</button>
-      </form>
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline">
-        <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="1530398390@qq.com">
-        <input type="hidden" name="amount" value="10">
-        <input type="hidden" name="currency_code" value="USD">
-        <input type="hidden" name="item_name" value="OSRS Guru Support">
-        <button type="submit" class="support-btn">$10</button>
-      </form>
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline">
-        <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="1530398390@qq.com">
-        <input type="hidden" name="currency_code" value="USD">
-        <input type="hidden" name="item_name" value="OSRS Guru Support">
-        <button type="submit" class="support-btn support-btn-custom">Custom ✏️</button>
-      </form>
-    </div>
-  </div>
 
-  <!-- ========== NEWSLETTER ========== -->
-  <section class="newsletter-section container" style="margin-top:40px;margin-bottom:40px">
-    <span class="nl-icon">📬</span>
-    <h3>Get Weekly OSRS Tips Delivered to Your Inbox</h3>
-    <p>Join 500+ players receiving our weekly newsletter. One email per week — no spam, just curated money-making methods, quest walkthroughs, and meta updates.</p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScdGhEYGMa_-_PJMFw1BBj_LrYLLHgtBBOtqsQu8SJnDyabMA/viewform" target="_blank" rel="noopener" class="nl-btn">Subscribe Free →</a>
-    <div class="nl-note">Unsubscribe anytime. We never share your email.</div>
-  </section>
+    <!-- Newsletter (Below Support) -->
+    <section class="newsletter-section container" style="margin-top:20px;padding:28px 30px;text-align:center;background:#fff;border-radius:12px;border:2px solid #e8e0d5;">
+      <span class="nl-icon" style="font-size:2rem;">📬</span>
+      <h3 style="margin:8px 0 6px;font-size:1.1rem;color:#3b2615;">Weekly OSRS Tips</h3>
+      <p style="font-size:.85rem;color:#666;margin:0 0 14px;line-height:1.4;">Join 500+ players. One email per week — no spam.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScdGhEYGMa_-_PJMFw1BBj_LrYLLHgtBBOtqsQu8SJnDyabMA/viewform" target="_blank" rel="noopener" class="nl-btn" style="display:inline-block;font-size:.9rem;padding:10px 24px;">Subscribe Free →</a>
+      <div class="nl-note" style="margin-top:8px;font-size:.75rem;color:#999;">Unsubscribe anytime.</div>
+    </section>
+  </div>
 
 </div>
 
