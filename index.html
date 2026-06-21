@@ -96,15 +96,22 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
   </div>
 </div>
 
-    <!-- ========== SEARCH BOX (Compact) ========== -->
+    <!-- ========== SEARCH BOX → AI CHAT TRIGGER ========== -->
     <div class="container">
-    <div class="home-search-box" style="background:#fff;border-radius:10px;padding:16px 20px;margin-top:0;text-align:center;border:2px solid #D4CDE0;box-shadow:0 2px 12px rgba(122,100,184,0.08);">
+    <div class="home-search-box" id="aiSearchTrigger" style="background:#fff;border-radius:10px;padding:16px 20px;margin-top:0;text-align:center;border:2px solid #D4CDE0;box-shadow:0 2px 12px rgba(122,100,184,0.08);cursor:pointer;" onclick="document.getElementById('osrs-qa-toggle-btn').click();setTimeout(function(){var q=document.getElementById('homeSearchInput').value.trim();if(q&&window.OSRSQA&&window.OSRSQA.ask)window.OSRSQA.ask(q);},300);">
       <div style="color:#5B4A9C;font-size:1.15rem;font-weight:800;margin-bottom:4px;">🔍 Find Your Perfect OSRS Guide</div>
       <div style="color:#888;font-size:.8rem;margin-bottom:10px;">Search 180+ guides, or ask AI any OSRS question 🤖</div>
-      <form onsubmit="event.preventDefault();var q=document.getElementById('homeSearchInput').value.trim();if(q)window.OSRSSearch&&window.OSRSSearch.run?window.OSRSSearch.run(q):alert('Search not ready')" style="display:flex;max-width:560px;margin:0 auto;gap:6px;">
-        <input id="homeSearchInput" type="text" placeholder="e.g., Zulrah, Prayer, Money Making..." style="flex:1;padding:10px 14px;border-radius:6px;border:1.5px solid #D4CDE0;background:#FAF9FC;color:#2D2A33;font-size:.92rem;outline:none;" autocomplete="off">
-        <button type="submit" style="background:linear-gradient(135deg,#7A64B8,#5B4A9C);color:#fff;border:none;padding:10px 18px;border-radius:6px;font-weight:700;font-size:.92rem;cursor:pointer;white-space:nowrap;box-shadow:0 2px 8px rgba(91,74,156,0.25);">🔍 Search</button>
-      </form>
+      <div style="display:flex;max-width:560px;margin:0 auto;gap:6px;align-items:center;">
+        <div style="flex:1;position:relative;display:flex;align-items:center;">
+        <input id="homeSearchInput" type="text" placeholder="e.g., Zulrah, Prayer, Money Making... (ask AI 🍑)" style="width:100%;padding:10px 14px 10px 38px;border-radius:6px;border:1.5px solid #D4CDE0;background:#FAF9FC;color:#2D2A33;font-size:.92rem;outline:none;" autocomplete="off" onclick="event.stopPropagation();this.focus();" onkeydown="if(event.key==='Enter'){event.preventDefault();var q=this.value.trim();document.getElementById('osrs-qa-toggle-btn').click();setTimeout(function(){if(q&&window.OSRSQA&&window.OSRSQA.ask)window.OSRSQA.ask(q)},300);}">
+          <span style="position:absolute;left:12px;font-size:16px;pointer-events:none;opacity:0.5;">🔍</span>
+        </div>
+        <button type="button" onclick="event.stopPropagation();var q=document.getElementById('homeSearchInput').value.trim();document.getElementById('osrs-qa-toggle-btn').click();setTimeout(function(){if(q&&window.OSRSQA&&window.OSRSQA.ask)window.OSRSQA.ask(q);if(!q)document.getElementById('homeSearchInput').focus()},300);" style="background:linear-gradient(135deg,#7A64B8,#5B4A9C);color:#fff;border:none;padding:10px 14px;border-radius:6px;font-weight:700;font-size:.88rem;cursor:pointer;white-space:nowrap;box-shadow:0 2px 8px rgba(91,74,156,0.25);display:flex;align-items:center;gap:4px;">🔍 <span style="font-size:.78rem;">Search with AI</span></button>
+      </div>
+      <!-- AI Peach Inline Hint -->
+      <div style="margin-top:6px;font-size:.7rem;color:#7A64B8;text-align:center;">
+        💡 Tip: Type any question above & press Enter, or click <strong>Ask AI</strong> — OSRS Guru AI answers instantly!
+      </div>
       <div style="margin-top:8px;font-size:.72rem;color:#aaa;">
         <span>🔥 Popular:</span>
         <a href="guides/osrs-how-to-beat-zulrah-beginners-rotation.html" style="color:#7A64B8;margin:0 3px;">Zulrah</a>·
@@ -122,7 +129,7 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
         <div id="searchResultsGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;"></div>
         <div id="searchAIHint" style="display:none;margin-top:12px;padding:10px;background:linear-gradient(135deg,#f0ecfb,#e8e0f9);border-radius:8px;text-align:center;">
           <p style="margin:0 0 8px;color:#5B4A9C;font-size:.85rem;">Can't find what you're looking for?</p>
-          <button onclick="var q=document.getElementById('homeSearchInput').value.trim();if(q&&window.OSRSQA&&window.OSRSQA.ask){window.OSRSQA.ask(q)}else{alert('AI assistant not loaded')}" style="background:linear-gradient(135deg,#7A64B8,#5B4A9C);color:#fff;border:none;padding:8px 20px;border-radius:6px;font-weight:700;cursor:pointer;font-size:.85rem;">🤖 Ask AI Assistant</button>
+          <button onclick="var q=document.getElementById('homeSearchInput').value.trim();if(q&&window.OSRSQA&&window.OSRSQA.ask){window.OSRSQA.ask(q)}else{alert('AI assistant not loaded')}" style="background:linear-gradient(135deg,#7A64B8,#5B4A9C);color:#fff;border:none;padding:8px 20px;border-radius:6px;font-weight:700;cursor:pointer;font-size:.85rem;">🔍 Search with AI</button>
         </div>
       </div>
     </div>

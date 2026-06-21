@@ -15,6 +15,9 @@
 (function () {
   'use strict';
 
+  // ========== 模块级变量（供 window.OSRSQA.ask 访问） ==========
+  var widget, input, sendBtn;
+
   // ========== 游戏上下文检测 ==========
   const GAME = detectGame();
 
@@ -422,7 +425,7 @@
       '#osrs-qa-widget .qa-send-btn{background:linear-gradient(135deg,rgba(212,175,55,0.35),rgba(212,175,55,0.2));border:1px solid rgba(212,175,55,0.4);border-radius:6px;color:#d4af37;font-size:15px;cursor:pointer;padding:6px 12px;transition:all 0.2s;font-weight:600;}' +
       '#osrs-qa-widget .qa-send-btn:hover:not(:disabled){background:linear-gradient(135deg,rgba(212,175,55,0.5),rgba(212,175,55,0.35));border-color:rgba(212,175,55,0.6);transform:scale(1.02);}' +
       '#osrs-qa-widget .qa-send-btn:disabled{opacity:0.5;cursor:not-allowed;}' +
-      '#osrs-qa-toggle-btn{position:fixed;bottom:35vh;right:20px;width:100px;height:108px;background:#4A90D9;border:none;border-radius:42% 42% 50% 50% / 44% 44% 58% 58%;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;transition:all 0.3s ease;box-shadow:0 4px 24px rgba(74,144,217,0.55);gap:0;outline:none;padding:0;color:#fff;animation:aiFloat 3s ease-in-out infinite;}' +
+      '#osrs-qa-toggle-btn{position:fixed;top:50%;transform:translateY(-50%);right:20px;width:100px;height:108px;background:#4A90D9;border:none;border-radius:42% 42% 50% 50% / 44% 44% 58% 58%;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;transition:all 0.3s ease;box-shadow:0 4px 24px rgba(74,144,217,0.55);gap:0;outline:none;padding:0;color:#fff;animation:aiFloat 3s ease-in-out infinite;}' +
       '#osrs-qa-toggle-btn .peach-face{display:flex;flex-direction:column;align-items:center;gap:5px;}' +
       '#osrs-qa-toggle-btn .peach-eyes{display:flex;gap:14px;}' +
       '#osrs-qa-toggle-btn .peach-eyes span{display:block;width:10px;height:11px;background:#1a3a5c;border-radius:50%;}' +
@@ -447,7 +450,7 @@
 
   // ========== HTML 结构创建 ==========
   function createWidget() {
-    var widget = document.createElement('div');
+    widget = document.createElement('div');
     widget.id = CONFIG.widgetId;
     widget.innerHTML =
       '<div class="qa-header">' +
@@ -477,8 +480,8 @@
   // ========== 交互逻辑 ==========
   function setupEventHandlers(widget, toggleBtn) {
     var closeBtn = widget.querySelector('.qa-close-btn');
-    var sendBtn = widget.querySelector('.qa-send-btn');
-    var input = widget.querySelector('.qa-input');
+    sendBtn = widget.querySelector('.qa-send-btn');
+    input = widget.querySelector('.qa-input');
     var messagesContainer = widget.querySelector('.qa-messages');
 
     toggleBtn.addEventListener('click', function() {
