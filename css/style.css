@@ -463,6 +463,10 @@ nav a.active{
   font-weight:900;
   color:var(--text-bright);
   margin-bottom:6px;
+  min-height:5rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .task-cta-card p{
   font-size:.85rem;
