@@ -1,0 +1,26 @@
+{
+  "date": "2026-06-22 00:39:56",
+  "elapsed_seconds": 249.5,
+  "total_attempted": 163,
+  "success": 0,
+  "failed": 163,
+  "quota_exceeded": false,
+  "auth_error_403": true,
+  "status_codes": {
+    "403": 163
+  },
+  "failed_urls_sample": [
+    "https://osrsguru.com/index.html",
+    "https://osrsguru.com/monthly-updates.html",
+    "https://osrsguru.com/weekly-updates.html",
+    "https://osrsguru.com/community.html",
+    "https://osrsguru.com/contact.html",
+    "https://osrsguru.com/guides/osrs-account-security-anti-scam-guide-2026.html",
+    "https://osrsguru.com/guides/osrs-achievement-diary-beginner-guide-2026.html",
+    "https://osrsguru.com/guides/osrs-barrows-beginner-guide-2026.html",
+    "https://osrsguru.com/guides/osrs-clan-social-guide-2026.html",
+    "https://osrsguru.com/guides/osrs-clue-scrolls-beginner-guide-2026.html"
+  ],
+  "failed_urls_count": 163,
+  "sa_email": "indexing-ap@osrsgu-indexin.iam.gserviceaccount.com"
+}

@@ -2,6 +2,22 @@
 
 ## 执行历史
 
+### 2026-06-23（凌晨 05:37 CST）— 🎉 **突破！权限修复成功！**
+- **时间1 (00:25)**: SA 权限仍为「完整」，163 条全部 403 失败
+- **时间2 (05:37)**: 用户将 GSC 中 SA 权限从「完整」改为「拥有者(Owner)」
+- **结果**: ✅ **43 条成功提交 OK！** 第44条触发 HTTP 429 配额上限（200/天），119条跳过
+- **关键发现**: Indexing API 要求 SA 必须是 GSC **Owner**，「完整(Full)」权限不够！
+- 累计已提交: **144 / 264 (55%)**，剩余: **120 URLs**
+- 后续每日自动化将自动提交剩余 URL（约需 1 天完成）
+- 📋 报告: `.workbuddy/reports/indexing-report-2026-06-23.md`
+
+### 2026-06-23（凌晨 00:25 CST）— 失败（已修复）
+- 代理正常 (127.0.0.1:7897)，SA JWT Token 获取成功
+- Sitemap: 264 URLs 总计，101 已提交，163 新 URL 待提交
+- 脚本: `daily_indexing_submit.py` (SA + requests)
+- 结果: **HTTP 403 × 161 + Connection Error × 1 + Timeout × 1** — 全部失败
+- 🔴 SA 权限为「完整」而非「拥有者」，05:37 改权限后立即修复
+
 ### 2026-06-13（上午 9:10）
 - 代理正常 (127.0.0.1:7897)，OAuth Token 刷新成功
 - Sitemap: 111 URLs 总计，96 已提交，15 新 URL 待提交
@@ -143,3 +159,14 @@
 - 🔴 **连续 10+ 天阻塞**: SA 403 + OAuth expired 双重封锁未解除
 - ⚠️ 与 6/19 结果完全相同，自动化每日运行无意义
 - 📋 报告已生成: `.workbuddy/reports/indexing-report-2026-06-20.md`
+
+### 2026-06-22（凌晨 00:25 CST）
+- 代理正常 (127.0.0.1:7897)，SA JWT Token 通过 ProxiedRequest 修复后获取成功
+- **技术修复**: 发现并解决 `google.auth.transport.requests.Request` 不读 `HTTPS_PROXY` 的 Bug，使用自定义 `ProxiedRequest` 类
+- Sitemap: **264 URLs**（新增 51 个 URL，6/20 → 6/22 大量内容上线），已提交: 108，新 URL: 163
+- 脚本: 自定义 SA + ProxiedRequest
+- 结果: **HTTP 403 × 163** — 全部失败，SA 仍无 Search Console 权限
+- 成功: **0**，失败: **163**，剩余: **163**
+- 🔴 **连续第 5 次 403 阻塞**（6/10, 6/11, 6/18, 6/19, 6/20, 6/22）— 唯一修复路径仍是手动 GSC 添加 SA Owner
+- 📊 累计已提交: 108 URLs (41%)，待提交: 156 URLs (59%)
+- 📋 报告: `.workbuddy/reports/indexing-report-2026-06-22.md`
