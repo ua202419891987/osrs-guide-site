@@ -3,6 +3,7 @@
  * 右下角悬浮窗 - AI 问答系统
  * v2.12.0 - Add 12 new Money Making Deep Dive guides (Slayer Money, Boss Profit, Flipping, Mid-Game, AFK, Daily Routine, Quest-Unlocked, Wilderness, Ironman P2P, Skilling Post-Sailing, Non-Boss Combat, Spend GP Wisely)
  * v2.11.0 - Add 16 new CD+Windrose guides to article index (Co-op, Farming, Build, Endgame, PvP, Secrets, Performance, Patch)
+ * v2.14.1 - Fix: brighter pulse ring (white/gold), badge always visible, bubble shows every 2hrs
  * v2.14.0 - Visibility boost: pulse animation + NEW badge + preview bubble + page-context suggested questions
  * v2.13.0 - Hybrid mode: suggested buttons trigger AI answers + article links; search box keeps article links
  * v2.12.2 - Add suggested questions + article page CTA injection
@@ -458,10 +459,10 @@
       '#osrs-qa-widget .qa-article-cta-btn:hover{background:linear-gradient(135deg,rgba(212,175,55,0.45),rgba(212,175,55,0.25));border-color:rgba(212,175,55,0.6);}' +
       '@keyframes aiFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}' +
       // === P0: 脉冲光环动画 ===
-      '@keyframes aiPulseRing{0%{box-shadow:0 4px 24px rgba(74,144,217,0.55),0 0 0 0 rgba(74,144,217,0.4);}70%{box-shadow:0 4px 24px rgba(74,144,217,0.55),0 0 0 20px rgba(74,144,217,0);}100%{box-shadow:0 4px 24px rgba(74,144,217,0.55),0 0 0 0 rgba(74,144,217,0);}}' +
+      '@keyframes aiPulseRing{0%{box-shadow:0 4px 24px rgba(74,144,217,0.55),0 0 0 0 rgba(255,255,255,0.8);}70%{box-shadow:0 4px 24px rgba(74,144,217,0.55),0 0 0 22px rgba(255,215,0,0);}100%{box-shadow:0 4px 24px rgba(74,144,217,0.55),0 0 0 0 rgba(255,215,0,0);}}' +
       '#osrs-qa-toggle-btn.pulse{animation:aiFloat 3s ease-in-out infinite,aiPulseRing 2s ease-out 3;}' +
       // === P0: NEW 红点徽章 ===
-      '#osrs-qa-toggle-btn .peach-badge{position:absolute;top:-6px;right:-2px;background:#e74c3c;color:#fff;font-size:9px;font-weight:700;padding:2px 5px;border-radius:8px;line-height:1;letter-spacing:0.5px;box-shadow:0 2px 6px rgba(231,76,60,0.5);animation:badgeBounce 1.5s ease-in-out infinite;}' +
+      '#osrs-qa-toggle-btn .peach-badge{position:absolute;top:-8px;right:-4px;background:#e74c3c;color:#fff;font-size:10px;font-weight:700;padding:3px 6px;border-radius:10px;line-height:1;letter-spacing:0.5px;box-shadow:0 2px 8px rgba(231,76,60,0.6);animation:badgeBounce 1.5s ease-in-out infinite;z-index:10000;}' +
       '@keyframes badgeBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}' +
       // === P1: 预览气泡 ===
       '#osrs-qa-preview-bubble{position:fixed;top:50%;right:140px;transform:translateY(-50%);background:linear-gradient(135deg,rgba(39,33,26,0.98),rgba(59,38,21,0.95));border:2px solid rgba(74,144,217,0.4);border-radius:12px;padding:12px 16px;max-width:220px;box-shadow:0 4px 20px rgba(0,0,0,0.5);z-index:9998;display:none;cursor:pointer;}' +
@@ -1038,15 +1039,23 @@
 
   // ========== P0+P1: 按钮可见性增强 ==========
   function showPreviewBubble(toggleBtn) {
-    // 仅首次访问显示
+    // 2小时内未看过气泡的用户才显示
     try {
-      if (localStorage.getItem('osrs_qa_seen_bubble')) return;
+      var lastSeen = localStorage.getItem('osrs_qa_seen_bubble');
+      if (lastSeen) {
+        var elapsed = Date.now() - parseInt(lastSeen, 10);
+        if (elapsed < 2 * 60 * 60 * 1000) return; // 2小时内不再弹
+      }
     } catch(e) {}
 
     // 8秒后弹出预览气泡
     setTimeout(function() {
       try {
-        if (localStorage.getItem('osrs_qa_seen_bubble')) return;
+        var lastSeen2 = localStorage.getItem('osrs_qa_seen_bubble');
+        if (lastSeen2) {
+          var elapsed2 = Date.now() - parseInt(lastSeen2, 10);
+          if (elapsed2 < 2 * 60 * 60 * 1000) return;
+        }
       } catch(e) {}
 
       var bubble = document.createElement('div');
@@ -1063,7 +1072,7 @@
         bubble.style.transition = 'opacity 0.3s';
         bubble.style.opacity = '0';
         setTimeout(function() { if (bubble.parentNode) bubble.remove(); }, 300);
-        try { localStorage.setItem('osrs_qa_seen_bubble', '1'); } catch(e) {}
+        try { localStorage.setItem('osrs_qa_seen_bubble', String(Date.now())); } catch(e) {}
       });
 
       // 5秒后自动消失
@@ -1073,7 +1082,7 @@
           bubble.style.opacity = '0';
           setTimeout(function() { if (bubble.parentNode) bubble.remove(); }, 500);
         }
-        try { localStorage.setItem('osrs_qa_seen_bubble', '1'); } catch(e) {}
+        try { localStorage.setItem('osrs_qa_seen_bubble', String(Date.now())); } catch(e) {}
       }, 5000);
     }, 8000);
   }
@@ -1085,13 +1094,8 @@
       toggleBtn.classList.remove('pulse');
     }, 6000); // 3 cycles × 2s
 
-    // === P0: NEW 徽章（已关闭过的用户不再显示）===
-    try {
-      if (localStorage.getItem('osrs_qa_seen_bubble')) {
-        var badge = toggleBtn.querySelector('.peach-badge');
-        if (badge) badge.style.display = 'none';
-      }
-    } catch(e) {}
+    // === P0: NEW 徽章 — 始终显示（小徽章不扰民）===
+    // 已移除 localStorage 隐藏逻辑，确保所有用户都能看到
   }
 
   function init() {
@@ -1102,7 +1106,7 @@
     // === P0+P1: 可见性增强 ===
     initPulseAndBadge(elements.toggleBtn);
     showPreviewBubble(elements.toggleBtn);
-    console.log('✅ ' + CONFIG.assistantTitle + ' v2.14.0 initialized (pulse + badge + preview bubble + context questions)');
+    console.log('✅ ' + CONFIG.assistantTitle + ' v2.14.1 initialized (pulse + badge + preview bubble + context questions)');
   }
 
   if (document.readyState === 'loading') {
