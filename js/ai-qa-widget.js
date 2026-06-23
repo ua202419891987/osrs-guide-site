@@ -3,6 +3,7 @@
  * 右下角悬浮窗 - AI 问答系统
  * v2.12.0 - Add 12 new Money Making Deep Dive guides (Slayer Money, Boss Profit, Flipping, Mid-Game, AFK, Daily Routine, Quest-Unlocked, Wilderness, Ironman P2P, Skilling Post-Sailing, Non-Boss Combat, Spend GP Wisely)
  * v2.11.0 - Add 16 new CD+Windrose guides to article index (Co-op, Farming, Build, Endgame, PvP, Secrets, Performance, Patch)
+ * v2.14.0 - Visibility boost: pulse animation + NEW badge + preview bubble + page-context suggested questions
  * v2.13.0 - Hybrid mode: suggested buttons trigger AI answers + article links; search box keeps article links
  * v2.12.2 - Add suggested questions + article page CTA injection
  * v2.10.0 - Add 22 new OSRS guides to article index (Skill Training + Money Making + Slayer + Boss + Quest)
@@ -455,15 +456,105 @@
       '#osrs-qa-widget .qa-article-cta-desc{font-size:12px;color:rgba(232,213,183,0.7);margin-bottom:10px;}' +
       '#osrs-qa-widget .qa-article-cta-btn{display:inline-block;padding:8px 18px;background:linear-gradient(135deg,rgba(212,175,55,0.3),rgba(212,175,55,0.15));border:1px solid rgba(212,175,55,0.4);border-radius:6px;color:#d4af37;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.2s;}' +
       '#osrs-qa-widget .qa-article-cta-btn:hover{background:linear-gradient(135deg,rgba(212,175,55,0.45),rgba(212,175,55,0.25));border-color:rgba(212,175,55,0.6);}' +
-      '@keyframes aiFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}';
+      '@keyframes aiFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}' +
+      // === P0: 脉冲光环动画 ===
+      '@keyframes aiPulseRing{0%{box-shadow:0 4px 24px rgba(74,144,217,0.55),0 0 0 0 rgba(74,144,217,0.4);}70%{box-shadow:0 4px 24px rgba(74,144,217,0.55),0 0 0 20px rgba(74,144,217,0);}100%{box-shadow:0 4px 24px rgba(74,144,217,0.55),0 0 0 0 rgba(74,144,217,0);}}' +
+      '#osrs-qa-toggle-btn.pulse{animation:aiFloat 3s ease-in-out infinite,aiPulseRing 2s ease-out 3;}' +
+      // === P0: NEW 红点徽章 ===
+      '#osrs-qa-toggle-btn .peach-badge{position:absolute;top:-6px;right:-2px;background:#e74c3c;color:#fff;font-size:9px;font-weight:700;padding:2px 5px;border-radius:8px;line-height:1;letter-spacing:0.5px;box-shadow:0 2px 6px rgba(231,76,60,0.5);animation:badgeBounce 1.5s ease-in-out infinite;}' +
+      '@keyframes badgeBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}' +
+      // === P1: 预览气泡 ===
+      '#osrs-qa-preview-bubble{position:fixed;top:50%;right:140px;transform:translateY(-50%);background:linear-gradient(135deg,rgba(39,33,26,0.98),rgba(59,38,21,0.95));border:2px solid rgba(74,144,217,0.4);border-radius:12px;padding:12px 16px;max-width:220px;box-shadow:0 4px 20px rgba(0,0,0,0.5);z-index:9998;display:none;cursor:pointer;}' +
+      '#osrs-qa-preview-bubble.show{display:block;animation:qaBubbleIn 0.4s ease-out;}' +
+      '#osrs-qa-preview-bubble .bubble-title{color:#d4af37;font-size:13px;font-weight:600;}' +
+      '#osrs-qa-preview-bubble .bubble-sub{color:rgba(232,213,183,0.7);font-size:11px;margin-top:4px;}' +
+      '#osrs-qa-preview-bubble::after{content:"";position:absolute;right:-10px;top:50%;transform:translateY(-50%);border:8px solid transparent;border-left-color:rgba(74,144,217,0.4);}' +
+      '@keyframes qaBubbleIn{from{opacity:0;transform:translateY(-50%) translateX(15px);}to{opacity:1;transform:translateY(-50%) translateX(0);}}';
       // 裁剪消息数量
       document.head.appendChild(style);
+  }
+
+  // ========== P2: 页面场景匹配引导问题 ==========
+  function getSuggestedQuestions() {
+    var path = window.location.pathname.toLowerCase();
+
+    // 赚钱相关页面
+    if (path.indexOf('money') !== -1 || path.indexOf('flipping') !== -1 || path.indexOf('gp') !== -1 || path.indexOf('profit') !== -1 || path.indexOf('wealth') !== -1) {
+      return [
+        { q: 'How to make first 1 million GP new player OSRS 2026?', label: '💰 How to make first 1M GP?' },
+        { q: 'Best money making methods mid game OSRS 2026?', label: '📈 Best mid-game money methods?' },
+        { q: 'What bosses are most profitable OSRS 2026?', label: '🏆 Most profitable bosses?' },
+        { q: 'How to flip items on GE for profit OSRS?', label: '🔄 How to flip GE items?' },
+        { q: 'Best AFK money making methods OSRS 2026?', label: '😴 Best AFK money methods?' }
+      ];
+    }
+
+    // 技能训练相关页面
+    if (path.indexOf('training') !== -1 || path.indexOf('1-99') !== -1 || path.indexOf('skill') !== -1 || path.indexOf('leveling') !== -1 || path.indexOf('agility') !== -1 || path.indexOf('mining') !== -1 || path.indexOf('fishing') !== -1 || path.indexOf('woodcutting') !== -1 || path.indexOf('crafting') !== -1 || path.indexOf('prayer') !== -1 || path.indexOf('magic') !== -1 || path.indexOf('hunter') !== -1 || path.indexOf('thieving') !== -1 || path.indexOf('herblore') !== -1 || path.indexOf('farming') !== -1 || path.indexOf('runecraft') !== -1 || path.indexOf('cooking') !== -1 || path.indexOf('firemaking') !== -1 || path.indexOf('smithing') !== -1) {
+      return [
+        { q: 'Best 1-99 training path 2026 OSRS?', label: '🗺️ Best 1-99 training path?' },
+        { q: 'Fastest 99 without spending real money OSRS F2P?', label: '🎯 Fastest 99 F2P?' },
+        { q: 'Cheapest 1-99 Prayer training OSRS?', label: '🙏 Cheapest 1-99 Prayer?' },
+        { q: 'Best AFK training methods OSRS 2026?', label: '😴 Best AFK training?' },
+        { q: 'How to get 99 Agility fast OSRS?', label: '🏃 How to get 99 Agility fast?' }
+      ];
+    }
+
+    // Boss/战斗相关页面
+    if (path.indexOf('boss') !== -1 || path.indexOf('combat') !== -1 || path.indexOf('zulrah') !== -1 || path.indexOf('vorkath') !== -1 || path.indexOf('gauntlet') !== -1 || path.indexOf('slayer') !== -1 || path.indexOf('pvm') !== -1 || path.indexOf('raid') !== -1 || path.indexOf('jad') !== -1 || path.indexOf('cape') !== -1 || path.indexOf('araxxor') !== -1 || path.indexOf('cerberus') !== -1 || path.indexOf('hydra') !== -1 || path.indexOf('nex') !== -1 || path.indexOf('tob') !== -1 || path.indexOf('toa') !== -1 || path.indexOf('cox') !== -1 || path.indexOf('xeric') !== -1 || path.indexOf('amascut') !== -1 || path.indexOf('blood') !== -1 || path.indexOf('dks') !== -1 || path.indexOf('dagannoth') !== -1 || path.indexOf('sarachnis') !== -1 || path.indexOf('kq') !== -1 || path.indexOf('kalphite') !== -1) {
+      return [
+        { q: 'What is the first boss I should kill OSRS?', label: '🥇 What boss should I kill first?' },
+        { q: 'Best boss progression order for beginners OSRS?', label: '📊 Best boss progression order?' },
+        { q: 'How to beat Zulrah for beginners OSRS?', label: '🐍 How to beat Zulrah?' },
+        { q: 'What gear do I need for raids OSRS?', label: '⚔️ What gear for raids?' },
+        { q: 'How to get Fire Cape Jad fight caves OSRS?', label: '🔥 How to get Fire Cape?' }
+      ];
+    }
+
+    // 任务相关页面
+    if (path.indexOf('quest') !== -1 || path.indexOf('diary') !== -1 || path.indexOf('walkthrough') !== -1) {
+      return [
+        { q: 'What quests should I do first OSRS beginner?', label: '📋 Best first quests?' },
+        { q: 'Quest cape optimal order OSRS 2026?', label: '🗺️ Quest cape order?' },
+        { q: 'Which quests unlock the best content OSRS?', label: '🔑 Best unlock quests?' },
+        { q: 'How to complete Recipe for Disaster OSRS?', label: '🍳 Recipe for Disaster guide?' },
+        { q: 'Best quests for XP rewards OSRS?', label: '⭐ Best XP reward quests?' }
+      ];
+    }
+
+    // 会员相关页面
+    if (path.indexOf('membership') !== -1 || path.indexOf('bond') !== -1 || path.indexOf('f2p') !== -1 || path.indexOf('p2p') !== -1 || path.indexOf('member') !== -1) {
+      return [
+        { q: 'Is OSRS membership worth it 2026 bond vs subscription?', label: '🔥 Is membership worth it?' },
+        { q: 'How to buy membership with bonds OSRS?', label: '💰 How to buy with bonds?' },
+        { q: 'F2P to P2P when should I upgrade OSRS?', label: '🔄 When to go P2P?' },
+        { q: 'What content is members only OSRS?', label: '🔒 What\'s members only?' },
+        { q: 'Best member benefits for new players OSRS?', label: '⭐ Best member benefits?' }
+      ];
+    }
+
+    // 默认（首页/其他页面）
+    return [
+      { q: 'Best 1-99 training path 2026 OSRS?', label: '🗺️ Best 1-99 training path?' },
+      { q: 'How to make first 1 million GP new player OSRS 2026?', label: '💰 How to make first 1M GP?' },
+      { q: 'Is OSRS membership worth it 2026 bond vs subscription?', label: '🔥 Is membership worth it?' },
+      { q: 'How to start Ironman mode OSRS beginner guide 2026?', label: '🔒 How to start Ironman?' },
+      { q: 'Fastest 99 without spending real money OSRS F2P?', label: '🎯 Fastest 99 without spending?' }
+    ];
   }
 
   // ========== HTML 结构创建 ==========
   function createWidget() {
     widget = document.createElement('div');
     widget.id = CONFIG.widgetId;
+    // === P2: 动态生成场景匹配的引导问题 ===
+    var suggestions = getSuggestedQuestions();
+    var suggestedHTML = '<div class="qa-suggested"><div class="qa-suggested-title">💡 Try asking:</div><div class="qa-suggested-btns">';
+    for (var si = 0; si < suggestions.length; si++) {
+      suggestedHTML += '<button class="qa-suggested-btn" data-q="' + suggestions[si].q + '" data-force-ai="true">' + suggestions[si].label + '</button>';
+    }
+    suggestedHTML += '</div></div>';
+
     widget.innerHTML =
       '<div class="qa-header">' +
         '<div class="qa-header-title">' +
@@ -472,7 +563,7 @@
         '</div>' +
         '<button class="qa-close-btn" aria-label="Close AI widget">✕</button>' +
       '</div>' +
-      '<div class="qa-messages"><div class="qa-suggested"><div class="qa-suggested-title">💡 Try asking:</div><div class="qa-suggested-btns"><button class="qa-suggested-btn" data-q="Best 1-99 training path 2026 OSRS?" data-force-ai="true">🗺️ Best 1-99 training path?</button><button class="qa-suggested-btn" data-q="How to make first 1 million GP new player OSRS 2026?" data-force-ai="true">💰 How to make first 1M GP?</button><button class="qa-suggested-btn" data-q="Is OSRS membership worth it 2026 bond vs subscription?" data-force-ai="true">🔥 Is membership worth it?</button><button class="qa-suggested-btn" data-q="How to start Ironman mode OSRS beginner guide 2026?" data-force-ai="true">🔒 How to start Ironman?</button><button class="qa-suggested-btn" data-q="Fastest 99 without spending real money OSRS F2P?" data-force-ai="true">🎯 Fastest 99 without spending?</button></div></div></div>' +
+      '<div class="qa-messages">' + suggestedHTML + '</div>' +
       '<div class="qa-input-group">' +
         '<input type="text" class="qa-input" placeholder="' + CONFIG.inputPlaceholder + '" aria-label="Ask a question" />' +
         '<button class="qa-send-btn" aria-label="Send message">Send</button>' +
@@ -480,7 +571,9 @@
 
     var toggleBtn = document.createElement('button');
     toggleBtn.id = CONFIG.widgetButtonId;
-    toggleBtn.innerHTML = '<div class="peach-face"><div class="peach-eyes"><span></span><span></span></div><div class="peach-mouth"></div></div><span class="ai-label">AI</span>';
+    // === P0: 加 NEW 红点徽章 ===
+    toggleBtn.innerHTML = '<div class="peach-face"><div class="peach-eyes"><span></span><span></span></div><div class="peach-mouth"></div></div><span class="ai-label">AI</span><span class="peach-badge">NEW</span>';
+    toggleBtn.style.position = 'fixed';
     toggleBtn.title = 'Open ' + CONFIG.assistantTitle;
 
     document.body.appendChild(widget);
@@ -943,12 +1036,73 @@
     target.appendChild(ctal);
   }
 
+  // ========== P0+P1: 按钮可见性增强 ==========
+  function showPreviewBubble(toggleBtn) {
+    // 仅首次访问显示
+    try {
+      if (localStorage.getItem('osrs_qa_seen_bubble')) return;
+    } catch(e) {}
+
+    // 8秒后弹出预览气泡
+    setTimeout(function() {
+      try {
+        if (localStorage.getItem('osrs_qa_seen_bubble')) return;
+      } catch(e) {}
+
+      var bubble = document.createElement('div');
+      bubble.id = 'osrs-qa-preview-bubble';
+      bubble.innerHTML = '<div class="bubble-title">🤖 Ask me anything about ' + CONFIG.gameName + '!</div><div class="bubble-sub">Tap to try →</div>';
+      document.body.appendChild(bubble);
+      // 触发动画
+      requestAnimationFrame(function() { bubble.classList.add('show'); });
+
+      // 点击气泡 → 打开浮窗
+      bubble.addEventListener('click', function() {
+        widget.classList.add('open');
+        if (input) input.focus();
+        bubble.style.transition = 'opacity 0.3s';
+        bubble.style.opacity = '0';
+        setTimeout(function() { if (bubble.parentNode) bubble.remove(); }, 300);
+        try { localStorage.setItem('osrs_qa_seen_bubble', '1'); } catch(e) {}
+      });
+
+      // 5秒后自动消失
+      setTimeout(function() {
+        if (bubble.parentNode) {
+          bubble.style.transition = 'opacity 0.5s';
+          bubble.style.opacity = '0';
+          setTimeout(function() { if (bubble.parentNode) bubble.remove(); }, 500);
+        }
+        try { localStorage.setItem('osrs_qa_seen_bubble', '1'); } catch(e) {}
+      }, 5000);
+    }, 8000);
+  }
+
+  function initPulseAndBadge(toggleBtn) {
+    // === P0: 脉冲动画（3次呼吸后停止）===
+    toggleBtn.classList.add('pulse');
+    setTimeout(function() {
+      toggleBtn.classList.remove('pulse');
+    }, 6000); // 3 cycles × 2s
+
+    // === P0: NEW 徽章（已关闭过的用户不再显示）===
+    try {
+      if (localStorage.getItem('osrs_qa_seen_bubble')) {
+        var badge = toggleBtn.querySelector('.peach-badge');
+        if (badge) badge.style.display = 'none';
+      }
+    } catch(e) {}
+  }
+
   function init() {
     injectStyles();
     var elements = createWidget();
     setupEventHandlers(elements.widget, elements.toggleBtn);
     injectArticleCTA();
-    console.log('✅ ' + CONFIG.assistantTitle + ' v2.13.0 initialized (hybrid mode: AI answers + article links)');
+    // === P0+P1: 可见性增强 ===
+    initPulseAndBadge(elements.toggleBtn);
+    showPreviewBubble(elements.toggleBtn);
+    console.log('✅ ' + CONFIG.assistantTitle + ' v2.14.0 initialized (pulse + badge + preview bubble + context questions)');
   }
 
   if (document.readyState === 'loading') {
