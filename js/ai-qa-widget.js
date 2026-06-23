@@ -462,18 +462,20 @@
       '#osrs-qa-widget .qa-article-cta-btn{display:inline-block;padding:8px 18px;background:linear-gradient(135deg,rgba(212,175,55,0.3),rgba(212,175,55,0.15));border:1px solid rgba(212,175,55,0.4);border-radius:6px;color:#d4af37;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.2s;}' +
       '#osrs-qa-widget .qa-article-cta-btn:hover{background:linear-gradient(135deg,rgba(212,175,55,0.45),rgba(212,175,55,0.25));border-color:rgba(212,175,55,0.6);}' +
       '@keyframes aiFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}' +
-      // === P0: 脉冲光环动画 ===
-      '@keyframes aiPulseRing{0%{box-shadow:0 4px 24px rgba(74,144,217,0.55),0 0 0 0 rgba(255,255,255,0.8);}70%{box-shadow:0 4px 24px rgba(74,144,217,0.55),0 0 0 22px rgba(255,215,0,0);}100%{box-shadow:0 4px 24px rgba(74,144,217,0.55),0 0 0 0 rgba(255,215,0,0);}}' +
-      '#osrs-qa-toggle-btn.pulse{animation:aiFloat 3s ease-in-out infinite,aiPulseRing 2s ease-out 3;}' +
+      // === P0: 脉冲光环动画（使用伪元素实现，更可靠）===
+      '#osrs-qa-toggle-btn{position:fixed;}' + // 确保定位上下文
+      '#osrs-qa-toggle-btn::before{content:"";position:absolute;top:50%;left:50%;width:100%;height:100%;border-radius:50%;transform:translate(-50%,-50%) scale(1);border:3px solid rgba(255,255,255,0.8);box-shadow:0 0 20px rgba(255,255,255,0.4),0 0 40px rgba(255,215,0,0.2);opacity:0;pointer-events:none;z-index:-1;}' +
+      '@keyframes aiPulseRing{0%{transform:translate(-50%,-50%) scale(1);opacity:0.9;border-color:rgba(255,255,255,0.8);box-shadow:0 0 20px rgba(255,255,255,0.5),0 0 40px rgba(255,215,0,0.3);}40%{border-color:rgba(255,215,0,0.6);box-shadow:0 0 25px rgba(255,215,0,0.5),0 0 50px rgba(255,215,0,0.2);}100%{transform:translate(-50%,-50%) scale(2.5);opacity:0;border-color:rgba(255,215,0,0);box-shadow:0 0 0 rgba(255,215,0,0);}}' +
+      '#osrs-qa-toggle-btn.pulse::before{animation:aiPulseRing 2s ease-out 3;}' +
       // === P0: NEW 红点徽章 ===
       '#osrs-qa-toggle-btn .peach-badge{position:absolute;top:-8px;right:-4px;background:#e74c3c;color:#fff;font-size:10px;font-weight:700;padding:3px 6px;border-radius:10px;line-height:1;letter-spacing:0.5px;box-shadow:0 2px 8px rgba(231,76,60,0.6);animation:badgeBounce 1.5s ease-in-out infinite;z-index:10000;}' +
       '@keyframes badgeBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}' +
       // === P1: 预览气泡 ===
-      '#osrs-qa-preview-bubble{position:fixed;top:50%;right:140px;transform:translateY(-50%);background:linear-gradient(135deg,rgba(39,33,26,0.98),rgba(59,38,21,0.95));border:2px solid rgba(74,144,217,0.4);border-radius:12px;padding:12px 16px;max-width:220px;box-shadow:0 4px 20px rgba(0,0,0,0.5);z-index:9998;display:none;cursor:pointer;}' +
+      '#osrs-qa-preview-bubble{position:fixed;top:50%;right:140px;transform:translateY(-50%);background:linear-gradient(135deg,rgba(39,33,26,0.98),rgba(59,38,21,0.95));border:2px solid rgba(74,144,217,0.6);border-radius:12px;padding:12px 16px;max-width:220px;box-shadow:0 0 25px rgba(74,144,217,0.3),0 4px 20px rgba(0,0,0,0.5);z-index:10000;display:none;cursor:pointer;}' +
       '#osrs-qa-preview-bubble.show{display:block;animation:qaBubbleIn 0.4s ease-out;}' +
       '#osrs-qa-preview-bubble .bubble-title{color:#d4af37;font-size:13px;font-weight:600;}' +
       '#osrs-qa-preview-bubble .bubble-sub{color:rgba(232,213,183,0.7);font-size:11px;margin-top:4px;}' +
-      '#osrs-qa-preview-bubble::after{content:"";position:absolute;right:-10px;top:50%;transform:translateY(-50%);border:8px solid transparent;border-left-color:rgba(74,144,217,0.4);}' +
+      '#osrs-qa-preview-bubble::after{content:"";position:absolute;right:-10px;top:50%;transform:translateY(-50%);border:8px solid transparent;border-left-color:rgba(74,144,217,0.6);}' +
       '@keyframes qaBubbleIn{from{opacity:0;transform:translateY(-50%) translateX(15px);}to{opacity:1;transform:translateY(-50%) translateX(0);}}';
       // 裁剪消息数量
       document.head.appendChild(style);
@@ -1085,7 +1087,10 @@
       var lastSeen = localStorage.getItem('osrs_qa_seen_bubble');
       if (lastSeen) {
         var elapsed = Date.now() - parseInt(lastSeen, 10);
-        if (elapsed < 2 * 60 * 60 * 1000) return; // 2小时内不再弹
+        if (elapsed < 2 * 60 * 60 * 1000) {
+          console.log('[AI Widget] Preview bubble suppressed (seen ' + Math.round(elapsed/1000) + 's ago, 2h cooldown)');
+          return; // 2小时内不再弹
+        }
       }
     } catch(e) {}
 
@@ -1095,7 +1100,10 @@
         var lastSeen2 = localStorage.getItem('osrs_qa_seen_bubble');
         if (lastSeen2) {
           var elapsed2 = Date.now() - parseInt(lastSeen2, 10);
-          if (elapsed2 < 2 * 60 * 60 * 1000) return;
+          if (elapsed2 < 2 * 60 * 60 * 1000) {
+            console.log('[AI Widget] Preview bubble suppressed at show time (cooldown)');
+            return;
+          }
         }
       } catch(e) {}
 
@@ -1103,8 +1111,9 @@
       bubble.id = 'osrs-qa-preview-bubble';
       bubble.innerHTML = '<div class="bubble-title">' + (IS_ZH ? '🤖 问任何关于 OSRS 的问题！' : '🤖 Ask me anything about ' + CONFIG.gameName + '!') + '</div><div class="bubble-sub">' + (IS_ZH ? '点此试试 →' : 'Tap to try →') + '</div>';
       document.body.appendChild(bubble);
+      console.log('[AI Widget] Preview bubble DOM created');
       // 触发动画
-      requestAnimationFrame(function() { bubble.classList.add('show'); });
+      requestAnimationFrame(function() { bubble.classList.add('show'); console.log('[AI Widget] Preview bubble shown'); });
 
       // 点击气泡 → 打开浮窗
       bubble.addEventListener('click', function() {
@@ -1131,9 +1140,11 @@
   function initPulseAndBadge(toggleBtn) {
     // === P0: 脉冲动画（3次呼吸后停止）===
     toggleBtn.classList.add('pulse');
+    console.log('[AI Widget] Pulse animation started (3 cycles, 6s)');
     setTimeout(function() {
       toggleBtn.classList.remove('pulse');
-    }, 6000); // 3 cycles × 2s
+      console.log('[AI Widget] Pulse animation ended');
+    }, 6500); // 3 cycles × 2s + small buffer
 
     // === P0: NEW 徽章 — 始终显示（小徽章不扰民）===
     // 已移除 localStorage 隐藏逻辑，确保所有用户都能看到
