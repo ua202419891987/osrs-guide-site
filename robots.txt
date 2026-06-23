@@ -1,67 +1,75 @@
-User-agent: *
-Allow: /
-Disallow: /blog/
-Crawl-delay: 5
+# OSRS Guru - Robots.txt
+# Last updated: 2026-06-24
+# Purpose: Block AI scrapers and SEO tools while allowing legitimate search engines
 
-# Block AI scrapers
+# ============================================
+# BLOCK ALL AI TRAINING BOTS
+# ============================================
+
+# OpenAI
 User-agent: GPTBot
 Disallow: /
 
 User-agent: ChatGPT-User
 Disallow: /
 
+# Anthropic (Claude)
 User-agent: ClaudeBot
 Disallow: /
 
 User-agent: Claude-Web
 Disallow: /
 
+User-agent: anthropic-ai
+Disallow: /
+
+# Google AI
 User-agent: Google-Extended
 Disallow: /
 
+# Perplexity
 User-agent: PerplexityBot
 Disallow: /
 
+# Cohere
 User-agent: Cohere-AI
 Disallow: /
 
-User-agent: CCBot
-Disallow: /
-
+# Meta (Facebook)
 User-agent: Meta-ExternalAgent
 Disallow: /
 
 User-agent: Meta-ExternalFetcher
 Disallow: /
 
+# Amazon
 User-agent: Amazonbot
 Disallow: /
 
-User-agent: anthropic-ai
+# Common Crawl / CCBot
+User-agent: CCBot
 Disallow: /
 
+# Apple AI
 User-agent: Applebot-Extended
 Disallow: /
 
+# AI2 / Allen Institute
 User-agent: AI2Bot
 Disallow: /
 
-User-agent: AiBot
+# Diffbot
+User-agent: Diffbot
 Disallow: /
 
-User-agent: Diffbot
+# Various AI bots
+User-agent: AiBot
 Disallow: /
 
 User-agent: FacialBot
 Disallow: /
 
-User-agent: FriendlyCrawler
-Disallow: /
-
 User-agent: IlyaKuznetsovBot
-Disallow: /
-
-User-agent: Images
 Disallow: /
 
 User-agent: magpie-crawler
@@ -103,51 +111,200 @@ Disallow: /
 User-agent: YouBot
 Disallow: /
 
-# Block known SEO/scraping bots
+User-agent: Images
+Disallow: /
+
+User-agent: FriendlyCrawler
+Disallow: /
+
+# ============================================
+# BLOCK SEO & CONTENT SCRAPING TOOLS
+# ============================================
+
+# Ahrefs
 User-agent: AhrefsBot
 Disallow: /
 
+# SEMrush
 User-agent: SemrushBot
 Disallow: /
 
+# MJ12 / Majestic
 User-agent: MJ12bot
 Disallow: /
 
+User-agent: Majestic-SEO
+Disallow: /
+
+# DotBot (Moz)
 User-agent: DotBot
 Disallow: /
 
+# ByteSpider (TikTok/Bytedance)
 User-agent: Bytespider
 Disallow: /
 
+# DataForSeo
 User-agent: DataForSeoBot
 Disallow: /
 
+# PetalBot (Huawei)
 User-agent: PetalBot
 Disallow: /
 
+# Yandex
 User-agent: YandexBot
 Disallow: /
 
+# Baidu
 User-agent: Baiduspider
 Disallow: /
 
-# Allow Google (for SEO)
+User-agent: Baiduspider-image
+Disallow: /
+
+# Sogou
+User-agent: Sogou web spider
+Disallow: /
+
+# 360Spider
+User-agent: 360Spider
+Disallow: /
+
+# Soso
+User-agent: Sosospider
+Disallow: /
+
+# Teoma / Ask.com
+User-agent: Teoma
+Disallow: /
+
+# Archive bots (optional - uncomment if you don't want archiving)
+# User-agent: ia_archiver
+# Disallow: /
+
+# SiteCheck (security scanners)
+User-agent: SiteCheck-sitecrawl
+Disallow: /
+
+# Wget / Curl (often used by scrapers)
+User-agent: Wget
+Disallow: /
+
+User-agent: Curl
+Disallow: /
+
+# Python requests
+User-agent: python-requests
+Disallow: /
+
+User-agent: Python-urllib
+Disallow: /
+
+# Java scrapers
+User-agent: Java
+Disallow: /
+
+# Generic scrapers
+User-agent: ScraperBot
+Disallow: /
+
+User-agent: WebScraper
+Disallow: /
+
+User-agent: WebCopier
+Disallow: /
+
+User-agent: WebStripper
+Disallow: /
+
+User-agent: WebZIP
+Disallow: /
+
+User-agent: HTTrack
+Disallow: /
+
+User-agent: Teleport
+Disallow: /
+
+User-agent: SiteSucker
+Disallow: /
+
+User-agent: BlackWidow
+Disallow: /
+
+User-agent: Bot
+Disallow: /
+
+User-agent: Crawler
+Disallow: /
+
+User-agent: Spider
+Disallow: /
+
+# ============================================
+# ALLOW LEGITIMATE SEARCH ENGINES (for SEO)
+# ============================================
+
+# Google
 User-agent: Googlebot
 Allow: /
 
 User-agent: Googlebot-Image
 Allow: /
 
-# Allow Bing (for SEO)
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+# Bing / Microsoft
 User-agent: Bingbot
 Allow: /
 
-# Allow DuckDuckBot
+User-agent: msnbot
+Allow: /
+
+User-agent: bingbot
+Allow: /
+
+# DuckDuckGo
 User-agent: DuckDuckBot
 Allow: /
 
-# Allow Slurp (Yahoo)
+# Yahoo
 User-agent: Slurp
 Allow: /
+
+# Ecosia (uses Bing)
+User-agent: EcosiaBot
+Allow: /
+
+# Qwant
+User-agent: Qwantify
+Allow: /
+
+# Mojeek
+User-agent: MojeekBot
+Allow: /
+
+# ============================================
+# CATCH-ALL: ALLOW ALL OTHER BOTS (EXCEPT /blog/)
+# ============================================
+
+User-agent: *
+Disallow: /blog/
+Crawl-delay: 10
+
+# ============================================
+# SITEMAP
+# ============================================
 
 Sitemap: https://osrsguru.com/sitemap.xml
