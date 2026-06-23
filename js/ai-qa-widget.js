@@ -3,6 +3,7 @@
  * 右下角悬浮窗 - AI 问答系统
  * v2.12.0 - Add 12 new Money Making Deep Dive guides (Slayer Money, Boss Profit, Flipping, Mid-Game, AFK, Daily Routine, Quest-Unlocked, Wilderness, Ironman P2P, Skilling Post-Sailing, Non-Boss Combat, Spend GP Wisely)
  * v2.11.0 - Add 16 new CD+Windrose guides to article index (Co-op, Farming, Build, Endgame, PvP, Secrets, Performance, Patch)
+ * v2.14.2 - Chinese mode: zh/ pages get CN title/questions/bubble; fix script paths for all 29 zh pages
  * v2.14.1 - Fix: brighter pulse ring (white/gold), badge always visible, bubble shows every 2hrs
  * v2.14.0 - Visibility boost: pulse animation + NEW badge + preview bubble + page-context suggested questions
  * v2.13.0 - Hybrid mode: suggested buttons trigger AI answers + article links; search box keeps article links
@@ -24,9 +25,12 @@
 
   // ========== 游戏上下文检测 ==========
   const GAME = detectGame();
+  var IS_ZH = false; // v2.14.2: 中文站检测
 
   function detectGame() {
     var path = window.location.pathname.toLowerCase();
+    // 中文站检测（必须在游戏检测之前）
+    if (path.indexOf('/zh/') !== -1) { IS_ZH = true; }
     if (path.indexOf('/crimson-desert/') !== -1 || path.indexOf('crimson-desert') !== -1) return 'crimson-desert';
     if (path.indexOf('/windrose/') !== -1 || path.indexOf('windrose') !== -1) return 'windrose';
     return 'osrs';
@@ -41,10 +45,10 @@
     widgetButtonId: 'osrs-qa-toggle-btn',
     maxMessages: 10,
     game: GAME,
-    gameName: GAME === 'crimson-desert' ? 'Crimson Desert' : (GAME === 'windrose' ? 'Windrose' : 'OSRS'),
-    gameIcon: GAME === 'crimson-desert' ? '⚔️' : (GAME === 'windrose' ? '⚓' : '⚔️'),
-    assistantTitle: GAME === 'crimson-desert' ? 'Crimson Desert AI Assistant' : (GAME === 'windrose' ? 'Windrose AI Assistant' : 'OSRS AI Assistant'),
-    inputPlaceholder: GAME === 'crimson-desert' ? 'Ask about Crimson Desert...' : (GAME === 'windrose' ? 'Ask about Windrose...' : 'Ask about OSRS guides...'),
+    gameName: IS_ZH ? 'OSRS中文站' : (GAME === 'crimson-desert' ? 'Crimson Desert' : (GAME === 'windrose' ? 'Windrose' : 'OSRS')),
+    gameIcon: IS_ZH ? '🍑' : (GAME === 'crimson-desert' ? '⚔️' : (GAME === 'windrose' ? '⚓' : '⚔️')),
+    assistantTitle: IS_ZH ? 'AI 助手 · 蓝色水蜜桃' : (GAME === 'crimson-desert' ? 'Crimson Desert AI Assistant' : (GAME === 'windrose' ? 'Windrose AI Assistant' : 'OSRS AI Assistant')),
+    inputPlaceholder: IS_ZH ? '问任何 OSRS 问题...' : (GAME === 'crimson-desert' ? 'Ask about Crimson Desert...' : (GAME === 'windrose' ? 'Ask about Windrose...' : 'Ask about OSRS guides...')),
     sourceGuruLabel: GAME === 'crimson-desert' ? 'Crimson Desert Guru' : (GAME === 'windrose' ? 'Windrose Guru' : 'OSRS Guru'),
   };
 
@@ -478,10 +482,17 @@
   // ========== P2: 页面场景匹配引导问题 ==========
   function getSuggestedQuestions() {
     var path = window.location.pathname.toLowerCase();
+    var zh = IS_ZH;
 
     // 赚钱相关页面
     if (path.indexOf('money') !== -1 || path.indexOf('flipping') !== -1 || path.indexOf('gp') !== -1 || path.indexOf('profit') !== -1 || path.indexOf('wealth') !== -1) {
-      return [
+      return zh ? [
+        { q: 'OSRS新手怎么赚第一个100万GP？', label: '💰 新手如何快速赚100万GP？' },
+        { q: 'OSRS中期最好的赚钱方法2026？', label: '📈 中期最佳赚钱方法？' },
+        { q: 'OSRS哪些Boss最赚钱2026？', label: '🏆 最赚钱的Boss有哪些？' },
+        { q: 'OSRS如何在交易所低买高卖赚钱？', label: '🔄 GE交易所怎么倒卖赚钱？' },
+        { q: 'OSRS挂机赚钱方法推荐2026？', label: '😴 好用的挂机赚钱方法？' }
+      ] : [
         { q: 'How to make first 1 million GP new player OSRS 2026?', label: '💰 How to make first 1M GP?' },
         { q: 'Best money making methods mid game OSRS 2026?', label: '📈 Best mid-game money methods?' },
         { q: 'What bosses are most profitable OSRS 2026?', label: '🏆 Most profitable bosses?' },
@@ -492,7 +503,13 @@
 
     // 技能训练相关页面
     if (path.indexOf('training') !== -1 || path.indexOf('1-99') !== -1 || path.indexOf('skill') !== -1 || path.indexOf('leveling') !== -1 || path.indexOf('agility') !== -1 || path.indexOf('mining') !== -1 || path.indexOf('fishing') !== -1 || path.indexOf('woodcutting') !== -1 || path.indexOf('crafting') !== -1 || path.indexOf('prayer') !== -1 || path.indexOf('magic') !== -1 || path.indexOf('hunter') !== -1 || path.indexOf('thieving') !== -1 || path.indexOf('herblore') !== -1 || path.indexOf('farming') !== -1 || path.indexOf('runecraft') !== -1 || path.indexOf('cooking') !== -1 || path.indexOf('firemaking') !== -1 || path.indexOf('smithing') !== -1) {
-      return [
+      return zh ? [
+        { q: 'OSRS从1到99最快训练路线2026？', label: '🗺️ 最快1-99技能路线？' },
+        { q: 'OSRS免费玩家如何最快冲99级？', label: '🎯 F2P免费冲99攻略？' },
+        { q: 'OSRS祈祷技能最便宜的练法？', label: '🙏 祈祷最省钱练法？' },
+        { q: 'OSRS挂机练级推荐哪些技能？', label: '😴 挂机练什么技能好？' },
+        { q: 'OSRS敏捷怎么练到99最快？', label: '🏃 敏捷速升99指南？' }
+      ] : [
         { q: 'Best 1-99 training path 2026 OSRS?', label: '🗺️ Best 1-99 training path?' },
         { q: 'Fastest 99 without spending real money OSRS F2P?', label: '🎯 Fastest 99 F2P?' },
         { q: 'Cheapest 1-99 Prayer training OSRS?', label: '🙏 Cheapest 1-99 Prayer?' },
@@ -503,18 +520,30 @@
 
     // Boss/战斗相关页面
     if (path.indexOf('boss') !== -1 || path.indexOf('combat') !== -1 || path.indexOf('zulrah') !== -1 || path.indexOf('vorkath') !== -1 || path.indexOf('gauntlet') !== -1 || path.indexOf('slayer') !== -1 || path.indexOf('pvm') !== -1 || path.indexOf('raid') !== -1 || path.indexOf('jad') !== -1 || path.indexOf('cape') !== -1 || path.indexOf('araxxor') !== -1 || path.indexOf('cerberus') !== -1 || path.indexOf('hydra') !== -1 || path.indexOf('nex') !== -1 || path.indexOf('tob') !== -1 || path.indexOf('toa') !== -1 || path.indexOf('cox') !== -1 || path.indexOf('xeric') !== -1 || path.indexOf('amascut') !== -1 || path.indexOf('blood') !== -1 || path.indexOf('dks') !== -1 || path.indexOf('dagannoth') !== -1 || path.indexOf('sarachnis') !== -1 || path.indexOf('kq') !== -1 || path.indexOf('kalphite') !== -1) {
-      return [
+      return zh ? [
+        { q: 'OSRS新手应该先打哪个Boss？', label: '🥇 新手第一个Boss打谁？' },
+        { q: 'OSRS Boss进阶顺序推荐？', label: '📊 Boss击杀顺序路线图？' },
+        { q: 'OSRS祖拉赫Zulrah新手怎么打？', label: '🐍 Zulrah新手打法教学？' },
+        { q: 'OSRS团队副本需要什么装备？', label: '⚔️ 团队副本装备要求？' },
+        { q: 'OSRS火斗篷怎么获取 Jad攻略？', label: '🔥 火斗篷获取完整攻略？' }
+      ] : [
         { q: 'What is the first boss I should kill OSRS?', label: '🥇 What boss should I kill first?' },
         { q: 'Best boss progression order for beginners OSRS?', label: '📊 Best boss progression order?' },
         { q: 'How to beat Zulrah for beginners OSRS?', label: '🐍 How to beat Zulrah?' },
         { q: 'What gear do I need for raids OSRS?', label: '⚔️ What gear for raids?' },
-        { q: 'How to get Fire Cape Jad fight caves OSRS?', label: '🔥 How to get Fire Cape?' }
+        { q: 'How to get Fire Cave Jad fight caves OSRS?', label: '🔥 How to get Fire Cape?' }
       ];
     }
 
     // 任务相关页面
     if (path.indexOf('quest') !== -1 || path.indexOf('diary') !== -1 || path.indexOf('walkthrough') !== -1) {
-      return [
+      return zh ? [
+        { q: 'OSRS新手应该优先做哪些任务？', label: '📋 新手必做任务推荐？' },
+        { q: 'OSRS任务披风最优完成顺序？', label: '🗺️ 任务披风完成路线？' },
+        { q: 'OSRS哪些任务解锁最好内容？', label: '🔑 必做解锁任务有哪些？' },
+        { q: 'OSRS大厨助手RFD任务攻略？', label: '🍳 大厨助手完整流程？' },
+        { q: 'OSRS给经验最多的任务是哪个？', label: '⭐ 经验奖励最高的任务？' }
+      ] : [
         { q: 'What quests should I do first OSRS beginner?', label: '📋 Best first quests?' },
         { q: 'Quest cape optimal order OSRS 2026?', label: '🗺️ Quest cape order?' },
         { q: 'Which quests unlock the best content OSRS?', label: '🔑 Best unlock quests?' },
@@ -525,7 +554,13 @@
 
     // 会员相关页面
     if (path.indexOf('membership') !== -1 || path.indexOf('bond') !== -1 || path.indexOf('f2p') !== -1 || path.indexOf('p2p') !== -1 || path.indexOf('member') !== -1) {
-      return [
+      return zh ? [
+        { q: 'OSRS会员值得开吗 Bond还是订阅？', label: '🔥 会员值不值得开通？' },
+        { q: 'OSRS怎么用Bond购买会员？', label: '💰 Bond换会员教程？' },
+        { q: 'OSRS免费玩家什么时候该转会员？', label: '🔄 什么时候升级P2P？' },
+        { q: 'OSRS会员专属内容有哪些？', label: '🔒 会员能玩什么内容？' },
+        { q: 'OSRS会员对新手的最大好处？', label: '⭐ 开会员最划算的理由？' }
+      ] : [
         { q: 'Is OSRS membership worth it 2026 bond vs subscription?', label: '🔥 Is membership worth it?' },
         { q: 'How to buy membership with bonds OSRS?', label: '💰 How to buy with bonds?' },
         { q: 'F2P to P2P when should I upgrade OSRS?', label: '🔄 When to go P2P?' },
@@ -535,7 +570,13 @@
     }
 
     // 默认（首页/其他页面）
-    return [
+    return zh ? [
+      { q: 'OSRS新手从1到99最快路线2026？', label: '🗺️ 最快1-99全技能路线？' },
+      { q: 'OSRS新手如何赚到第一桶金？', label: '💰 怎么快速赚第一个100万？' },
+      { q: 'OSRS会员值得开吗2026？', label: '🔥 会员到底值不值？' },
+      { q: 'OSRS铁人模式新手入门指南？', label: '🔒 铁人模式怎么开始？' },
+      { q: 'OSRS不花钱怎么最快冲99级？', label: '🎯 免费玩家冲99攻略？' }
+    ] : [
       { q: 'Best 1-99 training path 2026 OSRS?', label: '🗺️ Best 1-99 training path?' },
       { q: 'How to make first 1 million GP new player OSRS 2026?', label: '💰 How to make first 1M GP?' },
       { q: 'Is OSRS membership worth it 2026 bond vs subscription?', label: '🔥 Is membership worth it?' },
@@ -550,7 +591,7 @@
     widget.id = CONFIG.widgetId;
     // === P2: 动态生成场景匹配的引导问题 ===
     var suggestions = getSuggestedQuestions();
-    var suggestedHTML = '<div class="qa-suggested"><div class="qa-suggested-title">💡 Try asking:</div><div class="qa-suggested-btns">';
+    var suggestedHTML = '<div class="qa-suggested"><div class="qa-suggested-title">' + (IS_ZH ? '💡 试试问这些：' : '💡 Try asking:') + '</div><div class="qa-suggested-btns">';
     for (var si = 0; si < suggestions.length; si++) {
       suggestedHTML += '<button class="qa-suggested-btn" data-q="' + suggestions[si].q + '" data-force-ai="true">' + suggestions[si].label + '</button>';
     }
@@ -567,7 +608,7 @@
       '<div class="qa-messages">' + suggestedHTML + '</div>' +
       '<div class="qa-input-group">' +
         '<input type="text" class="qa-input" placeholder="' + CONFIG.inputPlaceholder + '" aria-label="Ask a question" />' +
-        '<button class="qa-send-btn" aria-label="Send message">Send</button>' +
+        '<button class="qa-send-btn" aria-label="Send message">' + (IS_ZH ? '发送' : 'Send') + '</button>' +
       '</div>';
 
     var toggleBtn = document.createElement('button');
@@ -608,7 +649,7 @@
       var suggestedEl = messagesContainer.querySelector('.qa-suggested');
       if (suggestedEl) suggestedEl.style.display = 'none';
       sendBtn.disabled = true;
-      addMessage(messagesContainer, forceAI ? '🤖 Thinking...' : 'Searching...', 'assistant', true);
+      addMessage(messagesContainer, forceAI ? (IS_ZH ? '🤖 思考中...' : '🤖 Thinking...') : (IS_ZH ? '🔍 搜索中...' : 'Searching...'), 'assistant', true);
 
       // === forceAI模式：跳过本地匹配，直接调用AI后端 ===
       if (forceAI) {
@@ -798,7 +839,7 @@
             addMessage(messagesContainer, answer, 'assistant', false, source);
           } else if (data.title && data.url) {
             // 后端只返回了文章链接没有AI回答 → 生成简短引导语
-            addMessage(messagesContainer, 'Here\'s what I found for you:', 'assistant', false, source);
+            addMessage(messagesContainer, IS_ZH ? '为你找到以下内容：' : 'Here\'s what I found for you:', 'assistant', false, source);
           }
 
           // 显示"深度阅读"相关文章（1-3篇）
@@ -819,7 +860,7 @@
           if (deepDive.length > 0) {
             var ddLabel = document.createElement('div');
             ddLabel.className = 'qa-section-label';
-            ddLabel.textContent = '📖 Deep dive guides:';
+            ddLabel.textContent = IS_ZH ? '📖 深度阅读推荐：' : '📖 Deep dive guides:';
             messagesContainer.appendChild(ddLabel);
             for (var i = 0; i < deepDive.length; i++) {
               var ddArticle = deepDive[i].article;
@@ -850,7 +891,7 @@
             link.href = data.url;
             link.target = '_blank';
             link.rel = 'noopener';
-            link.innerHTML = '<span class="qa-link-icon">📖</span>Read full guide: ' + data.title;
+            link.innerHTML = '<span class="qa-link-icon">📖</span>' + (IS_ZH ? '阅读完整攻略：' : 'Read full guide: ') + data.title;
             var linkMsg = document.createElement('div');
             linkMsg.className = 'qa-message assistant';
             linkMsg.appendChild(link);
@@ -864,7 +905,7 @@
           if (extra.length > 0) {
             var label = document.createElement('div');
             label.className = 'qa-section-label';
-            label.textContent = 'You may also like:';
+            label.textContent = IS_ZH ? '你可能也喜欢：' : 'You may also like:';
             messagesContainer.appendChild(label);
             for (var i = 0; i < extra.length; i++) {
               var exArticle = extra[i].article;
@@ -1060,7 +1101,7 @@
 
       var bubble = document.createElement('div');
       bubble.id = 'osrs-qa-preview-bubble';
-      bubble.innerHTML = '<div class="bubble-title">🤖 Ask me anything about ' + CONFIG.gameName + '!</div><div class="bubble-sub">Tap to try →</div>';
+      bubble.innerHTML = '<div class="bubble-title">' + (IS_ZH ? '🤖 问任何关于 OSRS 的问题！' : '🤖 Ask me anything about ' + CONFIG.gameName + '!') + '</div><div class="bubble-sub">' + (IS_ZH ? '点此试试 →' : 'Tap to try →') + '</div>';
       document.body.appendChild(bubble);
       // 触发动画
       requestAnimationFrame(function() { bubble.classList.add('show'); });
@@ -1106,7 +1147,7 @@
     // === P0+P1: 可见性增强 ===
     initPulseAndBadge(elements.toggleBtn);
     showPreviewBubble(elements.toggleBtn);
-    console.log('✅ ' + CONFIG.assistantTitle + ' v2.14.1 initialized (pulse + badge + preview bubble + context questions)');
+    console.log('✅ ' + CONFIG.assistantTitle + ' v2.14.2 initialized (zh-mode:' + IS_ZH + ')');
   }
 
   if (document.readyState === 'loading') {
