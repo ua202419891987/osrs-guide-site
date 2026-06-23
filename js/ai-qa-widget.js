@@ -3,6 +3,7 @@
  * 右下角悬浮窗 - AI 问答系统
  * v2.12.0 - Add 12 new Money Making Deep Dive guides (Slayer Money, Boss Profit, Flipping, Mid-Game, AFK, Daily Routine, Quest-Unlocked, Wilderness, Ironman P2P, Skilling Post-Sailing, Non-Boss Combat, Spend GP Wisely)
  * v2.11.0 - Add 16 new CD+Windrose guides to article index (Co-op, Farming, Build, Endgame, PvP, Secrets, Performance, Patch)
+ * v2.12.2 - Add suggested questions + article page CTA injection
  * v2.10.0 - Add 22 new OSRS guides to article index (Skill Training + Money Making + Slayer + Boss + Quest)
  *   - OSRS_ARTICLES: 154 → 176 entries
  * v2.9.2 - FIX: Add leading / to all URLs (404 fix)
@@ -443,6 +444,16 @@
       '#osrs-qa-widget .qa-article-link.qa-stage-beginner{border-left:3px solid #4caf50;}' +
       '#osrs-qa-widget .qa-article-link.qa-stage-mid{border-left:3px solid #ff9800;}' +
       '#osrs-qa-widget .qa-article-link.qa-stage-boss{border-left:3px solid #f44336;}' +
+      '#osrs-qa-widget .qa-suggested{padding:14px 12px;border-bottom:1px solid rgba(212,175,55,0.15);margin-bottom:4px;}' +
+      '#osrs-qa-widget .qa-suggested-title{font-size:12px;color:rgba(212,175,55,0.7);margin-bottom:8px;display:flex;align-items:center;gap:5px;}' +
+      '#osrs-qa-widget .qa-suggested-btns{display:flex;flex-direction:column;gap:6px;}' +
+      '#osrs-qa-widget .qa-suggested-btn{display:block;width:100%;text-align:left;padding:7px 11px;background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.18);border-radius:6px;color:#e8d5b7;font-size:12.5px;cursor:pointer;transition:all 0.2s;font-family:inherit;}' +
+      '#osrs-qa-widget .qa-suggested-btn:hover{background:rgba(212,175,55,0.16);border-color:rgba(212,175,55,0.38);color:#d4af37;}' +
+      '#osrs-qa-widget .qa-article-cta{display:block;margin:28px 0 12px 0;padding:16px 18px;background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.2);border-radius:10px;text-align:center;}' +
+      '#osrs-qa-widget .qa-article-cta-title{font-size:14px;color:#d4af37;font-weight:600;margin-bottom:6px;}' +
+      '#osrs-qa-widget .qa-article-cta-desc{font-size:12px;color:rgba(232,213,183,0.7);margin-bottom:10px;}' +
+      '#osrs-qa-widget .qa-article-cta-btn{display:inline-block;padding:8px 18px;background:linear-gradient(135deg,rgba(212,175,55,0.3),rgba(212,175,55,0.15));border:1px solid rgba(212,175,55,0.4);border-radius:6px;color:#d4af37;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.2s;}' +
+      '#osrs-qa-widget .qa-article-cta-btn:hover{background:linear-gradient(135deg,rgba(212,175,55,0.45),rgba(212,175,55,0.25));border-color:rgba(212,175,55,0.6);}' +
       '@keyframes aiFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}';
       // 裁剪消息数量
       document.head.appendChild(style);
@@ -460,7 +471,7 @@
         '</div>' +
         '<button class="qa-close-btn" aria-label="Close AI widget">✕</button>' +
       '</div>' +
-      '<div class="qa-messages"></div>' +
+      '<div class="qa-messages"><div class="qa-suggested"><div class="qa-suggested-title">💡 Try asking:</div><div class="qa-suggested-btns"><button class="qa-suggested-btn" data-q="Best 1-99 training path 2026 OSRS?">🗺️ Best 1-99 training path?</button><button class="qa-suggested-btn" data-q="How to make first 1 million GP new player OSRS 2026?">💰 How to make first 1M GP?</button><button class="qa-suggested-btn" data-q="Is OSRS membership worth it 2026 bond vs subscription?">🔥 Is membership worth it?</button><button class="qa-suggested-btn" data-q="How to start Ironman mode OSRS beginner guide 2026?">🔒 How to start Ironman?</button><button class="qa-suggested-btn" data-q="Fastest 99 without spending real money OSRS F2P?">🎯 Fastest 99 without spending?</button></div></div></div>' +
       '<div class="qa-input-group">' +
         '<input type="text" class="qa-input" placeholder="' + CONFIG.inputPlaceholder + '" aria-label="Ask a question" />' +
         '<button class="qa-send-btn" aria-label="Send message">Send</button>' +
@@ -499,6 +510,8 @@
 
       addMessage(messagesContainer, message, 'user');
       input.value = '';
+      var suggestedEl = messagesContainer.querySelector('.qa-suggested');
+      if (suggestedEl) suggestedEl.style.display = 'none';
       sendBtn.disabled = true;
       addMessage(messagesContainer, 'Searching...', 'assistant', true);
 
@@ -633,6 +646,17 @@
     input.addEventListener('keypress', function(e) {
       if (e.key === 'Enter') sendMessage();
     });
+
+    // === Suggested question buttons ===
+    var suggestedBtns = widget.querySelectorAll('.qa-suggested-btn');
+    for (var b = 0; b < suggestedBtns.length; b++) {
+      suggestedBtns[b].addEventListener('click', (function(btn) {
+        return function() {
+          input.value = btn.getAttribute('data-q') || btn.textContent;
+          sendMessage();
+        };
+      })(suggestedBtns[b]));
+    }
   }
 
   // ========== 调用后端API ==========
@@ -831,11 +855,42 @@
   };
 
   // ========== 初始化 ==========
+  // ========== 文章页CTA注入 ==========
+  function injectArticleCTA() {
+    // 只在攻略页注入（URL含 /guides/ 或存在 .guide-content）
+    var isGuidePage = (window.location.pathname.indexOf('/guides/') !== -1) ||
+                      !!document.querySelector('.guide-content, .article-content');
+    if (!isGuidePage) return;
+
+    var target = document.querySelector('.guide-content, .article-content, main');
+    if (!target) return;
+
+    var ctal = document.createElement('div');
+    ctal.className = 'qa-article-cta';
+    ctal.innerHTML =
+      '<div class="qa-article-cta-title">💬 Still have questions?</div>' +
+      '<div class="qa-article-cta-desc">Ask <b>Blue Peach</b> AI assistant for a personalized plan — free during beta!</div>' +
+      '<a class="qa-article-cta-btn" href="javascript:void(0);">🤖 Ask AI Now</a>';
+
+    ctal.querySelector('.qa-article-cta-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      var widgetEl = document.getElementById('osrs-qa-widget');
+      if (widgetEl) {
+        widgetEl.classList.add('open');
+        var input = widgetEl.querySelector('.qa-input');
+        if (input) input.focus();
+      }
+    });
+
+    target.appendChild(ctal);
+  }
+
   function init() {
     injectStyles();
     var elements = createWidget();
     setupEventHandlers(elements.widget, elements.toggleBtn);
-    console.log('✅ ' + CONFIG.assistantTitle + ' v2.12.1 initialized (search box integration ready)');
+    injectArticleCTA();
+    console.log('✅ ' + CONFIG.assistantTitle + ' v2.12.2 initialized (suggested Qs + article CTA)');
   }
 
   if (document.readyState === 'loading') {
