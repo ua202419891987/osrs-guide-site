@@ -3,6 +3,7 @@
  * 右下角悬浮窗 - AI 问答系统
  * v2.12.0 - Add 12 new Money Making Deep Dive guides (Slayer Money, Boss Profit, Flipping, Mid-Game, AFK, Daily Routine, Quest-Unlocked, Wilderness, Ironman P2P, Skilling Post-Sailing, Non-Boss Combat, Spend GP Wisely)
  * v2.11.0 - Add 16 new CD+Windrose guides to article index (Co-op, Farming, Build, Endgame, PvP, Secrets, Performance, Patch)
+ * v2.13.0 - Hybrid mode: suggested buttons trigger AI answers + article links; search box keeps article links
  * v2.12.2 - Add suggested questions + article page CTA injection
  * v2.10.0 - Add 22 new OSRS guides to article index (Skill Training + Money Making + Slayer + Boss + Quest)
  *   - OSRS_ARTICLES: 154 → 176 entries
@@ -471,7 +472,7 @@
         '</div>' +
         '<button class="qa-close-btn" aria-label="Close AI widget">✕</button>' +
       '</div>' +
-      '<div class="qa-messages"><div class="qa-suggested"><div class="qa-suggested-title">💡 Try asking:</div><div class="qa-suggested-btns"><button class="qa-suggested-btn" data-q="Best 1-99 training path 2026 OSRS?">🗺️ Best 1-99 training path?</button><button class="qa-suggested-btn" data-q="How to make first 1 million GP new player OSRS 2026?">💰 How to make first 1M GP?</button><button class="qa-suggested-btn" data-q="Is OSRS membership worth it 2026 bond vs subscription?">🔥 Is membership worth it?</button><button class="qa-suggested-btn" data-q="How to start Ironman mode OSRS beginner guide 2026?">🔒 How to start Ironman?</button><button class="qa-suggested-btn" data-q="Fastest 99 without spending real money OSRS F2P?">🎯 Fastest 99 without spending?</button></div></div></div>' +
+      '<div class="qa-messages"><div class="qa-suggested"><div class="qa-suggested-title">💡 Try asking:</div><div class="qa-suggested-btns"><button class="qa-suggested-btn" data-q="Best 1-99 training path 2026 OSRS?" data-force-ai="true">🗺️ Best 1-99 training path?</button><button class="qa-suggested-btn" data-q="How to make first 1 million GP new player OSRS 2026?" data-force-ai="true">💰 How to make first 1M GP?</button><button class="qa-suggested-btn" data-q="Is OSRS membership worth it 2026 bond vs subscription?" data-force-ai="true">🔥 Is membership worth it?</button><button class="qa-suggested-btn" data-q="How to start Ironman mode OSRS beginner guide 2026?" data-force-ai="true">🔒 How to start Ironman?</button><button class="qa-suggested-btn" data-q="Fastest 99 without spending real money OSRS F2P?" data-force-ai="true">🎯 Fastest 99 without spending?</button></div></div></div>' +
       '<div class="qa-input-group">' +
         '<input type="text" class="qa-input" placeholder="' + CONFIG.inputPlaceholder + '" aria-label="Ask a question" />' +
         '<button class="qa-send-btn" aria-label="Send message">Send</button>' +
@@ -504,7 +505,7 @@
       widget.classList.remove('open');
     });
 
-    var sendMessage = function() {
+    var sendMessage = function(forceAI) {
       var message = input.value.trim();
       if (!message) return;
 
@@ -513,7 +514,13 @@
       var suggestedEl = messagesContainer.querySelector('.qa-suggested');
       if (suggestedEl) suggestedEl.style.display = 'none';
       sendBtn.disabled = true;
-      addMessage(messagesContainer, 'Searching...', 'assistant', true);
+      addMessage(messagesContainer, forceAI ? '🤖 Thinking...' : 'Searching...', 'assistant', true);
+
+      // === forceAI模式：跳过本地匹配，直接调用AI后端 ===
+      if (forceAI) {
+        callBackendAPI(message, messagesContainer, sendBtn, GAME, [], [], true);
+        return;
+      }
 
       // === 优先：动态TOC匹配（所有页面通用） ===
       var toc = extractPageTOC();
@@ -642,30 +649,34 @@
       callBackendAPI(message, messagesContainer, sendBtn, GAME);
     };
 
-    sendBtn.addEventListener('click', sendMessage);
+    sendBtn.addEventListener('click', function() { sendMessage(false); });
     input.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') sendMessage();
+      if (e.key === 'Enter') sendMessage(false);
     });
 
-    // === Suggested question buttons ===
+    // === Suggested question buttons — forceAI=true → AI answer + article links ===
     var suggestedBtns = widget.querySelectorAll('.qa-suggested-btn');
     for (var b = 0; b < suggestedBtns.length; b++) {
       suggestedBtns[b].addEventListener('click', (function(btn) {
         return function() {
           input.value = btn.getAttribute('data-q') || btn.textContent;
-          sendMessage();
+          sendMessage(true);
         };
       })(suggestedBtns[b]));
     }
   }
 
   // ========== 调用后端API ==========
-  function callBackendAPI(message, messagesContainer, sendBtn, gameContext, tocMatches, alreadyShownMatches) {
+  function callBackendAPI(message, messagesContainer, sendBtn, gameContext, tocMatches, alreadyShownMatches, forceAI) {
     if (!alreadyShownMatches) alreadyShownMatches = [];
+    if (!forceAI) forceAI = false;
     var shownUrls = alreadyShownMatches.map(function(m) { return m.article.url; });
     var apiUrl = CONFIG.apiBase + '/rag-api/search?q=' + encodeURIComponent(message);
     if (gameContext && gameContext !== 'osrs') {
       apiUrl += '&game=' + encodeURIComponent(gameContext);
+    }
+    if (forceAI) {
+      apiUrl += '&force_ai=true';
     }
 
     fetch(apiUrl)
@@ -682,51 +693,98 @@
         var answer = data.answer || 'No answer available';
         var source = data.source || 'unknown';
 
-        // === v2.9: 智能显示策略 — 根据来源决定显示方式 ===
-        // osrsguru: 只显示链接，不显示文字（用户要的是文章不是段落）
-        if (source !== 'osrsguru') {
-          // Wiki/DeepSeek 来源：截断过长回答（>300字）
-          if (answer.length > 300) {
-            answer = answer.substring(0, 297) + '...';
+        // === v2.13: 智能显示策略 — forceAI vs 普通模式 ===
+        if (forceAI) {
+          // === forceAI模式：AI回答 + 深度阅读文章链接 ===
+          // 显示AI回答（允许500字，比普通模式更长）
+          if (answer && answer.length > 20) {
+            if (answer.length > 500) {
+              answer = answer.substring(0, 497) + '...';
+            }
+            addMessage(messagesContainer, answer, 'assistant', false, source);
+          } else if (data.title && data.url) {
+            // 后端只返回了文章链接没有AI回答 → 生成简短引导语
+            addMessage(messagesContainer, 'Here\'s what I found for you:', 'assistant', false, source);
           }
-          addMessage(messagesContainer, answer, 'assistant', false, source);
-        }
 
-        // 如果API返回了相关文章标题和URL，也显示链接
-        if (data.title && data.url) {
-          var link = document.createElement('a');
-          link.className = 'qa-article-link';
-          link.href = data.url;
-          link.target = '_blank';
-          link.rel = 'noopener';
-          link.innerHTML = '<span class="qa-link-icon">📖</span>Read full guide: ' + data.title;
-          var linkMsg = document.createElement('div');
-          linkMsg.className = 'qa-message assistant';
-          linkMsg.appendChild(link);
-          messagesContainer.appendChild(linkMsg);
-        }
+          // 显示"深度阅读"相关文章（1-3篇）
+          var deepDive = matchLocalArticles(message, GAME).slice(0, 3);
+          if (data.title && data.url) {
+            // 先显示API返回的主文章
+            var mainLink = document.createElement('a');
+            mainLink.className = 'qa-article-link';
+            mainLink.href = data.url;
+            mainLink.target = '_blank';
+            mainLink.rel = 'noopener';
+            mainLink.innerHTML = '<span class="qa-link-icon">📖</span>' + data.title;
+            var mainMsg = document.createElement('div');
+            mainMsg.className = 'qa-message assistant';
+            mainMsg.appendChild(mainLink);
+            messagesContainer.appendChild(mainMsg);
+          }
+          if (deepDive.length > 0) {
+            var ddLabel = document.createElement('div');
+            ddLabel.className = 'qa-section-label';
+            ddLabel.textContent = '📖 Deep dive guides:';
+            messagesContainer.appendChild(ddLabel);
+            for (var i = 0; i < deepDive.length; i++) {
+              var ddArticle = deepDive[i].article;
+              var ddLink = document.createElement('a');
+              ddLink.className = 'qa-article-link';
+              ddLink.href = ddArticle.url;
+              ddLink.target = '_blank';
+              ddLink.rel = 'noopener';
+              ddLink.innerHTML = '<span class="qa-link-icon">📖</span>' + (ddArticle.label || ddArticle.title);
+              var ddMsg = document.createElement('div');
+              ddMsg.className = 'qa-message assistant';
+              ddMsg.appendChild(ddLink);
+              messagesContainer.appendChild(ddMsg);
+            }
+          }
+        } else {
+          // === 普通模式（v2.9逻辑）：osrsguru只显示链接，其他显示文字 ===
+          if (source !== 'osrsguru') {
+            if (answer.length > 300) {
+              answer = answer.substring(0, 297) + '...';
+            }
+            addMessage(messagesContainer, answer, 'assistant', false, source);
+          }
 
-        // 补充显示未重复的本地相关文章（过滤已显示的）
-        var extra = matchLocalArticles(message, GAME).filter(function(m) {
-          return shownUrls.indexOf(m.article.url) === -1;
-        }).slice(0, 3);
-        if (extra.length > 0) {
-          var label = document.createElement('div');
-          label.className = 'qa-section-label';
-          label.textContent = 'You may also like:';
-          messagesContainer.appendChild(label);
-          for (var i = 0; i < extra.length; i++) {
-            var exArticle = extra[i].article;
-            var exLink = document.createElement('a');
-            exLink.className = 'qa-article-link';
-            exLink.href = exArticle.url;
-            exLink.target = '_blank';
-            exLink.rel = 'noopener';
-            exLink.innerHTML = '<span class="qa-link-icon">📖</span>' + (exArticle.label || exArticle.title);
-            var exMsg = document.createElement('div');
-            exMsg.className = 'qa-message assistant';
-            exMsg.appendChild(exLink);
-            messagesContainer.appendChild(exMsg);
+          if (data.title && data.url) {
+            var link = document.createElement('a');
+            link.className = 'qa-article-link';
+            link.href = data.url;
+            link.target = '_blank';
+            link.rel = 'noopener';
+            link.innerHTML = '<span class="qa-link-icon">📖</span>Read full guide: ' + data.title;
+            var linkMsg = document.createElement('div');
+            linkMsg.className = 'qa-message assistant';
+            linkMsg.appendChild(link);
+            messagesContainer.appendChild(linkMsg);
+          }
+
+          // 补充显示未重复的本地相关文章（过滤已显示的）
+          var extra = matchLocalArticles(message, GAME).filter(function(m) {
+            return shownUrls.indexOf(m.article.url) === -1;
+          }).slice(0, 3);
+          if (extra.length > 0) {
+            var label = document.createElement('div');
+            label.className = 'qa-section-label';
+            label.textContent = 'You may also like:';
+            messagesContainer.appendChild(label);
+            for (var i = 0; i < extra.length; i++) {
+              var exArticle = extra[i].article;
+              var exLink = document.createElement('a');
+              exLink.className = 'qa-article-link';
+              exLink.href = exArticle.url;
+              exLink.target = '_blank';
+              exLink.rel = 'noopener';
+              exLink.innerHTML = '<span class="qa-link-icon">📖</span>' + (exArticle.label || exArticle.title);
+              var exMsg = document.createElement('div');
+              exMsg.className = 'qa-message assistant';
+              exMsg.appendChild(exLink);
+              messagesContainer.appendChild(exMsg);
+            }
           }
         }
       })
@@ -890,7 +948,7 @@
     var elements = createWidget();
     setupEventHandlers(elements.widget, elements.toggleBtn);
     injectArticleCTA();
-    console.log('✅ ' + CONFIG.assistantTitle + ' v2.12.2 initialized (suggested Qs + article CTA)');
+    console.log('✅ ' + CONFIG.assistantTitle + ' v2.13.0 initialized (hybrid mode: AI answers + article links)');
   }
 
   if (document.readyState === 'loading') {
