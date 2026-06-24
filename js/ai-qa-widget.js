@@ -3,6 +3,7 @@
  * 右下角悬浮窗 - AI 问答系统
  * v2.12.0 - Add 12 new Money Making Deep Dive guides (Slayer Money, Boss Profit, Flipping, Mid-Game, AFK, Daily Routine, Quest-Unlocked, Wilderness, Ironman P2P, Skilling Post-Sailing, Non-Boss Combat, Spend GP Wisely)
  * v2.11.0 - Add 16 new CD+Windrose guides to article index (Co-op, Farming, Build, Endgame, PvP, Secrets, Performance, Patch)
+ * v2.15.1 - Fix CD suggested questions: was showing OSRS questions (1-99/GP/Ironman/membership) on Crimson Desert pages; add CD-specific suggestions for Boss/Combat/Skills/Farming/Story/default
  * v2.15.0 - Add 29 new CD guides (Controls, First-2-Hours, Parry, Combos, Gathering, Camp, Pre-Boss, Staglord-Prep, Abyss, Mistakes, Skills-Unlock, Camp-Farm, Cooking, Crafting, Damiane, Fishing, Inventory, Bugs, Matthias, Mini-Games, Mounts, Resource-Farm, Roadmap, Staglord-Strategy, Stamina, Tenebrum, Treasure-Map, Update-1.10); CD_ARTICLES: 14 → 43
  * v2.14.2 - Chinese mode: zh/ pages get CN title/questions/bubble; fix script paths for all 29 zh pages
  * v2.14.1 - Fix: brighter pulse ring (white/gold), badge always visible, bubble shows every 2hrs
@@ -516,6 +517,61 @@
   function getSuggestedQuestions() {
     var path = window.location.pathname.toLowerCase();
     var zh = IS_ZH;
+
+    // ====== Crimson Desert 专属推荐问题 ======
+    if (GAME === 'crimson-desert') {
+      if (path.indexOf('boss') !== -1 || path.indexOf('staglord') !== -1 || path.indexOf('matthias') !== -1 || path.indexOf('tenebrum') !== -1) {
+        return [
+          { q: 'How to beat Staglord first boss Crimson Desert?', label: '🥇 How to beat Staglord?' },
+          { q: 'What gear do I need before fighting bosses?', label: '⚔️ Pre-boss gear checklist?' },
+          { q: 'Matthias boss fight strategy Crimson Desert?', label: '👹 How to beat Matthias?' },
+          { q: 'Tenebrum dark boss guide Crimson Desert?', label: '🌑 How to beat Tenebrum?' },
+          { q: 'Boss progression order beginner Crimson Desert?', label: '📊 Which boss to fight first?' }
+        ];
+      }
+      if (path.indexOf('combat') !== -1 || path.indexOf('parry') !== -1 || path.indexOf('dodge') !== -1 || path.indexOf('combo') !== -1 || path.indexOf('stamina') !== -1) {
+        return [
+          { q: 'How to parry timing Crimson Desert combat?', label: '🛡️ How does parry timing work?' },
+          { q: 'Best weapon combos for beginners Crimson Desert?', label: '⚔️ Best weapon combos?' },
+          { q: 'Stamina management tips Crimson Desert?', label: '⏱️ How to manage stamina?' },
+          { q: 'How to dodge roll iframe Crimson Desert?', label: '💨 When to dodge roll?' },
+          { q: 'Combat system beginner guide Crimson Desert?', label: '🎯 Combat basics for new players?' }
+        ];
+      }
+      if (path.indexOf('skill') !== -1 || path.indexOf('unlock') !== -1 || path.indexOf('build') !== -1) {
+        return [
+          { q: 'Which skills should I unlock first Crimson Desert?', label: '🌟 Best skills to unlock first?' },
+          { q: 'Skill tree priority guide Crimson Desert?', label: '🗺️ Skill unlock order?' },
+          { q: 'Best build for beginners Crimson Desert 2026?', label: '⚔️ Best starter build?' },
+          { q: 'How does skill progression work Crimson Desert?', label: '📈 How skill system works?' }
+        ];
+      }
+      if (path.indexOf('farm') !== -1 || path.indexOf('craft') !== -1 || path.indexOf('cook') !== -1 || path.indexOf('gather') !== -1 || path.indexOf('fish') !== -1) {
+        return [
+          { q: 'Best money farming methods Crimson Desert?', label: '💰 How to make money fast?' },
+          { q: 'Resource gathering routes Crimson Desert?', label: '🔨 Best gathering routes?' },
+          { q: 'Cooking and alchemy recipes Crimson Desert?', label: '🍳 Best cooking recipes?' },
+          { q: 'Camp system how does it work Crimson Desert?', label: '⺕ How camp system works?' },
+          { q: 'Abyss artifacts farming locations Crimson Desert?', label: '💎 Where to find Abyss Artifacts?' }
+        ];
+      }
+      if (path.indexOf('story') !== -1 || path.indexOf('quest') !== -1 || path.indexOf('secret') !== -1 || path.indexOf('treasure') !== -1) {
+        return [
+          { q: 'Crimson Desert main story walkthrough?', label: '📖 Story walkthrough guide?' },
+          { q: 'Hidden secrets and easter eggs Crimson Desert?', label: '🔮 Hidden secrets locations?' },
+          { q: 'Treasure map locations Crimson Desert?', label: '🗺️ All treasure map spots?' },
+          { q: 'Damiane companion character guide?', label: '👤 Who is Damiane companion?' }
+        ];
+      }
+      // CD 默认推荐
+      return [
+        { q: 'How to get started in Crimson Desert beginner?', label: '🚀 How to get started?' },
+        { q: 'First 2 hours what should I do Crimson Desert?', label: '⏰ First 2 hours checklist?' },
+        { q: 'Common mistakes to avoid Crimson Desert beginner?', label: '❌ Beginner mistakes to avoid?' },
+        { q: 'How to beat Staglord first boss Crimson Desert?', label: '🥇 How to beat first boss?' },
+        { q: 'Best skills to unlock early Crimson Desert?', label: '🌟 Which skills first?' }
+      ];
+    }
 
     // 赚钱相关页面
     if (path.indexOf('money') !== -1 || path.indexOf('flipping') !== -1 || path.indexOf('gp') !== -1 || path.indexOf('profit') !== -1 || path.indexOf('wealth') !== -1) {
