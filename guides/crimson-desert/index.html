@@ -234,7 +234,7 @@ body{background:#f5f2f8;}
       <input type="text" class="cd-search-input" placeholder="e.g., Tenebrum, Boss Strategy, Fishing... (ask AI 🍑)">
       <span style="position:absolute;left:12px;font-size:16px;pointer-events:none;opacity:0.5;">🔍</span>
     </div>
-    <button class="cd-search-btn" onclick="alert('AI Q&A coming soon! For now, browse our guides below.')">🔍 Search with AI</button>
+    <button class="cd-search-btn" id="cd-search-ai-btn">🔍 Search with AI</button>
   </div>
   <div style="margin-top:8px;font-size:.72rem;color:#7A64B8;text-align:center;">
     💡 Tip: Type any question or browse by topic below — all 42 guides are free!
@@ -661,6 +661,32 @@ body{background:#f5f2f8;}
     </p>
   </div>
 </footer>
+
+<!-- ========== AI 助手 蓝色水蜜桃 ========== -->
+<script src="../../js/ai-qa-widget.js"></script>
+<script>
+// 搜索框 → 触发 AI 助手
+document.getElementById('cd-search-ai-btn').addEventListener('click', function() {
+  var query = document.querySelector('.cd-search-input').value.trim();
+  var toggleBtn = document.getElementById('osrs-qa-toggle-btn');
+  if (toggleBtn) {
+    toggleBtn.click(); // 打开 AI 助手
+    if (query) {
+      // 预填搜索词
+      setTimeout(function() {
+        var input = document.querySelector('#osrs-qa-widget .qa-input');
+        if (input) { input.value = query; }
+      }, 300);
+    }
+  } else {
+    alert('AI Assistant is loading... Please try again in a moment!');
+  }
+});
+// 回车也触发
+document.querySelector('.cd-search-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') document.getElementById('cd-search-ai-btn').click();
+});
+</script>
 
 </body>
 </html>
