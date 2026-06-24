@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert Stamina Management Deep Dive — Never Get Exhausted Again 2026 | CD Guru</title>
+    <meta name="description" content="Complete Crimson Desert stamina system breakdown: cost per action, recovery tricks, exhausted state dangers, gear modifiers, and boss-fight stamina rotation strategies.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Crimson Desert stamina management, Crimson Desert exhausted state, stamina recovery Crimson Desert, stamina cost Crimson Desert, stamina gear modifiers, boss fight stamina">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-stamina-management-guide-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>.guide-content h2{font-size:1.85rem !important}.guide-content h3{font-size:1.35rem !important}.guide-content p{font-size:1.08rem !important;line-height:1.85 !important}.guide-content li{font-size:1.08rem !important;line-height:1.85 !important}.tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}.tip-box strong{color:#7a64b8}.warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}.warn-box strong{color:#b84a3a}.method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}.method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}.faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}.faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}.toc{background:#fff;border:1px solid #e0d8f0 !important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}.toc h3{color:#7a64b8 !important;font-size:1.1rem !important;margin-bottom:12px}.guide-hero .subtitle{font-size:1.15rem !important;max-width:700px;margin:0 auto 1.2rem}.inline-support-hint p{font-size:1rem}.guide-content li{color:#2d2a33 !important}.progress-widget{display:none !important}</style>
+</head>
+<body>
+    <header><div class="container"><nav><a href="../../index.html" class="logo">Crimson Desert <span>Guru</span></a><ul class="nav-links"><li><a href="../../index.html">Home</a></li><li><a href="index.html">CD Guides</a></li><li><a href="#section2">Costs</a></li><li><a href="#section3">Recovery</a></li><li><a href="#section4">Exhausted</a></li><li><a href="#section5">Gear</a></li><li><a href="#faq">FAQ</a></li></ul></nav></div></header>
+    <section class="guide-hero"><div class="container"><p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="index.html">Crimson Desert</a> / Stamina Guide</p><h1>Crimson Desert Stamina Management Deep Dive</h1><p class="subtitle">Complete stamina system breakdown — cost per action, the standing-still recovery trick, exhausted state dangers, gear modifiers that change everything, and boss-fight stamina rotation strategies.</p><div class="weekly-badge"><span class="badge-icon">💪</span> <strong>Combat Guide</strong> — Part of the <strong>Crimson Desert Combat Series</strong> · 9 min read</div><p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: June 24, 2026</p></div></section>
+    <main class="guide-content"><div class="container">
+        <div class="toc"><h3>Table of Contents</h3><ol><li><a href="#section1">Why Stamina Management Wins Fights</a></li><li><a href="#section2">Stamina Cost of Every Action</a></li><li><a href="#section3">The Standing-Still Recovery Trick</a></li><li><a href="#section4">The Exhausted State — Why It Kills You</a></li><li><a href="#section5">Gear &amp; Skills That Modify Stamina</a></li><li><a href="#section6">Boss-Fight Stamina Rotation Strategy</a></li><li><a href="#faq">FAQ — Stamina Questions</a></li></ol></div>
+
+        <h2 id="section1">💪 1. Why Stamina Management Wins Fights</h2>
+        <p>Stamina is the invisible resource that determines whether you win or lose boss fights in Crimson Desert. Every offensive and defensive action — attacking, blocking, dodging, grappling — consumes stamina. When your stamina bar empties, you enter the "exhausted" state for 2.5 seconds during which you cannot attack, block, or dodge. In a boss fight, 2.5 seconds of helplessness is a death sentence.</p>
+
+        <p>The difference between players who clear bosses in 3 attempts and players who die 30 times is not gear or level — it is stamina management. This guide is a deep dive into the stamina system, expanding on the stamina section of our <a href="crimson-desert-combat-guide-2026.html">Combat Guide</a> with detailed numbers, gear recommendations, and boss-fight rotation strategies.</p>
+
+        <h2 id="section2">📊 2. Stamina Cost of Every Action</h2>
+        <table>
+            <tr><th>Action</th><th>Stamina Cost (% of bar)</th><th>Recovery Delay</th><th>Notes</th></tr>
+            <tr><td>Light Attack</td><td>5%</td><td>0.3s</td><td>Cheapest offensive option</td></tr>
+            <tr><td>Heavy Attack</td><td>12%</td><td>0.5s</td><td>High cost, high damage</td></tr>
+            <tr><td>Charged Attack (full)</td><td>18%</td><td>0.7s</td><td>Held R2 — highest single-hit stamina cost</td></tr>
+            <tr><td>Dodge (roll)</td><td>18%</td><td>0.8s</td><td>Standard dodge — directional</td></tr>
+            <tr><td>Perfect Dodge</td><td>18%</td><td>0.3s (reduced)</td><td>Same cost, faster recovery, grants Adrenaline buff</td></tr>
+            <tr><td>Block (per second held)</td><td>10%/sec</td><td>0.5s after release</td><td>Blocking is expensive over time</td></tr>
+            <tr><td>Blocked Hit (incoming)</td><td>8-15% per hit</td><td>—</td><td>Heavy enemy hits drain more stamina</td></tr>
+            <tr><td>Parry (successful)</td><td>3%</td><td>0.2s</td><td>Cheapest defensive option — rewards timing</td></tr>
+            <tr><td>Sprint (per second)</td><td>5%/sec</td><td>—</td><td>Does not regenerate while sprinting</td></tr>
+            <tr><td>Grapple</td><td>15%</td><td>1.0s</td><td>High cost but bypasses enemy block</td></tr>
+            <tr><td>Spirit Skill</td><td>0% (uses spirit)</td><td>Varies</td><td>Spirit skills are free stamina-wise</td></tr>
+        </table>
+
+        <div class="tip-box"><strong>Pro Tip:</strong> Notice that parrying (3%) is dramatically cheaper than blocking (10%/sec + 8-15% per hit) or dodging (18%). If you are running out of stamina in fights, the solution is not to manage stamina better — it is to parry more. Each successful parry saves 10-15% stamina compared to blocking the same attack, and 15% compared to dodging it.</div>
+
+        <h2 id="section3">🧘 3. The Standing-Still Recovery Trick</h2>
+        <p>This is the single most important stamina mechanic in the game, and most players never discover it. Stamina recovery speed is not constant — it varies based on your movement state:</p>
+
+        <table>
+            <tr><th>State</th><th>Recovery Speed</th><th>Notes</th></tr>
+            <tr><td>Standing still (no input)</td><td>140% (40% bonus)</td><td>The secret — most players never try this</td></tr>
+            <tr><td>Walking</td><td>100% (base)</td><td>Standard recovery while moving</td></tr>
+            <tr><td>Sprinting</td><td>0% (no recovery)</td><td>Sprinting actively drains stamina</td></tr>
+            <tr><td>Blocking</td><td>0% (no recovery)</td><td>Cannot recover while holding block</td></tr>
+            <tr><td>Attacking</td><td>0% (no recovery)</td><td>Cannot recover during attack animations</td></tr>
+        </table>
+
+        <div class="method-box"><h4>The Recovery Window Strategy</h4><p>During boss fights, actively create "recovery windows" — moments where you disengage, stand completely still for 2-3 seconds, and let your stamina refill at 140% speed. This feels unnatural (standing still in a boss fight is terrifying), but it is the optimal play. Dodging constantly in circles is a bad habit that extends fights and leads to exhausted-state deaths.</p></div>
+
+        <div class="warn-box"><strong>Warning:</strong> Do not stand still when the boss is mid-combo. Create recovery windows BETWEEN boss combo strings — after the boss finishes a 3-hit combo and pauses to reset, that is your 2-3 second window to stand still and recover. Read the boss's rhythm.</div>
+
+        <h2 id="section4">💀 4. The Exhausted State — Why It Kills You</h2>
+        <p>When your stamina reaches 0, you enter the exhausted state for 2.5 seconds. During this time:</p>
+        <ul>
+            <li>You cannot attack, block, dodge, or grapple</li>
+            <li>Your movement speed is reduced by 50%</li>
+            <li><strong>Enemies deal 50% bonus damage to you</strong> — this is the hidden danger</li>
+            <li>Your character visually slumps, making it obvious to enemies</li>
+        </ul>
+
+        <p>The 50% bonus damage modifier is why getting hit while exhausted almost always results in death. A hit that would normally deal 30% of your health deals 45% if you are exhausted. Two hits while exhausted will kill almost any character regardless of level.</p>
+
+        <div class="tip-box"><strong>The 20% Rule:</strong> Never let your stamina drop below 20%. This reserve ensures you always have enough for one emergency dodge (18%). The game never explicitly tells you this, but it is the dividing line between players who clear bosses and players who die repeatedly.</div>
+
+        <h2 id="section5">🛡️ 5. Gear &amp; Skills That Modify Stamina</h2>
+        <table>
+            <tr><th>Source</th><th>Name</th><th>Effect</th><th>How to Get</th></tr>
+            <tr><td>Skill</td><td>Stamina Recovery +</td><td>+25% stamina regen speed</td><td>Keen Senses, Row 2 (2 Artifacts)</td></tr>
+            <tr><td>Skill</td><td>Max Stamina +</td><td>+15% max stamina</td><td>Keen Senses, Row 3 (2 Artifacts)</td></tr>
+            <tr><td>Skill</td><td>Stamina Cost Reduction</td><td>-10% stamina cost on all actions</td><td>Keen Senses, Row 4 (3 Artifacts)</td></tr>
+            <tr><td>Armor</td><td>Stamina Recovery ring</td><td>+15% stamina regen</td><td>Ruined Garrison chest reward</td></tr>
+            <tr><td>Armor</td><td>Endurance boots</td><td>+20% max stamina</td><td>Crafted from leather + iron</td></tr>
+            <tr><td>Food</td><td>Hunter's Stew</td><td>+10% stamina regen (25 min)</td><td>Deer Meat + Mushroom + Onion</td></tr>
+            <tr><td>Potion</td><td>Greater Stamina Tonic</td><td>Restore 80% stamina instantly</td><td>Stamina Root + Pure Water + Salt</td></tr>
+        </table>
+
+        <div class="tip-box"><strong>Pro Tip:</strong> Stack three stamina modifiers for maximum effect: Stamina Recovery + skill (+25%), Hunter's Stew food (+10%), and Endurance boots (+20% max). With all three active, your stamina bar is 20% larger and regenerates 35% faster. This effectively eliminates stamina problems in most fights. See our <a href="crimson-desert-cooking-alchemy-recipes-guide-2026.html">Cooking Guide</a> and <a href="crimson-desert-best-skills-unlock-first-guide-2026.html">Skills Guide</a>.</div>
+
+        <h2 id="section6">🔄 6. Boss-Fight Stamina Rotation Strategy</h2>
+        <p>Here is a practical stamina rotation for a typical boss fight, using the <a href="crimson-desert-staglord-boss-strategy-guide-2026.html">Staglord</a> as an example:</p>
+
+        <table>
+            <tr><th>Phase</th><th>Action</th><th>Stamina Change</th><th>Stamina After</th></tr>
+            <tr><td>1. Wait</td><td>Stand still, watch for charge</td><td>+20% recovery (standing bonus)</td><td>100%</td></tr>
+            <tr><td>2. Dodge</td><td>Dodge sideways from charge</td><td>-18%</td><td>82%</td></tr>
+            <tr><td>3. Attack</td><td>Hit flank twice (L-L)</td><td>-10%</td><td>72%</td></tr>
+            <tr><td>4. Disengage</td><td>Walk to safe distance, stand still</td><td>+28% recovery (2s standing)</td><td>100%</td></tr>
+            <tr><td>5. Repeat</td><td>Wait for next charge</td><td>Full stamina ready</td><td>100%</td></tr>
+        </table>
+
+        <p>Notice that the rotation never drops below 72% stamina — well above the 20% danger zone. This is the hallmark of good stamina management: you always have enough for an emergency dodge, and you never enter the exhausted state.</p>
+
+        <h2 id="faq">❓ FAQ — Stamina Questions</h2>
+        <div class="faq-item"><h4>Q: Does stamina regenerate while I am blocking?</h4><p>No. Holding block prevents stamina regeneration. This is why holding block indefinitely is not viable — you will eventually run out of stamina and enter the exhausted state. Use parries (which cost only 3% and have a fast recovery) instead of holding block.</p></div>
+        <div class="faq-item"><h4>Q: Does the standing-still recovery bonus work in combat?</h4><p>Yes. As long as you are not inputting any movement, attack, or block commands, the 40% recovery bonus applies. During boss fights, stand completely still (no stick input) between enemy combo strings to benefit from this bonus.</p></div>
+        <div class="faq-item"><h4>Q: What is the most stamina-efficient combat rotation?</h4><p>Parry → Spirit Surge (if unlocked) → 2 light attacks → walk away → stand still for 2 seconds → repeat. This rotation costs only 13% stamina per cycle (3% parry + 10% for 2 light attacks) and recovers fully during the 2-second standing window. See our <a href="crimson-desert-combat-guide-2026.html">Combat Guide</a> for Spirit Surge mechanics.</p></div>
+        <div class="faq-item"><h4>Q: Do Spirit Skills cost stamina?</h4><p>No. Spirit skills (like Force Palm, Aerial Force Palm, Spirit Surge) consume spirit energy, not stamina. This means you can use spirit skills even when low on stamina, making them valuable as "free" actions during stamina recovery windows. See our <a href="crimson-desert-best-skills-unlock-first-guide-2026.html">Skills Guide</a>.</p></div>
+        <div class="faq-item"><h4>Q: How do I know if I am about to enter the exhausted state?</h4><p>Your stamina bar flashes red when it drops below 10%. Additionally, your character's breathing audio becomes heavier. When you see the red flash, immediately stop all offensive actions and create distance to recover. Never push for "one more hit" when stamina is flashing red.</p></div>
+
+        <div class="inline-support-hint" style="text-align:center;margin:40px 0 12px 0"><p>❤️ If this guide helped you master stamina, consider supporting the site below.</p></div>
+        <div class="support-card" style="margin:32px 0 0 0"><div class="support-inner"><span class="support-icon">🌿</span><div class="support-text"><h3>Buy me a coffee — and let&#39;s keep grinding!</h3><p>Your support helps keep these guides free, accurate, and up to date for everyone in the gaming community. No pressure, ever — pick the amount that feels good to you.</p><div class="support-amounts"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson Desert Guru Support - $3&amp;amount=3&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$3</a><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson Desert Guru Support - $5&amp;amount=5&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn recommended">$5 ★</a><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson Desert Guru Support - $10&amp;amount=10&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$10</a><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=Crimson+Desert+Guru+Custom+Amount&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-custom">Custom ✏️</a></div></div></div></div>
+    </div></main>
+    <footer><div class="container"><p class="footer-bottom">&copy; 2026 CDGuru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p><p style="font-size:.78rem;color:#999;margin-top:4px">Crimson Desert&trade; is a trademark of Pearl Abyss Corp. All game content and materials are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by Pearl Abyss.</p></div></footer>
+    <script src="../../js/features.js"></script><script src="../../js/ai-qa-widget.js"></script><style>.guide-content li{color:#2d2a33!important}</style>
+</body>
+</html>
