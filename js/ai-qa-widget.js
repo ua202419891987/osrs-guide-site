@@ -3,6 +3,7 @@
  * 右下角悬浮窗 - AI 问答系统
  * v2.12.0 - Add 12 new Money Making Deep Dive guides (Slayer Money, Boss Profit, Flipping, Mid-Game, AFK, Daily Routine, Quest-Unlocked, Wilderness, Ironman P2P, Skilling Post-Sailing, Non-Boss Combat, Spend GP Wisely)
  * v2.11.0 - Add 16 new CD+Windrose guides to article index (Co-op, Farming, Build, Endgame, PvP, Secrets, Performance, Patch)
+ * v2.15.2 - Add Windrose suggested questions (same fix as v2.15.1 for CD); Windrose pages now show sailing/ship/combat/base/farming questions instead of OSRS 1-99/GP/Ironman; updated Windrose offline message with 14+ guides
  * v2.15.1 - Fix CD suggested questions: was showing OSRS questions (1-99/GP/Ironman/membership) on Crimson Desert pages; add CD-specific suggestions for Boss/Combat/Skills/Farming/Story/default
  * v2.15.0 - Add 29 new CD guides (Controls, First-2-Hours, Parry, Combos, Gathering, Camp, Pre-Boss, Staglord-Prep, Abyss, Mistakes, Skills-Unlock, Camp-Farm, Cooking, Crafting, Damiane, Fishing, Inventory, Bugs, Matthias, Mini-Games, Mounts, Resource-Farm, Roadmap, Staglord-Strategy, Stamina, Tenebrum, Treasure-Map, Update-1.10); CD_ARTICLES: 14 → 43
  * v2.14.2 - Chinese mode: zh/ pages get CN title/questions/bubble; fix script paths for all 29 zh pages
@@ -573,6 +574,66 @@
       ];
     }
 
+    // ====== Windrose 专属推荐问题 ======
+    if (GAME === 'windrose') {
+      if (path.indexOf('boss') !== -1) {
+        return [
+          { q: 'What bosses are there in Windrose?', label: '🏴‍☠️ What bosses are in Windrose?' },
+          { q: 'Boss fight strategy guide Windrose?', label: '⚔️ Boss strategy guide?' },
+          { q: 'Best gear for boss fights Windrose?', label: '🛡️ Best bossing gear?' },
+          { q: 'Boss drop loot table Windrose?', label: '💎 What do bosses drop?' }
+        ];
+      }
+      if (path.indexOf('combat') !== -1 || path.indexOf('ship-pvp') !== -1) {
+        return [
+          { q: 'Ship combat how does it work Windrose?', label: '⚓ Ship combat basics?' },
+          { q: 'PvP ship battle tactics Windrose?', label: '🔥 PvP ship tactics?' },
+          { q: 'Boarding enemy ships guide Windrose?', label: '⚔️ How to board ships?' },
+          { q: 'Best combat build for ships Windrose?', label: '🎯 Best ship combat build?' },
+          { q: 'Naval parry and dodge timing Windrose?', label: '🛡️ Parry and dodge timing?' }
+        ];
+      }
+      if (path.indexOf('craft') !== -1 || path.indexOf('gear') !== -1 || path.indexOf('build') !== -1) {
+        return [
+          { q: 'Best weapons and armor crafting Windrose?', label: '🔨 Best gear to craft?' },
+          { q: 'Ship upgrade guide Windrose?', label: '⛵ How to upgrade my ship?' },
+          { q: 'Meta build tier list Windrose 2026?', label: '📊 What is the best build?' },
+          { q: 'Base building tips and defenses Windrose?', label: '🏰 Base building tips?' }
+        ];
+      }
+      if (path.indexOf('farm') !== -1 || path.indexOf('resource') !== -1) {
+        return [
+          { q: 'Best resource farming routes Windrose?', label: '💰 Best farming routes?' },
+          { q: 'How to make money fast in Windrose?', label: '🪙 Quick money making methods?' },
+          { q: 'Rare materials where to find Windrose?', label: '💎 Where to find rare materials?' },
+          { q: 'Fishing and gathering spots Windrose?', label: '🎣 Best gathering spots?' }
+        ];
+      }
+      if (path.indexOf('quest') !== -1 || path.indexOf('explore') !== -1 || path.indexOf('treasure') !== -1 || path.indexOf('secret') !== -1) {
+        return [
+          { q: 'Hidden treasure map locations Windrose?', label: '🗺️ Treasure map locations?' },
+          { q: 'Exploration tips for new players Windrose?', label: '🧭 Exploration tips?' },
+          { q: 'Secrets and hidden content Windrose?', label: '🔮 Hidden secrets?' },
+          { q: 'Quest and story guide Windrose?', label: '📖 Quest walkthrough?' }
+        ];
+      }
+      if (path.indexOf('base') !== -1) {
+        return [
+          { q: 'How to build a strong base Windrose?', label: '🏰 Base building guide?' },
+          { q: 'Base defense setup Windrose?', label: '🛡️ Base defenses?' },
+          { q: 'Base layout best practices Windrose?', label: '📐 Best base layout?' }
+        ];
+      }
+      // Windrose 默认推荐
+      return [
+        { q: 'Windrose beginner survival guide day 1?', label: '🚢 Day 1 survival guide?' },
+        { q: 'How to sail and navigate Windrose?', label: '⛵ How to sail and navigate?' },
+        { q: 'Best starter ship choice Windrose?', label: '🚤 Which starter ship is best?' },
+        { q: 'Co-op multiplayer how does it work Windrose?', label: '👥 How does co-op work?' },
+        { q: 'Performance optimization low FPS fix Windrose?', label: '⚙️ Fix lag and FPS issues?' }
+      ];
+    }
+
     // 赚钱相关页面
     if (path.indexOf('money') !== -1 || path.indexOf('flipping') !== -1 || path.indexOf('gp') !== -1 || path.indexOf('profit') !== -1 || path.indexOf('wealth') !== -1) {
       return zh ? [
@@ -1021,7 +1082,7 @@
         var offlineMsg = GAME === 'crimson-desert'
           ? "Sorry, I couldn't find a specific match.\n\nWe have 43+ Crimson Desert guides covering:\n• Getting Started (Controls, First 2 Hours, Beginner Mistakes)\n• Combat & Skills (Parry, Combos, Stamina)\n• Boss Fights (Staglord, Matthias, Tenebrum)\n• Farming & Crafting (Resources, Cooking, Camp System)\n• Story & Exploration (Quests, Secrets, Treasure Maps)\n\nBrowse all: osrsguru.com/guides/crimson-desert/"
           : (GAME === 'windrose'
-            ? "Sorry, I couldn't find a specific match.\n\nHere are our Windrose guides:\n• Beginner Guide\n• Combat & Ship Guide\n• Crafting & Gear\n• Quest & Exploration\n• Boss Guide\n• Base Building\n\nBrowse all: osrsguru.com/guides/windrose/"
+            ? "Sorry, I couldn't find a specific match.\n\nWe have 14+ Windrose guides covering:\n• Getting Started (Beginner Guide, Day 1 Survival)\n• Combat & Ships (Naval Battles, PvP, Boarding)\n• Crafting & Gear (Ship Upgrades, Base Building)\n• Exploration (Treasure Maps, Secrets & Quests)\n• Bosses & Endgame (Boss Strategies, Meta Builds)\n• Co-op Multiplayer & Performance Fixes\n\nBrowse all: osrsguru.com/guides/windrose/"
             : 'AI Assistant is being upgraded!\n\nWe are building a smarter knowledge base with 150+ guides.\n\nBrowse osrsguru.com for all guides.');
         addMessage(messagesContainer, offlineMsg, 'assistant', false, CONFIG.sourceGuruLabel);
       })
