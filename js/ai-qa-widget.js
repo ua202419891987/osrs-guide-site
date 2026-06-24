@@ -3,6 +3,7 @@
  * 右下角悬浮窗 - AI 问答系统
  * v2.12.0 - Add 12 new Money Making Deep Dive guides (Slayer Money, Boss Profit, Flipping, Mid-Game, AFK, Daily Routine, Quest-Unlocked, Wilderness, Ironman P2P, Skilling Post-Sailing, Non-Boss Combat, Spend GP Wisely)
  * v2.11.0 - Add 16 new CD+Windrose guides to article index (Co-op, Farming, Build, Endgame, PvP, Secrets, Performance, Patch)
+ * v2.15.0 - Add 29 new CD guides (Controls, First-2-Hours, Parry, Combos, Gathering, Camp, Pre-Boss, Staglord-Prep, Abyss, Mistakes, Skills-Unlock, Camp-Farm, Cooking, Crafting, Damiane, Fishing, Inventory, Bugs, Matthias, Mini-Games, Mounts, Resource-Farm, Roadmap, Staglord-Strategy, Stamina, Tenebrum, Treasure-Map, Update-1.10); CD_ARTICLES: 14 → 43
  * v2.14.2 - Chinese mode: zh/ pages get CN title/questions/bubble; fix script paths for all 29 zh pages
  * v2.14.1 - Fix: brighter pulse ring (white/gold), badge always visible, bubble shows every 2hrs
  * v2.14.0 - Visibility boost: pulse animation + NEW badge + preview bubble + page-context suggested questions
@@ -105,7 +106,7 @@
     return matches.slice(0, 2); // 最多返回2个最相关段落
   }
 
-  // ========== 本地文章索引（200篇，2026-06-17） ==========
+  // ========== Crimson Desert 文章索引（43篇，2026-06-25 更新） ==========
   var CD_ARTICLES = [
     { label: 'Crimson Desert Boss Guide 2026 \u2014 Every Boss, Strategy &amp; Rewards', url: '/guides/crimson-desert/crimson-desert-boss-guide-2026.html', kw: 'boss bosses bossing cd crimson desert pvm pywel kliff strategy' },
     { label: 'Crimson Desert Combat Guide 2026 \u2014 Master Parry, Dodge &amp; Combo Chains', url: '/guides/crimson-desert/crimson-desert-combat-guide-2026.html', kw: 'combat cd crimson desert dodge parry pywel kliff attack defence defense strength', anchorMap: { 'parry': 'section2', 'dodge': 'section2', 'combo': 'section3', 'stamina': 'section4', 'spirit': 'section5', 'surge': 'section5', 'grapple': 'section6', 'counter': 'section2', 'fight': 'section1', 'combat': 'section1' } },
@@ -121,6 +122,36 @@
     { label: 'Crimson Desert Hidden Secrets &amp; Easter Eggs 2026', url: '/guides/crimson-desert/crimson-desert-hidden-secrets-easter-eggs-2026.html', kw: 'secrets easter eggs hidden locations lore items crimson desert' },
     { label: 'Crimson Desert Best Settings &amp; Performance 2026', url: '/guides/crimson-desert/crimson-desert-best-settings-performance-2026.html', kw: 'performance fps optimization settings stuttering fix crimson desert' },
     { label: 'Crimson Desert Patch Notes Analysis 2026', url: '/guides/crimson-desert/crimson-desert-patch-notes-analysis-2026.html', kw: 'patch notes updates changes nerfs buffs crimson desert' },
+
+    // ===== 新增文章 (2026-06-25) =====
+    { label: 'Crimson Desert Controls &amp; Keybindings Guide 2026', url: '/guides/crimson-desert/crimson-desert-controls-keybindings-guide-2026.html', kw: 'controls keybindings keyboard mouse controller gamepad input mapping crimson desert' },
+    { label: 'Crimson Desert First 2 Hours Checklist 2026', url: '/guides/crimson-desert/crimson-desert-first-2-hours-checklist-guide-2026.html', kw: 'first 2 hours checklist beginner start early game what to do first crimson desert' },
+    { label: 'Crimson Desert Parry Timing &amp; Dodge Guide 2026', url: '/guides/crimson-desert/crimson-desert-parry-timing-dodge-guide-2026.html', kw: 'parry timing dodge roll iframe invincibility counterattack block crimson desert combat' },
+    { label: 'Crimson Desert Weapon Combos Beginner Guide 2026', url: '/guides/crimson-desert/crimson-desert-weapon-combos-beginner-guide-2026.html', kw: 'weapon combos chain attacks sword spear axe beginner combo system crimson desert' },
+    { label: 'Crimson Desert Resource Gathering Routes 2026', url: '/guides/crimson-desert/crimson-desert-resource-gathering-routes-guide-2026.html', kw: 'resource gathering routes mining herbs materials farming loop efficient crimson desert' },
+    { label: 'Crimson Desert Camp System Starter Guide 2026', url: '/guides/crimson-desert/crimson-desert-camp-system-starter-guide-2026.html', kw: 'camp base camp resting cooking crafting shelter tent campfire crimson desert' },
+    { label: 'Crimson Desert Pre-Boss Gear Checklist 2026', url: '/guides/crimson-desert/crimson-desert-pre-boss-gear-checklist-guide-2026.html', kw: 'pre boss gear checklist equipment preparation before fight armor weapons consumables crimson desert' },
+    { label: 'Crimson Desert First Boss Staglord Prep 2026', url: '/guides/crimson-desert/crimson-desert-first-boss-staglord-prep-guide-2026.html', kw: 'staglord first boss prep strategy how to beat beginner boss fight crimson desert' },
+    { label: 'Crimson Desert Abyss Artifacts Farming Guide 2026', url: '/guides/crimson-desert/crimson-desert-abyss-artifacts-farming-guide-2026.html', kw: 'abyss artifacts farming rare items drops locations farm run crimson desert endgame' },
+    { label: 'Crimson Desert Beginner Mistakes to Avoid 2026', url: '/guides/crimson-desert/crimson-desert-beginner-mistakes-guide-2026.html', kw: 'beginner mistakes avoid errors tips traps common pitfalls new player crimson desert' },
+    { label: 'Crimson Desert Best Skills Unlock First 2026', url: '/guides/crimson-desert/crimson-desert-best-skills-unlock-first-guide-2026.html', kw: 'best skills unlock first priority skill tree order which skills to get crimson desert' },
+    { label: 'Crimson Desert Camp Farm Guide 2026', url: '/guides/crimson-desert/crimson-desert-camp-farm-guide-2026.html', kw: 'camp farm afk idle farming passive income resources base camp crimson desert' },
+    { label: 'Crimson Desert Cooking &amp; Alchemy Recipes 2026', url: '/guides/crimson-desert/crimson-desert-cooking-alchemy-recipes-guide-2026.html', kw: 'cooking alchemy recipes potions food buff craft ingredients crimson desert crafting' },
+    { label: 'Crimson Crafting &amp; Upgrade Guide 2026', url: '/guides/crimson-desert/crimson-desert-crafting-upgrade-guide-2026.html', kw: 'crafting upgrade enhance gear blacksmith forge weapon upgrade crimson desert' },
+    { label: 'Crimson Desert Damiane Companion Guide 2026', url: '/guides/crimson-desert/crimson-desert-damiane-companion-guide-2026.html', kw: 'damiane companion pet party member npc ally follower crimson desert story character' },
+    { label: 'Crimson Desert Fishing Guide 2026', url: '/guides/crimson-desert/crimson-desert-fishing-guide-2026.html', kw: 'fishing fish spots locations water catch food cooking gathering crimson desert' },
+    { label: 'Crimson Desert Inventory &amp; Backpack Guide 2026', url: '/guides/crimson-desert/crimson-desert-inventory-backpack-guide-2026.html', kw: 'inventory backpack bag space storage weight management items organize crimson desert' },
+    { label: 'Crimson Desert Known Bugs &amp; Fixes Guide 2026', url: '/guides/crimson-desert/crimson-desert-known-bugs-fixes-guide-2026.html', kw: 'bugs fixes glitches issues problems workaround crash error crimson desert' },
+    { label: 'Crimson Desert Matthias Boss Guide 2026', url: '/guides/crimson-desert/crimson-desert-matthias-boss-guide-2026.html', kw: 'matthias boss fight strategy how to beat mechanics phases crimson desert pvm' },
+    { label: 'Crimson Desert Mini Games Guide 2026', url: '/guides/crimson-desert/crimson-desert-mini-games-guide-2026.html', kw: 'mini games side activities fun rewards leisure extra content crimson desert' },
+    { label: 'Crimson Desert Mounts &amp; Pets Guide 2026', url: '/guides/crimson-desert/crimson-desert-mounts-pets-guide-2026.html', kw: 'mounts pets ride horse travel fast movement companion animal crimson desert' },
+    { label: 'Crimson Desert Resource Farming Guide 2026', url: '/guides/crimson-desert/crimson-desert-resource-farming-guide-2026.html', kw: 'resource farming gold money making materials grind spots locations crimson desert' },
+    { label: 'Crimson Desert Roadmap &amp; DLC Guide 2026', url: '/guides/crimson-desert/crimson-desert-roadmap-dlc-guide-2026.html', kw: 'roadmap dlc future update plans content schedule post-launch crimson desert' },
+    { label: 'Crimson Desert Staglord Boss Strategy 2026', url: '/guides/crimson-desert/crimson-desert-staglord-boss-strategy-guide-2026.html', kw: 'staglord boss strategy detailed guide mechanics moveset first boss crimson desert pvm' },
+    { label: 'Crimson Desert Stamina Management Guide 2026', url: '/guides/crimson-desert/crimson-desert-stamina-management-guide-2026.html', kw: 'stamina management endurance sprint dodge roll recover stamina bar crimson desert combat' },
+    { label: 'Crimson Desert Tenebrum Boss Guide 2026', url: '/guides/crimson-desert/crimson-desert-tenebrum-boss-guide-2026.html', kw: 'tenebrum boss fight strategy how to beat mechanics dark enemy crimson desert pvm' },
+    { label: 'Crimson Desert Treasure Map Locations 2026', url: '/guides/crimson-desert/crimson-desert-treasure-map-locations-guide-2026.html', kw: 'treasure map locations hidden chests loot exploration secrets find crimson desert' },
+    { label: 'Crimson Desert Update 1.0 \u2014 1.10 Analysis 2026', url: '/guides/crimson-desert/crimson-desert-1-10-update-guide-2026.html', kw: 'update 1.0 1.10 patch analysis changes new features balance crimson desert' },
   ];
 
   var WINDROSE_ARTICLES = [
@@ -932,7 +963,7 @@
           loadingMsg.remove();
         }
         var offlineMsg = GAME === 'crimson-desert'
-          ? "Sorry, I couldn't find a specific match.\n\nHere are our Crimson Desert guides:\n• New Player Guide\n• Combat Guide\n• Weapons & Gear\n• Quest Walkthrough\n• Boss Guide\n• Skills & Builds\n\nBrowse all: osrsguru.com/guides/crimson-desert/"
+          ? "Sorry, I couldn't find a specific match.\n\nWe have 43+ Crimson Desert guides covering:\n• Getting Started (Controls, First 2 Hours, Beginner Mistakes)\n• Combat & Skills (Parry, Combos, Stamina)\n• Boss Fights (Staglord, Matthias, Tenebrum)\n• Farming & Crafting (Resources, Cooking, Camp System)\n• Story & Exploration (Quests, Secrets, Treasure Maps)\n\nBrowse all: osrsguru.com/guides/crimson-desert/"
           : (GAME === 'windrose'
             ? "Sorry, I couldn't find a specific match.\n\nHere are our Windrose guides:\n• Beginner Guide\n• Combat & Ship Guide\n• Crafting & Gear\n• Quest & Exploration\n• Boss Guide\n• Base Building\n\nBrowse all: osrsguru.com/guides/windrose/"
             : 'AI Assistant is being upgraded!\n\nWe are building a smarter knowledge base with 150+ guides.\n\nBrowse osrsguru.com for all guides.');
