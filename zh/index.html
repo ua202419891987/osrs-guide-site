@@ -47,48 +47,94 @@
   <div class="header-inner">
     <a href="/zh/" class="logo">⚔️ OSRS Guru</a>
     <nav class="main-nav">
-      <a href="../guides/osrs-new-player-guide-2026.html" class="nav-highlight">🗺️ 新手</a>
+      <a href="beginner.html" class="nav-highlight">🗺️ 新手</a>
       <a href="money-making.html">赚钱</a>
       <a href="skill-training.html">技能</a>
       <a href="quest-guides.html">任务</a>
       <a href="boss-guides.html">Boss</a>
+      <a href="membership.html">会员</a>
     </nav>
   </div>
 </header>
 
-<section class="hero">
-  <div style="position:relative;z-index:1">
-    <div class="hero-badge">🗺️ 新手指南系列 — 每周更新</div>
-    <h1>用专业攻略掌握 Old School RuneScape</h1>
-    <p>134 篇 OSRS 中文攻略。刚入门？查看我们的 2026 完整新手指南 — 从零基础到自信冒险家，一站式搞定。</p>
-    <div class="hero-btns">
-      <a href="../guides/osrs-new-player-guide-2026.html" class="btn btn-primary">🗺️ 开始冒险（免费）</a>
-      <a href="money-making.html" class="btn btn-secondary">💰 赚钱攻略</a>
+<!-- ========== SEARCH BOX ========== -->
+<div class="container">
+<div class="home-search-box" style="background:#fff;border-radius:10px;padding:20px 24px;margin-top:16px;text-align:center;border:2px solid #D4CDE0;box-shadow:0 2px 12px rgba(122,100,184,0.08);">
+  <div style="color:#5B4A9C;font-size:1.2rem;font-weight:800;margin-bottom:4px;">🔍 找到你的完美 OSRS 攻略</div>
+  <div style="color:#888;font-size:.82rem;margin-bottom:12px;">搜索 200+ 篇攻略，或直接向 AI 提问 🤖</div>
+  <div style="display:flex;max-width:560px;margin:0 auto;gap:8px;align-items:center;">
+    <div style="flex:1;position:relative;display:flex;align-items:center;">
+      <input id="zhSearchInput" type="text" placeholder="例如：Zulrah、祷告训练、赚钱方法...（直接问 AI 🍑）" style="width:100%;padding:11px 14px 11px 38px;border-radius:8px;border:1.5px solid #D4CDE0;background:#FAF9FC;color:#2D2A33;font-size:.95rem;outline:none;" autocomplete="off" onkeydown="if(event.key==='Enter'){event.preventDefault();var q=this.value.trim();document.getElementById('osrs-qa-toggle-btn').click();setTimeout(function(){if(q&&window.OSRSQA&&window.OSRSQA.ask)window.OSRSQA.ask(q)},300);}">
+      <span style="position:absolute;left:12px;font-size:16px;pointer-events:none;opacity:0.5;">🔍</span>
     </div>
+    <button onclick="var q=document.getElementById('zhSearchInput').value.trim();document.getElementById('osrs-qa-toggle-btn').click();setTimeout(function(){if(q&&window.OSRSQA&&window.OSRSQA.ask)window.OSRSQA.ask(q);},300);" style="background:linear-gradient(135deg,#9B84D4,#7A64B8);color:#fff;border:none;padding:11px 18px;border-radius:8px;font-weight:700;font-size:.9rem;cursor:pointer;white-space:nowrap;box-shadow:0 2px 8px rgba(122,100,184,0.25);">🔍 AI 搜索</button>
   </div>
-</section>
-
-<div class="stats-bar">
-  <div class="stats-bar-inner">
-    <div class="stat-item"><div class="num">134</div><div class="label">攻略指南</div></div>
-    <div class="stat-item"><div class="num">2026</div><div class="label">最新更新</div></div>
-    <div class="stat-item"><div class="num">6</div><div class="label">分类</div></div>
-    <div class="stat-item"><div class="num">Free</div><div class="label">永久免费</div></div>
+  <div style="margin-top:8px;font-size:.75rem;color:#aaa;">
+    <span>🔥 热门：</span>
+    <a href="guides/osrs-how-to-beat-zulrah-beginners-rotation.html" style="color:#9B84D4;margin:0 3px;">Zulrah</a>·
+    <a href="guides/osrs-fire-cape-jad-guide-2026.html" style="color:#9B84D4;margin:0 3px;">火焰披风</a>·
+    <a href="guides/osrs-money-making-beginner-2026.html" style="color:#9B84D4;margin:0 3px;">赚钱</a>·
+    <a href="guides/osrs-1-99-prayer-guide-2026.html" style="color:#9B84D4;margin:0 3px;">祷告</a>·
+    <a href="beginner.html" style="color:#9B84D4;margin:0 3px;">新手入门</a>
   </div>
 </div>
+</div>
 
+<!-- ========== CATEGORY CARDS (Image Style) ========== -->
 <div class="container">
-  <div class="section-header"><div class="section-title">按分类浏览</div></div>
-  <div class="category-grid" style="margin-bottom:40px">
-    <a href="money-making.html" class="cat-card"><div class="cat-icon">💰</div><div class="cat-name">赚钱方法</div><div class="cat-count">22 篇攻略 <span style="font-size:16px;color:#e74c3c;font-weight:700;margin-left:4px;">+6 NEW</span></div></a>
-    <a href="skill-training.html" class="cat-card"><div class="cat-icon">🎯</div><div class="cat-name">技能训练</div><div class="cat-count">27 篇攻略 <span style="font-size:16px;color:#e74c3c;font-weight:700;margin-left:4px;">+25 NEW</span></div></a>
-    <a href="membership.html" class="cat-card"><div class="cat-icon">🔥</div><div class="cat-name">会员指南</div><div class="cat-count">11 篇攻略 <span style="font-size:16px;color:#e74c3c;font-weight:700;margin-left:4px;">+0 NEW</span></div></a>
-    <a href="quest-guides.html" class="cat-card"><div class="cat-icon">🧩</div><div class="cat-name">任务攻略</div><div class="cat-count">15 篇攻略 <span style="font-size:16px;color:#e74c3c;font-weight:700;margin-left:4px;">+6 NEW</span></div></a>
-    <a href="boss-guides.html" class="cat-card"><div class="cat-icon">👹</div><div class="cat-name">Boss 攻略</div><div class="cat-count">17 篇攻略 <span style="font-size:16px;color:#e74c3c;font-weight:700;margin-left:4px;">+5 NEW</span></div></a>
-    <a href="monthly-updates.html" class="cat-card"><div class="cat-icon">📅</div><div class="cat-name">每月更新</div><div class="cat-count">2026年6月 最新!</div></a>
-    <a href="weekly-updates.html" class="cat-card"><div class="cat-icon">🔥</div><div class="cat-name">每周更新</div><div class="cat-count"><span style="font-size:16px;color:#e74c3c;font-weight:700;">+52 NEW</span> 本周</div></a>
-    <a href="../index.html" class="cat-card" style="border:1px solid var(--gold);position:relative"><div style="position:absolute;top:6px;right:8px;font-size:10px;background:var(--gold);color:#1a0e08;padding:1px 6px;border-radius:3px;font-weight:bold">EN</div><div class="cat-icon">🌐</div><div class="cat-name">English</div><div class="cat-count">完整站点</div></a>
-  </div>
+<div class="task-cta-grid" style="margin-top:24px;margin-bottom:40px">
+  <a href="money-making.html" class="task-cta-card">
+    <img src="https://oldschool.runescape.wiki/images/thumb/Grand_Exchange.png/640px-Grand_Exchange.png" alt="赚钱方法" class="cta-img" loading="lazy" onerror="this.style.display='none'">
+    <h3>💰 赚钱方法 — 22 篇攻略</h3>
+    <p>从 0 GP 到千万富翁。F2P、会员、Ironman 全覆盖，2026 实测有效。</p>
+    <span class="cta-arrow">查看全部方法 →</span>
+  </a>
+  <a href="skill-training.html" class="task-cta-card">
+    <img src="https://oldschool.runescape.wiki/images/thumb/Woodcutting_Guild.png/640px-Woodcutting_Guild.png" alt="技能训练" class="cta-img" loading="lazy" onerror="this.style.display='none'">
+    <h3>🎯 技能训练 — 27 篇攻略</h3>
+    <p>最快、最省钱、最挂机路线。23 个技能全覆盖，节省 200+ 小时。</p>
+    <span class="cta-arrow">查看全部技能 →</span>
+  </a>
+  <a href="quest-guides.html" class="task-cta-card">
+    <img src="https://oldschool.runescape.wiki/images/thumb/Dragon_Slayer_II.png/640px-Dragon_Slayer_II.png" alt="任务攻略" class="cta-img" loading="lazy" onerror="this.style.display='none'">
+    <h3>🧩 任务攻略 — 17 篇攻略</h3>
+    <p>从新手任务到 Dragon Slayer 2，逐步通关、装备解锁全收录。</p>
+    <span class="cta-arrow">查看全部任务 →</span>
+  </a>
+  <a href="boss-guides.html" class="task-cta-card">
+    <img src="https://oldschool.runescape.wiki/images/thumb/God_Wars_Dungeon.png/640px-God_Wars_Dungeon.png" alt="Boss攻略" class="cta-img" loading="lazy" onerror="this.style.display='none'">
+    <h3>👹 Boss 攻略 — 20 篇攻略</h3>
+    <p>从 Barrows 到 Raids。装备配置、打法轮换、每小时收益全解析。</p>
+    <span class="cta-arrow">查看全部 Boss →</span>
+  </a>
+</div>
+<div class="task-cta-grid" style="margin-top:0;margin-bottom:40px">
+  <a href="membership.html" class="task-cta-card">
+    <img src="https://oldschool.runescape.wiki/images/thumb/Fishing_Guild.png/640px-Fishing_Guild.png" alt="会员指南" class="cta-img" loading="lazy" onerror="this.style.display='none'">
+    <h3>🔥 会员指南 — 11 篇攻略</h3>
+    <p>Bond vs 订阅对比、涨价分析、最省钱方案。2026 最新数据。</p>
+    <span class="cta-arrow">查看会员攻略 →</span>
+  </a>
+  <a href="monthly-updates.html" class="task-cta-card">
+    <img src="https://oldschool.runescape.wiki/images/thumb/Varrock.png/640px-Varrock.png" alt="每月更新" class="cta-img" loading="lazy" onerror="this.style.display='none'">
+    <h3>📅 每月更新 — 2026年6月</h3>
+    <p>Gauntlet 加速、血月崛起、Sailing 预览。每月变化一览。</p>
+    <span class="cta-arrow">查看本月更新 →</span>
+  </a>
+  <a href="weekly-updates.html" class="task-cta-card">
+    <img src="https://oldschool.runescape.wiki/images/thumb/Wilderness.png/640px-Wilderness.png" alt="每周更新" class="cta-img" loading="lazy" onerror="this.style.display='none'">
+    <h3>🔥 每周更新 — 52+ 篇新攻略</h3>
+    <p>每周新攻略上架。热门话题、玩家痛点、实用技巧一网打尽。</p>
+    <span class="cta-arrow">查看本周更新 →</span>
+  </a>
+  <a href="../index.html" class="task-cta-card" style="border:2px solid var(--gold,#d4af37);position:relative">
+    <div style="position:absolute;top:8px;right:8px;font-size:10px;background:var(--gold,#d4af37);color:#1a0e08;padding:2px 8px;border-radius:4px;font-weight:bold;z-index:2">EN</div>
+    <img src="https://oldschool.runescape.wiki/images/thumb/Lumbridge.png/640px-Lumbridge.png" alt="English Site" class="cta-img" loading="lazy" onerror="this.style.display='none'">
+    <h3>🌐 English — 完整英文站</h3>
+    <p>200+ 篇英文攻略、AI 问答助手、社区互动。面向全球 OSRS 玩家。</p>
+    <span class="cta-arrow">前往英文站 →</span>
+  </a>
+</div>
 
   <!-- ========== AD BANNER (728x90) — After Category Grid ========== -->
   <div class="ad-banner-wrapper">
@@ -114,25 +160,25 @@
         </div>
         <div class="whats-new-promo">🔥 错过6月更新了？Gauntlet快27%、Sanguinesti Staff加强、血月崛起6月30日上线。这里是全部变化——以及接下来要发生的事。</div>
         <div class="whats-new-list">
-          <a href="../guides/osrs-summer-sweep-up-2026-guide.html" class="whats-new-item">
+          <a href="guides/osrs-summer-sweep-up-2026-guide.html" class="whats-new-item">
             <span class="whats-new-badge">🔥 热门</span>
             <span class="whats-new-name">夏日清扫 2026 完整攻略</span>
             <span class="whats-new-tag tag-skill">更新</span>
             <span class="whats-new-date-inline">6月4日</span>
           </a>
-          <a href="../guides/osrs-blood-moon-rises-guide-2026.html" class="whats-new-item">
+          <a href="guides/osrs-blood-moon-rises-guide-2026.html" class="whats-new-item">
             <span class="whats-new-badge">🆕 新!</span>
             <span class="whats-new-name">血月崛起 — 大神级任务终章</span>
             <span class="whats-new-tag tag-quest">任务</span>
             <span class="whats-new-date-inline">6月30日</span>
           </a>
-          <a href="../guides/osrs-sailing-wyrmscraig-guide-2026.html" class="whats-new-item">
+          <a href="guides/osrs-sailing-wyrmscraig-guide-2026.html" class="whats-new-item">
             <span class="whats-new-badge">⛵ 航海</span>
             <span class="whats-new-name">航海扩展 — Wyrmscraig 新岛预览</span>
             <span class="whats-new-tag tag-skill">更新</span>
             <span class="whats-new-date-inline">今年夏季</span>
           </a>
-          <a href="../guides/osrs-gauntlet-meta-changes-2026.html" class="whats-new-item">
+          <a href="guides/osrs-gauntlet-meta-changes-2026.html" class="whats-new-item">
             <span class="whats-new-badge">⚔️ META</span>
             <span class="whats-new-name">Gauntlet & PvM Meta 变化 — 装备buff/nerf汇总</span>
             <span class="whats-new-tag tag-boss">PvM</span>
@@ -149,7 +195,7 @@
   <div class="section-header" style="background:#fff;padding:20px 24px;border-radius:var(--radius-lg);border:1px solid var(--border-bronze);display:flex;align-items:center;gap:12px;flex-wrap:wrap">
     <div class="section-title" id="stage-0" style="margin:0">🗺️ 阶段 0：8周新手路线图 — 从这里开始！</div>
     <span class="new-week-badge">📝 本周更新</span>
-    <a href="../guides/osrs-new-player-guide-2026.html" class="see-all" style="margin-left:auto">📚 查看全部新手攻略 →</a>
+    <a href="guides/osrs-new-player-guide-2026.html" class="see-all" style="margin-left:auto">📚 查看全部新手攻略 →</a>
   </div>
 
   <!-- 8周路线图网格 -->
@@ -164,11 +210,11 @@
       <h3 class="week-card-title">🎮 入门步骤</h3>
       <p class="week-card-desc">掌握操作、导航和核心游戏机制。</p>
       <ul class="week-guide-list">
-        <li><a href="../guides/osrs-new-player-guide-2026.html">新手完整指南（总览）</a> <span class="wk-badge wk-badge-starting">🌟 起点</span></li>
-        <li><a href="../guides/osrs-interface-controls-beginner-guide-2026.html">游戏界面与操作指南</a></li>
-        <li class="hidden"><a href="../guides/osrs-bank-inventory-management-2026.html">银行与背包管理</a></li>
-        <li class="hidden"><a href="../guides/osrs-maps-travel-guide-2026.html">地图与快速旅行指南</a></li>
-        <li class="hidden"><a href="../guides/osrs-combat-triangle-explained-2026.html">战斗三角详解</a></li>
+        <li><a href="guides/osrs-new-player-guide-2026.html">新手完整指南（总览）</a> <span class="wk-badge wk-badge-starting">🌟 起点</span></li>
+        <li><a href="guides/osrs-interface-controls-beginner-guide-2026.html">游戏界面与操作指南</a></li>
+        <li class="hidden"><a href="guides/osrs-bank-inventory-management-2026.html">银行与背包管理</a></li>
+        <li class="hidden"><a href="guides/osrs-maps-travel-guide-2026.html">地图与快速旅行指南</a></li>
+        <li class="hidden"><a href="guides/osrs-combat-triangle-explained-2026.html">战斗三角详解</a></li>
       </ul>
       <button class="week-card-expand-btn" onclick="toggleWeekCard('week-1', this)">查看全部 5 篇攻略</button>
     </div>
@@ -182,10 +228,10 @@
       <h3 class="week-card-title">⚔️ 打造角色</h3>
       <p class="week-card-desc">技能、战斗训练、装备 — 打造坚实基础。</p>
       <ul class="week-guide-list">
-        <li><a href="../guides/osrs-all-skills-overview-guide-2026.html">全部技能总览指南</a></li>
-        <li><a href="../guides/osrs-combat-training-beginner-2026.html">战斗训练指南（1–70+）</a></li>
-        <li class="hidden"><a href="../guides/osrs-gear-beginner-guide-2026.html">新手装备指南</a></li>
-        <li class="hidden"><a href="../guides/osrs-safe-spots-beginner-2026.html">安全点指南</a></li>
+        <li><a href="guides/osrs-all-skills-overview-guide-2026.html">全部技能总览指南</a></li>
+        <li><a href="guides/osrs-combat-training-beginner-2026.html">战斗训练指南（1–70+）</a></li>
+        <li class="hidden"><a href="guides/osrs-gear-beginner-guide-2026.html">新手装备指南</a></li>
+        <li class="hidden"><a href="guides/osrs-safe-spots-beginner-2026.html">安全点指南</a></li>
       </ul>
       <button class="week-card-expand-btn" onclick="toggleWeekCard('week-2', this)">查看全部 4 篇攻略</button>
     </div>
@@ -199,9 +245,9 @@
       <h3 class="week-card-title">💰 赚取金币</h3>
       <p class="week-card-desc">从零到百万富翁 — 赚钱基础。</p>
       <ul class="week-guide-list">
-        <li><a href="../guides/osrs-money-making-beginner-2026.html">新手赚钱方法（F2P→会员）</a></li>
-        <li><a href="../guides/osrs-grand-exchange-guide-2026.html">大交易所完整指南</a></li>
-        <li class="hidden"><a href="../guides/osrs-low-level-skilling-money-makers-2026.html">低等级生活技能赚钱法</a></li>
+        <li><a href="guides/osrs-money-making-beginner-2026.html">新手赚钱方法（F2P→会员）</a></li>
+        <li><a href="guides/osrs-grand-exchange-guide-2026.html">大交易所完整指南</a></li>
+        <li class="hidden"><a href="guides/osrs-low-level-skilling-money-makers-2026.html">低等级生活技能赚钱法</a></li>
       </ul>
       <button class="week-card-expand-btn" onclick="toggleWeekCard('week-3', this)">查看全部 3 篇攻略</button>
     </div>
@@ -215,9 +261,9 @@
       <h3 class="week-card-title">💎 解锁会员</h3>
       <p class="week-card-desc">获取会员、训练祷告、正式开始做任务。</p>
       <ul class="week-guide-list">
-        <li><a href="../guides/osrs-f2p-to-p2p-membership-guide-2026.html">F2P 转 P2P 会员指南</a></li>
-        <li><a href="../guides/osrs-prayer-training-beginner-guide-2026.html">祷告训练指南</a></li>
-        <li class="hidden"><a href="../guides/osrs-questing-beginner-guide-2026.html">新手任务攻略</a></li>
+        <li><a href="guides/osrs-f2p-to-p2p-membership-guide-2026.html">F2P 转 P2P 会员指南</a></li>
+        <li><a href="guides/osrs-prayer-training-beginner-guide-2026.html">祷告训练指南</a></li>
+        <li class="hidden"><a href="guides/osrs-questing-beginner-guide-2026.html">新手任务攻略</a></li>
       </ul>
       <button class="week-card-expand-btn" onclick="toggleWeekCard('week-4', this)">查看全部 3 篇攻略</button>
     </div>
@@ -231,9 +277,9 @@
       <h3 class="week-card-title">🏰 加入社区</h3>
       <p class="week-card-desc">公会、玩家房屋、小游戏 — OSRS 一起玩更有趣。</p>
       <ul class="week-guide-list">
-        <li><a href="../guides/osrs-clan-social-guide-2026.html">公会与社交指南</a></li>
-        <li><a href="../guides/osrs-poh-beginner-guide-2026.html">玩家房屋（POH）指南</a></li>
-        <li class="hidden"><a href="../guides/osrs-minigames-beginner-guide-2026.html">小游戏新手指南</a></li>
+        <li><a href="guides/osrs-clan-social-guide-2026.html">公会与社交指南</a></li>
+        <li><a href="guides/osrs-poh-beginner-guide-2026.html">玩家房屋（POH）指南</a></li>
+        <li class="hidden"><a href="guides/osrs-minigames-beginner-guide-2026.html">小游戏新手指南</a></li>
       </ul>
       <button class="week-card-expand-btn" onclick="toggleWeekCard('week-5', this)">查看全部 3 篇攻略</button>
     </div>
@@ -247,9 +293,9 @@
       <h3 class="week-card-title">🐉 开始打Boss</h3>
       <p class="week-card-desc">PvM 第一步 — Barrows、NMZ 及更多。</p>
       <ul class="week-guide-list">
-        <li><a href="../guides/osrs-barrows-beginner-guide-2026.html">Barrows 兄弟新手指南</a></li>
-        <li><a href="../guides/osrs-nmz-beginner-guide-2026.html">噩梦地带（NMZ）指南</a></li>
-        <li class="hidden"><a href="../guides/osrs-pvm-beginner-guide-2026.html">PvM 新手指南</a></li>
+        <li><a href="guides/osrs-barrows-beginner-guide-2026.html">Barrows 兄弟新手指南</a></li>
+        <li><a href="guides/osrs-nmz-beginner-guide-2026.html">噩梦地带（NMZ）指南</a></li>
+        <li class="hidden"><a href="guides/osrs-pvm-beginner-guide-2026.html">PvM 新手指南</a></li>
       </ul>
       <button class="week-card-expand-btn" onclick="toggleWeekCard('week-6', this)">查看全部 3 篇攻略</button>
     </div>
@@ -263,9 +309,9 @@
       <h3 class="week-card-title">📅 养成好习惯</h3>
       <p class="week-card-desc">日常路线、需要避免的常见错误、成就日记。</p>
       <ul class="week-guide-list">
-        <li><a href="../guides/osrs-daily-weekly-reset-activities-guide-2026.html">每日/每周重置活动指南</a></li>
-        <li><a href="../guides/osrs-common-beginner-mistakes-avoid-2026.html">20个新手常见错误</a></li>
-        <li class="hidden"><a href="../guides/osrs-achievement-diary-beginner-guide-2026.html">成就日记指南</a></li>
+        <li><a href="guides/osrs-daily-weekly-reset-activities-guide-2026.html">每日/每周重置活动指南</a></li>
+        <li><a href="guides/osrs-common-beginner-mistakes-avoid-2026.html">20个新手常见错误</a></li>
+        <li class="hidden"><a href="guides/osrs-achievement-diary-beginner-guide-2026.html">成就日记指南</a></li>
       </ul>
       <button class="week-card-expand-btn" onclick="toggleWeekCard('week-7', this)">查看全部 3 篇攻略</button>
     </div>
@@ -279,10 +325,10 @@
       <h3 class="week-card-title">🚀 全面提升</h3>
       <p class="week-card-desc">手机版、回归玩家、账号类型 — 进阶新手话题。</p>
       <ul class="week-guide-list">
-        <li><a href="../guides/osrs-mobile-guide-2026.html">OSRS 手机版指南</a></li>
-        <li><a href="../guides/osrs-returning-player-guide-2026.html">回归玩家追赶指南</a></li>
-        <li class="hidden"><a href="../guides/osrs-ironman-beginner-guide-2026.html">铁人模式新手指南</a></li>
-        <li class="hidden"><a href="../guides/osrs-slayer-beginner-guide-2026.html">Slayer 新手指南</a></li>
+        <li><a href="guides/osrs-mobile-guide-2026.html">OSRS 手机版指南</a></li>
+        <li><a href="guides/osrs-returning-player-guide-2026.html">回归玩家追赶指南</a></li>
+        <li class="hidden"><a href="guides/osrs-ironman-beginner-guide-2026.html">铁人模式新手指南</a></li>
+        <li class="hidden"><a href="guides/osrs-slayer-beginner-guide-2026.html">Slayer 新手指南</a></li>
       </ul>
       <button class="week-card-expand-btn" onclick="toggleWeekCard('week-8', this)">查看全部 4 篇攻略</button>
     </div>
@@ -304,34 +350,34 @@
       <!-- MONEY MAKING -->
       <div class="section-header"><div class="section-title">💰 热门赚钱攻略</div><span class="new-week-badge">+6 新</span><a href="money-making.html" class="see-all">全部 22 篇 →</a></div>
       <div class="article-grid">
-        <a href="../guides/osrs-ironman-money-making-f2p-2026.html" class="article-card"><span class="tag tag-money">赚钱</span><h3>Ironman 免费赚钱 2026</h3><p>Ironman 最佳免费方法 — 纺织、牛皮、精华矿掘。更新至 2026。</p><div class="article-meta"><span>💰 2026年5月</span><span>8 分钟</span></div></a>
-        <a href="../guides/osrs-how-to-make-money-with-zulrah.html" class="article-card"><span class="tag tag-money">赚钱</span><h3>Zulrah 赚钱 — 每小时 GP 2026</h3><p>完整 Zulrah 收益分析：鳞片、独特掉落、每只平均 GP、如何最大化每小时收入。</p><div class="article-meta"><span>💰 2026年5月</span><span>9 分钟</span></div></a>
-        <a href="../guides/osrs-wintertodt-money-making-per-hour.html" class="article-card"><span class="tag tag-money">赚钱</span><h3>Wintertodt 每小时 GP 分析</h3><p>箱子奖励、种子价值、最佳策略，最大化 Wintertodt 收益。</p><div class="article-meta"><span>💰 2026年5月</span><span>8 分钟</span></div></a>
-        <a href="../guides/osrs-killing-green-dragons-money-per-hour.html" class="article-card"><span class="tag tag-money">赚钱</span><h3>绿龙 每小时 GP</h3><p>最佳位置、反 PK 装备、2026 年 40-80 万 GP/小时详解。</p><div class="article-meta"><span>💰 2026年5月</span><span>7 分钟</span></div></a>
-        <a href="../guides/osrs-how-to-flip-items-profit-mid-game.html" class="article-card"><span class="tag tag-money">赚钱</span><h3>GE 倒卖中期指南</h3><p>利润查询、预算 50-500 万的最佳倒卖物品、时间策略。</p><div class="article-meta"><span>💰 2026年5月</span><span>9 分钟</span></div></a>
-        <a href="../guides/osrs-chambers-of-xeric-loot-profit-guide.html" class="article-card"><span class="tag tag-money">赚钱</span><h3>夏尔克斯寺院掉落指南</h3><p>团本 1 独特掉落（扭曲弓、镰刀）、积分系统、每次团本收益分析。</p><div class="article-meta"><span>💰 2026年5月</span><span>10 分钟</span></div></a>
-        <a href="../guides/osrs-slayer-money-making-guide-2026.html" class="article-card"><span class="tag tag-money">🆕 Slayer</span><h3>Slayer赚钱完全指南 2026</h3><p>Slayer任务中所有赚钱方法排名。每任务GP收益和最优道具选择。</p><div class="article-meta"><span>💰 2026年6月</span><span>13 分钟</span></div></a>
-        <a href="../guides/osrs-boss-profit-comparison-2026.html" class="article-card"><span class="tag tag-money">🆕 Boss</span><h3>Boss收益对比分析 2026</h3><p>50+Boss每小时收益排名。装备成本、掉落率和最佳Farm选择。</p><div class="article-meta"><span>💰 2026年6月</span><span>14 分钟</span></div></a>
-        <a href="../guides/osrs-flipping-guide-beginners-2026.html" class="article-card"><span class="tag tag-money">🆕 倒卖</span><h3>新手GE倒卖完全指南</h3><p>从零开始的交易所倒卖策略。10万-100万本金的最优商品。</p><div class="article-meta"><span>💰 2026年6月</span><span>12 分钟</span></div></a>
-        <a href="../guides/osrs-money-making-summer-sweep-up-2026.html" class="article-card"><span class="tag tag-money">🆕 2026</span><h3>夏日清扫赚钱攻略 2026</h3><p>夏日清扫更新后的赚钱方法变化。Gauntlet加速、装备调整带来的新机会。</p><div class="article-meta"><span>💰 2026年6月</span><span>12 分钟</span></div></a>
-        <a href="../guides/osrs-money-making-under-1m-investment-2026.html" class="article-card"><span class="tag tag-money">🆕 低成本</span><h3>100万本金以下赚钱方法</h3><p>不到100万GP本金也能稳定盈利的方法。适合新会员和中低级玩家。</p><div class="article-meta"><span>💰 2026年6月</span><span>11 分钟</span></div></a>
-        <a href="../guides/osrs-f2p-money-making-no-stats.html" class="article-card"><span class="tag tag-money">🆕 免费</span><h3>免费版零要求赚钱</h3><p>无需任何技能等级也能在F2P赚钱。新手第一桶金的最快方法。</p><div class="article-meta"><span>💰 2026年6月</span><span>8 分钟</span></div></a>
-        <a href="../guides/osrs-passive-money-making-offline.html" class="article-card"><span class="tag tag-money">🆕 被动</span><h3>被动离线赚钱方法</h3><p>不在线也能赚GP？农场、Miscellania、GE长期投资等被动收入汇总。</p><div class="article-meta"><span>💰 2026年6月</span><span>9 分钟</span></div></a>
-        <a href="../guides/osrs-low-level-skilling-money-makers-2026.html" class="article-card"><span class="tag tag-money">🆕 技能</span><h3>低级技能赚钱方法</h3><p>利用低等级采集技能稳定盈利。适合刚起步玩家的安全赚钱路线。</p><div class="article-meta"><span>💰 2026年6月</span><span>10 分钟</span></div></a>
+        <a href="guides/osrs-ironman-money-making-f2p-2026.html" class="article-card"><span class="tag tag-money">赚钱</span><h3>Ironman 免费赚钱 2026</h3><p>Ironman 最佳免费方法 — 纺织、牛皮、精华矿掘。更新至 2026。</p><div class="article-meta"><span>💰 2026年5月</span><span>8 分钟</span></div></a>
+        <a href="guides/osrs-how-to-make-money-with-zulrah.html" class="article-card"><span class="tag tag-money">赚钱</span><h3>Zulrah 赚钱 — 每小时 GP 2026</h3><p>完整 Zulrah 收益分析：鳞片、独特掉落、每只平均 GP、如何最大化每小时收入。</p><div class="article-meta"><span>💰 2026年5月</span><span>9 分钟</span></div></a>
+        <a href="guides/osrs-wintertodt-money-making-per-hour.html" class="article-card"><span class="tag tag-money">赚钱</span><h3>Wintertodt 每小时 GP 分析</h3><p>箱子奖励、种子价值、最佳策略，最大化 Wintertodt 收益。</p><div class="article-meta"><span>💰 2026年5月</span><span>8 分钟</span></div></a>
+        <a href="guides/osrs-killing-green-dragons-money-per-hour.html" class="article-card"><span class="tag tag-money">赚钱</span><h3>绿龙 每小时 GP</h3><p>最佳位置、反 PK 装备、2026 年 40-80 万 GP/小时详解。</p><div class="article-meta"><span>💰 2026年5月</span><span>7 分钟</span></div></a>
+        <a href="guides/osrs-how-to-flip-items-profit-mid-game.html" class="article-card"><span class="tag tag-money">赚钱</span><h3>GE 倒卖中期指南</h3><p>利润查询、预算 50-500 万的最佳倒卖物品、时间策略。</p><div class="article-meta"><span>💰 2026年5月</span><span>9 分钟</span></div></a>
+        <a href="guides/osrs-chambers-of-xeric-loot-profit-guide.html" class="article-card"><span class="tag tag-money">赚钱</span><h3>夏尔克斯寺院掉落指南</h3><p>团本 1 独特掉落（扭曲弓、镰刀）、积分系统、每次团本收益分析。</p><div class="article-meta"><span>💰 2026年5月</span><span>10 分钟</span></div></a>
+        <a href="guides/osrs-slayer-money-making-guide-2026.html" class="article-card"><span class="tag tag-money">🆕 Slayer</span><h3>Slayer赚钱完全指南 2026</h3><p>Slayer任务中所有赚钱方法排名。每任务GP收益和最优道具选择。</p><div class="article-meta"><span>💰 2026年6月</span><span>13 分钟</span></div></a>
+        <a href="guides/osrs-boss-profit-comparison-2026.html" class="article-card"><span class="tag tag-money">🆕 Boss</span><h3>Boss收益对比分析 2026</h3><p>50+Boss每小时收益排名。装备成本、掉落率和最佳Farm选择。</p><div class="article-meta"><span>💰 2026年6月</span><span>14 分钟</span></div></a>
+        <a href="guides/osrs-flipping-guide-beginners-2026.html" class="article-card"><span class="tag tag-money">🆕 倒卖</span><h3>新手GE倒卖完全指南</h3><p>从零开始的交易所倒卖策略。10万-100万本金的最优商品。</p><div class="article-meta"><span>💰 2026年6月</span><span>12 分钟</span></div></a>
+        <a href="guides/osrs-money-making-summer-sweep-up-2026.html" class="article-card"><span class="tag tag-money">🆕 2026</span><h3>夏日清扫赚钱攻略 2026</h3><p>夏日清扫更新后的赚钱方法变化。Gauntlet加速、装备调整带来的新机会。</p><div class="article-meta"><span>💰 2026年6月</span><span>12 分钟</span></div></a>
+        <a href="guides/osrs-money-making-under-1m-investment-2026.html" class="article-card"><span class="tag tag-money">🆕 低成本</span><h3>100万本金以下赚钱方法</h3><p>不到100万GP本金也能稳定盈利的方法。适合新会员和中低级玩家。</p><div class="article-meta"><span>💰 2026年6月</span><span>11 分钟</span></div></a>
+        <a href="guides/osrs-f2p-money-making-no-stats.html" class="article-card"><span class="tag tag-money">🆕 免费</span><h3>免费版零要求赚钱</h3><p>无需任何技能等级也能在F2P赚钱。新手第一桶金的最快方法。</p><div class="article-meta"><span>💰 2026年6月</span><span>8 分钟</span></div></a>
+        <a href="guides/osrs-passive-money-making-offline.html" class="article-card"><span class="tag tag-money">🆕 被动</span><h3>被动离线赚钱方法</h3><p>不在线也能赚GP？农场、Miscellania、GE长期投资等被动收入汇总。</p><div class="article-meta"><span>💰 2026年6月</span><span>9 分钟</span></div></a>
+        <a href="guides/osrs-low-level-skilling-money-makers-2026.html" class="article-card"><span class="tag tag-money">🆕 技能</span><h3>低级技能赚钱方法</h3><p>利用低等级采集技能稳定盈利。适合刚起步玩家的安全赚钱路线。</p><div class="article-meta"><span>💰 2026年6月</span><span>10 分钟</span></div></a>
       </div>
 
       <!-- MONEY MAKING DEEP DIVES -->
       <div class="section-header" style="margin-top:8px"><div class="section-title">💰 赚钱攻略深度专题</div><span class="new-week-badge">+9 新</span><a href="money-making.html" class="see-all">全部赚钱攻略 →</a></div>
       <div class="article-grid">
-        <a href="../guides/osrs-mid-game-money-making-roadmap-2026.html" class="article-card"><span class="tag tag-money">🆕 中期</span><h3>中期赚钱路线图 2026</h3><p>70-100级最优赚钱路径。Slayer、Boss、技能三线并进的全方位路线。</p><div class="article-meta"><span>💰 2026年6月</span><span>14 分钟</span></div></a>
-        <a href="../guides/osrs-afk-money-making-ultimate-guide-2026.html" class="article-card"><span class="tag tag-money">🆕 AFK</span><h3>AFK赚钱终极指南</h3><p>低操作量也能稳定赚钱的方法合集。边工作边刷GP的最佳选择。</p><div class="article-meta"><span>💰 2026年6月</span><span>13 分钟</span></div></a>
-        <a href="../guides/osrs-daily-weekly-money-routine-2026.html" class="article-card"><span class="tag tag-money">🆕 日常</span><h3>每日每周赚钱路线</h3><p>最全面的日常/周常赚钱清单。Battlestaff、药草跑图、稳定收入最大化。</p><div class="article-meta"><span>💰 2026年6月</span><span>12 分钟</span></div></a>
-        <a href="../guides/osrs-quest-unlocked-money-methods-2026.html" class="article-card"><span class="tag tag-money">🆕 任务</span><h3>任务解锁赚钱方法</h3><p>完成特定任务后解锁的高利润方法。前期必做任务和收益分析。</p><div class="article-meta"><span>💰 2026年6月</span><span>13 分钟</span></div></a>
-        <a href="../guides/osrs-wilderness-money-making-2026.html" class="article-card"><span class="tag tag-money">🆕 荒原</span><h3>荒原赚钱完全攻略</h3><p>PvP区域高风险高回报赚钱方法。反PK技巧和最优装备全解析。</p><div class="article-meta"><span>💰 2026年6月</span><span>14 分钟</span></div></a>
-        <a href="../guides/osrs-ironman-p2p-money-making-2026.html" class="article-card"><span class="tag tag-money">🆕 Ironman</span><h3>Ironman P2P赚钱策略</h3><p>铁人会员模式下的自给赚钱策略。不需要交易所的完整方案。</p><div class="article-meta"><span>💰 2026年6月</span><span>12 分钟</span></div></a>
-        <a href="../guides/osrs-skilling-money-post-sailing-2026.html" class="article-card"><span class="tag tag-money">🆕 航行</span><h3>航行技能后赚钱新格局</h3><p>Sailing更新后技能赚钱格局变化。新技能带来的商机和路线调整。</p><div class="article-meta"><span>💰 2026年6月</span><span>11 分钟</span></div></a>
-        <a href="../guides/osrs-combat-money-making-non-boss-2026.html" class="article-card"><span class="tag tag-money">🆕 战斗</span><h3>非Boss战斗赚钱方法</h3><p>不需要打Boss也能通过战斗稳定赚钱。适合中低级玩家的高效方法。</p><div class="article-meta"><span>💰 2026年6月</span><span>12 分钟</span></div></a>
-        <a href="../guides/osrs-how-to-spend-gp-wisely-2026.html" class="article-card"><span class="tag tag-money">🆕 策略</span><h3>GP明智消费指南</h3><p>赚到钱后该怎么花？装备升级优先级、投资建议和预算管理。</p><div class="article-meta"><span>💰 2026年6月</span><span>10 分钟</span></div></a>
+        <a href="guides/osrs-mid-game-money-making-roadmap-2026.html" class="article-card"><span class="tag tag-money">🆕 中期</span><h3>中期赚钱路线图 2026</h3><p>70-100级最优赚钱路径。Slayer、Boss、技能三线并进的全方位路线。</p><div class="article-meta"><span>💰 2026年6月</span><span>14 分钟</span></div></a>
+        <a href="guides/osrs-afk-money-making-ultimate-guide-2026.html" class="article-card"><span class="tag tag-money">🆕 AFK</span><h3>AFK赚钱终极指南</h3><p>低操作量也能稳定赚钱的方法合集。边工作边刷GP的最佳选择。</p><div class="article-meta"><span>💰 2026年6月</span><span>13 分钟</span></div></a>
+        <a href="guides/osrs-daily-weekly-money-routine-2026.html" class="article-card"><span class="tag tag-money">🆕 日常</span><h3>每日每周赚钱路线</h3><p>最全面的日常/周常赚钱清单。Battlestaff、药草跑图、稳定收入最大化。</p><div class="article-meta"><span>💰 2026年6月</span><span>12 分钟</span></div></a>
+        <a href="guides/osrs-quest-unlocked-money-methods-2026.html" class="article-card"><span class="tag tag-money">🆕 任务</span><h3>任务解锁赚钱方法</h3><p>完成特定任务后解锁的高利润方法。前期必做任务和收益分析。</p><div class="article-meta"><span>💰 2026年6月</span><span>13 分钟</span></div></a>
+        <a href="guides/osrs-wilderness-money-making-2026.html" class="article-card"><span class="tag tag-money">🆕 荒原</span><h3>荒原赚钱完全攻略</h3><p>PvP区域高风险高回报赚钱方法。反PK技巧和最优装备全解析。</p><div class="article-meta"><span>💰 2026年6月</span><span>14 分钟</span></div></a>
+        <a href="guides/osrs-ironman-p2p-money-making-2026.html" class="article-card"><span class="tag tag-money">🆕 Ironman</span><h3>Ironman P2P赚钱策略</h3><p>铁人会员模式下的自给赚钱策略。不需要交易所的完整方案。</p><div class="article-meta"><span>💰 2026年6月</span><span>12 分钟</span></div></a>
+        <a href="guides/osrs-skilling-money-post-sailing-2026.html" class="article-card"><span class="tag tag-money">🆕 航行</span><h3>航行技能后赚钱新格局</h3><p>Sailing更新后技能赚钱格局变化。新技能带来的商机和路线调整。</p><div class="article-meta"><span>💰 2026年6月</span><span>11 分钟</span></div></a>
+        <a href="guides/osrs-combat-money-making-non-boss-2026.html" class="article-card"><span class="tag tag-money">🆕 战斗</span><h3>非Boss战斗赚钱方法</h3><p>不需要打Boss也能通过战斗稳定赚钱。适合中低级玩家的高效方法。</p><div class="article-meta"><span>💰 2026年6月</span><span>12 分钟</span></div></a>
+        <a href="guides/osrs-how-to-spend-gp-wisely-2026.html" class="article-card"><span class="tag tag-money">🆕 策略</span><h3>GP明智消费指南</h3><p>赚到钱后该怎么花？装备升级优先级、投资建议和预算管理。</p><div class="article-meta"><span>💰 2026年6月</span><span>10 分钟</span></div></a>
       </div>
 
   <!-- ========== AD BANNER — After Money Making ========== -->
@@ -348,72 +394,72 @@
       <!-- MEMBERSHIP GUIDES -->
       <div class="section-header" style="margin-top:8px"><div class="section-title">🔥 会员指南专区</div><span class="new-week-badge">+0 新</span><a href="membership.html" class="see-all">全部 11 篇 →</a></div>
       <div class="article-grid">
-        <a href="../guides/osrs-membership-guide-2026.html" class="article-card"><span class="tag tag-skill">🆕 2026</span><h3>OSRS 会员指南 — 值得买吗？</h3><p>价格分析、免费 vs 会员对比、独占技能与任务、Bond 回报率。</p><div class="article-meta"><span>🔥 必读</span><span>10 分钟</span></div></a>
-        <a href="../guides/osrs-membership-price-increase-2026.html" class="article-card"><span class="tag tag-money">📈 2026涨价</span><h3>OSRS 会员涨价分析 2026</h3><p>最新涨价详情、Bond vs 直接订阅对比、省钱技巧和地区定价。</p><div class="article-meta"><span>📈 价格</span><span>8 分钟</span></div></a>
-        <a href="../guides/osrs-membership-worth-it-2026.html" class="article-card"><span class="tag tag-money">💰 ROI</span><h3>OSRS 会员值不值？ROI 分析</h3><p>量化会员回报率。什么情况下回本、最优利用策略。</p><div class="article-meta"><span>💰 分析</span><span>7 分钟</span></div></a>
-        <a href="../guides/osrs-bond-vs-subscription-2026.html" class="article-card"><span class="tag tag-money">⚖️ 对比</span><h3>Bond vs 直接订阅 — 哪个更划算？</h3><p>GP vs 真金白银的成本对比。2026年 Bond 价格波动的应对策略。</p><div class="article-meta"><span>⚖️ 对比</span><span>9 分钟</span></div></a>
-        <a href="../guides/osrs-cheapest-membership-2026.html" class="article-card"><span class="tag tag-money">💸 省钱</span><h3>最便宜的 OSRS 会员方案</h3><p>全球比价、Steam 地区定价、VPN 技巧——拿到最低价。</p><div class="article-meta"><span>💸 省钱</span><span>7 分钟</span></div></a>
-        <a href="../guides/osrs-f2p-to-member-first-10-things-2026.html" class="article-card"><span class="tag tag-skill">🚀 行动</span><h3>F2P 转会员：首10件必做</h3><p>新会员第一天的高效清单。快速旅行、技能升级、第一个 100 万。</p><div class="article-meta"><span>🚀 行动</span><span>9 分钟</span></div></a>
+        <a href="guides/osrs-membership-guide-2026.html" class="article-card"><span class="tag tag-skill">🆕 2026</span><h3>OSRS 会员指南 — 值得买吗？</h3><p>价格分析、免费 vs 会员对比、独占技能与任务、Bond 回报率。</p><div class="article-meta"><span>🔥 必读</span><span>10 分钟</span></div></a>
+        <a href="guides/osrs-membership-price-increase-2026.html" class="article-card"><span class="tag tag-money">📈 2026涨价</span><h3>OSRS 会员涨价分析 2026</h3><p>最新涨价详情、Bond vs 直接订阅对比、省钱技巧和地区定价。</p><div class="article-meta"><span>📈 价格</span><span>8 分钟</span></div></a>
+        <a href="guides/osrs-membership-worth-it-2026.html" class="article-card"><span class="tag tag-money">💰 ROI</span><h3>OSRS 会员值不值？ROI 分析</h3><p>量化会员回报率。什么情况下回本、最优利用策略。</p><div class="article-meta"><span>💰 分析</span><span>7 分钟</span></div></a>
+        <a href="guides/osrs-bond-vs-subscription-2026.html" class="article-card"><span class="tag tag-money">⚖️ 对比</span><h3>Bond vs 直接订阅 — 哪个更划算？</h3><p>GP vs 真金白银的成本对比。2026年 Bond 价格波动的应对策略。</p><div class="article-meta"><span>⚖️ 对比</span><span>9 分钟</span></div></a>
+        <a href="guides/osrs-cheapest-membership-2026.html" class="article-card"><span class="tag tag-money">💸 省钱</span><h3>最便宜的 OSRS 会员方案</h3><p>全球比价、Steam 地区定价、VPN 技巧——拿到最低价。</p><div class="article-meta"><span>💸 省钱</span><span>7 分钟</span></div></a>
+        <a href="guides/osrs-f2p-to-member-first-10-things-2026.html" class="article-card"><span class="tag tag-skill">🚀 行动</span><h3>F2P 转会员：首10件必做</h3><p>新会员第一天的高效清单。快速旅行、技能升级、第一个 100 万。</p><div class="article-meta"><span>🚀 行动</span><span>9 分钟</span></div></a>
       </div>
 
       <!-- IRONMAN GUIDES -->
-      <div class="section-header" style="margin-top:8px"><div class="section-title">🔒 铁人模式专区</div><span class="new-week-badge">+1 新</span><a href="../guides/osrs-ironman-beginner-guide-2026.html" class="see-all">了解更多 →</a></div>
+      <div class="section-header" style="margin-top:8px"><div class="section-title">🔒 铁人模式专区</div><span class="new-week-badge">+1 新</span><a href="guides/osrs-ironman-beginner-guide-2026.html" class="see-all">了解更多 →</a></div>
       <div class="article-grid">
-        <a href="../guides/osrs-ironman-beginner-guide-2026.html" class="article-card"><span class="tag tag-quest">🔒 2026</span><h3>OSRS 铁人模式新手完全指南</h3><p>从零开始建立铁人账号。早期路线、关键任务优先级和装备自给路线图。</p><div class="article-meta"><span>🔒 核心</span><span>14 分钟</span></div></a>
-        <a href="../guides/osrs-ironman-membership-guide-2026.html" class="article-card"><span class="tag tag-money">🔒 会员</span><h3>铁人模式会员指南</h3><p>铁人最需要的会员功能。Bond 养殖、独占技能和装备获取策略。</p><div class="article-meta"><span>🔒 会员</span><span>11 分钟</span></div></a>
-        <a href="../guides/osrs-daily-weekly-reset-activities-guide-2026.html" class="article-card"><span class="tag tag-skill">📅 日常</span><h3>每日/每周重置活动指南</h3><p>铁人必做的日常任务清单。Battlestaff、药草种植、农场跑图——高效日常路线。</p><div class="article-meta"><span>📅 日常</span><span>10 分钟</span></div></a>
+        <a href="guides/osrs-ironman-beginner-guide-2026.html" class="article-card"><span class="tag tag-quest">🔒 2026</span><h3>OSRS 铁人模式新手完全指南</h3><p>从零开始建立铁人账号。早期路线、关键任务优先级和装备自给路线图。</p><div class="article-meta"><span>🔒 核心</span><span>14 分钟</span></div></a>
+        <a href="guides/osrs-ironman-membership-guide-2026.html" class="article-card"><span class="tag tag-money">🔒 会员</span><h3>铁人模式会员指南</h3><p>铁人最需要的会员功能。Bond 养殖、独占技能和装备获取策略。</p><div class="article-meta"><span>🔒 会员</span><span>11 分钟</span></div></a>
+        <a href="guides/osrs-daily-weekly-reset-activities-guide-2026.html" class="article-card"><span class="tag tag-skill">📅 日常</span><h3>每日/每周重置活动指南</h3><p>铁人必做的日常任务清单。Battlestaff、药草种植、农场跑图——高效日常路线。</p><div class="article-meta"><span>📅 日常</span><span>10 分钟</span></div></a>
       </div>
 
       <!-- SKILL TRAINING -->
       <div class="section-header" style="margin-top:8px"><div class="section-title">🎯 热门技能攻略</div><span class="new-week-badge">+25 新</span><a href="skill-training.html" class="see-all">全部 27 篇 →</a></div>
       <div class="article-grid">
-        <a href="../guides/osrs-fastest-99-cooking-f2p.html" class="article-card"><span class="tag tag-skill">技能训练</span><h3>最快 99 烹饪 免费版</h3><p>葡萄酒、卡兰巴万、装壶 — 最快免费+会员 99 烹饪路线。</p><div class="article-meta"><span>🎯 2026年5月</span><span>8 分钟</span></div></a>
-        <a href="../guides/osrs-cheapest-99-runecrafting-2026.html" class="article-card"><span class="tag tag-skill">技能训练</span><h3>最便宜 99 符文制作</h3><p>熔岩 vs ZMI 祭坛对比、每级成本、低成本 99 符文路线。</p><div class="article-meta"><span>🎯 2026年5月</span><span>11 分钟</span></div></a>
-        <a href="../guides/osrs-ironman-1-99-smithing-guide.html" class="article-card"><span class="tag tag-skill">技能训练</span><h3>Ironman 1-99 锻造</h3><p>高炉金锭、矿石来源、高效 Ironman 锻造进阶。</p><div class="article-meta"><span>🎯 2026年5月</span><span>12 分钟</span></div></a>
-        <a href="../guides/osrs-how-to-get-99-agility-fast-2026.html" class="article-card"><span class="tag tag-skill">技能训练</span><h3>快速 99 敏捷 2026</h3><p>Seers 村、Pollnivneach、Ardougne — 最快屋顶敏捷经验率。</p><div class="article-meta"><span>🎯 2026年5月</span><span>10 分钟</span></div></a>
-        <a href="../guides/osrs-fastest-99-attack-strength-defence.html" class="article-card"><span class="tag tag-skill">技能训练</span><h3>99 攻击/力量/防御</h3><p>NMZ Dharok 方法、菊石螃蟹、硫磺 Nagua，每小时 15 万+ 经验。</p><div class="article-meta"><span>🎯 2026年5月</span><span>9 分钟</span></div></a>
-        <a href="../guides/osrs-low-cost-1-99-herblore-guide.html" class="article-card"><span class="tag tag-skill">技能训练</span><h3>低成本 99 药草学</h3><p>低成本药水路线、清洗药草赚钱、实惠 1-99 路线。</p><div class="article-meta"><span>🎯 2026年5月</span><span>10 分钟</span></div></a>
-        <a href="../guides/osrs-skill-training-beginner-complete-guide-2026.html" class="article-card"><span class="tag tag-skill">🆕 新手</span><h3>技能训练完全指南 2026</h3><p>新手技能训练完整路线图。23个技能从零到高的全面规划。</p><div class="article-meta"><span>🎯 2026年6月</span><span>14 分钟</span></div></a>
-        <a href="../guides/osrs-skill-training-beginner-fast-track-2026.html" class="article-card"><span class="tag tag-skill">🆕 快速</span><h3>技能训练快速通道 2026</h3><p>适合想快速升级的玩家。最短时间达成各技能关键等级的路线。</p><div class="article-meta"><span>🎯 2026年6月</span><span>12 分钟</span></div></a>
-        <a href="../guides/osrs-skill-training-mid-game-guide-2026.html" class="article-card"><span class="tag tag-skill">🆕 中期</span><h3>中期技能训练指南 2026</h3><p>50-80级技能训练最佳路线。从新手过渡到高级玩家的关键阶段。</p><div class="article-meta"><span>🎯 2026年6月</span><span>13 分钟</span></div></a>
-        <a href="../guides/osrs-skill-training-mid-game-optimization-2026.html" class="article-card"><span class="tag tag-skill">🆕 优化</span><h3>中期技能最优路线 2026</h3><p>中级玩家技能训练效率最大化。经验率、成本和时间的完美平衡。</p><div class="article-meta"><span>🎯 2026年6月</span><span>11 分钟</span></div></a>
-        <a href="../guides/osrs-skill-training-endgame-guide-2026.html" class="article-card"><span class="tag tag-skill">🆕 终极</span><h3>终局技能训练指南 2026</h3><p>90-99级高效训练路线。花费最小化的同时追求最大经验率。</p><div class="article-meta"><span>🎯 2026年6月</span><span>15 分钟</span></div></a>
-        <a href="../guides/osrs-skill-training-max-account-2026.html" class="article-card"><span class="tag tag-skill">🆕 Max</span><h3>满级账号终极指南 2026</h3><p>全部23个技能冲99的终极路线图。最大化效率冲Max Cape。</p><div class="article-meta"><span>🎯 2026年6月</span><span>16 分钟</span></div></a>
-        <a href="../guides/osrs-hunter-training-guide-2026.html" class="article-card"><span class="tag tag-skill">🆕 猎人</span><h3>猎人训练完全指南 2026</h3><p>1-99猎人最快方法和赚钱路线。蝴蝶、灰Chinchompa、红Chin详解。</p><div class="article-meta"><span>🎯 2026年6月</span><span>14 分钟</span></div></a>
-        <a href="../guides/osrs-skill-training-after-sweep-up-2026.html" class="article-card"><span class="tag tag-skill">🆕 夏日更新</span><h3>夏日清扫后技能训练路线</h3><p>夏日清扫更新后各技能最佳训练方法调整。新捷径和buff详解。</p><div class="article-meta"><span>🎯 2026年6月</span><span>10 分钟</span></div></a>
-        <a href="../guides/osrs-top-10-skills-to-train-first-2026.html" class="article-card"><span class="tag tag-skill">🆕 Top10</span><h3>优先训练的Top10技能</h3><p>新手最该先练哪个技能？按实用价值排序的完整优先级指南。</p><div class="article-meta"><span>🎯 2026年6月</span><span>12 分钟</span></div></a>
-        <a href="../guides/osrs-training-guide-complete-2026.html" class="article-card"><span class="tag tag-skill">🗺️ 总览</span><h3>完整训练指南总览 2026</h3><p>从零到满级的终极 OSRS 技能路线图。涵盖所有23种技能的最佳训练方法和顺序。</p><div class="article-meta"><span>🎯 2026年5月</span><span>15 分钟</span></div></a>
-        <a href="../guides/osrs-fastest-leveling-guide-2026.html" class="article-card"><span class="tag tag-skill">⚡ 最快</span><h3>最快升级指南</h3><p>所有技能的最快 1-99 方法排名。经验率、成本和装备要求全对比。</p><div class="article-meta"><span>🎯 2026年5月</span><span>12 分钟</span></div></a>
-        <a href="../guides/osrs-f2p-leveling-guide-2026.html" class="article-card"><span class="tag tag-skill">🆓 F2P</span><h3>F2P 升级指南</h3><p>免费玩家全技能升级路线。无会员要求的最佳训练方法和替代方案。</p><div class="article-meta"><span>🎯 2026年5月</span><span>10 分钟</span></div></a>
-        <a href="../guides/osrs-leveling-milestones-guide-2026.html" class="article-card"><span class="tag tag-skill">🏆 里程碑</span><h3>升级里程碑指南</h3><p>每个 10 级的里程碑奖励、解锁内容和推荐目标。不迷路，有计划地升级。</p><div class="article-meta"><span>🎯 2026年5月</span><span>11 分钟</span></div></a>
-        <a href="../guides/osrs-fastest-hunter-training-2026.html" class="article-card"><span class="tag tag-skill">🐾 猎人</span><h3>最快猎人训练 2026</h3><p>鸟屋、黑灰兔、药草猪——最高经验率的猎人训练路线全解析。</p><div class="article-meta"><span>🎯 2026年5月</span><span>13 分钟</span></div></a>
-        <a href="../guides/osrs-1-99-prayer-guide-2026.html" class="article-card"><span class="tag tag-skill">🙏 祷告</span><h3>1-99 祷告训练指南 2026</h3><p>镀金祭坛、埃克托福塔斯、荒野祭坛——各方法成本分析、经验率和铁人优化。</p><div class="article-meta"><span>🎯 2026年5月</span><span>14 分钟</span></div></a>
+        <a href="guides/osrs-fastest-99-cooking-f2p.html" class="article-card"><span class="tag tag-skill">技能训练</span><h3>最快 99 烹饪 免费版</h3><p>葡萄酒、卡兰巴万、装壶 — 最快免费+会员 99 烹饪路线。</p><div class="article-meta"><span>🎯 2026年5月</span><span>8 分钟</span></div></a>
+        <a href="guides/osrs-cheapest-99-runecrafting-2026.html" class="article-card"><span class="tag tag-skill">技能训练</span><h3>最便宜 99 符文制作</h3><p>熔岩 vs ZMI 祭坛对比、每级成本、低成本 99 符文路线。</p><div class="article-meta"><span>🎯 2026年5月</span><span>11 分钟</span></div></a>
+        <a href="guides/osrs-ironman-1-99-smithing-guide.html" class="article-card"><span class="tag tag-skill">技能训练</span><h3>Ironman 1-99 锻造</h3><p>高炉金锭、矿石来源、高效 Ironman 锻造进阶。</p><div class="article-meta"><span>🎯 2026年5月</span><span>12 分钟</span></div></a>
+        <a href="guides/osrs-how-to-get-99-agility-fast-2026.html" class="article-card"><span class="tag tag-skill">技能训练</span><h3>快速 99 敏捷 2026</h3><p>Seers 村、Pollnivneach、Ardougne — 最快屋顶敏捷经验率。</p><div class="article-meta"><span>🎯 2026年5月</span><span>10 分钟</span></div></a>
+        <a href="guides/osrs-fastest-99-attack-strength-defence.html" class="article-card"><span class="tag tag-skill">技能训练</span><h3>99 攻击/力量/防御</h3><p>NMZ Dharok 方法、菊石螃蟹、硫磺 Nagua，每小时 15 万+ 经验。</p><div class="article-meta"><span>🎯 2026年5月</span><span>9 分钟</span></div></a>
+        <a href="guides/osrs-low-cost-1-99-herblore-guide.html" class="article-card"><span class="tag tag-skill">技能训练</span><h3>低成本 99 药草学</h3><p>低成本药水路线、清洗药草赚钱、实惠 1-99 路线。</p><div class="article-meta"><span>🎯 2026年5月</span><span>10 分钟</span></div></a>
+        <a href="guides/osrs-skill-training-beginner-complete-guide-2026.html" class="article-card"><span class="tag tag-skill">🆕 新手</span><h3>技能训练完全指南 2026</h3><p>新手技能训练完整路线图。23个技能从零到高的全面规划。</p><div class="article-meta"><span>🎯 2026年6月</span><span>14 分钟</span></div></a>
+        <a href="guides/osrs-skill-training-beginner-fast-track-2026.html" class="article-card"><span class="tag tag-skill">🆕 快速</span><h3>技能训练快速通道 2026</h3><p>适合想快速升级的玩家。最短时间达成各技能关键等级的路线。</p><div class="article-meta"><span>🎯 2026年6月</span><span>12 分钟</span></div></a>
+        <a href="guides/osrs-skill-training-mid-game-guide-2026.html" class="article-card"><span class="tag tag-skill">🆕 中期</span><h3>中期技能训练指南 2026</h3><p>50-80级技能训练最佳路线。从新手过渡到高级玩家的关键阶段。</p><div class="article-meta"><span>🎯 2026年6月</span><span>13 分钟</span></div></a>
+        <a href="guides/osrs-skill-training-mid-game-optimization-2026.html" class="article-card"><span class="tag tag-skill">🆕 优化</span><h3>中期技能最优路线 2026</h3><p>中级玩家技能训练效率最大化。经验率、成本和时间的完美平衡。</p><div class="article-meta"><span>🎯 2026年6月</span><span>11 分钟</span></div></a>
+        <a href="guides/osrs-skill-training-endgame-guide-2026.html" class="article-card"><span class="tag tag-skill">🆕 终极</span><h3>终局技能训练指南 2026</h3><p>90-99级高效训练路线。花费最小化的同时追求最大经验率。</p><div class="article-meta"><span>🎯 2026年6月</span><span>15 分钟</span></div></a>
+        <a href="guides/osrs-skill-training-max-account-2026.html" class="article-card"><span class="tag tag-skill">🆕 Max</span><h3>满级账号终极指南 2026</h3><p>全部23个技能冲99的终极路线图。最大化效率冲Max Cape。</p><div class="article-meta"><span>🎯 2026年6月</span><span>16 分钟</span></div></a>
+        <a href="guides/osrs-hunter-training-guide-2026.html" class="article-card"><span class="tag tag-skill">🆕 猎人</span><h3>猎人训练完全指南 2026</h3><p>1-99猎人最快方法和赚钱路线。蝴蝶、灰Chinchompa、红Chin详解。</p><div class="article-meta"><span>🎯 2026年6月</span><span>14 分钟</span></div></a>
+        <a href="guides/osrs-skill-training-after-sweep-up-2026.html" class="article-card"><span class="tag tag-skill">🆕 夏日更新</span><h3>夏日清扫后技能训练路线</h3><p>夏日清扫更新后各技能最佳训练方法调整。新捷径和buff详解。</p><div class="article-meta"><span>🎯 2026年6月</span><span>10 分钟</span></div></a>
+        <a href="guides/osrs-top-10-skills-to-train-first-2026.html" class="article-card"><span class="tag tag-skill">🆕 Top10</span><h3>优先训练的Top10技能</h3><p>新手最该先练哪个技能？按实用价值排序的完整优先级指南。</p><div class="article-meta"><span>🎯 2026年6月</span><span>12 分钟</span></div></a>
+        <a href="guides/osrs-training-guide-complete-2026.html" class="article-card"><span class="tag tag-skill">🗺️ 总览</span><h3>完整训练指南总览 2026</h3><p>从零到满级的终极 OSRS 技能路线图。涵盖所有23种技能的最佳训练方法和顺序。</p><div class="article-meta"><span>🎯 2026年5月</span><span>15 分钟</span></div></a>
+        <a href="guides/osrs-fastest-leveling-guide-2026.html" class="article-card"><span class="tag tag-skill">⚡ 最快</span><h3>最快升级指南</h3><p>所有技能的最快 1-99 方法排名。经验率、成本和装备要求全对比。</p><div class="article-meta"><span>🎯 2026年5月</span><span>12 分钟</span></div></a>
+        <a href="guides/osrs-f2p-leveling-guide-2026.html" class="article-card"><span class="tag tag-skill">🆓 F2P</span><h3>F2P 升级指南</h3><p>免费玩家全技能升级路线。无会员要求的最佳训练方法和替代方案。</p><div class="article-meta"><span>🎯 2026年5月</span><span>10 分钟</span></div></a>
+        <a href="guides/osrs-leveling-milestones-guide-2026.html" class="article-card"><span class="tag tag-skill">🏆 里程碑</span><h3>升级里程碑指南</h3><p>每个 10 级的里程碑奖励、解锁内容和推荐目标。不迷路，有计划地升级。</p><div class="article-meta"><span>🎯 2026年5月</span><span>11 分钟</span></div></a>
+        <a href="guides/osrs-fastest-hunter-training-2026.html" class="article-card"><span class="tag tag-skill">🐾 猎人</span><h3>最快猎人训练 2026</h3><p>鸟屋、黑灰兔、药草猪——最高经验率的猎人训练路线全解析。</p><div class="article-meta"><span>🎯 2026年5月</span><span>13 分钟</span></div></a>
+        <a href="guides/osrs-1-99-prayer-guide-2026.html" class="article-card"><span class="tag tag-skill">🙏 祷告</span><h3>1-99 祷告训练指南 2026</h3><p>镀金祭坛、埃克托福塔斯、荒野祭坛——各方法成本分析、经验率和铁人优化。</p><div class="article-meta"><span>🎯 2026年5月</span><span>14 分钟</span></div></a>
       </div>
 
       <!-- QUEST & BOSS -->
       <div class="section-header" style="margin-top:8px"><div class="section-title">🧩 任务与解锁</div><span class="new-week-badge">+6 新</span><a href="quest-guides.html" class="see-all">全部 15 篇 →</a></div>
       <div class="article-grid">
-        <a href="../guides/osrs-how-to-get-dragon-defender-2026.html" class="article-card"><span class="tag tag-quest">任务 / 解锁</span><h3>龙守卫者指南 2026</h3><p>战士公会进入、令牌刷取、1-3 小时青铜到龙守护者。</p><div class="article-meta"><span>🧩 2026年5月</span><span>7 分钟</span></div></a>
-        <a href="../guides/osrs-how-to-unlock-fairy-rings.html" class="article-card"><span class="tag tag-quest">任务 / 解锁</span><h3>快速解锁仙灵环</h3><p>迷失城市任务、童话 II 开始 — 30 分钟全部传送解锁。</p><div class="article-meta"><span>🧩 2026年5月</span><span>5 分钟</span></div></a>
-        <a href="../guides/osrs-desert-treasure-quest-guide-low-level.html" class="article-card"><span class="tag tag-quest">任务 / 解锁</span><h3>沙漠宝藏低级指南</h3><p>最低属性打败 4 个 Boss。早期解锁古代魔法。</p><div class="article-meta"><span>🧩 2026年5月</span><span>12 分钟</span></div></a>
-        <a href="../guides/osrs-how-to-get-graceful-outfit-full-guide.html" class="article-card"><span class="tag tag-quest">任务 / 解锁</span><h3>轻盈套装完整指南</h3><p>优雅印记刷取、最佳屋顶课程、8-10 小时 260 印记换全套。</p><div class="article-meta"><span>🧩 2026年5月</span><span>6 分钟</span></div></a>
-        <a href="../guides/osrs-diary-priority-order-beginner-2026.html" class="article-card"><span class="tag tag-quest">🆕 日记</span><h3>成就日记优先级指南 2026</h3><p>新手应该先完成哪些成就日记？按奖励价值排序的完整路线。</p><div class="article-meta"><span>🧩 2026年6月</span><span>12 分钟</span></div></a>
-        <a href="../guides/osrs-diary-easy-medium-complete-guide-2026.html" class="article-card"><span class="tag tag-quest">🆕 任务</span><h3>简单/中等成就日记完全攻略</h3><p>全部简单和中等成就日记的最优完成顺序。最大化奖励效率。</p><div class="article-meta"><span>🧩 2026年6月</span><span>14 分钟</span></div></a>
-        <a href="../guides/osrs-returning-player-catch-up-guide-2026.html" class="article-card"><span class="tag tag-quest">🆕 回归</span><h3>回归玩家追赶指南 2026</h3><p>长时间离开后的高效追赶路线。新内容、新meta全解析。</p><div class="article-meta"><span>🧩 2026年6月</span><span>13 分钟</span></div></a>
-        <a href="../guides/osrs-returning-player-fast-track-2026.html" class="article-card"><span class="tag tag-quest">🆕 快速</span><h3>回归玩家快速通道 2026</h3><p>回归老玩家最短时间内追上版本的完整策略。</p><div class="article-meta"><span>🧩 2026年6月</span><span>11 分钟</span></div></a>
-        <a href="../guides/osrs-blood-moon-rises-prep-checklist-detailed-2026.html" class="article-card"><span class="tag tag-quest">🆕 血月</span><h3>血月崛起准备清单</h3><p>新任务Blood Moon Rises的完整准备攻略。物品清单、技能要求和战斗策略。</p><div class="article-meta"><span>🧩 2026年6月</span><span>12 分钟</span></div></a>
-        <a href="../guides/osrs-best-quests-per-skill-2026.html" class="article-card"><span class="tag tag-quest">🆕 推荐</span><h3>每个技能最佳任务推荐</h3><p>按技能分类的最值得做的任务。最大化经验奖励的任务优先级指南。</p><div class="article-meta"><span>🧩 2026年6月</span><span>13 分钟</span></div></a>
+        <a href="guides/osrs-how-to-get-dragon-defender-2026.html" class="article-card"><span class="tag tag-quest">任务 / 解锁</span><h3>龙守卫者指南 2026</h3><p>战士公会进入、令牌刷取、1-3 小时青铜到龙守护者。</p><div class="article-meta"><span>🧩 2026年5月</span><span>7 分钟</span></div></a>
+        <a href="guides/osrs-how-to-unlock-fairy-rings.html" class="article-card"><span class="tag tag-quest">任务 / 解锁</span><h3>快速解锁仙灵环</h3><p>迷失城市任务、童话 II 开始 — 30 分钟全部传送解锁。</p><div class="article-meta"><span>🧩 2026年5月</span><span>5 分钟</span></div></a>
+        <a href="guides/osrs-desert-treasure-quest-guide-low-level.html" class="article-card"><span class="tag tag-quest">任务 / 解锁</span><h3>沙漠宝藏低级指南</h3><p>最低属性打败 4 个 Boss。早期解锁古代魔法。</p><div class="article-meta"><span>🧩 2026年5月</span><span>12 分钟</span></div></a>
+        <a href="guides/osrs-how-to-get-graceful-outfit-full-guide.html" class="article-card"><span class="tag tag-quest">任务 / 解锁</span><h3>轻盈套装完整指南</h3><p>优雅印记刷取、最佳屋顶课程、8-10 小时 260 印记换全套。</p><div class="article-meta"><span>🧩 2026年5月</span><span>6 分钟</span></div></a>
+        <a href="guides/osrs-diary-priority-order-beginner-2026.html" class="article-card"><span class="tag tag-quest">🆕 日记</span><h3>成就日记优先级指南 2026</h3><p>新手应该先完成哪些成就日记？按奖励价值排序的完整路线。</p><div class="article-meta"><span>🧩 2026年6月</span><span>12 分钟</span></div></a>
+        <a href="guides/osrs-diary-easy-medium-complete-guide-2026.html" class="article-card"><span class="tag tag-quest">🆕 任务</span><h3>简单/中等成就日记完全攻略</h3><p>全部简单和中等成就日记的最优完成顺序。最大化奖励效率。</p><div class="article-meta"><span>🧩 2026年6月</span><span>14 分钟</span></div></a>
+        <a href="guides/osrs-returning-player-catch-up-guide-2026.html" class="article-card"><span class="tag tag-quest">🆕 回归</span><h3>回归玩家追赶指南 2026</h3><p>长时间离开后的高效追赶路线。新内容、新meta全解析。</p><div class="article-meta"><span>🧩 2026年6月</span><span>13 分钟</span></div></a>
+        <a href="guides/osrs-returning-player-fast-track-2026.html" class="article-card"><span class="tag tag-quest">🆕 快速</span><h3>回归玩家快速通道 2026</h3><p>回归老玩家最短时间内追上版本的完整策略。</p><div class="article-meta"><span>🧩 2026年6月</span><span>11 分钟</span></div></a>
+        <a href="guides/osrs-blood-moon-rises-prep-checklist-detailed-2026.html" class="article-card"><span class="tag tag-quest">🆕 血月</span><h3>血月崛起准备清单</h3><p>新任务Blood Moon Rises的完整准备攻略。物品清单、技能要求和战斗策略。</p><div class="article-meta"><span>🧩 2026年6月</span><span>12 分钟</span></div></a>
+        <a href="guides/osrs-best-quests-per-skill-2026.html" class="article-card"><span class="tag tag-quest">🆕 推荐</span><h3>每个技能最佳任务推荐</h3><p>按技能分类的最值得做的任务。最大化经验奖励的任务优先级指南。</p><div class="article-meta"><span>🧩 2026年6月</span><span>13 分钟</span></div></a>
       </div>
 
       <!-- BOSS & COMBAT -->
       <div class="section-header" style="margin-top:8px"><div class="section-title">👹 Boss & 战斗攻略</div><span class="new-week-badge">+5 新</span><a href="boss-guides.html" class="see-all">全部 17 篇 →</a></div>
       <div class="article-grid">
-        <a href="../guides/osrs-first-boss-progression-roadmap-2026.html" class="article-card"><span class="tag tag-boss">🆕 入门</span><h3>首杀Boss进阶路线图 2026</h3><p>从Barrows到Raids的完整Boss攻略路线。每个Boss的最优装备和等级要求。</p><div class="article-meta"><span>👹 2026年6月</span><span>14 分钟</span></div></a>
-        <a href="../guides/osrs-obor-bryophyta-f2p-boss-guide-2026.html" class="article-card"><span class="tag tag-boss">🆕 免费</span><h3>Obor & 苔藓巨人 F2P Boss指南</h3><p>免费版玩家也能打的Boss全攻略。掉落表、战斗策略和装备推荐。</p><div class="article-meta"><span>👹 2026年6月</span><span>10 分钟</span></div></a>
-        <a href="../guides/osrs-slayer-beginner-first-master-guide-2026.html" class="article-card"><span class="tag tag-boss">🆕 Slayer</span><h3>杀手技能新手→大师指南</h3><p>Slayer从第一级到满级的完整路线。任务选择、格挡列表和赚钱技巧。</p><div class="article-meta"><span>👹 2026年6月</span><span>15 分钟</span></div></a>
-        <a href="../guides/osrs-slayer-low-level-money-makers-2026.html" class="article-card"><span class="tag tag-boss">🆕 赚钱</span><h3>低级杀手赚钱方法</h3><p>低等级Slayer也能稳定赚钱的任务推荐。每小时的GP收益分析。</p><div class="article-meta"><span>👹 2026年6月</span><span>11 分钟</span></div></a>
-        <a href="../guides/osrs-combat-achievements-easy-walkthrough-2026.html" class="article-card"><span class="tag tag-boss">🆕 成就</span><h3>战斗成就简单难度全攻略</h3><p>轻松完成全部简单战斗成就。Ghommal Hilt获取最速路线。</p><div class="article-meta"><span>👹 2026年6月</span><span>12 分钟</span></div></a>
-        <a href="../guides/osrs-ghommal-hilt-fast-guide-2026.html" class="article-card"><span class="tag tag-boss">🆕 Hilt</span><h3>Ghommal Hilt 快速获取指南</h3><p>战斗成就奖励Ghommal Hilt的最快获取方法。点数计算和最优任务选择。</p><div class="article-meta"><span>👹 2026年6月</span><span>9 分钟</span></div></a>
+        <a href="guides/osrs-first-boss-progression-roadmap-2026.html" class="article-card"><span class="tag tag-boss">🆕 入门</span><h3>首杀Boss进阶路线图 2026</h3><p>从Barrows到Raids的完整Boss攻略路线。每个Boss的最优装备和等级要求。</p><div class="article-meta"><span>👹 2026年6月</span><span>14 分钟</span></div></a>
+        <a href="guides/osrs-obor-bryophyta-f2p-boss-guide-2026.html" class="article-card"><span class="tag tag-boss">🆕 免费</span><h3>Obor & 苔藓巨人 F2P Boss指南</h3><p>免费版玩家也能打的Boss全攻略。掉落表、战斗策略和装备推荐。</p><div class="article-meta"><span>👹 2026年6月</span><span>10 分钟</span></div></a>
+        <a href="guides/osrs-slayer-beginner-first-master-guide-2026.html" class="article-card"><span class="tag tag-boss">🆕 Slayer</span><h3>杀手技能新手→大师指南</h3><p>Slayer从第一级到满级的完整路线。任务选择、格挡列表和赚钱技巧。</p><div class="article-meta"><span>👹 2026年6月</span><span>15 分钟</span></div></a>
+        <a href="guides/osrs-slayer-low-level-money-makers-2026.html" class="article-card"><span class="tag tag-boss">🆕 赚钱</span><h3>低级杀手赚钱方法</h3><p>低等级Slayer也能稳定赚钱的任务推荐。每小时的GP收益分析。</p><div class="article-meta"><span>👹 2026年6月</span><span>11 分钟</span></div></a>
+        <a href="guides/osrs-combat-achievements-easy-walkthrough-2026.html" class="article-card"><span class="tag tag-boss">🆕 成就</span><h3>战斗成就简单难度全攻略</h3><p>轻松完成全部简单战斗成就。Ghommal Hilt获取最速路线。</p><div class="article-meta"><span>👹 2026年6月</span><span>12 分钟</span></div></a>
+        <a href="guides/osrs-ghommal-hilt-fast-guide-2026.html" class="article-card"><span class="tag tag-boss">🆕 Hilt</span><h3>Ghommal Hilt 快速获取指南</h3><p>战斗成就奖励Ghommal Hilt的最快获取方法。点数计算和最优任务选择。</p><div class="article-meta"><span>👹 2026年6月</span><span>9 分钟</span></div></a>
       </div>
 
   <!-- ========== AD BANNER — Before Support Card ========== -->
@@ -455,47 +501,47 @@
 
       <div class="widget"><div class="widget-header">按等级赚钱</div>
         <div class="widget-body"><ul class="sidebar-links">
-          <li><a href="../guides/osrs-f2p-money-making-no-stats.html">免费版 — 无属性要求</a></li>
-          <li><a href="../guides/osrs-f2p-ironman-money-making-early-game.html">Ironman 免费早期</a></li>
-          <li><a href="../guides/osrs-low-effort-money-making-beginners.html">新手低强度</a></li>
-          <li><a href="../guides/osrs-killing-green-dragons-money-per-hour.html">绿龙 (70+)</a></li>
-          <li><a href="../guides/osrs-how-to-flip-items-profit-mid-game.html">GE 倒卖 (中期)</a></li>
-          <li><a href="../guides/osrs-how-to-make-money-with-zulrah.html">Zulrah (高级)</a></li>
+          <li><a href="guides/osrs-f2p-money-making-no-stats.html">免费版 — 无属性要求</a></li>
+          <li><a href="guides/osrs-f2p-ironman-money-making-early-game.html">Ironman 免费早期</a></li>
+          <li><a href="guides/osrs-low-effort-money-making-beginners.html">新手低强度</a></li>
+          <li><a href="guides/osrs-killing-green-dragons-money-per-hour.html">绿龙 (70+)</a></li>
+          <li><a href="guides/osrs-how-to-flip-items-profit-mid-game.html">GE 倒卖 (中期)</a></li>
+          <li><a href="guides/osrs-how-to-make-money-with-zulrah.html">Zulrah (高级)</a></li>
         </ul></div></div>
 
       <div class="widget"><div class="widget-header">💰 赚钱深度专题</div>
         <div class="widget-body"><ul class="sidebar-links">
-          <li><a href="../guides/osrs-slayer-money-making-guide-2026.html">🆕 Slayer赚钱指南</a></li>
-          <li><a href="../guides/osrs-boss-profit-comparison-2026.html">🆕 Boss收益对比</a></li>
-          <li><a href="../guides/osrs-flipping-guide-beginners-2026.html">🆕 新手GE倒卖</a></li>
-          <li><a href="../guides/osrs-mid-game-money-making-roadmap-2026.html">🆕 中期赚钱路线</a></li>
-          <li><a href="../guides/osrs-afk-money-making-ultimate-guide-2026.html">🆕 AFK赚钱</a></li>
-          <li><a href="../guides/osrs-daily-weekly-money-routine-2026.html">🆕 每日周常路线</a></li>
-          <li><a href="../guides/osrs-wilderness-money-making-2026.html">🆕 荒原赚钱</a></li>
-          <li><a href="../guides/osrs-ironman-p2p-money-making-2026.html">🆕 Ironman赚钱</a></li>
-          <li><a href="../guides/osrs-how-to-spend-gp-wisely-2026.html">🆕 GP消费指南</a></li>
+          <li><a href="guides/osrs-slayer-money-making-guide-2026.html">🆕 Slayer赚钱指南</a></li>
+          <li><a href="guides/osrs-boss-profit-comparison-2026.html">🆕 Boss收益对比</a></li>
+          <li><a href="guides/osrs-flipping-guide-beginners-2026.html">🆕 新手GE倒卖</a></li>
+          <li><a href="guides/osrs-mid-game-money-making-roadmap-2026.html">🆕 中期赚钱路线</a></li>
+          <li><a href="guides/osrs-afk-money-making-ultimate-guide-2026.html">🆕 AFK赚钱</a></li>
+          <li><a href="guides/osrs-daily-weekly-money-routine-2026.html">🆕 每日周常路线</a></li>
+          <li><a href="guides/osrs-wilderness-money-making-2026.html">🆕 荒原赚钱</a></li>
+          <li><a href="guides/osrs-ironman-p2p-money-making-2026.html">🆕 Ironman赚钱</a></li>
+          <li><a href="guides/osrs-how-to-spend-gp-wisely-2026.html">🆕 GP消费指南</a></li>
         </ul></div></div>
 
       <div class="widget"><div class="widget-header">🔥 会员指南</div>
         <div class="widget-body"><ul class="sidebar-links">
-          <li><a href="../guides/osrs-membership-guide-2026.html">会员值得买吗？</a></li>
-          <li><a href="../guides/osrs-membership-price-increase-2026.html">2026涨价分析</a></li>
-          <li><a href="../guides/osrs-bond-vs-subscription-2026.html">Bond vs 订阅对比</a></li>
-          <li><a href="../guides/osrs-cheapest-membership-2026.html">最便宜会员方案</a></li>
-          <li><a href="../guides/osrs-f2p-to-member-first-10-things-2026.html">转会员首10件事</a></li>
+          <li><a href="guides/osrs-membership-guide-2026.html">会员值得买吗？</a></li>
+          <li><a href="guides/osrs-membership-price-increase-2026.html">2026涨价分析</a></li>
+          <li><a href="guides/osrs-bond-vs-subscription-2026.html">Bond vs 订阅对比</a></li>
+          <li><a href="guides/osrs-cheapest-membership-2026.html">最便宜会员方案</a></li>
+          <li><a href="guides/osrs-f2p-to-member-first-10-things-2026.html">转会员首10件事</a></li>
         </ul></div></div>
 
       <div class="widget"><div class="widget-header">👹 Boss 攻略</div>
         <div class="widget-body"><ul class="sidebar-links">
-          <li><a href="../guides/osrs-first-boss-progression-roadmap-2026.html">🆕 Boss进阶路线图</a></li>
-          <li><a href="../guides/osrs-obor-bryophyta-f2p-boss-guide-2026.html">🆕 F2P Boss指南</a></li>
-          <li><a href="../guides/osrs-slayer-beginner-first-master-guide-2026.html">🆕 Slayer大师指南</a></li>
-          <li><a href="../guides/osrs-sarachnis-loot-guide-for-ironman.html">Sarachnis (新手)</a></li>
-          <li><a href="../guides/osrs-grotesque-guardians-guide-low-stats.html">畸形守卫</a></li>
-          <li><a href="../guides/osrs-how-to-beat-zulrah-beginners-rotation.html">Zulrah (中级)</a></li>
-          <li><a href="../guides/osrs-low-gear-setup-vorkath-guide.html">Vorkath 低成本配装</a></li>
-          <li><a href="../guides/osrs-how-to-solo-god-wars-boss-for-beginners.html">神战单刷</a></li>
-          <li><a href="../guides/osrs-how-to-fight-corporal-beast-loot-guide.html">物质之兽</a></li>
+          <li><a href="guides/osrs-first-boss-progression-roadmap-2026.html">🆕 Boss进阶路线图</a></li>
+          <li><a href="guides/osrs-obor-bryophyta-f2p-boss-guide-2026.html">🆕 F2P Boss指南</a></li>
+          <li><a href="guides/osrs-slayer-beginner-first-master-guide-2026.html">🆕 Slayer大师指南</a></li>
+          <li><a href="guides/osrs-sarachnis-loot-guide-for-ironman.html">Sarachnis (新手)</a></li>
+          <li><a href="guides/osrs-grotesque-guardians-guide-low-stats.html">畸形守卫</a></li>
+          <li><a href="guides/osrs-how-to-beat-zulrah-beginners-rotation.html">Zulrah (中级)</a></li>
+          <li><a href="guides/osrs-low-gear-setup-vorkath-guide.html">Vorkath 低成本配装</a></li>
+          <li><a href="guides/osrs-how-to-solo-god-wars-boss-for-beginners.html">神战单刷</a></li>
+          <li><a href="guides/osrs-how-to-fight-corporal-beast-loot-guide.html">物质之兽</a></li>
         </ul></div></div>
 
     </aside>
@@ -520,37 +566,37 @@
         <p style="margin-top:8px"><a href="about.html" style="color:var(--text-secondary)">关于</a> &middot; <a href="privacy-policy.html" style="color:var(--text-secondary)">隐私政策</a> &middot; <a href="mailto:1530398390@qq.com" style="color:var(--text-secondary)">联系我们</a></p>
       </div>
       <div class="footer-col"><h4>赚钱方法</h4><ul>
-        <li><a href="../guides/osrs-slayer-money-making-guide-2026.html">🆕 Slayer赚钱</a></li>
-        <li><a href="../guides/osrs-ironman-money-making-f2p-2026.html">Ironman 免费版</a></li>
-        <li><a href="../guides/osrs-killing-green-dragons-money-per-hour.html">绿龙</a></li>
-        <li><a href="../guides/osrs-wintertodt-money-making-per-hour.html">Wintertodt GP</a></li>
+        <li><a href="guides/osrs-slayer-money-making-guide-2026.html">🆕 Slayer赚钱</a></li>
+        <li><a href="guides/osrs-ironman-money-making-f2p-2026.html">Ironman 免费版</a></li>
+        <li><a href="guides/osrs-killing-green-dragons-money-per-hour.html">绿龙</a></li>
+        <li><a href="guides/osrs-wintertodt-money-making-per-hour.html">Wintertodt GP</a></li>
         <li><a href="money-making.html">全部方法 →</a></li>
       </ul></div>
       <div class="footer-col"><h4>技能训练</h4><ul>
-        <li><a href="../guides/osrs-fastest-99-cooking-f2p.html">99 烹饪 免费版</a></li>
-        <li><a href="../guides/osrs-cheapest-99-runecrafting-2026.html">99 符文制作</a></li>
-        <li><a href="../guides/osrs-how-to-get-99-fishing-afk-method.html">99 钓鱼 AFK</a></li>
-        <li><a href="../guides/osrs-how-to-get-99-agility-fast-2026.html">99 敏捷 快速</a></li>
+        <li><a href="guides/osrs-fastest-99-cooking-f2p.html">99 烹饪 免费版</a></li>
+        <li><a href="guides/osrs-cheapest-99-runecrafting-2026.html">99 符文制作</a></li>
+        <li><a href="guides/osrs-how-to-get-99-fishing-afk-method.html">99 钓鱼 AFK</a></li>
+        <li><a href="guides/osrs-how-to-get-99-agility-fast-2026.html">99 敏捷 快速</a></li>
         <li><a href="skill-training.html">全部技能 →</a></li>
       </ul></div>
       <div class="footer-col"><h4>🗺️ 新手专区（阶段 0）</h4><ul>
-        <li><a href="../guides/osrs-new-player-guide-2026.html">2026 新手指南</a></li>
-        <li><a href="../guides/osrs-interface-controls-beginner-guide-2026.html">🎮 游戏界面与操作</a></li>
-        <li><a href="../guides/osrs-combat-triangle-explained-2026.html">⚔️ 战斗三角详解</a></li>
-        <li><a href="../guides/osrs-skills-overview-beginner-2026.html">🎯 技能总览（23 种技能）</a></li>
-        <li><a href="../guides/osrs-bank-inventory-management-2026.html">🏦 银行与背包指南</a></li>
-        <li><a href="../guides/osrs-maps-travel-guide-2026.html">🗺️ 地图与快速旅行</a></li>
-        <li><a href="../guides/osrs-questing-beginner-guide-2026.html">📜 新手任务</a></li>
-        <li><a href="../guides/osrs-combat-training-beginner-2026.html">🗡️ 战斗训练指南</a></li>
-        <li><a href="../guides/osrs-money-making-beginner-2026.html">💰 新手赚钱</a></li>
-        <li><a href="../guides/osrs-gear-beginner-guide-2026.html">🛡️ 装备指南</a></li>
-        <li><a href="../guides/osrs-safe-spots-beginner-2026.html">🏃 安全点指南</a></li>
+        <li><a href="guides/osrs-new-player-guide-2026.html">2026 新手指南</a></li>
+        <li><a href="guides/osrs-interface-controls-beginner-guide-2026.html">🎮 游戏界面与操作</a></li>
+        <li><a href="guides/osrs-combat-triangle-explained-2026.html">⚔️ 战斗三角详解</a></li>
+        <li><a href="guides/osrs-skills-overview-beginner-2026.html">🎯 技能总览（23 种技能）</a></li>
+        <li><a href="guides/osrs-bank-inventory-management-2026.html">🏦 银行与背包指南</a></li>
+        <li><a href="guides/osrs-maps-travel-guide-2026.html">🗺️ 地图与快速旅行</a></li>
+        <li><a href="guides/osrs-questing-beginner-guide-2026.html">📜 新手任务</a></li>
+        <li><a href="guides/osrs-combat-training-beginner-2026.html">🗡️ 战斗训练指南</a></li>
+        <li><a href="guides/osrs-money-making-beginner-2026.html">💰 新手赚钱</a></li>
+        <li><a href="guides/osrs-gear-beginner-guide-2026.html">🛡️ 装备指南</a></li>
+        <li><a href="guides/osrs-safe-spots-beginner-2026.html">🏃 安全点指南</a></li>
       </ul></div>
       <div class="footer-col"><h4>Boss 与任务</h4><ul>
-        <li><a href="../guides/osrs-how-to-beat-zulrah-beginners-rotation.html">Zulrah 指南</a></li>
-        <li><a href="../guides/osrs-low-gear-setup-vorkath-guide.html">Vorkath 指南</a></li>
-        <li><a href="../guides/osrs-how-to-get-dragon-defender-2026.html">龙守卫者</a></li>
-        <li><a href="../guides/osrs-how-to-unlock-fairy-rings.html">仙灵环</a></li>
+        <li><a href="guides/osrs-how-to-beat-zulrah-beginners-rotation.html">Zulrah 指南</a></li>
+        <li><a href="guides/osrs-low-gear-setup-vorkath-guide.html">Vorkath 指南</a></li>
+        <li><a href="guides/osrs-how-to-get-dragon-defender-2026.html">龙守卫者</a></li>
+        <li><a href="guides/osrs-how-to-unlock-fairy-rings.html">仙灵环</a></li>
         <li><a href="boss-guides.html">全部 Boss →</a></li>
       </ul></div>
     </div>

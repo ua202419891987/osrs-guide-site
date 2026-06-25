@@ -12,6 +12,8 @@
 | 2 | Top 5 OSRS Mistakes Beginners Make (And How to Avoid Them in 2026) | 2026-06-02 (约) | 新手常犯错误（重复发布，建议删除一篇） | *(待补充)* |
 | 3 | OSRS Beginner's Roadmap 2026: Your Complete Guide to Old School RuneScape | 2026-06-02 (约) | 新手路线图（仅 11 字，建议扩充或替换） | *(待补充)* |
 | 4 | **OSRS F2P to Member Transition Guide 2026: When to Upgrade and How to Afford It** | 2026-06-05 (待发布) | F2P→会员转型决策 + 经济帐 | *(待补充)* |
+| 5 | **OSRS Mid-2026 Review: What Shipped, What Delayed, What's Next** | 2026-06-24 (ShipPage已发) | 年中复盘、Sailing/Vault of Ralos 交付评估、Blood Moon 延迟、League 6 预测 | https://shippage.ai/p/lk0slg |
+| 6 | **Crimson Desert Beginner Guide 2026: 7 Things I Wish I Knew** | 2026-06-24 (ShipPage已发) | CD 新手入门、战斗、职业、资源管理 | https://shippage.ai/p/e8gqdu |
 
 ---
 
