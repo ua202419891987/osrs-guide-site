@@ -127,7 +127,7 @@ async def call_deepseek(prompt: str, game: str = "osrs") -> str:
         system_content = system_prompts.get(game, system_prompts["osrs"])
 
         resp = await client.chat.completions.create(
-            model=os.getenv("DEEPSEEK_MODEL", "deepseek-chat"),
+            model=os.getenv("DEEPSEEK_MODEL", "deepseek-v4-flash"),
             messages=[
                 {"role": "system", "content": system_content},
                 {"role": "user", "content": prompt}

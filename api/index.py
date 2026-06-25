@@ -3,7 +3,7 @@ OSRS Guru RAG API v2.0 — 三层架构
 =================================
 Layer 1: 本地 115 篇攻略 TF-IDF 检索
 Layer 2: OSRS Wiki API 实时数据补充
-Layer 3: DeepSeek (主) + GPT-4o-mini (备) 双模型生成
+Layer 3: DeepSeek V4 Flash (主) + Groq/Llama3 (备) 双模型生成
 
 端点:
     GET /rag-api/search?q=<question>
@@ -33,7 +33,7 @@ DEEPSEEK_API_KEY = os.environ.get(
     "sk-c08d3179018b44d7b150f54af4a82b1b",
 )
 DEEPSEEK_BASE_URL = "https://api.deepseek.com/v1"
-DEEPSEEK_MODEL = "deepseek-chat"
+DEEPSEEK_MODEL = "deepseek-v4-flash"
 
 # --- Groq/Llama3 (备用模型，美国节点，免费) ---
 GROQ_API_KEY = os.environ.get(

@@ -16,7 +16,7 @@
  * v2.9.2 - FIX: Add leading / to all URLs (404 fix)
  *   - OSRS: local match grouped by stage (beginner/mid/boss), display as "Pick your stage"
  *   - CD/Windrose: flat list (all beginners)
- *   - Backend: OSRS → Wiki → DeepSeek V3; CD/Windrose → DeepSeek V3 only
+ *   - Backend: OSRS → Wiki → DeepSeek V4 Flash; CD/Windrose → DeepSeek V4 Flash only
  *   - v2.9 fix: source=osrsguru → NO text bubble, just link; others → max 300 chars
  */
 
@@ -1142,7 +1142,7 @@
       if (source === 'osrsguru') sourceLabel = '📚 ' + CONFIG.sourceGuruLabel;
       else if (source === 'osrs_wiki+deepseek') sourceLabel = '📚+🤖 Wiki + DeepSeek';
       else if (source === 'osrs_wiki') sourceLabel = '📖 OSRS Wiki';
-      else if (source === 'deepseek') sourceLabel = '🤖 DeepSeek V3';
+      else if (source === 'deepseek') sourceLabel = '🤖 DeepSeek V4 Flash';
       else sourceLabel = '📚 ' + CONFIG.sourceGuruLabel;
       sourceTag.textContent = 'Source: ' + sourceLabel;
       messageDiv.appendChild(sourceTag);
