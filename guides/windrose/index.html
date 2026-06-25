@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Windrose Guides — Pirate Survival, Combat &amp; Base Building 2026 | Windrose Guru</title>
-<meta name="description" content="Windrose Guru — your complete guide hub for pirate survival with soulslite combat. Day 1 survival, naval battles, crafting & gear, treasure maps, boss strategies, and base building. All 14 guides verified for 2026.">
+<meta name="description" content="Windrose Guru — your complete guide hub for pirate survival with soulslite combat. 4-Week beginner roadmap, day-by-day survival, naval battles, crafting & gear, treasure maps, boss strategies, and base building. All 18 guides verified for 2026.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="dns-prefetch" href="//www.google-analytics.com">
@@ -107,6 +107,188 @@
 @media(max-width:900px){.sub-guide-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.sub-guide-grid{grid-template-columns:1fr}.subsite-hero h1{font-size:1.9rem}}
 
+/* ===== BEGINNER ROADMAP SECTION ===== */
+.roadmap-section{
+  background:linear-gradient(135deg,#fefcf8 0%,#fdf8ef 100%);
+  border:2px solid #d4af37;
+  border-radius:16px;
+  padding:32px 28px;
+  max-width:1120px;
+  margin:0 auto 20px;
+  box-shadow:0 4px 24px rgba(212,175,55,.12);
+}
+.roadmap-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:6px;
+}
+.roadmap-title{
+  font-family:'Cinzel',serif;
+  font-size:1.5rem;
+  color:#3b2615;
+  margin:0;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.roadmap-title .road-icon{font-size:1.4rem}
+.roadmap-badges{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.badge-new-week{
+  background:#e74c3c;
+  color:#fff;
+  font-size:.82rem;
+  font-weight:800;
+  padding:5px 16px;
+  border-radius:20px;
+  letter-spacing:.03em;
+}
+.roadmap-all-link{
+  color:#2980b9;
+  font-size:.88rem;
+  font-weight:700;
+  text-decoration:none;
+  display:flex;align-items:center;gap:4px;
+}
+.roadmap-all-link:hover{text-decoration:underline}
+
+.roadmap-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-top:20px;
+}
+.week-card{
+  background:#fff;
+  border:1.5px solid #e8dcc8;
+  border-radius:12px;
+  padding:18px 16px;
+  display:flex;
+  flex-direction:column;
+  transition:all .25s ease;
+}
+.week-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 6px 20px rgba(59,38,21,.1);
+  border-color:#d4af37;
+}
+.week-card.week-coming{
+  opacity:.65;
+  background:#faf8f2;
+}
+.week-card.week-coming:hover{
+  opacity:.85;
+}
+.week-top{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:10px;
+}
+.week-badge{
+  background:#3b2615;
+  color:#d4af37;
+  font-size:.72rem;
+  font-weight:800;
+  padding:4px 10px;
+  border-radius:6px;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+.week-goal{
+  font-size:.78rem;
+  color:#888;
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+.week-icon-title{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:6px;
+}
+.week-icon{
+  font-size:1.3rem;
+}
+.week-card h3{
+  font-family:'Cinzel',serif;
+  font-size:1.02rem;
+  color:#3b2615;
+  margin:0;
+  line-height:1.3;
+}
+.week-desc{
+  font-size:.84rem;
+  color:#666;
+  line-height:1.5;
+  margin:0 0 12px;
+  flex:1;
+}
+.week-links{list-style:none;padding:0;margin:0 0 14px}
+.week-links li{
+  position:relative;
+  padding-left:16px;
+  margin-bottom:6px;
+  font-size:.84rem;
+  line-height:1.45;
+}
+.week-links li::before{
+  content:'—';
+  position:absolute;
+  left:0;
+  color:#d4af37;
+  font-weight:700;
+}
+.week-links a{
+  color:#2980b9;
+  text-decoration:none;
+  font-weight:600;
+}
+.week-links a:hover{text-decoration:underline}
+.week-links .link-new{
+  color:#e74c3c;
+}
+.week-links .link-new::after{
+  content:' NEW';
+  font-size:.62rem;
+  background:#e74c3c;
+  color:#fff;
+  padding:1px 5px;
+  border-radius:4px;
+  margin-left:4px;
+  font-weight:800;
+  vertical-align:middle;
+}
+.week-view-all{
+  display:block;
+  text-align:center;
+  background:#f5f2ee;
+  color:#888;
+  font-size:.8rem;
+  font-weight:700;
+  padding:7px 0;
+  border-radius:8px;
+  text-decoration:none;
+  border:1px solid #e8dcc8;
+  transition:all .2s;
+}
+.week-view-all:hover{
+  background:#efe9df;
+  color:#3b2615;
+  border-color:#d4af37;
+}
+
+@media(max-width:900px){
+  .roadmap-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .roadmap-grid{grid-template-columns:1fr}
+  .roadmap-header{flex-direction:column;align-items:flex-start}
+}
+
 /* Back to OSRS link in nav */
 .nav-osrs-back{
   background:rgba(255,255,255,.1);
@@ -133,9 +315,10 @@
 <header class="site-header" style="border-bottom:2px solid #2980b9">
   <div class="header-inner" style="position:relative">
     <a href="../../index.html" class="logo">⛵ Windrose <span>Guru</span></a>
-    <div class="logo-badge">14 Guides · Free · Updated 2026</div>
+    <div class="logo-badge">18 Guides · Free · Updated 2026</div>
     <nav class="main-nav">
-      <a href="#start">🆕 Beginner</a>
+      <a href="#roadmap">🆕 Beginner Roadmap</a>
+      <a href="#start">Getting Started</a>
       <a href="#combat">Combat</a>
       <a href="#gear">Crafting</a>
       <a href="#quest">Explore</a>
@@ -155,8 +338,101 @@
     <span>🏴‍☠️ Pirate Survival</span>
     <span>⚔️ Soulslite Combat</span>
     <span>📅 June 2026</span>
-    <span>📘 14 Expert Guides</span>
-    <span style="background:#e74c3c;color:#fff;padding:4px 12px;border-radius:12px;font-size:.78rem;">🆕 +8 This Week</span>
+    <span>📘 18 Expert Guides</span>
+    <span style="background:#e74c3c;color:#fff;padding:4px 12px;border-radius:12px;font-size:.78rem;">🆕 +4 This Week</span>
+  </div>
+</div>
+
+<!-- ========== BEGINNER ROADMAP ========== -->
+<div class="roadmap-section" id="roadmap">
+  <div class="roadmap-header">
+    <h2 class="roadmap-title">
+      <span class="road-icon">📖</span>
+      Stage 0: 4-Week Beginner Roadmap — Start Here!
+    </h2>
+    <div class="roadmap-badges">
+      <span class="badge-new-week">🔥 +4 New This Week</span>
+      <a href="#start" class="roadmap-all-link">All 6 Beginner Guides →</a>
+    </div>
+  </div>
+
+  <div class="roadmap-grid">
+
+    <!-- WEEK 1 -->
+    <div class="week-card">
+      <div class="week-top">
+        <span class="week-badge">Week 1</span>
+        <span class="week-goal">🎯 Goal: Learn the basics</span>
+      </div>
+      <div class="week-icon-title">
+        <span class="week-icon">🏝️</span>
+        <h3>First Steps</h3>
+      </div>
+      <p class="week-desc">Master controls, navigation, and core game mechanics. Survive your first 3 days on the starter island.</p>
+      <ul class="week-links">
+        <li><a href="windrose-day1-3-survival-guide-2026.html" class="link-new">Day 1-3 Survival Guide (Hour-by-Hour)</a></li>
+        <li><a href="windrose-beginner-guide-2026.html">Beginner Guide — Complete Overview</a> <span style="font-size:.7rem;color:#d4af37;font-weight:700">📍 Starting Point</span></li>
+        <li><a href="windrose-workbench-crafting-progression-guide-2026.html" class="link-new">Workbench &amp; Crafting Progression Guide</a></li>
+      </ul>
+      <a href="#start" class="week-view-all">View all 3 guides</a>
+    </div>
+
+    <!-- WEEK 2 -->
+    <div class="week-card">
+      <div class="week-top">
+        <span class="week-badge">Week 2</span>
+        <span class="week-goal">🎯 Goal: Explore &amp; sail</span>
+      </div>
+      <div class="week-icon-title">
+        <span class="week-icon">⛵</span>
+        <h3>Set Sail</h3>
+      </div>
+      <p class="week-desc">Get your first ship, learn sailing basics, find resources across islands, and survive your maiden voyage.</p>
+      <ul class="week-links">
+        <li><a href="windrose-resource-map-location-guide-2026.html" class="link-new">Resource Map — Copper, Clay, Iron, Sulfur Locations</a></li>
+        <li><a href="windrose-first-voyage-second-island-guide-2026.html" class="link-new">First Voyage &amp; Second Island Survival Guide</a></li>
+      </ul>
+      <a href="#start" class="week-view-all">View all 2 guides</a>
+    </div>
+
+    <!-- WEEK 3 (Coming Soon) -->
+    <div class="week-card week-coming">
+      <div class="week-top">
+        <span class="week-badge">Week 3</span>
+        <span class="week-goal">🎯 Goal: Master combat</span>
+      </div>
+      <div class="week-icon-title">
+        <span class="week-icon">⚔️</span>
+        <h3>Combat Mastery</h3>
+      </div>
+      <p class="week-desc">Soulslite combat deep-dive, boss encounters, PvP tactics, weapon tiers, and build optimization.</p>
+      <ul class="week-links">
+        <li>Combat &amp; Ship Guide — Land and Sea</li>
+        <li>Ship PvP Combat — Naval Battle Tactics</li>
+        <li>Boss Guide — All Tiers &amp; Farming Routes</li>
+      </ul>
+      <span class="week-view-all" style="cursor:default">Coming Week 3</span>
+    </div>
+
+    <!-- WEEK 4 (Coming Soon) -->
+    <div class="week-card week-coming">
+      <div class="week-top">
+        <span class="week-badge">Week 4</span>
+        <span class="week-goal">🎯 Goal: Build empire</span>
+      </div>
+      <div class="week-icon-title">
+        <span class="week-icon">🏰</span>
+        <h3>Base &amp; Endgame</h3>
+      </div>
+      <p class="week-desc">Advanced base layouts, fleet management, endgame content, meta builds, and long-term progression goals.</p>
+      <ul class="week-links">
+        <li>Base Building — Layouts, Defenses &amp; Fleet</li>
+        <li>Crafting &amp; Gear — Best Weapons &amp; Tools</li>
+        <li>Endgame Guide — What to Do After Main Story</li>
+      </ul>
+      <span class="week-view-all" style="cursor:default">Coming Week 4</span>
+    </div>
+
   </div>
 </div>
 
@@ -164,7 +440,7 @@
 <div class="sub-guide-grid">
 
   <!-- ====== CATEGORY 1: Getting Started ====== -->
-  <div class="sub-cat-header">🆕 Getting Started <span class="sub-cat-count">2 guides</span></div>
+  <div class="sub-cat-header">🆕 Getting Started <span class="sub-cat-count">6 guides</span></div>
 
   <a href="windrose-beginner-guide-2026.html" class="sub-guide-card" id="start">
     <div class="sub-card-badge badge-start">🆕 Start Here</div>
@@ -187,6 +463,58 @@
       <div class="sub-card-footer">
         <span class="sub-card-read">Read Time →</span>
         <span class="sub-card-date">June 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="windrose-day1-3-survival-guide-2026.html" class="sub-guide-card" id="day1survival">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-start">🏝️ Survival</div>
+    <div class="sub-card-body">
+      <h3>Day 1-3 Complete Survival Guide — Hour-by-Hour Roadmap</h3>
+      <p>Your first 72 hours from beach to safe base. Difficulty selection, hour-by-hour action checklist, combat basics, food &amp; healing, plus 3 life-saving tips nobody tells you.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 26, 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="windrose-workbench-crafting-progression-guide-2026.html" class="sub-guide-card" id="craftprog">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-start">🔧 Crafting</div>
+    <div class="sub-card-body">
+      <h3>Workbench &amp; Crafting Progression Guide — Lv1 to Lv3</h3>
+      <p>Complete upgrade path for all crafting stations. Hidden recipe unlock rules, material cheat sheet, backpack upgrades, and the 5 most common beginner traps.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 26, 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="windrose-resource-map-location-guide-2026.html" class="sub-guide-card" id="resourcemap">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-start">🗺️ Resources</div>
+    <div class="sub-card-body">
+      <h3>Resource Map — Copper, Clay, Iron &amp; Sulfur Locations</h3>
+      <p>Exact locations for all core resources by region. Best farming routes, safety tips per biome, what each material is used for, and Day 1-14 collection plan.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 26, 2026</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="windrose-first-voyage-second-island-guide-2026.html" class="sub-guide-card" id="firstvoyage">
+    <span class="badge-new">NEW</span>
+    <div class="sub-card-badge badge-start">⛵ Sailing</div>
+    <div class="sub-card-body">
+      <h3>First Voyage &amp; Second Island Survival Guide</h3>
+      <p>Complete maiden voyage handbook. Pre-departure checklist, sailing basics, sea combat tips, ship repair guide, second island strategy, and top 5 fatal mistakes to avoid.</p>
+      <div class="sub-card-footer">
+        <span class="sub-card-read">Read Time →</span>
+        <span class="sub-card-date">June 26, 2026</span>
       </div>
     </div>
   </a>
@@ -395,8 +723,8 @@
 
 <!-- ========== FOOTER ========== -->
 <footer style="background:linear-gradient(135deg,#0a1628,#1a3a52);padding:32px 24px;text-align:center;border-top:3px solid #2980b9">
-  <p style="color:rgba(255,255,255,.7);font-size:.88rem;margin:0 0 8px">&copy; 2026 Windrose Guru — Fan site, not affiliated with the respective owners.</p>
-  <p style="color:rgba(255,255,255,.45);font-size:.78rem;margin-top:6px">All game content, trademarks, and copyrights are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by the game's developers.</p>
+  <p style="color:rgba(255,255,255,.7);font-size:.88rem;margin:0 0 8px">&copy; 2026 Windrose Guru — Unofficial fan site, not affiliated with Kraken Express.</p>
+  <p style="color:rgba(255,255,255,.45);font-size:.78rem;margin-top:6px">Windrose is a trademark of Kraken Express. All game content, trademarks, and copyrights are property of their respective owners. This guide is for informational purposes only and is not endorsed or sponsored by the developer.</p>
   <p style="margin-top:14px"><a href="../../index.html" style="color:#d4af37;font-size:.85rem;text-decoration:none">← Back to OSRS Guru</a></p>
 </footer>
 
