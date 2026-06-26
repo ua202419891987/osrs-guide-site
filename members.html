@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSRS Guru Members — Early Access Guide Pack</title>
+<meta name="description" content="OSRS Guru member exclusive page. Access 10 Beginner Guides, 5 Premium Picks, and 3-day early access to new content.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://osrsguru.com/members.html">
+<link rel="stylesheet" href="css/style.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<style>
+/* Member page specific styles */
+.member-lock {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:60vh;
+  text-align:center;
+  padding:40px 20px;
+}
+.member-lock h2 {
+  color:#d4af37;
+  font-size:1.8rem;
+  margin-bottom:12px;
+}
+.member-lock p {
+  color:var(--text-secondary);
+  font-size:1.05rem;
+  max-width:480px;
+  line-height:1.7;
+  margin-bottom:24px;
+}
+.member-lock input {
+  width:280px;
+  max-width:90%;
+  padding:12px 16px;
+  border:2px solid #4a3320;
+  border-radius:8px;
+  background:#1a0f06;
+  color:#e8d5b7;
+  font-size:1rem;
+  text-align:center;
+  outline:none;
+  transition:border-color 0.2s;
+}
+.member-lock input:focus {
+  border-color:#d4af37;
+}
+.member-lock button {
+  margin-top:16px;
+  padding:12px 32px;
+  border:none;
+  border-radius:8px;
+  background:linear-gradient(135deg,#d4af37 0%,#b8941f 100%);
+  color:#1a0f06;
+  font-size:1rem;
+  font-weight:700;
+  cursor:pointer;
+  transition:opacity 0.2s;
+}
+.member-lock button:hover {
+  opacity:0.9;
+}
+.member-lock .error-msg {
+  color:#e74c3c;
+  font-size:0.9rem;
+  margin-top:12px;
+  display:none;
+}
+.member-content {
+  display:none;
+}
+.member-content.active {
+  display:block;
+}
+.benefit-section {
+  max-width:900px;
+  margin:0 auto 48px;
+  padding:0 20px;
+}
+.benefit-section h2 {
+  color:#d4af37;
+  font-size:1.6rem;
+  margin-bottom:8px;
+  padding-bottom:8px;
+  border-bottom:2px solid #4a3320;
+}
+.benefit-section .section-desc {
+  color:var(--text-muted);
+  font-size:0.92rem;
+  margin-bottom:20px;
+}
+.guide-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));
+  gap:16px;
+}
+.guide-card {
+  display:block;
+  padding:16px 20px;
+  background:#1a0f06;
+  border:1px solid #4a3320;
+  border-radius:10px;
+  text-decoration:none;
+  transition:all 0.2s;
+}
+.guide-card:hover {
+  border-color:#d4af37;
+  background:#2a1a0a;
+  transform:translateY(-2px);
+}
+.guide-card .card-title {
+  color:#e8d5b7;
+  font-size:1rem;
+  font-weight:600;
+  margin-bottom:4px;
+}
+.guide-card .card-desc {
+  color:var(--text-muted);
+  font-size:0.85rem;
+  line-height:1.5;
+}
+.guide-card .card-badge {
+  display:inline-block;
+  font-size:0.72rem;
+  color:#d4af37;
+  border:1px solid #d4af37;
+  border-radius:4px;
+  padding:1px 6px;
+  margin-bottom:8px;
+}
+.early-access-banner {
+  max-width:900px;
+  margin:0 auto 48px;
+  padding:20px 28px;
+  background:linear-gradient(135deg,#2a1a0a 0%,#3b2615 100%);
+  border:1px solid #d4af37;
+  border-radius:12px;
+  text-align:center;
+}
+.early-access-banner h3 {
+  color:#d4af37;
+  font-size:1.3rem;
+  margin-bottom:6px;
+}
+.early-access-banner p {
+  color:var(--text-secondary);
+  font-size:0.95rem;
+  line-height:1.6;
+}
+.early-access-banner .countdown {
+  color:#d4af37;
+  font-weight:700;
+  font-size:1.1rem;
+  margin-top:8px;
+}
+.no-new-guides {
+  text-align:center;
+  padding:32px;
+  color:var(--text-muted);
+  font-style:italic;
+}
+</style>
+</head>
+<body data-site="osrsguru" data-version="2026.06">
+
+<!-- ========== HEADER ========== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">OSRS <span>Guru</span></a>
+    <nav class="main-nav" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+      <a href="/">Home</a>
+      <a href="money-making.html">Money Making</a>
+      <a href="skill-training.html">Skills</a>
+      <a href="quest-guides.html">Quests</a>
+      <a href="boss-guides.html">Bosses</a>
+      <a href="zh/index.html" style="color:#d4af37;">Chinese</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ========== PASSWORD LOCK ========== -->
+<div id="lock-screen" class="member-lock">
+  <div style="font-size:3rem;margin-bottom:16px;">🔒</div>
+  <h2>Member Access Required</h2>
+  <p>This page is exclusive to Early Access Guide Pack members. Enter your access password to unlock all premium guides.</p>
+  <input type="password" id="pwd-input" placeholder="Enter password" autocomplete="off">
+  <button id="pwd-btn">Unlock Guides</button>
+  <div class="error-msg" id="pwd-error">Incorrect password. Please try again.</div>
+  <p style="margin-top:24px;font-size:0.85rem;color:var(--text-muted);">
+    Don't have access yet? <a href="/" style="color:#d4af37;text-decoration:underline;">Get the Early Access Guide Pack for $1.90</a>
+  </p>
+</div>
+
+<!-- ========== MEMBER CONTENT (hidden until unlocked) ========== -->
+<div id="member-content" class="member-content">
+
+<!-- Hero -->
+<div style="background:linear-gradient(135deg,#2a1a0a 0%,#3b2615 40%,#4a3320 100%);padding:40px 20px;text-align:center;">
+  <div style="max-width:900px;margin:0 auto;">
+    <div style="font-size:2.5rem;margin-bottom:8px;">👑</div>
+    <h1 style="color:#d4af37;font-size:2rem;margin-bottom:8px;">Early Access Guide Pack</h1>
+    <p style="color:var(--text-secondary);font-size:1.1rem;">Your exclusive member hub — all premium guides in one place.</p>
+    <p style="color:var(--text-muted);font-size:0.9rem;margin-top:8px;">Welcome, adventurer. Everything below is yours. 🎉</p>
+  </div>
+</div>
+
+<div style="height:32px;"></div>
+
+<!-- ========== 10 BEGINNER GUIDES ========== -->
+<div class="benefit-section">
+  <h2>📚 10 Beginner Guides</h2>
+  <p class="section-desc">Zero to mid-game in one pack. Start here if you're new to OSRS or coming back after a break.</p>
+  <div class="guide-grid">
+    <a href="guides/osrs-what-to-buy-first-1m-guide-2026.html" class="guide-card">
+      <span class="card-badge">Beginner #1</span>
+      <div class="card-title">What to Buy With Your First 1M GP</div>
+      <div class="card-desc">Priority spending guide — gear, supplies, and upgrades that matter most.</div>
+    </a>
+    <a href="guides/osrs-runelite-setup-guide-2026.html" class="guide-card">
+      <span class="card-badge">Beginner #2</span>
+      <div class="card-title">RuneLite Setup & Best Plugins</div>
+      <div class="card-desc">Complete installation guide with the essential plugins every player needs.</div>
+    </a>
+    <a href="guides/osrs-terminology-dictionary-2026.html" class="guide-card">
+      <span class="card-badge">Beginner #3</span>
+      <div class="card-title">OSRS Terminology Dictionary</div>
+      <div class="card-desc">Every abbreviation, slang term, and acronym explained in plain English.</div>
+    </a>
+    <a href="guides/osrs-death-mechanics-guide-2026.html" class="guide-card">
+      <span class="card-badge">Beginner #4</span>
+      <div class="card-title">Death Mechanics Explained</div>
+      <div class="card-desc">How death works, what you keep, and how to never lose your gear again.</div>
+    </a>
+    <a href="guides/osrs-combat-triangle-guide-2026.html" class="guide-card">
+      <span class="card-badge">Beginner #5</span>
+      <div class="card-title">Combat Triangle Guide</div>
+      <div class="card-desc">Melee vs Ranged vs Magic — which wins where, and how to exploit weaknesses.</div>
+    </a>
+    <a href="guides/osrs-transportation-teleport-guide-2026.html" class="guide-card">
+      <span class="card-badge">Beginner #6</span>
+      <div class="card-title">Transportation & Teleport Guide</div>
+      <div class="card-desc">Every teleport method, transport route, and fast-travel option in the game.</div>
+    </a>
+    <a href="guides/osrs-first-100k-gp-challenge-2026.html" class="guide-card">
+      <span class="card-badge">Beginner #7</span>
+      <div class="card-title">First 100K GP Challenge</div>
+      <div class="card-desc">Step-by-step from 0 to 100K gold — no stats required, no prior knowledge needed.</div>
+    </a>
+    <a href="guides/osrs-early-game-weapon-tierlist-2026.html" class="guide-card">
+      <span class="card-badge">Beginner #8</span>
+      <div class="card-title">Early Game Weapon Tier List</div>
+      <div class="card-desc">Best weapons for every combat level bracket, from bronze to dragon.</div>
+    </a>
+    <a href="guides/osrs-quest-speedrun-order-2026.html" class="guide-card">
+      <span class="card-badge">Beginner #9</span>
+      <div class="card-title">Quest Speedrun Order</div>
+      <div class="card-desc">The optimal quest order to unlock content and skip the grind.</div>
+    </a>
+    <a href="guides/osrs-first-30-minutes-member-2026.html" class="guide-card">
+      <span class="card-badge">Beginner #10</span>
+      <div class="card-title">First 30 Minutes as a Member</div>
+      <div class="card-desc">Exactly what to do the moment you buy membership — priority checklist.</div>
+    </a>
+  </div>
+</div>
+
+<!-- ========== 5 PREMIUM PICKS ========== -->
+<div class="benefit-section">
+  <h2>⭐ 5 Premium Picks</h2>
+  <p class="section-desc">Our most popular expert deep-dives. These are the guides players come back to again and again.</p>
+  <div class="guide-grid">
+    <a href="guides/osrs-fire-cape-jad-guide-2026.html" class="guide-card">
+      <span class="card-badge" style="color:#e74c3c;border-color:#e74c3c;">⭐ Premium</span>
+      <div class="card-title">Fire Cape & Jad Guide</div>
+      <div class="card-desc">Complete Fight Caves walkthrough with Jad wave cheat sheet and gear setups.</div>
+    </a>
+    <a href="guides/osrs-soulreaper-axe-guide-2026.html" class="guide-card">
+      <span class="card-badge" style="color:#e74c3c;border-color:#e74c3c;">⭐ Premium</span>
+      <div class="card-title">Soulreaper Axe Complete Guide</div>
+      <div class="card-desc">Everything about the Soulreaper Axe — how to get it, optimize it, and use it.</div>
+    </a>
+    <a href="guides/osrs-lms-beginner-guide-2026.html" class="guide-card">
+      <span class="card-badge" style="color:#e74c3c;border-color:#e74c3c;">⭐ Premium</span>
+      <div class="card-title">LMS (Last Man Standing) Guide</div>
+      <div class="card-desc">From beginner to competitive — strategies, loadouts, and PvP tips.</div>
+    </a>
+    <a href="guides/osrs-sailing-1-99-guide-2026.html" class="guide-card">
+      <span class="card-badge" style="color:#e74c3c;border-color:#e74c3c;">⭐ Premium</span>
+      <div class="card-title">Sailing 1-99 Complete Guide</div>
+      <div class="card-desc">The new skill fully covered — fastest routes, best XP, and money-making methods.</div>
+    </a>
+    <a href="guides/account-security-guide-2026.html" class="guide-card">
+      <span class="card-badge" style="color:#e74c3c;border-color:#e74c3c;">⭐ Premium</span>
+      <div class="card-title">Account Security & Anti-Scam</div>
+      <div class="card-desc">Protect your account from hacks, scams, and social engineering — updated 2026.</div>
+    </a>
+  </div>
+</div>
+
+<!-- ========== 3-DAY EARLY ACCESS ========== -->
+<div class="early-access-banner">
+  <h3>⏰ 3-Day Early Access — This Month's New Guides</h3>
+  <p>These guides are published here <strong>3 days before</strong> they appear on the public site. After 3 days, they become free for everyone.</p>
+  <p class="countdown" id="early-access-info">📌 No new guides this month yet — check back soon!</p>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer style="background:#1a0f06;padding:32px 20px;margin-top:48px;border-top:1px solid #4a3320;">
+  <div style="max-width:900px;margin:0 auto;text-align:center;">
+    <p style="color:var(--text-muted);font-size:0.88rem;">
+      © 2026 OSRS Guru — Fan site, not affiliated with Jagex Ltd.<br>
+      Created using Jagex Limited's intellectual property. Complies with
+      <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:var(--text-muted);text-decoration:underline;">Jagex Fan Content Policy</a>.
+    </p>
+    <p style="color:var(--text-muted);font-size:0.82rem;margin-top:8px;">
+      <a href="/" style="color:var(--text-muted);text-decoration:none;">← Back to Home</a>
+      <span style="margin:0 8px;">·</span>
+      <a href="contact.html" style="color:var(--text-muted);text-decoration:none;">Contact</a>
+    </p>
+  </div>
+</footer>
+
+</div><!-- end member-content -->
+
+<!-- ========== PASSWORD SCRIPT ========== -->
+<script>
+(function(){
+  var PASSWORD = 'Gielinor2026';
+  var lockScreen = document.getElementById('lock-screen');
+  var memberContent = document.getElementById('member-content');
+  var pwdInput = document.getElementById('pwd-input');
+  var pwdBtn = document.getElementById('pwd-btn');
+  var errorMsg = document.getElementById('pwd-error');
+
+  function unlock() {
+    var val = pwdInput.value.trim();
+    if (val === PASSWORD) {
+      sessionStorage.setItem('osrs_member_unlocked', '1');
+      lockScreen.style.display = 'none';
+      memberContent.classList.add('active');
+      errorMsg.style.display = 'none';
+    } else {
+      errorMsg.style.display = 'block';
+      pwdInput.value = '';
+      pwdInput.focus();
+    }
+  }
+
+  pwdBtn.addEventListener('click', unlock);
+  pwdInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') unlock();
+  });
+
+  // Auto-unlock if already authenticated this session
+  if (sessionStorage.getItem('osrs_member_unlocked') === '1') {
+    lockScreen.style.display = 'none';
+    memberContent.classList.add('active');
+  }
+})();
+</script>
+
+</body>
+</html>

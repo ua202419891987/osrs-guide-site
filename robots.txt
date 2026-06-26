@@ -249,6 +249,7 @@ Disallow: /
 # Google
 User-agent: Googlebot
 Allow: /
+Disallow: /members.html
 
 User-agent: Googlebot-Image
 Allow: /
@@ -268,6 +269,7 @@ Allow: /
 # Bing / Microsoft
 User-agent: Bingbot
 Allow: /
+Disallow: /members.html
 
 User-agent: msnbot
 Allow: /
@@ -301,6 +303,7 @@ Allow: /
 
 User-agent: *
 Disallow: /blog/
+Disallow: /members.html
 Crawl-delay: 10
 
 # ============================================
