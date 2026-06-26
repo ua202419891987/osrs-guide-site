@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Drop Rate Probability Guide 2026 — Why You're Not Actually "Unlucky"</title>
+    <meta name="description" content="OSRS drop rate probability guide 2026. Learn how RNG actually works in OSRS, why dry streaks are mathematically normal, drop rate calculator tables, and how to think about RNG like a pro player.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS drop rate probability, OSRS dry streak calculator, how RNG works OSRS, OSRS drop rate math explained, rare drop probability OSRS">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-drop-rate-probability-guide-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../updates.html">Updates</a></li>
+                    <li><a href="../zh/index.html">Chinese</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../boss-guides.html">Boss Guides</a> / Drop Rate Probability Guide 2026</p>
+            <h1>OSRS Drop Rate Probability Guide 2026</h1>
+            <p class="subtitle">"I've done 500 Zulrah kills with no uniq — I must be the unluckiest player ever!" Actually, you're not. This guide explains how RNG really works in OSRS, why dry streaks are normal, and the exact math behind every rare drop in the game.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🎲</span> <strong>Math Guide</strong> · Part of the <strong>Advanced Player Series</strong> · 13 min read
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <p class="article-meta">Published: June 26, 2026 · Updated: June 26, 2026</p>
+
+            <!-- QUICK VERDICT -->
+            <div class="quick-verdict">
+                <h3>⚡ Quick Verdict</h3>
+                <p><strong>You are NOT "unlucky" — you're just experiencing normal RNG.</strong> In OSRS, a 1/100 drop has a 37% chance of NOT dropping after 100 kills. A 1/1000 drop has a 37% chance of NOT dropping after 1000 kills. This guide will teach you the difference between "per-kill probability" and "cumulative probability" — and why understanding this math will make you rage less and play smarter.</p>
+            </div>
+
+            <!-- TOC -->
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#how-rng-works">How RNG Actually Works in OSRS</a></li>
+                    <li><a href="#per-kill-vs-cumulative">Per-Kill vs Cumulative Probability (The Key Insight)</a></li>
+                    <li><a href="#dry-streak-table">Dry Streak Probability Table — Am I Actually Unlucky?</a></li>
+                    <li><a href="#common-misconceptions">5 Common RNG Misconceptions (That Make You Rage)</a></li>
+                    <li><a href="#loot-tracker-math">How to Use the Loot Tracker to Check Your Luck</a></li>
+                    <li><a href="#mitigate-dry">How to "Mitigate" Dry Streaks (Practical Strategies)</a></li>
+                    <li><a href="#drop-rate-calc">Drop Rate Calculator — How Many Kills for 50%/90% Chance?</a></li>
+                    <li><a href="#faq">Drop Rate FAQs</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="how-rng-works">
+                <h2>1. How RNG Actually Works in OSRS</h2>
+                <p>Every drop roll in OSRS is an <strong>independent event</strong>. This is the single most important concept to understand. "Independent" means: <strong>what happened in your previous 100 kills has ZERO effect on the next kill.</strong></p>
+
+                <p>Here's a common scenario:</p>
+                <div class="method-box highlight">
+                    <p><strong>Player:</strong> "I've done 200 Vorkath kills with no uniq. The drop rate is 1/100. Jagex must have nerfed it, or my account is bugged."<br><br>
+                    <strong>Math:</strong> Each Vorkath kill has a 1/100 chance. The probability of getting 0 uniqs in 200 kills is: (0.99)^200 = <strong>13.4%</strong>. So 1 in every 7.5 players who does 200 Vorkath kills will have this exact experience. It's unlucky, but NOT impossible — and definitely NOT a bug.</p>
+                </div>
+
+                <h3>② How OSRS Generates Random Numbers</h3>
+                <p>OSRS uses a <strong>Pseudo-Random Number Generator (PRNG)</strong> to determine drops. The PRNG is seeded with various game state data (current tick number, your character's position, etc.) to ensure unpredictability.</p>
+                <p>Importantly: <strong>OSRS does NOT use "bad luck protection"</strong> for most drops. An uninformed Reddit post claimed Jagex secretly increases your drop rate after dry streaks — this is FALSE. Every kill is a fresh 1/N roll.</p>
+
+                <div class="tip-box">
+                    <p><strong>💡 The Gambler's Fallacy:</strong> "I haven't gotten a drop in 150 kills, so I'm 'due' for one." This is FALSE. Your next kill is still 1/100. The game doesn't "owe" you a drop. Accepting this will make you rage less.</p>
+                </div>
+            </section>
+
+            <figure class="guide-img">
+                <img src="https://cdn.runescape.com/assets/img/external/oldschool/2025/newsposts/2025-00-00/Loot-Interface.png" alt="Loot Tracker Interface — Track your drop rate progress over time" loading="lazy" width="500">
+                <figcaption>Loot Tracker — Use this to track your kill count and drop rate progress — Source: Jagex Official</figcaption>
+            </figure>
+
+            <!-- SECTION 2 -->
+            <section id="per-kill-vs-cumulative">
+                <h2>2. Per-Kill vs Cumulative Probability (The Key Insight)</h2>
+                <p>This is where 90% of players get confused. Let's clear it up with examples:</p>
+
+                <h3>③ Per-Kill Probability</h3>
+                <p>"Per-kill probability" = the chance on ANY single kill. For a 1/100 drop, this is always 1%, regardless of what happened before.</p>
+
+                <h3>④ Cumulative Probability</h3>
+                <p>"Cumulative probability" = the chance of getting AT LEAST ONE drop after N kills. This increases with more kills, but never reaches 100%.</p>
+
+                <p>The formula: <strong>Cumulative Probability = 1 - (1 - 1/N)^K</strong><br>
+                Where N = drop rate, K = number of kills</p>
+
+                <table>
+                    <tr><th>Drop Rate</th><th>Kills</th><th>Chance of AT LEAST 1 Drop</th><th>Chance of STILL No Drop</th></tr>
+                    <tr><td>1/10</td><td>10</td><td>65.1%</td><td>34.9%</td></tr>
+                    <tr><td>1/100</td><td>100</td><td>63.4%</td><td>36.6%</td></tr>
+                    <tr><td>1/100</td><td>200</td><td>86.6%</td><td>13.4%</td></tr>
+                    <tr><td>1/100</td><td>300</td><td>95.2%</td><td>4.8%</td></tr>
+                    <tr><td>1/1000</td><td>1000</td><td>63.2%</td><td>36.8%</td></tr>
+                    <tr><td>1/1000</td><td>2000</td><td>86.5%</td><td>13.5%</td></tr>
+                    <tr><td>1/5000</td><td>5000</td><td>63.2%</td><td>36.8%</td></tr>
+                </table>
+
+                <p><strong>The key insight:</strong> Even after killing something 100 times the drop rate (e.g., 10,000 kills for a 1/100 drop), you still have a <strong>0.0045% chance of getting NOTHING</strong>. This is rare, but it happens.</p>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="dry-streak-table">
+                <h2>3. Dry Streak Probability Table — Am I Actually Unlucky?</h2>
+                <p>Use this table to check whether your dry streak is within normal RNG range. If your probability of a dry streak this long is &gt;5%, you're just experiencing normal RNG. If it's &lt;1%, you might actually be unlucky (but the game isn't bugged).</p>
+
+                <h3>⑤ Common Boss Drop Rates & Dry Streak Thresholds</h3>
+                <table>
+                    <tr><th>Boss</th><th>Drop Rate (Uniq)</th><th>50% of Players Get It By</th><th>10% of Players Still Nothing By</th><th>You're "Very Unlucky" If (&lt;1% chance)</th></tr>
+                    <tr><td>Vorkath (uniq)</td><td>1/100</td><td>69 kills</td><td>230 kills</td><td>460+ kills</td></tr>
+                    <tr><td>Zulrah (uniq)</td><td>1/100</td><td>69 kills</td><td>230 kills</td><td>460+ kills</td></tr>
+                    <tr><td>Chambers of Xeric (perp)</td><td>1/300</td><td>208 kills</td><td>690 kills</td><td>1380+ kills</td></tr>
+                    <tr><td>Tombs of Amascut (perp)</td><td>1/400</td><td>277 kills</td><td>920 kills</td><td>1840+ kills</td></tr>
+                    <tr><td>Nex (uniq)</td><td>1/150</td><td>104 kills</td><td>345 kills</td><td>690+ kills</td></tr>
+                    <tr><td>Barrows (any piece)</td><td>1/16.7 per brother</td><td>~12 runs (all 6)</td><td>~37 runs</td><td>~74+ runs</td></tr>
+                    <tr><td>Corporeal Beast (Odium/Shard)</td><td>1/512</td><td>355 kills</td><td>1180 kills</td><td>2360+ kills</td></tr>
+                </table>
+
+                <div class="tip-box">
+                    <p><strong>📊 How to read this table:</strong> The "10% of Players Still Nothing By" column is the most useful. If you've done 230 Vorkath kills with no uniq, 10% of players are in the same boat. You're unlucky, but not broken — and definitely not alone.</p>
+                </div>
+            </section>
+
+            <figure class="guide-img">
+                <img src="https://cdn.runescape.com/assets/img/external/oldschool/2025/newsposts/2025-00-00/Chatbox-Messages.png" alt="Chatbox Kill Count — Players frequently share dry streaks in chat" loading="lazy" width="500">
+                <figcaption>Chatbox — Dry streaks are so common that players share them in chat for sympathy — Source: Jagex Official</figcaption>
+            </figure>
+
+            <!-- SECTION 4 -->
+            <section id="common-misconceptions">
+                <h2>4. 5 Common RNG Misconceptions (That Make You Rage)</h2>
+
+                <div class="action-step">
+                    <h4>Misconception 1: "The game tracks my bad luck and compensates"</h4>
+                    <p><strong>False.</strong> OSRS does NOT have bad luck compensation for most drops. Every kill is independent. The only exception is the <strong>Collections Log</strong> (added in 2022), which shows your drop rate progress, but it doesn't actually change the RNG.</p>
+                </div>
+
+                <div class="action-step">
+                    <h4>Misconception 2: "If I kill 100 rats, the 101st MUST drop the loot"</h4>
+                    <p><strong>False.</strong> This is the Gambler's Fallacy. Rat kill #101 has the exact same 1/100 chance as kill #1. The past doesn't matter.</p>
+                </div>
+
+                <div class="action-step">
+                    <h4>Misconception 3: "My friend got the drop in 10 kills, so I should too"</h4>
+                    <p><strong>False expectation.</strong> RNG is random. Your friend got lucky (10 kills &lt; 1/100 chance = very lucky). You might need 200 kills. Both are within normal RNG range. Comparing your progress to one data point (your friend) is a recipe for sadness.</p>
+                </div>
+
+                <div class="action-step">
+                    <h4>Misconception 4: "Jagex secretly nerfed the drop rate"</h4>
+                    <p><strong>Usually false.</strong> Jagex DOES sometimes adjust drop rates, but they always announce it in the update blog. If you're on a dry streak, it's 99% RNG and 1% you misread the drop rate. Check the OSRS Wiki for the current confirmed drop rate.</p>
+                </div>
+
+                <div class="action-step">
+                    <h4>Misconception 5: "I should keep killing until I get the drop"</h4>
+                    <p><strong>Sometimes false.</strong> This is called the "Sunk Cost Fallacy." If you've done 500 Vorkath kills with no uniq, the game still owes you nothing. Sometimes the smart play is to take a break, do something else, and come back later with fresh RNG (and a fresher mind).</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="loot-tracker-math">
+                <h2>5. How to Use the Loot Tracker to Check Your Luck</h2>
+                <p>OSRS has a built-in <strong>Loot Tracker</strong> (added in 2019) that records your drop history. Here's how to use it to check whether you're actually unlucky:</p>
+
+                <h3>⑥ How to Open the Loot Tracker</h3>
+                <p>Right-click on any NPC → "View Loot Tracker." Or go to Settings → Game Settings → Loot Tracker (toggle ON). The tracker shows:</p>
+                <ul>
+                    <li>Total kills</li>
+                    <li>Total loot value</li>
+                    <li>Number of rare drops received</li>
+                    <li>Personal drop rate (drops per kill)</li>
+                </ul>
+
+                <h3>⑦ Interpreting Your Loot Tracker Stats</h3>
+                <table>
+                    <tr><th>Your Kill Count</th><th>Expected Drops (1/100)</th><th>If You Have This Many Drops</th><th>Verdict</th></tr>
+                    <tr><td>100 kills</td><td>1.0</td><td>0 drops</td><td>Normal (37% of players)</td></tr>
+                    <tr><td>100 kills</td><td>1.0</td><td>1 drop</td><td>Normal (37% of players)</td></tr>
+                    <tr><td>100 kills</td><td>1.0</td><td>2+ drops</td><td>Lucky! (26% of players)</td></tr>
+                    <tr><td>200 kills</td><td>2.0</td><td>0 drops</td><td>Unlucky (13% of players)</td></tr>
+                    <tr><td>200 kills</td><td>2.0</td><td>1-2 drops</td><td>Normal (48% of players)</td></tr>
+                    <tr><td>200 kills</td><td>2.0</td><td>3+ drops</td><td>Lucky! (39% of players)</td></tr>
+                    <tr><td>500 kills</td><td>5.0</td><td>0-2 drops</td><td>Very unlucky (&lt;2% of players)</td></tr>
+                    <tr><td>500 kills</td><td>5.0</td><td>3-7 drops</td><td>Normal (95% of players)</td></tr>
+                </table>
+
+                <div class="tip-box">
+                    <p><strong>💡 Pro Tip:</strong> The Loot Tracker also shows your "Kill Count Since Last Rare Drop." This number is what triggers rage — but remember, it's just RNG doing its thing. Screenshot your dry streak and post it on r/2007scape for sympathy upvotes.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="mitigate-dry">
+                <h2>6. How to "Mitigate" Dry Streaks (Practical Strategies)</h2>
+                <p>You can't change RNG, but you can change HOW you handle dry streaks. Here are strategies that actually work:</p>
+
+                <h3>⑧ Strategy 1: Set a "Dry Streak Limit" Before You Start</h3>
+                <p>Before you start bossing, decide: "If I go 300 kills with no uniq, I will switch to a different boss for a break." Having a pre-decided limit prevents tilt and makes the grind feel more manageable.</p>
+
+                <h3>⑨ Strategy 2: Do Multiple Bosses in One Session</h3>
+                <p>Instead of doing 500 Zulrah kills in a row (and raging at no drops), do 100 Zulrah → 100 Vorkath → 50 CoX → repeat. This "resets" your RNG mentally and gives you multiple chances at drops.</p>
+
+                <h3>⑩ Strategy 3: Use the Wiki's "Drop Rate Calculator"</h3>
+                <p>The OSRS Wiki has a <a href="https://osrs.wiki/drop_rate_calculator" target="_blank">Drop Rate Calculator</a> that tells you the exact probability of your dry streak. Before you rage-quit, input your kill count and drop rate. You might find that your "impossible" dry streak is actually 15% likely.</p>
+
+                <h3>⑪ Strategy 4: Record Your Kills and Watch Them Later</h3>
+                <p>This sounds weird, but it works. When you're in the moment, every dry kill feels like a personal attack. When you watch the recording later, you realize: "Oh, I actually got 3 uniqs this session, I just forgot because I was focused on the 20 dry kills." Your brain filters out wins and amplifies losses.</p>
+
+                <div class="method-box highlight">
+                    <h4>🧠 The Psychology of RNG</h4>
+                    <p>Humans are evolutionarily wired to find patterns — even where none exist. When you get 5 dry kills in a row, your brain screams "THE GAME IS BROKEN." In reality, 5 dry kills in a row has a 77% chance of happening at some point during a 100-kill session. Your brain is lying to you. Trust the math.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="drop-rate-calc">
+                <h2>7. Drop Rate Calculator — How Many Kills for 50%/90%/99% Chance?</h2>
+                <p>Use this table to set realistic expectations before you start grinding a drop:</p>
+
+                <table>
+                    <tr><th>Drop Rate (1/N)</th><th>Kills for 50% Chance</th><th>Kills for 90% Chance</th><th>Kills for 99% Chance</th><th>Expected Profit/Hour</th></tr>
+                    <tr><td>1/10</td><td>7</td><td>22</td><td>44</td><td>High (fast grinds)</td></tr>
+                    <tr><td>1/50</td><td>35</td><td>115</td><td>230</td><td>Medium (barrow pieces)</td></tr>
+                    <tr><td>1/100</td><td>69</td><td>230</td><td>460</td><td>Medium (Vorkath uniq)</td></tr>
+                    <tr><td>1/300</td><td>208</td><td>690</td><td>1380</td><td>Low (CoX perp)</td></tr>
+                    <tr><td>1/1000</td><td>693</td><td>2300</td><td>4600</td><td>Very Low (rare pets)</td></tr>
+                    <tr><td>1/5000</td><td>3466</td><td>11,500</td><td>23,000</td><td>Insanely Low (Corp uniqs)</td></tr>
+                </table>
+
+                <p><strong>How to use this table:</strong> Before you commit to grinding a drop, look at the "Kills for 90% Chance" column. That's roughly how many kills you need to have a 90% chance of seeing the drop. If that number is 2300 kills and you only have time for 500, maybe pick a different goal.</p>
+
+                <div class="tip-box">
+                    <p><strong>💰 Expected Value (EV) Math:</strong> If a drop is worth 10M GP and the drop rate is 1/100, the Expected Value per kill is 100K GP. If you're making 200K GP/hour from bossing (including the drop), then the grind is +EV. If you're losing GP per hour, the drop isn't worth it — skip it and buy the item from GE instead.</p>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section id="faq">
+                <h2>8. Drop Rate FAQs</h2>
+
+                <div class="faq-item">
+                    <h4>Q: Does doing more damage increase my drop chance?</h4>
+                    <p>A: No. In OSRS, drop rolls are per kill, not per damage dealt. Everyone who participates in the kill gets the same drop roll (assuming they did enough damage to "qualify" for loot). Doing 99% of the boss's HP doesn't give you a better roll than doing 1%.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: Does party size affect drop rates in CoX/ToA?</h4>
+                    <p>A: Yes, but not in the way you think. In CoX, the drop roll is per-player, so being in a 5-man team means 5x the drop rolls per raid. However, you have to split the loot. In ToA, the drop rate adjusts based on raid level and team size. Check the Wiki for the exact numbers per raid level.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: What's the longest dry streak ever recorded in OSRS?</h4>
+                    <p>A: It's hard to verify, but the longest confirmed dry streak on Reddit is a player who did 18,000 Chambers of Xeric raids (normal mode) before getting a Twisted Bow. At 1/300 drop rate, the chance of this happening is roughly 0.0025% — genuinely unlucky, but theoretically possible. Most players get their first perp within 300-400 raids.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: Should I buy the item from the GE instead of grinding for it?</h4>
+                    <p>A: Almost always yes, if you can afford it. The "grind vs buy" decision should be based on Expected Value (EV). If the item costs 10M GP on GE and you make 200K GP/hour bossing, it takes 50 hours of grinding to "save" 10M GP. If you value your time at more than 200K GP/hour, just buy it. Your time is worth more than RNG.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: Does the "Eye of Newt" rumor work? (Touching a specific object before a kill)</h4>
+                    <p>A: No. This is a classic OSRS superstition with zero evidence. RNG is RNG. Touching an Eye of Newt, standing in a specific tile, or typing "pls drop" in chat does nothing. Save your time and mental energy for actual game mechanics.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: Why do some players seem to get all the drops while I get none?</h4>
+                    <p>A: This is called "Survivor Bias." You see the players who got lucky and posted about it on Reddit. You don't see the hundreds of players who got normal or unlucky RNG and didn't post anything. Also, some players do 1000+ kills per week — of course they get more drops, they're rolling more dice. RNG is fair in the long run, but the "long run" might be longer than you think.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: Is there a way to increase my drop rate legitimately?</h4>
+                    <p>A: For most drops, no — the rate is fixed. However, some content has mechanics that effectively increase your drop rate: (1) <strong>CoX</strong>: Higher party size = more rolls per raid. (2) <strong>ToA</strong>: Higher raid level = better drop tables. (3) <strong>Barrows</strong>: More brothers killed = more loot rolls. (4) <strong>GotR</strong>: Higher reward multiplier = better loot. These aren't "drop rate buffs" per se, but they increase your chances of good loot.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Q: I'm on a 500-kill dry streak. Should I "reset my RNG" by doing something else?</h4>
+                    <p>A: No. RNG doesn't have a memory. "Resetting your RNG" is superstition. That said, taking a break is good for your mental state, which might improve your PvM performance (less tilt = better kills = more drop rolls per hour). So the break helps indirectly, not because it "resets RNG."</p>
+                </div>
+            </section>
+
+            <!-- RELATED GUIDES -->
+            <div class="related-guides">
+                <h3>Continue Reading</h3>
+                <div class="article-grid">
+                    <div>
+                        <h4><a href="osrs-boss-profit-calculator-2026.html">Boss Profit Calculator 2026</a></h4>
+                        <p>Calculate the expected GP per hour for every boss, including drop rate math and item prices.</p>
+                    </div>
+                    <div>
+                        <h4><a href="osrs-vorkath-guide-2026.html">Vorkath Guide 2026</a></h4>
+                        <p>Put your new RNG knowledge to use at Vorkath. Complete strategy guide with gear setups and loot math.</p>
+                    </div>
+                    <div>
+                        <h4><a href="osrs-money-making-beginner-2026.html">Money Making Guide 2026</a></h4>
+                        <p>If RNG isn't your thing, here are 29 money making methods that don't depend on luck. Consistent GP, no dry streaks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUPPORT CARD (EXACT COPY) -->
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🌿</span>
+                    <div class="support-text">
+                        <h3>Buy me a coffee — and let's keep grinding!</h3>
+                        <p>I create OSRS guides to help you level up faster. Your support helps me keep the site updated with fresh content for the community. No pressure, ever — pick the amount that feels good to you.</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=OSRS+Guru+Support+-+$3&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$3</a>
+                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=OSRS+Guru+Support+-+$5&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn recommended">$5 ★</a>
+                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=OSRS+Guru+Support+-+$10&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-btn">$10</a>
+                            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=1530398390@qq.com&amp;item_name=OSRS+Guru+Support+-+Custom&amp;currency_code=USD&amp;no_shipping=1&amp;return=https://osrsguru.com" target="_blank" rel="noopener" class="support-amount-custom">Custom ✏️</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COPYRIGHT -->
+            <div class="copyright-protection">
+                <p>(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ New Players (Stage 0)</h4><ul>
+                    <li><a href="osrs-interface-controls-beginner-guide-2026.html">Game Interface</a></li>
+                    <li><a href="osrs-combat-training-beginner-2026.html">Combat Training</a></li>
+                    <li><a href="osrs-money-making-beginner-2026.html">Money Making</a></li>
+                    <li><a href="osrs-gear-beginner-guide-2026.html">Gear Guide</a></li>
+                    <li><a href="osrs-prayer-training-beginner-guide-2026.html">Prayer Training</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using Jagex Limited's intellectual property. Complies with <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a> terms. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+<style>.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item{background:#faf8f5!important;border-color:#e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong{color:#3b2615!important}
+@media (max-width: 768px) {
+  .guide-content table { font-size: 0.85rem; }
+  .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+  .guide-content table tbody td { padding: 6px 10px; }
+  .guide-content h2 { font-size: 1.4em; }
+  .guide-content h3 { font-size: 1.15em; }
+}
+@media (max-width: 640px) {
+  .guide-content table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .guide-content h2 { font-size: 1.25em; }
+  .guide-content p { font-size: 0.95rem; line-height: 1.7; }
+}
+</style>
+</body>
+</html>
