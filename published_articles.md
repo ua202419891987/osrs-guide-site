@@ -14,6 +14,8 @@
 | 4 | **OSRS F2P to Member Transition Guide 2026: When to Upgrade and How to Afford It** | 2026-06-05 (待发布) | F2P→会员转型决策 + 经济帐 | *(待补充)* |
 | 5 | **OSRS Mid-2026 Review: What Shipped, What Delayed, What's Next** | 2026-06-24 (ShipPage已发) | 年中复盘、Sailing/Vault of Ralos 交付评估、Blood Moon 延迟、League 6 预测 | https://shippage.ai/p/lk0slg |
 | 6 | **Crimson Desert Beginner Guide 2026: 7 Things I Wish I Knew** | 2026-06-24 (ShipPage已发) | CD 新手入门、战斗、职业、资源管理 | https://shippage.ai/p/e8gqdu |
+| 7 | **I Died 6 Times Before Getting My OSRS Fire Cape — Here's Exactly What I Changed** | 2026-06-27 (Dev.to 已发) | Fire Cape/Jad 攻略完整版，底部有官网链接 | https://dev.to/fyan/i-died-6-times-before-getting-my-osrs-fire-cape-heres-exactly-what-i-chang-2a9b |
+| 8 | **I Died 6 Times Before Getting My OSRS Fire Cape — Here's What I Changed** | 2026-06-27 (Medium 已发) | Fire Cape/Jad 精简版 500字，底部1个官网链接 | *(待补充)* |
 
 ---
 
