@@ -133,9 +133,12 @@ body{background:#f5f2f8;}
   box-shadow:0 6px 20px rgba(122,100,184,0.14);
   text-decoration:none;
 }
+.cd-cat-img-link{display:block;text-decoration:none;cursor:pointer;}
+.cd-cat-img-link:hover .cd-cat-img{filter:brightness(1.08);}
+.cd-cat-title-link{text-decoration:none;color:inherit;cursor:pointer;display:inline-block;}
+.cd-cat-title-link:hover h3{color:#7A64B8;}
 .cd-cat-img{
   width:100%;height:160px;object-fit:cover;display:block;
-  border-bottom:3px solid #7A64B8;
 }
 .cd-cat-body{padding:18px 20px 16px;}
 .cd-cat-body h3{
@@ -155,10 +158,10 @@ body{background:#f5f2f8;}
 .cd-cat-preview{
   display:flex;flex-direction:column;gap:2px;margin-bottom:12px;
 }
-.cd-cat-preview span{
-  font-size:.78rem;color:#555;padding:3px 0;border-bottom:1px dashed #f0ecfb;line-height:1.4;
-}
-.cd-cat-preview span:last-child{border-bottom:none;}
+.cd-cat-preview a:first-child,.cd-cat-preview a:first-of-type{border-top:1px dashed #f0ecfb;}
+.cd-cat-link{display:block;text-decoration:none;color:#5B4A9C!important;font-weight:600;padding:3px 4px;margin:0 -4px;border-radius:4px;transition:all .15s ease;cursor:pointer;}
+.cd-cat-link:hover{color:#7A64B8!important;background:#f0ecfb;padding-left:8px;text-decoration:underline;}
+.cd-cat-preview span{font-size:.78rem;color:#555;padding:3px 0;border-bottom:1px dashed #f0ecfb;line-height:1.4;}
 .cd-cat-count{
   display:inline-block;
   background:linear-gradient(135deg,#7A64B8,#5B4A9C);
@@ -314,100 +317,100 @@ body{background:#f5f2f8;}
 <div class="cd-cat-grid">
 
   <!-- ====== CATEGORY 1: GETTING STARTED ====== -->
-  <a href="#gear-category" class="cd-cat-card" id="gear-category">
-    <img src="./images/cd-getting-started.jpg" alt="Crimson Desert Getting Started" class="cd-cat-img" loading="lazy">
+  <div class="cd-cat-card" id="gear-category" data-first-article="crimson-desert-beginner-mistakes-guide-2026.html">
+    <a href="crimson-desert-beginner-mistakes-guide-2026.html" class="cd-cat-img-link"><img src="./images/cd-getting-started.jpg" alt="Crimson Desert Getting Started" class="cd-cat-img" loading="lazy"></a>
     <div class="cd-cat-body">
-      <h3>🚀 Getting Started</h3>
+      <a href="crimson-desert-beginner-mistakes-guide-2026.html" class="cd-cat-title-link"><h3>🚀 Getting Started</h3></a>
       <p>New player essentials — controls, common mistakes, bugs, and your first steps in Pywel.</p>
       <div class="cd-cat-preview">
-        <span>• Beginner Mistakes to Avoid 🆕</span>
-        <span>• Controls & Keybindings 🆕</span>
-        <span>• First 2 Hours Checklist 🆕</span>
-        <span>• Known Bugs & Fixes</span>
+        <a href="crimson-desert-beginner-mistakes-guide-2026.html" class="cd-cat-link">• Beginner Mistakes to Avoid 🆕</a>
+        <a href="crimson-desert-controls-keybindings-guide-2026.html" class="cd-cat-link">• Controls & Keybindings 🆕</a>
+        <a href="crimson-desert-first-2-hours-checklist-guide-2026.html" class="cd-cat-link">• First 2 Hours Checklist 🆕</a>
+        <a href="crimson-desert-known-bugs-fixes-guide-2026.html" class="cd-cat-link">• Known Bugs & Fixes</a>
       </div>
       <div><span class="cd-cat-count">6 Guides</span><span class="cd-cat-arrow">See All →</span></div>
     </div>
-  </a>
+  </div>
 
   <!-- ====== CATEGORY 2: COMBAT & BATTLE ====== -->
-  <a href="#combat-category" class="cd-cat-card" id="combat-category">
-    <img src="./images/cd-combat.jpg" alt="Crimson Desert Combat System" class="cd-cat-img" loading="lazy">
+  <div class="cd-cat-card" id="combat-category" data-first-article="crimson-desert-combat-guide-2026.html">
+    <a href="crimson-desert-combat-guide-2026.html" class="cd-cat-img-link"><img src="./images/cd-combat.jpg" alt="Crimson Desert Combat System" class="cd-cat-img" loading="lazy"></a>
     <div class="cd-cat-body">
-      <h3>⚔️ Combat & Battle</h3>
+      <a href="crimson-desert-combat-guide-2026.html" class="cd-cat-title-link"><h3>⚔️ Combat & Battle</h3></a>
       <p>Master Pywel's combat: parry timing, weapon combos, stamina management, and more.</p>
       <div class="cd-cat-preview">
-        <span>• Complete Combat Guide (Core) 🌟</span>
-        <span>• Parry Timing & Perfect Dodge 🆕</span>
-        <span>• Weapon Combos for Beginners 🆕</span>
-        <span>• Stamina Management</span>
+        <a href="crimson-desert-combat-guide-2026.html" class="cd-cat-link">• Complete Combat Guide (Core) 🌟</a>
+        <a href="crimson-desert-parry-timing-dodge-guide-2026.html" class="cd-cat-link">• Parry Timing & Perfect Dodge 🆕</a>
+        <a href="crimson-desert-weapon-combos-beginner-guide-2026.html" class="cd-cat-link">• Weapon Combos for Beginners 🆕</a>
+        <a href="crimson-desert-stamina-management-guide-2026.html" class="cd-cat-link">• Stamina Management</a>
       </div>
       <div><span class="cd-cat-count">6 Guides</span><span class="cd-cat-arrow">See All →</span></div>
     </div>
-  </a>
+  </div>
 
   <!-- ====== CATEGORY 3: BOSS STRATEGIES ====== -->
-  <a href="#bosses-category" class="cd-cat-card" id="bosses-category">
-    <img src="./images/cd-bosses.jpg" alt="Crimson Desert Boss Fights" class="cd-cat-img" loading="lazy">
+  <div class="cd-cat-card" id="bosses-category" data-first-article="crimson-desert-tenebrum-boss-guide-2026.html">
+    <a href="crimson-desert-tenebrum-boss-guide-2026.html" class="cd-cat-img-link"><img src="./images/cd-bosses.jpg" alt="Crimson Desert Boss Fights" class="cd-cat-img" loading="lazy"></a>
     <div class="cd-cat-body">
-      <h3>👹 Boss Strategies</h3>
+      <a href="crimson-desert-tenebrum-boss-guide-2026.html" class="cd-cat-title-link"><h3>👹 Boss Strategies</h3></a>
       <p>Detailed boss guides with phase breakdowns, gear recommendations, and winning strategies.</p>
       <div class="cd-cat-preview">
-        <span>• Tenebrum Flight Boss 🔥</span>
-        <span>• Staglord Strategy (All Phases)</span>
-        <span>• Matthias — Interrupt Strategy</span>
-        <span>• First Boss Staglord Prep 🆕</span>
+        <a href="crimson-desert-tenebrum-boss-guide-2026.html" class="cd-cat-link">• Tenebrum Flight Boss 🔥</a>
+        <a href="crimson-desert-staglord-boss-strategy-guide-2026.html" class="cd-cat-link">• Staglord Strategy (All Phases)</a>
+        <a href="crimson-desert-matthias-boss-guide-2026.html" class="cd-cat-link">• Matthias — Interrupt Strategy</a>
+        <a href="crimson-desert-first-boss-staglord-prep-guide-2026.html" class="cd-cat-link">• First Boss Staglord Prep 🆕</a>
       </div>
       <div><span class="cd-cat-count">7 Guides</span><span class="cd-cat-arrow">See All →</span></div>
     </div>
-  </a>
+  </div>
 
   <!-- ====== CATEGORY 4: SKILLS & ABILITIES ====== -->
-  <a href="#skills-category" class="cd-cat-card" id="skills-category">
-    <img src="./images/cd-skills.jpg" alt="Crimson Desert Skills & Abilities" class="cd-cat-img" loading="lazy">
+  <div class="cd-cat-card" id="skills-category" data-first-article="crimson-desert-best-skills-unlock-first-guide-2026.html">
+    <a href="crimson-desert-best-skills-unlock-first-guide-2026.html" class="cd-cat-img-link"><img src="./images/cd-skills.jpg" alt="Crimson Desert Skills & Abilities" class="cd-cat-img" loading="lazy"></a>
     <div class="cd-cat-body">
-      <h3>🎯 Skills & Abilities</h3>
+      <a href="crimson-desert-best-skills-unlock-first-guide-2026.html" class="cd-cat-title-link"><h3>🎯 Skills & Abilities</h3></a>
       <p>Skill trees, unlock priorities, cooking recipes, alchemy, and character progression.</p>
       <div class="cd-cat-preview">
-        <span>• Best Skills to Unlock First</span>
-        <span>• Cooking & Alchemy Recipes</span>
-        <span>• Skill Respec Guide</span>
-        <span>• Camp System Starter 🆕</span>
+        <a href="crimson-desert-best-skills-unlock-first-guide-2026.html" class="cd-cat-link">• Best Skills to Unlock First</a>
+        <a href="crimson-desert-cooking-alchemy-recipes-guide-2026.html" class="cd-cat-link">• Cooking & Alchemy Recipes</a>
+        <a href="crimson-desert-skills-builds-guide-2026.html" class="cd-cat-link">• Skill Respec Guide</a>
+        <a href="crimson-desert-camp-system-starter-guide-2026.html" class="cd-cat-link">• Camp System Starter 🆕</a>
       </div>
       <div><span class="cd-cat-count">5 Guides</span><span class="cd-cat-arrow">See All →</span></div>
     </div>
-  </a>
+  </div>
 
   <!-- ====== CATEGORY 5: FARMING & CRAFTING ====== -->
-  <a href="#farming-category" class="cd-cat-card" id="farming-category">
-    <img src="./images/cd-farming.jpg" alt="Crimson Desert Farming & Crafting" class="cd-cat-img" loading="lazy">
+  <div class="cd-cat-card" id="farming-category" data-first-article="crimson-desert-abyss-artifacts-farming-guide-2026.html">
+    <a href="crimson-desert-abyss-artifacts-farming-guide-2026.html" class="cd-cat-img-link"><img src="./images/cd-farming.jpg" alt="Crimson Desert Farming & Crafting" class="cd-cat-img" loading="lazy"></a>
     <div class="cd-cat-body">
-      <h3>💰 Farming & Crafting</h3>
+      <a href="crimson-desert-abyss-artifacts-farming-guide-2026.html" class="cd-cat-title-link"><h3>💰 Farming & Crafting</h3></a>
       <p>Abyss Artifacts, fishing spots, treasure maps, and crafting for efficient progression.</p>
       <div class="cd-cat-preview">
-        <span>• Abyss Artifacts (6 Methods)</span>
-        <span>• Fishing Complete Guide</span>
-        <span>• Treasure Map Locations (All 15)</span>
-        <span>• Resource Gathering Routes 🆕</span>
+        <a href="crimson-desert-abyss-artifacts-farming-guide-2026.html" class="cd-cat-link">• Abyss Artifacts (6 Methods)</a>
+        <a href="crimson-desert-fishing-guide-2026.html" class="cd-cat-link">• Fishing Complete Guide</a>
+        <a href="crimson-desert-treasure-map-locations-guide-2026.html" class="cd-cat-link">• Treasure Map Locations (All 15)</a>
+        <a href="crimson-desert-resource-gathering-routes-guide-2026.html" class="cd-cat-link">• Resource Gathering Routes 🆕</a>
       </div>
       <div><span class="cd-cat-count">7 Guides</span><span class="cd-cat-arrow">See All →</span></div>
     </div>
-  </a>
+  </div>
 
   <!-- ====== CATEGORY 6: STORY & SECRETS ====== -->
-  <a href="#story-category" class="cd-cat-card" id="story-category">
-    <img src="./images/cd-story.jpg" alt="Crimson Desert Story & Secrets" class="cd-cat-img" loading="lazy">
+  <div class="cd-cat-card" id="story-category" data-first-article="crimson-desert-treasure-map-locations-guide-2026.html">
+    <a href="crimson-desert-treasure-map-locations-guide-2026.html" class="cd-cat-img-link"><img src="./images/cd-story.jpg" alt="Crimson Desert Story & Secrets" class="cd-cat-img" loading="lazy"></a>
     <div class="cd-cat-body">
-      <h3>📜 Story & Secrets</h3>
+      <a href="crimson-desert-treasure-map-locations-guide-2026.html" class="cd-cat-title-link"><h3>📜 Story & Secrets</h3></a>
       <p>Lore exploration, hidden treasures, story progression, and secrets across Pywel's world.</p>
       <div class="cd-cat-preview">
-        <span>• Treasure Map Locations (All 15) 🗺️</span>
-        <span>• Story Progression Guide</span>
-        <span>• Hidden Collectibles</span>
-        <span>• World Exploration Routes</span>
+        <a href="crimson-desert-treasure-map-locations-guide-2026.html" class="cd-cat-link">• Treasure Map Locations (All 15) 🗺️</a>
+        <a href="crimson-desert-quest-walkthrough-2026.html" class="cd-cat-link">• Story Progression Guide</a>
+        <a href="crimson-desert-hidden-secrets-easter-eggs-2026.html" class="cd-cat-link">• Hidden Collectibles</a>
+        <a href="crimson-desert-resource-farming-guide-2026.html" class="cd-cat-link">• World Exploration Routes</a>
       </div>
       <div><span class="cd-cat-count">4 Guides</span><span class="cd-cat-arrow">See All →</span></div>
     </div>
-  </a>
+  </div>
 
 </div><!-- end cd-cat-grid -->
 </div><!-- end container -->
@@ -507,8 +510,8 @@ body{background:#f5f2f8;}
     <p>Hidden content and world exploration guides.</p>
     <ul>
       <li><a href="crimson-desert-treasure-map-locations-guide-2026.html">All 15 Treasure Maps 🗺️</a></li>
-      <li><a href="crimson-desert-story-progression-guide-2026.html">Story Progression Guide</a></li>
-      <li><a href="crimson-desert-hidden-collectibles-guide-2026.html">Hidden Collectibles</a></li>
+      <li><a href="crimson-desert-quest-walkthrough-2026.html">Story Progression Guide</a></li>
+      <li><a href="crimson-desert-hidden-secrets-easter-eggs-2026.html">Hidden Collectibles</a></li>
       <li><a href="crimson-desert-resource-gathering-routes-guide-2026.html">World Exploration Routes</a></li>
     </ul>
   </div>
