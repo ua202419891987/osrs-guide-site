@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert Frame Gen Crash Fix — Stop Crashing on AMD & NVIDIA GPUs | CD Guru</title>
+    <meta name="description" content="Fix Crimson Desert frame generation crashes on AMD and NVIDIA GPUs. Complete DLSS/FSR settings, RX 5000/6000/7000 fixes, and GeForce Now solutions.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Crimson Desert crash fix, Crimson Desert frame gen crash, Crimson Desert AMD crash, Crimson Desert DLSS settings, Crimson Desert FSR settings, Crimson Desert GeForce Now, Crimson Desert GPU crash 2026">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-crash-fix-guide-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{font-size:1.85rem !important}
+        .guide-content h3{font-size:1.35rem !important}
+        .guide-content h3 strong{font-size:1.35rem}
+        .guide-content p{font-size:1.08rem !important;line-height:1.85 !important}
+        .guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .tip-box strong{color:#7a64b8;font-size:1.06rem}
+        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .warn-box strong{color:#b84a3a;font-size:1.06rem}
+        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}
+        .action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+        .action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+        .action-step p{color:#2d2a33;font-size:1.08rem;line-height:1.75}
+        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}
+        .method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .method-box p{color:#2d2a33;font-size:1.06rem;line-height:1.75}
+        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .faq-item p{color:#2d2a33;font-size:1.03rem;line-height:1.7}
+        .toc{background:#fff;border:1px solid #e0d8f0 !important;border-left:1px solid #e0d8f0 !important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .toc h3{color:#7a64b8 !important;font-size:1.1rem !important;margin-bottom:12px}
+        .guide-hero .subtitle{font-size:1.15rem !important;max-width:700px;margin:0 auto 1.2rem}
+        .guide-hero .breadcrumb{font-size:.95rem !important}
+        .guide-hero .weekly-badge{font-size:1rem !important}
+        .guide-content li{color:#2d2a33 !important}
+        .progress-widget{display:none !important}
+        @media(max-width:520px){
+            .guide-content h2{font-size:1.15rem !important}
+            .guide-content h3{font-size:1.02rem !important}
+            .guide-content h3 strong{font-size:1.02rem}
+            .guide-content p,.guide-content li{font-size:0.95rem !important;line-height:1.7 !important}
+            .tip-box,.warn-box,.action-step,.method-box{padding:1rem 1rem;margin:1rem 0;font-size:0.95rem}
+            .tip-box strong,.warn-box strong{font-size:0.95rem}
+            .action-step h4,.method-box h4{font-size:1.1rem}
+            .action-step p,.method-box p{font-size:0.95rem;line-height:1.65}
+            .action-step .step-num{left:-10px;top:-10px;width:24px;height:24px;font-size:.75rem}
+            .faq-item h4{font-size:1rem}
+            .faq-item p{font-size:0.92rem;line-height:1.6}
+            .toc{padding:1rem 1.2rem}
+            .toc h3{font-size:1rem !important}
+            .guide-hero .subtitle{font-size:1rem !important;max-width:100%}
+            .guide-hero .breadcrumb{font-size:.82rem !important}
+            .guide-hero .weekly-badge{font-size:.85rem !important}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Crimson Desert <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section2">AMD Fixes</a></li>
+                    <li><a href="#section3">NVIDIA Fixes</a></li>
+                    <li><a href="#section4">DLSS vs FSR</a></li>
+                    <li><a href="#section5">GeForce Now</a></li>
+                    <li><a href="#section6">Platform</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#crimson-desert">Crimson Desert</a> / Crash Fix Guide</p>
+            <h1>Crimson Desert Frame Gen Crash Fix — Stop Crashing on AMD & NVIDIA GPUs</h1>
+            <p class="subtitle">Comprehensive crash troubleshooting for Crimson Desert — frame generation disable, AMD driver rollback, NVIDIA 595.79 fix, DLSS 4 vs 4.5, FSR 3.1/FSR 4 configs, and GeForce Now solutions.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🔧</span> <strong>Performance</strong> — Part of the <strong>Crimson Desert Essentials Series</strong> · 14 min read
+            </div>
+            <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: June 28, 2026</p>
+        </div>
+    </section>
+    <main class="guide-content">
+        <div class="container">
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ol>
+                    <li><a href="#section1">Frame Gen Crash Cause — Why It Happens</a></li>
+                    <li><a href="#section2">AMD GPU Fixes — RX 5000, 6000 & 7000 Series</a></li>
+                    <li><a href="#section3">NVIDIA GPU Fixes — RTX 40 & 50 Series Crash Solutions</a></li>
+                    <li><a href="#section4">DLSS vs FSR Settings — Which One to Use</a></li>
+                    <li><a href="#section5">GeForce Now Fixes — Cloud Gaming Solutions</a></li>
+                    <li><a href="#section6">Platform-Specific Issues — Mac, Steam Deck & Linux</a></li>
+                    <li><a href="#faq">FAQ — Frequently Asked Questions</a></li>
+                </ol>
+            </div>
+
+            <h2 id="section1">💥 1. Frame Gen Crash Cause — Why It Happens</h2>
+            <p>Crimson Desert uses Pearl Abyss's proprietary BlackSpace engine, which implements frame generation (Frame Gen) through DLSS 3, FSR 3.1, and native options. While frame generation can significantly boost FPS, it has been the single biggest source of crashes since launch. Understanding why these crashes occur helps you apply the right fix. For optimal driver-level configuration, check our <a href="crimson-desert-gpu-driver-guide-2026.html">GPU Driver Settings Guide</a>, and if you are playing on handheld, see the <a href="crimson-desert-steam-deck-guide-2026.html">Steam Deck Guide</a> for platform-specific fixes.</p>
+
+            <h3>The Root Cause</h3>
+            <p>The BlackSpace engine's frame generation implementation is highly sensitive to window focus changes and display mode transitions. The most common crash scenario: clicking outside the game window or alt-tabbing while frame generation is active causes an immediate hard crash. This is because the frame generation pipeline does not properly handle the render state change when the application loses and regains focus.</p>
+
+            <h3>Crash Symptoms by Type</h3>
+            <table style="width:100%;border-collapse:collapse;margin:1.2rem 0">
+                <thead>
+                    <tr style="background:#7A64B8;color:#fff">
+                        <th style="padding:10px;text-align:left">Crash Type</th>
+                        <th style="padding:10px;text-align:left">Symptoms</th>
+                        <th style="padding:10px;text-align:left">Primary Cause</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">Frame Gen Crash</td>
+                        <td style="padding:8px">Game hard-crashes when alt-tabbing or clicking outside window</td>
+                        <td style="padding:8px">Frame Gen + display mode conflict</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">Black Screen</td>
+                        <td style="padding:8px">Audio plays but screen is black; UI visible, world not rendered</td>
+                        <td style="padding:8px">NVIDIA App DLSS override or DLAA bug</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">System Hard Crash</td>
+                        <td style="padding:8px">PC power-off; GPU self-disables; requires power cycle</td>
+                        <td style="padding:8px">Driver + power delivery conflict (RTX 4090/5090)</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">AMD Driver Timeout</td>
+                        <td style="padding:8px">Driver timeout or crash to desktop (RX 6000/7000)</td>
+                        <td style="padding:8px">Adrenalin 26.6.2+ driver regression</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">GTX 1060 White Screen</td>
+                        <td style="padding:8px">Screen turns white when FSR + Frame Gen enabled</td>
+                        <td style="padding:8px">FSR + FG incompatibility on Pascal architecture</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Quick Diagnostic Test</h3>
+            <p>If crashing on alt-tab: disable frame generation in video settings. If the crashes stop, you have confirmed the Frame Gen crash. If crashing continues, the issue is likely driver-related. Work through the solutions below in order.</p>
+
+            <div class="method-box">
+                <h4>Emergency Fix: Disable Frame Gen via Config File</h4>
+                <p>Step 1: Navigate to <code>C:\Users\[YourUsername]\AppData\Local\Pearl Abyss\CD\save</code><br>
+                Step 2: Open <code>user_engine_option_save</code> in a text editor<br>
+                Step 3: Find <code>_numFramesToGenerate = 2</code> and change it to <code>_numFramesToGenerate = 0</code><br>
+                Step 4: Save the file and launch the game<br>
+                Step 5: Immediately switch the display mode to <strong>Borderless Windowed</strong> before doing anything else</p>
+            </div>
+
+            <h2 id="section2">🟢 2. AMD GPU Fixes — RX 5000, 6000 & 7000 Series</h2>
+            <p>AMD GPU users face two distinct crash scenarios. It is critical to identify which one applies to you, as the fixes are completely different.</p>
+
+            <h3>Scenario A: RX 5000 Series Crash at 1080p (FIXED in 1.12.02)</h3>
+            <p>If you are on an RX 5500 XT, RX 5600 XT, RX 5700, or RX 5700 XT and were crashing specifically at 1920x1080 resolution, this was a game-specific bug that Pearl Abyss fixed in patch 1.12.02 (June 24, 2026). Ensure you have updated to 1.12.02. If the crash persists, verify your game files via Steam or your platform's launcher.</p>
+
+            <h3>Scenario B: All AMD Cards Crashing on Driver 26.6.2+</h3>
+            <p>The more widespread AMD issue: driver versions 26.6.2 and 26.6.3 (hotfix) cause intermittent crashes and driver timeouts across RX 5000, 6000, and 7000 series cards. This is a <strong>driver-level regression</strong> that AMD is actively investigating. The game itself is not the cause here.</p>
+
+            <div class="warn-box">
+                <strong>Critical:</strong> Do NOT use Adrenalin 26.6.2 or 26.6.3 with Crimson Desert. These drivers cause crashes on all AMD Radeon GPUs. The recommended version is 26.6.1 or earlier.</div>
+
+            <h3>How to Roll Back AMD Drivers</h3>
+            <div class="action-step">
+                <div class="step-num">1</div>
+                <h4>Download Display Driver Uninstaller (DDU)</h4>
+                <p>Download DDU from the official Guru3D website. Disconnect from the internet (or disable Windows driver updates) to prevent Windows from automatically reinstalling the bad driver.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">2</div>
+                <h4>Boot into Safe Mode</h4>
+                <p>Restart your PC in Safe Mode (hold Shift while clicking Restart, then Troubleshoot > Startup Settings > Restart > Safe Mode). Run DDU and select "Clean and restart" for AMD drivers.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">3</div>
+                <h4>Install Driver 26.6.1</h4>
+                <p>Download and install Adrenalin 26.6.1 from AMD's official driver archive. Use the "Factory Reset" option during installation for a clean install. Reconnect to the internet after installation completes.</p>
+            </div>
+
+            <h3>Additional AMD-Specific Fixes</h3>
+            <ul>
+                <li><strong>Disable Frame Gen:</strong> Even with working drivers, Frame Gen on AMD cards can cause stuttering. Disable it unless you are consistently above 60 FPS without it.</li>
+                <li><strong>Use FSR 3.1 Quality:</strong> FSR 3.1 provides the best stability on AMD cards. Avoid FSR 4 if you notice rain visual bugs.</li>
+                <li><strong>Ray Tracing On:</strong> Surprisingly, enabling ray tracing on AMD RX 7000 series cards has minimal performance impact (3-4 FPS loss) and can improve visual stability. On RX 6000 series, RT is more costly and should be set to Low or Off.</li>
+            </ul>
+
+            <h2 id="section3">🔵 3. NVIDIA GPU Fixes — RTX 40 & 50 Series Crash Solutions</h2>
+            <p>NVIDIA users, particularly on RTX 4090 and RTX 5090 cards, have reported severe crash issues ranging from black screens to complete system power-off events. Here is the systematic fix guide.</p>
+
+            <h3>Fix 1: Update to NVIDIA Driver 595.79 (Critical)</h3>
+            <p>NVIDIA released GeForce Game Ready Driver 595.79 WHQL in March 2026 specifically for Crimson Desert. This driver addresses multiple crash causes:</p>
+            <ul>
+                <li>Fixes the black screen crash on game launch</li>
+                <li>Resolves GPU boost clock instability that caused hard crashes on RTX 4090/5090</li>
+                <li>Includes Crimson Desert-specific profile optimizations</li>
+            </ul>
+            <p><strong>Installation tip:</strong> When installing 595.79, select "Custom (Advanced)" and check "Perform a clean installation." This removes all previous driver files that may be corrupted or conflicting.</p>
+
+            <h3>Fix 2: Reset NVIDIA App Overrides</h3>
+            <p>NVIDIA App's DLSS override feature can conflict with Crimson Desert's built-in DLSS implementation:</p>
+            <ul>
+                <li>Open NVIDIA App</li>
+                <li>Navigate to Crimson Desert's game profile</li>
+                <li>Reset DLSS preset and super resolution settings to "Use application settings"</li>
+                <li>Do not force any DLSS override for this game</li>
+            </ul>
+
+            <h3>Fix 3: Disable DLAA</h3>
+            <p>DLAA (Deep Learning Anti-Aliasing) currently has a bug in Crimson Desert where it causes a black screen that progressively consumes the display from top to bottom, accompanied by black flickering bars. Switch to DLSS Quality mode instead of DLAA. If you cannot access the menu due to the black screen, you will need to temporarily disable DLSS entirely through the config file method described above.</p>
+
+            <h3>Fix 4: Close Third-Party Overlays</h3>
+            <p>BlackSpace engine is extremely sensitive to any software that hooks into the rendering pipeline. Close the following before launching the game:</p>
+            <ul>
+                <li><strong>MSI Afterburner</strong> — Particularly if you have an undervolt profile applied</li>
+                <li><strong>RivaTuner Statistics Server</strong> — Frame limiting can conflict with Frame Gen</li>
+                <li><strong>Discord Overlay</strong> — Can trigger the alt-tab crash scenario</li>
+                <li><strong>GeForce Experience Overlay</strong> — Use NVIDIA App instead, but keep overlay off</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> If you experience the full PC power-off crash (RTX 4090/5090), the issue is often a transient voltage spike caused by the BlackSpace engine's draw call bursts. Running the GPU at stock voltage (no undervolt) and using a quality power supply (ATX 3.0 recommended) are the only reliable mitigations currently.</div>
+
+            <h2 id="section4">⚙️ 4. DLSS vs FSR Settings — Which One to Use</h2>
+            <p>Crimson Desert supports DLSS 4 (with DLSS 4.5 available but problematic), FSR 3.1, and FSR 4. Here is how to configure each for maximum stability.</p>
+
+            <h3>DLSS 4 — Recommended (Avoid DLSS 4.5!)</h3>
+            <p>DLSS 4 provides excellent image quality and solid stability. <strong>Do not use DLSS 4.5</strong> — it has a severe flickering issue that manifests across the entire screen. The flickering is not subtle; it is visually distracting and can trigger headaches during extended play sessions. Stick with standard DLSS 4 until NVIDIA or Pearl Abyss releases a fix for 4.5.</p>
+            <ul>
+                <li>DLSS 4 Quality mode — Best image quality, ~40-50% FPS gain over native</li>
+                <li>DLSS 4 Balanced mode — Good quality/performance trade-off</li>
+                <li>DLSS 4 Performance mode — Maximum FPS, noticeable quality loss at 1440p and below</li>
+                <li>DLSS Frame Gen — Use with caution. Enable only if stable; disable if you experience focus-loss crashes</li>
+            </ul>
+
+            <h3>FSR 3.1 — Best for AMD and Older NVIDIA Cards</h3>
+            <p>FSR 3.1 is well-implemented in Crimson Desert and works on all GPUs regardless of brand. It is the recommended upscaling solution for AMD cards, GTX series, and Intel Arc users:</p>
+            <ul>
+                <li>FSR 3.1 Quality — Comparable visual quality to DLSS 4 Quality on AMD cards</li>
+                <li>FSR 3.1 Native AA — Best image quality if you have headroom</li>
+                <li>FSR 3.1 Frame Gen — More stable than DLSS Frame Gen on AMD hardware</li>
+            </ul>
+
+            <h3>FSR 4 — High Quality but Watch for Rain Bug</h3>
+            <p>FSR 4 offers improved image quality over FSR 3.1, particularly at lower resolutions. However, it has a known visual bug: during rain, the rain effects disappear or become heavily distorted. If your play session involves weather or you are in a rainy region, switch to FSR 3.1 or DLSS 4. Pearl Abyss has acknowledged this bug but has not provided a fix timeline.</p>
+
+            <h3>Intel XeSS — Not Available Yet</h3>
+            <p>Intel Arc users do not have XeSS 2.0 support at launch. The only upscaling option on Intel Arc GPUs is FSR 3.1. Intel and Pearl Abyss have not announced when XeSS support will be added.</p>
+
+            <table style="width:100%;border-collapse:collapse;margin:1.2rem 0">
+                <thead>
+                    <tr style="background:#7A64B8;color:#fff">
+                        <th style="padding:10px;text-align:left">Upscaler</th>
+                        <th style="padding:10px;text-align:left">Quality</th>
+                        <th style="padding:10px;text-align:left">Stability</th>
+                        <th style="padding:10px;text-align:left">Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px"><strong>DLSS 4</strong></td>
+                        <td style="padding:8px">Excellent</td>
+                        <td style="padding:8px">Good</td>
+                        <td style="padding:8px">NVIDIA RTX 30/40/50 series</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px"><strong>DLSS 4.5</strong></td>
+                        <td style="padding:8px">Excellent</td>
+                        <td style="padding:8px">Bad — severe flickering</td>
+                        <td style="padding:8px">Avoid entirely</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px"><strong>FSR 3.1</strong></td>
+                        <td style="padding:8px">Good</td>
+                        <td style="padding:8px">Best</td>
+                        <td style="padding:8px">AMD, GTX, Intel Arc GPUs</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px"><strong>FSR 4</strong></td>
+                        <td style="padding:8px">Very Good</td>
+                        <td style="padding:8px">Good (rain bug)</td>
+                        <td style="padding:8px">AMD RX 9000 series</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px"><strong>DLAA</strong></td>
+                        <td style="padding:8px">Best</td>
+                        <td style="padding:8px">Bad — black screen bug</td>
+                        <td style="padding:8px">Avoid until fixed</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="section5">☁️ 5. GeForce Now Fixes — Cloud Gaming Solutions</h2>
+            <p>GeForce Now users encounter a unique set of issues due to the virtualized GPU environment. Here are the fixes specific to cloud streaming:</p>
+
+            <h3>Common GeForce Now Crashes</h3>
+            <ul>
+                <li><strong>"Graphics driver crashed" error:</strong> This is usually a session-level issue. Exit the game completely and restart the GeForce Now session. If it persists, try switching to a different server region in GeForce Now settings.</li>
+                <li><strong>Black screen on stream:</strong> Disable DLSS entirely in the game settings and use FSR 3.1 instead. The virtualized RTX GPUs handle FSR more reliably than DLSS in streaming scenarios.</li>
+                <li><strong>Input lag spikes:</strong> Turn off Frame Gen on the GeForce Now streaming settings. Frame Gen adds latency that compounds with streaming latency.</li>
+            </ul>
+
+            <h3>Recommended GeForce Now Settings</h3>
+            <ul>
+                <li>Streaming: Custom — 1440p/60 FPS or 1080p/120 FPS depending on your plan</li>
+                <li>In-Game Upscaler: FSR 3.1 Quality (more stable than DLSS on virtualized hardware)</li>
+                <li>Frame Gen: OFF (reduces both crashes and perceived latency)</li>
+                <li>Display Mode: Borderless Windowed (fullscreen causes more session drops)</li>
+                <li>VSync: OFF (let GeForce Now handle frame pacing)</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>GeForce Now Tip:</strong> If you crash frequently on the Ultimate tier (RTX 4090 virtualized), try switching to the Priority tier temporarily. Some users report that the virtualized RTX 4080 configuration is more stable with Crimson Desert than the RTX 4090 configuration.</div>
+
+            <h2 id="section6">🖥️ 6. Platform-Specific Issues — Mac, Steam Deck & Linux</h2>
+
+            <h3>Mac — Cursor Misalignment & Photo Mode Crash</h3>
+            <p>Mac users face two primary issues. First, the cursor is misaligned with furniture placement at certain resolutions — a known issue Pearl Abyss has acknowledged but not fixed. Workaround: try switching to a standard resolution (1920x1080 or 2560x1440) in the game settings. Second, the Photo Mode HDR crash (fixed in 1.12.02) specifically affected Mac users who toggle HDR. Ensure you are on 1.12.02. Mac users on the Mac App Store may still be waiting for the 1.12.02 patch.</p>
+
+            <h3>Steam Deck — 40 FPS Target</h3>
+            <p>Steam Deck runs Crimson Desert at a stable 40 FPS with the right settings:</p>
+            <ul>
+                <li>Resolution: 1280x800 (native)</li>
+                <li>Upscaler: FSR 3.1 Performance</li>
+                <li>Frame Gen: OFF (Steam Deck cannot benefit from Frame Gen at low base FPS)</li>
+                <li>Volumetric Clouds: Low</li>
+                <li>Shadow Quality: Low</li>
+                <li>Textures: Medium</li>
+                <li>Lighting: Cinematic</li>
+                <li>Display Mode: Borderless Windowed</li>
+            </ul>
+
+            <h3>Linux (Proton) — Video Crash Fix</h3>
+            <p>Linux users (particularly on Bazzite with AMD 7900 XTX) have reported immediate crashes during the opening video cutscene. The fix involves two steps:</p>
+            <ul>
+                <li><strong>Use GE Proton 10-33:</strong> This compatibility layer version fixes the video rendering issue that causes the crash. Switch to GE Proton 10-33 in Steam's compatibility settings.</li>
+                <li><strong>Disable Ray Tracing:</strong> AMD Linux drivers crash when ray tracing is enabled during loading screens. Turn RT off before entering cutscene-intensive areas. Watch out: adjusting graphics presets can silently re-enable ray tracing in the background.</li>
+            </ul>
+
+            <h2 id="faq">❓ FAQ — Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h4>Will disabling frame generation fix the alt-tab crash?</h4>
+                <p>Yes. The alt-tab / window focus loss crash is caused by a conflict between the frame generation pipeline and display mode changes. Disabling frame generation completely resolves this.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Is the AMD driver crash fixed in 1.12.02?</h4>
+                <p>No. The AMD driver crash (driver 26.6.2+) is a separate driver-level issue. 1.12.02 only fixed the RX 5000 1080p resolution crash. Roll back to Adrenalin 26.6.1 for the driver crash.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Why does my RTX 4090/5090 completely shut down when playing?</h4>
+                <p>This is a transient voltage spike issue. The BlackSpace engine's draw call patterns can cause extreme power draw fluctuations that trip power supply protection. Use a high-quality ATX 3.0 PSU, run GPU at stock voltages, and ensure you have driver 595.79 installed.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Which upscaler is most stable for GTX 1060?</h4>
+                <p>Use FSR 3.1 Quality. Do NOT enable both FSR Upscaling and Frame Generation simultaneously on GTX 1060 — this causes the known white screen bug. Use FSR 3.1 without Frame Gen.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Does GeForce Now support DLSS 4 in Crimson Desert?</h4>
+                <p>GeForce Now supports DLSS 4 in Crimson Desert, but FSR 3.1 has been more stable on the virtualized GPU environment. If you experience DLSS crashes on GeForce Now, switch to FSR 3.1.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How do I know which AMD driver version I have?</h4>
+                <p>Open AMD Adrenalin, click Settings (gear icon) in the top-right, then scroll to the Software section. Your driver version is displayed (e.g., 26.6.1, 26.6.2).</p>
+            </div>
+            <div class="faq-item">
+                <h4>Should I use Borderless Windowed or Fullscreen?</h4>
+                <p>Borderless Windowed is strongly recommended for all configurations. Fullscreen mode exacerbates the focus-loss crash and makes alt-tabbing significantly more dangerous. Recent testing shows Borderless Windowed also has slightly better frame pacing in this game.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Will verifying game files fix crashes?</h4>
+                <p>It can help if the crash is caused by corrupted game files — a more common issue than expected given the large download size (150GB). Verify via Steam: right-click > Properties > Installed Files > Verify Integrity. If CRC mismatches are found and repaired, crashes may stop.</p>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🔓</span>
+                    <div class="support-text">
+                        <h3>Every guide is free — this one stays free either way.</h3>
+                        <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+                        <p style="margin:6px 0 0 0;line-height:1.7">
+                            📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                            ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                            ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                            🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+                        </p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack 👑</a>
+                        </div>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p class="footer-bottom">&copy; 2026 CDGuru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px">Crimson Desert&trade; is a trademark of Pearl Abyss Corp. All game content and materials are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by Pearl Abyss.</p>
+        </div>
+    </footer>
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>.guide-content li{color:#2d2a33!important}</style>
+</body>
+</html>

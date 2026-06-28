@@ -327,7 +327,7 @@
     { label: 'Sailing Phase 1 Training Maps & Profit Spots', url: '/guides/sailing-phase-1-training-2026.html', stage: 'mid', kw: 'boat crew maps naval phase profit sailing ship training' },
     { label: 'Sailing PvP \u2014 Naval Combat & Piracy Mechanics', url: '/guides/sailing-pvp-guide-2026.html', stage: 'mid', kw: 'boat combat crew mechanics naval piracy pvp sailing ship' },
     { label: 'Slayer Training 1-99 Best Tasks & Masters', url: '/guides/slayer-1-99-guide-2026.html', stage: 'mid', kw: 'block gp master slayer task training' },
-    { label: 'Vault of Ralos Raid Walkthrough & Strategy', url: '/guides/vault-of-ralos-raid-guide-2026.html', stage: 'boss', kw: 'raid ralos strategy vault walkthrough' },
+    { label: 'The Fractured Archive Raid \u2014 Pre-Release Guide', url: '/guides/vault-of-ralos-raid-guide-2026.html', stage: 'boss', kw: 'fractured archive raid osrs 2026 guide new' },
     { label: 'Skill Training \u2014 Beginner Complete Guide 2026', url: '/guides/osrs-skill-training-beginner-complete-guide-2026.html', stage: 'beginner', kw: 'beginner complete guide level 1 skill skills training' },
     { label: 'Skill Training \u2014 Beginner Fast Track 2026', url: '/guides/osrs-skill-training-beginner-fast-track-2026.html', stage: 'beginner', kw: 'beginner fast leveling shortcut skill skills track training' },
     { label: 'Skill Training \u2014 Mid-Game Guide 2026', url: '/guides/osrs-skill-training-mid-game-guide-2026.html', stage: 'mid', kw: 'efficiency method mid game skill skills training xp' },

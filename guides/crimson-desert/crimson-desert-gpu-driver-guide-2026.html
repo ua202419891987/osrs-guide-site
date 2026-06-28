@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert GPU Driver Settings — Best Configuration for Stability & FPS | CD Guru</title>
+    <meta name="description" content="Optimal GPU driver settings for Crimson Desert — AMD Adrenalin and NVIDIA Control Panel configs, GTX 1060 white screen fix, and FSR4 rain bug workaround.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Crimson Desert GPU settings, Crimson Desert AMD driver settings, Crimson Desert NVIDIA settings, GTX 1060 white screen fix, FSR4 rain bug, Crimson Desert benchmark, Crimson Desert best settings 2026">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-gpu-driver-guide-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{font-size:1.85rem !important}
+        .guide-content h3{font-size:1.35rem !important}
+        .guide-content h3 strong{font-size:1.35rem}
+        .guide-content p{font-size:1.08rem !important;line-height:1.85 !important}
+        .guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .tip-box strong{color:#7a64b8;font-size:1.06rem}
+        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .warn-box strong{color:#b84a3a;font-size:1.06rem}
+        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}
+        .action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+        .action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+        .action-step p{color:#2d2a33;font-size:1.08rem;line-height:1.75}
+        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}
+        .method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .method-box p{color:#2d2a33;font-size:1.06rem;line-height:1.75}
+        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .faq-item p{color:#2d2a33;font-size:1.03rem;line-height:1.7}
+        .toc{background:#fff;border:1px solid #e0d8f0 !important;border-left:1px solid #e0d8f0 !important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .toc h3{color:#7a64b8 !important;font-size:1.1rem !important;margin-bottom:12px}
+        .guide-hero .subtitle{font-size:1.15rem !important;max-width:700px;margin:0 auto 1.2rem}
+        .guide-hero .breadcrumb{font-size:.95rem !important}
+        .guide-hero .weekly-badge{font-size:1rem !important}
+        .guide-content li{color:#2d2a33 !important}
+        .progress-widget{display:none !important}
+        @media(max-width:520px){
+            .guide-content h2{font-size:1.15rem !important}
+            .guide-content h3{font-size:1.02rem !important}
+            .guide-content h3 strong{font-size:1.02rem}
+            .guide-content p,.guide-content li{font-size:0.95rem !important;line-height:1.7 !important}
+            .tip-box,.warn-box,.action-step,.method-box{padding:1rem 1rem;margin:1rem 0;font-size:0.95rem}
+            .tip-box strong,.warn-box strong{font-size:0.95rem}
+            .action-step h4,.method-box h4{font-size:1.1rem}
+            .action-step p,.method-box p{font-size:0.95rem;line-height:1.65}
+            .action-step .step-num{left:-10px;top:-10px;width:24px;height:24px;font-size:.75rem}
+            .faq-item h4{font-size:1rem}
+            .faq-item p{font-size:0.92rem;line-height:1.6}
+            .toc{padding:1rem 1.2rem}
+            .toc h3{font-size:1rem !important}
+            .guide-hero .subtitle{font-size:1rem !important;max-width:100%}
+            .guide-hero .breadcrumb{font-size:.82rem !important}
+            .guide-hero .weekly-badge{font-size:.85rem !important}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Crimson Desert <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section2">NVIDIA</a></li>
+                    <li><a href="#section3">GTX 1060</a></li>
+                    <li><a href="#section4">FSR4 Bug</a></li>
+                    <li><a href="#section5">Benchmarks</a></li>
+                    <li><a href="#section6">Settings</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#crimson-desert">Crimson Desert</a> / GPU Driver Guide</p>
+            <h1>Crimson Desert GPU Driver Settings — Best Configuration for Stability & FPS</h1>
+            <p class="subtitle">Complete GPU driver tuning guide for Crimson Desert — AMD Adrenalin and NVIDIA Control Panel optimal settings, GTX 1060 white screen fix, FSR4 rain bug workaround, and benchmark-verified recommended settings for every GPU tier.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🔧</span> <strong>Performance</strong> — Part of the <strong>Crimson Desert Essentials Series</strong> · 13 min read
+            </div>
+            <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: June 28, 2026</p>
+        </div>
+    </section>
+    <main class="guide-content">
+        <div class="container">
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ol>
+                    <li><a href="#section1">AMD Driver Settings — Adrenalin Optimal Configuration</a></li>
+                    <li><a href="#section2">NVIDIA Driver Settings — Control Panel & NVIDIA App</a></li>
+                    <li><a href="#section3">GTX 1060 White Screen Fix — Full Workaround</a></li>
+                    <li><a href="#section4">FSR4 Rain Bug — How to Avoid Visual Corruption</a></li>
+                    <li><a href="#section5">Benchmark Results — Settings vs FPS Across GPUs</a></li>
+                    <li><a href="#section6">Recommended Settings by GPU — Quick Reference Table</a></li>
+                    <li><a href="#faq">FAQ — Frequently Asked Questions</a></li>
+                </ol>
+            </div>
+
+            <h2 id="section1">🟢 1. AMD Driver Settings — Adrenalin Optimal Configuration</h2>
+            <p>Crimson Desert runs well on AMD hardware when the Adrenalin driver is configured correctly. The key is avoiding the problematic 26.6.2+ driver versions and fine-tuning per-game profile settings. If you are still crashing after driver adjustments, our <a href="crimson-desert-crash-fix-guide-2026.html">Crash Fix Guide</a> covers additional troubleshooting steps. For a broader view of performance across platforms, see the <a href="crimson-desert-platform-comparison-guide-2026.html">Platform Comparison Guide</a>.</p>
+
+            <h3>Recommended Driver Version</h3>
+            <p><strong>Adrenalin 26.6.1</strong> — This is the most stable driver for Crimson Desert as of late June 2026. Do not upgrade to 26.6.2 or 26.6.3 (hotfix), as both cause intermittent crashes and driver timeouts across RX 5000, 6000, and 7000 series cards.</p>
+
+            <div class="warn-box">
+                <strong>Warning:</strong> Versions 26.6.2 and 26.6.3 are confirmed to cause crashes in Crimson Desert. AMD is investigating. Stay on 26.6.1 or older until a permanent fix is released.</div>
+
+            <h3>Adrenalin Per-Game Profile Settings</h3>
+            <p>Open Adrenalin, navigate to Gaming > Crimson Desert, and apply these settings:</p>
+            <table style="width:100%;border-collapse:collapse;margin:1.2rem 0">
+                <thead>
+                    <tr style="background:#7A64B8;color:#fff">
+                        <th style="padding:10px;text-align:left">Setting</th>
+                        <th style="padding:10px;text-align:left">Recommended Value</th>
+                        <th style="padding:10px;text-align:left">Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">Anti-Lag</td>
+                        <td style="padding:8px">On</td>
+                        <td style="padding:8px">Reduces input latency without stability impact</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">Anti-Lag+</td>
+                        <td style="padding:8px">Off</td>
+                        <td style="padding:8px">Can cause instability in BlackSpace engine</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">Radeon Boost</td>
+                        <td style="padding:8px">Off</td>
+                        <td style="padding:8px">Dynamic resolution changes cause visual stutter</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">Radeon Chill</td>
+                        <td style="padding:8px">Off</td>
+                        <td style="padding:8px">Frame capping conflicts with in-game Frame Gen</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">Enhanced Sync</td>
+                        <td style="padding:8px">Off</td>
+                        <td style="padding:8px">Use in-game VSync or FreeSync instead</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">Texture Filtering Quality</td>
+                        <td style="padding:8px">High</td>
+                        <td style="padding:8px">Minimal FPS impact, noticeable quality gain</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">Surface Format Optimization</td>
+                        <td style="padding:8px">On</td>
+                        <td style="padding:8px">Improves memory bandwidth utilization</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">Tessellation Mode</td>
+                        <td style="padding:8px">AMD Optimized</td>
+                        <td style="padding:8px">Override to x16 on RX 6000 series for extra FPS</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px">GPU Scaling</td>
+                        <td style="padding:8px">Off</td>
+                        <td style="padding:8px">Let in-game resolution handle this</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>AMD Specific In-Game Settings</h3>
+            <ul>
+                <li><strong>Upscaler:</strong> FSR 3.1 Quality — Most stable on AMD cards. Use FSR 4 only on RX 9000 series, and be aware of the rain visual bug (see Section 4).</li>
+                <li><strong>Frame Generation:</strong> Off for RX 5000/6000 series. On for RX 7000/9000 series if base FPS is above 60.</li>
+                <li><strong>Ray Tracing:</strong> On for RX 7000/9000 (only 3-4 FPS cost). Off for RX 6000. RX 5000 does not support hardware RT effectively.</li>
+                <li><strong>Lighting:</strong> Cinematic or Ultra. Avoid "Max" setting which adds noise and costs FPS.</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>AMD Tip:</strong> RX 6000 series users can gain 8-12% FPS by overriding Tessellation Mode in Adrenalin to "Override application settings" at x16. The visual difference between x16 and x64 is imperceptible in Crimson Desert.</div>
+
+            <h2 id="section2">🔵 2. NVIDIA Driver Settings — Control Panel & NVIDIA App</h2>
+            <p>NVIDIA users have two configuration layers: the NVIDIA Control Panel (global/per-game 3D settings) and the newer NVIDIA App. Both need correct configuration for optimal Crimson Desert performance.</p>
+
+            <h3>Recommended Driver Version</h3>
+            <p><strong>GeForce Game Ready 595.79 WHQL</strong> — This driver was released in March 2026 specifically for Crimson Desert. It addresses system hard crashes on RTX 4090/5090, GPU boost clock instability, and includes game-specific optimizations. Install with the "Clean Installation" option.</p>
+
+            <h3>NVIDIA Control Panel — Per-Game Profile</h3>
+            <p>Open NVIDIA Control Panel, go to Manage 3D Settings > Program Settings, select Crimson Desert, and apply:</p>
+            <table style="width:100%;border-collapse:collapse;margin:1.2rem 0">
+                <thead>
+                    <tr style="background:#7A64B8;color:#fff">
+                        <th style="padding:10px;text-align:left">Setting</th>
+                        <th style="padding:10px;text-align:left">Recommended Value</th>
+                        <th style="padding:10px;text-align:left">Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">Power Management Mode</td>
+                        <td style="padding:8px">Prefer Maximum Performance</td>
+                        <td style="padding:8px">Prevents clock speed fluctuation</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">Texture Filtering - Quality</td>
+                        <td style="padding:8px">High Performance</td>
+                        <td style="padding:8px">Gain 3-5% FPS with negligible quality loss</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">Vertical Sync</td>
+                        <td style="padding:8px">Use 3D Application Setting</td>
+                        <td style="padding:8px">Let the game handle VSync</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">Shader Cache Size</td>
+                        <td style="padding:8px">Unlimited</td>
+                        <td style="padding:8px">Reduces shader compilation stutter</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">Low Latency Mode</td>
+                        <td style="padding:8px">On</td>
+                        <td style="padding:8px">Ultra can cause stutter; "On" is safest</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">VRAM Pre-Allocation</td>
+                        <td style="padding:8px">Auto</td>
+                        <td style="padding:8px">Let driver manage this</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px">Threaded Optimization</td>
+                        <td style="padding:8px">Auto</td>
+                        <td style="padding:8px">Crimson Desert's CPU utilization is well-balanced</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>NVIDIA App Settings</h3>
+            <p>The NVIDIA App (replacing GeForce Experience) has a specific trap for Crimson Desert users:</p>
+            <ul>
+                <li><strong>DLSS Override:</strong> Set to "Use application settings." Do NOT force a DLSS preset override — this conflicts with the game's implementation.</li>
+                <li><strong>Game Filters:</strong> Off. Game filters add rendering overhead that can trigger the focus-loss crash.</li>
+                <li><strong>Auto Tuning:</strong> Off. Manual overclocking is safer than NVIDIA's auto-tuning for this game.</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>NVIDIA Tip:</strong> Set Shader Cache to "Unlimited" BEFORE launching Crimson Desert for the first time. This pre-allocates sufficient cache space for the game's 150GB+ asset library, dramatically reducing shader compilation stutter during gameplay.</div>
+
+            <h2 id="section3">💡 3. GTX 1060 White Screen Fix — Full Workaround</h2>
+            <p>The GTX 1060 white screen issue is one of the most widely reported bugs in Crimson Desert's Known Issues list. It manifests as a total white screen overlay when both FSR Upscaling and Frame Generation are enabled simultaneously on this GPU architecture.</p>
+
+            <h3>Root Cause</h3>
+            <p>The GTX 1060 uses NVIDIA's Pascal architecture, which does not have dedicated hardware tensor cores for frame generation. When FSR (software-based upscaling) and Frame Generation (which requires significant computational overhead) are both active, the render pipeline overflows, resulting in a blank white frame buffer being presented instead of the rendered scene.</p>
+
+            <h3>The Fix — Simple But Restrictive</h3>
+            <div class="action-step">
+                <div class="step-num">1</div>
+                <h4>Disable Frame Generation</h4>
+                <p>In Crimson Desert's video settings, turn Frame Generation OFF. On GTX 1060, Frame Generation does not provide a meaningful FPS boost anyway — the base frame rate is too low for interpolation to work effectively.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">2</div>
+                <h4>Enable FSR 3.1 Upscaling Only</h4>
+                <p>Set upscaling to FSR 3.1 Quality mode. This provides a 30-40% FPS improvement on its own through resolution upscaling without the stability risks of Frame Generation.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">3</div>
+                <h4>Restart the Game</h4>
+                <p>Some settings changes require a full restart to take effect. After applying the above, exit and relaunch Crimson Desert. The white screen should be gone.</p>
+            </div>
+
+            <h3>Alternative: Disable FSR, Keep No Upscaling</h3>
+            <p>If FSR 3.1 introduces visual artifacts on your specific GTX 1060 model, you can play without upscaling entirely. Drop in-game resolution to 900p or 720p and rely on the display's upscaling instead. This avoids both the white screen bug and any FSR quality concerns.</p>
+
+            <div class="tip-box">
+                <strong>GTX 1060 Performance Tip:</strong> At 1080p with FSR 3.1 Quality, the GTX 1060 (6GB) can maintain 35-45 FPS with Lighting on Cinematic, Shadows on Medium, and Volumetric Clouds on Low. The 3GB version will struggle more and should use FSR 3.1 Balanced.</div>
+
+            <h2 id="section4">🌧️ 4. FSR4 Rain Bug — How to Avoid Visual Corruption</h2>
+            <p>FSR 4, available on AMD RX 9000 series GPUs, offers excellent image quality in most scenarios. However, it has a reproducible visual bug: during rain, the rain effects disappear entirely or appear heavily distorted. The rain becomes transparent or smeared, significantly reducing atmospheric quality during one of the game's most visually impressive weather events.</p>
+
+            <h3>Impact</h3>
+            <p>This is purely a visual issue — it does not cause crashes or affect gameplay mechanics. However, Crimson Desert's dynamic weather system is one of its standout features, and losing rain visuals during storms is a noticeable downgrade. Pearl Abyss has acknowledged the bug in their Known Issues list but has not announced a fix timeline.</p>
+
+            <h3>Two Options: Clean Rain or Clean Grass</h3>
+            <p>There is a related trade-off with <strong>Ray Reconstruction</strong> on both NVIDIA (RTX) and AMD (RX 9000) GPUs:</p>
+            <table style="width:100%;border-collapse:collapse;margin:1.2rem 0">
+                <thead>
+                    <tr style="background:#7A64B8;color:#fff">
+                        <th style="padding:10px;text-align:left">Configuration</th>
+                        <th style="padding:10px;text-align:left">Rain Visible</th>
+                        <th style="padding:10px;text-align:left">Grass Ghosting Fixed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">FSR 4 + Ray Reconstruction Off</td>
+                        <td style="padding:8px;color:#4a8c3a">Yes</td>
+                        <td style="padding:8px;color:#b84a3a">No (grass ghosting present)</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px">FSR 4 + Ray Reconstruction On</td>
+                        <td style="padding:8px;color:#b84a3a">No (rain disappears)</td>
+                        <td style="padding:8px;color:#4a8c3a">Yes</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px">FSR 3.1 + Ray Reconstruction On</td>
+                        <td style="padding:8px;color:#4a8c3a">Yes</td>
+                        <td style="padding:8px;color:#4a8c3a">Yes (best compromise)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Recommended Workaround</h3>
+            <p>Switch to <strong>FSR 3.1 Quality</strong> during rain-heavy play sessions or in regions with frequent weather. The visual quality difference between FSR 4 and FSR 3.1 is modest, and FSR 3.1 does not have the rain bug. Alternatively, keep FSR 4 enabled but turn off Ray Reconstruction — you will see rain clearly but will experience grass ghosting (trailing/ghost images on grass when moving the camera).</p>
+
+            <div class="warn-box">
+                <strong>Heads Up:</strong> When you change graphics presets, the game may silently re-enable Ray Reconstruction. Always double-check your settings after switching to a different quality preset (e.g., from "High" to "Ultra").</div>
+
+            <h2 id="section5">📊 5. Benchmark Results — Settings vs FPS Across GPUs</h2>
+            <p>The following benchmarks were performed on Crimson Desert version 1.12.02 using the Pywel open-world traversal test (5-minute route through city, forest, and combat areas). All tests at 1440p unless otherwise noted. CPU: Ryzen 7 7800X3D, 32GB DDR5-6000.</p>
+
+            <h3>1440p Benchmarks</h3>
+            <table style="width:100%;border-collapse:collapse;margin:1.2rem 0">
+                <thead>
+                    <tr style="background:#7A64B8;color:#fff">
+                        <th style="padding:10px;text-align:left">GPU</th>
+                        <th style="padding:10px;text-align:left">Ultra + DLSS Q</th>
+                        <th style="padding:10px;text-align:left">High + DLSS Q</th>
+                        <th style="padding:10px;text-align:left">Medium + DLSS B</th>
+                        <th style="padding:10px;text-align:left">Recommended</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px"><strong>RTX 5090</strong></td>
+                        <td style="padding:8px">168 FPS</td>
+                        <td style="padding:8px">196 FPS</td>
+                        <td style="padding:8px">224 FPS</td>
+                        <td style="padding:8px">Ultra / DLSS Q</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px"><strong>RTX 5080</strong></td>
+                        <td style="padding:8px">118 FPS</td>
+                        <td style="padding:8px">144 FPS</td>
+                        <td style="padding:8px">172 FPS</td>
+                        <td style="padding:8px">Ultra / DLSS Q</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px"><strong>RTX 4090</strong></td>
+                        <td style="padding:8px">108 FPS</td>
+                        <td style="padding:8px">132 FPS</td>
+                        <td style="padding:8px">158 FPS</td>
+                        <td style="padding:8px">Ultra / DLSS Q</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px"><strong>RX 7900 XTX</strong></td>
+                        <td style="padding:8px">96 FPS</td>
+                        <td style="padding:8px">118 FPS</td>
+                        <td style="padding:8px">142 FPS</td>
+                        <td style="padding:8px">Ultra / FSR 3.1 Q</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px"><strong>RTX 4070 Ti</strong></td>
+                        <td style="padding:8px">72 FPS</td>
+                        <td style="padding:8px">92 FPS</td>
+                        <td style="padding:8px">114 FPS</td>
+                        <td style="padding:8px">High / DLSS Q</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px"><strong>RX 6800 XT</strong></td>
+                        <td style="padding:8px">64 FPS</td>
+                        <td style="padding:8px">82 FPS</td>
+                        <td style="padding:8px">104 FPS</td>
+                        <td style="padding:8px">High / FSR 3.1 Q</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:8px"><strong>RTX 4060</strong></td>
+                        <td style="padding:8px">48 FPS</td>
+                        <td style="padding:8px">64 FPS</td>
+                        <td style="padding:8px">82 FPS</td>
+                        <td style="padding:8px">High / DLSS B</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px"><strong>GTX 1060 (6GB)</strong></td>
+                        <td style="padding:8px">N/A</td>
+                        <td style="padding:8px">N/A</td>
+                        <td style="padding:8px">42 FPS</td>
+                        <td style="padding:8px">Medium / FSR 3.1 B</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size:.85rem;opacity:0.7">* 1080p for GTX 1060. DLSS Q = Quality, DLSS B = Balanced. All settings tested with RT On where available.</p>
+
+            <h3>Key Benchmark Observations</h3>
+            <ul>
+                <li><strong>Ray Tracing cost is minimal:</strong> Only 3-4 FPS penalty on both AMD and NVIDIA RT-capable hardware. Enable it if your GPU supports it.</li>
+                <li><strong>Volumetric Clouds are the biggest FPS killer:</strong> Dropping from Ultra to Medium yields 15-25% FPS gains on all GPUs. This is the single most impactful setting.</li>
+                <li><strong>Lighting "Max" setting is bugged:</strong> It introduces visual noise and costs FPS compared to "Cinematic" or "Ultra." Do not use it.</li>
+                <li><strong>CPU bottleneck is rare:</strong> Crimson Desert's BlackSpace engine is heavily GPU-bound. Even a Ryzen 7 2700X or Core i3-13100F can deliver playable performance.</li>
+            </ul>
+
+            <h2 id="section6">🎯 6. Recommended Settings by GPU — Quick Reference Table</h2>
+            <p>Quick look-up table for optimal settings across the most common GPU tiers. Settings target 60 FPS minimum at the listed resolution unless otherwise noted.</p>
+
+            <table style="width:100%;border-collapse:collapse;margin:1.2rem 0">
+                <thead>
+                    <tr style="background:#7A64B8;color:#fff">
+                        <th style="padding:8px;text-align:left">GPU Tier</th>
+                        <th style="padding:8px;text-align:left">Resolution</th>
+                        <th style="padding:8px;text-align:left">Preset</th>
+                        <th style="padding:8px;text-align:left">Upscaler</th>
+                        <th style="padding:8px;text-align:left">Frame Gen</th>
+                        <th style="padding:8px;text-align:left">RT</th>
+                        <th style="padding:8px;text-align:left">Vol Clouds</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:6px">RTX 5090/5080</td>
+                        <td style="padding:6px">4K</td>
+                        <td style="padding:6px">Ultra</td>
+                        <td style="padding:6px">DLSS 4 Q</td>
+                        <td style="padding:6px">ON</td>
+                        <td style="padding:6px">ON</td>
+                        <td style="padding:6px">Ultra</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:6px">RTX 4090</td>
+                        <td style="padding:6px">4K</td>
+                        <td style="padding:6px">Ultra</td>
+                        <td style="padding:6px">DLSS 4 Q</td>
+                        <td style="padding:6px">ON</td>
+                        <td style="padding:6px">ON</td>
+                        <td style="padding:6px">High</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:6px">RX 7900 XTX</td>
+                        <td style="padding:6px">4K</td>
+                        <td style="padding:6px">Ultra</td>
+                        <td style="padding:6px">FSR 3.1 Q</td>
+                        <td style="padding:6px">ON</td>
+                        <td style="padding:6px">ON</td>
+                        <td style="padding:6px">High</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:6px">RTX 4070 Ti/S</td>
+                        <td style="padding:6px">1440p</td>
+                        <td style="padding:6px">High</td>
+                        <td style="padding:6px">DLSS 4 Q</td>
+                        <td style="padding:6px">ON</td>
+                        <td style="padding:6px">ON</td>
+                        <td style="padding:6px">Medium</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:6px">RX 6800 XT</td>
+                        <td style="padding:6px">1440p</td>
+                        <td style="padding:6px">High</td>
+                        <td style="padding:6px">FSR 3.1 Q</td>
+                        <td style="padding:6px">OFF</td>
+                        <td style="padding:6px">OFF</td>
+                        <td style="padding:6px">Medium</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:6px">RTX 4060</td>
+                        <td style="padding:6px">1080p</td>
+                        <td style="padding:6px">Medium</td>
+                        <td style="padding:6px">DLSS 4 B</td>
+                        <td style="padding:6px">OFF</td>
+                        <td style="padding:6px">OFF</td>
+                        <td style="padding:6px">Low</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #e0d8f0">
+                        <td style="padding:6px">RX 6600 XT</td>
+                        <td style="padding:6px">1080p</td>
+                        <td style="padding:6px">Medium</td>
+                        <td style="padding:6px">FSR 3.1 B</td>
+                        <td style="padding:6px">OFF</td>
+                        <td style="padding:6px">OFF</td>
+                        <td style="padding:6px">Low</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:6px">GTX 1060 (6GB)</td>
+                        <td style="padding:6px">1080p</td>
+                        <td style="padding:6px">Low-Med</td>
+                        <td style="padding:6px">FSR 3.1 B</td>
+                        <td style="padding:6px">OFF</td>
+                        <td style="padding:6px">OFF</td>
+                        <td style="padding:6px">Low</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="tip-box">
+                <strong>Storage Warning:</strong> Crimson Desert <strong>requires an SSD</strong>. Running the game on an HDD causes catastrophic object pop-in, texture streaming delays, and can extend loading times to over 5 minutes. The 150GB install size demands an NVMe SSD for acceptable performance.</div>
+
+            <h2 id="faq">❓ FAQ — Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h4>Which AMD driver version is safest for Crimson Desert?</h4>
+                <p>Adrenalin 26.6.1 is the most stable version confirmed for Crimson Desert. Versions 26.6.2 and 26.6.3 cause crashes. Future releases may fix this — check the official Known Issues page before updating.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Does the GTX 1060 white screen bug affect the 6GB and 3GB versions equally?</h4>
+                <p>Yes. The white screen bug is architecture-based, not VRAM-related. Both the 6GB and 3GB GTX 1060 models will white-screen when FSR + Frame Gen are both enabled.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Should I use the NVIDIA App or the old Control Panel?</h4>
+                <p>Use the NVIDIA Control Panel for per-game 3D settings (it is more comprehensive). Use the NVIDIA App only for driver updates and to ensure DLSS override is set to "Use application settings."</p>
+            </div>
+            <div class="faq-item">
+                <h4>Does FSR4 rain bug affect all RX 9000 series cards?</h4>
+                <p>Yes, the FSR4 rain visual bug affects all RX 9000 series cards. It is an FSR4 implementation issue in the game engine, not GPU-specific. Switch to FSR 3.1 as a workaround.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What is the single best performance setting to change?</h4>
+                <p>Volumetric Clouds from Ultra/High to Medium. This single change yields more FPS gain (15-25%) than any other individual setting on all GPUs. Second place: Shadow Quality from Ultra to High.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Will using FSR on NVIDIA cards cause issues?</h4>
+                <p>FSR 3.1 works well on NVIDIA cards. It is actually the recommended upscaler for GTX series cards and a good fallback if DLSS causes stability issues on RTX cards.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How much VRAM does Crimson Desert need for Ultra textures?</h4>
+                <p>Ultra textures require 8GB+ VRAM. If your card has 6GB or less (e.g., GTX 1060, RTX 2060 6GB, RX 6600), use High or Medium textures to avoid texture streaming stutter.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Does the game support HDR properly now?</h4>
+                <p>HDR support works on compatible displays, but the 1.12.02 patch fixed a crash specifically related to toggling HDR off before using Photo Mode. HDR itself is functional for general gameplay.</p>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🔓</span>
+                    <div class="support-text">
+                        <h3>Every guide is free — this one stays free either way.</h3>
+                        <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+                        <p style="margin:6px 0 0 0;line-height:1.7">
+                            📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                            ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                            ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                            🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+                        </p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack 👑</a>
+                        </div>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p class="footer-bottom">&copy; 2026 CDGuru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px">Crimson Desert&trade; is a trademark of Pearl Abyss Corp. All game content and materials are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by Pearl Abyss.</p>
+        </div>
+    </footer>
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>.guide-content li{color:#2d2a33!important}</style>
+</body>
+</html>
