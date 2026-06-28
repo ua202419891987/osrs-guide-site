@@ -1,52 +1,34 @@
 #!/usr/bin/env python3
 """提交 Crimson Desert 新文章到 Google Indexing API
-   35 个新 URL（34 篇新攻略 + index.html），排除已推送过的 8 篇第一批
+   21 篇全新文章（第二批，2026-06-28）
 """
 import os, sys, json, time, socket, requests
 
-# ---- 35 个新 URL ----
+# ---- 21 篇全新文章（2026-06-28 第二批） ----
 URLS = [
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-1-10-update-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-abyss-artifacts-farming-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-beginner-mistakes-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-best-skills-unlock-first-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-boss-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-camp-farm-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-camp-system-starter-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-combat-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-controls-keybindings-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-cooking-alchemy-recipes-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-crafting-upgrade-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-damiane-companion-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-first-2-hours-checklist-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-first-boss-staglord-prep-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-fishing-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-inventory-backpack-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-known-bugs-fixes-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-matthias-boss-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-mini-games-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-mounts-pets-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-new-player-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-parry-timing-dodge-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-pre-boss-gear-checklist-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-quest-walkthrough-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-resource-farming-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-resource-gathering-routes-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-roadmap-dlc-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-skills-builds-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-staglord-boss-strategy-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-stamina-management-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-tenebrum-boss-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-treasure-map-locations-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-weapon-combos-beginner-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-weapons-gear-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/index.html",
+    # === NEW 21 articles (June 28 batch) ===
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-1-11-update-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-1-12-update-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-crash-fix-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-gpu-driver-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-faction-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-reputation-farming-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-commission-bounty-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-side-quests-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-lost-items-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-vendor-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-gold-farming-1-12-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-beginner-money-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-platform-comparison-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-console-settings-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-steam-deck-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-geforce-now-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-world-bosses-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-boss-weakness-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-hidden-boss-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-collectibles-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-npc-locations-guide-2026.html",
 ]
-
-# 排除的 8 篇（第一批已推送）:
-# best-settings-performance, coop-multiplayer, endgame-guide,
-# hidden-secrets-easter-eggs, meta-build-tier-list,
-# money-farming-guide, patch-notes-analysis, pvp-arena-guide
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -105,8 +87,8 @@ API_URL = 'https://indexing.googleapis.com/v3/urlNotifications:publish'
 ok = fail = 0
 
 print(f"\n{'='*70}")
-print(f"  Crimson Desert — 提交 {len(URLS)} 个新 URL")
-print(f"  (排除 8 篇已推送的第一批)")
+print(f"  Crimson Desert — 提交 {len(URLS)} 篇（第二批 2026-06-28）")
+print(f"  (21 篇全新攻略文章)")
 print(f"{'='*70}\n")
 
 for i, url in enumerate(URLS, 1):
