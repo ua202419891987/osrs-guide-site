@@ -6,6 +6,7 @@
  * v2.15.2 - Add Windrose suggested questions (same fix as v2.15.1 for CD); Windrose pages now show sailing/ship/combat/base/farming questions instead of OSRS 1-99/GP/Ironman; updated Windrose offline message with 14+ guides
  * v2.15.1 - Fix CD suggested questions: was showing OSRS questions (1-99/GP/Ironman/membership) on Crimson Desert pages; add CD-specific suggestions for Boss/Combat/Skills/Farming/Story/default
  * v2.15.0 - Add 29 new CD guides (Controls, First-2-Hours, Parry, Combos, Gathering, Camp, Pre-Boss, Staglord-Prep, Abyss, Mistakes, Skills-Unlock, Camp-Farm, Cooking, Crafting, Damiane, Fishing, Inventory, Bugs, Matthias, Mini-Games, Mounts, Resource-Farm, Roadmap, Staglord-Strategy, Stamina, Tenebrum, Treasure-Map, Update-1.10); CD_ARTICLES: 14 → 43
+ * v2.16.0 - Add 21 new CD guides (1.11 Update, 1.12 Update, Beginner Money, Boss Weakness, Collectibles, Commission, Console Settings, Crash Fix, Faction, GeForce Now, Gold Farming 1.12, GPU Driver, Hidden Boss, Lost Items, NPC Locations, Platform Comparison, Reputation Farming, Side Quests, Steam Deck, Vendor, World Bosses); CD_ARTICLES: 43 → 64
  * v2.14.2 - Chinese mode: zh/ pages get CN title/questions/bubble; fix script paths for all 29 zh pages
  * v2.14.1 - Fix: brighter pulse ring (white/gold), badge always visible, bubble shows every 2hrs
  * v2.14.0 - Visibility boost: pulse animation + NEW badge + preview bubble + page-context suggested questions
@@ -154,6 +155,29 @@
     { label: 'Crimson Desert Tenebrum Boss Guide 2026', url: '/guides/crimson-desert/crimson-desert-tenebrum-boss-guide-2026.html', kw: 'tenebrum boss fight strategy how to beat mechanics dark enemy crimson desert pvm' },
     { label: 'Crimson Desert Treasure Map Locations 2026', url: '/guides/crimson-desert/crimson-desert-treasure-map-locations-guide-2026.html', kw: 'treasure map locations hidden chests loot exploration secrets find crimson desert' },
     { label: 'Crimson Desert Update 1.0 \u2014 1.10 Analysis 2026', url: '/guides/crimson-desert/crimson-desert-1-10-update-guide-2026.html', kw: 'update 1.0 1.10 patch analysis changes new features balance crimson desert' },
+
+    // ===== 新增文章 (2026-06-28) =====
+    { label: 'Crimson Desert Update 1.11 \u2014 New Content & Changes 2026', url: '/guides/crimson-desert/crimson-desert-1-11-update-guide-2026.html', kw: 'update 1.11 patch notes new content changes features crimson desert' },
+    { label: 'Crimson Desert Update 1.12 \u2014 Gold Farming & Endgame 2026', url: '/guides/crimson-desert/crimson-desert-1-12-update-guide-2026.html', kw: 'update 1.12 patch gold farming endgame new content changes crimson desert' },
+    { label: 'Crimson Desert Beginner Money Making Guide 2026', url: '/guides/crimson-desert/crimson-desert-beginner-money-guide-2026.html', kw: 'beginner money making gold gp early game farming tips crimson desert' },
+    { label: 'Crimson Desert Boss Weakness Guide 2026', url: '/guides/crimson-desert/crimson-desert-boss-weakness-guide-2026.html', kw: 'boss weakness elements resistances strategy tips exploit weak point crimson desert' },
+    { label: 'Crimson Desert Collectibles & Achievements Guide 2026', url: '/guides/crimson-desert/crimson-desert-collectibles-guide-2026.html', kw: 'collectibles achievements trophies hidden items gathering completion crimson desert' },
+    { label: 'Crimson Desert Commission & Bounty Guide 2026', url: '/guides/crimson-desert/crimson-desert-commission-bounty-guide-2026.html', kw: 'commission bounty quests side missions rewards reputation daily crimson desert' },
+    { label: 'Crimson Desert Console Settings Guide 2026', url: '/guides/crimson-desert/crimson-desert-console-settings-guide-2026.html', kw: 'console settings ps5 xbox performance graphics optimization display crimson desert' },
+    { label: 'Crimson Desert Crash Fix & Troubleshoot Guide 2026', url: '/guides/crimson-desert/crimson-desert-crash-fix-guide-2026.html', kw: 'crash fix troubleshoot error black screen crash fix performance crimson desert' },
+    { label: 'Crimson Desert Faction Guide 2026', url: '/guides/crimson-desert/crimson-desert-faction-guide-2026.html', kw: 'faction choose join reputation rewards factions pywel allies crimson desert' },
+    { label: 'Crimson Desert GeForce Now Setup Guide 2026', url: '/guides/crimson-desert/crimson-desert-geforce-now-guide-2026.html', kw: 'geforce now cloud gaming streaming setup performance nvidia crimson desert' },
+    { label: 'Crimson Desert Gold Farming 1.12 Guide 2026', url: '/guides/crimson-desert/crimson-desert-gold-farming-1-12-guide-2026.html', kw: 'gold farming 1.12 money making methods best routes profit crimson desert' },
+    { label: 'Crimson Desert GPU Driver Optimization Guide 2026', url: '/guides/crimson-desert/crimson-desert-gpu-driver-guide-2026.html', kw: 'gpu driver optimization performance fps increase fps fix nvidia amd crimson desert' },
+    { label: 'Crimson Desert Hidden Boss Locations Guide 2026', url: '/guides/crimson-desert/crimson-desert-hidden-boss-guide-2026.html', kw: 'hidden boss secret boss locations unlock how to find special boss crimson desert' },
+    { label: 'Crimson Desert Lost Items Recovery Guide 2026', url: '/guides/crimson-desert/crimson-desert-lost-items-guide-2026.html', kw: 'lost items recovery missing items how to find inventory bug fix crimson desert' },
+    { label: 'Crimson Desert All NPC Locations Guide 2026', url: '/guides/crimson-desert/crimson-desert-npc-locations-guide-2026.html', kw: 'npc locations all npcs merchants quest givers map guide find crimson desert' },
+    { label: 'Crimson Desert PC vs Console Comparison Guide 2026', url: '/guides/crimson-desert/crimson-desert-platform-comparison-guide-2026.html', kw: 'pc vs console comparison platform differences performance graphics features crimson desert' },
+    { label: 'Crimson Desert Reputation Farming Guide 2026', url: '/guides/crimson-desert/crimson-desert-reputation-farming-guide-2026.html', kw: 'reputation farming faction rep grind reputation rewards daily quests crimson desert' },
+    { label: 'Crimson Desert Side Quests Complete Guide 2026', url: '/guides/crimson-desert/crimson-desert-side-quests-guide-2026.html', kw: 'side quests all quests completion rewards walkthrough optional stories crimson desert' },
+    { label: 'Crimson Desert Steam Deck Guide 2026', url: '/guides/crimson-desert/crimson-desert-steam-deck-guide-2026.html', kw: 'steam deck settings performance controls portable play handheld optimization crimson desert' },
+    { label: 'Crimson Desert Vendor & Shop Guide 2026', url: '/guides/crimson-desert/crimson-desert-vendor-guide-2026.html', kw: 'vendor shop merchant items buy sell best deals trading npc crimson desert' },
+    { label: 'Crimson Desert World Bosses Guide 2026', url: '/guides/crimson-desert/crimson-desert-world-bosses-guide-2026.html', kw: 'world bosses overworld boss spawn times locations rewards strategy crimson desert' },
   ];
 
   var WINDROSE_ARTICLES = [
