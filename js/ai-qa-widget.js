@@ -195,6 +195,19 @@
     { label: 'Windrose Treasure Map &amp; Secrets Guide 2026', url: '/guides/windrose/windrose-treasure-map-secrets-2026.html', kw: 'treasure map secrets hidden caves easter eggs windrose' },
     { label: 'Windrose Performance Optimization 2026', url: '/guides/windrose/windrose-performance-optimization-2026.html', kw: 'performance fps optimization lag fix settings windrose' },
     { label: 'Windrose Early Access Update Guide 2026', url: '/guides/windrose/windrose-early-access-update-guide-2026.html', kw: 'early access updates patch notes roadmap windrose' },
+    // === 12篇新文章 2026-06-29 ===
+    { label: 'Windrose XP & Leveling Guide 2026 — How to Level Up Fast', url: '/guides/windrose/windrose-xp-leveling-guide-2026.html', kw: 'xp leveling experience guide leveling fast level cap windrose' },
+    { label: 'Windrose Best Quests & POIs for XP 2026', url: '/guides/windrose/windrose-quests-poi-xp-guide-2026.html', kw: 'quests poi xp experience rewards farming guide windrose' },
+    { label: 'Windrose Combat Mastery Guide 2026 — Perfect Block, Parry & Survival', url: '/guides/windrose/windrose-combat-mastery-guide-2026.html', kw: 'combat mastery perfect block parry dodge survival shield windrose' },
+    { label: 'Windrose Enemy Types Guide 2026 — Every Enemy & How to Beat Them', url: '/guides/windrose/windrose-enemy-types-guide-2026.html', kw: 'enemy types bestiary boar wolf goat zombie ghost pirate windrose' },
+    { label: 'Windrose Hidden Mechanics Guide 2026 — 15 Things Game Doesn\'t Tell You', url: '/guides/windrose/windrose-hidden-mechanics-guide-2026.html', kw: 'hidden mechanics secrets tips tricks comfort xp faction storage windrose' },
+    { label: 'Windrose First Day Survival Checklist 2026', url: '/guides/windrose/windrose-first-day-checklist-guide-2026.html', kw: 'first day survival checklist beginner start hour-by-hour windrose' },
+    { label: 'Windrose Death Penalty & Survival Guide 2026', url: '/guides/windrose/windrose-death-penalty-guide-2026.html', kw: 'death penalty survival respawn food buffs tent bell windrose' },
+    { label: 'Windrose Boss Preparation Guide 2026 — Food Buffs, Gear & Strategy', url: '/guides/windrose/windrose-boss-prep-guide-2026.html', kw: 'boss prep preparation food buffs gear strategy kraken serpent windrose' },
+    { label: 'Windrose SSD Bug Fix Guide 2026 — Check Your Drive', url: '/guides/windrose/windrose-ssd-bug-fix-guide-2026.html', kw: 'ssd bug fix hard drive write 108gb rocksdb hotfix check windrose' },
+    { label: 'Windrose Performance Guide 2026 — FPS Boost & Post-Patch Optimization', url: '/guides/windrose/windrose-performance-after-patch-guide-2026.html', kw: 'performance fps boost optimization after patch settings fix windrose' },
+    { label: 'Windrose Base Layout Guide 2026 — Perfect Island Base Planning', url: '/guides/windrose/windrose-base-layout-guide-2026.html', kw: 'base layout planning island comfort walls dock expansion windrose' },
+    { label: 'Windrose Base Building Mistakes 2026 — 10 Costly Errors to Avoid', url: '/guides/windrose/windrose-base-mistakes-guide-2026.html', kw: 'base building mistakes avoid errors layout planning guide windrose' },
   ];
 
   // OSRS 176篇全索引（154篇原有 + 22篇新增，2026-06-16）
