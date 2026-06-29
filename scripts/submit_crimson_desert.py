@@ -1,33 +1,48 @@
 #!/usr/bin/env python3
 """提交 Crimson Desert 新文章到 Google Indexing API
-   21 篇全新文章（第二批，2026-06-28）
+   24 篇全新文章（第三批，2026-06-29）
 """
 import os, sys, json, time, socket, requests
 
-# ---- 21 篇全新文章（2026-06-28 第二批） ----
+# ---- 24 篇全新文章（2026-06-29 第三批） ----
 URLS = [
-    # === NEW 21 articles (June 28 batch) ===
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-1-11-update-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-1-12-update-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-crash-fix-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-gpu-driver-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-faction-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-reputation-farming-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-commission-bounty-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-side-quests-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-lost-items-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-vendor-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-gold-farming-1-12-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-beginner-money-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-platform-comparison-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-console-settings-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-steam-deck-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-geforce-now-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-world-bosses-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-boss-weakness-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-hidden-boss-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-collectibles-guide-2026.html",
-    "https://osrsguru.com/guides/crimson-desert/crimson-desert-npc-locations-guide-2026.html",
+    # === NEW 24 articles (June 29 batch) ===
+    # 武器强化系统
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-weapon-enhancement-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-enhancement-materials-guide-2026.html",
+    # 深渊圣所地牢
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-abyss-sanctum-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-sanctum-rewards-guide-2026.html",
+    # 中期装备
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-mid-game-gear-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-mid-gear-locations-guide-2026.html",
+    # 通关后内容
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-post-game-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-post-game-secrets-guide-2026.html",
+    # Kliff角色
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-kliff-build-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-kliff-combos-guide-2026.html",
+    # Oongka角色
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-oongka-build-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-oongka-dual-wield-guide-2026.html",
+    # Damiane角色
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-damiane-build-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-damiane-shield-guide-2026.html",
+    # 转换率系统
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-conversion-mechanics-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-conversion-farming-guide-2026.html",
+    # 成就系统
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-achievements-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-achievement-speedrun-guide-2026.html",
+    # 深渊核心系统
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-abyss-core-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-core-farming-guide-2026.html",
+    # 卡牌游戏
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-card-game-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-card-collection-guide-2026.html",
+    # Kuku Pot系统
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-kuku-guide-2026.html",
+    "https://osrsguru.com/guides/crimson-desert/crimson-desert-kuku-evolution-guide-2026.html",
 ]
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -87,8 +102,8 @@ API_URL = 'https://indexing.googleapis.com/v3/urlNotifications:publish'
 ok = fail = 0
 
 print(f"\n{'='*70}")
-print(f"  Crimson Desert — 提交 {len(URLS)} 篇（第二批 2026-06-28）")
-print(f"  (21 篇全新攻略文章)")
+print(f"  Crimson Desert — 提交 {len(URLS)} 篇（第三批 2026-06-29）")
+print(f"  (24 篇全新攻略文章)")
 print(f"{'='*70}\n")
 
 for i, url in enumerate(URLS, 1):
