@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crimson Desert Kuku Pot & Pet Enhancement Guide ‚Äî Complete System Breakdown | CD Guru</title>
-    <meta name="description" content="Complete guide to Kuku Pots and pet enhancement in Crimson Desert ‚Äî how to get Kuku, upgrade paths, best Kuku types, enhancement materials, builds, and maximizing potential.">
+    <title>Crimson Desert Kuku Pot & Pet Enhancement Guide ‚Ä?Complete System Breakdown | CD Guru</title>
+    <meta name="description" content="Complete guide to Kuku Pots and pet enhancement in Crimson Desert ‚Ä?how to get Kuku, upgrade paths, best Kuku types, enhancement materials, builds, and maximizing potential.">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="dns-prefetch" href="//www.google-analytics.com">
@@ -42,7 +42,6 @@
         .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}
         .inline-support-hint p{font-size:1rem}
         .guide-content li{color:#2d2a33 !important}
-        .progress-widget{display:none !important}
         @media(max-width:520px){
             .guide-content h2{font-size:1.15rem !important}
             .guide-content h3{font-size:1.02rem !important}
@@ -62,9 +61,23 @@
             .guide-hero .weekly-badge{font-size:.85rem !important}
             .guide-img figcaption{font-size:.78rem}
         }
+    
+        /* Reading Progress Bar */
+        .cd-reading-progress{position:fixed;top:0;left:0;width:100%;height:4px;background:rgba(122,100,184,0.12);z-index:99999;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+        .cd-reading-progress .cd-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#7a64b8,#b8a4e8,#e0d8f0);transition:width .15s ease-out;border-radius:0 2px 2px 0}
+        /* Mobile hero improvements */
+        @media(max-width:768px){
+            .guide-hero h1{font-size:1.6rem !important;line-height:1.3}
+            .guide-hero .subtitle{font-size:1rem !important}
+            .guide-hero .breadcrumb{font-size:.8rem !important}
+            .toc{padding:1rem !important}
+            .toc ol li{font-size:.9rem !important}
+            .nav-links{overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+        }
     </style>
 </head>
 <body>
+    <div class="cd-reading-progress" id="cdReadingProgress"><div class="cd-progress-fill" id="cdProgressFill"></div></div>
     <header>
         <div class="container">
             <nav>
@@ -83,15 +96,24 @@
     <section class="guide-hero">
         <div class="container">
             <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#crimson-desert">Crimson Desert</a> / Kuku Pot Guide</p>
-            <h1>Crimson Desert Kuku Pot & Pet Enhancement Guide ‚Äî Complete System Breakdown</h1>
-            <p class="subtitle">Everything about the Kuku Pot system ‚Äî from obtaining your first pot, all upgrade paths, elemental armour, spears, backpacks, and the best enhancement strategies for endgame.</p>
+            <h1>Crimson Desert Kuku Pot & Pet Enhancement Guide ‚Ä?Complete System Breakdown</h1>
+            <p class="subtitle">Everything about the Kuku Pot system ‚Ä?from obtaining your first pot, all upgrade paths, elemental armour, spears, backpacks, and the best enhancement strategies for endgame.</p>
             <div class="weekly-badge">
-                <span class="badge-icon">üîß</span> <strong>CD Guide</strong> ‚Äî Part of the <strong>Crimson Desert Essentials Series</strong> ¬∑ 15 min read
+                <span class="badge-icon">üîß</span> <strong>CD Guide</strong> ‚Ä?Part of the <strong>Crimson Desert Essentials Series</strong> ¬∑ 15 min read
             </div>
             <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: June 28, 2026</p>
         </div>
     </section>
-
+    <!-- Quick Summary -->
+    <div class="quick-summary" style="background:#faf8fc;border:1px solid #e0d8f0;border-left:4px solid #7a64b8;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0 2rem;font-size:1rem">
+        <h3 style="color:#7a64b8;font-size:1.15rem;margin:0 0 .8rem">‚è±Ô∏è Quick Summary ‚Ä?30-Second Read</h3>
+        <ul style="margin:0;padding-left:1.2rem;list-style:none">
+                <li>ü´ô Kuku Pot is a Dwarven crafting station unlocked in Chapter 4 (Mysterious Pot quest)</li>
+                <li>üîß Craft categories: elemental spears, utility backpacks, elemental armor, special boots, laser helmet</li>
+                <li>‚öôÔ∏è Upgrade to Enhanced Kuku Pot (1 Abyss Cell) before endgame for advanced recipes</li>
+                <li>üí° Craft priority: Fire Spear (permanent) ‚Ü?Watcher Pack ‚Ü?Elemental Armor ‚Ü?Rocket Pack</li>
+        </ul>
+    </div>
     <main class="guide-content">
         <div class="container">
             <div class="toc">
@@ -104,7 +126,7 @@
                     <li><a href="#section5">Upgrade Materials Farming</a></li>
                     <li><a href="#section6">Best Kuku Builds</a></li>
                     <li><a href="#section7">Advanced Tips</a></li>
-                    <li><a href="#faq">FAQ ‚Äî Frequently Asked Questions</a></li>
+                    <li><a href="#faq">FAQ ‚Ä?Frequently Asked Questions</a></li>
                 </ol>
             </div>
 
@@ -115,17 +137,17 @@
             <h3>What Can You Store in a Kuku Pot?</h3>
             <p>Objects that can be stored are marked on your minimap with a <strong>small white rune featuring a swirl symbol</strong>. The main sources of storable items include:</p>
             <ul>
-                <li><strong>The Abyss</strong> ‚Äî Puzzle rewards and components from the Abyss dimension</li>
-                <li><strong>Bismuth Fake Walls</strong> ‚Äî Hidden items behind destructible walls made of bismuth ore</li>
-                <li><strong>Sanctums</strong> ‚Äî Key components for crafting the most useful Kuku items</li>
-                <li><strong>Abyss Walkers</strong> ‚Äî Giant elemental creatures that drop random crafting materials</li>
-                <li><strong>Giant Robots</strong> ‚Äî Found in Delesyia, drop specific crafting items</li>
-                <li><strong>Aeserion's Scales</strong> ‚Äî Used for the highest-level +10 enhancement upgrades</li>
-                <li><strong>Abyss Cells</strong> ‚Äî Used for Kuku crafting and Abyss item farming</li>
+                <li><strong>The Abyss</strong> ‚Ä?Puzzle rewards and components from the Abyss dimension</li>
+                <li><strong>Bismuth Fake Walls</strong> ‚Ä?Hidden items behind destructible walls made of bismuth ore</li>
+                <li><strong>Sanctums</strong> ‚Ä?Key components for crafting the most useful Kuku items</li>
+                <li><strong>Abyss Walkers</strong> ‚Ä?Giant elemental creatures that drop random crafting materials</li>
+                <li><strong>Giant Robots</strong> ‚Ä?Found in Delesyia, drop specific crafting items</li>
+                <li><strong>Aeserion's Scales</strong> ‚Ä?Used for the highest-level +10 enhancement upgrades</li>
+                <li><strong>Abyss Cells</strong> ‚Ä?Used for Kuku crafting and Abyss item farming</li>
             </ul>
 
             <div class="tip-box">
-                <strong>Important:</strong> All Kuku Pots <strong>share the same storage space</strong>. Crafting multiple pots does not give you extra storage ‚Äî it only gives you additional base materials for upgrades. Your stored items are always preserved regardless of which pot you use.</div>
+                <strong>Important:</strong> All Kuku Pots <strong>share the same storage space</strong>. Crafting multiple pots does not give you extra storage ‚Ä?it only gives you additional base materials for upgrades. Your stored items are always preserved regardless of which pot you use.</div>
 
             <h2 id="section2">üîß 2. How to Get Your First Kuku</h2>
             <p>You unlock the Kuku Pot during <strong>Chapter 4</strong> of the main story through the quest <strong>"Mysterious Pot" (Quest #49)</strong>. Here is the complete walkthrough:</p>
@@ -147,7 +169,7 @@
             <div class="action-step">
                 <div class="step-num">3</div>
                 <h4>Disassembled Furnace</h4>
-                <p>Use <strong>Axiom Force (Grab)</strong> to align the flat components first. Then install the top piece (found behind the smelter ‚Äî it looks like it was blown off). Climb the structure and use <strong>Aerial Force Palm</strong> to lock the piece into place.</p>
+                <p>Use <strong>Axiom Force (Grab)</strong> to align the flat components first. Then install the top piece (found behind the smelter ‚Ä?it looks like it was blown off). Climb the structure and use <strong>Aerial Force Palm</strong> to lock the piece into place.</p>
             </div>
             <div class="action-step">
                 <div class="step-num">4</div>
@@ -160,7 +182,7 @@
             <div class="warn-box">
                 <strong>Lost your Kuku Pot?</strong> Check your camp's retrieval items first. If it's not there, return to Grimnir at Kilnden Workshop to craft a new one with iron ore (5) and wood (5). You can also send your Greymane Comrades to Kilnden Workshop to craft one for you after completing Chapter 7.</div>
 
-            <h2 id="section3">üóÇÔ∏è 3. Kuku Types & Abilities</h2>
+            <h2 id="section3">üóÇÔ∏?3. Kuku Types & Abilities</h2>
             <p>The Kuku Pot can be upgraded into many different forms. Each upgrade path consumes a Kuku Pot as a base material. The four main branches are: <strong>Weapons (Spears)</strong>, <strong>Backpacks</strong>, <strong>Armour</strong>, and <strong>A.T.A.G. Upgrades</strong>.</p>
 
             <h3>Kuku Spears (Weapon Branch)</h3>
@@ -196,13 +218,13 @@
                 </thead>
                 <tbody>
                     <tr><td>Kuku Backpack</td><td>Base pack, increased carry capacity</td><td>Purify Sanctum of Penitence (Hernand)</td></tr>
-                    <tr><td>Kuku Transmission 999K Pack</td><td>Mobile trading ‚Äî trade with merchants across regions</td><td>Purify Sanctum of Faith</td></tr>
+                    <tr><td>Kuku Transmission 999K Pack</td><td>Mobile trading ‚Ä?trade with merchants across regions</td><td>Purify Sanctum of Faith</td></tr>
                     <tr><td>Kuku Frost Spray Pack</td><td>Launches freezing devices to damage and slow enemies</td><td>Purify Sanctum of Deliverance (Hernand)</td></tr>
                     <tr><td>Kuku Flame Spray Pack</td><td>Launches flame devices for fire damage</td><td>Purify Sanctum of Abandonment</td></tr>
                     <tr><td>Kuku Lightning Spray Pack</td><td>Launches electrical devices for shock damage</td><td>Purify Sanctum of Temperance (Hernand)</td></tr>
                     <tr><td>Enhanced Kuku Jammer</td><td>Stuns enemies in a radius, deals massive damage</td><td>Ironflame Orc faction quest "Apex of Technology"</td></tr>
                     <tr><td>Kuku Watcher Pack</td><td>Deploys two mini-watcher allies that fight for you</td><td>Purify Sanctum of Atonement (Hernand)</td></tr>
-                    <tr><td>Kuku Rocket Pack</td><td>Oongka's flight device ‚Äî rocket-propelled movement</td><td>Pyruin Militia faction quest (liberate Pyruin first)</td></tr>
+                    <tr><td>Kuku Rocket Pack</td><td>Oongka's flight device ‚Ä?rocket-propelled movement</td><td>Pyruin Militia faction quest (liberate Pyruin first)</td></tr>
                     <tr><td>Kuku Horticulture Pack</td><td>Accelerates plant growth for farming</td><td>Purify Sanctum of Adoration (Delesyia)</td></tr>
                     <tr><td>Kuku Insect Collector Pack</td><td>Attracts insects into the pot for collection</td><td>Purify Sanctum of Offerings (Delesyia)</td></tr>
                 </tbody>
@@ -224,21 +246,21 @@
                     <tr><td>Kuku Fire-Resistant Armour</td><td>Near-immunity to fire damage + passive explosion when hit by fire</td><td>Purify Sanctum of Deliverance (Hernand)</td></tr>
                     <tr><td>Kuku Lightning-Resistant Armour</td><td>Near-immunity to lightning damage + passive explosion</td><td>Purify Sanctum of Atonement (Hernand/Demenis border)</td></tr>
                     <tr><td>Kuku Light Breeze Boots</td><td>Creates temporary platforms in mid-air for vertical exploration</td><td>Purify Sanctum of Offerings (Delesyia)</td></tr>
-                    <tr><td>Kuku Ascetic Boots</td><td>Enhanced dodge and double-jump ‚Äî especially powerful for Damiane</td><td>Defeat Spear of Antumbra in Sanctum of Revelation</td></tr>
+                    <tr><td>Kuku Ascetic Boots</td><td>Enhanced dodge and double-jump ‚Ä?especially powerful for Damiane</td><td>Defeat Spear of Antumbra in Sanctum of Revelation</td></tr>
                 </tbody>
             </table>
 
             <div class="tip-box">
-                <strong>Pro Tip:</strong> The fire and ice elemental chestplates can be unlocked as early as Chapter 5. Crafting these two pieces should be your highest priority ‚Äî they provide near-immunity to the two most common elemental damage types and are considered essential for any Crimson Desert playthrough.</div>
+                <strong>Pro Tip:</strong> The fire and ice elemental chestplates can be unlocked as early as Chapter 5. Crafting these two pieces should be your highest priority ‚Ä?they provide near-immunity to the two most common elemental damage types and are considered essential for any Crimson Desert playthrough.</div>
 
             <h3>Kuku A.T.A.G. Upgrades</h3>
-            <p>Unlocked after Chapter 10 through the Ironflame Orc faction. A.T.A.G. upgrades enhance your mech's mobility and combat power. The ultimate use: a Kuku Pot can be converted into a <strong>Mini Kuku A.T.A.G.</strong>, which is a component for crafting the <strong>Abyssal Fusion</strong> ‚Äî the final upgrade used for the Blackstar Dragon mount. Use an empty pot for this conversion, as the entire pot is consumed.</p>
+            <p>Unlocked after Chapter 10 through the Ironflame Orc faction. A.T.A.G. upgrades enhance your mech's mobility and combat power. The ultimate use: a Kuku Pot can be converted into a <strong>Mini Kuku A.T.A.G.</strong>, which is a component for crafting the <strong>Abyssal Fusion</strong> ‚Ä?the final upgrade used for the Blackstar Dragon mount. Use an empty pot for this conversion, as the entire pot is consumed.</p>
 
             <h2 id="section4">‚¨ÜÔ∏è 4. Enhancement System</h2>
             <p>The Kuku enhancement system allows you to upgrade equipment using <strong>Aeserion's Scales</strong> as the primary enhancement material. Here is how enhancement works:</p>
 
             <h3>Enhanced Kuku Pot</h3>
-            <p>Crafted using a standard Kuku Pot + <strong>1 Abyss Cell</strong>. This unlocks advanced recipes at Grimnir's shop, including the legendary elemental armour sets and the Marni Laser Helmet. Craft this as soon as possible ‚Äî the standard Kuku Pot cannot access these recipes.</p>
+            <p>Crafted using a standard Kuku Pot + <strong>1 Abyss Cell</strong>. This unlocks advanced recipes at Grimnir's shop, including the legendary elemental armour sets and the Marni Laser Helmet. Craft this as soon as possible ‚Ä?the standard Kuku Pot cannot access these recipes.</p>
 
             <h3>Kuku Cooler System</h3>
             <table>
@@ -264,12 +286,12 @@
                 <li>Obtain a blueprint (from Sanctum purification or faction quests)</li>
                 <li>Gather required materials (Kuku Pot base + special components)</li>
                 <li>Travel to Grimnir's shop in Hernand</li>
-                <li>Craft the item ‚Äî it will appear in the Kuku Pot's storage</li>
+                <li>Craft the item ‚Ä?it will appear in the Kuku Pot's storage</li>
                 <li>Remove it from the pot using the "Take Out" option for immediate use</li>
             </ol>
 
             <div class="warn-box">
-                <strong>‚ö†Ô∏è Critical Warning:</strong> Kuku-upgraded equipment <strong>cannot be used to complete Challenges</strong> tied to the base items. Before upgrading, ensure you have completed all related challenges, or keep an un-upgraded copy. Most importantly: <strong>Marni's Helm (Marni Laser Helmet) has no known duplicate</strong> ‚Äî complete its challenge before upgrading!</div>
+                <strong>‚ö†Ô∏è Critical Warning:</strong> Kuku-upgraded equipment <strong>cannot be used to complete Challenges</strong> tied to the base items. Before upgrading, ensure you have completed all related challenges, or keep an un-upgraded copy. Most importantly: <strong>Marni's Helm (Marni Laser Helmet) has no known duplicate</strong> ‚Ä?complete its challenge before upgrading!</div>
 
             <h2 id="section5">üåæ 5. Upgrade Materials Farming</h2>
             <p>Gathering materials for Kuku upgrades requires targeted farming. Here is a comprehensive material source guide:</p>
@@ -300,27 +322,27 @@
             </table>
 
             <div class="tip-box">
-                <strong>Farming Strategy:</strong> Delesyia is the single best material farming zone in Crimson Desert. The southeast corner of the map is densely populated with mechanical enemies that drop batteries, gears, lubricant, and clockwork insects. Bring the Kuku Insect Collector Pack if you have it ‚Äî it dramatically increases insect material drops. Farm Delesyia heavily <strong>before Chapter 10</strong>, as some faction quests become harder to complete after the main story progresses.</div>
+                <strong>Farming Strategy:</strong> Delesyia is the single best material farming zone in Crimson Desert. The southeast corner of the map is densely populated with mechanical enemies that drop batteries, gears, lubricant, and clockwork insects. Bring the Kuku Insect Collector Pack if you have it ‚Ä?it dramatically increases insect material drops. Farm Delesyia heavily <strong>before Chapter 10</strong>, as some faction quests become harder to complete after the main story progresses.</div>
 
             <h3>Sanctum Blueprint Farming</h3>
             <p>Each Sanctum in the game offers specific blueprints. Sanctums are purified by completing their puzzles and defeating their guardians. Key Sanctums to prioritise:</p>
             <ul>
-                <li><strong>Sanctum of Penitence</strong> (Hernand) ‚Äî Kuku Backpack blueprint</li>
-                <li><strong>Sanctum of Benediction</strong> (Hernand) ‚Äî Kuku Spear and Marni Laser Helmet blueprints</li>
-                <li><strong>Sanctum of Deliverance</strong> (Hernand) ‚Äî Kuku Frost Spray Pack, Fire-Resistant Armour</li>
-                <li><strong>Sanctum of Atonement</strong> (Hernand/Demenis) ‚Äî Watcher Pack, Lightning-Resistant Armour</li>
-                <li><strong>Sanctum of Adoration</strong> (Delesyia) ‚Äî Horticulture Pack, Laser Cannon Spear</li>
-                <li><strong>Sanctum of Offerings</strong> (Delesyia) ‚Äî Insect Collector Pack, Light Breeze Boots</li>
-                <li><strong>Sanctum of Devotion</strong> (Delesyia) ‚Äî Ice-Resistant Armour</li>
-                <li><strong>Sanctum of Exaltation</strong> (Pyruin) ‚Äî Rocket Pack, Flame Spear</li>
+                <li><strong>Sanctum of Penitence</strong> (Hernand) ‚Ä?Kuku Backpack blueprint</li>
+                <li><strong>Sanctum of Benediction</strong> (Hernand) ‚Ä?Kuku Spear and Marni Laser Helmet blueprints</li>
+                <li><strong>Sanctum of Deliverance</strong> (Hernand) ‚Ä?Kuku Frost Spray Pack, Fire-Resistant Armour</li>
+                <li><strong>Sanctum of Atonement</strong> (Hernand/Demenis) ‚Ä?Watcher Pack, Lightning-Resistant Armour</li>
+                <li><strong>Sanctum of Adoration</strong> (Delesyia) ‚Ä?Horticulture Pack, Laser Cannon Spear</li>
+                <li><strong>Sanctum of Offerings</strong> (Delesyia) ‚Ä?Insect Collector Pack, Light Breeze Boots</li>
+                <li><strong>Sanctum of Devotion</strong> (Delesyia) ‚Ä?Ice-Resistant Armour</li>
+                <li><strong>Sanctum of Exaltation</strong> (Pyruin) ‚Ä?Rocket Pack, Flame Spear</li>
             </ul>
 
-            <h2 id="section6">‚ö° 6. Best Kuku Builds</h2>
+            <h2 id="section6">‚ö?6. Best Kuku Builds</h2>
             <p>Based on community testing and endgame analysis (Patch 1.12.02), here are the most effective Kuku builds for different playstyles:</p>
 
             <h3>Build 1: The Elemental Tank (Recommended for Story)</h3>
             <p><strong>Core Items:</strong> Kuku Fire-Resistant Armour + Kuku Ice-Resistant Armour + Kuku Marni Laser Helmet</p>
-            <p><strong>Priority Order:</strong> Fire Armour (Chapter 5) ‚Üí Ice Armour (Chapter 5) ‚Üí Laser Helmet (post-Enhanced Pot)</p>
+            <p><strong>Priority Order:</strong> Fire Armour (Chapter 5) ‚Ü?Ice Armour (Chapter 5) ‚Ü?Laser Helmet (post-Enhanced Pot)</p>
             <p><strong>Why it works:</strong> Fire and ice are the two most common elemental damage types in the main story. Having near-immunity to both makes boss fights dramatically easier. The Marni Laser Helmet adds a powerful ranged attack option. This build is the community consensus for "essential" Kuku upgrades.</p>
 
             <h3>Build 2: The Explorer (Best for Open World)</h3>
@@ -333,7 +355,7 @@
 
             <h3>Build 4: The Silver Farmer (Best for Economy)</h3>
             <p><strong>Core Items:</strong> Kuku Transmission 999K Pack + Kuku Horticulture Pack + Kuku Insect Collector Pack</p>
-            <p><strong>Why it works:</strong> The Transmission Pack lets you trade with merchants across regions without fast-travelling ‚Äî perfect for arbitrage. The Horticulture Pack accelerates plant growth for potion ingredients. The Insect Collector Pack fills your inventory with sellable insect parts. This build transforms your Kuku system into a passive income engine.</p>
+            <p><strong>Why it works:</strong> The Transmission Pack lets you trade with merchants across regions without fast-travelling ‚Ä?perfect for arbitrage. The Horticulture Pack accelerates plant growth for potion ingredients. The Insect Collector Pack fills your inventory with sellable insect parts. This build transforms your Kuku system into a passive income engine.</p>
 
             <h3>Build 5: Endgame Min-Max</h3>
             <p><strong>Core Items:</strong> Abyssal Fusion (Blackstar Dragon component) + All three Elemental Armours + Marni Laser Helmet + Enhanced A.T.A.G.</p>
@@ -345,19 +367,19 @@
             <h2 id="section7">üí° 7. Advanced Tips</h2>
             
             <h3>1. Complete Challenges Before Upgrading</h3>
-            <p>This cannot be overstated. Kuku-upgraded equipment cannot fulfil challenge requirements for the base item. The most important example is <strong>Marni's Helm</strong> ‚Äî there is only one copy per playthrough. Complete its challenge before upgrading it into the Kuku Marni Laser Helmet.</p>
+            <p>This cannot be overstated. Kuku-upgraded equipment cannot fulfil challenge requirements for the base item. The most important example is <strong>Marni's Helm</strong> ‚Ä?there is only one copy per playthrough. Complete its challenge before upgrading it into the Kuku Marni Laser Helmet.</p>
 
             <h3>2. Use an Empty Pot for A.T.A.G. Conversion</h3>
             <p>When converting a Kuku Pot into a Mini Kuku A.T.A.G. (for the Blackstar Dragon mount), use a pot with <strong>no stored items</strong>. The entire pot is consumed in the conversion process, and while all Kuku Pots share the same storage, you don't want to lose the ability to craft more items.</p>
 
             <h3>3. Unlock the Enhanced Kuku Pot Early</h3>
-            <p>The Enhanced Kuku Pot (crafted with 1 Abyss Cell) unlocks the majority of endgame recipes. Make this your first upgrade after obtaining the base Kuku Pot. Abyss Cells drop from Abyss creatures throughout the game ‚Äî you should have access to at least one by the end of Chapter 5.</p>
+            <p>The Enhanced Kuku Pot (crafted with 1 Abyss Cell) unlocks the majority of endgame recipes. Make this your first upgrade after obtaining the base Kuku Pot. Abyss Cells drop from Abyss creatures throughout the game ‚Ä?you should have access to at least one by the end of Chapter 5.</p>
 
             <h3>4. Delesyia Is Your Material Farm</h3>
-            <p>The southeastern region of Delesyia is densely packed with mechanical enemies that drop batteries, gears, lubricant, and electrical components ‚Äî the most commonly needed materials for Kuku crafting. Spend an hour farming here before each major upgrade push. Use the Kuku Insect Collector Pack for bonus material drops.</p>
+            <p>The southeastern region of Delesyia is densely packed with mechanical enemies that drop batteries, gears, lubricant, and electrical components ‚Ä?the most commonly needed materials for Kuku crafting. Spend an hour farming here before each major upgrade push. Use the Kuku Insect Collector Pack for bonus material drops.</p>
 
             <h3>5. Sanctum Puzzles Are Worth It</h3>
-            <p>Sanctum purification puzzles can be challenging, but they provide the blueprints for the best Kuku items. If you are stuck on a Sanctum puzzle, mark it and return later ‚Äî some puzzles require abilities unlocked later in the main story (for specific Sanctum solutions, refer to our <a href="crimson-desert-mounts-pets-guide-2026.html">Crimson Desert Sanctum Puzzle Guide</a>).</p>
+            <p>Sanctum purification puzzles can be challenging, but they provide the blueprints for the best Kuku items. If you are stuck on a Sanctum puzzle, mark it and return later ‚Ä?some puzzles require abilities unlocked later in the main story (for specific Sanctum solutions, refer to our <a href="crimson-desert-mounts-pets-guide-2026.html">Crimson Desert Sanctum Puzzle Guide</a>).</p>
 
             <h3>6. Send Comrades for Kuku Pot Refills</h3>
             <p>After completing Chapter 7, you can send your <strong>Greymane Comrades</strong> to Kilnden Workshop to craft additional Kuku Pots. This is useful when you need multiple base pots for different upgrade branches. Assign a comrade with high crafting stats for faster results.</p>
@@ -366,9 +388,9 @@
             <p>Aeserion's Scales are rare and should be reserved for your most important upgrades. The general community consensus is to use them on: (1) Elemental Armour pieces (priority), (2) Your primary Kuku Spear, (3) Marni Laser Helmet. Avoid using them on experimental or secondary builds until you have a surplus.</p>
 
             <h3>8. Backup Your Save Before Major Upgrades</h3>
-            <p>The Kuku system involves permanent consumption of base items (pots, spears, helmets). Before committing to a major upgrade ‚Äî especially the Abyssal Fusion for the Blackstar Dragon ‚Äî create a manual save. This allows you to revert if the upgrade does not perform as expected.</p>
+            <p>The Kuku system involves permanent consumption of base items (pots, spears, helmets). Before committing to a major upgrade ‚Ä?especially the Abyssal Fusion for the Blackstar Dragon ‚Ä?create a manual save. This allows you to revert if the upgrade does not perform as expected.</p>
 
-            <h2 id="faq">‚ùì FAQ ‚Äî Frequently Asked Questions</h2>
+            <h2 id="faq">‚ù?FAQ ‚Ä?Frequently Asked Questions</h2>
             <div class="faq-item">
                 <h4>When should I start using the Kuku Pot system?</h4>
                 <p>Start immediately after obtaining it in Chapter 4. Begin collecting Abyss items and exploring Sanctums from Chapter 5 onward. Try to have your upgrade paths ready before Chapter 10, as some faction quests become harder after story progression.</p>
@@ -406,19 +428,19 @@
                 <div class="support-inner">
                     <span class="support-icon">üîì</span>
                     <div class="support-text">
-                        <h3>Every guide is free ‚Äî this one stays free either way.</h3>
+                        <h3>Every guide is free ‚Ä?this one stays free either way.</h3>
                         <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
                         <p style="margin:6px 0 0 0;line-height:1.7">
-                            üìö <strong>10 Beginner Guides</strong> ‚Äî zero to mid-game in one pack<br>
-                            ‚≠ê <strong>5 Premium Picks</strong> ‚Äî our most popular expert deep-dives<br>
-                            ‚è∞ <strong>3-Day Early Access</strong> ‚Äî read new guides before everyone else<br>
-                            üîÑ <strong>3 New Guides Every Month</strong> ‚Äî and each one fuels us to write faster
+                            üìö <strong>10 Beginner Guides</strong> ‚Ä?zero to mid-game in one pack<br>
+                            ‚≠?<strong>5 Premium Picks</strong> ‚Ä?our most popular expert deep-dives<br>
+                            ‚è?<strong>3-Day Early Access</strong> ‚Ä?read new guides before everyone else<br>
+                            üîÑ <strong>3 New Guides Every Month</strong> ‚Ä?and each one fuels us to write faster
                         </p>
-                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">‚úÖ Your purchase includes instant access to everything above</p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">‚ú?Your purchase includes instant access to everything above</p>
                         <div class="support-amounts">
-                            <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 ‚Äî Get the Early Access Guide Pack üëë</a>
+                            <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 ‚Ä?Get the Early Access Guide Pack üëë</a>
                         </div>
-                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always ‚Äî no strings attached. ü§ù</p>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always ‚Ä?no strings attached. ü§ù</p>
                     </div>
                 </div>
             </div>
@@ -435,5 +457,8 @@
     <script src="../../js/features.js"></script>
     <script src="../../js/ai-qa-widget.js"></script>
     <style>.guide-content li{color:#2d2a33!important}</style>
+    <script>
+    (function(){var p=document.getElementById('cdProgressFill');if(!p)return;var u=function(){var e=document.documentElement,t=e.scrollTop,n=e.scrollHeight-e.clientHeight;p.style.width=n>0?Math.min(t/n*100,100)+'%':'0%'};window.addEventListener('scroll',u,{passive:true});window.addEventListener('resize',u,{passive:true});u()})();
+    </script>
 </body>
 </html>

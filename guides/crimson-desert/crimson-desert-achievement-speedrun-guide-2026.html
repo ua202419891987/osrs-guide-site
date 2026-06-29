@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crimson Desert Fastest Achievement Completion Route ‚Äî Unlock All Trophies Fast | CD Guru</title>
-    <meta name="description" content="Step-by-step speedrun route for all Crimson Desert achievements ‚Äî optimal quest order, missable warnings, time estimates, and efficiency tips.">
+    <title>Crimson Desert Fastest Achievement Completion Route ‚Ä?Unlock All Trophies Fast | CD Guru</title>
+    <meta name="description" content="Step-by-step speedrun route for all Crimson Desert achievements ‚Ä?optimal quest order, missable warnings, time estimates, and efficiency tips.">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="dns-prefetch" href="//www.google-analytics.com">
@@ -36,7 +36,6 @@
         .guide-hero .breadcrumb{font-size:.95rem !important}
         .guide-hero .weekly-badge{font-size:1rem !important}
         .guide-content li{color:#2d2a33 !important}
-        .progress-widget{display:none !important}
         .table-wrap{overflow-x:auto;margin:1.5rem 0}
         .table-wrap table{min-width:600px}
         .route-phase{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.25rem 0;position:relative}
@@ -49,9 +48,23 @@
         .speed-stat{text-align:center;padding:1.5rem;background:linear-gradient(135deg,#f8f6fc,#fff);border:1px solid #e0d8f0;border-radius:8px;margin:1rem 0}
         .speed-stat .stat-number{font-size:2.2rem;font-weight:800;color:#7a64b8}
         .speed-stat .stat-label{font-size:.9rem;color:#666;margin-top:4px}
+    
+        /* Reading Progress Bar */
+        .cd-reading-progress{position:fixed;top:0;left:0;width:100%;height:4px;background:rgba(122,100,184,0.12);z-index:99999;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+        .cd-reading-progress .cd-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#7a64b8,#b8a4e8,#e0d8f0);transition:width .15s ease-out;border-radius:0 2px 2px 0}
+        /* Mobile hero improvements */
+        @media(max-width:768px){
+            .guide-hero h1{font-size:1.6rem !important;line-height:1.3}
+            .guide-hero .subtitle{font-size:1rem !important}
+            .guide-hero .breadcrumb{font-size:.8rem !important}
+            .toc{padding:1rem !important}
+            .toc ol li{font-size:.9rem !important}
+            .nav-links{overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+        }
     </style>
 </head>
 <body>
+    <div class="cd-reading-progress" id="cdReadingProgress"><div class="cd-progress-fill" id="cdProgressFill"></div></div>
     <header>
         <div class="container">
             <nav>
@@ -72,33 +85,42 @@
     <section class="guide-hero">
         <div class="container">
             <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="index.html">Crimson Desert</a> / Achievement Speedrun Guide</p>
-            <h1>Crimson Desert Fastest Achievement Completion Route ‚Äî Unlock All Trophies Fast</h1>
-            <p class="subtitle">Step-by-step speedrun route for all 35 achievements ‚Äî optimal quest order, missable achievement warnings, time estimates, and efficiency tips to complete every trophy in minimum time.</p>
+            <h1>Crimson Desert Fastest Achievement Completion Route ‚Ä?Unlock All Trophies Fast</h1>
+            <p class="subtitle">Step-by-step speedrun route for all 35 achievements ‚Ä?optimal quest order, missable achievement warnings, time estimates, and efficiency tips to complete every trophy in minimum time.</p>
             <div class="weekly-badge">
-                <span class="badge-icon">üèÉ</span> <strong>Speedrun Route</strong> ‚Äî Part of the <strong>Crimson Desert Essentials Series</strong> ¬∑ 16 min read
+                <span class="badge-icon">üèÉ</span> <strong>Speedrun Route</strong> ‚Ä?Part of the <strong>Crimson Desert Essentials Series</strong> ¬∑ 16 min read
             </div>
             <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: June 28, 2026</p>
         </div>
     </section>
-
+    <!-- Quick Summary -->
+    <div class="quick-summary" style="background:#faf8fc;border:1px solid #e0d8f0;border-left:4px solid #7a64b8;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0 2rem;font-size:1rem">
+        <h3 style="color:#7a64b8;font-size:1.15rem;margin:0 0 .8rem">‚è±Ô∏è Quick Summary ‚Ä?30-Second Read</h3>
+        <ul style="margin:0;padding-left:1.2rem;list-style:none">
+                <li>‚ö?Fastest route: main story ‚Ü?combat achievements ‚Ü?exploration ‚Ü?cleanup in post-game</li>
+                <li>üéØ Missable checks: 8 achievements require specific choices ‚Ä?create save files at chapter 5, 8, 10</li>
+                <li>‚è±Ô∏è Time saves: skip optional dialogues, fast-travel between regions, farm combat achievements in arena</li>
+                <li>üèÜ Completion target: 40-50 hours for all achievements using optimized route</li>
+        </ul>
+    </div>
     <main class="guide-content">
         <div class="container">
             <div class="toc">
                 <h3>Table of Contents</h3>
                 <ol>
-                    <li><a href="#section1">Speedrun Strategy Overview ‚Äî What Optimisation Looks Like</a></li>
-                    <li><a href="#section2">Optimal Quest Order ‚Äî The 4-Phase Route</a></li>
-                    <li><a href="#section3">Missable Achievement Route ‚Äî Never Lose Progress Again</a></li>
+                    <li><a href="#section1">Speedrun Strategy Overview ‚Ä?What Optimisation Looks Like</a></li>
+                    <li><a href="#section2">Optimal Quest Order ‚Ä?The 4-Phase Route</a></li>
+                    <li><a href="#section3">Missable Achievement Route ‚Ä?Never Lose Progress Again</a></li>
                     <li><a href="#section4">Combat Achievements Fastest Path</a></li>
-                    <li><a href="#section5">Exploration Achievements ‚Äî Efficient Sweeps</a></li>
-                    <li><a href="#section6">Collection Achievements ‚Äî Streamlined Gathering</a></li>
+                    <li><a href="#section5">Exploration Achievements ‚Ä?Efficient Sweeps</a></li>
+                    <li><a href="#section6">Collection Achievements ‚Ä?Streamlined Gathering</a></li>
                     <li><a href="#section7">Time Estimates Per Section</a></li>
-                    <li><a href="#faq">FAQ ‚Äî Speedrun Achievement Questions</a></li>
+                    <li><a href="#faq">FAQ ‚Ä?Speedrun Achievement Questions</a></li>
                 </ol>
             </div>
 
-            <h2 id="section1">üèÉ 1. Speedrun Strategy Overview ‚Äî What Optimisation Looks Like</h2>
-            <p>A standard 100% playthrough of Crimson Desert takes 200‚Äì300 hours. A <strong>speedrun-optimised route</strong> can cut that to 150‚Äì180 hours by eliminating backtracking, batching missable objectives, and front-loading time-gated activities. This guide assumes you are playing on Patch 1.12.02+ and have a basic grasp of combat mechanics. If you need a full achievement list first, read our <a href="crimson-desert-achievements-guide-2026.html">Complete Achievement Guide</a>.</p>
+            <h2 id="section1">üèÉ 1. Speedrun Strategy Overview ‚Ä?What Optimisation Looks Like</h2>
+            <p>A standard 100% playthrough of Crimson Desert takes 200‚Ä?00 hours. A <strong>speedrun-optimised route</strong> can cut that to 150‚Ä?80 hours by eliminating backtracking, batching missable objectives, and front-loading time-gated activities. This guide assumes you are playing on Patch 1.12.02+ and have a basic grasp of combat mechanics. If you need a full achievement list first, read our <a href="crimson-desert-achievements-guide-2026.html">Complete Achievement Guide</a>.</p>
 
             <div class="speed-stat">
                 <div class="stat-number">150-180h</div>
@@ -107,11 +129,11 @@
 
             <h3>Core Principles of the Speedrun Route</h3>
             <ul>
-                <li><strong>Batch by region, not by category.</strong> Do not separate "exploration" from "combat" from "collection" ‚Äî complete everything in one region before moving to the next.</li>
-                <li><strong>Missable-first ordering.</strong> The 5 missable trophies dictate your route. Chapters 4‚Äì8 are the critical window. One wrong step costs 80+ hours of New Game+.</li>
+                <li><strong>Batch by region, not by category.</strong> Do not separate "exploration" from "combat" from "collection" ‚Ä?complete everything in one region before moving to the next.</li>
+                <li><strong>Missable-first ordering.</strong> The 5 missable trophies dictate your route. Chapters 4‚Ä? are the critical window. One wrong step costs 80+ hours of New Game+.</li>
                 <li><strong>Passive grinding during downtime.</strong> Fish, cook, hunt, and send dispatch missions while waiting for story triggers or travelling between zones.</li>
                 <li><strong>Save rotation discipline.</strong> Use all 9 manual save slots. Keep one save at each chapter milestone and one "clean" save before any major decision point.</li>
-                <li><strong>Fast travel efficiency.</strong> Activate every bell tower and fast travel point immediately upon entering a new zone. This single habit saves 15‚Äì20 hours over a full playthrough.</li>
+                <li><strong>Fast travel efficiency.</strong> Activate every bell tower and fast travel point immediately upon entering a new zone. This single habit saves 15‚Ä?0 hours over a full playthrough.</li>
             </ul>
 
             <div class="tip-box">
@@ -120,14 +142,14 @@
 
             <p>The route is divided into <strong>4 phases</strong> that align with the main story progression. Each phase has a checklist of objectives that must be completed before advancing to the next chapter. Follow them in order and you will never need to backtrack more than 15 minutes for any missed objective.</p>
 
-            <h2 id="section2">üìã 2. Optimal Quest Order ‚Äî The 4-Phase Route</h2>
+            <h2 id="section2">üìã 2. Optimal Quest Order ‚Ä?The 4-Phase Route</h2>
             <p>This is the heart of the speedrun route. Each phase corresponds to a story bracket. <strong>Do not advance to the next phase until all checkboxes in the current phase are ticked.</strong></p>
 
             <div class="route-phase">
-                <h4>Phase 1: Foundations <span class="phase-time">Chapters 1‚Äì3 ¬∑ ~15 Hours</span></h4>
+                <h4>Phase 1: Foundations <span class="phase-time">Chapters 1‚Ä? ¬∑ ~15 Hours</span></h4>
                 <p><strong>Focus:</strong> Establish your character, unlock camp mechanics, and collect early missable items.</p>
                 <div class="checklist-item">
-                    <input type="checkbox" id="p1c1" checked disabled><label for="p1c1">Play through Chapters 1‚Äì3 normally. No missable content yet.</label><span class="check-time">5h</span>
+                    <input type="checkbox" id="p1c1" checked disabled><label for="p1c1">Play through Chapters 1‚Ä? normally. No missable content yet.</label><span class="check-time">5h</span>
                 </div>
                 <div class="checklist-item">
                     <input type="checkbox" id="p1c2" checked disabled><label for="p1c2">Activate all bell towers in Phidel region. Mark every ? on the map.</label><span class="check-time">2h</span>
@@ -136,7 +158,7 @@
                     <input type="checkbox" id="p1c3" checked disabled><label for="p1c3">Buy lumber axe and pickaxe from Phidel blacksmith. Start gathering materials whenever you pass a node.</label><span class="check-time">15m</span>
                 </div>
                 <div class="checklist-item">
-                    <input type="checkbox" id="p1c4" checked disabled><label for="p1c4">Upgrade starting gear to refinement level 3‚Äì4. Do not overspend ‚Äî you will replace this gear in Chapter 4.</label><span class="check-time">3h</span>
+                    <input type="checkbox" id="p1c4" checked disabled><label for="p1c4">Upgrade starting gear to refinement level 3‚Ä?. Do not overspend ‚Ä?you will replace this gear in Chapter 4.</label><span class="check-time">3h</span>
                 </div>
                 <div class="checklist-item">
                     <input type="checkbox" id="p1c5" checked disabled><label for="p1c5">Start the Mercenary Brotherhood side quest chain (prerequisite for True Ending). Talk to Captain Aldric at Greymane Camp.</label><span class="check-time">2h</span>
@@ -150,8 +172,8 @@
             </div>
 
             <div class="route-phase">
-                <h4>Phase 2: Missable Window <span class="phase-time">Chapters 4‚Äì7 ¬∑ ~55 Hours</span></h4>
-                <p><strong>Focus:</strong> Complete ALL missable achievements. This phase is non-negotiable ‚Äî mistakes here force a full replay.</p>
+                <h4>Phase 2: Missable Window <span class="phase-time">Chapters 4‚Ä? ¬∑ ~55 Hours</span></h4>
+                <p><strong>Focus:</strong> Complete ALL missable achievements. This phase is non-negotiable ‚Ä?mistakes here force a full replay.</p>
                 <div class="checklist-item">
                     <input type="checkbox" id="p2c1" checked disabled><label for="p2c1">CLIMB STORMC REST PEAK before starting Chapter 4 boss fight. This is permanently missable after the avalanche.</label><span class="check-time">1h</span>
                 </div>
@@ -165,13 +187,13 @@
                     <input type="checkbox" id="p2c4" checked disabled><label for="p2c4">Chapter 5: Complete all Operation challenges in Abyss Wastes before liberating camps. Jackals faction enemies are needed.</label><span class="check-time">5h</span>
                 </div>
                 <div class="checklist-item">
-                    <input type="checkbox" id="p2c5" checked disabled><label for="p2c5">Collect all special weapons encountered so far. Store in camp storage ‚Äî NEVER sell.</label><span class="check-time">2h</span>
+                    <input type="checkbox" id="p2c5" checked disabled><label for="p2c5">Collect all special weapons encountered so far. Store in camp storage ‚Ä?NEVER sell.</label><span class="check-time">2h</span>
                 </div>
                 <div class="checklist-item">
                     <input type="checkbox" id="p2c6" checked disabled><label for="p2c6">Chapter 6 (Gheist Siege): Rescue all 12 hidden civilians. Time-sensitive, do before siege ends.</label><span class="check-time">2h</span>
                 </div>
                 <div class="checklist-item">
-                    <input type="checkbox" id="p2c7" checked disabled><label for="p2c7">Complete Tactical Action challenges. Leave at least one bounty target active ‚Äî do NOT turn all in.</label><span class="check-time">3h</span>
+                    <input type="checkbox" id="p2c7" checked disabled><label for="p2c7">Complete Tactical Action challenges. Leave at least one bounty target active ‚Ä?do NOT turn all in.</label><span class="check-time">3h</span>
                 </div>
                 <div class="checklist-item">
                     <input type="checkbox" id="p2c8" checked disabled><label for="p2c8">Make a manual save BEFORE starting Chapter 7 (The Crimson Hour).</label><span class="check-time">1m</span>
@@ -182,7 +204,7 @@
             </div>
 
             <div class="route-phase">
-                <h4>Phase 3: Story Rush + Siege <span class="phase-time">Chapters 8‚Äì12 ¬∑ ~45 Hours</span></h4>
+                <h4>Phase 3: Story Rush + Siege <span class="phase-time">Chapters 8‚Ä?2 ¬∑ ~45 Hours</span></h4>
                 <p><strong>Focus:</strong> Clear main story while completing cannon-based challenges and earning the True Ending.</p>
                 <div class="checklist-item">
                     <input type="checkbox" id="p3c1" checked disabled><label for="p3c1">Chapter 8: Complete "Into the Barrage" (5 enemies, one cannon shot) during the Rebel Suppression mission. This is your best window.</label><span class="check-time">30m</span>
@@ -194,10 +216,10 @@
                     <input type="checkbox" id="p3c3" checked disabled><label for="p3c3">Verify all 10 special weapons are in inventory. Do not proceed if any are missing.</label><span class="check-time">5m</span>
                 </div>
                 <div class="checklist-item">
-                    <input type="checkbox" id="p3c4" checked disabled><label for="p3c4">Complete Chapters 9‚Äì12. Choose True Ending dialogue option in final confrontation.</label><span class="check-time">25h</span>
+                    <input type="checkbox" id="p3c4" checked disabled><label for="p3c4">Complete Chapters 9‚Ä?2. Choose True Ending dialogue option in final confrontation.</label><span class="check-time">25h</span>
                 </div>
                 <div class="checklist-item">
-                    <input type="checkbox" id="p3c5" checked disabled><label for="p3c5">[The Path Unseen] should unlock after True Ending credits. If not, reload Chapter 7 manual save.</label><span class="check-time">‚Äî</span>
+                    <input type="checkbox" id="p3c5" checked disabled><label for="p3c5">[The Path Unseen] should unlock after True Ending credits. If not, reload Chapter 7 manual save.</label><span class="check-time">‚Ä?/span>
                 </div>
             </div>
 
@@ -214,10 +236,10 @@
                     <input type="checkbox" id="p4c3" checked disabled><label for="p4c3">Defeat Kaelx ("The Immortal") in Sealed Sanctum. See our <a href="crimson-desert-hidden-boss-guide-2026.html">Hidden Boss Guide</a>.</label><span class="check-time">3h</span>
                 </div>
                 <div class="checklist-item">
-                    <input type="checkbox" id="p4c4" checked disabled><label for="p4c4">Complete Cartographer ‚Äî reveal remaining fog of war. Focus on West Coast islands and Howling Plateau cave network.</label><span class="check-time">6h</span>
+                    <input type="checkbox" id="p4c4" checked disabled><label for="p4c4">Complete Cartographer ‚Ä?reveal remaining fog of war. Focus on West Coast islands and Howling Plateau cave network.</label><span class="check-time">6h</span>
                 </div>
                 <div class="checklist-item">
-                    <input type="checkbox" id="p4c5" checked disabled><label for="p4c5">Collect all 80 Knowledge Tablets. Use Abyss Sight ‚Äî tablets glow blue.</label><span class="check-time">4h</span>
+                    <input type="checkbox" id="p4c5" checked disabled><label for="p4c5">Collect all 80 Knowledge Tablets. Use Abyss Sight ‚Ä?tablets glow blue.</label><span class="check-time">4h</span>
                 </div>
                 <div class="checklist-item">
                     <input type="checkbox" id="p4c6" checked disabled><label for="p4c6">Open all 40 buried treasure chests. Buy maps from Cartographers.</label><span class="check-time">3h</span>
@@ -226,21 +248,21 @@
                     <input type="checkbox" id="p4c7" checked disabled><label for="p4c7">Complete all 8 Ancient Ruins puzzles.</label><span class="check-time">3h</span>
                 </div>
                 <div class="checklist-item">
-                    <input type="checkbox" id="p4c8" checked disabled><label for="p4c8">Max out Greymane Camp development. Focus on Dispatch Missions ‚Äî send 3‚Äì4 per day cycle.</label><span class="check-time">15h</span>
+                    <input type="checkbox" id="p4c8" checked disabled><label for="p4c8">Max out Greymane Camp development. Focus on Dispatch Missions ‚Ä?send 3‚Ä? per day cycle.</label><span class="check-time">15h</span>
                 </div>
                 <div class="checklist-item">
                     <input type="checkbox" id="p4c9" checked disabled><label for="p4c9">Minigame cleanup: Angler, Hunter, Chef, Craftsman, Merchant, Horseman, High Roller, Champion Jockey, Arena Legend.</label><span class="check-time">20h</span>
                 </div>
             </div>
 
-            <h2 id="section3">‚ö†Ô∏è 3. Missable Achievement Route ‚Äî Never Lose Progress Again</h2>
+            <h2 id="section3">‚ö†Ô∏è 3. Missable Achievement Route ‚Ä?Never Lose Progress Again</h2>
             <p>The 5 missable trophies are the single biggest threat to your speedrun. Here is the exact timing and method for each one, integrated into the route above. Missing any of these forces an 80+ hour New Game+ detour.</p>
 
             <div class="table-wrap">
                 <table>
                     <tr><th>#</th><th>Achievement</th><th>Miss Window</th><th>How to Avoid (Speedrun Method)</th></tr>
                     <tr><td>1</td><td>The Path Unseen (True Ending)</td><td>Before Chapter 7</td><td>Complete Mercenary Brotherhood, Abyss Scholars, Erin's Memories chains. Start in Phase 1, finish before Phase 2 ends. Make manual save before Chapter 7.</td></tr>
-                    <tr><td>2</td><td>Battlefield Conqueror</td><td>Chapter 8 ‚Äî Rebel Suppression</td><td>Use siege cannon during the mission. Aim at the cluster of 5+ enemies near the east gate. For "7 enemies one explosion", use the gunpowder barrel cluster at the south barricade.</td></tr>
+                    <tr><td>2</td><td>Battlefield Conqueror</td><td>Chapter 8 ‚Ä?Rebel Suppression</td><td>Use siege cannon during the mission. Aim at the cluster of 5+ enemies near the east gate. For "7 enemies one explosion", use the gunpowder barrel cluster at the south barricade.</td></tr>
                     <tr><td>3</td><td>Shadowlord</td><td>Entire playthrough</td><td>Never sell or convert any special weapon. Store them in camp storage when not needed. Verify inventory before Phases 3 and 4.</td></tr>
                     <tr><td>4</td><td>Unvanquished Strategist</td><td>Before liberating Pailune camps</td><td>Complete Operation 7 (Disruption) while Jackals still spawn. Check Operation tab first in every new region.</td></tr>
                     <tr><td>5</td><td>Brilliant Tactician</td><td>Before turning in all bounties</td><td>Keep 1 bounty target active until "Above the Law 4: Back Alley Cleanup" is complete. Do not clear your bounty board entirely.</td></tr>
@@ -248,113 +270,113 @@
             </div>
 
             <div class="warn-box">
-                <strong>Speedrunner Critical Warning:</strong> These 5 achievements are the only things that can invalidate a speedrun. Write them on a sticky note. Tape it to your monitor. The most common failure point is Battlefield Conqueror ‚Äî players forget to use the cannon during Chapter 8 and cannot find 5 densely-packed enemies afterward. <strong>Do this during the Rebel Suppression mission, not after.</strong>
+                <strong>Speedrunner Critical Warning:</strong> These 5 achievements are the only things that can invalidate a speedrun. Write them on a sticky note. Tape it to your monitor. The most common failure point is Battlefield Conqueror ‚Ä?players forget to use the cannon during Chapter 8 and cannot find 5 densely-packed enemies afterward. <strong>Do this during the Rebel Suppression mission, not after.</strong>
             </div>
 
-            <h3>Mountaineer ‚Äî The "Extra" Missable</h3>
-            <p>Technically not one of the 5 officially missable trophies, but <strong>Mountaineer</strong> requires climbing Stormcrest Peak before Chapter 4's avalanche destroys the path. This is the earliest missable in the game. Climb it the moment you reach the Stormcrest region ‚Äî do not wait.</p>
+            <h3>Mountaineer ‚Ä?The "Extra" Missable</h3>
+            <p>Technically not one of the 5 officially missable trophies, but <strong>Mountaineer</strong> requires climbing Stormcrest Peak before Chapter 4's avalanche destroys the path. This is the earliest missable in the game. Climb it the moment you reach the Stormcrest region ‚Ä?do not wait.</p>
 
             <h2 id="section4">‚öîÔ∏è 4. Combat Achievements Fastest Path</h2>
-            <p>Combat achievements require the most raw skill. Here is the speedrun-optimised approach to each one ‚Äî minimising repeat attempts through preparation.</p>
+            <p>Combat achievements require the most raw skill. Here is the speedrun-optimised approach to each one ‚Ä?minimising repeat attempts through preparation.</p>
 
-            <h3>Weapon Mastery (8 Achievements) ‚Äî 2 Hours Total</h3>
+            <h3>Weapon Mastery (8 Achievements) ‚Ä?2 Hours Total</h3>
             <p>All 8 weapon mastery achievements can be completed at any training ground <strong>in a single session</strong>. The challenges are isolated sequences that test input timing, not gear or stats. Here is the fastest order:</p>
             <ol>
-                <li><strong>Sword & Shield</strong> ‚Äî easiest, warm up here (10 min)</li>
-                <li><strong>Dual Blades</strong> ‚Äî fast inputs, build rhythm (15 min)</li>
-                <li><strong>Spear</strong> ‚Äî reach and timing (15 min)</li>
-                <li><strong>Axe</strong> ‚Äî heavy timing windows (15 min)</li>
-                <li><strong>Blunt</strong> ‚Äî slowest weapons, patience required (20 min)</li>
-                <li><strong>Greatsword</strong> ‚Äî mix of slow and precise combos (20 min)</li>
-                <li><strong>Bow</strong> ‚Äî aim and distance management (10 min)</li>
-                <li><strong>Crossbow</strong> ‚Äî familiar if you did bow (10 min)</li>
+                <li><strong>Sword & Shield</strong> ‚Ä?easiest, warm up here (10 min)</li>
+                <li><strong>Dual Blades</strong> ‚Ä?fast inputs, build rhythm (15 min)</li>
+                <li><strong>Spear</strong> ‚Ä?reach and timing (15 min)</li>
+                <li><strong>Axe</strong> ‚Ä?heavy timing windows (15 min)</li>
+                <li><strong>Blunt</strong> ‚Ä?slowest weapons, patience required (20 min)</li>
+                <li><strong>Greatsword</strong> ‚Ä?mix of slow and precise combos (20 min)</li>
+                <li><strong>Bow</strong> ‚Ä?aim and distance management (10 min)</li>
+                <li><strong>Crossbow</strong> ‚Ä?familiar if you did bow (10 min)</li>
             </ol>
 
             <div class="tip-box">
-                <strong>Speedrunner Tip:</strong> If you get stuck on a challenge, skip it and come back. The game tracks progress per weapon independently. You can complete 7/8 weapons, save, and tackle the last one fresh. Muscle memory resets matter ‚Äî do not burn out on Greatsword for 2 hours when 15 minutes of sleep would fix it.
+                <strong>Speedrunner Tip:</strong> If you get stuck on a challenge, skip it and come back. The game tracks progress per weapon independently. You can complete 7/8 weapons, save, and tackle the last one fresh. Muscle memory resets matter ‚Ä?do not burn out on Greatsword for 2 hours when 15 minutes of sleep would fix it.
             </div>
 
-            <h3>Dragonslayer ‚Äî The Run-Killer</h3>
+            <h3>Dragonslayer ‚Ä?The Run-Killer</h3>
             <p>Kaelx in the Sealed Sanctum is the single hardest combat encounter. To minimise attempts in a speedrun:</p>
             <ul>
                 <li><strong>Gear check:</strong> Level 40+, +8 refined weapon, Fortress III Abyss Core + Barrier III Abyss Core</li>
                 <li><strong>Consumables:</strong> 20+ top-tier healing potions, 5+ stamina recovery items</li>
-                <li><strong>Strategy:</strong> Phase 1 is pattern recognition. Phase 2 adds environmental hazards. Phase 3 is a DPS race. Watch for the "Wings of Annihilation" telegraph ‚Äî dodge left, not right.</li>
+                <li><strong>Strategy:</strong> Phase 1 is pattern recognition. Phase 2 adds environmental hazards. Phase 3 is a DPS race. Watch for the "Wings of Annihilation" telegraph ‚Ä?dodge left, not right.</li>
                 <li><strong>Save scum:</strong> Make a manual save outside the Sanctum. Each attempt costs 15 minutes. Use the save to retry without re-travelling.</li>
             </ul>
 
-            <h3>Colosseum Champion ‚Äî All 10 Tiers</h3>
+            <h3>Colosseum Champion ‚Ä?All 10 Tiers</h3>
             <p>The Colosseum unlocks after Chapter 4. Complete it in one sitting during Phase 2. The difficulty spikes at Tier 7 (dual mage fighters). Recommended approach:</p>
             <ul>
-                <li>Tiers 1‚Äì4: Any weapon, no special strategy</li>
-                <li>Tiers 5‚Äì6: Spear or Greatsword for reach and stagger</li>
-                <li>Tiers 7‚Äì8: Focus the mages first. Use Bow/Crossbow to interrupt their casting.</li>
-                <li>Tiers 9‚Äì10: Full consumable loadout. Kite the boss and punish openings.</li>
+                <li>Tiers 1‚Ä?: Any weapon, no special strategy</li>
+                <li>Tiers 5‚Ä?: Spear or Greatsword for reach and stagger</li>
+                <li>Tiers 7‚Ä?: Focus the mages first. Use Bow/Crossbow to interrupt their casting.</li>
+                <li>Tiers 9‚Ä?0: Full consumable loadout. Kite the boss and punish openings.</li>
             </ul>
 
-            <h3>Abyssal Conqueror ‚Äî All 4 Abyss Dungeons</h3>
+            <h3>Abyssal Conqueror ‚Ä?All 4 Abyss Dungeons</h3>
             <p>These dungeons are designed for co-op but are soloable with good gear. Complete them post-story (Phase 4). Each dungeon has a distinct boss mechanic:</p>
             <div class="table-wrap">
                 <table>
                     <tr><th>Dungeon</th><th>Boss</th><th>Key Mechanic</th><th>Recommended Level</th></tr>
-                    <tr><td>Crimson Hollow</td><td>Hollow Warden</td><td>Ground pulse AoE ‚Äî jump to avoid</td><td>30+</td></tr>
-                    <tr><td>Howling Depths</td><td>Stormfang</td><td>Lightning rod tethers ‚Äî spread out</td><td>35+</td></tr>
+                    <tr><td>Crimson Hollow</td><td>Hollow Warden</td><td>Ground pulse AoE ‚Ä?jump to avoid</td><td>30+</td></tr>
+                    <tr><td>Howling Depths</td><td>Stormfang</td><td>Lightning rod tethers ‚Ä?spread out</td><td>35+</td></tr>
                     <tr><td>Abyss Sanctum</td><td>Void Priestess</td><td>Summoned adds must die simultaneously</td><td>40+</td></tr>
                     <tr><td>Sealed Sanctum</td><td>Kaelx</td><td>Multi-phase with environment hazards</td><td>45+</td></tr>
                 </table>
             </div>
 
-            <h2 id="section5">üó∫Ô∏è 5. Exploration Achievements ‚Äî Efficient Sweeps</h2>
+            <h2 id="section5">üó∫Ô∏?5. Exploration Achievements ‚Ä?Efficient Sweeps</h2>
             <p>Exploration achievements require covering the entire map. The speedrun approach is to batch them during Phase 4 using a region-by-region sweep pattern.</p>
 
-            <h3>Cartographer (100% Map Reveal) ‚Äî 6 Hours</h3>
+            <h3>Cartographer (100% Map Reveal) ‚Ä?6 Hours</h3>
             <p>Revealing 100% of the map is deceptively time-consuming. The most commonly missed areas:</p>
             <ul>
-                <li><strong>West Coast islands</strong> ‚Äî 3 small islands off the Phidel coast. Need a boat from the Phidel docks.</li>
-                <li><strong>Howling Plateau cave network</strong> ‚Äî an underground zone that does not appear on the overworld map. Entrance is behind the waterfall at coordinates (347, 211) (verify in-game).</li>
-                <li><strong>Gheist Bell Tower rooftop</strong> ‚Äî accessible by grappling hook from the northeast balcony.</li>
-                <li><strong>Stormcrest Peak summit</strong> ‚Äî only accessible before Chapter 4. See Mountaineer warning above.</li>
+                <li><strong>West Coast islands</strong> ‚Ä?3 small islands off the Phidel coast. Need a boat from the Phidel docks.</li>
+                <li><strong>Howling Plateau cave network</strong> ‚Ä?an underground zone that does not appear on the overworld map. Entrance is behind the waterfall at coordinates (347, 211) (verify in-game).</li>
+                <li><strong>Gheist Bell Tower rooftop</strong> ‚Ä?accessible by grappling hook from the northeast balcony.</li>
+                <li><strong>Stormcrest Peak summit</strong> ‚Ä?only accessible before Chapter 4. See Mountaineer warning above.</li>
             </ul>
 
             <div class="method-box">
                 <h4>Efficient Sweep Route</h4>
-                <p>Start at Phidel (southwest), move clockwise: Phidel coast ‚Üí Stormcrest ‚Üí Abyss Wastes ‚Üí Gheist ‚Üí Howling Plateau ‚Üí Pailune ‚Üí Thornwood ‚Üí Lake Serenia. Use your mount for overland travel and fast travel between bell towers for gaps. Mark any fog-of-war patches on your map with a custom pin ‚Äî return to them after the initial circuit.</p>
+                <p>Start at Phidel (southwest), move clockwise: Phidel coast ‚Ü?Stormcrest ‚Ü?Abyss Wastes ‚Ü?Gheist ‚Ü?Howling Plateau ‚Ü?Pailune ‚Ü?Thornwood ‚Ü?Lake Serenia. Use your mount for overland travel and fast travel between bell towers for gaps. Mark any fog-of-war patches on your map with a custom pin ‚Ä?return to them after the initial circuit.</p>
             </div>
 
-            <h3>Lore Keeper (80 Knowledge Tablets) ‚Äî 4 Hours</h3>
+            <h3>Lore Keeper (80 Knowledge Tablets) ‚Ä?4 Hours</h3>
             <p>Tablets glow blue when you use <strong>Abyss Sight</strong> (L1+R1). The speedrun trick: do not hunt tablets randomly. They are concentrated in specific zones:</p>
             <ul>
-                <li>Ancient Ruins (18 tablets) ‚Äî always check ruins interiors</li>
-                <li>Abyss Wastes tunnels (14 tablets) ‚Äî linear underground paths</li>
-                <li>Gheist cathedral district (11 tablets) ‚Äî rooftops and bell towers</li>
-                <li>Thornwood treetop village (9 tablets) ‚Äî platforming required</li>
-                <li>Remaining 28 tablets scattered across all other zones ‚Äî pick up during Cartographer sweep</li>
+                <li>Ancient Ruins (18 tablets) ‚Ä?always check ruins interiors</li>
+                <li>Abyss Wastes tunnels (14 tablets) ‚Ä?linear underground paths</li>
+                <li>Gheist cathedral district (11 tablets) ‚Ä?rooftops and bell towers</li>
+                <li>Thornwood treetop village (9 tablets) ‚Ä?platforming required</li>
+                <li>Remaining 28 tablets scattered across all other zones ‚Ä?pick up during Cartographer sweep</li>
             </ul>
 
             <h3>Treasure Hunter (40 Chests) + Ruin Raider (8 Ruins)</h3>
-            <p>Buy treasure maps from <strong>Cartographer NPCs</strong> in each major settlement. There are 5 Cartographers total ‚Äî each sells maps for their region. Buy all maps immediately, then open chests as you pass through zones during your Cartographer sweep. The 8 Ancient Ruins are all marked on the map with a distinct icon ‚Äî complete them in any order.</p>
+            <p>Buy treasure maps from <strong>Cartographer NPCs</strong> in each major settlement. There are 5 Cartographers total ‚Ä?each sells maps for their region. Buy all maps immediately, then open chests as you pass through zones during your Cartographer sweep. The 8 Ancient Ruins are all marked on the map with a distinct icon ‚Ä?complete them in any order.</p>
 
-            <h2 id="section6">üéØ 6. Collection Achievements ‚Äî Streamlined Gathering</h2>
+            <h2 id="section6">üéØ 6. Collection Achievements ‚Ä?Streamlined Gathering</h2>
             <p>Collection and minigame achievements are the longest tail of the 100% run. The key is to start them early and let them finish passively while you focus on other objectives.</p>
 
             <div class="table-wrap">
                 <table>
                     <tr><th>Achievement</th><th>Speedrun Method</th><th>Passive Start</th><th>Active Time</th></tr>
                     <tr><td>Master Angler (25 fish)</td><td>Fish at every body of water you pass. Prioritise Lake Serenia (rarest fish). Abyss Eel: night, deep water, Glowing Worm bait.</td><td>Phase 1</td><td>3h</td></tr>
-                    <tr><td>Master Hunter</td><td>Hunt animals while travelling between quests. Each zone has 3‚Äì5 huntable species. Complete in Phase 4.</td><td>Phase 2</td><td>2h</td></tr>
-                    <tr><td>Master Chef</td><td>Cook 1 of each recipe. Ingredients overlap heavily ‚Äî buy missing ingredients from merchants rather than gathering.</td><td>Phase 2</td><td>1h</td></tr>
+                    <tr><td>Master Hunter</td><td>Hunt animals while travelling between quests. Each zone has 3‚Ä? huntable species. Complete in Phase 4.</td><td>Phase 2</td><td>2h</td></tr>
+                    <tr><td>Master Chef</td><td>Cook 1 of each recipe. Ingredients overlap heavily ‚Ä?buy missing ingredients from merchants rather than gathering.</td><td>Phase 2</td><td>1h</td></tr>
                     <tr><td>Master Craftsman</td><td>Craft 1 of each item. Same ingredient strategy as Chef.</td><td>Phase 2</td><td>1h</td></tr>
-                    <tr><td>Master Merchant</td><td>Complete all trading routes. Fastest route: Phidel ‚Üí Gheist ‚Üí Pailune loop. Buy low, sell high.</td><td>Phase 3</td><td>2h</td></tr>
-                    <tr><td>Master Horseman</td><td>Complete all 5 horse racing circuits. Invest in a high-stamina horse. The Highland Circuit is the longest ‚Äî learn the shortcut through the ravine.</td><td>Phase 4</td><td>2h</td></tr>
+                    <tr><td>Master Merchant</td><td>Complete all trading routes. Fastest route: Phidel ‚Ü?Gheist ‚Ü?Pailune loop. Buy low, sell high.</td><td>Phase 3</td><td>2h</td></tr>
+                    <tr><td>Master Horseman</td><td>Complete all 5 horse racing circuits. Invest in a high-stamina horse. The Highland Circuit is the longest ‚Ä?learn the shortcut through the ravine.</td><td>Phase 4</td><td>2h</td></tr>
                     <tr><td>Master Camper</td><td>Max Greymane Camp. Send Dispatch Missions constantly. Prioritise resource-gathering dispatches for crafting materials.</td><td>Phase 1</td><td>10h (active)</td></tr>
-                    <tr><td>High Roller (10k silver from dice)</td><td>Gheist Tavern dice game. Bet max (100 silver) each roll. Expect ~500 rolls. This is pure RNG ‚Äî do during loading screens or downtime.</td><td>Phase 3</td><td>2h</td></tr>
-                    <tr><td>Champion Jockey (5 circuits)</td><td>Complete in order of difficulty: Starter Circuit ‚Üí Forest Run ‚Üí Coast Sprint ‚Üí Mountain Pass ‚Üí Highland Circuit. Use sprint sparingly ‚Äî stamina management wins races, not speed.</td><td>Phase 4</td><td>2h</td></tr>
-                    <tr><td>Arena Legend (50 PvP wins)</td><td>Stats are normalised. Win rate is purely skill-based. Expect ~100 matches for 50 wins at 55‚Äì60% win rate. Queue during off-peak hours for faster matchmaking.</td><td>Phase 4</td><td>3h</td></tr>
+                    <tr><td>High Roller (10k silver from dice)</td><td>Gheist Tavern dice game. Bet max (100 silver) each roll. Expect ~500 rolls. This is pure RNG ‚Ä?do during loading screens or downtime.</td><td>Phase 3</td><td>2h</td></tr>
+                    <tr><td>Champion Jockey (5 circuits)</td><td>Complete in order of difficulty: Starter Circuit ‚Ü?Forest Run ‚Ü?Coast Sprint ‚Ü?Mountain Pass ‚Ü?Highland Circuit. Use sprint sparingly ‚Ä?stamina management wins races, not speed.</td><td>Phase 4</td><td>2h</td></tr>
+                    <tr><td>Arena Legend (50 PvP wins)</td><td>Stats are normalised. Win rate is purely skill-based. Expect ~100 matches for 50 wins at 55‚Ä?0% win rate. Queue during off-peak hours for faster matchmaking.</td><td>Phase 4</td><td>3h</td></tr>
                 </table>
             </div>
 
             <div class="warn-box">
-                <strong>Time Trap Warning:</strong> Master Camper (Greymane Camp) is the most deceptive achievement in the game. It looks like a "do some quests and send dispatches" trophy, but maxing the camp requires completing every Greymane faction quest AND 30+ dispatch missions. Start dispatching in Phase 1 and never stop. If you ignore camp until Phase 4, you will add 10‚Äì15 hours of waiting for dispatch timers.
+                <strong>Time Trap Warning:</strong> Master Camper (Greymane Camp) is the most deceptive achievement in the game. It looks like a "do some quests and send dispatches" trophy, but maxing the camp requires completing every Greymane faction quest AND 30+ dispatch missions. Start dispatching in Phase 1 and never stop. If you ignore camp until Phase 4, you will add 10‚Ä?5 hours of waiting for dispatch timers.
             </div>
 
             <h2 id="section7">‚è±Ô∏è 7. Time Estimates Per Section</h2>
@@ -363,9 +385,9 @@
             <div class="table-wrap">
                 <table>
                     <tr><th>Section</th><th>Sub-section</th><th>Time Estimate</th><th>Cumulative</th></tr>
-                    <tr><td>Phase 1: Foundations</td><td>Chapters 1‚Äì3, gear, early side quests</td><td>15h</td><td>15h</td></tr>
-                    <tr><td>Phase 2: Missable Window</td><td>Chapters 4‚Äì7 + all missable content</td><td>55h</td><td>70h</td></tr>
-                    <tr><td>Phase 3: Story Rush</td><td>Chapters 8‚Äì12 + True Ending</td><td>45h</td><td>115h</td></tr>
+                    <tr><td>Phase 1: Foundations</td><td>Chapters 1‚Ä?, gear, early side quests</td><td>15h</td><td>15h</td></tr>
+                    <tr><td>Phase 2: Missable Window</td><td>Chapters 4‚Ä? + all missable content</td><td>55h</td><td>70h</td></tr>
+                    <tr><td>Phase 3: Story Rush</td><td>Chapters 8‚Ä?2 + True Ending</td><td>45h</td><td>115h</td></tr>
                     <tr><td>Weapon Mastery</td><td>All 8 training ground challenges</td><td>2h</td><td>117h</td></tr>
                     <tr><td>Abyss Dungeons</td><td>4 dungeons, all bosses</td><td>8h</td><td>125h</td></tr>
                     <tr><td>Dragonslayer (Kaelx)</td><td>Sealed Sanctum boss</td><td>3h</td><td>128h</td></tr>
@@ -379,10 +401,10 @@
             </div>
 
             <div class="tip-box">
-                <strong>Speedrunner's Secret:</strong> The biggest time variance comes from Abyss Dungeons and Kaelx. If you are an elite combat player, subtract 5‚Äì8 hours. If you struggle with boss patterns, add 10‚Äì15 hours. Everything else is deterministic ‚Äî map coverage, collection, and camp development have fixed time requirements regardless of skill.
+                <strong>Speedrunner's Secret:</strong> The biggest time variance comes from Abyss Dungeons and Kaelx. If you are an elite combat player, subtract 5‚Ä? hours. If you struggle with boss patterns, add 10‚Ä?5 hours. Everything else is deterministic ‚Ä?map coverage, collection, and camp development have fixed time requirements regardless of skill.
             </div>
 
-            <p>The 176-hour estimate is <strong>24‚Äì124 hours faster</strong> than an unoptimised 100% playthrough (200‚Äì300 hours). The savings come from:</p>
+            <p>The 176-hour estimate is <strong>24‚Ä?24 hours faster</strong> than an unoptimised 100% playthrough (200‚Ä?00 hours). The savings come from:</p>
             <ul>
                 <li>Zero backtracking: ~25 hours saved</li>
                 <li>Passive dispatch mission management: ~15 hours saved</li>
@@ -391,14 +413,14 @@
             </ul>
 
             <!-- FAQ -->
-            <h2 id="faq">‚ùì FAQ ‚Äî Speedrun Achievement Questions</h2>
+            <h2 id="faq">‚ù?FAQ ‚Ä?Speedrun Achievement Questions</h2>
             <div class="faq-item">
                 <h4>Q: What is the fastest time to 100% Crimson Desert?</h4>
-                <p>The optimised speedrun route in this guide targets 150‚Äì180 hours. Pure speedrun.com records (which skip all side content) are around 40‚Äì50 hours for the main story only. For all achievements, 176 hours is the realistic estimate for a focused player.</p>
+                <p>The optimised speedrun route in this guide targets 150‚Ä?80 hours. Pure speedrun.com records (which skip all side content) are around 40‚Ä?0 hours for the main story only. For all achievements, 176 hours is the realistic estimate for a focused player.</p>
             </div>
             <div class="faq-item">
                 <h4>Q: Can I get all achievements in one playthrough?</h4>
-                <p>Yes ‚Äî but only with careful planning around the 5 missable trophies. Follow the Phase 2 checklist strictly. Make manual saves at every chapter milestone. If you miss a missable, you will need a New Game+ run adding 80+ hours.</p>
+                <p>Yes ‚Ä?but only with careful planning around the 5 missable trophies. Follow the Phase 2 checklist strictly. Make manual saves at every chapter milestone. If you miss a missable, you will need a New Game+ run adding 80+ hours.</p>
             </div>
             <div class="faq-item">
                 <h4>Q: What is the most common mistake in achievement speedruns?</h4>
@@ -406,23 +428,23 @@
             </div>
             <div class="faq-item">
                 <h4>Q: Should I play on Easy mode for the speedrun?</h4>
-                <p>Crimson Desert does not have a traditional difficulty selector ‚Äî enemy scaling is dynamic. However, enabling "Story Focus" in the gameplay options reduces enemy aggression and damage. This is recommended for the speedrun route, especially for the Colosseum and Abyss Dungeons. It does not disable achievements.</p>
+                <p>Crimson Desert does not have a traditional difficulty selector ‚Ä?enemy scaling is dynamic. However, enabling "Story Focus" in the gameplay options reduces enemy aggression and damage. This is recommended for the speedrun route, especially for the Colosseum and Abyss Dungeons. It does not disable achievements.</p>
             </div>
             <div class="faq-item">
                 <h4>Q: How do I get the Abyss Eel fast?</h4>
-                <p>Fish at Lake Serenia's deepest point (northwest corner of the lake) at night (in-game time 21:00‚Äì05:00). Use Glowing Worm bait, which is sold by the fishing vendor at the Lake Serenia dock. The Eel has approximately a 5% catch rate under these conditions (verify with in-game testing).</p>
+                <p>Fish at Lake Serenia's deepest point (northwest corner of the lake) at night (in-game time 21:00‚Ä?5:00). Use Glowing Worm bait, which is sold by the fishing vendor at the Lake Serenia dock. The Eel has approximately a 5% catch rate under these conditions (verify with in-game testing).</p>
             </div>
             <div class="faq-item">
                 <h4>Q: Are any achievements bugged in Patch 1.12.02?</h4>
-                <p>No confirmed bugged achievements. The Shadowlord challenges have been reported as slightly inconsistent ‚Äî if a special weapon challenge does not register, try unequipping and re-equipping the weapon. If it still fails, reload from your manual save.</p>
+                <p>No confirmed bugged achievements. The Shadowlord challenges have been reported as slightly inconsistent ‚Ä?if a special weapon challenge does not register, try unequipping and re-equipping the weapon. If it still fails, reload from your manual save.</p>
             </div>
             <div class="faq-item">
                 <h4>Q: What gear do I need before attempting Kaelx?</h4>
-                <p>Minimum: Level 40, +8 refined weapon and armour, Fortress III and Barrier III Abyss Cores. Recommended: Level 45+, two Abyss Cores at rank IV, 20+ supreme healing potions, 5+ stamina tonics. The fight has three phases ‚Äî watch for the "Wings of Annihilation" telegraph and dodge left.</p>
+                <p>Minimum: Level 40, +8 refined weapon and armour, Fortress III and Barrier III Abyss Cores. Recommended: Level 45+, two Abyss Cores at rank IV, 20+ supreme healing potions, 5+ stamina tonics. The fight has three phases ‚Ä?watch for the "Wings of Annihilation" telegraph and dodge left.</p>
             </div>
             <div class="faq-item">
                 <h4>Q: How many manual saves should I keep?</h4>
-                <p>Use all 9 slots. Recommended rotation: save 1 = start of Phase 2 (Ch 4 start), save 2 = before Chapter 7, save 3 = before Chapter 8 cannon, saves 4‚Äì6 = rotating chapter milestones, saves 7‚Äì9 = before any major boss or decision. Rotate the last 3 slots for general backup.</p>
+                <p>Use all 9 slots. Recommended rotation: save 1 = start of Phase 2 (Ch 4 start), save 2 = before Chapter 7, save 3 = before Chapter 8 cannon, saves 4‚Ä? = rotating chapter milestones, saves 7‚Ä? = before any major boss or decision. Rotate the last 3 slots for general backup.</p>
             </div>
 
             <!-- Support Card -->
@@ -430,19 +452,19 @@
                 <div class="support-inner">
                     <span class="support-icon">üîì</span>
                     <div class="support-text">
-                        <h3>Every guide is free ‚Äî this one stays free either way.</h3>
+                        <h3>Every guide is free ‚Ä?this one stays free either way.</h3>
                         <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
                         <p style="margin:6px 0 0 0;line-height:1.7">
-                            üìö <strong>10 Beginner Guides</strong> ‚Äî zero to mid-game in one pack<br>
-                            ‚≠ê <strong>5 Premium Picks</strong> ‚Äî our most popular expert deep-dives<br>
-                            ‚è∞ <strong>3-Day Early Access</strong> ‚Äî read new guides before everyone else<br>
-                            üîÑ <strong>3 New Guides Every Month</strong> ‚Äî and each one fuels us to write faster
+                            üìö <strong>10 Beginner Guides</strong> ‚Ä?zero to mid-game in one pack<br>
+                            ‚≠?<strong>5 Premium Picks</strong> ‚Ä?our most popular expert deep-dives<br>
+                            ‚è?<strong>3-Day Early Access</strong> ‚Ä?read new guides before everyone else<br>
+                            üîÑ <strong>3 New Guides Every Month</strong> ‚Ä?and each one fuels us to write faster
                         </p>
-                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">‚úÖ Your purchase includes instant access to everything above</p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">‚ú?Your purchase includes instant access to everything above</p>
                         <div class="support-amounts">
-                            <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 ‚Äî Get the Early Access Guide Pack üëë</a>
+                            <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 ‚Ä?Get the Early Access Guide Pack üëë</a>
                         </div>
-                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always ‚Äî no strings attached. ü§ù</p>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always ‚Ä?no strings attached. ü§ù</p>
                     </div>
                 </div>
             </div>
@@ -458,5 +480,8 @@
     <script src="../../js/features.js"></script>
     <script src="../../js/ai-qa-widget.js"></script>
     <style>.guide-content li{color:#2d2a33!important}</style>
+    <script>
+    (function(){var p=document.getElementById('cdProgressFill');if(!p)return;var u=function(){var e=document.documentElement,t=e.scrollTop,n=e.scrollHeight-e.clientHeight;p.style.width=n>0?Math.min(t/n*100,100)+'%':'0%'};window.addEventListener('scroll',u,{passive:true});window.addEventListener('resize',u,{passive:true});u()})();
+    </script>
 </body>
 </html>

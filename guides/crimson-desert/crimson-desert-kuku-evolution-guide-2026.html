@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crimson Desert Kuku Pot Best Evolution Guide ‚Äî Upgrade Paths & Material Planning | CD Guru</title>
-    <meta name="description" content="Complete Kuku evolution guide for Crimson Desert ‚Äî best evolution paths, materials planning guide, enhancement priority, and long-term upgrade strategy for maximum Kuku potential.">
+    <title>Crimson Desert Kuku Pot Best Evolution Guide ‚Ä?Upgrade Paths & Material Planning | CD Guru</title>
+    <meta name="description" content="Complete Kuku evolution guide for Crimson Desert ‚Ä?best evolution paths, materials planning guide, enhancement priority, and long-term upgrade strategy for maximum Kuku potential.">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="dns-prefetch" href="//www.google-analytics.com">
@@ -42,7 +42,6 @@
         .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}
         .inline-support-hint p{font-size:1rem}
         .guide-content li{color:#2d2a33 !important}
-        .progress-widget{display:none !important}
         .tier-s{background:linear-gradient(135deg,#fff9e6,#ffe4b3);border:1px solid #d4a030;border-radius:8px;padding:1rem;margin:.4rem 0;display:flex;justify-content:space-between;align-items:center}
         .tier-a{background:#f8f6fc;border:1px solid #c8b8e8;border-radius:8px;padding:1rem;margin:.4rem 0;display:flex;justify-content:space-between;align-items:center}
         .tier-b{background:#f5f8f5;border:1px solid #b8d8b8;border-radius:8px;padding:1rem;margin:.4rem 0;display:flex;justify-content:space-between;align-items:center}
@@ -72,9 +71,23 @@
             .guide-img figcaption{font-size:.78rem}
             .tier-s,.tier-a,.tier-b,.tier-c{padding:.7rem;font-size:.9rem;flex-wrap:wrap}
         }
+    
+        /* Reading Progress Bar */
+        .cd-reading-progress{position:fixed;top:0;left:0;width:100%;height:4px;background:rgba(122,100,184,0.12);z-index:99999;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+        .cd-reading-progress .cd-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#7a64b8,#b8a4e8,#e0d8f0);transition:width .15s ease-out;border-radius:0 2px 2px 0}
+        /* Mobile hero improvements */
+        @media(max-width:768px){
+            .guide-hero h1{font-size:1.6rem !important;line-height:1.3}
+            .guide-hero .subtitle{font-size:1rem !important}
+            .guide-hero .breadcrumb{font-size:.8rem !important}
+            .toc{padding:1rem !important}
+            .toc ol li{font-size:.9rem !important}
+            .nav-links{overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+        }
     </style>
 </head>
 <body>
+    <div class="cd-reading-progress" id="cdReadingProgress"><div class="cd-progress-fill" id="cdProgressFill"></div></div>
     <header>
         <div class="container">
             <nav>
@@ -93,15 +106,24 @@
     <section class="guide-hero">
         <div class="container">
             <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#crimson-desert">Crimson Desert</a> / Kuku Evolution Guide</p>
-            <h1>Crimson Desert Kuku Pot Best Evolution Guide ‚Äî Upgrade Paths & Material Planning</h1>
-            <p class="subtitle">Complete Kuku evolution guide ‚Äî best evolution paths, materials planning guide, enhancement priority, and long-term upgrade strategy for maximum Kuku potential.</p>
+            <h1>Crimson Desert Kuku Pot Best Evolution Guide ‚Ä?Upgrade Paths & Material Planning</h1>
+            <p class="subtitle">Complete Kuku evolution guide ‚Ä?best evolution paths, materials planning guide, enhancement priority, and long-term upgrade strategy for maximum Kuku potential.</p>
             <div class="weekly-badge">
-                <span class="badge-icon">üîß</span> <strong>CD Guide</strong> ‚Äî Part of the <strong>Crimson Desert Essentials Series</strong> ¬∑ 15 min read
+                <span class="badge-icon">üîß</span> <strong>CD Guide</strong> ‚Ä?Part of the <strong>Crimson Desert Essentials Series</strong> ¬∑ 15 min read
             </div>
             <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: June 28, 2026</p>
         </div>
     </section>
-
+    <!-- Quick Summary -->
+    <div class="quick-summary" style="background:#faf8fc;border:1px solid #e0d8f0;border-left:4px solid #7a64b8;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0 2rem;font-size:1rem">
+        <h3 style="color:#7a64b8;font-size:1.15rem;margin:0 0 .8rem">‚è±Ô∏è Quick Summary ‚Ä?30-Second Read</h3>
+        <ul style="margin:0;padding-left:1.2rem;list-style:none">
+                <li>üîÑ Optimal upgrade order: Kuku Spear > Kuku Backpack > Elemental Armor > Kuku Boots > Helmet</li>
+                <li>üìä Material planning: each branch requires Abyss Cells + specific resources + blueprints</li>
+                <li>üíé Best value: elemental spears (infinite durability) and Rocket Pack (flight utility)</li>
+                <li>‚ö†Ô∏è Warning: upgraded items can't complete base-item challenges ‚Ä?finish challenges first</li>
+        </ul>
+    </div>
     <main class="guide-content">
         <div class="container">
             <div class="toc">
@@ -114,16 +136,16 @@
                     <li><a href="#section5">Enhancement Priority</a></li>
                     <li><a href="#section6">Long-Term Upgrade Strategy</a></li>
                     <li><a href="#section7">Kuku Type Tier List</a></li>
-                    <li><a href="#faq">FAQ ‚Äî Frequently Asked Questions</a></li>
+                    <li><a href="#faq">FAQ ‚Ä?Frequently Asked Questions</a></li>
                 </ol>
             </div>
 
             <h2 id="section1">üîß 1. Kuku Evolution Overview</h2>
-            <p>The <strong>Kuku Pot</strong> system is Crimson Desert's most versatile crafting and upgrade mechanic, unlocked during Chapter 4's main quest <strong>"Mysterious Pot"</strong> at the Kilnden Workshop (northwest of Howling Hill Camp in Hernand). What starts as a simple storage container evolves into an entire ecosystem of weapons, armor, mobility aids, utility packs, and even rideable mechs ‚Äî all crafted at Grimnir's Kuku Shop in Hernand.</p>
-            <p>Understanding the Kuku evolution system is critical because it's not a simple linear upgrade. Each Kuku item branches from a <strong>core base item</strong> (Kuku Pot, Kuku Spear, or Kuku Pack) into multiple specialised variants, and some of the best items in the game ‚Äî including the Seotda Master's Crown from card collection ‚Äî are outclassed by well-upgraded Kuku gear. As of Patch 1.12.02 (June 24, 2026), the Kuku system supports 25 unique craftable items across 7 categories.</p>
+            <p>The <strong>Kuku Pot</strong> system is Crimson Desert's most versatile crafting and upgrade mechanic, unlocked during Chapter 4's main quest <strong>"Mysterious Pot"</strong> at the Kilnden Workshop (northwest of Howling Hill Camp in Hernand). What starts as a simple storage container evolves into an entire ecosystem of weapons, armor, mobility aids, utility packs, and even rideable mechs ‚Ä?all crafted at Grimnir's Kuku Shop in Hernand.</p>
+            <p>Understanding the Kuku evolution system is critical because it's not a simple linear upgrade. Each Kuku item branches from a <strong>core base item</strong> (Kuku Pot, Kuku Spear, or Kuku Pack) into multiple specialised variants, and some of the best items in the game ‚Ä?including the Seotda Master's Crown from card collection ‚Ä?are outclassed by well-upgraded Kuku gear. As of Patch 1.12.02 (June 24, 2026), the Kuku system supports 25 unique craftable items across 7 categories.</p>
 
             <div class="tip-box">
-                <strong>Core Principle:</strong> Always carry a Kuku Pot in your inventory. It acts as a portable storage container for Abyss items, power cores, and crafting components. Without it equipped, you cannot seal Abyss items found in the world ‚Äî and those items are the primary fuel for all Kuku upgrades.</div>
+                <strong>Core Principle:</strong> Always carry a Kuku Pot in your inventory. It acts as a portable storage container for Abyss items, power cores, and crafting components. Without it equipped, you cannot seal Abyss items found in the world ‚Ä?and those items are the primary fuel for all Kuku upgrades.</div>
 
             <h3>The Kuku Evolution Family Tree</h3>
             <p>The entire Kuku system branches from <strong>3 base templates</strong>, each unlocked through different progression paths:</p>
@@ -137,11 +159,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>Kuku Pot</strong></td><td>Chapter 4 ‚Äî "Mysterious Pot" quest</td><td>Enhanced Kuku Pot, Kuku Cooler, Small Kuku A.T.A.G., Kuku Spear, Kuku Pack</td><td>Core utility</td></tr>
+                    <tr><td><strong>Kuku Pot</strong></td><td>Chapter 4 ‚Ä?"Mysterious Pot" quest</td><td>Enhanced Kuku Pot, Kuku Cooler, Small Kuku A.T.A.G., Kuku Spear, Kuku Pack</td><td>Core utility</td></tr>
                     <tr><td><strong>Enhanced Kuku Pot</strong></td><td>Sanctum of Absolution (purified)</td><td>Kuku Marni Laser Helm, Elemental Armors, Kuku Breeze-Step Boots, Kuku Rishi's Boots</td><td>Armor & headgear</td></tr>
                     <tr><td><strong>Kuku Spear</strong></td><td>Sanctum of Penitence (purified)</td><td>Bismuth Spear, Laser Cannon Spear, Lightning Spear, Flame Spear, Disruptor Spear, Propeller Spear</td><td>Weapons</td></tr>
                     <tr><td><strong>Kuku Pack</strong></td><td>Sanctum of Benediction (purified)</td><td>Transmission 999K Pack, Frostspitter, Flamespitter, Boltspitter, Enhanced Disruptor, Watcher Pack, Rocket Pack, Gardening Pack, Insect Gatherer's Pack</td><td>Utility packs</td></tr>
-                    <tr><td><strong>Small Kuku A.T.A.G.</strong></td><td>Iron Flame Orc faction ‚Äî "New Design" quest</td><td>A.T.A.G., High-Mobility A.T.A.G., Abyssal Fusion</td><td>Mechs & fusion</td></tr>
+                    <tr><td><strong>Small Kuku A.T.A.G.</strong></td><td>Iron Flame Orc faction ‚Ä?"New Design" quest</td><td>A.T.A.G., High-Mobility A.T.A.G., Abyssal Fusion</td><td>Mechs & fusion</td></tr>
                     <tr><td><strong>Kuku Cooler</strong></td><td>Faction quest "A Special Blueprint"</td><td>Enhanced Kuku Cooler</td><td>Storage</td></tr>
                 </tbody>
             </table>
@@ -184,10 +206,10 @@
                     <tr><td>1</td><td>Kuku Spear</td><td>Kuku Pot x1, Small Battery x10</td><td>8</td><td>25</td><td>Base spear, core material</td></tr>
                     <tr><td>2a</td><td>Kuku Bismuth Spear</td><td>Kuku Spear x1, Bismuth Spear x1, Small Battery x10, Bismuth Ore x4</td><td>13</td><td>38</td><td>Bismuth damage, ATK Speed Lv1</td></tr>
                     <tr><td>2b</td><td>Kuku Laser Cannon Spear</td><td>Kuku Spear x1, Laser Cannon Spear x1, Small Battery x5, Electrical Components x3, Cogwheel x10</td><td>13</td><td>38</td><td>Piercing laser, ATK Speed Lv1</td></tr>
-                    <tr><td>2c</td><td>Kuku Lightning Spear</td><td>Kuku Spear x1, Lightning Spear x1, Small Battery x10, Electrical Components x2</td><td>12</td><td>35</td><td>Lightning damage, Move Speed Lv1‚Üí2</td></tr>
-                    <tr><td>2d</td><td>Kuku Flame Spear</td><td>Kuku Spear x1, Flame Spear x1, Small Battery x10, Lubricant x50</td><td>12</td><td>35</td><td>Fire damage, Crit Rate Lv1‚Üí2</td></tr>
+                    <tr><td>2c</td><td>Kuku Lightning Spear</td><td>Kuku Spear x1, Lightning Spear x1, Small Battery x10, Electrical Components x2</td><td>12</td><td>35</td><td>Lightning damage, Move Speed Lv1‚Ü?</td></tr>
+                    <tr><td>2d</td><td>Kuku Flame Spear</td><td>Kuku Spear x1, Flame Spear x1, Small Battery x10, Lubricant x50</td><td>12</td><td>35</td><td>Fire damage, Crit Rate Lv1‚Ü?</td></tr>
                     <tr><td>2e</td><td>Kuku Disruptor Spear</td><td>Kuku Spear x1, Disruptor Spear x1, Small Battery x5, Electrical Components x2, Cogwheel x10</td><td>13</td><td>38</td><td>EMP burst, disables machines</td></tr>
-                    <tr><td>2f</td><td>Kuku Propeller Spear</td><td>Kuku Spear x1, Propeller Spear x1, Small Battery x5, Electrical Components x2, Cogwheel x10</td><td>12</td><td>35</td><td>Air blast knockback, ATK Speed Lv2‚Üí3</td></tr>
+                    <tr><td>2f</td><td>Kuku Propeller Spear</td><td>Kuku Spear x1, Propeller Spear x1, Small Battery x5, Electrical Components x2, Cogwheel x10</td><td>12</td><td>35</td><td>Air blast knockback, ATK Speed Lv2‚Ü?</td></tr>
                 </tbody>
             </table>
             <p><strong>Verdict:</strong> The spear path offers the most combat variety. Bismuth Spear is best raw damage; Laser Cannon is best for crowd control; Disruptor is essential for areas with mechanical enemies (Delesyia).</p>
@@ -205,12 +227,12 @@
                 </thead>
                 <tbody>
                     <tr><td>1</td><td>Enhanced Kuku Pot</td><td>Kuku Pot x1, Abyss Cell x1</td><td>N/A (crafting base)</td><td>Unlocks all armor crafting</td></tr>
-                    <tr><td>2a</td><td>Kuku Marni Laser Helm</td><td>Enhanced Kuku Pot x1, Marni Laser Helm x1, Power Core x1, Electrical Components x3, Offering Core x1</td><td>DEF 2‚Üí21, Stun Immunity</td><td>Forward laser (3 charges, 10s CD)</td></tr>
-                    <tr><td>2b</td><td>Kuku Ice-Resistant Armor</td><td>Enhanced Kuku Pot x1, Frostcursed Plate Armor x1, Power Core x1, Exaltation Core x1</td><td>DEF 4‚Üí38, Freeze Res Lv10, Move SPD Lv2‚Üí3</td><td>Ice absorption ‚Üí ice burst on hit</td></tr>
-                    <tr><td>2c</td><td>Kuku Flame-Resistant Armor</td><td>Enhanced Kuku Pot x1, Scorchflame Plate Armor x1, Power Core x1, Deliverance Core x1</td><td>DEF 4‚Üí38, Crit Rate Lv2‚Üí3, Fire Res Lv10</td><td>Fire absorption ‚Üí flame burst</td></tr>
-                    <tr><td>2d</td><td>Kuku Lightning-Resistant Armor</td><td>Enhanced Kuku Pot x1, Lightning Bolt Plate Armor x1, Power Core x1, Penitence Core x1</td><td>DEF 4‚Üí38, ATK SPD Lv2‚Üí3, Lightning Res Lv10</td><td>Lightning absorption ‚Üí lightning counter</td></tr>
-                    <tr><td>2e</td><td>Kuku Breeze-Step Boots</td><td>Enhanced Kuku Pot x1, Electrical Components x3, Faith Core x1</td><td>DEF 1‚Üí18, ATK 11‚Üí33, Lightning Res Lv3</td><td>Enhanced double-jump (3 charges, 10s CD)</td></tr>
-                    <tr><td>2f</td><td>Kuku Rishi's Boots</td><td>Enhanced Kuku Pot x1, Poor Rishi's Boots x1, Abyss Cell x5</td><td>DEF 1‚Üí18, ATK 10‚Üí30, Crit Rate Lv1‚Üí2</td><td>Double-dodge slide (5 charges, 10s CD)</td></tr>
+                    <tr><td>2a</td><td>Kuku Marni Laser Helm</td><td>Enhanced Kuku Pot x1, Marni Laser Helm x1, Power Core x1, Electrical Components x3, Offering Core x1</td><td>DEF 2‚Ü?1, Stun Immunity</td><td>Forward laser (3 charges, 10s CD)</td></tr>
+                    <tr><td>2b</td><td>Kuku Ice-Resistant Armor</td><td>Enhanced Kuku Pot x1, Frostcursed Plate Armor x1, Power Core x1, Exaltation Core x1</td><td>DEF 4‚Ü?8, Freeze Res Lv10, Move SPD Lv2‚Ü?</td><td>Ice absorption ‚Ü?ice burst on hit</td></tr>
+                    <tr><td>2c</td><td>Kuku Flame-Resistant Armor</td><td>Enhanced Kuku Pot x1, Scorchflame Plate Armor x1, Power Core x1, Deliverance Core x1</td><td>DEF 4‚Ü?8, Crit Rate Lv2‚Ü?, Fire Res Lv10</td><td>Fire absorption ‚Ü?flame burst</td></tr>
+                    <tr><td>2d</td><td>Kuku Lightning-Resistant Armor</td><td>Enhanced Kuku Pot x1, Lightning Bolt Plate Armor x1, Power Core x1, Penitence Core x1</td><td>DEF 4‚Ü?8, ATK SPD Lv2‚Ü?, Lightning Res Lv10</td><td>Lightning absorption ‚Ü?lightning counter</td></tr>
+                    <tr><td>2e</td><td>Kuku Breeze-Step Boots</td><td>Enhanced Kuku Pot x1, Electrical Components x3, Faith Core x1</td><td>DEF 1‚Ü?8, ATK 11‚Ü?3, Lightning Res Lv3</td><td>Enhanced double-jump (3 charges, 10s CD)</td></tr>
+                    <tr><td>2f</td><td>Kuku Rishi's Boots</td><td>Enhanced Kuku Pot x1, Poor Rishi's Boots x1, Abyss Cell x5</td><td>DEF 1‚Ü?8, ATK 10‚Ü?0, Crit Rate Lv1‚Ü?</td><td>Double-dodge slide (5 charges, 10s CD)</td></tr>
                 </tbody>
             </table>
             <p><strong>Verdict:</strong> The most impactful path for survivability. Breeze-Step Boots are the single best mobility item in the game. Kuku Marni Laser Helm offers exceptional offensive utility. Prioritise this path if you explore aggressively.</p>
@@ -230,7 +252,7 @@
                     <tr><td>1</td><td>Small Kuku A.T.A.G.</td><td>Kuku Pot x1, Abyss Cell x1, Cogwheel x5, Small Battery x5</td><td>Base mech, crafting base</td><td>Chapter 10+ Iron Flame Orc faction</td></tr>
                     <tr><td>2a</td><td>A.T.A.G.</td><td>Small Kuku A.T.A.G. x1, Small Battery x300, Cogwheel x300, Power Core-Seed of Verse x2, Benediction Core x1</td><td>Rideable combat mech</td><td>"Pinnacle of Technology" quest</td></tr>
                     <tr><td>2b</td><td>High-Mobility A.T.A.G.</td><td>Small Kuku A.T.A.G. x1, Small Battery x400, Cogwheel x200, Power Core-Crown of Shadow x2, Temperance Core x1</td><td>Fast scout mech</td><td>Sanctum of Exaltation (purified)</td></tr>
-                    <tr><td>3</td><td>Abyssal Fusion</td><td>Small Kuku A.T.A.G. x1, Venus Component x1, Aeserion's Scale x1, Power Core x1</td><td>Legendary material for Blackstar armor</td><td>Chapter 11 ‚Äî "Forgotten Land" quest</td></tr>
+                    <tr><td>3</td><td>Abyssal Fusion</td><td>Small Kuku A.T.A.G. x1, Venus Component x1, Aeserion's Scale x1, Power Core x1</td><td>Legendary material for Blackstar armor</td><td>Chapter 11 ‚Ä?"Forgotten Land" quest</td></tr>
                 </tbody>
             </table>
             <p><strong>Verdict:</strong> Endgame-only path. The A.T.A.G. is powerful but requires massive material investment (300+ batteries and cogs). Abyssal Fusion is required for the best-in-slot Blackstar armor upgrade.</p>
@@ -240,36 +262,36 @@
 
             <div class="method-box">
                 <h4>‚öîÔ∏è Combat-First Players</h4>
-                <p><strong>Priority Path:</strong> Kuku Pot ‚Üí Enhanced Kuku Pot ‚Üí Kuku Marni Laser Helm ‚Üí Kuku Elemental Armor</p>
+                <p><strong>Priority Path:</strong> Kuku Pot ‚Ü?Enhanced Kuku Pot ‚Ü?Kuku Marni Laser Helm ‚Ü?Kuku Elemental Armor</p>
                 <p>Combat-focused players should rush the Enhanced Kuku Pot as fast as possible (requires purifying Sanctum of Absolution, available mid-Chapter 5). From there, prioritise Marni Laser Helm for its devastating forward laser, then choose an elemental armor that matches your primary enemy type. Flame-Resistant Armor is the most widely useful (many enemies in Hernand and Pailune deal fire damage), but Lightning-Resistant Armor becomes critical in Delesyia's mechanised zones.</p>
-                <p><strong>Secondary Path:</strong> Kuku Spear ‚Üí Kuku Disruptor Spear (for mechanical enemies) or Kuku Flame Spear (general use)</p>
+                <p><strong>Secondary Path:</strong> Kuku Spear ‚Ü?Kuku Disruptor Spear (for mechanical enemies) or Kuku Flame Spear (general use)</p>
             </div>
 
             <div class="method-box">
                 <h4>üß≠ Exploration & Completionists</h4>
-                <p><strong>Priority Path:</strong> Kuku Pot ‚Üí Enhanced Kuku Pot ‚Üí Kuku Breeze-Step Boots ‚Üí Kuku Rishi's Boots</p>
-                <p>Explorers should prioritise mobility above all. The Breeze-Step Boots unlock an enhanced double-jump that opens up countless hidden areas and shortcuts. Complement with Rishi's Boots for the double-dodge slide ‚Äî this combination makes platforming sections trivial and lets you reach virtually every collectible in the game. After boots, pursue the Kuku Rocket Pack for vertical mobility in Crimson Desert's cliff regions.</p>
-                <p><strong>Secondary Path:</strong> Kuku Cooler ‚Üí Enhanced Kuku Cooler (for long expeditions)</p>
+                <p><strong>Priority Path:</strong> Kuku Pot ‚Ü?Enhanced Kuku Pot ‚Ü?Kuku Breeze-Step Boots ‚Ü?Kuku Rishi's Boots</p>
+                <p>Explorers should prioritise mobility above all. The Breeze-Step Boots unlock an enhanced double-jump that opens up countless hidden areas and shortcuts. Complement with Rishi's Boots for the double-dodge slide ‚Ä?this combination makes platforming sections trivial and lets you reach virtually every collectible in the game. After boots, pursue the Kuku Rocket Pack for vertical mobility in Crimson Desert's cliff regions.</p>
+                <p><strong>Secondary Path:</strong> Kuku Cooler ‚Ü?Enhanced Kuku Cooler (for long expeditions)</p>
             </div>
 
             <div class="method-box">
                 <h4>üí∞ Silver-Farming & Efficiency Players</h4>
-                <p><strong>Priority Path:</strong> Kuku Pot ‚Üí Enhanced Kuku Pot ‚Üí Kuku Flame-Resistant Armor ‚Üí Kuku Lightning-Resistant Armor</p>
-                <p>If your goal is efficient silver farming, invest in survivability first ‚Äî dying less means farming more. Both Flame and Lightning armors provide excellent defense (4‚Üí38) plus elemental immunity that lets you farm high-level zones without interruption. Add the Kuku Disruptor Spear to shut down mechanical enemies in Delesyia's best farming spots.</p>
+                <p><strong>Priority Path:</strong> Kuku Pot ‚Ü?Enhanced Kuku Pot ‚Ü?Kuku Flame-Resistant Armor ‚Ü?Kuku Lightning-Resistant Armor</p>
+                <p>If your goal is efficient silver farming, invest in survivability first ‚Ä?dying less means farming more. Both Flame and Lightning armors provide excellent defense (4‚Ü?8) plus elemental immunity that lets you farm high-level zones without interruption. Add the Kuku Disruptor Spear to shut down mechanical enemies in Delesyia's best farming spots.</p>
                 <p><strong>Secondary Path:</strong> Small Kuku A.T.A.G. (enables A.T.A.G. mech for faster travel between farming routes)</p>
             </div>
 
             <div class="method-box">
                 <h4>üé® Crafting & Collection Enthusiasts</h4>
-                <p><strong>Priority Path:</strong> Kuku Pot ‚Üí Kuku Pack ‚Üí Kuku Frostspitter / Flamespitter / Boltspitter ‚Üí All packs</p>
+                <p><strong>Priority Path:</strong> Kuku Pot ‚Ü?Kuku Pack ‚Ü?Kuku Frostspitter / Flamespitter / Boltspitter ‚Ü?All packs</p>
                 <p>For players who want every Kuku item, start with the Kuku Pack and unlock all three elemental spitters (Frostspitter, Flamespitter, Boltspitter). These provide excellent zone control and material farming efficiency. Then branch into Gardening Pack (for farming ingredients) and Insect Gatherer's Pack (for Delesyia material farming).</p>
-                <p><strong>Secondary Path:</strong> Kuku Cooler ‚Üí Enhanced Kuku Cooler (stores all those materials)</p>
+                <p><strong>Secondary Path:</strong> Kuku Cooler ‚Ü?Enhanced Kuku Cooler (stores all those materials)</p>
             </div>
 
             <h2 id="section4">üì¶ 4. Materials Planning Guide</h2>
             <p>Kuku evolution requires a staggering amount of materials. This section breaks down every material type, where to farm it efficiently, and how many you'll need total for full completion.</p>
 
-            <h3>Core Materials ‚Äî Total Requirements for All Kuku Items</h3>
+            <h3>Core Materials ‚Ä?Total Requirements for All Kuku Items</h3>
             <table>
                 <thead>
                     <tr>
@@ -281,21 +303,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>Iron Ore</td><td>~25</td><td>Hernand mines, Pailune cliffs</td><td>Blacksmith purchase</td><td>‚≠ê Easy</td></tr>
-                    <tr><td>Copper Ore</td><td>~8</td><td>Hernand mines</td><td>Pailune deposits</td><td>‚≠ê Easy</td></tr>
-                    <tr><td>Wood</td><td>~5</td><td>Any forested area</td><td>Vendor purchase</td><td>‚≠ê Easy</td></tr>
-                    <tr><td>Small Battery</td><td>~1,040</td><td>Delesyia mechanical enemies</td><td>Demeniss workshops</td><td>‚≠ê‚≠ê‚≠ê Medium-Hard</td></tr>
-                    <tr><td>Cogwheel</td><td>~825</td><td>Delesyia mechanical enemies, Clockwork Insects</td><td>Demeniss merchants</td><td>‚≠ê‚≠ê‚≠ê Medium-Hard</td></tr>
+                    <tr><td>Iron Ore</td><td>~25</td><td>Hernand mines, Pailune cliffs</td><td>Blacksmith purchase</td><td>‚≠?Easy</td></tr>
+                    <tr><td>Copper Ore</td><td>~8</td><td>Hernand mines</td><td>Pailune deposits</td><td>‚≠?Easy</td></tr>
+                    <tr><td>Wood</td><td>~5</td><td>Any forested area</td><td>Vendor purchase</td><td>‚≠?Easy</td></tr>
+                    <tr><td>Small Battery</td><td>~1,040</td><td>Delesyia mechanical enemies</td><td>Demeniss workshops</td><td>‚≠ê‚≠ê‚≠?Medium-Hard</td></tr>
+                    <tr><td>Cogwheel</td><td>~825</td><td>Delesyia mechanical enemies, Clockwork Insects</td><td>Demeniss merchants</td><td>‚≠ê‚≠ê‚≠?Medium-Hard</td></tr>
                     <tr><td>Abyss Cell</td><td>~15</td><td>Abyss creatures (world spawns)</td><td>Sanctum challenges</td><td>‚≠ê‚≠ê Medium</td></tr>
                     <tr><td>Electrical Component</td><td>~20</td><td>Elite mechanical enemies, Delesyia hubs</td><td>Clockwork Insects (rare)</td><td>‚≠ê‚≠ê‚≠ê‚≠ê Hard</td></tr>
                     <tr><td>Azurite</td><td>~1</td><td>Hernand mines (deep levels)</td><td>Vendor (rare)</td><td>‚≠ê‚≠ê Medium</td></tr>
-                    <tr><td>Bismuth Ore</td><td>~4</td><td>Crimson Desert mines</td><td>Well of Prophecy</td><td>‚≠ê‚≠ê‚≠ê Medium-Hard</td></tr>
-                    <tr><td>Brimstone</td><td>~3</td><td>Crimson Desert volcanic zones</td><td>Delesyia merchants</td><td>‚≠ê‚≠ê‚≠ê Medium</td></tr>
+                    <tr><td>Bismuth Ore</td><td>~4</td><td>Crimson Desert mines</td><td>Well of Prophecy</td><td>‚≠ê‚≠ê‚≠?Medium-Hard</td></tr>
+                    <tr><td>Brimstone</td><td>~3</td><td>Crimson Desert volcanic zones</td><td>Delesyia merchants</td><td>‚≠ê‚≠ê‚≠?Medium</td></tr>
                     <tr><td>Mercury</td><td>~3</td><td>Demeniss alchemy shops</td><td>Pailune swamps (gathering)</td><td>‚≠ê‚≠ê Medium</td></tr>
                     <tr><td>Rubber</td><td>~3</td><td>Delesyia workshops</td><td>Pailune plant gathering</td><td>‚≠ê‚≠ê Medium</td></tr>
                     <tr><td>Lubricant</td><td>~50</td><td>Delesyia mechanical drops</td><td>Crafting (Oil + Sulphur)</td><td>‚≠ê‚≠ê Medium</td></tr>
                     <tr><td>Power Core (various)</td><td>~7</td><td>Sanctum challenges</td><td>Abyss Titan bosses</td><td>‚≠ê‚≠ê‚≠ê‚≠ê Hard</td></tr>
-                    <tr><td>Sanctum Core (various)</td><td>~8</td><td>Sanctum second puzzles</td><td>N/A (unique per sanctum)</td><td>‚≠ê‚≠ê‚≠ê‚≠ê‚≠ê Very Hard</td></tr>
+                    <tr><td>Sanctum Core (various)</td><td>~8</td><td>Sanctum second puzzles</td><td>N/A (unique per sanctum)</td><td>‚≠ê‚≠ê‚≠ê‚≠ê‚≠?Very Hard</td></tr>
                 </tbody>
             </table>
 
@@ -313,82 +335,82 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>Hernand Mines</td><td>Iron Ore, Copper Ore, Wood, Azurite</td><td>Main entrance ‚Üí deep tunnels ‚Üí Stormtalon Ridge</td><td>60-80 ores</td></tr>
-                    <tr><td>Pailune Forests</td><td>Wood, Rubber, Mercury</td><td>Bloomwood Ranch ‚Üí Hunting Lodge ‚Üí Beighen outskirts</td><td>40-50 gathering materials</td></tr>
-                    <tr><td>Demeniss Workshops</td><td>Small Battery, Cogwheel, Electrical Components</td><td>Garrison east ‚Üí Trade Quarter ‚Üí Library west</td><td>30-40 batteries, 20-30 cogs</td></tr>
-                    <tr><td>Delesyia Rustfields</td><td>Small Battery, Cogwheel, Lubricant, Electrical Components (elite)</td><td>Rustfields eastern loop ‚Üí Scrapyard ‚Üí Machine Graveyard</td><td>180-240 batteries, 140-200 cogs, 8-12 components</td></tr>
-                    <tr><td>Crimson Desert</td><td>Bismuth Ore, Brimstone, Abyss Cells</td><td>Well of Prophecy ‚Üí Volcanic Ridge ‚Üí Ancient Ruins</td><td>8-12 Bismuth, 6-10 Brimstone, 3-5 Abyss Cells</td></tr>
+                    <tr><td>Hernand Mines</td><td>Iron Ore, Copper Ore, Wood, Azurite</td><td>Main entrance ‚Ü?deep tunnels ‚Ü?Stormtalon Ridge</td><td>60-80 ores</td></tr>
+                    <tr><td>Pailune Forests</td><td>Wood, Rubber, Mercury</td><td>Bloomwood Ranch ‚Ü?Hunting Lodge ‚Ü?Beighen outskirts</td><td>40-50 gathering materials</td></tr>
+                    <tr><td>Demeniss Workshops</td><td>Small Battery, Cogwheel, Electrical Components</td><td>Garrison east ‚Ü?Trade Quarter ‚Ü?Library west</td><td>30-40 batteries, 20-30 cogs</td></tr>
+                    <tr><td>Delesyia Rustfields</td><td>Small Battery, Cogwheel, Lubricant, Electrical Components (elite)</td><td>Rustfields eastern loop ‚Ü?Scrapyard ‚Ü?Machine Graveyard</td><td>180-240 batteries, 140-200 cogs, 8-12 components</td></tr>
+                    <tr><td>Crimson Desert</td><td>Bismuth Ore, Brimstone, Abyss Cells</td><td>Well of Prophecy ‚Ü?Volcanic Ridge ‚Ü?Ancient Ruins</td><td>8-12 Bismuth, 6-10 Brimstone, 3-5 Abyss Cells</td></tr>
                 </tbody>
             </table>
 
             <div class="warn-box">
-                <strong>Warning:</strong> Sanctum Cores are <strong>non-farmable</strong>. Each Sanctum (Absolution, Benediction, Penitence, Devotion, Deliverance, Expiation, Oblation, Revelation, Exaltation, Solace, Veneration, Temperance, Faith, Renunciation, Atonement) drops exactly one core upon completing its second puzzle. Choose your upgrade carefully ‚Äî if you craft the wrong item, you must complete another playthrough or trade with another player (no trading exists as of Patch 1.12.02).</div>
+                <strong>Warning:</strong> Sanctum Cores are <strong>non-farmable</strong>. Each Sanctum (Absolution, Benediction, Penitence, Devotion, Deliverance, Expiation, Oblation, Revelation, Exaltation, Solace, Veneration, Temperance, Faith, Renunciation, Atonement) drops exactly one core upon completing its second puzzle. Choose your upgrade carefully ‚Ä?if you craft the wrong item, you must complete another playthrough or trade with another player (no trading exists as of Patch 1.12.02).</div>
 
-            <h2 id="section5">‚ö° 5. Enhancement Priority</h2>
+            <h2 id="section5">‚ö?5. Enhancement Priority</h2>
             <p>With limited materials and Sanctum Cores, you need a clear priority order. Here is our recommended enhancement sequence optimised for maximum return on investment.</p>
 
             <h3>Tier 1: Craft Immediately (No Regret)</h3>
             <div class="action-step">
                 <div class="step-num">1</div>
                 <h4>Kuku Pot</h4>
-                <p><strong>Cost:</strong> Iron Ore x5, Wood x5 ‚Äî <strong>Time:</strong> Chapter 4, ~45 min ‚Äî <strong>Why:</strong> Unlocks the entire system. Cannot progress without it.</p>
+                <p><strong>Cost:</strong> Iron Ore x5, Wood x5 ‚Ä?<strong>Time:</strong> Chapter 4, ~45 min ‚Ä?<strong>Why:</strong> Unlocks the entire system. Cannot progress without it.</p>
             </div>
             <div class="action-step">
                 <div class="step-num">2</div>
                 <h4>Enhanced Kuku Pot</h4>
-                <p><strong>Cost:</strong> Kuku Pot x1, Abyss Cell x1 ‚Äî <strong>Time:</strong> Chapter 5 (post Sanctum of Absolution) ‚Äî <strong>Why:</strong> Required for all armor and the best headgear. Abyss Cells are plentiful from world spawns.</p>
+                <p><strong>Cost:</strong> Kuku Pot x1, Abyss Cell x1 ‚Ä?<strong>Time:</strong> Chapter 5 (post Sanctum of Absolution) ‚Ä?<strong>Why:</strong> Required for all armor and the best headgear. Abyss Cells are plentiful from world spawns.</p>
             </div>
             <div class="action-step">
                 <div class="step-num">3</div>
                 <h4>Kuku Breeze-Step Boots</h4>
-                <p><strong>Cost:</strong> Enhanced Kuku Pot x1, Electrical Components x3, Faith Core x1 ‚Äî <strong>Why:</strong> Enhanced double-jump transforms exploration and combat positioning. Single best quality-of-life upgrade in the entire Kuku system.</p>
+                <p><strong>Cost:</strong> Enhanced Kuku Pot x1, Electrical Components x3, Faith Core x1 ‚Ä?<strong>Why:</strong> Enhanced double-jump transforms exploration and combat positioning. Single best quality-of-life upgrade in the entire Kuku system.</p>
             </div>
 
             <h3>Tier 2: High Priority (Chapter 6-8)</h3>
             <div class="action-step">
                 <div class="step-num">4</div>
                 <h4>Kuku Marni Laser Helm</h4>
-                <p><strong>Cost:</strong> Enhanced Kuku Pot x1, Marni Laser Helm (Delesyia coast), Power Core x1, Electrical Components x3, Offering Core x1 ‚Äî <strong>Why:</strong> Stun immunity plus a powerful laser attack. Excellent for both combat and exploration (laser breaks cracked walls).</p>
+                <p><strong>Cost:</strong> Enhanced Kuku Pot x1, Marni Laser Helm (Delesyia coast), Power Core x1, Electrical Components x3, Offering Core x1 ‚Ä?<strong>Why:</strong> Stun immunity plus a powerful laser attack. Excellent for both combat and exploration (laser breaks cracked walls).</p>
             </div>
             <div class="action-step">
                 <div class="step-num">5</div>
                 <h4>Kuku Spear</h4>
-                <p><strong>Cost:</strong> Kuku Pot x1, Small Battery x10 ‚Äî <strong>Why:</strong> Only 10 batteries for a base spear that unlocks 6 different evolved spears. Best value weapon investment in the game.</p>
+                <p><strong>Cost:</strong> Kuku Pot x1, Small Battery x10 ‚Ä?<strong>Why:</strong> Only 10 batteries for a base spear that unlocks 6 different evolved spears. Best value weapon investment in the game.</p>
             </div>
             <div class="action-step">
                 <div class="step-num">6</div>
                 <h4>Kuku Flame Spear or Kuku Lightning Spear</h4>
-                <p><strong>Cost:</strong> Kuku Spear + elemental base spear + materials ‚Äî <strong>Why:</strong> Elemental spears deal significantly more damage than standard weapons in their respective zones. Choose Flame for general PvE, Lightning for Delesyia.</p>
+                <p><strong>Cost:</strong> Kuku Spear + elemental base spear + materials ‚Ä?<strong>Why:</strong> Elemental spears deal significantly more damage than standard weapons in their respective zones. Choose Flame for general PvE, Lightning for Delesyia.</p>
             </div>
 
             <h3>Tier 3: Mid Priority (Chapter 8-10)</h3>
             <div class="action-step">
                 <div class="step-num">7</div>
                 <h4>Kuku Flame-Resistant Armor</h4>
-                <p><strong>Cost:</strong> Enhanced Kuku Pot x1, Scorchflame Plate Armor, Power Core, Deliverance Core ‚Äî <strong>Why:</strong> Best general-purpose elemental armor. Fire damage is the most common elemental type in Pywel.</p>
+                <p><strong>Cost:</strong> Enhanced Kuku Pot x1, Scorchflame Plate Armor, Power Core, Deliverance Core ‚Ä?<strong>Why:</strong> Best general-purpose elemental armor. Fire damage is the most common elemental type in Pywel.</p>
             </div>
             <div class="action-step">
                 <div class="step-num">8</div>
                 <h4>Kuku Rocket Pack</h4>
-                <p><strong>Cost:</strong> Kuku Pack x1, Iron Ore x10, Copper Ore x5, Cogwheel x5, Small Battery x3 ‚Äî <strong>Why:</strong> Vertical mobility makes Crimson Desert navigation much easier. Low material cost for a pack.</p>
+                <p><strong>Cost:</strong> Kuku Pack x1, Iron Ore x10, Copper Ore x5, Cogwheel x5, Small Battery x3 ‚Ä?<strong>Why:</strong> Vertical mobility makes Crimson Desert navigation much easier. Low material cost for a pack.</p>
             </div>
             <div class="action-step">
                 <div class="step-num">9</div>
-                <h4>Kuku Pack ‚Üí Kuku Boltspitter</h4>
-                <p><strong>Cost:</strong> Kuku Pack + Electromagnetic Bolt Spitter + components ‚Äî <strong>Why:</strong> Excellent zone control for Delesyia's mechanical enemies. The lightning effect stuns groups.</p>
+                <h4>Kuku Pack ‚Ü?Kuku Boltspitter</h4>
+                <p><strong>Cost:</strong> Kuku Pack + Electromagnetic Bolt Spitter + components ‚Ä?<strong>Why:</strong> Excellent zone control for Delesyia's mechanical enemies. The lightning effect stuns groups.</p>
             </div>
 
             <h3>Tier 4: Low Priority / Endgame (Chapter 10+)</h3>
             <ul>
-                <li><strong>Small Kuku A.T.A.G.</strong> ‚Üí Save for Chapter 10. Only worthwhile after you have the battery and cog stockpile.</li>
-                <li><strong>A.T.A.G. / High-Mobility A.T.A.G.</strong> ‚Üí Impressive but requires 300+ batteries. Build one if you enjoy mech gameplay, but skip if resources are tight.</li>
-                <li><strong>Enhanced Kuku Cooler</strong> ‚Üí Build when you start serious cooking. The 1,000-slot capacity is invaluable for long sessions.</li>
-                <li><strong>Kuku Disruptor Spear</strong> ‚Üí Niche but essential for speedruns through Delesyia's machine zones.</li>
-                <li><strong>Kuku Watcher Pack / Gardening Pack / Insect Gatherer's Pack</strong> ‚Üí Completionist items. Build after all combat priorities are met.</li>
+                <li><strong>Small Kuku A.T.A.G.</strong> ‚Ü?Save for Chapter 10. Only worthwhile after you have the battery and cog stockpile.</li>
+                <li><strong>A.T.A.G. / High-Mobility A.T.A.G.</strong> ‚Ü?Impressive but requires 300+ batteries. Build one if you enjoy mech gameplay, but skip if resources are tight.</li>
+                <li><strong>Enhanced Kuku Cooler</strong> ‚Ü?Build when you start serious cooking. The 1,000-slot capacity is invaluable for long sessions.</li>
+                <li><strong>Kuku Disruptor Spear</strong> ‚Ü?Niche but essential for speedruns through Delesyia's machine zones.</li>
+                <li><strong>Kuku Watcher Pack / Gardening Pack / Insect Gatherer's Pack</strong> ‚Ü?Completionist items. Build after all combat priorities are met.</li>
             </ul>
 
             <h2 id="section6">üìà 6. Long-Term Upgrade Strategy</h2>
-            <p>Kuku evolution isn't a sprint ‚Äî it's a carefully planned progression that spans the entire game. Here's our recommended chapter-by-chapter upgrade roadmap.</p>
+            <p>Kuku evolution isn't a sprint ‚Ä?it's a carefully planned progression that spans the entire game. Here's our recommended chapter-by-chapter upgrade roadmap.</p>
 
             <h3>Chapter 4-5: Foundation Phase</h3>
             <table>
@@ -469,36 +491,36 @@
             <h2 id="section7">üèÜ 7. Kuku Type Tier List</h2>
             <p>After extensive testing across all game content (Patch 1.12.02), here is our definitive tier list for every Kuku item. Items are ranked by overall utility, power, and how often they remain useful throughout the game.</p>
 
-            <h3>S-Tier ‚Äî Game-Changing (Build Immediately)</h3>
-            <div class="tier-s"><span class="tier-label">S</span> <span><strong>Kuku Breeze-Step Boots</strong> ‚Äî Enhanced double-jump is irreplaceable for exploration, combat, and reaching collectibles.</span></div>
-            <div class="tier-s"><span class="tier-label">S</span> <span><strong>Kuku Marni Laser Helm</strong> ‚Äî Stun immunity + powerful laser attack + breaks cracked walls. Three functions in one item.</span></div>
-            <div class="tier-s"><span class="tier-label">S</span> <span><strong>Enhanced Kuku Pot</strong> ‚Äî Required for all S and A tier armor items. The cornerstone of the entire system.</span></div>
+            <h3>S-Tier ‚Ä?Game-Changing (Build Immediately)</h3>
+            <div class="tier-s"><span class="tier-label">S</span> <span><strong>Kuku Breeze-Step Boots</strong> ‚Ä?Enhanced double-jump is irreplaceable for exploration, combat, and reaching collectibles.</span></div>
+            <div class="tier-s"><span class="tier-label">S</span> <span><strong>Kuku Marni Laser Helm</strong> ‚Ä?Stun immunity + powerful laser attack + breaks cracked walls. Three functions in one item.</span></div>
+            <div class="tier-s"><span class="tier-label">S</span> <span><strong>Enhanced Kuku Pot</strong> ‚Ä?Required for all S and A tier armor items. The cornerstone of the entire system.</span></div>
 
-            <h3>A-Tier ‚Äî Excellent (High Priority)</h3>
-            <div class="tier-a"><span class="tier-label">A</span> <span><strong>Kuku Flame-Resistant Armor</strong> ‚Äî Best general elemental armor. High defense, crit rate bonus, and fire immunity.</span></div>
-            <div class="tier-a"><span class="tier-label">A</span> <span><strong>Kuku Lightning-Resistant Armor</strong> ‚Äî Best for Delesyia. Attack speed bonus is excellent for DPS builds.</span></div>
-            <div class="tier-a"><span class="tier-label">A</span> <span><strong>Kuku Rocket Pack</strong> ‚Äî Low cost, high mobility payoff. Essential for Crimson Desert navigation.</span></div>
-            <div class="tier-a"><span class="tier-label">A</span> <span><strong>Kuku Disruptor Spear</strong> ‚Äî Best spear for Delesyia. EMP shuts down all mechanical enemies.</span></div>
-            <div class="tier-a"><span class="tier-label">A</span> <span><strong>Kuku Rishi's Boots</strong> ‚Äî Double-dodge slide with 5 charges. Pair with Breeze-Step for ultimate mobility.</span></div>
+            <h3>A-Tier ‚Ä?Excellent (High Priority)</h3>
+            <div class="tier-a"><span class="tier-label">A</span> <span><strong>Kuku Flame-Resistant Armor</strong> ‚Ä?Best general elemental armor. High defense, crit rate bonus, and fire immunity.</span></div>
+            <div class="tier-a"><span class="tier-label">A</span> <span><strong>Kuku Lightning-Resistant Armor</strong> ‚Ä?Best for Delesyia. Attack speed bonus is excellent for DPS builds.</span></div>
+            <div class="tier-a"><span class="tier-label">A</span> <span><strong>Kuku Rocket Pack</strong> ‚Ä?Low cost, high mobility payoff. Essential for Crimson Desert navigation.</span></div>
+            <div class="tier-a"><span class="tier-label">A</span> <span><strong>Kuku Disruptor Spear</strong> ‚Ä?Best spear for Delesyia. EMP shuts down all mechanical enemies.</span></div>
+            <div class="tier-a"><span class="tier-label">A</span> <span><strong>Kuku Rishi's Boots</strong> ‚Ä?Double-dodge slide with 5 charges. Pair with Breeze-Step for ultimate mobility.</span></div>
 
-            <h3>B-Tier ‚Äî Good (Build When Needed)</h3>
-            <div class="tier-b"><span class="tier-label">B</span> <span><strong>Kuku Bismuth Spear</strong> ‚Äî Highest raw damage spear. Excellent for boss fights without elemental weaknesses.</span></div>
-            <div class="tier-b"><span class="tier-label">B</span> <span><strong>Kuku Laser Cannon Spear</strong> ‚Äî Piercing laser is great for crowded hallways. Situational but powerful.</span></div>
-            <div class="tier-b"><span class="tier-label">B</span> <span><strong>Kuku Flame Spear</strong> ‚Äî Solid all-rounder. Fire damage is widely effective across most regions.</span></div>
-            <div class="tier-b"><span class="tier-label">B</span> <span><strong>Kuku Ice-Resistant Armor</strong> ‚Äî Essential for Pailune exploration. Less useful after leaving the frozen north.</span></div>
-            <div class="tier-b"><span class="tier-label">B</span> <span><strong>Enhanced Kuku Cooler</strong> ‚Äî 1,000-slot food storage. S-tier for cooking builds, C-tier for everyone else.</span></div>
-            <div class="tier-b"><span class="tier-label">B</span> <span><strong>Kuku Boltspitter (Pack)</strong> ‚Äî Excellent zone control. Lightning stun is valuable against groups.</span></div>
+            <h3>B-Tier ‚Ä?Good (Build When Needed)</h3>
+            <div class="tier-b"><span class="tier-label">B</span> <span><strong>Kuku Bismuth Spear</strong> ‚Ä?Highest raw damage spear. Excellent for boss fights without elemental weaknesses.</span></div>
+            <div class="tier-b"><span class="tier-label">B</span> <span><strong>Kuku Laser Cannon Spear</strong> ‚Ä?Piercing laser is great for crowded hallways. Situational but powerful.</span></div>
+            <div class="tier-b"><span class="tier-label">B</span> <span><strong>Kuku Flame Spear</strong> ‚Ä?Solid all-rounder. Fire damage is widely effective across most regions.</span></div>
+            <div class="tier-b"><span class="tier-label">B</span> <span><strong>Kuku Ice-Resistant Armor</strong> ‚Ä?Essential for Pailune exploration. Less useful after leaving the frozen north.</span></div>
+            <div class="tier-b"><span class="tier-label">B</span> <span><strong>Enhanced Kuku Cooler</strong> ‚Ä?1,000-slot food storage. S-tier for cooking builds, C-tier for everyone else.</span></div>
+            <div class="tier-b"><span class="tier-label">B</span> <span><strong>Kuku Boltspitter (Pack)</strong> ‚Ä?Excellent zone control. Lightning stun is valuable against groups.</span></div>
 
-            <h3>C-Tier ‚Äî Situational (Low Priority)</h3>
-            <div class="tier-c"><span class="tier-label">C</span> <span><strong>A.T.A.G. (Standard)</strong> ‚Äî Powerful but requires 300+ batteries. Too expensive for what it offers compared to elemental armor + spear combo.</span></div>
-            <div class="tier-c"><span class="tier-label">C</span> <span><strong>High-Mobility A.T.A.G.</strong> ‚Äî Fast but fragile. Niche use for speedrunning.</span></div>
-            <div class="tier-c"><span class="tier-label">C</span> <span><strong>Kuku Propeller Spear</strong> ‚Äî Knocks enemies away. Useful for survival but reduces DPS.</span></div>
-            <div class="tier-c"><span class="tier-label">C</span> <span><strong>Kuku Frostspitter / Flamespitter</strong> ‚Äî Outclassed by the armor variants. Build only if you're a completionist.</span></div>
-            <div class="tier-c"><span class="tier-label">C</span> <span><strong>Kuku Watcher Pack</strong> ‚Äî Expensive material cost for underwhelming utility.</span></div>
-            <div class="tier-c"><span class="tier-label">C</span> <span><strong>Kuku Gardening Pack / Insect Gatherer's Pack</strong> ‚Äî Niche farming tools. Build only after everything else.</span></div>
-            <div class="tier-c"><span class="tier-label">C</span> <span><strong>Kuku Cooler (non-enhanced)</strong> ‚Äî 50 slots is too small to matter. Skip straight to Enhanced if possible.</span></div>
+            <h3>C-Tier ‚Ä?Situational (Low Priority)</h3>
+            <div class="tier-c"><span class="tier-label">C</span> <span><strong>A.T.A.G. (Standard)</strong> ‚Ä?Powerful but requires 300+ batteries. Too expensive for what it offers compared to elemental armor + spear combo.</span></div>
+            <div class="tier-c"><span class="tier-label">C</span> <span><strong>High-Mobility A.T.A.G.</strong> ‚Ä?Fast but fragile. Niche use for speedrunning.</span></div>
+            <div class="tier-c"><span class="tier-label">C</span> <span><strong>Kuku Propeller Spear</strong> ‚Ä?Knocks enemies away. Useful for survival but reduces DPS.</span></div>
+            <div class="tier-c"><span class="tier-label">C</span> <span><strong>Kuku Frostspitter / Flamespitter</strong> ‚Ä?Outclassed by the armor variants. Build only if you're a completionist.</span></div>
+            <div class="tier-c"><span class="tier-label">C</span> <span><strong>Kuku Watcher Pack</strong> ‚Ä?Expensive material cost for underwhelming utility.</span></div>
+            <div class="tier-c"><span class="tier-label">C</span> <span><strong>Kuku Gardening Pack / Insect Gatherer's Pack</strong> ‚Ä?Niche farming tools. Build only after everything else.</span></div>
+            <div class="tier-c"><span class="tier-label">C</span> <span><strong>Kuku Cooler (non-enhanced)</strong> ‚Ä?50 slots is too small to matter. Skip straight to Enhanced if possible.</span></div>
 
-            <h2 id="faq">‚ùì FAQ ‚Äî Frequently Asked Questions</h2>
+            <h2 id="faq">‚ù?FAQ ‚Ä?Frequently Asked Questions</h2>
             <div class="faq-item">
                 <h4>How do I unlock the Kuku Pot system?</h4>
                 <p>Complete Chapter 4's main quest "Mysterious Pot" at the Kilnden Workshop, located northwest of Howling Hill Camp in the Hernand region. The quest requires Iron Ore x5 and Wood x5.</p>
@@ -509,11 +531,11 @@
             </div>
             <div class="faq-item">
                 <h4>Where do I find Abyss Cells for crafting?</h4>
-                <p>Abyss Cells drop from Glowing Abyss creatures ‚Äî large, dark-coloured enemies with purple auras that spawn in fixed locations across Pywel. The best early farm is the Hernand Sewers (3 spawns), followed by Stormtalon Ridge at night (5 spawns). Each kill has a ~30% drop rate for Abyss Cells.</p>
+                <p>Abyss Cells drop from Glowing Abyss creatures ‚Ä?large, dark-coloured enemies with purple auras that spawn in fixed locations across Pywel. The best early farm is the Hernand Sewers (3 spawns), followed by Stormtalon Ridge at night (5 spawns). Each kill has a ~30% drop rate for Abyss Cells.</p>
             </div>
             <div class="faq-item">
                 <h4>Can I dismantle or refund Kuku items for materials?</h4>
-                <p>No. As of Patch 1.12.02, items cannot be dismantled or refunded. Plan your upgrades carefully, especially Sanctum Cores ‚Äî each Sanctum yields exactly one core per playthrough. If you waste a core on the wrong item, you'll need New Game+ to get another.</p>
+                <p>No. As of Patch 1.12.02, items cannot be dismantled or refunded. Plan your upgrades carefully, especially Sanctum Cores ‚Ä?each Sanctum yields exactly one core per playthrough. If you waste a core on the wrong item, you'll need New Game+ to get another.</p>
             </div>
             <div class="faq-item">
                 <h4>Is the A.T.A.G. mech worth the material cost?</h4>
@@ -529,26 +551,26 @@
             </div>
             <div class="faq-item">
                 <h4>Do Kuku item stats scale with my character level?</h4>
-                <p>No. Kuku items have fixed base stats (e.g., DEF 4‚Üí38 for elemental armors) that improve through in-game upgrades, not character level. The stat ranges shown (e.g., "DEF 2‚Üí21") indicate the item's upgrade potential through reinforcement, not level scaling.</p>
+                <p>No. Kuku items have fixed base stats (e.g., DEF 4‚Ü?8 for elemental armors) that improve through in-game upgrades, not character level. The stat ranges shown (e.g., "DEF 2‚Ü?1") indicate the item's upgrade potential through reinforcement, not level scaling.</p>
             </div>
 
             <div class="support-card" style="margin:32px 0 0 0">
                 <div class="support-inner">
                     <span class="support-icon">üîì</span>
                     <div class="support-text">
-                        <h3>Every guide is free ‚Äî this one stays free either way.</h3>
+                        <h3>Every guide is free ‚Ä?this one stays free either way.</h3>
                         <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
                         <p style="margin:6px 0 0 0;line-height:1.7">
-                            üìö <strong>10 Beginner Guides</strong> ‚Äî zero to mid-game in one pack<br>
-                            ‚≠ê <strong>5 Premium Picks</strong> ‚Äî our most popular expert deep-dives<br>
-                            ‚è∞ <strong>3-Day Early Access</strong> ‚Äî read new guides before everyone else<br>
-                            üîÑ <strong>3 New Guides Every Month</strong> ‚Äî and each one fuels us to write faster
+                            üìö <strong>10 Beginner Guides</strong> ‚Ä?zero to mid-game in one pack<br>
+                            ‚≠?<strong>5 Premium Picks</strong> ‚Ä?our most popular expert deep-dives<br>
+                            ‚è?<strong>3-Day Early Access</strong> ‚Ä?read new guides before everyone else<br>
+                            üîÑ <strong>3 New Guides Every Month</strong> ‚Ä?and each one fuels us to write faster
                         </p>
-                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">‚úÖ Your purchase includes instant access to everything above</p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">‚ú?Your purchase includes instant access to everything above</p>
                         <div class="support-amounts">
-                            <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 ‚Äî Get the Early Access Guide Pack üëë</a>
+                            <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 ‚Ä?Get the Early Access Guide Pack üëë</a>
                         </div>
-                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always ‚Äî no strings attached. ü§ù</p>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always ‚Ä?no strings attached. ü§ù</p>
                     </div>
                 </div>
             </div>
@@ -565,5 +587,8 @@
     <script src="../../js/features.js"></script>
     <script src="../../js/ai-qa-widget.js"></script>
     <style>.guide-content li{color:#2d2a33!important}</style>
+    <script>
+    (function(){var p=document.getElementById('cdProgressFill');if(!p)return;var u=function(){var e=document.documentElement,t=e.scrollTop,n=e.scrollHeight-e.clientHeight;p.style.width=n>0?Math.min(t/n*100,100)+'%':'0%'};window.addEventListener('scroll',u,{passive:true});window.addEventListener('resize',u,{passive:true});u()})();
+    </script>
 </body>
 </html>

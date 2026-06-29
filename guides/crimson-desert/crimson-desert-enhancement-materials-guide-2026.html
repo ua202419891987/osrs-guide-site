@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crimson Desert Enhancement Materials Farming Guide ‚Äî Best Routes & Locations | CD Guru</title>
-    <meta name="description" content="Complete materials farming guide for Crimson Desert weapon enhancement ‚Äî all upgrade materials, best farming spots, respawn timers, and efficient gathering routes.">
+    <title>Crimson Desert Enhancement Materials Farming Guide ‚Ä?Best Routes & Locations | CD Guru</title>
+    <meta name="description" content="Complete materials farming guide for Crimson Desert weapon enhancement ‚Ä?all upgrade materials, best farming spots, respawn timers, and efficient gathering routes.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="dns-prefetch" href="//www.google-analytics.com">
@@ -36,10 +36,23 @@
         .guide-hero .breadcrumb{font-size:.95rem !important}
         .guide-hero .weekly-badge{font-size:1rem !important}
         .guide-content li{color:#2d2a33 !important}
-        .progress-widget{display:none !important}
+    
+        /* Reading Progress Bar */
+        .cd-reading-progress{position:fixed;top:0;left:0;width:100%;height:4px;background:rgba(122,100,184,0.12);z-index:99999;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+        .cd-reading-progress .cd-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#7a64b8,#b8a4e8,#e0d8f0);transition:width .15s ease-out;border-radius:0 2px 2px 0}
+        /* Mobile hero improvements */
+        @media(max-width:768px){
+            .guide-hero h1{font-size:1.6rem !important;line-height:1.3}
+            .guide-hero .subtitle{font-size:1rem !important}
+            .guide-hero .breadcrumb{font-size:.8rem !important}
+            .toc{padding:1rem !important}
+            .toc ol li{font-size:.9rem !important}
+            .nav-links{overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+        }
     </style>
 </head>
 <body>
+    <div class="cd-reading-progress" id="cdReadingProgress"><div class="cd-progress-fill" id="cdProgressFill"></div></div>
     <header>
         <div class="container">
             <nav>
@@ -61,35 +74,44 @@
     <section class="guide-hero">
         <div class="container">
             <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#crimson-desert">Crimson Desert</a> / Enhancement Materials Guide</p>
-            <h1>Crimson Desert Enhancement Materials Farming Guide ‚Äî Best Routes &amp; Locations</h1>
-            <p class="subtitle">Complete materials farming guide for weapon enhancement ‚Äî all upgrade materials, best farming spots, respawn timers, and efficient gathering routes across Pywel.</p>
+            <h1>Crimson Desert Enhancement Materials Farming Guide ‚Ä?Best Routes &amp; Locations</h1>
+            <p class="subtitle">Complete materials farming guide for weapon enhancement ‚Ä?all upgrade materials, best farming spots, respawn timers, and efficient gathering routes across Pywel.</p>
             <div class="weekly-badge">
-                <span class="badge-icon">‚õèÔ∏è</span> <strong>CD Guide</strong> ‚Äî Part of the <strong>Crimson Desert Gear Series</strong> ¬∑ 14 min read
+                <span class="badge-icon">‚õèÔ∏è</span> <strong>CD Guide</strong> ‚Ä?Part of the <strong>Crimson Desert Gear Series</strong> ¬∑ 14 min read
             </div>
             <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: June 28, 2026</p>
         </div>
     </section>
-
+    <!-- Quick Summary -->
+    <div class="quick-summary" style="background:#faf8fc;border:1px solid #e0d8f0;border-left:4px solid #7a64b8;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0 2rem;font-size:1rem">
+        <h3 style="color:#7a64b8;font-size:1.15rem;margin:0 0 .8rem">‚è±Ô∏è Quick Summary ‚Ä?30-Second Read</h3>
+        <ul style="margin:0;padding-left:1.2rem;list-style:none">
+                <li>‚õèÔ∏è Iron Ore (Hernand cliffs) to Bloodstone (Rocca's Hill) ‚Ä?every material with farming locations</li>
+                <li>üìä Full material table per refinement tier from +1 (cheap) to +10 (rare Aeserion Scales)</li>
+                <li>üí° Save-scum ore nodes by reloading near mining spots ‚Ä?farm 200+ Iron Ore in 15 min</li>
+                <li>üîÑ Abyss Artifacts are shared between refining and skill tree ‚Ä?plan allocation carefully</li>
+        </ul>
+    </div>
     <main class="guide-content">
         <div class="container">
             <div class="toc">
                 <h3>Table of Contents</h3>
                 <ol>
-                    <li><a href="#section1">Material Types Overview ‚Äî Ores, Leathers, Wood &amp; Rare Components</a></li>
-                    <li><a href="#section2">Ore Farming Routes ‚Äî Iron, Copper, Gold &amp; Bloodstone Veins</a></li>
-                    <li><a href="#section3">Leather &amp; Wood Farming ‚Äî Hide, Bones &amp; Timber Sources</a></li>
-                    <li><a href="#section4">Aeserion Scale Locations ‚Äî Endgame Bottleneck Farm</a></li>
-                    <li><a href="#section5">Rare Material Farming ‚Äî Bloodstones, Resin &amp; Abyss Components</a></li>
-                    <li><a href="#section6">Efficiency Comparison Table ‚Äî Materials Per Hour Across All Tiers</a></li>
-                    <li><a href="#section7">Daily Farming Route Planner ‚Äî Optimal Loops for Busy Players</a></li>
-                    <li><a href="#faq">FAQ ‚Äî Enhancement Materials Questions Answered</a></li>
+                    <li><a href="#section1">Material Types Overview ‚Ä?Ores, Leathers, Wood &amp; Rare Components</a></li>
+                    <li><a href="#section2">Ore Farming Routes ‚Ä?Iron, Copper, Gold &amp; Bloodstone Veins</a></li>
+                    <li><a href="#section3">Leather &amp; Wood Farming ‚Ä?Hide, Bones &amp; Timber Sources</a></li>
+                    <li><a href="#section4">Aeserion Scale Locations ‚Ä?Endgame Bottleneck Farm</a></li>
+                    <li><a href="#section5">Rare Material Farming ‚Ä?Bloodstones, Resin &amp; Abyss Components</a></li>
+                    <li><a href="#section6">Efficiency Comparison Table ‚Ä?Materials Per Hour Across All Tiers</a></li>
+                    <li><a href="#section7">Daily Farming Route Planner ‚Ä?Optimal Loops for Busy Players</a></li>
+                    <li><a href="#faq">FAQ ‚Ä?Enhancement Materials Questions Answered</a></li>
                 </ol>
             </div>
 
-            <h2 id="section1">‚õèÔ∏è 1. Material Types Overview ‚Äî Ores, Leathers, Wood &amp; Rare Components</h2>
-            <p>Every piece of equipment in Crimson Desert requires specific materials for refinement, and understanding the material hierarchy is the first step toward efficient farming. The refinement system (detailed in our <a href="crimson-desert-weapon-enhancement-guide-2026.html">Weapon Enhancement Guide</a>) consumes materials in a predictable progression ‚Äî from common ores at low levels to ultra-rare legendary components at +9 and +10.</p>
+            <h2 id="section1">‚õèÔ∏è 1. Material Types Overview ‚Ä?Ores, Leathers, Wood &amp; Rare Components</h2>
+            <p>Every piece of equipment in Crimson Desert requires specific materials for refinement, and understanding the material hierarchy is the first step toward efficient farming. The refinement system (detailed in our <a href="crimson-desert-weapon-enhancement-guide-2026.html">Weapon Enhancement Guide</a>) consumes materials in a predictable progression ‚Ä?from common ores at low levels to ultra-rare legendary components at +9 and +10.</p>
 
-            <p>Materials are divided into four broad categories: <strong>Ores &amp; Gems</strong> (mined from rock nodes), <strong>Leathers &amp; Hides</strong> (harvested from animals), <strong>Wood &amp; Timber</strong> (chopped from trees), and <strong>Rare Components</strong> (Bloodstones, Aeserion Scales, Abyss Artifacts ‚Äî the true endgame gatekeepers). Each refinement tier consumes materials from a specific tier band.</p>
+            <p>Materials are divided into four broad categories: <strong>Ores &amp; Gems</strong> (mined from rock nodes), <strong>Leathers &amp; Hides</strong> (harvested from animals), <strong>Wood &amp; Timber</strong> (chopped from trees), and <strong>Rare Components</strong> (Bloodstones, Aeserion Scales, Abyss Artifacts ‚Ä?the true endgame gatekeepers). Each refinement tier consumes materials from a specific tier band.</p>
 
             <table>
                 <tr><th>Category</th><th>Basic (+1 to +2)</th><th>Standard (+3 to +4)</th><th>Advanced (+5 to +6)</th><th>Rare (+7 to +8)</th><th>Legendary (+9 to +10)</th></tr>
@@ -99,7 +121,7 @@
                 <tr><td><strong>Accessories</strong></td><td>Small Bones</td><td>Fur + Hide</td><td>Large Bones + Silver</td><td>Bloodstone</td><td>Aeserion Scale</td></tr>
             </table>
 
-            <p>The material economy shifts dramatically at +5. Up to +4, you can progress by simply gathering whatever you find during normal exploration. Past +5, you <strong>must</strong> farm deliberately ‚Äî the volume of Bloodstones and Aeserion Scales required for multiple gear pieces cannot be accumulated passively. This guide focuses specifically on the most time-efficient farming routes for each material type, verified through repeated in-game testing as of Patch 1.12.02 (June 2026).</p>
+            <p>The material economy shifts dramatically at +5. Up to +4, you can progress by simply gathering whatever you find during normal exploration. Past +5, you <strong>must</strong> farm deliberately ‚Ä?the volume of Bloodstones and Aeserion Scales required for multiple gear pieces cannot be accumulated passively. This guide focuses specifically on the most time-efficient farming routes for each material type, verified through repeated in-game testing as of Patch 1.12.02 (June 2026).</p>
 
             <div class="tip-box">
                 <strong>Pro Tip:</strong> Before you start any serious farming session, equip the permanent pickaxe from Rhett's Request (see the <a href="crimson-desert-weapon-enhancement-guide-2026.html#section2">Enhancement Guide</a>) and the axe from Turnali's first quest. Without proper tools, gathering speed is halved and some high-tier nodes cannot be harvested at all.
@@ -109,31 +131,31 @@
                 <strong>Important:</strong> Material requirements scale with weapon tier. A unique boss weapon may require 50% more materials per refinement level than a common white-tier weapon of the same type. Always check the Refinement Info on your specific gear piece before farming. Plan for your endgame weapon, not your current placeholder.
             </div>
 
-            <h2 id="section2">‚õèÔ∏è 2. Ore Farming Routes ‚Äî Iron, Copper, Gold &amp; Bloodstone Veins</h2>
+            <h2 id="section2">‚õèÔ∏è 2. Ore Farming Routes ‚Ä?Iron, Copper, Gold &amp; Bloodstone Veins</h2>
             <p>Ore is the backbone of metal weapon and plate armour refinement. The Pywel continent is rich with mining nodes, but not all locations are created equal. Below are the confirmed best routes for each ore tier, tested for node density, respawn reliability, and travel time between clusters.</p>
 
-            <h3>Iron Ore ‚Äî Hernand River Cliffs Loop</h3>
+            <h3>Iron Ore ‚Ä?Hernand River Cliffs Loop</h3>
             <p>The Hernand River Cliffs, located just east of the starting city, feature 14 tightly clustered iron nodes forming a complete loop. Starting from the Hernand east gate, follow the cliff edge south along the river, circle around the fallen pillar, and cut back through the shallow cave passage. At a brisk jog, the complete loop takes approximately 6 minutes and yields 60-80 Iron Ore depending on pickaxe quality and the Mining Knuckledrill bonus.</p>
 
             <p>Nodes respawn roughly every 2 in-game days. However, the save-scum technique (save and reload near the node cluster) resets all ore nodes instantly. Using this method, you can accumulate 200+ Iron Ore in under 15 minutes. This is especially useful for high-volume early-game refinement.</p>
 
-            <h3>Copper Ore ‚Äî Howling Hill to Unicorn Cliff Corridor</h3>
-            <p>The strip of land connecting Howling Hill Camp to Unicorn Cliff contains the highest density of copper nodes in the game. Unlike the compact Hernand loop, this route is a long corridor ‚Äî roughly 800 metres of continuous mining opportunities with 20+ nodes spread along the cliff faces on both sides of the path.</p>
+            <h3>Copper Ore ‚Ä?Howling Hill to Unicorn Cliff Corridor</h3>
+            <p>The strip of land connecting Howling Hill Camp to Unicorn Cliff contains the highest density of copper nodes in the game. Unlike the compact Hernand loop, this route is a long corridor ‚Ä?roughly 800 metres of continuous mining opportunities with 20+ nodes spread along the cliff faces on both sides of the path.</p>
 
-            <p>Start at the Howling Hill fast-travel point, head west toward Unicorn Cliff, mining every node on both the left and right rock faces. At the end, turn around and repeat. A single pass yields 40-60 Copper Ore. The respawn here is slightly faster than Hernand ‚Äî roughly 1.5 in-game days ‚Äî making repeated passes more productive per hour.</p>
+            <p>Start at the Howling Hill fast-travel point, head west toward Unicorn Cliff, mining every node on both the left and right rock faces. At the end, turn around and repeat. A single pass yields 40-60 Copper Ore. The respawn here is slightly faster than Hernand ‚Ä?roughly 1.5 in-game days ‚Ä?making repeated passes more productive per hour.</p>
 
-            <h3>Sodalite &amp; Silver Ore ‚Äî The Witchwoods &amp; Mountain Passes</h3>
+            <h3>Sodalite &amp; Silver Ore ‚Ä?The Witchwoods &amp; Mountain Passes</h3>
             <p>Sodalite nodes are concentrated in the Witchwoods region, accessible from Chapter 4 onward. Four major clusters exist, each containing 3-4 nodes for up to 12 Sodalite per full sweep. Silver Ore is found alongside Sodalite in the Witchwoods but is more abundant in the mountain passes north of Demeniss. A hybrid route starting at the Witchwoods waypoint, looping through the four clusters, then fast-travelling to Demeniss for the mountain pass veins yields roughly 15-20 Sodalite and 25-35 Silver Ore per 20-minute session.</p>
 
-            <h3>Gold Ore ‚Äî Anvil Hill (Post-Marni Excavator)</h3>
-            <p>Gold Ore becomes available only after defeating the Marni excavator boss at Marni's Quarry. The excavator blocks access to Anvil Hill's eastern ridge, which contains 10 gold nodes and 2 hidden Bloodstone nodes. The Anvil Hill route is short but high-value: 10 gold nodes yield 20-30 Gold Ore per run (each node gives 2-3 ore). The bloodstone nodes are a bonus ‚Äî treat them as a rare supplement to your dedicated Bloodstone farming.</p>
+            <h3>Gold Ore ‚Ä?Anvil Hill (Post-Marni Excavator)</h3>
+            <p>Gold Ore becomes available only after defeating the Marni excavator boss at Marni's Quarry. The excavator blocks access to Anvil Hill's eastern ridge, which contains 10 gold nodes and 2 hidden Bloodstone nodes. The Anvil Hill route is short but high-value: 10 gold nodes yield 20-30 Gold Ore per run (each node gives 2-3 ore). The bloodstone nodes are a bonus ‚Ä?treat them as a rare supplement to your dedicated Bloodstone farming.</p>
 
             <table>
                 <tr><th>Ore Type</th><th>Best Route</th><th>Nodes</th><th>Yield Per Run</th><th>Respawn Timer</th><th>Requirements</th></tr>
                 <tr><td><strong>Iron Ore</strong></td><td>Hernand River Cliffs</td><td>14</td><td>60-80</td><td>~2 in-game days</td><td>Pickaxe (Rhett's Request)</td></tr>
-                <tr><td><strong>Copper Ore</strong></td><td>Howling Hill ‚Äî Unicorn Cliff</td><td>20+</td><td>40-60</td><td>~1.5 in-game days</td><td>‚Äî</td></tr>
+                <tr><td><strong>Copper Ore</strong></td><td>Howling Hill ‚Ä?Unicorn Cliff</td><td>20+</td><td>40-60</td><td>~1.5 in-game days</td><td>‚Ä?/td></tr>
                 <tr><td><strong>Sodalite</strong></td><td>Witchwoods clusters</td><td>12-16</td><td>10-12</td><td>~3 in-game days</td><td>Chapter 4+</td></tr>
-                <tr><td><strong>Silver Ore</strong></td><td>Demeniss mountain passes</td><td>15+</td><td>25-35</td><td>~2 in-game days</td><td>‚Äî</td></tr>
+                <tr><td><strong>Silver Ore</strong></td><td>Demeniss mountain passes</td><td>15+</td><td>25-35</td><td>~2 in-game days</td><td>‚Ä?/td></tr>
                 <tr><td><strong>Gold Ore</strong></td><td>Anvil Hill eastern ridge</td><td>10</td><td>20-30</td><td>~2 in-game days</td><td>Defeat Marni Excavator</td></tr>
             </table>
 
@@ -142,18 +164,18 @@
                 <p>For maximum ore per real-time hour, stack multiple routes before resting. Start at Hernand (iron loop), fast-travel to Howling Hill (copper corridor), then fast-travel to Demeniss (silver). Rest at a camp or inn to advance 2-3 in-game days, which respawns all nodes simultaneously. One full cycle with stacked routes yields roughly 150-200 mixed ores per 30 minutes of real time.</p>
             </div>
 
-            <h2 id="section3">‚õèÔ∏è 3. Leather &amp; Wood Farming ‚Äî Hide, Bones &amp; Timber Sources</h2>
+            <h2 id="section3">‚õèÔ∏è 3. Leather &amp; Wood Farming ‚Ä?Hide, Bones &amp; Timber Sources</h2>
             <p>Leather and wood materials are required for armour refinement and wooden weapon upgrades. Unlike ore, these materials come from renewable sources (animal populations and tree groves) that respawn every 1-2 in-game days.</p>
 
-            <h3>Thin Hide &amp; Small Bones ‚Äî Starter Grind</h3>
-            <p>The meadows surrounding Hernand are teeming with rabbits, foxes, and small game. A 10-minute loop through the Hernand outskirts ‚Äî starting at the east gate, circling the wheat fields, and cutting through the southern forest ‚Äî yields 20-30 Thin Hide and 15-25 Small Bones. Use charged attacks for instant kills; normal attacks cause animals to flee, wasting time.</p>
+            <h3>Thin Hide &amp; Small Bones ‚Ä?Starter Grind</h3>
+            <p>The meadows surrounding Hernand are teeming with rabbits, foxes, and small game. A 10-minute loop through the Hernand outskirts ‚Ä?starting at the east gate, circling the wheat fields, and cutting through the southern forest ‚Ä?yields 20-30 Thin Hide and 15-25 Small Bones. Use charged attacks for instant kills; normal attacks cause animals to flee, wasting time.</p>
 
-            <h3>Thick Hide, Fur &amp; Timber ‚Äî Mid-Game Harvest</h3>
+            <h3>Thick Hide, Fur &amp; Timber ‚Ä?Mid-Game Harvest</h3>
             <p>The Pailune forests, accessible from Chapter 2 onward, contain dense populations of deer and wolves (for Thick Hide and Fur) alongside large timber trees. The optimal route starts at the Pailune road waypoint, follows the forest trail north toward Greymane Camp, then loops back through the eastern grove. Expect 10-15 Thick Hide, 8-12 Fur, and 20-30 Timber per 15-minute pass.</p>
 
-            <p>Fine Timber requires specific large trees found in the deeper forest sections near Howling Hill. These trees are marked by their unusually broad trunks and silver-tinged bark. Chop 8-12 per pass through the Howling Hill backwoods ‚Äî enough for +3 to +4 refinement on wooden weapons.</p>
+            <p>Fine Timber requires specific large trees found in the deeper forest sections near Howling Hill. These trees are marked by their unusually broad trunks and silver-tinged bark. Chop 8-12 per pass through the Howling Hill backwoods ‚Ä?enough for +3 to +4 refinement on wooden weapons.</p>
 
-            <h3>Tough Leather, Long Fur &amp; Perfect Timber ‚Äî Late-Game Gathering</h3>
+            <h3>Tough Leather, Long Fur &amp; Perfect Timber ‚Ä?Late-Game Gathering</h3>
             <p>Boars and bears in the mountain regions drop Tough Leather, Long Fur, and Large Bones. The best hunting ground is the Rocca's Hill highlands, accessible from Chapter 6 onward. A loop across the hillside spawns 5-8 bears and 8-12 boars. A full pass yields 5-8 Tough Leather and 8-12 pieces of Long Fur.</p>
 
             <p>Perfect Timber is found exclusively from ancient trees in hidden groves. Three confirmed groves exist: one behind the Serpent Temple (requires killing the temple guardians), one in the Witchwoods deep section, and one in a hidden alcove northwest of Demeniss. Each grove contains 2-3 ancient trees, yielding 4-6 Perfect Timber per pass. Respawn takes 3-4 in-game days.</p>
@@ -173,48 +195,48 @@
             </table>
 
             <div class="tip-box">
-                <strong>Pro Tip:</strong> Use the Force Palm ability to knock small game unconscious rather than killing them. Unconscious animals drop the same hides as dead ones but respawn faster ‚Äî roughly half the normal respawn timer. This technique nearly doubles your hide-per-hour rate for Thin Hide and Small Bones farming.
+                <strong>Pro Tip:</strong> Use the Force Palm ability to knock small game unconscious rather than killing them. Unconscious animals drop the same hides as dead ones but respawn faster ‚Ä?roughly half the normal respawn timer. This technique nearly doubles your hide-per-hour rate for Thin Hide and Small Bones farming.
             </div>
 
-            <h2 id="section4">‚õèÔ∏è 4. Aeserion Scale Locations ‚Äî Endgame Bottleneck Farm</h2>
+            <h2 id="section4">‚õèÔ∏è 4. Aeserion Scale Locations ‚Ä?Endgame Bottleneck Farm</h2>
             <p>Aeserion Scales are the single most important material for endgame refinement. Every piece of equipment requires Aeserion Scales for its final two refinement levels (+9 and +10). A single weapon needs 8-12 Scales to go from +9 to +10 alone. If you plan to fully refine a main weapon, off-hand, chest armour, and helmet, you are looking at 40-60 Aeserion Scales minimum.</p>
 
-            <h3>Serpent Temple ‚Äî The Primary Farm</h3>
+            <h3>Serpent Temple ‚Ä?The Primary Farm</h3>
             <p>The Serpent Temple, located in the southeastern region of the map near Delesyia, is the only repeatable source of Aeserion Scales. The temple is a semi-instanced dungeon with 6 chambers, each guarded by serpentine enemies and a mid-boss at chamber 3. A full clear yields approximately 50 Aeserion Scales, with an additional 10-15 from chests and destructible urns throughout the temple.</p>
 
-            <p>The run takes 20-30 minutes depending on your gear level and familiarity with the layout. The temple can be re-entered immediately after completion ‚Äî there is no daily or weekly lockout for Aeserion Scale farming. This makes it possible to farm 100+ Scales per hour with an optimised route and good combat gear.</p>
+            <p>The run takes 20-30 minutes depending on your gear level and familiarity with the layout. The temple can be re-entered immediately after completion ‚Ä?there is no daily or weekly lockout for Aeserion Scale farming. This makes it possible to farm 100+ Scales per hour with an optimised route and good combat gear.</p>
 
             <div class="method-box">
                 <h4>Optimised Serpent Temple Route</h4>
-                <p><strong>Chamber 1-2 (Speed Run):</strong> Ignore trash mobs in the first two chambers. Sprint to the chests, loot the urns, and proceed. The only mandatory fight is the serpent priest at the chamber 2 exit ‚Äî he drops 3-5 Scales on average.<br>
+                <p><strong>Chamber 1-2 (Speed Run):</strong> Ignore trash mobs in the first two chambers. Sprint to the chests, loot the urns, and proceed. The only mandatory fight is the serpent priest at the chamber 2 exit ‚Ä?he drops 3-5 Scales on average.<br>
                 <strong>Chamber 3 (Mid-Boss):</strong> The mid-boss drops 8-12 Scales and unlocks the gate to the lower chambers. Kill him quickly with your highest DPS loadout.<br>
-                <strong>Chamber 4-5 (Full Clear):</strong> These chambers have the highest node density for breakable urns. Destroy every urn and loot every chest ‚Äî expect 20-25 Scales from this section alone.<br>
+                <strong>Chamber 4-5 (Full Clear):</strong> These chambers have the highest node density for breakable urns. Destroy every urn and loot every chest ‚Ä?expect 20-25 Scales from this section alone.<br>
                 <strong>Chamber 6 (Exit):</strong> A final chest room with 8-12 Scales and a guaranteed Abyss Artifact drop. Exit, reset, repeat.</p>
             </div>
 
             <h3>Alternative Sources</h3>
-            <p>Aeserion Scales also drop from two world bosses on a weekly lockout: the <strong>Serpent Queen</strong> (spawns at the Serpent Temple entrance, roughly 20 Scales per kill) and <strong>Ancient Guardian</strong> (roams the Delesyia highlands, 15-25 Scales per kill). These are not reliable primary farms due to the weekly lockout, but they provide a nice bonus to your Serpent Temple runs. Additionally, Sealed Artifact challenges in the late game occasionally reward Aeserion Scales as bonus loot ‚Äî roughly 5-10% of challenges include them in the reward pool.</p>
+            <p>Aeserion Scales also drop from two world bosses on a weekly lockout: the <strong>Serpent Queen</strong> (spawns at the Serpent Temple entrance, roughly 20 Scales per kill) and <strong>Ancient Guardian</strong> (roams the Delesyia highlands, 15-25 Scales per kill). These are not reliable primary farms due to the weekly lockout, but they provide a nice bonus to your Serpent Temple runs. Additionally, Sealed Artifact challenges in the late game occasionally reward Aeserion Scales as bonus loot ‚Ä?roughly 5-10% of challenges include them in the reward pool.</p>
 
             <div class="warn-box">
-                <strong>Warning:</strong> Do not use Aeserion Scales on anything below +9 refinement. A common mistake is spending Scales on +7 or +8 upgrades because they "accept" Aeserion Scales as a substitute for Bloodstones. This is extremely inefficient ‚Äî Scales are roughly 3x rarer than Bloodstones per hour of farming. Only use them for their intended +9 to +10 function. If you need more Bloodstones, farm Bloodstones; do not cannibalise your Scale stockpile.
+                <strong>Warning:</strong> Do not use Aeserion Scales on anything below +9 refinement. A common mistake is spending Scales on +7 or +8 upgrades because they "accept" Aeserion Scales as a substitute for Bloodstones. This is extremely inefficient ‚Ä?Scales are roughly 3x rarer than Bloodstones per hour of farming. Only use them for their intended +9 to +10 function. If you need more Bloodstones, farm Bloodstones; do not cannibalise your Scale stockpile.
             </div>
 
-            <h2 id="section5">‚õèÔ∏è 5. Rare Material Farming ‚Äî Bloodstones, Resin &amp; Abyss Components</h2>
-            <p>Beyond the common ores and leathers, several rare materials are essential for mid-to-late-game refinement. Bloodstones, Resin, and Abyss Artifacts form the second tier of the material economy ‚Äî not as scarce as Aeserion Scales, but still requiring dedicated farming sessions rather than passive accumulation.</p>
+            <h2 id="section5">‚õèÔ∏è 5. Rare Material Farming ‚Ä?Bloodstones, Resin &amp; Abyss Components</h2>
+            <p>Beyond the common ores and leathers, several rare materials are essential for mid-to-late-game refinement. Bloodstones, Resin, and Abyss Artifacts form the second tier of the material economy ‚Ä?not as scarce as Aeserion Scales, but still requiring dedicated farming sessions rather than passive accumulation.</p>
 
-            <h3>Bloodstone ‚Äî Rocca's Hill &amp; Highland Regions</h3>
+            <h3>Bloodstone ‚Ä?Rocca's Hill &amp; Highland Regions</h3>
             <p>Bloodstones are the primary rare material for +7 and +8 refinement on all equipment types. They appear as crimson-red crystal nodes in highland regions, most densely around Rocca's Hill. Three major clusters exist:</p>
             <ul>
                 <li><strong>Rocca's Hill Summit (5 nodes):</strong> The most concentrated cluster. Accessible from Chapter 6 onward. Each node yields 1-2 Bloodstones. Respawns every 3 in-game days.</li>
-                <li><strong>Northern Highlands Cave (3 nodes):</strong> Inside a cave northwest of Rocca's Hill. Guarded by a bear boss ‚Äî kill it first, then mine. The boss respawns on the same timer as the nodes.</li>
+                <li><strong>Northern Highlands Cave (3 nodes):</strong> Inside a cave northwest of Rocca's Hill. Guarded by a bear boss ‚Ä?kill it first, then mine. The boss respawns on the same timer as the nodes.</li>
                 <li><strong>Anvil Hill Hidden Veins (2 nodes):</strong> Behind the eastern ridge, accessible only after the Marni excavator is defeated. These are bonus nodes while farming Gold Ore.</li>
             </ul>
             <p>A full sweep of all three locations yields 12-18 Bloodstones. With loop stacking and rest-camping, you can sustain roughly 30-40 Bloodstones per hour of real time.</p>
 
-            <h3>Resin ‚Äî Witchwoods &amp; Deep Forest Trees</h3>
+            <h3>Resin ‚Ä?Witchwoods &amp; Deep Forest Trees</h3>
             <p>Resin is used in +5 to +6 refinement for wooden weapons and some hybrid armour pieces. It is harvested from resin-sapped trees in the Witchwoods and a few deep forest locations. Unlike timber, resin trees are individual marked trees with glowing sap blisters. Destroy the blister with a melee attack to collect 1-2 Resin. Six confirmed resin trees exist in the Witchwoods, respawning every 2 in-game days. Total: 8-12 Resin per full sweep.</p>
 
-            <h3>Abyss Artifacts &amp; Abyss Cells ‚Äî Combat Drops &amp; Sealed Challenges</h3>
+            <h3>Abyss Artifacts &amp; Abyss Cells ‚Ä?Combat Drops &amp; Sealed Challenges</h3>
             <p>Abyss Artifacts are the dual-purpose resource used for both refinement (level 5+) and skill tree upgrades. They drop from elite enemies, world bosses, and Sealed Artifact challenges. Abyss Cells are used by witch vendors for socket creation and core crafting (see the <a href="crimson-desert-weapon-enhancement-guide-2026.html#section5">Enhancement Guide</a> for full details on witch vendor services).</p>
 
             <p>The most efficient farming method for both is completing <strong>Sealed Artifact challenges</strong>. These combat trials are scattered across Pywel, marked by a glowing purple seal icon on the map. Each challenge rewards 3-5 Abyss Artifacts and 8-12 Abyss Cells upon completion, plus a chance at rare core blueprints. With 22 confirmed Sealed Artifact locations, a full clear of all challenges nets 66-100 Abyss Artifacts and 170-260 Abyss Cells.</p>
@@ -229,22 +251,22 @@
             </table>
 
             <div class="tip-box">
-                <strong>Pro Tip:</strong> Abyss Artifacts from Sealed Artifact challenges are a one-time reward per location. Once you clear all 22 locations, your only repeatable source is elite enemy drops and world bosses. Spend them wisely ‚Äî each refinement level past +4 costs 1-5 Artifacts, and major skill nodes cost 3-8. Prioritise skills first, then weapon refinement, then armour refinement.
+                <strong>Pro Tip:</strong> Abyss Artifacts from Sealed Artifact challenges are a one-time reward per location. Once you clear all 22 locations, your only repeatable source is elite enemy drops and world bosses. Spend them wisely ‚Ä?each refinement level past +4 costs 1-5 Artifacts, and major skill nodes cost 3-8. Prioritise skills first, then weapon refinement, then armour refinement.
             </div>
 
-            <h2 id="section6">‚õèÔ∏è 6. Efficiency Comparison Table ‚Äî Materials Per Hour Across All Tiers</h2>
+            <h2 id="section6">‚õèÔ∏è 6. Efficiency Comparison Table ‚Ä?Materials Per Hour Across All Tiers</h2>
             <p>To help you prioritise your limited playtime, we have compiled per-hour yield estimates for every major material. These numbers are based on optimised routes with proper tools and the save-scum technique where applicable. Individual results will vary based on movement speed upgrades, gathering tool quality, and enemy density in combat-based farms.</p>
 
             <table>
                 <tr><th>Material</th><th>Per Hour (Optimised)</th><th>Farming Method</th><th>Difficulty</th><th>Requires</th></tr>
                 <tr><td><strong>Iron Ore</strong></td><td>400-600</td><td>Save-scum Hernand loop</td><td>Very Easy</td><td>Pickaxe</td></tr>
-                <tr><td><strong>Copper Ore</strong></td><td>250-350</td><td>Howling Hill corridor loop</td><td>Easy</td><td>‚Äî</td></tr>
+                <tr><td><strong>Copper Ore</strong></td><td>250-350</td><td>Howling Hill corridor loop</td><td>Easy</td><td>‚Ä?/td></tr>
                 <tr><td><strong>Sodalite</strong></td><td>30-40</td><td>Witchwoods cluster loop</td><td>Easy</td><td>Chapter 4</td></tr>
-                <tr><td><strong>Silver Ore</strong></td><td>80-100</td><td>Demeniss mountain pass loop</td><td>Easy</td><td>‚Äî</td></tr>
+                <tr><td><strong>Silver Ore</strong></td><td>80-100</td><td>Demeniss mountain pass loop</td><td>Easy</td><td>‚Ä?/td></tr>
                 <tr><td><strong>Gold Ore</strong></td><td>60-80</td><td>Anvil Hill ridge loop</td><td>Medium</td><td>Defeat Marni Excavator</td></tr>
                 <tr><td><strong>Bloodstone</strong></td><td>30-40</td><td>Rocca's Hill + highlands sweep</td><td>Medium</td><td>Chapter 6</td></tr>
                 <tr><td><strong>Thin Hide</strong></td><td>120-180</td><td>Hernand meadows hunting</td><td>Very Easy</td><td>Force Palm preferred</td></tr>
-                <tr><td><strong>Thick Hide</strong></td><td>40-60</td><td>Pailune forest hunting</td><td>Easy</td><td>‚Äî</td></tr>
+                <tr><td><strong>Thick Hide</strong></td><td>40-60</td><td>Pailune forest hunting</td><td>Easy</td><td>‚Ä?/td></tr>
                 <tr><td><strong>Tough Leather</strong></td><td>20-30</td><td>Rocca's Hill bear hunt</td><td>Medium</td><td>Good combat gear</td></tr>
                 <tr><td><strong>Timber</strong></td><td>120-180</td><td>Pailune forest chopping</td><td>Very Easy</td><td>Axe</td></tr>
                 <tr><td><strong>Fine Timber</strong></td><td>30-40</td><td>Howling Hill backwoods</td><td>Easy</td><td>Axe</td></tr>
@@ -254,30 +276,30 @@
                 <tr><td><strong>Abyss Artifact</strong></td><td>66-100 (one-time)</td><td>Sealed Artifact challenges</td><td>Medium</td><td>Exploration</td></tr>
             </table>
 
-            <p>The efficiency data reveals a clear hierarchy: basic materials (Iron Ore, Thin Hide, Timber) are trivially abundant and should never be a bottleneck. The true time sinks are Bloodstones (30-40/hr) and Aeserion Scales (100-150/hr optimised, but requiring endgame gear). Always plan your farming sessions around these two materials ‚Äî everything else can be accumulated passively during normal gameplay.</p>
+            <p>The efficiency data reveals a clear hierarchy: basic materials (Iron Ore, Thin Hide, Timber) are trivially abundant and should never be a bottleneck. The true time sinks are Bloodstones (30-40/hr) and Aeserion Scales (100-150/hr optimised, but requiring endgame gear). Always plan your farming sessions around these two materials ‚Ä?everything else can be accumulated passively during normal gameplay.</p>
 
-            <h2 id="section7">‚õèÔ∏è 7. Daily Farming Route Planner ‚Äî Optimal Loops for Busy Players</h2>
+            <h2 id="section7">‚õèÔ∏è 7. Daily Farming Route Planner ‚Ä?Optimal Loops for Busy Players</h2>
             <p>Not everyone has four hours to farm Aeserion Scales every day. For players with limited play sessions (60-90 minutes), here is an optimised daily route that maximises material diversity and ensures steady progress toward your +10 goal without burning out.</p>
 
             <div class="method-box">
                 <h4>60-Minute Daily Route</h4>
-                <p><strong>Minute 0-10:</strong> Hernand River Cliffs ‚Äî Iron Ore farm (save-scum technique). Aim for 200+ Iron Ore. Deposit in storage.<br>
-                <strong>Minute 10-20:</strong> Howling Hill to Unicorn Cliff ‚Äî Copper Ore corridor. 100+ Copper Ore. Deposit.<br>
-                <strong>Minute 20-30:</strong> Pailune forest ‚Äî Deer/wolves for Thick Hide + Fur. Also chop standard Timber trees along the way. 30-40 hides, 40-60 Timber.<br>
+                <p><strong>Minute 0-10:</strong> Hernand River Cliffs ‚Ä?Iron Ore farm (save-scum technique). Aim for 200+ Iron Ore. Deposit in storage.<br>
+                <strong>Minute 10-20:</strong> Howling Hill to Unicorn Cliff ‚Ä?Copper Ore corridor. 100+ Copper Ore. Deposit.<br>
+                <strong>Minute 20-30:</strong> Pailune forest ‚Ä?Deer/wolves for Thick Hide + Fur. Also chop standard Timber trees along the way. 30-40 hides, 40-60 Timber.<br>
                 <strong>Minute 30-45:</strong> Serpent Temple speed run (first 3 chambers only). Focus on urns and chests. 20-30 Aeserion Scales.<br>
-                <strong>Minute 45-55:</strong> Rocca's Hill summit ‚Äî Bloodstone nodes. 8-12 Bloodstones.<br>
+                <strong>Minute 45-55:</strong> Rocca's Hill summit ‚Ä?Bloodstone nodes. 8-12 Bloodstones.<br>
                 <strong>Minute 55-60:</strong> Fast-travel to nearest camp, rest to advance 2-3 in-game days, repeat tomorrow.</p>
             </div>
 
             <div class="method-box">
                 <h4>90-Minute Extended Route</h4>
-                <p><strong>Minute 0-12:</strong> Hernand Iron loop (save-scum) ‚Äî 200+ Iron Ore.<br>
-                <strong>Minute 12-22:</strong> Howling Hill Copper corridor ‚Äî 100+ Copper.<br>
-                <strong>Minute 22-35:</strong> Witchwoods ‚Äî Sodalite clusters + Resin trees + Bloodstone sweep. 10-12 Sodalite, 8-12 Resin, bonus Bloodstones.<br>
-                <strong>Minute 35-35:</strong> Fast-travel to Demeniss. Mountain pass Silver loop ‚Äî 25-35 Silver.<br>
-                <strong>Minute 35-68:</strong> Serpent Temple full clear ‚Äî 50 Aeserion Scales. (Full clear is 20-30 minutes with practice.)<br>
-                <strong>Minute 68-80:</strong> Rocca's Hill + Northern Highlands Cave ‚Äî full Bloodstone sweep. 12-18 Bloodstones.<br>
-                <strong>Minute 80-90:</strong> Anvil Hill ‚Äî Gold + hidden Bloodstone nodes. 20-30 Gold, 2-4 Bloodstones. Then rest at camp.</p>
+                <p><strong>Minute 0-12:</strong> Hernand Iron loop (save-scum) ‚Ä?200+ Iron Ore.<br>
+                <strong>Minute 12-22:</strong> Howling Hill Copper corridor ‚Ä?100+ Copper.<br>
+                <strong>Minute 22-35:</strong> Witchwoods ‚Ä?Sodalite clusters + Resin trees + Bloodstone sweep. 10-12 Sodalite, 8-12 Resin, bonus Bloodstones.<br>
+                <strong>Minute 35-35:</strong> Fast-travel to Demeniss. Mountain pass Silver loop ‚Ä?25-35 Silver.<br>
+                <strong>Minute 35-68:</strong> Serpent Temple full clear ‚Ä?50 Aeserion Scales. (Full clear is 20-30 minutes with practice.)<br>
+                <strong>Minute 68-80:</strong> Rocca's Hill + Northern Highlands Cave ‚Ä?full Bloodstone sweep. 12-18 Bloodstones.<br>
+                <strong>Minute 80-90:</strong> Anvil Hill ‚Ä?Gold + hidden Bloodstone nodes. 20-30 Gold, 2-4 Bloodstones. Then rest at camp.</p>
             </div>
 
             <p>Following the 60-minute daily route consistently, you will accumulate enough materials for a +7 weapon in approximately 4 days, and a +10 weapon in approximately 12-14 days. The extended route cuts these timelines by roughly 30%.</p>
@@ -287,22 +309,22 @@
             </div>
 
             <div class="warn-box">
-                <strong>Important:</strong> Material requirements for fully refining a full gear set (weapon, off-hand, helmet, chest, gloves, boots) from +1 to +10 total approximately: 2,500 Iron Ore, 1,200 Copper, 400 Sodalite, 600 Silver, 300 Gold, 180 Bloodstones, and 80 Aeserion Scales. Plan your farming accordingly ‚Äî and remember that you can skip refinement on gear pieces that matter less for your build (gloves and boots provide the smallest stat returns per material invested).
+                <strong>Important:</strong> Material requirements for fully refining a full gear set (weapon, off-hand, helmet, chest, gloves, boots) from +1 to +10 total approximately: 2,500 Iron Ore, 1,200 Copper, 400 Sodalite, 600 Silver, 300 Gold, 180 Bloodstones, and 80 Aeserion Scales. Plan your farming accordingly ‚Ä?and remember that you can skip refinement on gear pieces that matter less for your build (gloves and boots provide the smallest stat returns per material invested).
             </div>
 
             <!-- FAQ -->
-            <h2 id="faq">‚ùì FAQ ‚Äî Enhancement Materials Questions Answered</h2>
+            <h2 id="faq">‚ù?FAQ ‚Ä?Enhancement Materials Questions Answered</h2>
             <div class="faq-item">
                 <h4>Q: Do I need to farm basic materials (Iron Ore, Thin Hide) at all?</h4>
-                <p>Yes, but only in the early game (refinement levels +1 to +4). The 200-300 Iron Ore and 100-150 Thin Hide required for these levels can be accumulated in under 30 minutes of dedicated farming. Beyond +4, basic materials are rarely the bottleneck ‚Äî Bloodstones and Aeserion Scales will gate your progress much harder.</p>
+                <p>Yes, but only in the early game (refinement levels +1 to +4). The 200-300 Iron Ore and 100-150 Thin Hide required for these levels can be accumulated in under 30 minutes of dedicated farming. Beyond +4, basic materials are rarely the bottleneck ‚Ä?Bloodstones and Aeserion Scales will gate your progress much harder.</p>
             </div>
             <div class="faq-item">
                 <h4>Q: What is the fastest way to farm Bloodstones?</h4>
-                <p>The fastest Bloodstone farm is the Rocca's Hill summit route combined with the Northern Highlands Cave. Three nodes spawn at the summit (yielding 5-8 Bloodstones) and three more in the cave (4-6). With save-scum resetting, you can pull 30-40 Bloodstones per hour. Avoid buying Bloodstones from NPC vendors ‚Äî they are marked up 300-400% above farming value.</p>
+                <p>The fastest Bloodstone farm is the Rocca's Hill summit route combined with the Northern Highlands Cave. Three nodes spawn at the summit (yielding 5-8 Bloodstones) and three more in the cave (4-6). With save-scum resetting, you can pull 30-40 Bloodstones per hour. Avoid buying Bloodstones from NPC vendors ‚Ä?they are marked up 300-400% above farming value.</p>
             </div>
             <div class="faq-item">
                 <h4>Q: Is the Serpent Temple the only place to farm Aeserion Scales?</h4>
-                <p>It is the only <strong>repeatable</strong> source without lockouts. Two world bosses (Serpent Queen and Ancient Guardian) also drop Scales but are on a weekly lockout. Sealed Artifact challenges occasionally include Scales as bonus loot. For dedicated farming, the Serpent Temple is your primary ‚Äî and most reliable ‚Äî source at roughly 100-150 Scales per hour with an optimised route.</p>
+                <p>It is the only <strong>repeatable</strong> source without lockouts. Two world bosses (Serpent Queen and Ancient Guardian) also drop Scales but are on a weekly lockout. Sealed Artifact challenges occasionally include Scales as bonus loot. For dedicated farming, the Serpent Temple is your primary ‚Ä?and most reliable ‚Ä?source at roughly 100-150 Scales per hour with an optimised route.</p>
             </div>
             <div class="faq-item">
                 <h4>Q: How many Aeserion Scales do I need for a full +10 gear set?</h4>
@@ -314,7 +336,7 @@
             </div>
             <div class="faq-item">
                 <h4>Q: How do I carry more materials without frequent trips back to town?</h4>
-                <p>Upgrade your backpack through Turnali's quest line (he rewards a medium backpack) and invest in camp storage upgrades at Howling Hill. The Kuku Pot (Chapter 4) adds 230 internal storage slots specifically for crafting materials. For pure gathering sessions, consider the Collector Pack backpack from the Kuku Pot upgrade tree ‚Äî it doubles material carrying capacity at the cost of utility slots.</p>
+                <p>Upgrade your backpack through Turnali's quest line (he rewards a medium backpack) and invest in camp storage upgrades at Howling Hill. The Kuku Pot (Chapter 4) adds 230 internal storage slots specifically for crafting materials. For pure gathering sessions, consider the Collector Pack backpack from the Kuku Pot upgrade tree ‚Ä?it doubles material carrying capacity at the cost of utility slots.</p>
             </div>
             <div class="faq-item">
                 <h4>Q: Does the save-scum technique work for all material nodes?</h4>
@@ -322,7 +344,7 @@
             </div>
             <div class="faq-item">
                 <h4>Q: What materials should I prioritise for the daily route?</h4>
-                <p>Priority order: Aeserion Scales > Bloodstones > Silver/Gold Ore > Sodalite > everything else. Scales and Bloodstones are the hard gates ‚Äî everything else can be farmed quickly when needed. If you have limited time, spend it on the Serpent Temple (Scales) and Rocca's Hill (Bloodstones). Fill lower-tier materials on days when you have extra time or need a break from combat farming.</p>
+                <p>Priority order: Aeserion Scales > Bloodstones > Silver/Gold Ore > Sodalite > everything else. Scales and Bloodstones are the hard gates ‚Ä?everything else can be farmed quickly when needed. If you have limited time, spend it on the Serpent Temple (Scales) and Rocca's Hill (Bloodstones). Fill lower-tier materials on days when you have extra time or need a break from combat farming.</p>
             </div>
 
             <!-- Support Card -->
@@ -330,19 +352,19 @@
     <div class="support-inner">
         <span class="support-icon">üîì</span>
         <div class="support-text">
-            <h3>Every guide is free ‚Äî this one stays free either way.</h3>
+            <h3>Every guide is free ‚Ä?this one stays free either way.</h3>
             <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
             <p style="margin:6px 0 0 0;line-height:1.7">
-                üìö <strong>10 Beginner Guides</strong> ‚Äî zero to mid-game in one pack<br>
-                ‚≠ê <strong>5 Premium Picks</strong> ‚Äî our most popular expert deep-dives<br>
-                ‚è∞ <strong>3-Day Early Access</strong> ‚Äî read new guides before everyone else<br>
-                üîÑ <strong>3 New Guides Every Month</strong> ‚Äî and each one fuels us to write faster
+                üìö <strong>10 Beginner Guides</strong> ‚Ä?zero to mid-game in one pack<br>
+                ‚≠?<strong>5 Premium Picks</strong> ‚Ä?our most popular expert deep-dives<br>
+                ‚è?<strong>3-Day Early Access</strong> ‚Ä?read new guides before everyone else<br>
+                üîÑ <strong>3 New Guides Every Month</strong> ‚Ä?and each one fuels us to write faster
             </p>
-            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">‚úÖ Your purchase includes instant access to everything above</p>
+            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">‚ú?Your purchase includes instant access to everything above</p>
             <div class="support-amounts">
-                <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 ‚Äî Get the Early Access Guide Pack üëë</a>
+                <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 ‚Ä?Get the Early Access Guide Pack üëë</a>
             </div>
-            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always ‚Äî no strings attached. ü§ù</p>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always ‚Ä?no strings attached. ü§ù</p>
         </div>
     </div>
 </div>
@@ -359,5 +381,8 @@
     <script src="../../js/features.js"></script>
     <script src="../../js/ai-qa-widget.js"></script>
     <style>.guide-content li{color:#2d2a33!important}</style>
+    <script>
+    (function(){var p=document.getElementById('cdProgressFill');if(!p)return;var u=function(){var e=document.documentElement,t=e.scrollTop,n=e.scrollHeight-e.clientHeight;p.style.width=n>0?Math.min(t/n*100,100)+'%':'0%'};window.addEventListener('scroll',u,{passive:true});window.addEventListener('resize',u,{passive:true});u()})();
+    </script>
 </body>
 </html>

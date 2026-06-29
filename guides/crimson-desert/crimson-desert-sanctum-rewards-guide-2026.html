@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crimson Desert Abyss Sanctum Rewards Guide ‚Äî Full Loot Tables & Boss Drops | CD Guru</title>
-    <meta name="description" content="Complete rewards guide for all Crimson Desert Abyss Sanctum floors ‚Äî boss drop tables, unique item locations, best sanctum for farming, and reward optimization strategies.">
+    <title>Crimson Desert Abyss Sanctum Rewards Guide ‚Ä?Full Loot Tables & Boss Drops | CD Guru</title>
+    <meta name="description" content="Complete rewards guide for all Crimson Desert Abyss Sanctum floors ‚Ä?boss drop tables, unique item locations, best sanctum for farming, and reward optimization strategies.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="dns-prefetch" href="//www.google-analytics.com">
@@ -36,10 +36,23 @@
         .guide-hero .breadcrumb{font-size:.95rem !important}
         .guide-hero .weekly-badge{font-size:1rem !important}
         .guide-content li{color:#2d2a33 !important}
-        .progress-widget{display:none !important}
+    
+        /* Reading Progress Bar */
+        .cd-reading-progress{position:fixed;top:0;left:0;width:100%;height:4px;background:rgba(122,100,184,0.12);z-index:99999;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+        .cd-reading-progress .cd-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#7a64b8,#b8a4e8,#e0d8f0);transition:width .15s ease-out;border-radius:0 2px 2px 0}
+        /* Mobile hero improvements */
+        @media(max-width:768px){
+            .guide-hero h1{font-size:1.6rem !important;line-height:1.3}
+            .guide-hero .subtitle{font-size:1rem !important}
+            .guide-hero .breadcrumb{font-size:.8rem !important}
+            .toc{padding:1rem !important}
+            .toc ol li{font-size:.9rem !important}
+            .nav-links{overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+        }
     </style>
 </head>
 <body>
+    <div class="cd-reading-progress" id="cdReadingProgress"><div class="cd-progress-fill" id="cdProgressFill"></div></div>
     <header>
         <div class="container">
             <nav>
@@ -61,32 +74,41 @@
     <section class="guide-hero">
         <div class="container">
             <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#crimson-desert">Crimson Desert</a> / Abyss Sanctum Rewards Guide</p>
-            <h1>Crimson Desert Abyss Sanctum Rewards Guide ‚Äî Full Loot Tables &amp; Boss Drops</h1>
-            <p class="subtitle">Complete rewards guide for all Abyss Sanctum floors ‚Äî boss drop tables, unique item locations, best sanctum for farming, and reward optimization strategies for Patch 1.12.02.</p>
+            <h1>Crimson Desert Abyss Sanctum Rewards Guide ‚Ä?Full Loot Tables &amp; Boss Drops</h1>
+            <p class="subtitle">Complete rewards guide for all Abyss Sanctum floors ‚Ä?boss drop tables, unique item locations, best sanctum for farming, and reward optimization strategies for Patch 1.12.02.</p>
             <div class="weekly-badge">
-                <span class="badge-icon">üèÜ</span> <strong>CD Guide</strong> ‚Äî Part of the <strong>Crimson Desert Gear Series</strong> ¬∑ 15 min read
+                <span class="badge-icon">üèÜ</span> <strong>CD Guide</strong> ‚Ä?Part of the <strong>Crimson Desert Gear Series</strong> ¬∑ 15 min read
             </div>
             <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: June 28, 2026</p>
         </div>
     </section>
-
+    <!-- Quick Summary -->
+    <div class="quick-summary" style="background:#faf8fc;border:1px solid #e0d8f0;border-left:4px solid #7a64b8;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0 2rem;font-size:1rem">
+        <h3 style="color:#7a64b8;font-size:1.15rem;margin:0 0 .8rem">‚è±Ô∏è Quick Summary ‚Ä?30-Second Read</h3>
+        <ul style="margin:0;padding-left:1.2rem;list-style:none">
+                <li>üí∞ Full loot table for all 6 Abyss Sanctum floors ‚Ä?weapons, cores, artifacts, and materials</li>
+                <li>üó°Ô∏?Boss weapon extraction turns signature abilities into equippable Abyss Cores</li>
+                <li>‚è?Gear progression: Sanctum weapons ‚Ü?mid-game gear ‚Ü?craftable endgame sets</li>
+                <li>üîÑ Repeatable farming: each sanctum run resets, allowing unlimited loot collection</li>
+        </ul>
+    </div>
     <main class="guide-content">
         <div class="container">
             <div class="toc">
                 <h3>Table of Contents</h3>
                 <ol>
-                    <li><a href="#section1">Sanctum Reward Overview ‚Äî How Floor-Based Loot Works</a></li>
-                    <li><a href="#section2">Floor 1-6 Loot Tables ‚Äî Complete Per-Floor Breakdown</a></li>
-                    <li><a href="#section3">Boss Drop Tables ‚Äî Each Sanctum Boss &amp; Their Loot Pool</a></li>
-                    <li><a href="#section4">Unique Items ‚Äî Exclusive Weapons, Cores &amp; Blueprints</a></li>
-                    <li><a href="#section5">Best Sanctum for Farming ‚Äî Efficiency &amp; Loot Value Rankings</a></li>
-                    <li><a href="#section6">Reward Lockout System ‚Äî Weekly Caps, Daily Limits &amp; Resets</a></li>
-                    <li><a href="#section7">Optimization Tips ‚Äî Loadout Prep, Speed Running &amp; Loot Priority</a></li>
-                    <li><a href="#faq">FAQ ‚Äî Sanctum Rewards Questions Answered</a></li>
+                    <li><a href="#section1">Sanctum Reward Overview ‚Ä?How Floor-Based Loot Works</a></li>
+                    <li><a href="#section2">Floor 1-6 Loot Tables ‚Ä?Complete Per-Floor Breakdown</a></li>
+                    <li><a href="#section3">Boss Drop Tables ‚Ä?Each Sanctum Boss &amp; Their Loot Pool</a></li>
+                    <li><a href="#section4">Unique Items ‚Ä?Exclusive Weapons, Cores &amp; Blueprints</a></li>
+                    <li><a href="#section5">Best Sanctum for Farming ‚Ä?Efficiency &amp; Loot Value Rankings</a></li>
+                    <li><a href="#section6">Reward Lockout System ‚Ä?Weekly Caps, Daily Limits &amp; Resets</a></li>
+                    <li><a href="#section7">Optimization Tips ‚Ä?Loadout Prep, Speed Running &amp; Loot Priority</a></li>
+                    <li><a href="#faq">FAQ ‚Ä?Sanctum Rewards Questions Answered</a></li>
                 </ol>
             </div>
 
-            <h2 id="section1">üèÜ 1. Sanctum Reward Overview ‚Äî How Floor-Based Loot Works</h2>
+            <h2 id="section1">üèÜ 1. Sanctum Reward Overview ‚Ä?How Floor-Based Loot Works</h2>
             <p>Abyss Sanctums are Crimson Desert's primary endgame dungeon content, offering repeatable boss fights with escalating difficulty and correspondingly better rewards. Each sanctum consists of 6 floors, with a boss encounter on every even-numbered floor (2, 4, 6). Standard enemy waves on odd-numbered floors (1, 3, 5) drop materials and silver, while bosses drop weapons, armour, Abyss cores, and unique blueprint items.</p>
 
             <p>There are <strong>three Abyss Sanctums</strong> currently available as of Patch 1.12.02 (June 2026): the <strong>Sanctum of Absolution</strong> (accessible from Chapter 5, recommended level 25+), the <strong>Sanctum of Malice</strong> (Chapter 7, level 35+), and the <strong>Sanctum of Dominion</strong> (Chapter 10, level 45+). Each sanctum has its own distinct loot table, boss roster, and difficulty profile. The rewards improve significantly at higher sanctums, but so does the minimum gear requirement to clear floors efficiently.</p>
@@ -101,24 +123,24 @@
             </table>
 
             <div class="tip-box">
-                <strong>Pro Tip:</strong> You do not need to clear floors in sequence. If you have the key for a higher floor (dropped by the previous boss), you can skip straight to it. Most endgame players skip floors 1-5 at Dominion and farm only Floor 6 back-to-back for the best loot-per-hour ratio. Keys stack ‚Äî save them for efficiency.
+                <strong>Pro Tip:</strong> You do not need to clear floors in sequence. If you have the key for a higher floor (dropped by the previous boss), you can skip straight to it. Most endgame players skip floors 1-5 at Dominion and farm only Floor 6 back-to-back for the best loot-per-hour ratio. Keys stack ‚Ä?save them for efficiency.
             </div>
 
-            <h2 id="section2">üèÜ 2. Floor 1-6 Loot Tables ‚Äî Complete Per-Floor Breakdown</h2>
+            <h2 id="section2">üèÜ 2. Floor 1-6 Loot Tables ‚Ä?Complete Per-Floor Breakdown</h2>
             <p>Each floor has a fixed loot pool that draws from common, uncommon, and rare tables. The tables below show the confirmed drops for each floor across all three sanctums, based on community data from 500+ recorded runs compiled on r/CrimsonDesert.</p>
 
-            <h3>Sanctum of Absolution ‚Äî Floor Loot</h3>
+            <h3>Sanctum of Absolution ‚Ä?Floor Loot</h3>
             <table>
                 <tr><th>Floor</th><th>Type</th><th>Common Drops</th><th>Uncommon (15-25%)</th><th>Rare (5-10%)</th></tr>
                 <tr><td><strong>F1</strong></td><td>Trash Wave</td><td>Silver (40-80), Iron Ore (3-5)</td><td>Thin Hide (2-4), Small Bones (3-5)</td><td>Abyss Cell (1-2)</td></tr>
                 <tr><td><strong>F2 (Boss)</strong></td><td>Antumbra's Sword</td><td>Silver (120-200), Copper Ore (5-8)</td><td>Weapon (blue-tier), Abyss Cell (3-5)</td><td>Vessel of Dark Pursuit, Abyss Core (Destruction)</td></tr>
-                <tr><td><strong>F3</strong></td><td>Trash Wave</td><td>Silver (60-100), Thick Hide (2-3)</td><td>Abyss Artifact (1), Fur (3-5)</td><td>‚Äî</td></tr>
+                <tr><td><strong>F3</strong></td><td>Trash Wave</td><td>Silver (60-100), Thick Hide (2-3)</td><td>Abyss Artifact (1), Fur (3-5)</td><td>‚Ä?/td></tr>
                 <tr><td><strong>F4 (Boss)</strong></td><td>Shade of Penitence</td><td>Silver (150-250), Fine Timber (3-5)</td><td>Armour (blue-tier), Abyss Cell (4-6)</td><td>Penitence Shroud (cape), Abyss Core (Spirit Siphon)</td></tr>
                 <tr><td><strong>F5</strong></td><td>Trash Wave</td><td>Silver (80-150), Silver Ore (3-5)</td><td>Abyss Artifact (1-2), Sodalite (2-3)</td><td>Bloodstone (1)</td></tr>
                 <tr><td><strong>F6 (Boss)</strong></td><td>Absolution Warden</td><td>Silver (250-400), Gold Ore (3-5)</td><td>Weapon (purple-tier), Abyss Artifact (2-3)</td><td>Warden's Judgment (greatsword), Absolution Core, Abyss Core (Momentum)</td></tr>
             </table>
 
-            <h3>Sanctum of Malice ‚Äî Floor Loot</h3>
+            <h3>Sanctum of Malice ‚Ä?Floor Loot</h3>
             <table>
                 <tr><th>Floor</th><th>Type</th><th>Common Drops</th><th>Uncommon (15-25%)</th><th>Rare (5-10%)</th></tr>
                 <tr><td><strong>F1</strong></td><td>Trash Wave</td><td>Silver (80-150), Sodalite (2-4)</td><td>Abyss Cell (2-4), Abyss Artifact (1)</td><td>Bloodstone (1)</td></tr>
@@ -129,7 +151,7 @@
                 <tr><td><strong>F6 (Boss)</strong></td><td>Lord of Torment</td><td>Silver (350-600), Aeserion Scale (3-5)</td><td>Weapon (orange-tier), Abyss Artifact (3-5)</td><td>Torment's End (greatsword), Malice Core, Abyss Core (Stamina Siphon)</td></tr>
             </table>
 
-            <h3>Sanctum of Dominion ‚Äî Floor Loot</h3>
+            <h3>Sanctum of Dominion ‚Ä?Floor Loot</h3>
             <table>
                 <tr><th>Floor</th><th>Type</th><th>Common Drops</th><th>Uncommon (15-25%)</th><th>Rare (5-10%)</th></tr>
                 <tr><td><strong>F1</strong></td><td>Trash Wave</td><td>Silver (150-300), Bloodstone (1-2)</td><td>Abyss Artifact (2-3), Aeserion Scale (1-2)</td><td>Abyss Core (Destruction)</td></tr>
@@ -144,7 +166,7 @@
                 <strong>Important:</strong> Drop rates for rare items at Dominion Sanctum are boosted during the weekly reset window (Thursday midnight server time). If you are farming for a specific unique item like Arbiter's Verdict or Void-Touched Chestplate, schedule your runs within the first 12 hours after reset when the rare drop pool is reportedly more generous. This has been community-reported but not officially confirmed by Pearl Abyss as of June 2026.
             </div>
 
-            <h2 id="section3">üèÜ 3. Boss Drop Tables ‚Äî Each Sanctum Boss &amp; Their Loot Pool</h2>
+            <h2 id="section3">üèÜ 3. Boss Drop Tables ‚Ä?Each Sanctum Boss &amp; Their Loot Pool</h2>
             <p>Every boss in the Abyss Sanctums has a curated loot pool that goes beyond the standard floor rewards. Boss-specific drops include unique weapons, exclusive Abyss cores, and crafting blueprints that cannot be obtained anywhere else. Below is the complete boss drop table for each sanctum, organised by boss encounter.</p>
 
             <h3>Sanctum of Absolution Bosses</h3>
@@ -172,19 +194,19 @@
             </table>
 
             <div class="tip-box">
-                <strong>Pro Tip:</strong> The Vessel of Dark Pursuit from Antumbra's Sword (Sanctum of Absolution, F2) is worth farming even at high levels. Its unique Abyss core effect ‚Äî Dark Wound ‚Äî replaces Spin Slash with a vertical dark energy strike that deals significantly more damage than standard Spin Slash. Extract the core at a witch vendor and embed it into your main weapon. This is the single best early-game core you can get and remains viable into the mid-game.
+                <strong>Pro Tip:</strong> The Vessel of Dark Pursuit from Antumbra's Sword (Sanctum of Absolution, F2) is worth farming even at high levels. Its unique Abyss core effect ‚Ä?Dark Wound ‚Ä?replaces Spin Slash with a vertical dark energy strike that deals significantly more damage than standard Spin Slash. Extract the core at a witch vendor and embed it into your main weapon. This is the single best early-game core you can get and remains viable into the mid-game.
             </div>
 
-            <h2 id="section4">üèÜ 4. Unique Items ‚Äî Exclusive Weapons, Cores &amp; Blueprints</h2>
+            <h2 id="section4">üèÜ 4. Unique Items ‚Ä?Exclusive Weapons, Cores &amp; Blueprints</h2>
             <p>Each sanctum has a roster of exclusive items that cannot be obtained from any other source. These include unique weapons with special effects, sanctum-specific Abyss cores with unique modifiers, and crafting blueprints for synthesis recipes. Below is the complete list of sanctum-exclusive items confirmed as of June 2026.</p>
 
             <table>
                 <tr><th>Item</th><th>Sanctum</th><th>Boss / Floor</th><th>Type</th><th>Effect</th></tr>
-                <tr><td><strong>Vessel of Dark Pursuit</strong></td><td>Absolution</td><td>Antumbra's Sword (F2)</td><td>Greatsword</td><td>Core effect: Dark Wound ‚Äî Spin Slash replaced by vertical dark energy strike</td></tr>
+                <tr><td><strong>Vessel of Dark Pursuit</strong></td><td>Absolution</td><td>Antumbra's Sword (F2)</td><td>Greatsword</td><td>Core effect: Dark Wound ‚Ä?Spin Slash replaced by vertical dark energy strike</td></tr>
                 <tr><td><strong>Penitence Shroud</strong></td><td>Absolution</td><td>Shade of Penitence (F4)</td><td>Back Cape</td><td>+8% damage reduction when below 30% HP</td></tr>
                 <tr><td><strong>Warden's Judgment</strong></td><td>Absolution</td><td>Absolution Warden (F6)</td><td>Greatsword</td><td>+15% damage to Abyss enemies; unique Absolution Core embedded</td></tr>
                 <tr><td><strong>Absolution Core</strong></td><td>Absolution</td><td>Absolution Warden (F6)</td><td>Unique Core</td><td>Chance to purge enemy buffs on hit</td></tr>
-                <tr><td><strong>Vileheart Blade</strong></td><td>Malice</td><td>Vileheart Revenant (F2)</td><td>One-Handed Sword</td><td>Life steal on every 5th hit ‚Äî heals 3% of max HP</td></tr>
+                <tr><td><strong>Vileheart Blade</strong></td><td>Malice</td><td>Vileheart Revenant (F2)</td><td>One-Handed Sword</td><td>Life steal on every 5th hit ‚Ä?heals 3% of max HP</td></tr>
                 <tr><td><strong>Weaver's Grasp</strong></td><td>Malice</td><td>Malice Weaver (F4)</td><td>Gloves</td><td>+20% Attack Speed for 6s after killing an enemy</td></tr>
                 <tr><td><strong>Torment's End</strong></td><td>Malice</td><td>Lord of Torment (F6)</td><td>Greatsword</td><td>+20% Spin Slash damage; unique Malice Core embedded</td></tr>
                 <tr><td><strong>Malice Core</strong></td><td>Malice</td><td>Lord of Torment (F6)</td><td>Unique Core</td><td>Enemies below 20% HP take 25% additional damage</td></tr>
@@ -194,13 +216,13 @@
                 <tr><td><strong>Dominion Core</strong></td><td>Dominion</td><td>The Final Arbiter (F6)</td><td>Unique Core</td><td>Every 3rd hit deals bonus 10% true damage</td></tr>
             </table>
 
-            <p>The <strong>Arbiter's Verdict</strong> from Sanctum of Dominion Floor 6 is widely considered the best weapon in Crimson Desert as of June 2026. It has the highest base attack stat, accepts full refinement to +10, and comes pre-embedded with the Dominion Core ‚Äî which grants 10% true damage on every 3rd hit. This true damage bypasses all enemy defences and damage reduction effects. A fully refined Arbiter's Verdict at +10 with optimal Abyss core setup outperforms every other weapon in the game by approximately 18-22% in sustained DPS.</p>
+            <p>The <strong>Arbiter's Verdict</strong> from Sanctum of Dominion Floor 6 is widely considered the best weapon in Crimson Desert as of June 2026. It has the highest base attack stat, accepts full refinement to +10, and comes pre-embedded with the Dominion Core ‚Ä?which grants 10% true damage on every 3rd hit. This true damage bypasses all enemy defences and damage reduction effects. A fully refined Arbiter's Verdict at +10 with optimal Abyss core setup outperforms every other weapon in the game by approximately 18-22% in sustained DPS.</p>
 
             <div class="warn-box">
                 <strong>Warning:</strong> Unique items from lower sanctums (Absolution and Malice) become <strong>unobtainable</strong> if you progress the main story past their respective unlock windows. For example, the Vessel of Dark Pursuit can only drop from Antumbra's Sword during Chapter 5-6. After starting Chapter 7, the Sanctum of Absolution boss pool changes. Farm all desired unique items before advancing your main quest. There is currently no confirmed way to obtain missed unique items.
             </div>
 
-            <h2 id="section5">üèÜ 5. Best Sanctum for Farming ‚Äî Efficiency &amp; Loot Value Rankings</h2>
+            <h2 id="section5">üèÜ 5. Best Sanctum for Farming ‚Ä?Efficiency &amp; Loot Value Rankings</h2>
             <p>Different sanctums excel at different types of rewards. Below is a targeted efficiency analysis to help you choose the right sanctum for your current goals.</p>
 
             <table>
@@ -222,9 +244,9 @@
                 <strong>True Endgame (Level 45+):</strong> Sanctum of Dominion F6 boss rush. Arbiter's Verdict is your ultimate weapon goal. Expect 50-100 runs for the drop. Supplement with F4 for Void-Touched Chestplate attempts.</p>
             </div>
 
-            <p>For raw silver-per-hour, Dominion F6 is unmatched at approximately 6,000-9,000 silver per hour (assuming 5-7 minute boss-only runs). For comparison, Malice F6 yields 2,100-3,600 silver per hour, and Absolution F6 yields only 900-1,500. However, Dominion requires significantly better gear ‚Äî you should not attempt it until your weapon is at least +7 refined.</p>
+            <p>For raw silver-per-hour, Dominion F6 is unmatched at approximately 6,000-9,000 silver per hour (assuming 5-7 minute boss-only runs). For comparison, Malice F6 yields 2,100-3,600 silver per hour, and Absolution F6 yields only 900-1,500. However, Dominion requires significantly better gear ‚Ä?you should not attempt it until your weapon is at least +7 refined.</p>
 
-            <h2 id="section6">üèÜ 6. Reward Lockout System ‚Äî Weekly Caps, Daily Limits &amp; Resets</h2>
+            <h2 id="section6">üèÜ 6. Reward Lockout System ‚Ä?Weekly Caps, Daily Limits &amp; Resets</h2>
             <p>The Abyss Sanctum reward system uses a multi-layered lockout structure that many players find confusing. Here is a clear breakdown of every restriction:</p>
 
             <h3>Weekly Boss Drop Caps</h3>
@@ -238,24 +260,24 @@
             </table>
 
             <h3>Daily Floor Access Keys</h3>
-            <p>To access a floor beyond floor 1, you need a <strong>Floor Key</strong> dropped by the previous floor's boss. These keys stack up to 5 in your inventory. If you reach the cap and kill another boss, the key is lost. Always use keys before killing bosses if you want to maximise your runs. The daily cap on key usage is effectively unlimited ‚Äî as long as you have keys, you can enter any unlocked floor.</p>
+            <p>To access a floor beyond floor 1, you need a <strong>Floor Key</strong> dropped by the previous floor's boss. These keys stack up to 5 in your inventory. If you reach the cap and kill another boss, the key is lost. Always use keys before killing bosses if you want to maximise your runs. The daily cap on key usage is effectively unlimited ‚Ä?as long as you have keys, you can enter any unlocked floor.</p>
 
             <h3>Material Drop Diminishing Returns</h3>
-            <p>After 10 floor clears in a single sanctum per day, material drops (ores, leathers, timber) are reduced by 50%. Abyss Cells and Abyss Artifacts are not affected by diminishing returns ‚Äî only crafting materials. This system is designed to prevent bot farming while allowing dedicated players to grind for Abyss resources as much as they want.</p>
+            <p>After 10 floor clears in a single sanctum per day, material drops (ores, leathers, timber) are reduced by 50%. Abyss Cells and Abyss Artifacts are not affected by diminishing returns ‚Ä?only crafting materials. This system is designed to prevent bot farming while allowing dedicated players to grind for Abyss resources as much as they want.</p>
 
             <div class="tip-box">
-                <strong>Pro Tip:</strong> The 3-kill rare-drop cap applies per boss individually, not per sanctum. This means you can get up to 9 rare-drop-eligible kills per week at Absolution (3 bosses x 3 kills), 9 at Malice, and 15 at Dominion. If you are farming for a specific unique item, spread your 3-5 kills across the week rather than burning them all on day one ‚Äî some players report improved drop rates on off-peak days (verify with in-game testing).
+                <strong>Pro Tip:</strong> The 3-kill rare-drop cap applies per boss individually, not per sanctum. This means you can get up to 9 rare-drop-eligible kills per week at Absolution (3 bosses x 3 kills), 9 at Malice, and 15 at Dominion. If you are farming for a specific unique item, spread your 3-5 kills across the week rather than burning them all on day one ‚Ä?some players report improved drop rates on off-peak days (verify with in-game testing).
             </div>
 
-            <h2 id="section7">üèÜ 7. Optimization Tips ‚Äî Loadout Prep, Speed Running &amp; Loot Priority</h2>
+            <h2 id="section7">üèÜ 7. Optimization Tips ‚Ä?Loadout Prep, Speed Running &amp; Loot Priority</h2>
             <p>Maximising your sanctum farming efficiency requires more than just knowing the loot tables. Below are optimisation strategies tested by the CD Guru team across 200+ hours of sanctum gameplay.</p>
 
             <h3>Loadout Preparation</h3>
-            <p>Before entering any sanctum, verify the following: your weapon is at minimum +4 refined (preferably +6 for Dominion), you have 3+ Abyss sockets with Destruction + Spirit Siphon + Critical Rate cores, your inventory has at least 30 empty slots (bosses drop 12-20 items per kill), and you have food buffs active ‚Äî specifically the Spicy Meat Stew (+12% attack power for 30 minutes) and the Elixir of Focus (+8% critical rate for 15 minutes). These buffs stack and significantly reduce clear times.</p>
+            <p>Before entering any sanctum, verify the following: your weapon is at minimum +4 refined (preferably +6 for Dominion), you have 3+ Abyss sockets with Destruction + Spirit Siphon + Critical Rate cores, your inventory has at least 30 empty slots (bosses drop 12-20 items per kill), and you have food buffs active ‚Ä?specifically the Spicy Meat Stew (+12% attack power for 30 minutes) and the Elixir of Focus (+8% critical rate for 15 minutes). These buffs stack and significantly reduce clear times.</p>
 
             <h3>Speed Running Techniques</h3>
             <ul>
-                <li><strong>Trash Floor Skipping:</strong> On odd-numbered floors (1, 3, 5), run past all standard enemies. Only stop for chests and glowing urns ‚Äî these contain the floor's best loot. Standard enemies drop negligible silver and no rare materials.</li>
+                <li><strong>Trash Floor Skipping:</strong> On odd-numbered floors (1, 3, 5), run past all standard enemies. Only stop for chests and glowing urns ‚Ä?these contain the floor's best loot. Standard enemies drop negligible silver and no rare materials.</li>
                 <li><strong>Boss Burn Phase:</strong> Every sanctum boss has a phase transition at 50% and 25% HP. Save your ultimate abilities and Abyss core activations for these transitions. Burning through a phase skips 15-20 seconds of boss invulnerability animations.</li>
                 <li><strong>Key Management:</strong> Never hold more than 3 keys in your inventory. Kill F6 bosses while holding 0-1 keys so any new key drops are not wasted at the 5-key cap. Deposit excess keys in your camp storage.</li>
             </ul>
@@ -265,10 +287,10 @@
 
             <table>
                 <tr><th>Priority</th><th>Keep</th><th>Discard</th></tr>
-                <tr><td><strong>Always Keep</strong></td><td>Aeserion Scales, Unique Items, Abyss Cores (R2+), Blueprints</td><td>‚Äî</td></tr>
+                <tr><td><strong>Always Keep</strong></td><td>Aeserion Scales, Unique Items, Abyss Cores (R2+), Blueprints</td><td>‚Ä?/td></tr>
                 <tr><td><strong>Usually Keep</strong></td><td>Bloodstones, Abyss Artifacts, Abyss Cells, Silver (auto-collect)</td><td>Common ores (Iron, Copper) in small stacks</td></tr>
                 <tr><td><strong>Conditional</strong></td><td>Orange/Red weapons &amp; armour (if not dupe)</td><td>Blue/purple-tier gear (except for extraction)</td></tr>
-                <tr><td><strong>Always Discard</strong></td><td>‚Äî</td><td>Thin Hide, Small Bones, Timber, standard potions</td></tr>
+                <tr><td><strong>Always Discard</strong></td><td>‚Ä?/td><td>Thin Hide, Small Bones, Timber, standard potions</td></tr>
             </table>
 
             <h3>Weekly Farming Schedule</h3>
@@ -276,9 +298,9 @@
 
             <div class="method-box">
                 <h4>Optimal Weekly Sanctum Route</h4>
-                <p><strong>Thursday (Reset Day):</strong> Dominion Sanctum ‚Äî 5 F6 kills for Arbiter's Verdict farming. Use your 5 rare-drop attempts on the most valuable boss first. Follow with 5 F4 kills for Void-Touched Chestplate attempts.<br>
-                <strong>Friday:</strong> Malice Sanctum ‚Äî 3 F6 kills (Torment's End + Malice Core), 3 F4 kills (Weaver's Grasp).<br>
-                <strong>Saturday:</strong> Absolution Sanctum ‚Äî 3 F6 kills (Warden's Judgment), 3 F4 kills (Penitence Shroud). Fill remaining time with Serpent Temple for Aeserion Scales.<br>
+                <p><strong>Thursday (Reset Day):</strong> Dominion Sanctum ‚Ä?5 F6 kills for Arbiter's Verdict farming. Use your 5 rare-drop attempts on the most valuable boss first. Follow with 5 F4 kills for Void-Touched Chestplate attempts.<br>
+                <strong>Friday:</strong> Malice Sanctum ‚Ä?3 F6 kills (Torment's End + Malice Core), 3 F4 kills (Weaver's Grasp).<br>
+                <strong>Saturday:</strong> Absolution Sanctum ‚Ä?3 F6 kills (Warden's Judgment), 3 F4 kills (Penitence Shroud). Fill remaining time with Serpent Temple for Aeserion Scales.<br>
                 <strong>Sunday-Wednesday:</strong> Dominion F6 boss-only runs (silver + Scale farming, rare drops already capped). Use this time for material consolidation and gear enhancement.</p>
             </div>
 
@@ -287,10 +309,10 @@
             </div>
 
             <!-- FAQ -->
-            <h2 id="faq">‚ùì FAQ ‚Äî Sanctum Rewards Questions Answered</h2>
+            <h2 id="faq">‚ù?FAQ ‚Ä?Sanctum Rewards Questions Answered</h2>
             <div class="faq-item">
                 <h4>Q: How many times can I loot each boss per week?</h4>
-                <p>For rare drops (unique items, rare Abyss cores, blueprints): 3 times per boss at Absolution and Malice, 5 times per boss at Dominion. Common drops (silver, standard materials) are unlimited. The rare-drop cap resets every Thursday at midnight server time. You can still kill the boss after hitting the cap ‚Äî common drops remain available indefinitely.</p>
+                <p>For rare drops (unique items, rare Abyss cores, blueprints): 3 times per boss at Absolution and Malice, 5 times per boss at Dominion. Common drops (silver, standard materials) are unlimited. The rare-drop cap resets every Thursday at midnight server time. You can still kill the boss after hitting the cap ‚Ä?common drops remain available indefinitely.</p>
             </div>
             <div class="faq-item">
                 <h4>Q: What is the best sanctum for farming silver?</h4>
@@ -298,7 +320,7 @@
             </div>
             <div class="faq-item">
                 <h4>Q: Can I get Arbiter's Verdict from any other source?</h4>
-                <p>No. The Arbiter's Verdict legendary greatsword is exclusive to The Final Arbiter (Sanctum of Dominion, Floor 6). Its Dominion Core is also exclusive. There is no alternative source, no crafting recipe, and no vendor that sells it. You must farm Dominion F6 ‚Äî expect 50-100 kills before the 5-15% drop rate produces the weapon. Use all 5 weekly rare-drop attempts every week.</p>
+                <p>No. The Arbiter's Verdict legendary greatsword is exclusive to The Final Arbiter (Sanctum of Dominion, Floor 6). Its Dominion Core is also exclusive. There is no alternative source, no crafting recipe, and no vendor that sells it. You must farm Dominion F6 ‚Ä?expect 50-100 kills before the 5-15% drop rate produces the weapon. Use all 5 weekly rare-drop attempts every week.</p>
             </div>
             <div class="faq-item">
                 <h4>Q: Do I need to clear lower floors to reach floor 6?</h4>
@@ -306,7 +328,7 @@
             </div>
             <div class="faq-item">
                 <h4>Q: Are unique items from lower sanctums worth farming at endgame?</h4>
-                <p>Yes, conditionally. The Absolution Core (purges enemy buffs) and Malice Core (25% bonus damage to enemies below 20% HP) are both excellent even at endgame. Their effects are percentage-based and scale with your gear. The Penitence Shroud's 8% damage reduction at low HP is also valuable for hard-mode Dominion attempts. Farm these before progressing past Chapter 7 ‚Äî they become unobtainable once the boss pool rotates.</p>
+                <p>Yes, conditionally. The Absolution Core (purges enemy buffs) and Malice Core (25% bonus damage to enemies below 20% HP) are both excellent even at endgame. Their effects are percentage-based and scale with your gear. The Penitence Shroud's 8% damage reduction at low HP is also valuable for hard-mode Dominion attempts. Farm these before progressing past Chapter 7 ‚Ä?they become unobtainable once the boss pool rotates.</p>
             </div>
             <div class="faq-item">
                 <h4>Q: What happens if I miss a unique item from an earlier sanctum?</h4>
@@ -318,7 +340,7 @@
             </div>
             <div class="faq-item">
                 <h4>Q: Do food buffs and elixirs work inside sanctums?</h4>
-                <p>Yes ‚Äî food buffs, elixirs, and potions all work inside Abyss Sanctums. Recommended loadout: Spicy Meat Stew (+12% attack, 30 min), Elixir of Focus (+8% critical rate, 15 min), and the regeneration potion from the Kuku Pot upgrade tree (heals 30% HP over 10s with 30s cooldown). These three items together increase your effective DPS by roughly 22% and reduce boss kill times by 25-30%.</p>
+                <p>Yes ‚Ä?food buffs, elixirs, and potions all work inside Abyss Sanctums. Recommended loadout: Spicy Meat Stew (+12% attack, 30 min), Elixir of Focus (+8% critical rate, 15 min), and the regeneration potion from the Kuku Pot upgrade tree (heals 30% HP over 10s with 30s cooldown). These three items together increase your effective DPS by roughly 22% and reduce boss kill times by 25-30%.</p>
             </div>
 
             <!-- Support Card -->
@@ -326,19 +348,19 @@
     <div class="support-inner">
         <span class="support-icon">üîì</span>
         <div class="support-text">
-            <h3>Every guide is free ‚Äî this one stays free either way.</h3>
+            <h3>Every guide is free ‚Ä?this one stays free either way.</h3>
             <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
             <p style="margin:6px 0 0 0;line-height:1.7">
-                üìö <strong>10 Beginner Guides</strong> ‚Äî zero to mid-game in one pack<br>
-                ‚≠ê <strong>5 Premium Picks</strong> ‚Äî our most popular expert deep-dives<br>
-                ‚è∞ <strong>3-Day Early Access</strong> ‚Äî read new guides before everyone else<br>
-                üîÑ <strong>3 New Guides Every Month</strong> ‚Äî and each one fuels us to write faster
+                üìö <strong>10 Beginner Guides</strong> ‚Ä?zero to mid-game in one pack<br>
+                ‚≠?<strong>5 Premium Picks</strong> ‚Ä?our most popular expert deep-dives<br>
+                ‚è?<strong>3-Day Early Access</strong> ‚Ä?read new guides before everyone else<br>
+                üîÑ <strong>3 New Guides Every Month</strong> ‚Ä?and each one fuels us to write faster
             </p>
-            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">‚úÖ Your purchase includes instant access to everything above</p>
+            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">‚ú?Your purchase includes instant access to everything above</p>
             <div class="support-amounts">
-                <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 ‚Äî Get the Early Access Guide Pack üëë</a>
+                <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 ‚Ä?Get the Early Access Guide Pack üëë</a>
             </div>
-            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always ‚Äî no strings attached. ü§ù</p>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always ‚Ä?no strings attached. ü§ù</p>
         </div>
     </div>
 </div>
@@ -355,5 +377,8 @@
     <script src="../../js/features.js"></script>
     <script src="../../js/ai-qa-widget.js"></script>
     <style>.guide-content li{color:#2d2a33!important}</style>
+    <script>
+    (function(){var p=document.getElementById('cdProgressFill');if(!p)return;var u=function(){var e=document.documentElement,t=e.scrollTop,n=e.scrollHeight-e.clientHeight;p.style.width=n>0?Math.min(t/n*100,100)+'%':'0%'};window.addEventListener('scroll',u,{passive:true});window.addEventListener('resize',u,{passive:true});u()})();
+    </script>
 </body>
 </html>

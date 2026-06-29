@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crimson Desert Card Collection Guide — All Cards Locations & NPC Unlock Conditions | CD Guru</title>
-    <meta name="description" content="Complete card collection guide for Crimson Desert — where to find every card, NPC opponent locations and unlock conditions, card exchange mechanics, and collection rewards.">
+    <title>Crimson Desert Card Collection Guide �?All Cards Locations & NPC Unlock Conditions | CD Guru</title>
+    <meta name="description" content="Complete card collection guide for Crimson Desert �?where to find every card, NPC opponent locations and unlock conditions, card exchange mechanics, and collection rewards.">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="dns-prefetch" href="//www.google-analytics.com">
@@ -42,7 +42,6 @@
         .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}
         .inline-support-hint p{font-size:1rem}
         .guide-content li{color:#2d2a33 !important}
-        .progress-widget{display:none !important}
         .checklist-item{display:flex;align-items:flex-start;gap:10px;padding:.7rem 1rem;margin:.4rem 0;background:#faf8fc;border-radius:6px;border:1px solid #e0d8f0}
         .checklist-item .check-box{width:20px;height:20px;min-width:20px;border:2px solid #7a64b8;border-radius:4px;margin-top:3px;display:inline-block}
         .checklist-item strong{color:#7a64b8}
@@ -66,9 +65,23 @@
             .guide-img figcaption{font-size:.78rem}
             .checklist-item{padding:.5rem .7rem;font-size:.92rem}
         }
+    
+        /* Reading Progress Bar */
+        .cd-reading-progress{position:fixed;top:0;left:0;width:100%;height:4px;background:rgba(122,100,184,0.12);z-index:99999;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+        .cd-reading-progress .cd-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#7a64b8,#b8a4e8,#e0d8f0);transition:width .15s ease-out;border-radius:0 2px 2px 0}
+        /* Mobile hero improvements */
+        @media(max-width:768px){
+            .guide-hero h1{font-size:1.6rem !important;line-height:1.3}
+            .guide-hero .subtitle{font-size:1rem !important}
+            .guide-hero .breadcrumb{font-size:.8rem !important}
+            .toc{padding:1rem !important}
+            .toc ol li{font-size:.9rem !important}
+            .nav-links{overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+        }
     </style>
 </head>
 <body>
+    <div class="cd-reading-progress" id="cdReadingProgress"><div class="cd-progress-fill" id="cdProgressFill"></div></div>
     <header>
         <div class="container">
             <nav>
@@ -87,15 +100,24 @@
     <section class="guide-hero">
         <div class="container">
             <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#crimson-desert">Crimson Desert</a> / Card Collection Guide</p>
-            <h1>Crimson Desert Card Collection Guide — All Cards Locations & NPC Unlock Conditions</h1>
-            <p class="subtitle">Complete card collection guide — where to find every card, NPC opponent locations and unlock conditions, card exchange mechanics, and collection rewards.</p>
+            <h1>Crimson Desert Card Collection Guide �?All Cards Locations & NPC Unlock Conditions</h1>
+            <p class="subtitle">Complete card collection guide �?where to find every card, NPC opponent locations and unlock conditions, card exchange mechanics, and collection rewards.</p>
             <div class="weekly-badge">
-                <span class="badge-icon">🃏</span> <strong>CD Guide</strong> — Part of the <strong>Crimson Desert Essentials Series</strong> · 12 min read
+                <span class="badge-icon">🃏</span> <strong>CD Guide</strong> �?Part of the <strong>Crimson Desert Essentials Series</strong> · 12 min read
             </div>
             <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: June 28, 2026</p>
         </div>
     </section>
-
+    <!-- Quick Summary -->
+    <div class="quick-summary" style="background:#faf8fc;border:1px solid #e0d8f0;border-left:4px solid #7a64b8;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0 2rem;font-size:1rem">
+        <h3 style="color:#7a64b8;font-size:1.15rem;margin:0 0 .8rem">⏱️ Quick Summary �?30-Second Read</h3>
+        <ul style="margin:0;padding-left:1.2rem;list-style:none">
+                <li>📚 All card locations: each NPC opponent requires specific deck to challenge and unlock</li>
+                <li>🗺�?Card NPCs: 14+ opponents across Hernand, Demeniss, Pailune, Delesyia, and endgame zones</li>
+                <li>⚠️ Missable: 3 card NPCs disappear after main story �?collect before Chapter 10</li>
+                <li>🏆 Completion: post-game cleanup mode lets you find remaining opponents via map markers</li>
+        </ul>
+    </div>
     <main class="guide-content">
         <div class="container">
             <div class="toc">
@@ -108,12 +130,12 @@
                     <li><a href="#section5">Card Exchange System</a></li>
                     <li><a href="#section6">Collection Rewards</a></li>
                     <li><a href="#section7">Completion Checklist</a></li>
-                    <li><a href="#faq">FAQ — Frequently Asked Questions</a></li>
+                    <li><a href="#faq">FAQ �?Frequently Asked Questions</a></li>
                 </ol>
             </div>
 
             <h2 id="section1">🃏 1. Card Collection Overview</h2>
-            <p>Crimson Desert features a robust <strong>Card Collection</strong> system that goes hand-in-hand with the Duo and Five-Card mini-games. While the standard game uses a 20-card Seotda deck (numbers 1-10 in red and yellow), the collection system introduces <strong>special variant cards</strong> — gilded, weathered, blood-stained, and illuminated versions — each with unique visual designs and lore descriptions. Collecting all cards unlocks permanent account-wide bonuses and cosmetic rewards.</p>
+            <p>Crimson Desert features a robust <strong>Card Collection</strong> system that goes hand-in-hand with the Duo and Five-Card mini-games. While the standard game uses a 20-card Seotda deck (numbers 1-10 in red and yellow), the collection system introduces <strong>special variant cards</strong> �?gilded, weathered, blood-stained, and illuminated versions �?each with unique visual designs and lore descriptions. Collecting all cards unlocks permanent account-wide bonuses and cosmetic rewards.</p>
             <p>The collection is divided into <strong>5 sets</strong> of 20 cards each (100 total cards), with cards obtained through three primary methods: winning games at card tables, trading with NPC collectors, and finding hidden cards in chests and quest rewards. As of Patch 1.12.02 (June 24, 2026), the collection system is fully functional with no known bugs preventing 100% completion.</p>
 
             <div class="tip-box">
@@ -130,16 +152,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>Standard Deck</td><td>20</td><td>Starting collection, Hernand card table</td><td>⭐ Easy</td></tr>
+                    <tr><td>Standard Deck</td><td>20</td><td>Starting collection, Hernand card table</td><td>�?Easy</td></tr>
                     <tr><td>Gilded Edition</td><td>20</td><td>High-stakes wins, Tommaso table</td><td>⭐⭐ Medium</td></tr>
-                    <tr><td>Weathered Set</td><td>20</td><td>Chests, hidden locations, world drops</td><td>⭐⭐⭐ Medium-Hard</td></tr>
+                    <tr><td>Weathered Set</td><td>20</td><td>Chests, hidden locations, world drops</td><td>⭐⭐�?Medium-Hard</td></tr>
                     <tr><td>Blood-Stained Set</td><td>20</td><td>NPC opponents, boss rewards, Pailune region</td><td>⭐⭐⭐⭐ Hard</td></tr>
-                    <tr><td>Illuminated Set</td><td>20</td><td>NPC trades, sanctum rewards, completion prizes</td><td>⭐⭐⭐⭐⭐ Very Hard</td></tr>
+                    <tr><td>Illuminated Set</td><td>20</td><td>NPC trades, sanctum rewards, completion prizes</td><td>⭐⭐⭐⭐�?Very Hard</td></tr>
                 </tbody>
             </table>
 
             <h3>How the Collection Menu Works</h3>
-            <p>Access your card collection from the pause menu under <strong>Collectibles → Card Deck</strong>. Each card is displayed with its number, colour variant, lore text, and acquisition source. Cards you don't yet own show a silhouette with a hint about where to find them. The collection screen also tracks your completion percentage per set and overall progress across all 100 cards.</p>
+            <p>Access your card collection from the pause menu under <strong>Collectibles �?Card Deck</strong>. Each card is displayed with its number, colour variant, lore text, and acquisition source. Cards you don't yet own show a silhouette with a hint about where to find them. The collection screen also tracks your completion percentage per set and overall progress across all 100 cards.</p>
 
             <h2 id="section2">🎭 2. NPC Opponents Locations</h2>
             <p>Card game NPCs are scattered across Pywel in taverns, gambling halls, and settlements. Each NPC has unique unlock conditions and some only appear at specific times of day or after completing certain quests. Defeating NPC opponents is the primary way to earn <strong>Blood-Stained</strong> and <strong>Illuminated</strong> variant cards.</p>
@@ -156,10 +178,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>Berto</strong></td><td>Hernand Inn (2nd Floor)</td><td>Duo — 15 silver</td><td>"A Move on the Table" quest</td><td>Standard Deck cards</td></tr>
+                    <tr><td><strong>Berto</strong></td><td>Hernand Inn (2nd Floor)</td><td>Duo �?15 silver</td><td>"A Move on the Table" quest</td><td>Standard Deck cards</td></tr>
                     <tr><td><strong>Marta</strong></td><td>Hernand Market Square</td><td>Duo (friendly)</td><td>Available immediately after Berto</td><td>Standard Deck, Weathered 1-4</td></tr>
-                    <tr><td><strong>Old Kael</strong></td><td>Hernand, Eastside Tavern</td><td>Duo — 30 silver</td><td>Evening only (18:00-06:00)</td><td>Weathered 5-10</td></tr>
-                    <tr><td><strong>Lena</strong></td><td>Hernand, Apothecary Shop</td><td>Duo — 25 silver</td><td>Complete "Herbal Remedies" side quest</td><td>Weathered 1-10 (random)</td></tr>
+                    <tr><td><strong>Old Kael</strong></td><td>Hernand, Eastside Tavern</td><td>Duo �?30 silver</td><td>Evening only (18:00-06:00)</td><td>Weathered 5-10</td></tr>
+                    <tr><td><strong>Lena</strong></td><td>Hernand, Apothecary Shop</td><td>Duo �?25 silver</td><td>Complete "Herbal Remedies" side quest</td><td>Weathered 1-10 (random)</td></tr>
                 </tbody>
             </table>
 
@@ -175,10 +197,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>Garrick</strong></td><td>Beighen, Gambling Hut</td><td>Five-Card — 150 silver</td><td>Reach Beighen (Chapter 5+)</td><td>Gilded 1-10</td></tr>
-                    <tr><td><strong>Yenna</strong></td><td>Beighen Village Center</td><td>Duo — 50 silver</td><td>Complete "Gambler's Debt" quest</td><td>Gilded 11-20, Blood-Stained 1-3</td></tr>
-                    <tr><td><strong>Huntmaster Voss</strong></td><td>Pailune Hunting Lodge</td><td>Five-Card — 100 silver</td><td>Daytime only; join Pailune Militia</td><td>Blood-Stained 4-10</td></tr>
-                    <tr><td><strong>Wandering Saiman</strong></td><td>Pailune roads (random)</td><td>Duo — 75 silver</td><td>Random encounter; listen for dice sounds</td><td>Blood-Stained 11-15</td></tr>
+                    <tr><td><strong>Garrick</strong></td><td>Beighen, Gambling Hut</td><td>Five-Card �?150 silver</td><td>Reach Beighen (Chapter 5+)</td><td>Gilded 1-10</td></tr>
+                    <tr><td><strong>Yenna</strong></td><td>Beighen Village Center</td><td>Duo �?50 silver</td><td>Complete "Gambler's Debt" quest</td><td>Gilded 11-20, Blood-Stained 1-3</td></tr>
+                    <tr><td><strong>Huntmaster Voss</strong></td><td>Pailune Hunting Lodge</td><td>Five-Card �?100 silver</td><td>Daytime only; join Pailune Militia</td><td>Blood-Stained 4-10</td></tr>
+                    <tr><td><strong>Wandering Saiman</strong></td><td>Pailune roads (random)</td><td>Duo �?75 silver</td><td>Random encounter; listen for dice sounds</td><td>Blood-Stained 11-15</td></tr>
                 </tbody>
             </table>
 
@@ -194,9 +216,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>Lord Rennard</strong></td><td>Demeniss Manor, Main Hall</td><td>Five-Card — 500 silver</td><td>Noble's Favor reputation (Neutral+)</td><td>Gilded 11-20, Illuminated 1-3</td></tr>
-                    <tr><td><strong>Silas the Collector</strong></td><td>Demeniss, Library</td><td>Duo — 200 silver</td><td>Complete "Forbidden Knowledge" quest</td><td>Illuminated 4-10</td></tr>
-                    <tr><td><strong>Captain Aldric</strong></td><td>Demeniss Garrison</td><td>Five-Card — 300 silver</td><td>Night only; complete garrison quests</td><td>Blood-Stained 16-20</td></tr>
+                    <tr><td><strong>Lord Rennard</strong></td><td>Demeniss Manor, Main Hall</td><td>Five-Card �?500 silver</td><td>Noble's Favor reputation (Neutral+)</td><td>Gilded 11-20, Illuminated 1-3</td></tr>
+                    <tr><td><strong>Silas the Collector</strong></td><td>Demeniss, Library</td><td>Duo �?200 silver</td><td>Complete "Forbidden Knowledge" quest</td><td>Illuminated 4-10</td></tr>
+                    <tr><td><strong>Captain Aldric</strong></td><td>Demeniss Garrison</td><td>Five-Card �?300 silver</td><td>Night only; complete garrison quests</td><td>Blood-Stained 16-20</td></tr>
                 </tbody>
             </table>
 
@@ -212,19 +234,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td><strong>Merchant Lord Kalev</strong></td><td>Delesyia, Trade Authority</td><td>Five-Card — 1,000 silver</td><td>Unlock Royal Trade system (Chapter 8+)</td><td>Illuminated 11-17</td></tr>
-                    <tr><td><strong>Black Market Dealer</strong></td><td>Delesyia Docks</td><td>Duo — 500 silver</td><td>Find the hidden entrance password</td><td>Illuminated 18-20</td></tr>
-                    <tr><td><strong>Desert Hermit</strong></td><td>Crimson Desert, Ancient Ruins</td><td>Duo — 1 silver</td><td>Find his camp (random weather event)</td><td>Weathered 11-20 (unique designs)</td></tr>
+                    <tr><td><strong>Merchant Lord Kalev</strong></td><td>Delesyia, Trade Authority</td><td>Five-Card �?1,000 silver</td><td>Unlock Royal Trade system (Chapter 8+)</td><td>Illuminated 11-17</td></tr>
+                    <tr><td><strong>Black Market Dealer</strong></td><td>Delesyia Docks</td><td>Duo �?500 silver</td><td>Find the hidden entrance password</td><td>Illuminated 18-20</td></tr>
+                    <tr><td><strong>Desert Hermit</strong></td><td>Crimson Desert, Ancient Ruins</td><td>Duo �?1 silver</td><td>Find his camp (random weather event)</td><td>Weathered 11-20 (unique designs)</td></tr>
                 </tbody>
             </table>
 
             <div class="warn-box">
                 <strong>Missable Warning:</strong> Silas the Collector in Demeniss leaves the library permanently after you complete Chapter 9's main quest. Visit him before starting "The Shadow of the Throne" to collect all Illuminated cards from his pool. Similarly, the Wandering Saiman stops appearing after Chapter 10.</div>
 
-            <h2 id="section3">🗺️ 3. Card Locations by Region</h2>
-            <p>Beyond NPC opponents, many cards are found as <strong>world loot</strong> — in chests, as quest rewards, or from defeating specific enemies. This section covers every non-NPC card source organised by region.</p>
+            <h2 id="section3">🗺�?3. Card Locations by Region</h2>
+            <p>Beyond NPC opponents, many cards are found as <strong>world loot</strong> �?in chests, as quest rewards, or from defeating specific enemies. This section covers every non-NPC card source organised by region.</p>
 
-            <h3>Hernand — 24 Cards Available</h3>
+            <h3>Hernand �?24 Cards Available</h3>
             <p>Hernand is where you'll complete the <strong>Standard Deck</strong> and most of the <strong>Weathered Set</strong>. The region is designed to be fully completable before leaving for Pailune.</p>
             <table>
                 <thead>
@@ -246,7 +268,7 @@
                 </tbody>
             </table>
 
-            <h3>Pailune — 28 Cards Available</h3>
+            <h3>Pailune �?28 Cards Available</h3>
             <p>The Pailune region is the heart of card game activity. Most <strong>Gilded</strong> and <strong>Blood-Stained</strong> cards are found here.</p>
             <table>
                 <thead>
@@ -268,7 +290,7 @@
                 </tbody>
             </table>
 
-            <h3>Demeniss — 22 Cards Available</h3>
+            <h3>Demeniss �?22 Cards Available</h3>
             <p>Demeniss is the political centre of Pywel and houses the most prestigious card tables. <strong>Illuminated Set</strong> cards begin appearing here.</p>
             <table>
                 <thead>
@@ -288,7 +310,7 @@
                 </tbody>
             </table>
 
-            <h3>Delesyia & Crimson Desert — 26 Cards Available</h3>
+            <h3>Delesyia & Crimson Desert �?26 Cards Available</h3>
             <table>
                 <thead>
                     <tr>
@@ -309,7 +331,7 @@
             </table>
 
             <div class="tip-box">
-                <strong>Pro Tip:</strong> Enable the "Collectible Tracker" in your game settings (Options → UI → Tracking → Card Collection). This places a subtle glow on chests and NPCs that contain uncollected cards, saving hours of backtracking.</div>
+                <strong>Pro Tip:</strong> Enable the "Collectible Tracker" in your game settings (Options �?UI �?Tracking �?Card Collection). This places a subtle glow on chests and NPCs that contain uncollected cards, saving hours of backtracking.</div>
 
             <h2 id="section4">💎 4. Rare Card Guide</h2>
             <p>Some cards are significantly harder to obtain than others. Here are the <strong>10 rarest cards</strong> in Crimson Desert and the most reliable methods to acquire each one.</p>
@@ -344,9 +366,9 @@
                 <p>Just like with silver farming, the save-reload method works for rare card drops. Before playing a high-stakes match against a rare card NPC:</p>
                 <ol>
                     <li><strong>Manual save</strong> outside the gambling location.</li>
-                    <li><strong>Enter and play</strong> — if the NPC doesn't offer the rare card as a reward, reload.</li>
-                    <li><strong>Win the match</strong> — if the card doesn't drop, reload and try again.</li>
-                    <li><strong>Rare cards are rolled at match start</strong> — if you reload and re-enter, the reward pool resets.</li>
+                    <li><strong>Enter and play</strong> �?if the NPC doesn't offer the rare card as a reward, reload.</li>
+                    <li><strong>Win the match</strong> �?if the card doesn't drop, reload and try again.</li>
+                    <li><strong>Rare cards are rolled at match start</strong> �?if you reload and re-enter, the reward pool resets.</li>
                 </ol>
                 <p>This method is most effective for the Black Market Dealer (Illuminated Red 1) and Huntmaster Voss (Blood-Stained Red 4), where card reward pools are randomised each match.</p>
             </div>
@@ -425,68 +447,68 @@
             <h3>Milestone Rewards</h3>
             <p>Even partial completion grants useful bonuses:</p>
             <ul>
-                <li><strong>25 cards:</strong> "Card Collector" title — usable in multiplayer</li>
+                <li><strong>25 cards:</strong> "Card Collector" title �?usable in multiplayer</li>
                 <li><strong>50 cards:</strong> +1 permanent Luck stat (affects loot drops across all activities)</li>
-                <li><strong>75 cards:</strong> Card Table discount — all buy-ins reduced by 20%</li>
-                <li><strong>90 cards:</strong> Reveal hidden cards at tables — all opponents' hidden cards visible</li>
+                <li><strong>75 cards:</strong> Card Table discount �?all buy-ins reduced by 20%</li>
+                <li><strong>90 cards:</strong> Reveal hidden cards at tables �?all opponents' hidden cards visible</li>
                 <li><strong>100 cards (complete):</strong> "Master Collector" achievement + Platinum Trophy</li>
             </ul>
 
             <h3>Secret: The 101st Card</h3>
-            <p>There is a <strong>hidden 101st card</strong> — "The Crimson Jester" — that doesn't count toward any set but is tracked separately. To obtain it:</p>
+            <p>There is a <strong>hidden 101st card</strong> �?"The Crimson Jester" �?that doesn't count toward any set but is tracked separately. To obtain it:</p>
             <ol>
                 <li>Complete all 5 sets (100 cards).</li>
                 <li>Travel to the <strong>Stormtalon Ridge summit</strong> at midnight (in-game time).</li>
                 <li>A spectral card table appears with a ghostly NPC named "The Jester."</li>
-                <li>Win a single hand against The Jester (he uses an unbeatable Prime Pair deck — you must use the Cheat ability to win).</li>
+                <li>Win a single hand against The Jester (he uses an unbeatable Prime Pair deck �?you must use the Cheat ability to win).</li>
                 <li>The Crimson Jester card is added to your collection with a unique animated holographic effect.</li>
             </ol>
 
             <div class="tip-box">
                 <strong>Tip:</strong> The Crimson Jester fight is designed to be nearly impossible without the Cheat ability. If you haven't unlocked cheating yet (observe cheaters 3 times at any card table), do that before attempting. Use Red 1 as your hidden card and pray for a good draw.</div>
 
-            <h2 id="section7">✅ 7. Completion Checklist</h2>
+            <h2 id="section7">�?7. Completion Checklist</h2>
             <p>Use this checklist to track your card collection progress. We've organised it by region and set to help you plan efficient farming routes.</p>
 
             <h3>Standard Deck (20/20)</h3>
-            <div class="checklist-item"><span class="check-box"></span> <span><strong>Red Set:</strong> R1 · R2 · R3 · R4 · R5 · R6 · R7 · R8 · R9 · R10 — Hernand Inn table, won through Duo games</span></div>
-            <div class="checklist-item"><span class="check-box"></span> <span><strong>Yellow Set:</strong> Y1 · Y2 · Y3 · Y4 · Y5 · Y6 · Y7 · Y8 · Y9 · Y10 — Hernand Inn table, won through Duo games</span></div>
+            <div class="checklist-item"><span class="check-box"></span> <span><strong>Red Set:</strong> R1 · R2 · R3 · R4 · R5 · R6 · R7 · R8 · R9 · R10 �?Hernand Inn table, won through Duo games</span></div>
+            <div class="checklist-item"><span class="check-box"></span> <span><strong>Yellow Set:</strong> Y1 · Y2 · Y3 · Y4 · Y5 · Y6 · Y7 · Y8 · Y9 · Y10 �?Hernand Inn table, won through Duo games</span></div>
 
             <h3>Gilded Edition (20/20)</h3>
-            <div class="checklist-item"><span class="check-box"></span> <span><strong>Hernand:</strong> Gilded R1-R5, Y1-Y5 — Beighen Five-Card table</span></div>
-            <div class="checklist-item"><span class="check-box"></span> <span><strong>Pailune:</strong> Gilded R6-R10, Y6-Y10 — Beighen Five-Card table, Abyss creature drops</span></div>
-            <div class="checklist-item"><span class="check-box"></span> <span><strong>Demeniss:</strong> Gilded R1-Y10 (alt art) — Golden Leaf Trading Post (250 leaves each)</span></div>
+            <div class="checklist-item"><span class="check-box"></span> <span><strong>Hernand:</strong> Gilded R1-R5, Y1-Y5 �?Beighen Five-Card table</span></div>
+            <div class="checklist-item"><span class="check-box"></span> <span><strong>Pailune:</strong> Gilded R6-R10, Y6-Y10 �?Beighen Five-Card table, Abyss creature drops</span></div>
+            <div class="checklist-item"><span class="check-box"></span> <span><strong>Demeniss:</strong> Gilded R1-Y10 (alt art) �?Golden Leaf Trading Post (250 leaves each)</span></div>
 
             <h3>Weathered Set (20/20)</h3>
-            <div class="checklist-item"><span class="check-box"></span> <span><strong>Hernand:</strong> W1R, W3R, W8R, W2Y, W5Y, W6Y, W7Y, W9Y, W10Y — chests, quests, sewers</span></div>
-            <div class="checklist-item"><span class="check-box"></span> <span><strong>Pailune:</strong> W11-20 — Bloomwood Ranch waterfall stash</span></div>
-            <div class="checklist-item"><span class="check-box"></span> <span><strong>Crimson Desert:</strong> W11-20 (alt set) — Desert Hermit trade</span></div>
+            <div class="checklist-item"><span class="check-box"></span> <span><strong>Hernand:</strong> W1R, W3R, W8R, W2Y, W5Y, W6Y, W7Y, W9Y, W10Y �?chests, quests, sewers</span></div>
+            <div class="checklist-item"><span class="check-box"></span> <span><strong>Pailune:</strong> W11-20 �?Bloomwood Ranch waterfall stash</span></div>
+            <div class="checklist-item"><span class="check-box"></span> <span><strong>Crimson Desert:</strong> W11-20 (alt set) �?Desert Hermit trade</span></div>
 
             <h3>Blood-Stained Set (20/20)</h3>
             <div class="checklist-item"><span class="check-box"></span> <span><strong>Pailune:</strong> BS1R-3R (Yenna), BS4R-10R (Voss), BS1Y-5Y (Militia), BS6Y-10Y (Saiman)</span></div>
             <div class="checklist-item"><span class="check-box"></span> <span><strong>Demeniss:</strong> BS11-15 (Aldric), BS16-20 (Contribution Shop, 500 pts each)</span></div>
-            <div class="checklist-item"><span class="check-box"></span> <span><strong>Pailune Titan:</strong> BS1R-5R (alternate art) — Lightning Titan drop</span></div>
+            <div class="checklist-item"><span class="check-box"></span> <span><strong>Pailune Titan:</strong> BS1R-5R (alternate art) �?Lightning Titan drop</span></div>
 
             <h3>Illuminated Set (20/20)</h3>
             <div class="checklist-item"><span class="check-box"></span> <span><strong>Demeniss:</strong> IL1-3 (Lord Rennard), IL4-10 (Silas the Collector)</span></div>
             <div class="checklist-item"><span class="check-box"></span> <span><strong>Delesyia:</strong> IL11-17 (Merchant Lord Kalev), IL18-20 (Black Market Dealer)</span></div>
-            <div class="checklist-item"><span class="check-box"></span> <span><strong>Sanctums:</strong> IL3Y, IL7Y, IL8Y — Sanctum of Benediction puzzles</span></div>
+            <div class="checklist-item"><span class="check-box"></span> <span><strong>Sanctums:</strong> IL3Y, IL7Y, IL8Y �?Sanctum of Benediction puzzles</span></div>
 
             <h3>Secret Card</h3>
-            <div class="checklist-item"><span class="check-box"></span> <span><strong>The Crimson Jester (101st Card):</strong> Stormtalon Ridge summit, midnight — requires Cheat ability</span></div>
+            <div class="checklist-item"><span class="check-box"></span> <span><strong>The Crimson Jester (101st Card):</strong> Stormtalon Ridge summit, midnight �?requires Cheat ability</span></div>
 
             <div class="method-box">
                 <h4>📋 Recommended Completion Route</h4>
                 <ol>
                     <li><strong>Chapter 3-4 (Hernand):</strong> Complete Standard Deck (20 cards). Collect all 8 Weathered cards in Hernand. Trade with Marta for remaining Weathered cards.</li>
                     <li><strong>Chapter 5-7 (Pailune):</strong> Farm Gilded set at Beighen (20 cards). Defeat Yenna, Voss, and Saiman for Blood-Stained cards. Clear Bloomwood Ranch waterfall.</li>
-                    <li><strong>Chapter 8-9 (Demeniss):</strong> Beat Lord Rennard and Silas for Illuminated cards. Visit Captain Aldric (night only). Save before facing Silas — his departure is permanent.</li>
+                    <li><strong>Chapter 8-9 (Demeniss):</strong> Beat Lord Rennard and Silas for Illuminated cards. Visit Captain Aldric (night only). Save before facing Silas �?his departure is permanent.</li>
                     <li><strong>Chapter 10-11 (Delesyia + Crimson Desert):</strong> Defeat Merchant Lord Kalev and Black Market Dealer. Find Desert Hermit. Farm remaining exchange materials.</li>
                     <li><strong>Post-Game:</strong> Clean up remaining cards via exchange system. Use save-scum for rare Illuminated cards. Complete the 101st card at Stormtalon Ridge.</li>
                 </ol>
             </div>
 
-            <h2 id="faq">❓ FAQ — Frequently Asked Questions</h2>
+            <h2 id="faq">�?FAQ �?Frequently Asked Questions</h2>
             <div class="faq-item">
                 <h4>How many cards are there to collect in Crimson Desert?</h4>
                 <p>100 cards across 5 sets (Standard, Gilded, Weathered, Blood-Stained, Illuminated), plus 1 hidden secret card (The Crimson Jester) for a total of 101 collectible cards.</p>
@@ -497,7 +519,7 @@
             </div>
             <div class="faq-item">
                 <h4>What's the fastest way to get Illuminated cards?</h4>
-                <p>The fastest method is farming Blood-Stained duplicates at the Beighen Five-Card table, then using Premium Exchange (3 Blood-Stained → 1 random Illuminated). This yields roughly 1 Illuminated card per 15-20 minutes of focused farming.</p>
+                <p>The fastest method is farming Blood-Stained duplicates at the Beighen Five-Card table, then using Premium Exchange (3 Blood-Stained �?1 random Illuminated). This yields roughly 1 Illuminated card per 15-20 minutes of focused farming.</p>
             </div>
             <div class="faq-item">
                 <h4>Do card collection bonuses carry over to New Game+?</h4>
@@ -505,7 +527,7 @@
             </div>
             <div class="faq-item">
                 <h4>Is there any way to get missable cards after the story?</h4>
-                <p>If you missed Silas's Illuminated cards (IL4-10), the Card Exchange system still allows you to obtain them via Exalted Trade (3 Illuminated duplicates → 1 specific Illuminated card), but you'll need to farm Illuminated cards from other sources first.</p>
+                <p>If you missed Silas's Illuminated cards (IL4-10), the Card Exchange system still allows you to obtain them via Exalted Trade (3 Illuminated duplicates �?1 specific Illuminated card), but you'll need to farm Illuminated cards from other sources first.</p>
             </div>
             <div class="faq-item">
                 <h4>Which card set should I prioritise for gameplay benefits?</h4>
@@ -524,19 +546,19 @@
                 <div class="support-inner">
                     <span class="support-icon">🔓</span>
                     <div class="support-text">
-                        <h3>Every guide is free — this one stays free either way.</h3>
+                        <h3>Every guide is free �?this one stays free either way.</h3>
                         <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
                         <p style="margin:6px 0 0 0;line-height:1.7">
-                            📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
-                            ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
-                            ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
-                            🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+                            📚 <strong>10 Beginner Guides</strong> �?zero to mid-game in one pack<br>
+                            �?<strong>5 Premium Picks</strong> �?our most popular expert deep-dives<br>
+                            �?<strong>3-Day Early Access</strong> �?read new guides before everyone else<br>
+                            🔄 <strong>3 New Guides Every Month</strong> �?and each one fuels us to write faster
                         </p>
-                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">�?Your purchase includes instant access to everything above</p>
                         <div class="support-amounts">
-                            <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack 👑</a>
+                            <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 �?Get the Early Access Guide Pack 👑</a>
                         </div>
-                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always �?no strings attached. 🤝</p>
                     </div>
                 </div>
             </div>
@@ -553,5 +575,8 @@
     <script src="../../js/features.js"></script>
     <script src="../../js/ai-qa-widget.js"></script>
     <style>.guide-content li{color:#2d2a33!important}</style>
+    <script>
+    (function(){var p=document.getElementById('cdProgressFill');if(!p)return;var u=function(){var e=document.documentElement,t=e.scrollTop,n=e.scrollHeight-e.clientHeight;p.style.width=n>0?Math.min(t/n*100,100)+'%':'0%'};window.addEventListener('scroll',u,{passive:true});window.addEventListener('resize',u,{passive:true});u()})();
+    </script>
 </body>
 </html>

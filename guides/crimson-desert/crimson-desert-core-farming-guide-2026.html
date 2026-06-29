@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crimson Desert Abyss Core Farming Guide ‚Äî Best Drop Locations & Routes | CD Guru</title>
-    <meta name="description" content="Complete Crimson Desert Abyss Core farming guide ‚Äî where to farm each core type, best routes for rare cores, drop rates, and efficient rotations.">
+    <title>Crimson Desert Abyss Core Farming Guide ‚Ä?Best Drop Locations & Routes | CD Guru</title>
+    <meta name="description" content="Complete Crimson Desert Abyss Core farming guide ‚Ä?where to farm each core type, best routes for rare cores, drop rates, and efficient rotations.">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="dns-prefetch" href="//www.google-analytics.com">
@@ -36,7 +36,6 @@
         .guide-hero .breadcrumb{font-size:.95rem !important}
         .guide-hero .weekly-badge{font-size:1rem !important}
         .guide-content li{color:#2d2a33 !important}
-        .progress-widget{display:none !important}
         .table-wrap{overflow-x:auto;margin:1.5rem 0}
         .table-wrap table{min-width:600px}
         .core-badge{display:inline-block;font-size:.75rem;padding:2px 8px;border-radius:4px;font-weight:700;margin-left:4px}
@@ -50,9 +49,23 @@
         .rarity-legendary{color:#d4a830;font-weight:700}
         .efficiency-bar{height:20px;border-radius:10px;background:#e8e0f0;overflow:hidden;margin:4px 0}
         .efficiency-bar-fill{height:100%;border-radius:10px;background:#7a64b8;text-align:center;color:#fff;font-size:.75rem;line-height:20px;font-weight:700}
+    
+        /* Reading Progress Bar */
+        .cd-reading-progress{position:fixed;top:0;left:0;width:100%;height:4px;background:rgba(122,100,184,0.12);z-index:99999;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+        .cd-reading-progress .cd-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#7a64b8,#b8a4e8,#e0d8f0);transition:width .15s ease-out;border-radius:0 2px 2px 0}
+        /* Mobile hero improvements */
+        @media(max-width:768px){
+            .guide-hero h1{font-size:1.6rem !important;line-height:1.3}
+            .guide-hero .subtitle{font-size:1rem !important}
+            .guide-hero .breadcrumb{font-size:.8rem !important}
+            .toc{padding:1rem !important}
+            .toc ol li{font-size:.9rem !important}
+            .nav-links{overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+        }
     </style>
 </head>
 <body>
+    <div class="cd-reading-progress" id="cdReadingProgress"><div class="cd-progress-fill" id="cdProgressFill"></div></div>
     <header>
         <div class="container">
             <nav>
@@ -74,33 +87,42 @@
     <section class="guide-hero">
         <div class="container">
             <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="index.html">Crimson Desert</a> / Abyss Core Farming Guide</p>
-            <h1>Crimson Desert Abyss Core Farming Guide ‚Äî Best Drop Locations & Routes</h1>
-            <p class="subtitle">Complete Abyss Core farming guide ‚Äî where to farm each core type, best routes for rare cores, drop rates, and efficient farming rotations for maximum yield per hour.</p>
+            <h1>Crimson Desert Abyss Core Farming Guide ‚Ä?Best Drop Locations & Routes</h1>
+            <p class="subtitle">Complete Abyss Core farming guide ‚Ä?where to farm each core type, best routes for rare cores, drop rates, and efficient farming rotations for maximum yield per hour.</p>
             <div class="weekly-badge">
-                <span class="badge-icon">üíé</span> <strong>Farming Guide</strong> ‚Äî Part of the <strong>Crimson Desert Essentials Series</strong> ¬∑ 14 min read
+                <span class="badge-icon">üíé</span> <strong>Farming Guide</strong> ‚Ä?Part of the <strong>Crimson Desert Essentials Series</strong> ¬∑ 14 min read
             </div>
             <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: June 28, 2026</p>
         </div>
     </section>
-
+    <!-- Quick Summary -->
+    <div class="quick-summary" style="background:#faf8fc;border:1px solid #e0d8f0;border-left:4px solid #7a64b8;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0 2rem;font-size:1rem">
+        <h3 style="color:#7a64b8;font-size:1.15rem;margin:0 0 .8rem">‚è±Ô∏è Quick Summary ‚Ä?30-Second Read</h3>
+        <ul style="margin:0;padding-left:1.2rem;list-style:none">
+                <li>‚õèÔ∏è Best core farming: Sealed Artifact challenges give Abyss Cells + cores simultaneously</li>
+                <li>üó∫Ô∏?Core drop locations: world bosses (rare), elite enemies (common), Sanctum floors (guaranteed)</li>
+                <li>üìä Drop rates: common cores from regular enemies (~5%), rare cores from bosses (~20%)</li>
+                <li>üîÑ Efficient route: Sanctum run ‚Ü?world boss rotation ‚Ü?artifact challenges ‚Ü?restart</li>
+        </ul>
+    </div>
     <main class="guide-content">
         <div class="container">
             <div class="toc">
                 <h3>Table of Contents</h3>
                 <ol>
-                    <li><a href="#section1">Understanding Abyss Cores ‚Äî A Complete System Overview</a></li>
-                    <li><a href="#section2">Core Drop Locations by Type ‚Äî Where Each Core Drops</a></li>
-                    <li><a href="#section3">Best Farming Routes ‚Äî Optimised Circuits</a></li>
-                    <li><a href="#section4">Rare Core Farming Tips ‚Äî Legendary &amp; Epic Cores</a></li>
-                    <li><a href="#section5">Drop Rate Data ‚Äî What the Numbers Say</a></li>
-                    <li><a href="#section6">Farming Efficiency Comparison ‚Äî Mobs vs. Dungeons vs. Bosses</a></li>
-                    <li><a href="#section7">Core-to-Build Mapping ‚Äî Which Cores for Which Playstyle</a></li>
-                    <li><a href="#section8">Daily Core Farming Routine ‚Äî 30-Minute Optimised Session</a></li>
-                    <li><a href="#faq">FAQ ‚Äî Abyss Core Questions Answered</a></li>
+                    <li><a href="#section1">Understanding Abyss Cores ‚Ä?A Complete System Overview</a></li>
+                    <li><a href="#section2">Core Drop Locations by Type ‚Ä?Where Each Core Drops</a></li>
+                    <li><a href="#section3">Best Farming Routes ‚Ä?Optimised Circuits</a></li>
+                    <li><a href="#section4">Rare Core Farming Tips ‚Ä?Legendary &amp; Epic Cores</a></li>
+                    <li><a href="#section5">Drop Rate Data ‚Ä?What the Numbers Say</a></li>
+                    <li><a href="#section6">Farming Efficiency Comparison ‚Ä?Mobs vs. Dungeons vs. Bosses</a></li>
+                    <li><a href="#section7">Core-to-Build Mapping ‚Ä?Which Cores for Which Playstyle</a></li>
+                    <li><a href="#section8">Daily Core Farming Routine ‚Ä?30-Minute Optimised Session</a></li>
+                    <li><a href="#faq">FAQ ‚Ä?Abyss Core Questions Answered</a></li>
                 </ol>
             </div>
 
-            <h2 id="section1">üíé 1. Understanding Abyss Cores ‚Äî A Complete System Overview</h2>
+            <h2 id="section1">üíé 1. Understanding Abyss Cores ‚Ä?A Complete System Overview</h2>
             <p>Abyss Cores are Crimson Desert's endgame character progression system, unlocked after Chapter 5 ("Into the Abyss"). Each core provides stat bonuses and special effects that define your build. You can equip up to <strong>4 cores simultaneously</strong>, with synergy bonuses for equipping matching core sets.</p>
 
             <div class="table-wrap">
@@ -118,103 +140,103 @@
             </div>
 
             <div class="tip-box">
-                <strong>Important:</strong> Cores have ranks I through V. Rank I cores drop from regular mobs. Rank III‚ÄìV cores require elite enemies, world bosses, or Abyss Dungeon bosses. You can also <strong>combine 3 cores of the same rank and type</strong> at the Core Alchemist NPC to upgrade to the next rank ‚Äî 3√ó Rank I = 1√ó Rank II, and so on. However, the upgrade has a chance to fail at Rank IV ‚Üí V (roughly 40% success rate, verify with in-game testing).
+                <strong>Important:</strong> Cores have ranks I through V. Rank I cores drop from regular mobs. Rank III‚ÄìV cores require elite enemies, world bosses, or Abyss Dungeon bosses. You can also <strong>combine 3 cores of the same rank and type</strong> at the Core Alchemist NPC to upgrade to the next rank ‚Ä?3√ó Rank I = 1√ó Rank II, and so on. However, the upgrade has a chance to fail at Rank IV ‚Ü?V (roughly 40% success rate, verify with in-game testing).
             </div>
 
             <p>There are <strong>24 unique core types</strong> (8 categories √ó 3 sub-types per category). For example, Fury cores come as Fury of the Beast (flat attack), Fury of the Storm (crit rate), and Fury of the Inferno (crit damage). This guide covers where to farm each sub-type efficiently.</p>
 
-            <h2 id="section2">üìç 2. Core Drop Locations by Type ‚Äî Where Each Core Drops</h2>
+            <h2 id="section2">üìç 2. Core Drop Locations by Type ‚Ä?Where Each Core Drops</h2>
             <p>Every enemy in Crimson Desert has a chance to drop Abyss Cores, but specific enemy families drop specific core categories. Here is the complete breakdown.</p>
 
             <div class="table-wrap">
                 <table>
                     <tr><th>Core Category</th><th>Core Sub-Types</th><th>Drops From</th><th>Best Location</th></tr>
-                    <tr><td>Fortress <span class="core-badge defensive">Def</span></td><td>Stone (HP), Iron (Phys Def), Aether (Mag Def)</td><td>Golem-type enemies, Stone Constructs, Armoured Knights</td><td>Abyss Wastes ‚Äî Stone Golem fields (sector A3), Gheist Fortress</td></tr>
-                    <tr><td>Barrier <span class="core-badge defensive">Def</span></td><td>Wall (Shield Str), Sentinel (Shield Regen), Warden (Resist)</td><td>Shield-bearing enemies, Cathedral Knights, Sentinels</td><td>Gheist Cathedral district, Howling Plateau ‚Äî Sentinel Ruins</td></tr>
-                    <tr><td>Fury <span class="core-badge offensive">Off</span></td><td>Beast (Flat ATK), Storm (Crit Rate), Inferno (Crit DMG)</td><td>Beast-type enemies, Berserkers, Aggressive humanoids</td><td>Thornwood ‚Äî Beast Lord territory, Pailune Arena</td></tr>
-                    <tr><td>Tempest <span class="core-badge offensive">Off</span></td><td>Gale (ATK Spd), Zephyr (Stam Regen), Cyclone (Move Spd)</td><td>Rogue-type enemies, Assassins, Wind-element enemies</td><td>Howling Plateau ‚Äî Wind Shrine exterior, Phidel Bandit Caves</td></tr>
-                    <tr><td>Arcane <span class="core-badge support">Sup</span></td><td>Mystic (Ability Power), Sage (CDR), Wellspring (Mana Regen)</td><td>Mage-type enemies, Witches, Arcane Constructs</td><td>Abyss Sanctum, Lake Serenia ‚Äî Witch's Tower</td></tr>
-                    <tr><td>Harmony <span class="core-badge support">Sup</span></td><td>Grace (Heal Power), Serenity (Buff Dur), Purity (Debuff Resist)</td><td>Healer-type enemies, Holy enemies, Forest Spirits</td><td>Thornwood ‚Äî Ancient Grove, Lake Serenia shrines</td></tr>
+                    <tr><td>Fortress <span class="core-badge defensive">Def</span></td><td>Stone (HP), Iron (Phys Def), Aether (Mag Def)</td><td>Golem-type enemies, Stone Constructs, Armoured Knights</td><td>Abyss Wastes ‚Ä?Stone Golem fields (sector A3), Gheist Fortress</td></tr>
+                    <tr><td>Barrier <span class="core-badge defensive">Def</span></td><td>Wall (Shield Str), Sentinel (Shield Regen), Warden (Resist)</td><td>Shield-bearing enemies, Cathedral Knights, Sentinels</td><td>Gheist Cathedral district, Howling Plateau ‚Ä?Sentinel Ruins</td></tr>
+                    <tr><td>Fury <span class="core-badge offensive">Off</span></td><td>Beast (Flat ATK), Storm (Crit Rate), Inferno (Crit DMG)</td><td>Beast-type enemies, Berserkers, Aggressive humanoids</td><td>Thornwood ‚Ä?Beast Lord territory, Pailune Arena</td></tr>
+                    <tr><td>Tempest <span class="core-badge offensive">Off</span></td><td>Gale (ATK Spd), Zephyr (Stam Regen), Cyclone (Move Spd)</td><td>Rogue-type enemies, Assassins, Wind-element enemies</td><td>Howling Plateau ‚Ä?Wind Shrine exterior, Phidel Bandit Caves</td></tr>
+                    <tr><td>Arcane <span class="core-badge support">Sup</span></td><td>Mystic (Ability Power), Sage (CDR), Wellspring (Mana Regen)</td><td>Mage-type enemies, Witches, Arcane Constructs</td><td>Abyss Sanctum, Lake Serenia ‚Ä?Witch's Tower</td></tr>
+                    <tr><td>Harmony <span class="core-badge support">Sup</span></td><td>Grace (Heal Power), Serenity (Buff Dur), Purity (Debuff Resist)</td><td>Healer-type enemies, Holy enemies, Forest Spirits</td><td>Thornwood ‚Ä?Ancient Grove, Lake Serenia shrines</td></tr>
                     <tr><td>Ruin <span class="core-badge utility">Util</span></td><td>Fortune (Gold), Discovery (Item Find), Growth (EXP)</td><td>Treasure goblins, rare spawns, world boss drops</td><td>World bosses (all zones), Treasure Goblin spawns (random)</td></tr>
                     <tr><td>Void <span class="core-badge utility">Util</span></td><td>Abyss (CC Dur), Null (CC Resist), Decay (Debuff Dur)</td><td>Abyssal enemies, Dark-element enemies, Void creatures</td><td>Abyss Dungeons (all 4), Sealed Sanctum</td></tr>
                 </table>
             </div>
 
             <div class="warn-box">
-                <strong>Important:</strong> Ruin cores (gold find, item find, EXP) have the lowest drop rate of any core category ‚Äî roughly 2‚Äì3% from regular mobs. The most reliable source is world bosses. Each world boss has a guaranteed Ruin core drop on first kill each week (reset: Monday 00:00 UTC). Focus on the 5 world bosses for your weekly Ruin core supply.
+                <strong>Important:</strong> Ruin cores (gold find, item find, EXP) have the lowest drop rate of any core category ‚Ä?roughly 2‚Ä?% from regular mobs. The most reliable source is world bosses. Each world boss has a guaranteed Ruin core drop on first kill each week (reset: Monday 00:00 UTC). Focus on the 5 world bosses for your weekly Ruin core supply.
             </div>
 
-            <h2 id="section3">üîÑ 3. Best Farming Routes ‚Äî Optimised Circuits</h2>
-            <p>These routes are designed for <strong>cores per hour (CPH) efficiency</strong>. Each route targets specific core categories and loops back to a fast travel point within 8‚Äì12 minutes. The respawn timer on regular mobs is approximately 90 seconds on Patch 1.12.02.</p>
+            <h2 id="section3">üîÑ 3. Best Farming Routes ‚Ä?Optimised Circuits</h2>
+            <p>These routes are designed for <strong>cores per hour (CPH) efficiency</strong>. Each route targets specific core categories and loops back to a fast travel point within 8‚Ä?2 minutes. The respawn timer on regular mobs is approximately 90 seconds on Patch 1.12.02.</p>
 
             <div class="method-box">
-                <h4>Route 1: Abyss Wastes Golem Circuit ‚Äî Fortress &amp; Void Cores</h4>
-                <p><strong>Difficulty:</strong> Medium | <strong>Estimated CPH:</strong> 18‚Äì22 cores | <strong>Best for:</strong> Fortress, Barrier, Void</p>
+                <h4>Route 1: Abyss Wastes Golem Circuit ‚Ä?Fortress &amp; Void Cores</h4>
+                <p><strong>Difficulty:</strong> Medium | <strong>Estimated CPH:</strong> 18‚Ä?2 cores | <strong>Best for:</strong> Fortress, Barrier, Void</p>
                 <p>Start at the Abyss Wastes West Bell Tower. Head northeast into the Golem fields (sector A3). Kill all 12 Stone Golems in the basin, loop south through the canyon (6 Armoured Knights), then west back to the bell tower. Total loop: 8 minutes. Golems respawn by the time you complete the loop. The canyon has a 15% chance to spawn a <strong>Ruin Golem</strong> (elite) that drops Rank III cores.</p>
             </div>
 
             <div class="method-box">
-                <h4>Route 2: Gheist Cathedral Sweep ‚Äî Barrier &amp; Arcane Cores</h4>
-                <p><strong>Difficulty:</strong> Easy | <strong>Estimated CPH:</strong> 20‚Äì25 cores | <strong>Best for:</strong> Barrier, Arcane, Harmony</p>
+                <h4>Route 2: Gheist Cathedral Sweep ‚Ä?Barrier &amp; Arcane Cores</h4>
+                <p><strong>Difficulty:</strong> Easy | <strong>Estimated CPH:</strong> 20‚Ä?5 cores | <strong>Best for:</strong> Barrier, Arcane, Harmony</p>
                 <p>Start at Gheist Cathedral Bell Tower. Enter the cathedral through the main hall. Clear the ground floor (8 Cathedral Knights, 4 Acolyte Mages), then the basement (6 Sentinels), then the bell tower rooftop (3 Archers, 1 Captain). Grappling hook down and repeat. The basement has a guaranteed <strong>Elite Sentinel</strong> spawn that drops Rank III‚ÄìIV cores. Total loop: 7 minutes.</p>
             </div>
 
             <div class="method-box">
-                <h4>Route 3: Thornwood Beast Run ‚Äî Fury &amp; Tempest Cores</h4>
-                <p><strong>Difficulty:</strong> Medium | <strong>Estimated CPH:</strong> 15‚Äì18 cores | <strong>Best for:</strong> Fury, Tempest, Harmony</p>
+                <h4>Route 3: Thornwood Beast Run ‚Ä?Fury &amp; Tempest Cores</h4>
+                <p><strong>Difficulty:</strong> Medium | <strong>Estimated CPH:</strong> 15‚Ä?8 cores | <strong>Best for:</strong> Fury, Tempest, Harmony</p>
                 <p>Start at Thornwood Village Bell Tower. Head west into Beast Lord territory. Kill 6 Beast Lords, 4 Berserkers, and 3 Rogue Scouts in the clearing. Follow the river south to the Ancient Grove (4 Forest Spirits, 2 Healer Druids). Fast travel back from the Ancient Grove shrine. Total loop: 10 minutes. The Berserkers have the highest Fury core drop rate in the game (estimated 15% for Rank I, verify in-game).</p>
             </div>
 
             <div class="method-box">
-                <h4>Route 4: Howling Plateau Wind Shrine ‚Äî Tempest &amp; Arcane Cores</h4>
-                <p><strong>Difficulty:</strong> Hard | <strong>Estimated CPH:</strong> 12‚Äì16 cores | <strong>Best for:</strong> Tempest, Arcane, Void</p>
-                <p>Start at Howling Plateau Summit Bell Tower. Drop down to the Wind Shrine exterior (6 Wind Elementals, 3 Rogues). Enter the shrine cave (4 Arcane Constructs, 2 Mages). Loop through the cave exit to the cliff edge and climb back up. Total loop: 12 minutes. The Wind Elementals have high Tempest core drop rates but hit hard ‚Äî recommended level 35+.</p>
+                <h4>Route 4: Howling Plateau Wind Shrine ‚Ä?Tempest &amp; Arcane Cores</h4>
+                <p><strong>Difficulty:</strong> Hard | <strong>Estimated CPH:</strong> 12‚Ä?6 cores | <strong>Best for:</strong> Tempest, Arcane, Void</p>
+                <p>Start at Howling Plateau Summit Bell Tower. Drop down to the Wind Shrine exterior (6 Wind Elementals, 3 Rogues). Enter the shrine cave (4 Arcane Constructs, 2 Mages). Loop through the cave exit to the cliff edge and climb back up. Total loop: 12 minutes. The Wind Elementals have high Tempest core drop rates but hit hard ‚Ä?recommended level 35+.</p>
             </div>
 
             <div class="tip-box">
-                <strong>Efficiency Tip:</strong> Equip a <strong>Ruin III (Discovery) core</strong> while farming ‚Äî it increases item find rate by approximately 12% at Rank III. The core pays for itself within 30 minutes of farming. You can also use consumable <strong>Abyss Blessing Tonics</strong> (+8% drop rate for 30 minutes), craftable at the Alchemist station.
+                <strong>Efficiency Tip:</strong> Equip a <strong>Ruin III (Discovery) core</strong> while farming ‚Ä?it increases item find rate by approximately 12% at Rank III. The core pays for itself within 30 minutes of farming. You can also use consumable <strong>Abyss Blessing Tonics</strong> (+8% drop rate for 30 minutes), craftable at the Alchemist station.
             </div>
 
-            <h2 id="section4">üåü 4. Rare Core Farming Tips ‚Äî Legendary &amp; Epic Cores</h2>
-            <p>Rank IV (Epic) and Rank V (Legendary) cores are the endgame targets. They cannot be farmed from regular mobs ‚Äî only elite enemies, world bosses, and Abyss Dungeon bosses drop them. Here is how to target each rank efficiently.</p>
+            <h2 id="section4">üåü 4. Rare Core Farming Tips ‚Ä?Legendary &amp; Epic Cores</h2>
+            <p>Rank IV (Epic) and Rank V (Legendary) cores are the endgame targets. They cannot be farmed from regular mobs ‚Ä?only elite enemies, world bosses, and Abyss Dungeon bosses drop them. Here is how to target each rank efficiently.</p>
 
-            <h3>Rank III (Rare) Cores ‚Äî The Farming Sweet Spot</h3>
-            <p>Rank III cores drop from elite enemies (orange-name mobs) at approximately 8‚Äì12% drop rate. Each zone has 3‚Äì5 fixed elite spawns with 5‚Äì8 minute respawn timers. The most efficient approach is to weave elite kills into your regular farming routes:</p>
+            <h3>Rank III (Rare) Cores ‚Ä?The Farming Sweet Spot</h3>
+            <p>Rank III cores drop from elite enemies (orange-name mobs) at approximately 8‚Ä?2% drop rate. Each zone has 3‚Ä? fixed elite spawns with 5‚Ä? minute respawn timers. The most efficient approach is to weave elite kills into your regular farming routes:</p>
             <ul>
-                <li><strong>Abyss Wastes:</strong> Ruin Golem (sector A3 canyon) ‚Äî respawns ~6 min</li>
-                <li><strong>Gheist Cathedral:</strong> Elite Sentinel (basement) ‚Äî respawns ~5 min</li>
-                <li><strong>Thornwood:</strong> Alpha Beast Lord (west clearing) ‚Äî respawns ~8 min</li>
-                <li><strong>Lake Serenia:</strong> Void Witch (Witch's Tower top floor) ‚Äî respawns ~7 min</li>
-                <li><strong>Howling Plateau:</strong> Storm Herald (Wind Shrine cave) ‚Äî respawns ~6 min</li>
+                <li><strong>Abyss Wastes:</strong> Ruin Golem (sector A3 canyon) ‚Ä?respawns ~6 min</li>
+                <li><strong>Gheist Cathedral:</strong> Elite Sentinel (basement) ‚Ä?respawns ~5 min</li>
+                <li><strong>Thornwood:</strong> Alpha Beast Lord (west clearing) ‚Ä?respawns ~8 min</li>
+                <li><strong>Lake Serenia:</strong> Void Witch (Witch's Tower top floor) ‚Ä?respawns ~7 min</li>
+                <li><strong>Howling Plateau:</strong> Storm Herald (Wind Shrine cave) ‚Ä?respawns ~6 min</li>
             </ul>
 
-            <h3>Rank IV (Epic) Cores ‚Äî Abyss Dungeon Focus</h3>
+            <h3>Rank IV (Epic) Cores ‚Ä?Abyss Dungeon Focus</h3>
             <p>Each Abyss Dungeon boss drops <strong>1 guaranteed Rank IV core</strong> per kill. You can run each dungeon once per day for the guaranteed drop. After the first daily kill, the drop rate drops to approximately 5%. The 4 Abyss Dungeon bosses are:</p>
             <ul>
-                <li><strong>Crimson Hollow (Hollow Warden)</strong> ‚Äî drops Fortress IV, Barrier IV</li>
-                <li><strong>Howling Depths (Stormfang)</strong> ‚Äî drops Tempest IV, Fury IV</li>
-                <li><strong>Abyss Sanctum (Void Priestess)</strong> ‚Äî drops Arcane IV, Void IV</li>
-                <li><strong>Sealed Sanctum (Kaelx)</strong> ‚Äî drops ANY Rank IV core (random)</li>
+                <li><strong>Crimson Hollow (Hollow Warden)</strong> ‚Ä?drops Fortress IV, Barrier IV</li>
+                <li><strong>Howling Depths (Stormfang)</strong> ‚Ä?drops Tempest IV, Fury IV</li>
+                <li><strong>Abyss Sanctum (Void Priestess)</strong> ‚Ä?drops Arcane IV, Void IV</li>
+                <li><strong>Sealed Sanctum (Kaelx)</strong> ‚Ä?drops ANY Rank IV core (random)</li>
             </ul>
 
             <div class="tip-box">
                 <strong>Pro Tip:</strong> Kaelx (Sealed Sanctum) is the only source for random Rank IV cores. If you need a specific core type and RNG is not cooperating with the other dungeons, farm Kaelx. At ~15 minutes per run (with a good group), you can get 4 shots at your desired core per hour.
             </div>
 
-            <h3>Rank V (Legendary) Cores ‚Äî The Endgame Grind</h3>
+            <h3>Rank V (Legendary) Cores ‚Ä?The Endgame Grind</h3>
             <p>Rank V cores are the rarest items in Crimson Desert. Sources are limited:</p>
             <ul>
                 <li><strong>World bosses (5 total):</strong> Guaranteed 1√ó Rank V Ruin core on first weekly kill. After that, ~2% drop chance.</li>
-                <li><strong>Core Alchemist upgrade:</strong> Combine 3√ó Rank IV cores ‚Üí 1√ó Rank V core. ~40% success rate. Failure destroys the 3 cores.</li>
+                <li><strong>Core Alchemist upgrade:</strong> Combine 3√ó Rank IV cores ‚Ü?1√ó Rank V core. ~40% success rate. Failure destroys the 3 cores.</li>
                 <li><strong>Mythic Abyss Dungeon mode (Hard):</strong> ~3% drop rate from final boss. Introduced in Patch 1.10.00.</li>
                 <li><strong>Seasonal events:</strong> Limited-time events sometimes offer Rank V core selector boxes.</li>
             </ul>
 
             <div class="warn-box">
-                <strong>Warning ‚Äî Core Alchemist Gamble:</strong> Upgrading from Rank IV to Rank V at the Core Alchemist has an estimated 40% success rate. When it fails, you lose all 3 input cores. This is the most expensive mistake in the game. Only attempt this with duplicate cores you can afford to lose. Some players recommend using a "pity system" ‚Äî after 2 failed attempts at Rank V, the third attempt seems more likely to succeed (player-reported, not officially confirmed by Pearl Abyss).
+                <strong>Warning ‚Ä?Core Alchemist Gamble:</strong> Upgrading from Rank IV to Rank V at the Core Alchemist has an estimated 40% success rate. When it fails, you lose all 3 input cores. This is the most expensive mistake in the game. Only attempt this with duplicate cores you can afford to lose. Some players recommend using a "pity system" ‚Ä?after 2 failed attempts at Rank V, the third attempt seems more likely to succeed (player-reported, not officially confirmed by Pearl Abyss).
             </div>
 
-            <h3>World Boss Schedule ‚Äî Weekly Priority</h3>
+            <h3>World Boss Schedule ‚Ä?Weekly Priority</h3>
             <p>The 5 world bosses rotate on a spawn timer. Each has a guaranteed Rank V Ruin core drop on first kill per week:</p>
             <div class="table-wrap">
                 <table>
@@ -227,8 +249,8 @@
                 </table>
             </div>
 
-            <h2 id="section5">üìä 5. Drop Rate Data ‚Äî What the Numbers Say</h2>
-            <p>Drop rates in Crimson Desert are not officially published by Pearl Abyss. The following data is aggregated from player testing on r/CrimsonDesert and community spreadsheets as of Patch 1.12.02. These are estimates ‚Äî verify with in-game testing.</p>
+            <h2 id="section5">üìä 5. Drop Rate Data ‚Ä?What the Numbers Say</h2>
+            <p>Drop rates in Crimson Desert are not officially published by Pearl Abyss. The following data is aggregated from player testing on r/CrimsonDesert and community spreadsheets as of Patch 1.12.02. These are estimates ‚Ä?verify with in-game testing.</p>
 
             <div class="table-wrap">
                 <table>
@@ -249,26 +271,26 @@
             <h3>Zone-Specific Drop Rate Variations</h3>
             <p>Not all zones have equal drop rates. The following zones have statistically higher core drop rates (community-tested, verify in-game):</p>
             <ul>
-                <li><strong>Abyss Wastes:</strong> +2% baseline drop rate over other zones. Likely intentional ‚Äî this is the first zone where cores unlock.</li>
+                <li><strong>Abyss Wastes:</strong> +2% baseline drop rate over other zones. Likely intentional ‚Ä?this is the first zone where cores unlock.</li>
                 <li><strong>Gheist Cathedral basement:</strong> Elite Sentinel has ~40% drop rate (vs. 35% average for elites). Popular farming spot.</li>
                 <li><strong>Thornwood Beast Lord territory:</strong> Berserkers have ~15% Fury core drop rate, the highest specific core rate in the game.</li>
-                <li><strong>Sealed Sanctum (Mythic Hard):</strong> Rank V drop rate from Kaelx is ~3% ‚Äî the best non-weekly source for Legendary cores.</li>
+                <li><strong>Sealed Sanctum (Mythic Hard):</strong> Rank V drop rate from Kaelx is ~3% ‚Ä?the best non-weekly source for Legendary cores.</li>
             </ul>
 
-            <h2 id="section6">‚ö° 6. Farming Efficiency Comparison ‚Äî Mobs vs. Dungeons vs. Bosses</h2>
-            <p>Different farming methods yield different results. This comparison uses <strong>cores per hour (CPH)</strong> and <strong>quality-adjusted cores per hour (QCPH)</strong> ‚Äî where Rank III+ cores are weighted by their practical value.</p>
+            <h2 id="section6">‚ö?6. Farming Efficiency Comparison ‚Ä?Mobs vs. Dungeons vs. Bosses</h2>
+            <p>Different farming methods yield different results. This comparison uses <strong>cores per hour (CPH)</strong> and <strong>quality-adjusted cores per hour (QCPH)</strong> ‚Ä?where Rank III+ cores are weighted by their practical value.</p>
 
             <div class="table-wrap">
                 <table>
                     <tr><th>Method</th><th>Cores/Hour</th><th>Rank III+ / Hour</th><th>Silver/Hour</th><th>Best For</th></tr>
-                    <tr><td>Route 1: Golem Circuit</td><td>18‚Äì22</td><td>1‚Äì2</td><td>8k‚Äì12k</td><td>Fortress, Barrier, early game</td></tr>
-                    <tr><td>Route 2: Cathedral Sweep</td><td>20‚Äì25</td><td>2‚Äì3</td><td>10k‚Äì15k</td><td>Barrier, Arcane, mid game</td></tr>
-                    <tr><td>Route 3: Beast Run</td><td>15‚Äì18</td><td>2‚Äì3</td><td>12k‚Äì18k</td><td>Fury, Tempest, offensive builds</td></tr>
-                    <tr><td>Route 4: Wind Shrine</td><td>12‚Äì16</td><td>1‚Äì2</td><td>6k‚Äì10k</td><td>Tempest, Arcane, high-level farming</td></tr>
-                    <tr><td>Abyss Dungeons (4√ó daily)</td><td>4‚Äì5</td><td>4‚Äì5</td><td>20k‚Äì30k</td><td>Rank IV cores, best QCPH</td></tr>
-                    <tr><td>World Boss rotation</td><td>1‚Äì3</td><td>1‚Äì3</td><td>15k‚Äì50k</td><td>Rank V cores, Ruin cores</td></tr>
-                    <tr><td>Treasure Goblin hunting</td><td>2‚Äì5</td><td>1‚Äì2</td><td>5k‚Äì15k</td><td>Ruin cores, variety</td></tr>
-                    <tr><td>Core Alchemist upgrade</td><td>Variable</td><td>Variable</td><td>‚Äî (material cost)</td><td>Rank IV ‚Üí V gamble</td></tr>
+                    <tr><td>Route 1: Golem Circuit</td><td>18‚Ä?2</td><td>1‚Ä?</td><td>8k‚Ä?2k</td><td>Fortress, Barrier, early game</td></tr>
+                    <tr><td>Route 2: Cathedral Sweep</td><td>20‚Ä?5</td><td>2‚Ä?</td><td>10k‚Ä?5k</td><td>Barrier, Arcane, mid game</td></tr>
+                    <tr><td>Route 3: Beast Run</td><td>15‚Ä?8</td><td>2‚Ä?</td><td>12k‚Ä?8k</td><td>Fury, Tempest, offensive builds</td></tr>
+                    <tr><td>Route 4: Wind Shrine</td><td>12‚Ä?6</td><td>1‚Ä?</td><td>6k‚Ä?0k</td><td>Tempest, Arcane, high-level farming</td></tr>
+                    <tr><td>Abyss Dungeons (4√ó daily)</td><td>4‚Ä?</td><td>4‚Ä?</td><td>20k‚Ä?0k</td><td>Rank IV cores, best QCPH</td></tr>
+                    <tr><td>World Boss rotation</td><td>1‚Ä?</td><td>1‚Ä?</td><td>15k‚Ä?0k</td><td>Rank V cores, Ruin cores</td></tr>
+                    <tr><td>Treasure Goblin hunting</td><td>2‚Ä?</td><td>1‚Ä?</td><td>5k‚Ä?5k</td><td>Ruin cores, variety</td></tr>
+                    <tr><td>Core Alchemist upgrade</td><td>Variable</td><td>Variable</td><td>‚Ä?(material cost)</td><td>Rank IV ‚Ü?V gamble</td></tr>
                 </table>
             </div>
 
@@ -292,65 +314,65 @@
             </div>
 
             <div class="tip-box">
-                <strong>Efficiency Verdict:</strong> For general core farming (Rank I‚ÄìIII), the <strong>Cathedral Sweep (Route 2)</strong> offers the best cores-per-hour at 20‚Äì25 cores per loop. For quality cores (Rank IV+), <strong>Abyss Dungeons</strong> are unmatched ‚Äî 4 guaranteed Rank IV cores per day in under an hour. Never skip your daily dungeon runs if you are building toward a Rank V core.
+                <strong>Efficiency Verdict:</strong> For general core farming (Rank I‚ÄìIII), the <strong>Cathedral Sweep (Route 2)</strong> offers the best cores-per-hour at 20‚Ä?5 cores per loop. For quality cores (Rank IV+), <strong>Abyss Dungeons</strong> are unmatched ‚Ä?4 guaranteed Rank IV cores per day in under an hour. Never skip your daily dungeon runs if you are building toward a Rank V core.
             </div>
 
-            <h2 id="section7">üîó 7. Core-to-Build Mapping ‚Äî Which Cores for Which Playstyle</h2>
+            <h2 id="section7">üîó 7. Core-to-Build Mapping ‚Ä?Which Cores for Which Playstyle</h2>
             <p>Not all cores are equally useful. Here is how to match cores to your combat build and priority order for farming.</p>
 
             <div class="table-wrap">
                 <table>
                     <tr><th>Build / Playstyle</th><th>Primary Core</th><th>Secondary Core</th><th>Support Core</th><th>Utility Core</th></tr>
-                    <tr><td>Melee DPS (Sword/Axe/Greatsword)</td><td>Fury (Inferno ‚Äî Crit DMG)</td><td>Fury (Beast ‚Äî Flat ATK)</td><td>Tempest (Gale ‚Äî ATK Spd)</td><td>Fortress (Stone ‚Äî HP)</td></tr>
-                    <tr><td>Tank (Sword+Shield/Blunt)</td><td>Fortress (Iron ‚Äî Phys Def)</td><td>Barrier (Wall ‚Äî Shield Str)</td><td>Fortress (Stone ‚Äî HP)</td><td>Void (Null ‚Äî CC Resist)</td></tr>
-                    <tr><td>Ranged DPS (Bow/Crossbow)</td><td>Fury (Storm ‚Äî Crit Rate)</td><td>Tempest (Cyclone ‚Äî Move Spd)</td><td>Arcane (Sage ‚Äî CDR)</td><td>Fortress (Aether ‚Äî Mag Def)</td></tr>
-                    <tr><td>Mage / Caster</td><td>Arcane (Mystic ‚Äî Ability Power)</td><td>Arcane (Sage ‚Äî CDR)</td><td>Tempest (Zephyr ‚Äî Stam Regen)</td><td>Barrier (Sentinel ‚Äî Shield Regen)</td></tr>
-                    <tr><td>Hybrid / Balanced</td><td>Fury (Beast ‚Äî Flat ATK)</td><td>Fortress (Stone ‚Äî HP)</td><td>Arcane (Sage ‚Äî CDR)</td><td>Tempest (Zephyr ‚Äî Stam Regen)</td></tr>
-                    <tr><td>Support / Co-op</td><td>Harmony (Grace ‚Äî Heal Power)</td><td>Harmony (Serenity ‚Äî Buff Dur)</td><td>Arcane (Wellspring ‚Äî Mana Regen)</td><td>Barrier (Warden ‚Äî Resist)</td></tr>
-                    <tr><td>Farming / Silver Focus</td><td>Ruin (Fortune ‚Äî Gold)</td><td>Ruin (Discovery ‚Äî Item Find)</td><td>Ruin (Growth ‚Äî EXP)</td><td>Tempest (Zephyr ‚Äî Stam Regen)</td></tr>
-                    <tr><td>PvP Arena</td><td>Void (Abyss ‚Äî CC Dur)</td><td>Void (Null ‚Äî CC Resist)</td><td>Tempest (Cyclone ‚Äî Move Spd)</td><td>Fury (Storm ‚Äî Crit Rate)</td></tr>
+                    <tr><td>Melee DPS (Sword/Axe/Greatsword)</td><td>Fury (Inferno ‚Ä?Crit DMG)</td><td>Fury (Beast ‚Ä?Flat ATK)</td><td>Tempest (Gale ‚Ä?ATK Spd)</td><td>Fortress (Stone ‚Ä?HP)</td></tr>
+                    <tr><td>Tank (Sword+Shield/Blunt)</td><td>Fortress (Iron ‚Ä?Phys Def)</td><td>Barrier (Wall ‚Ä?Shield Str)</td><td>Fortress (Stone ‚Ä?HP)</td><td>Void (Null ‚Ä?CC Resist)</td></tr>
+                    <tr><td>Ranged DPS (Bow/Crossbow)</td><td>Fury (Storm ‚Ä?Crit Rate)</td><td>Tempest (Cyclone ‚Ä?Move Spd)</td><td>Arcane (Sage ‚Ä?CDR)</td><td>Fortress (Aether ‚Ä?Mag Def)</td></tr>
+                    <tr><td>Mage / Caster</td><td>Arcane (Mystic ‚Ä?Ability Power)</td><td>Arcane (Sage ‚Ä?CDR)</td><td>Tempest (Zephyr ‚Ä?Stam Regen)</td><td>Barrier (Sentinel ‚Ä?Shield Regen)</td></tr>
+                    <tr><td>Hybrid / Balanced</td><td>Fury (Beast ‚Ä?Flat ATK)</td><td>Fortress (Stone ‚Ä?HP)</td><td>Arcane (Sage ‚Ä?CDR)</td><td>Tempest (Zephyr ‚Ä?Stam Regen)</td></tr>
+                    <tr><td>Support / Co-op</td><td>Harmony (Grace ‚Ä?Heal Power)</td><td>Harmony (Serenity ‚Ä?Buff Dur)</td><td>Arcane (Wellspring ‚Ä?Mana Regen)</td><td>Barrier (Warden ‚Ä?Resist)</td></tr>
+                    <tr><td>Farming / Silver Focus</td><td>Ruin (Fortune ‚Ä?Gold)</td><td>Ruin (Discovery ‚Ä?Item Find)</td><td>Ruin (Growth ‚Ä?EXP)</td><td>Tempest (Zephyr ‚Ä?Stam Regen)</td></tr>
+                    <tr><td>PvP Arena</td><td>Void (Abyss ‚Ä?CC Dur)</td><td>Void (Null ‚Ä?CC Resist)</td><td>Tempest (Cyclone ‚Ä?Move Spd)</td><td>Fury (Storm ‚Ä?Crit Rate)</td></tr>
                 </table>
             </div>
 
             <div class="method-box">
                 <h4>Priority Farm Order by Build</h4>
-                <p><strong>New players (Level 20‚Äì30):</strong> Fortress III + Fury III ‚Üí this combo works for every build. Farm Golem Circuit (Fortress) and Beast Run (Fury) until you have both at Rank III. This takes approximately 4‚Äì6 hours.</p>
-                <p><strong>Mid-game (Level 30‚Äì40):</strong> Replace with specific build cores from the table above. Prioritise getting all 4 core slots to Rank III. Farm Cathedral Sweep for general cores and Beast Run for Fury cores.</p>
-                <p><strong>Endgame (Level 40+):</strong> Target Rank IV cores from Abyss Dungeons. Upgrade to Rank V via Core Alchemist or world boss weekly kills. This phase takes 40‚Äì80 hours depending on RNG.</p>
+                <p><strong>New players (Level 20‚Ä?0):</strong> Fortress III + Fury III ‚Ü?this combo works for every build. Farm Golem Circuit (Fortress) and Beast Run (Fury) until you have both at Rank III. This takes approximately 4‚Ä? hours.</p>
+                <p><strong>Mid-game (Level 30‚Ä?0):</strong> Replace with specific build cores from the table above. Prioritise getting all 4 core slots to Rank III. Farm Cathedral Sweep for general cores and Beast Run for Fury cores.</p>
+                <p><strong>Endgame (Level 40+):</strong> Target Rank IV cores from Abyss Dungeons. Upgrade to Rank V via Core Alchemist or world boss weekly kills. This phase takes 40‚Ä?0 hours depending on RNG.</p>
             </div>
 
-            <h2 id="section8">üìÖ 8. Daily Core Farming Routine ‚Äî 30-Minute Optimised Session</h2>
+            <h2 id="section8">üìÖ 8. Daily Core Farming Routine ‚Ä?30-Minute Optimised Session</h2>
             <p>Time-pressed players can maintain steady core progression with a 30-minute daily routine. This prioritises the highest-value activities first, then fills remaining time with efficient mob circuits.</p>
 
             <div class="table-wrap">
                 <table>
                     <tr><th>Step</th><th>Activity</th><th>Time</th><th>Expected Yield</th></tr>
-                    <tr><td>1</td><td>Check world boss timers at board. If any boss is spawning within 15 min, adjust rest of routine.</td><td>1 min</td><td>‚Äî</td></tr>
-                    <tr><td>2</td><td>Run all 4 Abyss Dungeons on Normal difficulty. Focus on speed ‚Äî skip trash mobs, go straight to bosses.</td><td>20 min</td><td>4√ó Rank IV cores (guaranteed daily)</td></tr>
-                    <tr><td>3</td><td>Elite circuit: Kill the 5 fixed elite spawns (Ruin Golem ‚Üí Elite Sentinel ‚Üí Alpha Beast ‚Üí Void Witch ‚Üí Storm Herald). Fast travel between them.</td><td>8 min</td><td>2‚Äì3 Rank III+ cores</td></tr>
-                    <tr><td>4</td><td>Fill remaining time with Cathedral Sweep or Beast Run depending on which core type you need.</td><td>Remaining</td><td>5‚Äì10 Rank I‚ÄìII cores</td></tr>
+                    <tr><td>1</td><td>Check world boss timers at board. If any boss is spawning within 15 min, adjust rest of routine.</td><td>1 min</td><td>‚Ä?/td></tr>
+                    <tr><td>2</td><td>Run all 4 Abyss Dungeons on Normal difficulty. Focus on speed ‚Ä?skip trash mobs, go straight to bosses.</td><td>20 min</td><td>4√ó Rank IV cores (guaranteed daily)</td></tr>
+                    <tr><td>3</td><td>Elite circuit: Kill the 5 fixed elite spawns (Ruin Golem ‚Ü?Elite Sentinel ‚Ü?Alpha Beast ‚Ü?Void Witch ‚Ü?Storm Herald). Fast travel between them.</td><td>8 min</td><td>2‚Ä? Rank III+ cores</td></tr>
+                    <tr><td>4</td><td>Fill remaining time with Cathedral Sweep or Beast Run depending on which core type you need.</td><td>Remaining</td><td>5‚Ä?0 Rank I‚ÄìII cores</td></tr>
                     <tr><td>5</td><td>Before logging off: send dispatch missions from Greymane Camp. Some dispatches reward core chests.</td><td>1 min</td><td>Occasional core chest</td></tr>
                 </table>
             </div>
 
             <div class="tip-box">
-                <strong>Pro Routine:</strong> This 30-minute daily routine yields approximately 4 Rank IV cores + 7‚Äì13 lower-rank cores per day. In one week, that is 28 Rank IV cores and ~70 lower-rank cores ‚Äî enough for 9 Rank IV ‚Üí V upgrade attempts (if you have the silver to pay the Alchemist's fee of 5,000 silver per attempt). At ~40% success rate, you can expect 3‚Äì4 Rank V cores per month of consistent daily farming.
+                <strong>Pro Routine:</strong> This 30-minute daily routine yields approximately 4 Rank IV cores + 7‚Ä?3 lower-rank cores per day. In one week, that is 28 Rank IV cores and ~70 lower-rank cores ‚Ä?enough for 9 Rank IV ‚Ü?V upgrade attempts (if you have the silver to pay the Alchemist's fee of 5,000 silver per attempt). At ~40% success rate, you can expect 3‚Ä? Rank V cores per month of consistent daily farming.
             </div>
 
             <p><strong>Weekly checklist for maximum core yield:</strong></p>
             <ul>
                 <li>Kill all 5 world bosses for guaranteed Rank V Ruin cores (Monday reset)</li>
                 <li>Run all 4 Abyss Dungeons daily (7√ó per week = 28 Rank IV cores)</li>
-                <li>Open core chests from dispatch missions (send 3‚Äì4 missions daily)</li>
+                <li>Open core chests from dispatch missions (send 3‚Ä? missions daily)</li>
                 <li>Check the Core Alchemist for any combination bonuses (weekly rotation)</li>
-                <li>Participate in weekly Abyss Invasion event (Tuesday/Thursday/Saturday, 20:00 server time) ‚Äî drops core chests</li>
+                <li>Participate in weekly Abyss Invasion event (Tuesday/Thursday/Saturday, 20:00 server time) ‚Ä?drops core chests</li>
             </ul>
 
             <!-- FAQ -->
-            <h2 id="faq">‚ùì FAQ ‚Äî Abyss Core Questions Answered</h2>
+            <h2 id="faq">‚ù?FAQ ‚Ä?Abyss Core Questions Answered</h2>
             <div class="faq-item">
                 <h4>Q: Where is the best place to farm Abyss Cores in Crimson Desert?</h4>
-                <p>For quantity (cores per hour), the Gheist Cathedral Sweep Route is best ‚Äî 20‚Äì25 cores per hour. For quality (Rank IV+ cores), Abyss Dungeons are the fastest: 4 guaranteed Rank IV cores per day in ~20 minutes.</p>
+                <p>For quantity (cores per hour), the Gheist Cathedral Sweep Route is best ‚Ä?20‚Ä?5 cores per hour. For quality (Rank IV+ cores), Abyss Dungeons are the fastest: 4 guaranteed Rank IV cores per day in ~20 minutes.</p>
             </div>
             <div class="faq-item">
                 <h4>Q: What is the drop rate for Abyss Cores?</h4>
@@ -358,7 +380,7 @@
             </div>
             <div class="faq-item">
                 <h4>Q: How do I get Legendary (Rank V) Abyss Cores?</h4>
-                <p>Five methods: (1) World bosses ‚Äî guaranteed Rank V Ruin core on first weekly kill. (2) Core Alchemist ‚Äî combine 3√ó Rank IV cores (~40% success rate). (3) Mythic Abyss Dungeon Hard mode ‚Äî ~3% drop rate from Kaelx. (4) Seasonal events ‚Äî limited-time selector boxes. (5) Abyss Invasion event ‚Äî small chance for Rank V core drops.</p>
+                <p>Five methods: (1) World bosses ‚Ä?guaranteed Rank V Ruin core on first weekly kill. (2) Core Alchemist ‚Ä?combine 3√ó Rank IV cores (~40% success rate). (3) Mythic Abyss Dungeon Hard mode ‚Ä?~3% drop rate from Kaelx. (4) Seasonal events ‚Ä?limited-time selector boxes. (5) Abyss Invasion event ‚Ä?small chance for Rank V core drops.</p>
             </div>
             <div class="faq-item">
                 <h4>Q: Can I farm specific core types?</h4>
@@ -370,15 +392,15 @@
             </div>
             <div class="faq-item">
                 <h4>Q: Are Abyss Cores shared between characters?</h4>
-                <p>No. Cores are character-bound and cannot be traded or transferred. Each character must farm their own cores. However, camp storage is account-wide ‚Äî you can store cores there to keep your inventory clean, but they are still character-locked on equip.</p>
+                <p>No. Cores are character-bound and cannot be traded or transferred. Each character must farm their own cores. However, camp storage is account-wide ‚Ä?you can store cores there to keep your inventory clean, but they are still character-locked on equip.</p>
             </div>
             <div class="faq-item">
                 <h4>Q: Should I upgrade cores via the Alchemist?</h4>
-                <p>Only for Rank III ‚Üí IV (safe bet, ~70% success rate) and Rank IV ‚Üí V (only with duplicate cores you can afford to lose). Never upgrade your only usable core. The Alchemist fee of 5,000 silver per attempt adds up ‚Äî budget at least 50,000 silver for a serious Rank V attempt campaign.</p>
+                <p>Only for Rank III ‚Ü?IV (safe bet, ~70% success rate) and Rank IV ‚Ü?V (only with duplicate cores you can afford to lose). Never upgrade your only usable core. The Alchemist fee of 5,000 silver per attempt adds up ‚Ä?budget at least 50,000 silver for a serious Rank V attempt campaign.</p>
             </div>
             <div class="faq-item">
                 <h4>Q: Do dispatch missions from Greymane Camp give cores?</h4>
-                <p>Yes. Certain high-level dispatch missions reward "Core Chests" that contain 1‚Äì3 random cores (Rank I‚ÄìIII). Prioritise dispatch missions that list "Core" in their rewards. The "Abyss Expedition" dispatch (unlocked at Camp Level 4) has the highest core yield.</p>
+                <p>Yes. Certain high-level dispatch missions reward "Core Chests" that contain 1‚Ä? random cores (Rank I‚ÄìIII). Prioritise dispatch missions that list "Core" in their rewards. The "Abyss Expedition" dispatch (unlocked at Camp Level 4) has the highest core yield.</p>
             </div>
 
             <!-- Support Card -->
@@ -386,19 +408,19 @@
                 <div class="support-inner">
                     <span class="support-icon">üîì</span>
                     <div class="support-text">
-                        <h3>Every guide is free ‚Äî this one stays free either way.</h3>
+                        <h3>Every guide is free ‚Ä?this one stays free either way.</h3>
                         <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
                         <p style="margin:6px 0 0 0;line-height:1.7">
-                            üìö <strong>10 Beginner Guides</strong> ‚Äî zero to mid-game in one pack<br>
-                            ‚≠ê <strong>5 Premium Picks</strong> ‚Äî our most popular expert deep-dives<br>
-                            ‚è∞ <strong>3-Day Early Access</strong> ‚Äî read new guides before everyone else<br>
-                            üîÑ <strong>3 New Guides Every Month</strong> ‚Äî and each one fuels us to write faster
+                            üìö <strong>10 Beginner Guides</strong> ‚Ä?zero to mid-game in one pack<br>
+                            ‚≠?<strong>5 Premium Picks</strong> ‚Ä?our most popular expert deep-dives<br>
+                            ‚è?<strong>3-Day Early Access</strong> ‚Ä?read new guides before everyone else<br>
+                            üîÑ <strong>3 New Guides Every Month</strong> ‚Ä?and each one fuels us to write faster
                         </p>
-                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">‚úÖ Your purchase includes instant access to everything above</p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">‚ú?Your purchase includes instant access to everything above</p>
                         <div class="support-amounts">
-                            <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 ‚Äî Get the Early Access Guide Pack üëë</a>
+                            <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 ‚Ä?Get the Early Access Guide Pack üëë</a>
                         </div>
-                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always ‚Äî no strings attached. ü§ù</p>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always ‚Ä?no strings attached. ü§ù</p>
                     </div>
                 </div>
             </div>
@@ -414,5 +436,8 @@
     <script src="../../js/features.js"></script>
     <script src="../../js/ai-qa-widget.js"></script>
     <style>.guide-content li{color:#2d2a33!important}</style>
+    <script>
+    (function(){var p=document.getElementById('cdProgressFill');if(!p)return;var u=function(){var e=document.documentElement,t=e.scrollTop,n=e.scrollHeight-e.clientHeight;p.style.width=n>0?Math.min(t/n*100,100)+'%':'0%'};window.addEventListener('scroll',u,{passive:true});window.addEventListener('resize',u,{passive:true});u()})();
+    </script>
 </body>
 </html>
