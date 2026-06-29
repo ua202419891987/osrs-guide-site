@@ -23,6 +23,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
 </head>
 <body>
+<div id="reading-progress" style="position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#d4af37,#f0d68a);z-index:99999;width:0%;transition:width .1s ease-out;"></div>
     <header>
         <div class="container">
             <nav>
@@ -71,6 +72,14 @@
                     <li><a href="#security-changes">⑧ Security & 2FA After Migration</a></li>
                     <li><a href="#faq">⑨ Full FAQ — 20 Essential Questions Answered</a></li>
                 </ol>
+            
+            <div class="quick-summary" style="background:#2a1a0a;border:1px solid #4a3320;border-left:3px solid #d4af37;border-radius:6px;padding:14px 18px;margin:18px 0;">
+                <strong style="color:#d4af37;font-size:.92rem;">⚡ 30-Second Summary</strong>
+                <ul style="margin:8px 0 0 0;padding-left:18px;color:#e8d5b7;font-size:.85rem;line-height:1.7;">
+                    <li><strong>RuneLite fully compatible</strong> after migration — all plugins, HDOS, and GPU rendering work fine</li>
+                    <li>Manage up to <strong>20 characters</strong> under one Jagex Account — switch with one click in the launcher</li>
+                    <li>Migration is <strong>irreversible</strong> — but your characters, stats, and items all carry over intact</li>
+                </ul>
             </div>
 
             <!-- SECTION 1 -->
@@ -532,6 +541,14 @@
     <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
         <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">&copy; 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This article is protected by copyright law. Unauthorized scraping, crawling, automated reposting, or use for AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
     </div>
+<script>
+// Reading progress bar
+window.addEventListener('scroll', function(){
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    document.getElementById('reading-progress').style.width = (winScroll/height)*100 + '%';
+});
+</script>
 </body>
 <!-- Bottom Scripts: GA4 + AdSense + CSS color fix -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>

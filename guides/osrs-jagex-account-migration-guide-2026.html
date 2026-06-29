@@ -23,6 +23,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
 </head>
 <body>
+<div id="reading-progress" style="position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#d4af37,#f0d68a);z-index:99999;width:0%;transition:width .1s ease-out;"></div>
     <header>
         <div class="container">
             <nav>
@@ -69,6 +70,14 @@
                     <li><a href="#common-pitfalls">⑤ Common Pitfalls & How to Avoid Them</a></li>
                     <li><a href="#faq">⑥ Jagex Account FAQs</a></li>
                 </ol>
+            
+            <div class="quick-summary" style="background:#2a1a0a;border:1px solid #4a3320;border-left:3px solid #d4af37;border-radius:6px;padding:14px 18px;margin:18px 0;">
+                <strong style="color:#d4af37;font-size:.92rem;">⚡ 30-Second Summary</strong>
+                <ul style="margin:8px 0 0 0;padding-left:18px;color:#e8d5b7;font-size:.85rem;line-height:1.7;">
+                    <li><strong>85% of players already migrated</strong> — deadline is November/December 2026</li>
+                    <li>10-minute upgrade: modern password rules, authenticator 2FA, backup codes, 90-day session persistence</li>
+                    <li>Perks: <strong>20 extra bank slots</strong> + Fancier Boots per character — and no more recovery question anxiety</li>
+                </ul>
             </div>
 
             <!-- SECTION 1 -->
@@ -450,5 +459,13 @@
         .guide-content li { font-size: 0.95rem; line-height: 1.8; }
     }
     </style>
+<script>
+// Reading progress bar
+window.addEventListener('scroll', function(){
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    document.getElementById('reading-progress').style.width = (winScroll/height)*100 + '%';
+});
+</script>
 </body>
 </html>

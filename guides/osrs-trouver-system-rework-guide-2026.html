@@ -43,6 +43,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
 </head>
 <body>
+<div id="reading-progress" style="position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#d4af37,#f0d68a);z-index:99999;width:0%;transition:width .1s ease-out;"></div>
     <header>
         <div class="container">
             <nav>
@@ -95,6 +96,14 @@
                     <li><a href="#future-updates">Upcoming Features & Warnings</a></li>
                     <li><a href="#faq">Trouver System FAQs</a></li>
                 </ol>
+            
+            <div class="quick-summary" style="background:#2a1a0a;border:1px solid #4a3320;border-left:3px solid #d4af37;border-radius:6px;padding:14px 18px;margin:18px 0;">
+                <strong style="color:#d4af37;font-size:.92rem;">⚡ 30-Second Summary</strong>
+                <ul style="margin:8px 0 0 0;padding-left:18px;color:#e8d5b7;font-size:.85rem;line-height:1.7;">
+                    <li><strong>Trouver Parchment is now permanent</strong> — apply once, never re-apply on death</li>
+                    <li>Three-tier system: Tier 1 (never lost), Tier 2 (damaged, repairable at Perdu), Tier 3 (Trouver required, permanent)</li>
+                    <li>Graceful, Fire Cape, and other key items no longer permanently lost in wildy — repair cost <strong>500K</strong> above level 20</li>
+                </ul>
             </div>
 
             <!-- SECTION 1 -->
@@ -529,5 +538,13 @@
     gtag('js', new Date());
     gtag('config', 'G-S1BGC91MYV');
     </script>
+<script>
+// Reading progress bar
+window.addEventListener('scroll', function(){
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    document.getElementById('reading-progress').style.width = (winScroll/height)*100 + '%';
+});
+</script>
 </body>
 </html>

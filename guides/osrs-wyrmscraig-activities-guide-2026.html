@@ -23,6 +23,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
 </head>
 <body>
+<div id="reading-progress" style="position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#d4af37,#f0d68a);z-index:99999;width:0%;transition:width .1s ease-out;"></div>
     <header>
         <div class="container">
             <nav>
@@ -67,6 +68,14 @@
             <div class="quick-verdict">
                 <h3>⚡ Quick Verdict</h3>
                 <p>Wyrmscraig is a high-value Sailing island requiring <strong>62 Sailing</strong> to access. It offers a significant content package: a short quest (Fallen From Grace), a repeatable Fire Cape-tier boss, an innovative Slayer Master (Mortimer) with a task-choice + modifier system, two new training activities (Golem Crafting and Goat Hunting), and Sunstone gathering. Mortimer's system is the standout feature — it lets you pick your tasks and earn powerful modifiers instead of Slayer points. If you're 62+ Sailing and 85+ Combat, this island should be your next destination.</p>
+            
+            <div class="quick-summary" style="background:#2a1a0a;border:1px solid #4a3320;border-left:3px solid #d4af37;border-radius:6px;padding:14px 18px;margin:18px 0;">
+                <strong style="color:#d4af37;font-size:.92rem;">⚡ 30-Second Summary</strong>
+                <ul style="margin:8px 0 0 0;padding-left:18px;color:#e8d5b7;font-size:.85rem;line-height:1.7;">
+                    <li>Requires <strong>62 Sailing</strong> + <strong>85+ Combat</strong> to access Wyrmscraig Island</li>
+                    <li>New content: Fallen From Grace quest, repeatable Fire Cape-tier boss, Mortimer Slayer Master with task-choice system</li>
+                    <li>Two new training methods: Golem Crafting (Crafting) and Goat Hunting (Hunter) + Sunstone gathering for profit</li>
+                </ul>
             </div>
 
             <!-- SECTION 1 -->
@@ -536,5 +545,13 @@
   .copyright-protection p { font-size: 0.72rem !important; }
  }
 </style>
+<script>
+// Reading progress bar
+window.addEventListener('scroll', function(){
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    document.getElementById('reading-progress').style.width = (winScroll/height)*100 + '%';
+});
+</script>
 </body>
 </html>
