@@ -49,9 +49,9 @@
   --accent-blue: #3a6a8a;
 
   /* Borders & Shadows — very light for light theme */
-  --border-bronze: #D4CDE0;
-  --border-gold: #C8B8E0;
-  --border-highlight: #B8A8D0;
+  --border-bronze: #e0d5c0;
+  --border-gold: #d4af37;
+  --border-highlight: #c8a85e;
   --shadow-soft: 0 2px 12px rgba(26,22,37,0.08);
   --shadow-medium: 0 4px 20px rgba(26,22,37,0.12);
   --shadow-strong: 0 6px 30px rgba(26,22,37,0.16);
@@ -1611,16 +1611,16 @@ nav a.active{
 .toc{
   background:#fff;
   border:1px solid var(--border-bronze);
-  border-left:4px solid var(--lavender);
+  border-left:4px solid #e0d5c0;
   border-radius:var(--radius);
   padding:18px 22px;margin-bottom:24px;
   box-shadow:var(--shadow-soft);
 }
-.toc h3{font-family:'Cinzel',serif;color:var(--lavender-dark);font-size:.95rem;margin-bottom:10px}
+.toc h3{font-family:'Cinzel',serif;color:#3b2615;font-size:.95rem;margin-bottom:10px}
 .toc ol{padding-left:20px;margin:0}
 .toc li{margin-bottom:5px;font-size:.88rem}
 .toc a{color:var(--text-secondary);text-decoration:none;transition:color .2s}
-.toc a:hover{color:var(--lavender);text-decoration:underline}
+.toc a:hover{color:#3b2615;text-decoration:underline}
 
 
 /* ========== RELATED GUIDES ========== */
