@@ -61,6 +61,13 @@
    
 4. intro（引言段落）
    └── 200-300字，概括全文核心价值和阅读收益
+   └── 前3段每段至少1个站内链接
+   
+5. Quick Summary（30秒速览）
+   └── ⏱️ Quick Summary &mdash; 30-Second Read
+   └── 极浅紫背景 `#f5f2f8` + 极淡边框 `#ebe5f0`
+   └── 3-5个要点，无序列表
+   └── 参考格式见 osrs-bank-tags-beginners-guide-2026.html
    
 5. TOC（Table of Contents / 目录）
    └── 可点击跳转，锚点链接
@@ -118,29 +125,69 @@
 
 ---
 
-## 六、颜色规范（中世纪棕色主题）
+## 六、颜色规范（2026-06-30 更新 — 浅紫品牌色）
 
-| 用途 | 色值 |
+### 6.1 品牌色系（全站统一）
+
+| 用途 | 色值 | 说明 |
+|------|------|------|
+| H1/H2 标题色 | `#7A64B8` (lavender-dark) | 全局 CSS 定义，不要 inline 覆盖 |
+| H3/H4 标题色 | `#3b2615` | box/faq 内标题用 |
+| 链接默认色 | `#9B84D4` (lavender) | 全局 CSS 定义 |
+| 链接悬停色 | `#7A64B8` (lavender-dark) | 全局 CSS 定义 |
+| 强调色（金色） | `#d4af37` | 用作左框/点缀 |
+| 页面的极浅紫 | `#F5F2F8` | 页面背景色 |
+
+### 6.2 正文字体色（所有文章必须覆盖）
+
+| 元素 | 色值 |
 |------|------|
-| 主色（标题/导航） | `#3b2615` / `#4a3320` |
-| 主文字 | `#e8d5b7` |
-| 强调色（金色） | `#d4af37` |
-| 打赏模块背景 | `#2e7d32`（固定，不可改） |
-| 打赏模块文字 | 白色 |
+| 正文 p / li / td / th | `#1a1a1a`（**纯黑**，不是 `#e8d5b7`） |
+| Box 内文字 | `#1a1a1a` |
+| Box 标题 | `#3b2615` |
+
+> ⚠️ **重要**：之前使用的是 `#e8d5b7`（中世纪棕色主题），2026-06-30 统一为 **纯黑 `#1a1a1a`**，全文易读性优先。
+
+### 6.3 区块背景色
+
+| 元素 | 背景色 | 边框 |
+|------|--------|------|
+| Quick Summary | `#f5f2f8`（极浅紫） | `1px solid #ebe5f0`（极淡近无） |
+| method-box / tip-box / faq-item | `#fff`（纯白） | `1px solid #e0d5c0`（浅棕） |
+| Related Guides 卡片 (article-card) | `#f5f2f8`（极浅紫） | `1px solid #ebe5f0` |
+| article-card 悬停 | `#f0ecf5`（略深紫） | `1px solid #D4CDE0` |
+| Day 1-7 检查清单盒 | `#fff`（纯白） | `2px solid #e0d5c0` + `border-left:4px solid #d4af37` |
+| 打赏模块 | `#2e7d32`（绿色，唯一） | 无边框、白色文字 |
+
+> ⚠️ **禁止**：橙色渐变（`background:linear-gradient(135deg,#f5e6d3,#e8d5b8)`）、直白金色边框（`border:2px solid #d4af37`）
+
+### 6.4 禁止使用的颜色
+
+| 色系 | 禁止色值 | 原因 |
+|------|---------|------|
+| 橙/暖黄渐变 | `#f5e6d3 → #e8d5b8` | 2026-06-30 已全部替换为白底 |
+| 红色 (装饰/警告外) | `#e74c3c, #ff4444` | 仅用于 NEW 角标 |
+| 左侧紫色粗竖线 | `border-left:4px solid #7A64B8` | 已取消，太突兀 |
 
 ---
 
-## 七、CSS 冲突修复（⚠️ 每篇文章底部必须加）
+## 七、CSS 冲突修复（⚠️ 每篇文章底部必须加 — 2026-06-30 更新）
 
 在 `</body>` 前添加以下 style 标签：
 
 ```html
 <style>
-  .guide-content li { color: #e8d5b7 !important; }
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item{background:#fff!important;border-color:#e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong{color:#3b2615!important}
+.guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#ebe5f0!important}
+.guide-content .related-guides .article-card:hover{background:#f0ecf5!important;border-color:#D4CDE0!important}
 </style>
 ```
 
-**原因：** 全局 CSS 中 `.guide-content li { color:var(--text-secondary) }` 会覆盖内联颜色，导致列表项颜色异常。此修复必须保留。
+**原因：** 全局 CSS 使用 `var(--text-secondary)` 和浅紫品牌色，需要 local 覆盖确保正文可读性。其中 `article-card` 两行是 Related Guides 卡片的浅紫风格。
 
 ---
 
