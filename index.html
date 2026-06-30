@@ -58,6 +58,7 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
         <a href="#hot-picks" class="nav-cta" style="color:#d4af37;">🔥 Hot Picks</a>
         <a href="monthly-updates.html" class="nav-cta" style="color:#d4af37;font-weight:700;">📅 Monthly Updates <span style="background:#e74c33;color:#fff;padding:1px 6px;border-radius:3px;font-size:.65em;margin-left:3px;vertical-align:middle;">NEW</span></a>
         <a href="#pain-points" class="nav-cta">🔥 This Week's Hot</a>
+        <a href="#game-roadmaps" class="nav-cta" style="color:#d4af37;font-weight:700;">🗺️ Roadmaps <span style="background:#e74c33;color:#fff;padding:1px 6px;border-radius:3px;font-size:.65em;margin-left:3px;vertical-align:middle;">5 NEW</span></a>
         <a href="#stage-0" class="nav-cta">🆕 New Players</a>
         <a href="zh/index.html" class="nav-cta" style="color:#d4af37;">🇨🇳 Chinese Station</a>
       </div>
@@ -645,6 +646,12 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
       @media(max-width:1200px){ #membership-hub .week-path-grid{grid-template-columns:repeat(2,1fr)!important;} }
       @media(max-width:680px){ #membership-hub .week-path-grid{grid-template-columns:1fr!important;} }
 
+      /* ===== ROADMAPS RESPONSIVE ===== */
+      .roadmap-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:16px; }
+      @media(max-width:1200px){ .roadmap-grid{grid-template-columns:repeat(3,1fr)!important;} }
+      @media(max-width:800px){ .roadmap-grid{grid-template-columns:repeat(2,1fr)!important;} }
+      @media(max-width:500px){ .roadmap-grid{grid-template-columns:1fr!important;} }
+
       /* ========== Search Results Panel Styles ========== */
       .search-result-card { display:block; padding:12px 14px; background:#fff; border:1.5px solid #E8E2F0; border-radius:8px; text-decoration:none; color:#2D2A33; transition:all .2s ease; }
       .search-result-card:hover { border-color:#7A64B8; box-shadow:0 3px 14px rgba(122,100,184,0.18); transform:translateY(-1px); }
@@ -872,6 +879,83 @@ if(window.location.hostname==='www.osrsguru.com'){window.location.href=window.lo
 
       <button class="week-card-expand-btn" onclick="toggleWeekCard('week-8', this)">View all 4 guides</button>
         </div>
+
+  </div>
+  </div>
+
+  <!-- ========== TOPIC ROADMAPS (NEW) ========== -->
+  <div class="container" style="margin-top:32px" id="game-roadmaps">
+  <div class="section-header" style="background:#fff;padding:20px 24px;border-radius:var(--radius-lg);border:1px solid var(--border-bronze);display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+    <div class="section-title" style="margin:0">🗺️ Game Roadmaps — Pick Your Path</div>
+    <span class="new-week-badge">⭐ 5 NEW</span>
+  </div>
+
+  <div class="roadmap-grid">
+
+    <!-- Card 1: 7-Day Beginner Roadmap -->
+    <div class="week-card" style="border-color:#d4af37;">
+      <div class="week-card-header" style="background:linear-gradient(135deg,#3b2615,#4a3320);">
+        <span class="week-number">ROADMAP</span>
+        <span class="week-goal" style="color:#d4af37;">🎯 Zero to Boss-ready</span>
+      </div>
+      <h3 class="week-card-title">7-Day Beginner Roadmap</h3>
+      <p class="week-card-desc">Day 1 basics to Day 7 bossing. The fastest path from brand new to self-sufficient in one week.</p>
+      <ul class="week-guide-list">
+        <li><a href="guides/osrs-new-player-7-day-roadmap-2026.html">Start the 7-Day Plan</a> <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;">🆕 NEW</span></li>
+      </ul>
+    </div>
+
+    <!-- Card 2: First Boss Progression -->
+    <div class="week-card" style="border-color:#d4af37;">
+      <div class="week-card-header" style="background:linear-gradient(135deg,#3b2615,#4a3320);">
+        <span class="week-number">ROADMAP</span>
+        <span class="week-goal" style="color:#d4af37;">🎯 Kill Your First Boss</span>
+      </div>
+      <h3 class="week-card-title">First Boss Progression</h3>
+      <p class="week-card-desc">Barrows → Zulrah → Vorkath. Gear upgrades, GP targets, and skill milestones for each tier.</p>
+      <ul class="week-guide-list">
+        <li><a href="guides/osrs-first-boss-progression-roadmap-2026.html">Start Bossing</a> <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;">🆕 NEW</span></li>
+      </ul>
+    </div>
+
+    <!-- Card 3: Quest Cape Roadmap -->
+    <div class="week-card" style="border-color:#d4af37;">
+      <div class="week-card-header" style="background:linear-gradient(135deg,#3b2615,#4a3320);">
+        <span class="week-number">ROADMAP</span>
+        <span class="week-goal" style="color:#d4af37;">🎯 Unlock Quest Cape</span>
+      </div>
+      <h3 class="week-card-title">Quest Cape Roadmap</h3>
+      <p class="week-card-desc">170+ quests organized in clear progression — F2P starter quests to Grandmaster, with recommended levels.</p>
+      <ul class="week-guide-list">
+        <li><a href="guides/quest-cape-roadmap-2026.html">Quest Order Guide</a> <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;">🆕 NEW</span></li>
+      </ul>
+    </div>
+
+    <!-- Card 4: Mid-Game Money -->
+    <div class="week-card" style="border-color:#d4af37;">
+      <div class="week-card-header" style="background:linear-gradient(135deg,#3b2615,#4a3320);">
+        <span class="week-number">ROADMAP</span>
+        <span class="week-goal" style="color:#d4af37;">🎯 1M to 100M GP</span>
+      </div>
+      <h3 class="week-card-title">Mid-Game Money Roadmap</h3>
+      <p class="week-card-desc">15+ money-making methods ranked by gear requirement from 300K to 1.5M GP/hour.</p>
+      <ul class="week-guide-list">
+        <li><a href="guides/osrs-mid-game-money-making-roadmap-2026.html">Earn More GP</a> <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;">🆕 NEW</span></li>
+      </ul>
+    </div>
+
+    <!-- Card 5: Mid-to-High Progression -->
+    <div class="week-card" style="border-color:#d4af37;">
+      <div class="week-card-header" style="background:linear-gradient(135deg,#3b2615,#4a3320);">
+        <span class="week-number">ROADMAP</span>
+        <span class="week-goal" style="color:#d4af37;">🎯 Level 70 → Endgame</span>
+      </div>
+      <h3 class="week-card-title">Mid-to-High Progression</h3>
+      <p class="week-card-desc">The bridge between mid-game and late-game — gear unlocks, boss tiers, and skill targets for every milestone.</p>
+      <ul class="week-guide-list">
+        <li><a href="guides/osrs-mid-to-high-progression-roadmap-2026.html">Level Up Now</a> <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;">🆕 NEW</span></li>
+      </ul>
+    </div>
 
   </div>
   </div>
