@@ -1,0 +1,14 @@
+File: osrs-china-player-20-questions-guide-2026.html
+CJK matches: 12
+  [5975] text="月费" ctx="able> <tr><th>VPN</th><th> OSRS </th><th月费/th><th稳定性/th><th推荐度/th></tr> <tr><td>Ex"
+  [5984] text="稳定性" ctx="><th>VPN</th><th> OSRS </th><th月费/th><th稳定性/th><th推荐度/th></tr> <tr><td>ExpressVPN</"
+  [5994] text="推荐度" ctx="th><th> OSRS </th><th月费/th><th稳定性/th><th推荐度/th></tr> <tr><td>ExpressVPN</td><td> /"
+  [8085] text="方案" ctx="</ol>  <h3>2026 6 </h3> <table> <tr><th方案/th><th> (USD)</th><th> CNY</th><th月均/th"
+  [8122] text="月均" ctx="<th方案/th><th> (USD)</th><th> CNY</th><th月均/th><th推荐/th></tr> <tr><td>1 </td><td>$1"
+  [8131] text="推荐" ctx="<th> (USD)</th><th> CNY</th><th月均/th><th推荐/th></tr> <tr><td>1 </td><td>$14.99</td>"
+  [8203] text="试玩" ctx="14.99</td><td>~¥110</td><td>¥110</td><td试玩/td></tr> <tr><td>3 </td><td>$41.97</td>"
+  [11827] text="方法" ctx="2P Métodos de Lucro</h3> <table> <tr><th方法/th><th需求/th><th>GP/</th><th操作/th></tr>"
+  [11836] text="需求" ctx="s de Lucro</h3> <table> <tr><th方法/th><th需求/th><th>GP/</th><th操作/th></tr> <tr><td/t"
+  [11857] text="操作" ctx="e> <tr><th方法/th><th需求/th><th>GP/</th><th操作/th></tr> <tr><td/td><td>15+</td><td>~40"
+  [16756] text="买物品" ctx="nge"<code>F5</code> GE </li> <li><strong买物品/strong>：    <ul>    <li>"Rune scimitar""
+  [16895] text="卖物品" ctx="<li>，GE </li>    </ul> </li> <li><strong卖物品/strong>：    <ul>    <li>，"Sell"</li>"
