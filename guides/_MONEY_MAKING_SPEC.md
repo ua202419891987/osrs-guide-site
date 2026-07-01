@@ -52,7 +52,7 @@
 ### 6. Box 背景变白 + 去掉深色边框
 - 所有信息框、提示框、方法框必须白底 + 浅棕色边框
 - 底部 CSS 必须覆盖以下类：
-  `.tip-box`, `.method-box`, `.action-step`, `.quick-verdict`, `.faq-item`, `.warning-box`, `.info-box`, `.pro-tip-box`, `.note-box`, `.highlight-box`, `.strategy-box`, `.gear-box`, `.setup-box`, `.location-box`, `.next-steps`, `.bond-roadmap`, `.profit-box`, `.risk-box`, `.req-box`
+  `.tip-box`, `.method-box`, `.action-step`, `.quick-verdict`, `.faq-item`, `.warning-box`, `.info-box`, `.pro-tip-box`, `.note-box`, `.highlight-box`, `.strategy-box`, `.gear-box`, `.setup-box`, `.location-box`, `.next-steps`, `.bond-roadmap`, `.profit-box`, `.risk-box`, `.req-box`, `.quick-answer`, `.quick-jump`
 - 同时加入通用规则清除 inline `border-left`：
   ```css
   .guide-content [style*="border-left:4px"],
