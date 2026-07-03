@@ -479,14 +479,14 @@
   function injectStyles() {
     var style = document.createElement('style');
     style.textContent = 
-      '#osrs-qa-widget{position:fixed;bottom:20px;right:20px;width:420px;max-height:600px;background:linear-gradient(135deg,rgba(39,33,26,0.98),rgba(59,38,21,0.95));border:2px solid rgba(212,175,55,0.4);border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.5),0 0 20px rgba(212,175,55,0.15);display:none;flex-direction:column;z-index:10000;font-family:"Segoe UI",Tahoma,Geneva,sans-serif;overflow:hidden;}' +
+      '#osrs-qa-widget{position:fixed;bottom:20px;right:20px;width:340px;max-height:480px;background:linear-gradient(135deg,rgba(39,33,26,0.98),rgba(59,38,21,0.95));border:2px solid rgba(212,175,55,0.4);border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.5),0 0 20px rgba(212,175,55,0.15);display:none;flex-direction:column;z-index:10000;font-family:"Segoe UI",Tahoma,Geneva,sans-serif;overflow:hidden;}' +
       '#osrs-qa-widget.open{display:flex;animation:qaSlideUp 0.3s ease-out;}' +
       '@keyframes qaSlideUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}' +
-      '#osrs-qa-widget .qa-header{background:linear-gradient(90deg,rgba(212,175,55,0.15),rgba(212,175,55,0.08));border-bottom:1px solid rgba(212,175,55,0.25);padding:16px 18px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}' +
+      '#osrs-qa-widget .qa-header{background:linear-gradient(90deg,rgba(212,175,55,0.15),rgba(212,175,55,0.08));border-bottom:1px solid rgba(212,175,55,0.25);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}' +
       '#osrs-qa-widget .qa-header-title{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:#d4af37;font-family:"Cinzel",serif;}' +
       '#osrs-qa-widget .qa-close-btn{background:none;border:none;color:rgba(212,175,55,0.6);font-size:20px;cursor:pointer;padding:4px;transition:color 0.2s;}' +
       '#osrs-qa-widget .qa-close-btn:hover{color:#d4af37;}' +
-      '#osrs-qa-widget .qa-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;}' +
+      '#osrs-qa-widget .qa-messages{flex:1;overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:8px;}' +
       '#osrs-qa-widget .qa-message{display:flex;gap:8px;animation:qaFadeIn 0.3s ease-out;}' +
       '@keyframes qaFadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}' +
       '#osrs-qa-widget .qa-message.user{justify-content:flex-end;}' +
@@ -507,7 +507,7 @@
       '#osrs-qa-toggle-btn .peach-face{display:flex;flex-direction:column;align-items:center;gap:5px;}' +
       '#osrs-qa-toggle-btn .peach-eyes{display:flex;gap:14px;}' +
       '#osrs-qa-toggle-btn .peach-eyes span{display:block;width:10px;height:11px;background:#1a3a5c;border-radius:50%;}' +
-      '#osrs-qa-toggle-btn .peach-mouth{width:22px;height:10px;border-bottom:2.5px solid #1a3a5c;border-radius:0 0 14px 14px;}' +
+      '#osrs-qa-toggle-btn .peach-mouth{width:22px;height:10px;border-bottom:2.5px solid #000;border-radius:0 0 14px 14px;}' +
       '#osrs-qa-toggle-btn .ai-label{font-size:15px;font-weight:700;color:#fff;letter-spacing:1px;font-family:"Segoe UI","Cinzel",sans-serif;line-height:1;margin-top:4px;}' +
       '#osrs-qa-toggle-btn:hover{transform:scale(1.07);box-shadow:0 6px 28px rgba(74,144,217,0.6);background:#5A9DE5;}' +
       '#osrs-qa-toggle-btn.hide{display:none;}' +
@@ -521,10 +521,10 @@
       '#osrs-qa-widget .qa-article-link.qa-stage-beginner{border-left:3px solid #4caf50;}' +
       '#osrs-qa-widget .qa-article-link.qa-stage-mid{border-left:3px solid #ff9800;}' +
       '#osrs-qa-widget .qa-article-link.qa-stage-boss{border-left:3px solid #f44336;}' +
-      '#osrs-qa-widget .qa-suggested{padding:14px 12px;border-bottom:1px solid rgba(212,175,55,0.15);margin-bottom:4px;}' +
+      '#osrs-qa-widget .qa-suggested{padding:12px;border-bottom:1px solid rgba(212,175,55,0.15);margin-bottom:4px;}' +
       '#osrs-qa-widget .qa-suggested-title{font-size:12px;color:rgba(212,175,55,0.7);margin-bottom:8px;display:flex;align-items:center;gap:5px;}' +
-      '#osrs-qa-widget .qa-suggested-btns{display:flex;flex-direction:column;gap:6px;}' +
-      '#osrs-qa-widget .qa-suggested-btn{display:block;width:100%;text-align:left;padding:7px 11px;background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.18);border-radius:6px;color:#e8d5b7;font-size:12.5px;cursor:pointer;transition:all 0.2s;font-family:inherit;}' +
+      '#osrs-qa-widget .qa-suggested-btns{display:grid;grid-template-columns:1fr 1fr;gap:6px;}' +
+      '#osrs-qa-widget .qa-suggested-btn{display:block;width:100%;text-align:left;padding:5px 9px;background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.18);border-radius:6px;color:#e8d5b7;font-size:12px;cursor:pointer;transition:all 0.2s;font-family:inherit;}' +
       '#osrs-qa-widget .qa-suggested-btn:hover{background:rgba(212,175,55,0.16);border-color:rgba(212,175,55,0.38);color:#d4af37;}' +
       '#osrs-qa-widget .qa-article-cta{display:block;margin:28px 0 12px 0;padding:16px 18px;background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.2);border-radius:10px;text-align:center;}' +
       '#osrs-qa-widget .qa-article-cta-title{font-size:14px;color:#d4af37;font-weight:600;margin-bottom:6px;}' +
@@ -538,7 +538,7 @@
       '@keyframes aiPulseRing{0%{transform:translate(-50%,-50%) scale(1);opacity:0.9;border-color:rgba(255,255,255,0.8);box-shadow:0 0 20px rgba(255,255,255,0.5),0 0 40px rgba(255,215,0,0.3);}40%{border-color:rgba(255,215,0,0.6);box-shadow:0 0 25px rgba(255,215,0,0.5),0 0 50px rgba(255,215,0,0.2);}100%{transform:translate(-50%,-50%) scale(2.5);opacity:0;border-color:rgba(255,215,0,0);box-shadow:0 0 0 rgba(255,215,0,0);}}' +
       '#osrs-qa-toggle-btn.pulse::before{animation:aiPulseRing 2s ease-out 3;}' +
       // === P0: NEW 红点徽章 ===
-      '#osrs-qa-toggle-btn .peach-badge{position:absolute;top:-8px;right:-4px;background:#e74c3c;color:#fff;font-size:10px;font-weight:700;padding:3px 6px;border-radius:10px;line-height:1;letter-spacing:0.5px;box-shadow:0 2px 8px rgba(231,76,60,0.6);animation:badgeBounce 1.5s ease-in-out infinite;z-index:10000;}' +
+      '#osrs-qa-toggle-btn .peach-badge{position:absolute;top:-8px;right:-4px;background:#d4af37;color:#1a1a1a;font-size:10px;font-weight:700;padding:3px 6px;border-radius:10px;line-height:1;letter-spacing:0.5px;box-shadow:0 2px 8px rgba(212,175,55,0.6);animation:badgeBounce 1.5s ease-in-out infinite;z-index:10000;}' +
       '@keyframes badgeBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}' +
       // === P1: 预览气泡 ===
       '#osrs-qa-preview-bubble{position:fixed;top:50%;right:140px;transform:translateY(-50%);background:linear-gradient(135deg,rgba(39,33,26,0.98),rgba(59,38,21,0.95));border:2px solid rgba(74,144,217,0.6);border-radius:12px;padding:12px 16px;max-width:220px;box-shadow:0 0 25px rgba(74,144,217,0.3),0 4px 20px rgba(0,0,0,0.5);z-index:10000;display:none;cursor:pointer;}' +
@@ -764,11 +764,11 @@
       { q: 'OSRS铁人模式新手入门指南？', label: '🔒 铁人模式怎么开始？' },
       { q: 'OSRS不花钱怎么最快冲99级？', label: '🎯 免费玩家冲99攻略？' }
     ] : [
-      { q: 'Best 1-99 training path 2026 OSRS?', label: '🗺️ Best 1-99 training path?' },
-      { q: 'How to make first 1 million GP new player OSRS 2026?', label: '💰 How to make first 1M GP?' },
-      { q: 'Is OSRS membership worth it 2026 bond vs subscription?', label: '🔥 Is membership worth it?' },
-      { q: 'How to start Ironman mode OSRS beginner guide 2026?', label: '🔒 How to start Ironman?' },
-      { q: 'Fastest 99 without spending real money OSRS F2P?', label: '🎯 Fastest 99 without spending?' }
+      { q: 'What is the best money making method OSRS 2026 right now?', label: '💰 Best money maker right now?' },
+      { q: 'What changed in OSRS 2026 for returning players?', label: '🔥 What changed since I last played?' },
+      { q: 'What is the first boss I should kill as a beginner OSRS?', label: '⚔️ Which boss should I try first?' },
+      { q: 'I am completely new to OSRS where do I start beginner guide?', label: '🗺️ I\'m brand new, where do I start?' },
+      { q: 'Best AFK and mobile friendly training methods OSRS 2026?', label: '🎯 Best AFK or mobile methods?' }
     ];
   }
 
@@ -1335,6 +1335,137 @@
     // 已移除 localStorage 隐藏逻辑，确保所有用户都能看到
   }
 
+  // ========== First visit auto-popup greeting (2-step English only) ==========
+    // ========== First visit auto-popup greeting (2-step, English only) ==========
+  function showFirstVisitGreeting() {
+    try {
+      var visited = localStorage.getItem('osrs_qa_visited');
+      if (visited) return;
+      localStorage.setItem('osrs_qa_visited', '1');
+      setTimeout(function() {
+        var w = document.getElementById('osrs-qa-widget');
+        if (!w) return;
+        w.classList.add('open');
+        var msgs = w.querySelector('.qa-messages');
+        if (!msgs) return;
+        var suggested = msgs.querySelector('.qa-suggested');
+        if (suggested) suggested.style.display = 'none';
+
+        var greetingDiv = document.createElement('div');
+        greetingDiv.className = 'qa-message assistant';
+        greetingDiv.id = 'qa-first-greeting';
+        greetingDiv.innerHTML = '<div class="qa-message-bubble" style="font-size:13px;line-height:1.5">' +
+          '👋 <b>Hey there!</b><br><br>' +
+          'Are you new to OSRS, or are you a returning player catching up?' +
+          '<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px;">' +
+          '<button class="qa-suggested-btn qa-greeting-step1" data-type="new" style="background:rgba(74,144,217,0.2);border-color:rgba(74,144,217,0.4);text-align:center;font-size:12px;">🆕 New Player</button>' +
+          '<button class="qa-suggested-btn qa-greeting-step1" data-type="returning" style="background:rgba(74,144,217,0.2);border-color:rgba(74,144,217,0.4);text-align:center;font-size:12px;">🏠 Returning</button>' +
+          '</div>' +
+          '<span style="font-size:11px;color:rgba(232,213,183,0.5);display:block;margin-top:8px;">Or type your question below 👇</span></div>';
+        msgs.insertBefore(greetingDiv, msgs.firstChild);
+
+        var newContent = '<div class="qa-message-bubble" style="font-size:13px;line-height:1.5">' +
+          '🆕 <b>Great, you\'re new!</b> Where to start:' +
+          '<div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:8px;">' +
+          '<button class="qa-suggested-btn qa-greeting-step2" data-q="I\'m completely new. Where do I start in OSRS?" style="text-align:center;font-size:11px;">📖 Beginner Hub</button>' +
+          '<button class="qa-suggested-btn qa-greeting-step2" data-q="How do I make my first GP as a new player?" style="text-align:center;font-size:11px;">💰 Make Money</button>' +
+          '<button class="qa-suggested-btn qa-greeting-step2" data-q="Which skills should I train first as a beginner?" style="text-align:center;font-size:11px;">⚔️ Train Skills</button>' +
+          '<button class="qa-suggested-btn qa-greeting-step2" data-q="What quests should I do first as a new player?" style="text-align:center;font-size:11px;">📜 Quests</button>' +
+          '<button class="qa-suggested-btn qa-greeting-step2" data-q="What is the first boss I should fight?" style="text-align:center;font-size:11px;">🐉 First Boss</button>' +
+          '</div></div>';
+
+        var returningContent = '<div class="qa-message-bubble" style="font-size:13px;line-height:1.5">' +
+          '🏠 <b>Welcome back!</b> Where to start:' +
+          '<div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:8px;">' +
+          '<button class="qa-suggested-btn qa-greeting-step2" data-q="I\'m a returning player. What changed and how do I catch up?" style="text-align:center;font-size:11px;">📖 Returning Hub</button>' +
+          '<button class="qa-suggested-btn qa-greeting-step2" data-q="What changed in OSRS since I last played?" style="text-align:center;font-size:11px;">🔥 What Changed</button>' +
+          '<button class="qa-suggested-btn qa-greeting-step2" data-q="Best money making methods for returning players?" style="text-align:center;font-size:11px;">💰 Make Money</button>' +
+          '<button class="qa-suggested-btn qa-greeting-step2" data-q="What bosses should I learn as a returning player?" style="text-align:center;font-size:11px;">⚔️ Bosses</button>' +
+          '<button class="qa-suggested-btn qa-greeting-step2" data-q="Key quests to do as a returning player?" style="text-align:center;font-size:11px;">📜 Quests</button>' +
+          '</div></div>';
+
+        var step1Btns = greetingDiv.querySelectorAll('.qa-greeting-step1');
+        for (var gb = 0; gb < step1Btns.length; gb++) {
+          step1Btns[gb].addEventListener('click', (function(btn) {
+            return function() {
+              var type = btn.getAttribute('data-type') || '';
+              var bubble = greetingDiv.querySelector('.qa-message-bubble');
+              if (!bubble) return;
+              var inp = w.querySelector('.qa-input');
+              if (type === 'new') {
+                bubble.innerHTML = newContent;
+                if (inp) inp.value = "I'm completely new to OSRS. Where do I start?";
+              } else {
+                bubble.innerHTML = returningContent;
+                if (inp) inp.value = "I'm a returning OSRS player. What changed and how do I catch up?";
+              }
+              var step2Btns = greetingDiv.querySelectorAll('.qa-greeting-step2');
+              for (var s2 = 0; s2 < step2Btns.length; s2++) {
+                step2Btns[s2].addEventListener('click', (function(s2btn) {
+                  return function() {
+                    var q = s2btn.getAttribute('data-q') || '';
+                    var inp2 = w.querySelector('.qa-input');
+                    if (inp2) inp2.value = q;
+                    var send2 = w.querySelector('.qa-send-btn');
+                    if (send2) send2.click();
+                  };
+                })(step2Btns[s2]));
+              }
+            };
+          })(step1Btns[gb]));
+        }
+        msgs.scrollTop = 0;
+      }, 1500);
+    } catch(e) {
+      console.log('[AI Widget] First visit greeting error:', e);
+    }
+  }
+function showArticleAutoPopup() {
+    var path = window.location.pathname.toLowerCase();
+    // Only on article pages (guides/) and not homepage, CD, or Windrose
+    if (path.indexOf('/guides/') === -1 || path === '/' || path === '/index.html') return;
+    if (path.indexOf('crimson-desert') !== -1 || path.indexOf('windrose') !== -1) return;
+    // Skip first visit (already handled by showFirstVisitGreeting)
+    try {
+      if (!localStorage.getItem('osrs_qa_visited')) return;
+    } catch(e) {}
+
+    // Show bubble after 3s, auto-retract after 5s
+    setTimeout(function() {
+      var toggleBtn = document.getElementById('osrs-qa-toggle-btn');
+      if (!toggleBtn) return;
+
+      var bubble = document.createElement('div');
+      bubble.id = 'osrs-qa-article-popup';
+      bubble.innerHTML = '<div style="display:flex;align-items:center;gap:10px;padding:10px 14px;">' +
+        '<span style="font-size:20px;">🍑</span>' +
+        '<div><div style="font-weight:600;font-size:13px;color:#d4af37;">Have a question about this guide?</div>' +
+        '<div style="font-size:11px;color:rgba(232,213,183,0.7);">Ask AI → (5s)</div></div></div>';
+      bubble.style.cssText = 'position:fixed;bottom:20px;right:150px;background:linear-gradient(135deg,rgba(39,33,26,0.98),rgba(59,38,21,0.95));border:2px solid rgba(74,144,217,0.5);border-radius:12px;z-index:10000;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.5);animation:qaSlideUp 0.4s ease-out;';
+      document.body.appendChild(bubble);
+
+      bubble.addEventListener('click', function() {
+        var w = document.getElementById('osrs-qa-widget');
+        if (w) {
+          w.classList.add('open');
+          var inp = w.querySelector('.qa-input');
+          if (inp) inp.focus();
+        }
+        bubble.remove();
+      });
+
+      // Auto-retract after 5s
+      setTimeout(function() {
+        if (bubble.parentNode) {
+          bubble.style.transition = 'opacity 0.5s, transform 0.3s';
+          bubble.style.opacity = '0';
+          bubble.style.transform = 'translateY(10px)';
+          setTimeout(function() { if (bubble.parentNode) bubble.remove(); }, 500);
+        }
+      }, 5000);
+    }, 3000);
+  }
+
   function init() {
     injectStyles();
     var elements = createWidget();
@@ -1343,6 +1474,10 @@
     // === P0+P1: 可见性增强 ===
     initPulseAndBadge(elements.toggleBtn);
     showPreviewBubble(elements.toggleBtn);
+    // === First visit auto-popup ===
+    showFirstVisitGreeting();
+    // === Article page auto-popup ===
+    showArticleAutoPopup();
     console.log('✅ ' + CONFIG.assistantTitle + ' v2.14.2 initialized (zh-mode:' + IS_ZH + ')');
   }
 

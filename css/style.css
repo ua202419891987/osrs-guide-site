@@ -175,16 +175,18 @@ nav a.active{
 
 /* New Players — purple medieval capsule CTA */
 .nav-cta{
-  background:#6b4fa3!important;
+  background:rgba(107,79,163,0.75)!important;
   color:#f0d68c!important;
-  border-radius:20px;
-  padding:6px 16px;
+  border-radius:12px;
+  padding:2px 6px;
+  font-size:0.68rem;
   font-weight:700;
+  white-space:nowrap;
   display:inline-flex;
   align-items:center;
-  gap:5px;
+  gap:2px;
   text-decoration:none;
-  border:2px solid #8b6fc8;
+  border:1px solid #8b6fc8;
   transition:background .2s,transform .15s;
 }
 .nav-cta:hover{
@@ -193,6 +195,27 @@ nav a.active{
   transform:translateY(-1px);
 }
 
+/* ========== USER SPLIT ACTION BUTTONS (Homepage) ========== */
+.user-split-btn{
+  background:rgba(107,79,163,0.78)!important;
+  color:#f0d68c!important;
+  border:1px solid #9b84d4;
+  border-radius:10px;
+  padding:8px 18px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.88rem;
+  white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  transition:background .2s,transform .15s;
+}
+.user-split-btn:hover{
+  background:rgba(107,79,163,0.95)!important;
+  color:#fff6d0!important;
+  transform:translateY(-1px);
+}
 
 /* ========== HERO — Light Lavender Gradient ========== */
 .hero,
