@@ -18,6 +18,7 @@ EXCLUDE = {
     "index-backup-2026-07-03.html",
     "index-redesign-plan.html",
     "medium-article-formatted.html",
+    os.path.join("", "medium-osrs-money-making-2026.html"),
     "medium-osrs-money-making-2026.html",
     os.path.join("blog", "shippage_simple.html"),
     os.path.join("guides", "osrs-weekly-pain-points-template.html"),
