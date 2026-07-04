@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OSRS Guru Members — Early Access Guide Pack</title>
-<meta name="description" content="OSRS Guru member exclusive page. Access 10 Beginner Guides, 5 Premium Picks, and 3-day early access to new content.">
-<meta name="robots" content="noindex, nofollow">
+<title>Free Member Guide Unlocks — OSRS Guru</title>
+<meta name="description" content="Unlock 3 member-only OSRS guides every week for free. No subscription or password required. Limited-time access to premium strategy guides.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="https://osrsguru.com/members.html">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=3">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -15,158 +15,221 @@
   gtag('js', new Date());
   gtag('config', 'G-S1BGC91MYV');
 </script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
 <style>
-/* Member page specific styles */
-.member-lock {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  min-height:60vh;
-  text-align:center;
-  padding:40px 20px;
+/* Members unlock page — light theme */
+.unlock-hero {
+  background: linear-gradient(135deg, var(--bg-hero-from) 0%, var(--bg-hero-to) 100%);
+  padding: 48px 20px 40px;
+  text-align: center;
+  border-bottom: 1px solid var(--border-bronze);
 }
-.member-lock h2 {
-  color:#d4af37;
-  font-size:1.8rem;
-  margin-bottom:12px;
+.unlock-hero .crown {
+  font-size: 2.6rem;
+  margin-bottom: 8px;
 }
-.member-lock p {
-  color:var(--text-secondary);
-  font-size:1.05rem;
-  max-width:480px;
-  line-height:1.7;
-  margin-bottom:24px;
+.unlock-hero h1 {
+  color: var(--lavender-dark);
+  font-size: 1.9rem;
+  margin-bottom: 10px;
+  font-family: 'Cinzel', serif;
 }
-.member-lock input {
-  width:280px;
-  max-width:90%;
-  padding:12px 16px;
-  border:2px solid #4a3320;
-  border-radius:8px;
-  background:#1a0f06;
-  color:#e8d5b7;
-  font-size:1rem;
-  text-align:center;
-  outline:none;
-  transition:border-color 0.2s;
+.unlock-hero p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 620px;
+  margin: 0 auto 14px;
+  line-height: 1.6;
 }
-.member-lock input:focus {
-  border-color:#d4af37;
+.unlock-hero .countdown {
+  display: inline-block;
+  background: #fff;
+  border: 1px solid var(--border-gold);
+  color: var(--gold-dark);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow-soft);
 }
-.member-lock button {
-  margin-top:16px;
-  padding:12px 32px;
-  border:none;
-  border-radius:8px;
-  background:linear-gradient(135deg,#d4af37 0%,#b8941f 100%);
-  color:#1a0f06;
-  font-size:1rem;
-  font-weight:700;
-  cursor:pointer;
-  transition:opacity 0.2s;
+.unlock-section {
+  max-width: 900px;
+  margin: 0 auto 44px;
+  padding: 0 20px;
 }
-.member-lock button:hover {
-  opacity:0.9;
+.unlock-section h2 {
+  color: var(--lavender-dark);
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-.member-lock .error-msg {
-  color:#e74c3c;
-  font-size:0.9rem;
-  margin-top:12px;
-  display:none;
-}
-.member-content {
-  display:none;
-}
-.member-content.active {
-  display:block;
-}
-.benefit-section {
-  max-width:900px;
-  margin:0 auto 48px;
-  padding:0 20px;
-}
-.benefit-section h2 {
-  color:#d4af37;
-  font-size:1.6rem;
-  margin-bottom:8px;
-  padding-bottom:8px;
-  border-bottom:2px solid #4a3320;
-}
-.benefit-section .section-desc {
-  color:var(--text-muted);
-  font-size:0.92rem;
-  margin-bottom:20px;
+.unlock-section .section-desc {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 18px;
 }
 .guide-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(320px, 1fr));
-  gap:16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
 }
 .guide-card {
-  display:block;
-  padding:16px 20px;
-  background:#1a0f06;
-  border:1px solid #4a3320;
-  border-radius:10px;
-  text-decoration:none;
-  transition:all 0.2s;
+  display: block;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--brown-border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-soft);
 }
 .guide-card:hover {
-  border-color:#d4af37;
-  background:#2a1a0a;
-  transform:translateY(-2px);
-}
-.guide-card .card-title {
-  color:#e8d5b7;
-  font-size:1rem;
-  font-weight:600;
-  margin-bottom:4px;
-}
-.guide-card .card-desc {
-  color:var(--text-muted);
-  font-size:0.85rem;
-  line-height:1.5;
+  border-color: var(--lavender);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
 }
 .guide-card .card-badge {
-  display:inline-block;
-  font-size:0.72rem;
-  color:#d4af37;
-  border:1px solid #d4af37;
-  border-radius:4px;
-  padding:1px 6px;
-  margin-bottom:8px;
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  border: 1px solid var(--gold-dark);
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-bottom: 10px;
 }
-.early-access-banner {
-  max-width:900px;
-  margin:0 auto 48px;
-  padding:20px 28px;
-  background:linear-gradient(135deg,#2a1a0a 0%,#3b2615 100%);
-  border:1px solid #d4af37;
-  border-radius:12px;
-  text-align:center;
+.guide-card .card-badge.active {
+  color: #fff;
+  background: var(--gold-dark);
+  border-color: var(--gold-dark);
 }
-.early-access-banner h3 {
-  color:#d4af37;
-  font-size:1.3rem;
-  margin-bottom:6px;
+.guide-card .card-title {
+  color: var(--text-bright);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  line-height: 1.35;
 }
-.early-access-banner p {
-  color:var(--text-secondary);
-  font-size:0.95rem;
-  line-height:1.6;
+.guide-card .card-desc {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.55;
 }
-.early-access-banner .countdown {
-  color:#d4af37;
-  font-weight:700;
-  font-size:1.1rem;
-  margin-top:8px;
+.week-card {
+  background: #fff;
+  border: 1px solid var(--brown-border);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-soft);
 }
-.no-new-guides {
-  text-align:center;
-  padding:32px;
-  color:var(--text-muted);
-  font-style:italic;
+.week-card .week-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.week-card h3 {
+  color: var(--lavender-dark);
+  font-size: 1.1rem;
+}
+.week-card .week-status {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: var(--bg-parchment);
+  color: var(--text-muted);
+}
+.week-card .week-status.active {
+  background: var(--gold-glow);
+  color: var(--gold-dark);
+}
+.week-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.week-card li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--bg-parchment);
+}
+.week-card li:last-child {
+  border-bottom: none;
+}
+.week-card li a {
+  color: var(--text-bright);
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+.week-card li a:hover {
+  color: var(--lavender-dark);
+  text-decoration: underline;
+}
+.week-card li a::before {
+  content: "→";
+  color: var(--lavender);
+  font-weight: 700;
+}
+.how-it-works {
+  max-width: 900px;
+  margin: 0 auto 48px;
+  padding: 24px 28px;
+  background: #fff;
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+}
+.how-it-works h3 {
+  color: var(--lavender-dark);
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+.how-it-works p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.quick-preview {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--brown-border);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  text-align: left;
+}
+.quick-preview strong {
+  display: block;
+  color: var(--lavender-dark);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.quick-preview ul {
+  margin: 0;
+  padding-left: 16px;
+  list-style: disc;
+}
+.quick-preview li {
+  margin-bottom: 3px;
+  line-height: 1.45;
+}
+@media (max-width: 640px) {
+  .unlock-hero h1 { font-size: 1.5rem; }
+  .unlock-hero p { font-size: 0.95rem; }
+  .guide-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -176,177 +239,166 @@
 <header class="site-header">
   <div class="header-inner">
     <a href="/" class="logo">OSRS <span>Guru</span></a>
-    <nav class="main-nav" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-      <a href="/">Home</a>
-      <a href="money-making.html">Money Making</a>
-      <a href="skill-training.html">Skills</a>
-      <a href="quest-guides.html">Quests</a>
-      <a href="boss-guides.html">Bosses</a>
-      <a href="zh/index.html" style="color:#d4af37;">Chinese</a>
+    <nav class="main-nav" style="display:flex;flex-direction:column;gap:6px;">
+      <div style="display:flex;align-items:center;gap:3px;flex-wrap:nowrap;">
+        <a href="members.html" class="nav-cta" style="font-weight:700;box-shadow:0 0 0 1px #d4af37,0 0 12px rgba(212,175,55,0.45);">👑 Free Unlocks</a>
+        <a href="new-player.html" class="nav-cta" style="color:#d4af37;font-weight:700;">📖 New Player Start</a>
+        <a href="/" class="nav-cta">🔥 This Week's Hot</a>
+        <a href="/" class="nav-cta" style="color:#d4af37;font-weight:700;">🔥 Hot & New This Month</a>
+        <a href="zh/index.html" class="nav-cta" style="color:#d4af37;">🇨🇳 Chinese Station</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+        <a href="money-making.html">Money Making</a>
+        <a href="skill-training.html">Skills</a>
+        <a href="quest-guides.html">Quests</a>
+        <a href="boss-guides.html">Bosses</a>
+        <a href="javascript:void(0);" onclick="if(window.OSRSQA&&window.OSRSQA.open){window.OSRSQA.open(true);}return false;" title="Ask AI">🔍 AI</a>
+        <a href="pt-br/index.html" style="color:#d4af37;">🇧🇷 Brazilian Station</a>
+      </div>
     </nav>
   </div>
 </header>
 
-<!-- ========== PASSWORD LOCK ========== -->
-<div id="lock-screen" class="member-lock">
-  <div style="font-size:3rem;margin-bottom:16px;">🔒</div>
-  <h2>Member Access Required</h2>
-  <p>This page is exclusive to Early Access Guide Pack members. Enter your access password to unlock all premium guides.</p>
-  <input type="password" id="pwd-input" placeholder="Enter password" autocomplete="off">
-  <button id="pwd-btn">Unlock Guides</button>
-  <div class="error-msg" id="pwd-error">Incorrect password. Please try again.</div>
-  <p style="margin-top:24px;font-size:0.85rem;color:var(--text-muted);">
-    Don't have access yet? <a href="/" style="color:#d4af37;text-decoration:underline;">Get the Early Access Guide Pack for $1.90</a>
-  </p>
+<!-- ========== HERO ========== -->
+<div class="unlock-hero">
+  <div class="crown">👑</div>
+  <h1>Free Member Guide Unlocks</h1>
+  <p>Every week we unlock 3 member-only guides for free. No password, no subscription — just click and read while they’re available.</p>
+  <div class="countdown">⏳ This week’s unlocks expire: July 12, 2026</div>
 </div>
 
-<!-- ========== MEMBER CONTENT (hidden until unlocked) ========== -->
-<div id="member-content" class="member-content">
-
-<!-- Hero -->
-<div style="background:linear-gradient(135deg,#2a1a0a 0%,#3b2615 40%,#4a3320 100%);padding:40px 20px;text-align:center;">
-  <div style="max-width:900px;margin:0 auto;">
-    <div style="font-size:2.5rem;margin-bottom:8px;">👑</div>
-    <h1 style="color:#d4af37;font-size:2rem;margin-bottom:8px;">Early Access Guide Pack</h1>
-    <p style="color:var(--text-secondary);font-size:1.1rem;">Your exclusive member hub — all premium guides in one place.</p>
-    <p style="color:var(--text-muted);font-size:0.9rem;margin-top:8px;">Welcome, adventurer. Everything below is yours. 🎉</p>
-  </div>
-</div>
-
-<div style="height:32px;"></div>
-
-<!-- ========== 10 BEGINNER GUIDES ========== -->
-<div class="benefit-section">
-  <h2>📚 10 Beginner Guides</h2>
-  <p class="section-desc">Zero to mid-game in one pack. Start here if you're new to OSRS or coming back after a break.</p>
-  <div class="guide-grid">
-    <a href="guides/osrs-what-to-buy-first-1m-guide-2026.html" class="guide-card">
-      <span class="card-badge">Beginner #1</span>
-      <div class="card-title">What to Buy With Your First 1M GP</div>
-      <div class="card-desc">Priority spending guide — gear, supplies, and upgrades that matter most.</div>
-    </a>
-    <a href="guides/osrs-runelite-setup-guide-2026.html" class="guide-card">
-      <span class="card-badge">Beginner #2</span>
-      <div class="card-title">RuneLite Setup & Best Plugins</div>
-      <div class="card-desc">Complete installation guide with the essential plugins every player needs.</div>
-    </a>
-    <a href="guides/osrs-terminology-dictionary-2026.html" class="guide-card">
-      <span class="card-badge">Beginner #3</span>
-      <div class="card-title">OSRS Terminology Dictionary</div>
-      <div class="card-desc">Every abbreviation, slang term, and acronym explained in plain English.</div>
-    </a>
-    <a href="guides/osrs-death-mechanics-guide-2026.html" class="guide-card">
-      <span class="card-badge">Beginner #4</span>
-      <div class="card-title">Death Mechanics Explained</div>
-      <div class="card-desc">How death works, what you keep, and how to never lose your gear again.</div>
-    </a>
-    <a href="guides/osrs-combat-triangle-guide-2026.html" class="guide-card">
-      <span class="card-badge">Beginner #5</span>
-      <div class="card-title">Combat Triangle Guide</div>
-      <div class="card-desc">Melee vs Ranged vs Magic — which wins where, and how to exploit weaknesses.</div>
-    </a>
-    <a href="guides/osrs-transportation-teleport-guide-2026.html" class="guide-card">
-      <span class="card-badge">Beginner #6</span>
-      <div class="card-title">Transportation & Teleport Guide</div>
-      <div class="card-desc">Every teleport method, transport route, and fast-travel option in the game.</div>
-    </a>
-    <a href="guides/osrs-first-100k-gp-challenge-2026.html" class="guide-card">
-      <span class="card-badge">Beginner #7</span>
-      <div class="card-title">First 100K GP Challenge</div>
-      <div class="card-desc">Step-by-step from 0 to 100K gold — no stats required, no prior knowledge needed.</div>
-    </a>
-    <a href="guides/osrs-early-game-weapon-tierlist-2026.html" class="guide-card">
-      <span class="card-badge">Beginner #8</span>
-      <div class="card-title">Early Game Weapon Tier List</div>
-      <div class="card-desc">Best weapons for every combat level bracket, from bronze to dragon.</div>
-    </a>
-    <a href="guides/osrs-quest-speedrun-order-2026.html" class="guide-card">
-      <span class="card-badge">Beginner #9</span>
-      <div class="card-title">Quest Speedrun Order</div>
-      <div class="card-desc">The optimal quest order to unlock content and skip the grind.</div>
-    </a>
-    <a href="guides/osrs-first-30-minutes-member-2026.html" class="guide-card">
-      <span class="card-badge">Beginner #10</span>
-      <div class="card-title">First 30 Minutes as a Member</div>
-      <div class="card-desc">Exactly what to do the moment you buy membership — priority checklist.</div>
-    </a>
-  </div>
-</div>
-
-<!-- ========== 5 PREMIUM PICKS ========== -->
-<div class="benefit-section">
-  <h2>⭐ 5 Premium Picks</h2>
-  <p class="section-desc">Our most popular expert deep-dives. These are the guides players come back to again and again.</p>
+<!-- ========== THIS WEEK'S FREE UNLOCKS ========== -->
+<div class="unlock-section">
+  <h2>🔥 This Week’s Free Unlocks</h2>
+  <p class="section-desc">Free for everyone until July 12, 2026. Usually reserved for member early access.</p>
   <div class="guide-grid">
     <a href="guides/osrs-fire-cape-jad-guide-2026.html" class="guide-card">
-      <span class="card-badge" style="color:#e74c3c;border-color:#e74c3c;">⭐ Premium</span>
+      <span class="card-badge active">Free Until July 12</span>
       <div class="card-title">Fire Cape & Jad Guide</div>
       <div class="card-desc">Complete Fight Caves walkthrough with Jad wave cheat sheet and gear setups.</div>
+      <div class="quick-preview">
+        <strong>⚡ 30S Quick Preview</strong>
+        <ul>
+          <li>Budget gear setup included for first-timers</li>
+          <li>Master Jad prayer switching across 62 waves</li>
+          <li>Expect 60-90 minutes on your first run</li>
+        </ul>
+      </div>
     </a>
     <a href="guides/osrs-soulreaper-axe-guide-2026.html" class="guide-card">
-      <span class="card-badge" style="color:#e74c3c;border-color:#e74c3c;">⭐ Premium</span>
+      <span class="card-badge active">Free Until July 12</span>
       <div class="card-title">Soulreaper Axe Complete Guide</div>
-      <div class="card-desc">Everything about the Soulreaper Axe — how to get it, optimize it, and use it.</div>
-    </a>
-    <a href="guides/osrs-lms-beginner-guide-2026.html" class="guide-card">
-      <span class="card-badge" style="color:#e74c3c;border-color:#e74c3c;">⭐ Premium</span>
-      <div class="card-title">LMS (Last Man Standing) Guide</div>
-      <div class="card-desc">From beginner to competitive — strategies, loadouts, and PvP tips.</div>
+      <div class="card-desc">How to get it, optimize it, and use it in PvM and PvP.</div>
+      <div class="quick-preview">
+        <strong>⚡ 30S Quick Preview</strong>
+        <ul>
+          <li>Best-in-slot melee axe for many bosses</li>
+          <li>Stack damage with passive soul mechanics</li>
+          <li>Strong in both PvM and PvP scenarios</li>
+        </ul>
+      </div>
     </a>
     <a href="guides/osrs-sailing-1-99-guide-2026.html" class="guide-card">
-      <span class="card-badge" style="color:#e74c3c;border-color:#e74c3c;">⭐ Premium</span>
+      <span class="card-badge active">Free Until July 12</span>
       <div class="card-title">Sailing 1-99 Complete Guide</div>
-      <div class="card-desc">The new skill fully covered — fastest routes, best XP, and money-making methods.</div>
-    </a>
-    <a href="guides/account-security-guide-2026.html" class="guide-card">
-      <span class="card-badge" style="color:#e74c3c;border-color:#e74c3c;">⭐ Premium</span>
-      <div class="card-title">Account Security & Anti-Scam</div>
-      <div class="card-desc">Protect your account from hacks, scams, and social engineering — updated 2026.</div>
+      <div class="card-desc">Fastest routes, best XP methods, and money-making with the new skill.</div>
+      <div class="quick-preview">
+        <strong>⚡ 30S Quick Preview</strong>
+        <ul>
+          <li>Multiple training routes: fast, cheap, or profit</li>
+          <li>Unlock ports and upgrade crew over time</li>
+          <li>High-level Sailing becomes solid money</li>
+        </ul>
+      </div>
     </a>
   </div>
 </div>
 
-<!-- ========== 3-DAY EARLY ACCESS ========== -->
-<div class="early-access-banner">
-  <h3>⏰ 3-Day Early Access — This Month's New Guides</h3>
-  <p>These guides are published here <strong>3 days before</strong> they appear on the public site. After 3 days, they become free for everyone.</p>
-  <div class="guide-grid" style="margin-top:16px;text-align:left;">
-    <a href="guides/osrs-zulrah-money-making-guide-2026.html" class="guide-card">
-      <span class="card-badge" style="color:#27ae60;border-color:#27ae60;">📖 Part 1</span>
-      <div class="card-title">Zulrah Money Making Guide — 3M-7M GP/hr Boss</div>
-      <div class="card-desc">Complete Zulrah strategy covering rotations, gear setups, profit per hour, and unique drops. (Free)</div>
-    </a>
+<!-- ========== LAST WEEK'S UNLOCKS ========== -->
+<div class="unlock-section">
+  <h2>⏳ Last Week’s Unlocks Still Available</h2>
+  <p class="section-desc">These articles are still open for a limited time. Catch them before they rotate back.</p>
+  <div class="guide-grid">
     <a href="guides/osrs-vorkath-money-making-guide-2026.html" class="guide-card">
-      <span class="card-badge" style="color:#3498db;border-color:#3498db;">🔒 Part 2 — Early Access</span>
-      <div class="card-title">Vorkath Money Making Guide — 2M-5M GP/hr Boss</div>
-      <div class="card-desc">Advanced Vorkath strategies, Woox walk, phase mechanics, gear progression, and profit calculations.</div>
-    </a>
-    <a href="guides/osrs-inferno-guide-2026.html" class="guide-card">
-      <span class="card-badge" style="color:#27ae60;border-color:#27ae60;">📖 Part 1</span>
-      <div class="card-title">Inferno Guide — Complete Wave Walkthrough</div>
-      <div class="card-desc">Inferno wave-by-wave guide covering supplies, safe spots, and Zuk fight mechanics. (Free)</div>
+      <span class="card-badge">Expiring Soon</span>
+      <div class="card-title">Vorkath Money Making Guide</div>
+      <div class="card-desc">Advanced Vorkath strategies, Woox walk, phase mechanics, and profit calculations.</div>
     </a>
     <a href="guides/osrs-colosseum-fortis-guide-2026.html" class="guide-card">
-      <span class="card-badge" style="color:#3498db;border-color:#3498db;">🔒 Part 2 — Early Access</span>
-      <div class="card-title">Fortis Colosseum Guide — Endgame Arena</div>
-      <div class="card-desc">Colosseum modifiers, enemy types, Sol Heredit fight strategy, and Dizana's Quiver loot breakdown.</div>
-    </a>
-    <a href="guides/osrs-birdhouse-runs-guide-2026.html" class="guide-card">
-      <span class="card-badge" style="color:#27ae60;border-color:#27ae60;">📖 Part 1</span>
-      <div class="card-title">Birdhouse Runs Guide — Passive Hunter XP</div>
-      <div class="card-desc">Best passive Hunter training — 600-2500 XP per run, 50min timer, maximum efficiency. (Free)</div>
+      <span class="card-badge">Expiring Soon</span>
+      <div class="card-title">Fortis Colosseum Guide</div>
+      <div class="card-desc">Colosseum modifiers, enemy types, Sol Heredit fight, and Dizana’s Quiver loot.</div>
     </a>
     <a href="guides/osrs-seaweed-runs-guide-2026.html" class="guide-card">
-      <span class="card-badge" style="color:#3498db;border-color:#3498db;">🔒 Part 2 — Early Access</span>
-      <div class="card-title">Seaweed Runs Guide — Passive Farming Money</div>
-      <div class="card-desc">Giant seaweed farming for Crafting XP and GP profit. Optimize runs for max yield and profit.</div>
+      <span class="card-badge">Expiring Soon</span>
+      <div class="card-title">Seaweed Runs Guide</div>
+      <div class="card-desc">Giant seaweed farming for Crafting XP and GP profit. Optimize runs for max yield.</div>
     </a>
   </div>
-  <p style="color:var(--text-muted);font-size:0.9rem;margin-top:16px;">📢 More new guides arriving soon — check back in a few days!</p>
+</div>
+
+<!-- ========== WEEKLY ARCHIVE ========== -->
+<div class="unlock-section">
+  <h2>📅 Weekly Unlock Archive</h2>
+  <p class="section-desc">Every week we add 3 new free unlocks. See everything we’ve opened so far.</p>
+
+  <div class="week-card">
+    <div class="week-header">
+      <h3>Week of July 6, 2026</h3>
+      <span class="week-status active">🔥 Currently Free</span>
+    </div>
+    <ul>
+      <li><a href="guides/osrs-fire-cape-jad-guide-2026.html">Fire Cape & Jad Guide</a></li>
+      <li><a href="guides/osrs-soulreaper-axe-guide-2026.html">Soulreaper Axe Complete Guide</a></li>
+      <li><a href="guides/osrs-sailing-1-99-guide-2026.html">Sailing 1-99 Complete Guide</a></li>
+    </ul>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header">
+      <h3>Week of June 29, 2026</h3>
+      <span class="week-status active">⏳ Still Available</span>
+    </div>
+    <ul>
+      <li><a href="guides/osrs-vorkath-money-making-guide-2026.html">Vorkath Money Making Guide</a></li>
+      <li><a href="guides/osrs-colosseum-fortis-guide-2026.html">Fortis Colosseum Guide</a></li>
+      <li><a href="guides/osrs-seaweed-runs-guide-2026.html">Seaweed Runs Guide</a></li>
+    </ul>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header">
+      <h3>Week of June 22, 2026</h3>
+      <span class="week-status">Expired</span>
+    </div>
+    <ul>
+      <li><a href="guides/osrs-lms-beginner-guide-2026.html">LMS (Last Man Standing) Guide</a></li>
+      <li><a href="guides/account-security-guide-2026.html">Account Security & Anti-Scam</a></li>
+      <li><a href="guides/osrs-first-100k-gp-challenge-2026.html">First 100K GP Challenge</a></li>
+    </ul>
+  </div>
+
+  <div class="week-card">
+    <div class="week-header">
+      <h3>Week of June 15, 2026</h3>
+      <span class="week-status">Expired</span>
+    </div>
+    <ul>
+      <li><a href="guides/osrs-zulrah-money-making-guide-2026.html">Zulrah Money Making Guide</a></li>
+      <li><a href="guides/osrs-birdhouse-runs-guide-2026.html">Birdhouse Runs Guide</a></li>
+      <li><a href="guides/osrs-what-to-buy-first-1m-guide-2026.html">What to Buy With Your First 1M GP</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========== HOW IT WORKS ========== -->
+<div class="how-it-works">
+  <h3>How Free Limited Unlocks Work</h3>
+  <p>Every Monday, 3 member-only or early-access guides are unlocked for free. Each batch stays open for 7–14 days. After the window closes, the articles rotate back to member-only status. Come back every week to see which new guides are free.</p>
 </div>
 
 <!-- ========== FOOTER ========== -->
-<footer style="background:#1a0f06;padding:32px 20px;margin-top:48px;border-top:1px solid #4a3320;">
+<footer style="background:#fff;border-top:1px solid var(--border-bronze);padding:32px 20px;margin-top:32px;">
   <div style="max-width:900px;margin:0 auto;text-align:center;">
     <p style="color:var(--text-muted);font-size:0.88rem;">
       © 2026 OSRS Guru — Fan site, not affiliated with Jagex Ltd.<br>
@@ -360,45 +412,6 @@
     </p>
   </div>
 </footer>
-
-</div><!-- end member-content -->
-
-<!-- ========== PASSWORD SCRIPT ========== -->
-<script>
-(function(){
-  var PASSWORD = 'Gielinor2026';
-  var lockScreen = document.getElementById('lock-screen');
-  var memberContent = document.getElementById('member-content');
-  var pwdInput = document.getElementById('pwd-input');
-  var pwdBtn = document.getElementById('pwd-btn');
-  var errorMsg = document.getElementById('pwd-error');
-
-  function unlock() {
-    var val = pwdInput.value.trim();
-    if (val === PASSWORD) {
-      sessionStorage.setItem('osrs_member_unlocked', '1');
-      lockScreen.style.display = 'none';
-      memberContent.classList.add('active');
-      errorMsg.style.display = 'none';
-    } else {
-      errorMsg.style.display = 'block';
-      pwdInput.value = '';
-      pwdInput.focus();
-    }
-  }
-
-  pwdBtn.addEventListener('click', unlock);
-  pwdInput.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') unlock();
-  });
-
-  // Auto-unlock if already authenticated this session
-  if (sessionStorage.getItem('osrs_member_unlocked') === '1') {
-    lockScreen.style.display = 'none';
-    memberContent.classList.add('active');
-  }
-})();
-</script>
 
 </body>
 </html>
