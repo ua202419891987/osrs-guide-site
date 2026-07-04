@@ -216,6 +216,82 @@ async def health():
     return {"status": "ok", "guides_indexed": get_rag_collection().count() if CHROMA_DIR.exists() else 0}
 
 # ============================================================
+# Payment Verification — PayPal Subscription Check
+# ============================================================
+PAYPAL_API = os.getenv("PAYPAL_API", "https://api-m.paypal.com")  # sandbox: api-m.sandbox.paypal.com
+PAYPAL_CLIENT_ID = os.getenv("PAYPAL_CLIENT_ID", "")
+PAYPAL_CLIENT_SECRET = os.getenv("PAYPAL_CLIENT_SECRET", "")
+PAYPAL_TOKEN_CACHE = {"token": None, "expires_at": 0}
+
+async def get_paypal_token() -> Optional[str]:
+    """Get PayPal OAuth 2.0 access token."""
+    now = __import__("time").time()
+    if PAYPAL_TOKEN_CACHE["token"] and now < PAYPAL_TOKEN_CACHE["expires_at"]:
+        return PAYPAL_TOKEN_CACHE["token"]
+    if not PAYPAL_CLIENT_ID or not PAYPAL_CLIENT_SECRET:
+        return None
+    try:
+        async with httpx.AsyncClient(timeout=10) as client:
+            resp = await client.post(
+                f"{PAYPAL_API}/v1/oauth2/token",
+                data={"grant_type": "client_credentials"},
+                auth=(PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET),
+                headers={"Accept": "application/json"}
+            )
+            if resp.status_code == 200:
+                data = resp.json()
+                PAYPAL_TOKEN_CACHE["token"] = data["access_token"]
+                PAYPAL_TOKEN_CACHE["expires_at"] = now + data.get("expires_in", 30000) - 60
+                return data["access_token"]
+    except Exception as e:
+        print(f"PayPal token error: {e}")
+    return None
+
+@app.get("/api/payment/verify/{subscription_id}")
+async def verify_paypal_subscription(subscription_id: str):
+    """
+    Verify PayPal subscription status via PayPal REST API.
+    Returns: { verified: bool, status: str, subscription_id: str }
+    """
+    # Return pending if no PayPal credentials configured
+    token = await get_paypal_token()
+    if not token:
+        return JSONResponse({
+            "verified": False,
+            "status": "unconfigured",
+            "subscription_id": subscription_id,
+            "message": "Payment verification not configured yet. Contact support@osrsguru.com"
+        }, status_code=200)
+
+    try:
+        async with httpx.AsyncClient(timeout=10) as client:
+            resp = await client.get(
+                f"{PAYPAL_API}/v1/billing/subscriptions/{subscription_id}",
+                headers={"Authorization": f"Bearer {token}", "Accept": "application/json"}
+            )
+            if resp.status_code == 200:
+                data = resp.json()
+                status = data.get("status", "").lower()  # ACTIVE, APPROVAL_PENDING, CANCELLED, etc.
+                is_active = status in ("active", "approved")
+                return {
+                    "verified": is_active,
+                    "status": status,
+                    "subscription_id": subscription_id,
+                    "plan_id": data.get("plan_id", ""),
+                    "start_time": data.get("start_time", ""),
+                    "next_billing_time": data.get("billing_info", {}).get("next_billing_time", ""),
+                    "payer_email": data.get("subscriber", {}).get("email_address", "")
+                }
+            elif resp.status_code == 404:
+                return {"verified": False, "status": "not_found", "subscription_id": subscription_id}
+            else:
+                return {"verified": False, "status": "error", "subscription_id": subscription_id,
+                        "paypal_code": resp.status_code}
+    except Exception as e:
+        return {"verified": False, "status": "error", "subscription_id": subscription_id,
+                "message": str(e)}
+
+# ============================================================
 # Run: uvicorn main:app --host 0.0.0.0 --port 8000
 # ============================================================
 if __name__ == "__main__":

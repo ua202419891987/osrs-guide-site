@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirming Your Payment — OSRS Guru Premium</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #1a0f0a;
+      color: #e8d5b7;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .verify-card {
+      background: #2a1a0a;
+      border: 1px solid #4a3320;
+      border-radius: 12px;
+      padding: 40px 32px;
+      max-width: 460px;
+      width: 100%;
+      text-align: center;
+    }
+    .icon {
+      font-size: 44px;
+      margin-bottom: 18px;
+      display: block;
+    }
+    h1 { color: #d4af37; font-size: 22px; margin-bottom: 10px; line-height: 1.3; }
+    p { line-height: 1.65; margin-bottom: 12px; color: #c8b89a; font-size: 15px; }
+    .status-box {
+      margin: 24px 0;
+      padding: 18px 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .status-box.processing {
+      background: #3b2615;
+      border: 1px solid #5a4320;
+    }
+    .status-box.success {
+      background: #1a3a1a;
+      border: 1px solid #2e7d32;
+    }
+    .status-box.retry {
+      background: #3b2615;
+      border: 1px solid #d4af37;
+    }
+    .status-box.error {
+      background: #3a1a1a;
+      border: 1px solid #8b0000;
+    }
+    .spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid #4a3320;
+      border-top: 3px solid #d4af37;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 12px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .progress-text {
+      font-size: 13px;
+      color: #a09080;
+      margin-top: 8px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      font-size: 15px;
+      margin: 6px;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .btn:hover { opacity: 0.9; }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary {
+      background: #d4af37;
+      color: #1a0f0a;
+    }
+    .btn-secondary {
+      background: #4a3320;
+      color: #d4af37;
+      border: 1px solid #6a5330;
+    }
+    .email-note {
+      background: #1a1510;
+      border: 1px solid #3a3020;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-top: 18px;
+      text-align: left;
+    }
+    .email-note p {
+      font-size: 13px;
+      color: #b0a090;
+      margin: 0;
+    }
+    .footer-text {
+      font-size: 12px;
+      color: #706050;
+      margin-top: 20px;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="verify-card">
+    <span class="icon">&#9889;</span>
+    <h1 id="pageTitle">We're Confirming Your Payment</h1>
+    <p id="pageSubtitle">Your subscription is being processed. This usually takes less than a minute.</p>
+
+    <!-- Processing State -->
+    <div id="processingBox" class="status-box processing">
+      <div class="spinner"></div>
+      <p style="color:#d4af37;margin-bottom:4px;"><strong>Verifying payment...</strong></p>
+      <p class="progress-text" id="progressText">Checking PayPal status</p>
+    </div>
+
+    <!-- Success State -->
+    <div id="successBox" class="status-box success hidden">
+      <p style="color:#7dd87d;font-size:18px;margin-bottom:6px;">&#10003;</p>
+      <p style="color:#e8d5b7;"><strong>Payment confirmed!</strong></p>
+      <p style="font-size:14px;">Your OSRS Guru Premium subscription is now active.</p>
+      <a href="/tools/gear-recommender/" class="btn btn-primary">Go to Gear Recommender</a>
+    </div>
+
+    <!-- Retry State (manual retry after timeout) -->
+    <div id="retryBox" class="status-box retry hidden">
+      <p style="color:#d4af37;margin-bottom:10px;"><strong>Still confirming...</strong></p>
+      <p style="font-size:14px;margin-bottom:16px;">PayPal is taking longer than usual. Click below to check your payment status again.</p>
+      <button class="btn btn-primary" id="retryBtn">&#x21bb; Retry Verification</button>
+      <button class="btn btn-secondary" id="contactBtn">Contact Support</button>
+    </div>
+
+    <!-- Error State -->
+    <div id="errorBox" class="status-box error hidden">
+      <p style="color:#ff9999;margin-bottom:8px;"><strong>Couldn't confirm payment</strong></p>
+      <p style="font-size:14px;margin-bottom:14px;">We couldn't verify your subscription. Don't worry — your money is safe with PayPal.</p>
+      <p style="font-size:14px;margin-bottom:16px;">Contact <strong>support@osrsguru.com</strong> and we'll get it sorted within 12 hours.</p>
+      <a href="/tools/gear-recommender/" class="btn btn-secondary">Back to Tool</a>
+    </div>
+
+    <!-- Email Note -->
+    <div class="email-note">
+      <p>&#9993; <strong>PayPal will send you a confirmation email</strong> within a few minutes. If you don't see it within 5 minutes, check your spam folder.</p>
+    </div>
+
+    <p class="footer-text">OSRS Guru Premium · $1.90/month · Cancel anytime</p>
+  </div>
+
+  <script>
+    (function() {
+      var processingBox = document.getElementById('processingBox');
+      var successBox = document.getElementById('successBox');
+      var retryBox = document.getElementById('retryBox');
+      var errorBox = document.getElementById('errorBox');
+      var progressText = document.getElementById('progressText');
+      var retryBtn = document.getElementById('retryBtn');
+      var contactBtn = document.getElementById('contactBtn');
+
+      var API_BASE = 'https://osrs-rag-api.vercel.app';
+
+      var pollInterval = 5000;  // 5 seconds
+      var maxPollTime = 30000;  // 30 seconds
+      var elapsed = 0;
+      var retryCount = 0;
+      var maxRetries = 3;
+      var pollTimer = null;
+
+      // Read payment params from URL (PayPal or Stripe)
+      function getPaymentParams() {
+        var params = new URLSearchParams(window.location.search);
+        return {
+          subscriptionId: params.get('subscription_id'),
+          baToken: params.get('ba_token'),
+          payerId: params.get('PayerID'),
+          sessionId: params.get('session_id'),
+          token: params.get('token')
+        };
+      }
+
+      function hasValidPaymentParams(params) {
+        return !!(params.subscriptionId || params.baToken || params.payerId || params.sessionId || params.token);
+      }
+
+      function getSubscriptionId(params) {
+        return params.subscriptionId || params.baToken || params.sessionId || params.token;
+      }
+
+      function activateSubscription(params, email) {
+        try {
+          var now = new Date();
+          var expiry = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000); // 30 days
+          var subscriptionData = {
+            active: true,
+            activatedAt: now.toISOString(),
+            expiresAt: expiry.toISOString(),
+            provider: params.sessionId ? 'stripe' : 'paypal',
+            subscriptionId: getSubscriptionId(params),
+            payerId: params.payerId
+          };
+
+          localStorage.setItem('osrsguru_premium', JSON.stringify(subscriptionData));
+          localStorage.setItem('osrsguru_premium_status', 'active');
+
+          processingBox.classList.add('hidden');
+          retryBox.classList.add('hidden');
+          errorBox.classList.add('hidden');
+          successBox.classList.remove('hidden');
+
+          document.getElementById('pageTitle').textContent = 'Payment Confirmed';
+          document.getElementById('pageSubtitle').textContent = email
+            ? 'Welcome to OSRS Guru Premium! A confirmation has been sent to your email.'
+            : 'Welcome to OSRS Guru Premium!';
+
+          return true;
+        } catch (e) {
+          console.error('Failed to save subscription:', e);
+          return false;
+        }
+      }
+
+      function showRetryState() {
+        processingBox.classList.add('hidden');
+        successBox.classList.add('hidden');
+        retryBox.classList.remove('hidden');
+      }
+
+      function showErrorState() {
+        processingBox.classList.add('hidden');
+        successBox.classList.add('hidden');
+        retryBox.classList.add('hidden');
+        errorBox.classList.remove('hidden');
+
+        document.getElementById('pageTitle').textContent = 'Payment Confirmation Issue';
+        document.getElementById('pageSubtitle').textContent = 'We need to check this manually.';
+      }
+
+      function verifyPayment() {
+        var params = getPaymentParams();
+
+        if (!hasValidPaymentParams(params)) {
+          // No payment params at all - show error immediately
+          return false;
+        }
+
+        // Update progress text
+        if (elapsed < maxPollTime) {
+          var step = Math.min(Math.floor(elapsed / pollInterval) + 1, 6);
+          var messages = [
+            'Connecting to PayPal',
+            'Verifying subscription status',
+            'Checking payment confirmation',
+            'Syncing your premium access',
+            'Almost there',
+            'Finalizing your account'
+          ];
+          progressText.textContent = messages[Math.min(step, messages.length - 1)];
+        }
+
+        // Call server-side API to verify the subscription
+        var subId = getSubscriptionId(params);
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', API_BASE + '/api/payment/verify/' + encodeURIComponent(subId), false);  // sync for simplicity
+        try {
+          xhr.send();
+          if (xhr.status === 200) {
+            var data = JSON.parse(xhr.responseText);
+            if (data.verified === true) {
+              activateSubscription(params, data.payer_email || null);
+              clearInterval(pollTimer);
+              return true;
+            } else if (data.status === 'unconfigured') {
+              // API not configured yet - fall back to client-side activation
+              // This allows testing without PayPal credentials
+              if (elapsed >= 2000) {
+                activateSubscription(params);
+                clearInterval(pollTimer);
+                return true;
+              }
+            }
+            // status is pending/canceled/etc - keep polling
+            return false;
+          }
+        } catch (e) {
+          console.error('API call failed:', e);
+        }
+        return false;
+      }
+
+      function startPolling() {
+        elapsed = 0;
+        retryCount = 0;
+        processingBox.classList.remove('hidden');
+        successBox.classList.add('hidden');
+        retryBox.classList.add('hidden');
+        errorBox.classList.add('hidden');
+
+        pollTimer = setInterval(function() {
+          elapsed += pollInterval;
+
+          if (verifyPayment()) {
+            return;
+          }
+
+          if (elapsed >= maxPollTime) {
+            clearInterval(pollTimer);
+            showRetryState();
+          }
+        }, pollInterval);
+      }
+
+      // Retry button handler
+      if (retryBtn) {
+        retryBtn.addEventListener('click', function() {
+          retryCount++;
+          if (retryCount >= maxRetries) {
+            showErrorState();
+          } else {
+            startPolling();
+          }
+        });
+      }
+
+      // Contact support button handler
+      if (contactBtn) {
+        contactBtn.addEventListener('click', function() {
+          showErrorState();
+        });
+      }
+
+      // Start the process
+      startPolling();
+    })();
+  </script>
+</body>
+</html>

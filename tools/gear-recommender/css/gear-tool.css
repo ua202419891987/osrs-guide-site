@@ -1,0 +1,1168 @@
+/* ============================================================
+   gear-tool.css — OSRS Guru Gear Recommender Styles
+   ============================================================
+   Theme: Medieval brown (osrsguru.com brand)
+   Colors: #2a1a0a, #3b2615, #4a3320 (browns)
+           #d4af37 (gold accent)
+           #e8d5b7 (text)
+           #2e7d32 (premium green, subscription only)
+   ============================================================ */
+
+/* ========== CSS Reset & Variables ========== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-start: #2a1a0a;
+  --bg-mid: #3b2615;
+  --bg-end: #4a3320;
+  --accent: #d4af37;
+  --accent-glow: #d4af37;
+  --text: #e8d5b7;
+  --text-dim: #a08a6a;
+  --text-dark: #5c4a30;
+  --card-bg: rgba(75, 55, 35, 0.6);
+  --card-border: rgba(212, 175, 55, 0.2);
+  --card-hover: rgba(212, 175, 55, 0.08);
+  --premium-green: #2e7d32;
+  --premium-green-light: #2e7d32;
+  --slot-bg: rgba(30, 18, 8, 0.7);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 18px;
+  --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-mid) 40%, var(--bg-end) 100%);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ========== Scrollbar ========== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-start); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+/* ========== Container ========== */
+.gt-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
+@media (min-width: 768px) {
+  .gt-container { padding: 24px; }
+}
+
+/* ========== Header ========== */
+.gt-header {
+  text-align: center;
+  padding: 32px 16px 20px;
+  position: relative;
+}
+.gt-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+.gt-header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.gt-header-logo svg { width: 32px; height: 32px; }
+.gt-header h1 {
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+}
+.gt-header p {
+  font-size: clamp(0.75rem, 2.5vw, 0.88rem);
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+/* ========== Premium Badge ========== */
+.gt-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--accent);
+  color: var(--bg-start);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ========== Free Status Banner ========== */
+.gt-free-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.12);
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+  margin: 12px 0;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+.gt-free-banner .gt-badge-free {
+  background: var(--accent);
+  color: var(--bg-start);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+/* ========== Step Progress ========== */
+.gt-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 20px 0 28px;
+  padding: 0 8px;
+}
+
+.gt-step-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.gt-step-item .gt-step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border: 2px solid var(--text-dim);
+  transition: var(--transition);
+}
+
+.gt-step-item.gt-active {
+  color: var(--accent);
+}
+.gt-step-item.gt-active .gt-step-num {
+  background: var(--accent);
+  color: var(--bg-start);
+  border-color: var(--accent);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+}
+
+.gt-step-item.gt-done .gt-step-num {
+  background: var(--premium-green);
+  color: #fff;
+  border-color: var(--premium-green);
+}
+
+.gt-step-line {
+  width: clamp(20px, 6vw, 48px);
+  height: 2px;
+  background: var(--text-dim);
+  margin: 0 6px;
+  transition: var(--transition);
+}
+
+.gt-step-line.gt-done {
+  background: var(--premium-green);
+}
+
+.gt-step-label {
+  display: none;
+}
+@media (min-width: 480px) {
+  .gt-step-label { display: inline; }
+}
+
+/* ========== Card ========== */
+.gt-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(16px, 4vw, 28px);
+  margin-bottom: 20px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: var(--transition);
+}
+
+.gt-card-title {
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.gt-card-title svg { flex-shrink: 0; }
+
+/* ========== Step 1: Combat Style ========== */
+.gt-style-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.gt-style-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: clamp(18px, 3vw, 28px) 12px;
+  background: var(--slot-bg);
+  border: 2px solid var(--card-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--text);
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
+  font-weight: 600;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  font-family: var(--font);
+}
+
+.gt-style-btn svg {
+  width: clamp(36px, 8vw, 48px);
+  height: clamp(36px, 8vw, 48px);
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
+.gt-style-btn .gt-icon-label {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+.gt-style-btn:hover {
+  background: var(--card-hover);
+  border-color: rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+}
+.gt-style-btn:hover svg { opacity: 1; }
+
+.gt-style-btn:active { transform: translateY(0); }
+
+.gt-style-btn.gt-selected {
+  border-color: var(--accent);
+  background: rgba(212, 175, 55, 0.12);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+}
+.gt-style-btn.gt-selected svg {
+  opacity: 1;
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.3));
+}
+
+.gt-style-btn .gt-check { display: none; }
+
+.gt-style-btn.gt-selected .gt-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg-start);
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+/* ========== Step 2: Level Inputs ========== */
+.gt-level-grid {
+  display: grid;
+  gap: 14px;
+}
+@media (min-width: 600px) {
+  .gt-level-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.gt-level-item label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.gt-level-item label span { color: var(--accent); font-size: 1.1rem; }
+
+.gt-level-item input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--bg-start), var(--accent));
+  outline: none;
+  transition: var(--transition);
+}
+
+.gt-level-item input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+  transition: var(--transition);
+}
+.gt-level-item input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+
+.gt-level-item input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: none;
+}
+
+/* ========== Step 3: Budget ========== */
+.gt-budget-display {
+  text-align: center;
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  font-weight: 800;
+  color: var(--accent);
+  margin: 8px 0 4px;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+}
+.gt-budget-display small {
+  font-size: 0.5em;
+  font-weight: 400;
+  color: var(--text-dim);
+}
+
+.gt-budget-presets {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 14px 0 10px;
+}
+
+.gt-budget-preset {
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  background: var(--slot-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  cursor: pointer;
+  color: var(--text-dim);
+  transition: var(--transition);
+  -webkit-tap-highlight-color: transparent;
+  font-family: var(--font);
+}
+
+.gt-budget-preset:hover,
+.gt-budget-preset.gt-active {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(212, 175, 55, 0.08);
+}
+
+input[type="range"].gt-budget-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--bg-start), var(--accent) 60%, var(--bg-end));
+  outline: none;
+  margin-top: 8px;
+}
+
+input[type="range"].gt-budget-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+}
+
+input[type="range"].gt-budget-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: none;
+}
+
+/* ========== Buttons ========== */
+.gt-btn-primary {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-top: 16px;
+  background: linear-gradient(135deg, var(--accent), #b8962e);
+  border: none;
+  border-radius: var(--radius);
+  color: var(--bg-start);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  -webkit-tap-highlight-color: transparent;
+  font-family: var(--font);
+}
+
+.gt-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(212, 175, 55, 0.25);
+}
+.gt-btn-primary:active { transform: translateY(0); }
+.gt-btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.gt-btn-secondary {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  -webkit-tap-highlight-color: transparent;
+  font-family: var(--font);
+}
+
+.gt-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ========== Step Content Animation ========== */
+.gt-step-content {
+  display: none;
+  animation: gtFadeSlideIn 0.4s ease;
+}
+.gt-step-content.gt-active {
+  display: block;
+}
+
+@keyframes gtFadeSlideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== Results: Section Meta ========== */
+.gt-section-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.gt-section-meta .gt-build-label {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.gt-section-meta .gt-build-label strong { color: var(--text); }
+
+/* ========== Results: Stats Summary ========== */
+.gt-stats-summary {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+  padding: 14px;
+  background: var(--slot-bg);
+  border-radius: var(--radius);
+}
+
+.gt-stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+.gt-stat-pill .gt-stat-icon { color: var(--accent); font-weight: 700; }
+
+/* ========== Results: Equipment Grid ========== */
+.gt-equip-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+@media (min-width: 420px) {
+  .gt-equip-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 640px) {
+  .gt-equip-grid { grid-template-columns: repeat(5, 1fr); }
+}
+
+.gt-equip-slot {
+  background: var(--slot-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 12px 10px;
+  text-align: center;
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+}
+
+.gt-equip-slot:hover {
+  border-color: rgba(212, 175, 55, 0.35);
+  background: rgba(30, 18, 8, 0.85);
+  transform: translateY(-2px);
+}
+.gt-equip-slot:active { transform: translateY(0); }
+
+.gt-equip-slot .gt-slot-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 8px;
+  background: rgba(212, 175, 55, 0.06);
+  border: 1px dashed rgba(212, 175, 55, 0.15);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  position: relative;
+  transition: var(--transition);
+}
+
+.gt-equip-slot:hover .gt-slot-icon {
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.gt-equip-slot .gt-slot-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+.gt-equip-slot .gt-slot-label {
+  font-size: 0.6rem;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.gt-equip-slot .gt-slot-stats {
+  font-size: 0.65rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.gt-equip-slot .gt-slot-reason {
+  margin-top: 6px;
+  padding: 4px 8px;
+  background: rgba(212, 175, 55, 0.06);
+  border-radius: 4px;
+  font-size: 0.6rem;
+  color: var(--text-dim);
+  line-height: 1.3;
+}
+
+.gt-equip-slot .gt-slot-cost {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 0.55rem;
+  color: var(--accent);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.gt-equip-slot.gt-empty .gt-slot-icon { opacity: 0.4; }
+.gt-equip-slot.gt-empty .gt-slot-name { color: var(--text-dim); }
+
+/* Price stale indicator */
+.gt-equip-slot .gt-price-stale {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 0.5rem;
+  color: var(--text-dim);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+/* ========== Results: Total Cost ========== */
+.gt-total-cost {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(212, 175, 55, 0.02));
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: var(--radius);
+}
+
+.gt-total-cost .gt-total-label {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.gt-total-cost .gt-total-amount {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.15);
+}
+
+/* ========== Results: Upgrade Path ========== */
+.gt-upgrade-section {
+  margin-top: 20px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(212, 175, 55, 0.2);
+  border-radius: var(--radius);
+}
+
+.gt-upgrade-section h4 {
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gt-upgrade-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+}
+
+.gt-upgrade-table th {
+  text-align: left;
+  color: var(--text-dim);
+  font-weight: 600;
+  padding: 6px 8px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.08);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.gt-upgrade-table td {
+  padding: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  color: var(--text);
+}
+
+.gt-upgrade-table tr:last-child td { border-bottom: none; }
+
+.gt-upgrade-table .gt-arrow { color: var(--accent); margin: 0 4px; }
+.gt-upgrade-table .gt-gp { color: var(--accent); font-weight: 600; }
+
+.gt-priority {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+.gt-priority-high { background: rgba(212, 175, 55, 0.25); color: var(--accent); }
+.gt-priority-mid  { background: rgba(212, 175, 55, 0.15); color: var(--accent); }
+.gt-priority-low  { background: rgba(255, 255, 255, 0.05); color: var(--text-dim); }
+
+/* ========== Results: GE Tips ========== */
+.gt-ge-tips {
+  margin-top: 16px;
+  padding: 14px;
+  background: rgba(30, 18, 8, 0.5);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: var(--radius);
+}
+
+.gt-ge-tips h4 {
+  font-size: 0.85rem;
+  color: var(--text);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gt-ge-tip-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 6px 0;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
+.gt-ge-tip-item .gt-bullet {
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ========== Price Source Indicator ========== */
+.gt-price-source {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+}
+
+.gt-price-source.gt-live { color: var(--premium-green); }
+.gt-price-source.gt-stale { color: var(--accent); }
+.gt-price-source.gt-static { color: var(--text-dim); }
+
+/* ========== Premium Lock Overlay ========== */
+.gt-locked-overlay {
+  position: relative;
+}
+
+.gt-locked-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(42, 26, 10, 0.7);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.gt-locked-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(46, 125, 50, 0.3);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.gt-locked-badge .gt-lock-icon { font-size: 1.5rem; }
+.gt-locked-badge .gt-lock-text { font-size: 0.75rem; color: var(--text-dim); }
+
+.gt-locked-badge .gt-unlock-btn {
+  padding: 6px 16px;
+  background: var(--premium-green);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font);
+}
+
+.gt-locked-badge .gt-unlock-btn:hover {
+  background: var(--premium-green);
+}
+
+/* ========== Premium CTA ========== */
+.gt-premium-cta {
+  background: linear-gradient(135deg, rgba(46, 125, 50, 0.12), rgba(46, 125, 50, 0.04));
+  border: 1px solid rgba(46, 125, 50, 0.3);
+  border-radius: var(--radius-lg);
+  padding: clamp(20px, 4vw, 32px);
+  text-align: center;
+  margin: 24px 0 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.gt-premium-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(46, 125, 50, 0.04) 0%, transparent 70%);
+  animation: gtPremiumGlow 6s ease-in-out infinite;
+}
+
+@keyframes gtPremiumGlow {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-10%, -10%); }
+}
+
+.gt-premium-cta .gt-badge-premium {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--premium-green);
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.gt-premium-cta h3 {
+  font-size: clamp(1.05rem, 3vw, 1.35rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.gt-premium-cta p {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  max-width: 480px;
+  margin: 0 auto 16px;
+  position: relative;
+}
+
+.gt-premium-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  max-width: 480px;
+  margin: 0 auto 18px;
+  text-align: left;
+  position: relative;
+}
+@media (min-width: 500px) {
+  .gt-premium-features { grid-template-columns: repeat(3, 1fr); }
+}
+
+.gt-premium-feat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: var(--text);
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
+}
+
+.gt-premium-feat .gt-check {
+  color: var(--premium-green);
+  font-weight: 700;
+}
+
+.gt-btn-premium {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 32px;
+  background: var(--premium-green);
+  border: none;
+  border-radius: var(--radius);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  font-family: var(--font);
+}
+
+.gt-btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(46, 125, 50, 0.3);
+}
+.gt-btn-premium:active { transform: translateY(0); }
+
+.gt-btn-premium .gt-price {
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* ========== Loading ========== */
+.gt-loading {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-dim);
+}
+
+.gt-loading-spinner {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--card-border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: gtSpin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes gtSpin {
+  to { transform: rotate(360deg); }
+}
+
+.gt-loading-text {
+  font-size: 0.82rem;
+}
+
+/* ========== Toast ========== */
+.gt-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: rgba(0, 0, 0, 0.85);
+  color: var(--text);
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  z-index: 100;
+  opacity: 0;
+  transition: var(--transition);
+  pointer-events: none;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  max-width: 90vw;
+  text-align: center;
+}
+
+.gt-toast.gt-show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.gt-toast.gt-hide {
+  opacity: 0;
+  transform: translateX(-50%) translateY(8px);
+}
+
+/* ========== Ad Banner Placeholder ========== */
+.gt-ad-banner {
+  margin: 16px 0;
+  padding: 20px;
+  background: rgba(30, 18, 8, 0.4);
+  border: 1px dashed rgba(212, 175, 55, 0.1);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--text-dark);
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========== Footer ========== */
+.gt-footer {
+  text-align: center;
+  padding: 24px 16px;
+  font-size: 0.7rem;
+  color: var(--text-dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  margin-top: 12px;
+}
+
+/* ========== FAQ Section ========== */
+.gt-faq {
+  margin-top: 24px;
+}
+
+.gt-faq h2 {
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+  color: var(--accent);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.gt-faq-item {
+  margin-bottom: 12px;
+}
+
+.gt-faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
+  background: var(--slot-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-family: var(--font);
+}
+
+.gt-faq-question:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.gt-faq-question .gt-faq-toggle {
+  font-size: 0.7rem;
+  color: var(--accent);
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.gt-faq-question.gt-open .gt-faq-toggle {
+  transform: rotate(45deg);
+}
+
+.gt-faq-answer {
+  display: none;
+  padding: 12px 16px 4px;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.gt-faq-question.gt-open + .gt-faq-answer {
+  display: block;
+}
+
+/* ========== Related Links ========== */
+.gt-related-links {
+  margin-top: 24px;
+  padding: 16px;
+  background: var(--slot-bg);
+  border-radius: var(--radius);
+}
+
+.gt-related-links h3 {
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.gt-related-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.8rem;
+  display: block;
+  padding: 4px 0;
+  transition: var(--transition);
+}
+
+.gt-related-links a:hover {
+  color: var(--accent);
+}
+
+/* ========== Over-budget indicator ========== */
+.gt-equip-slot .gt-over-budget {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  font-size: 0.5rem;
+  color: var(--accent);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+/* ========== Query count ========== */
+.gt-query-count {
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--text-dark);
+  margin: 8px 0;
+}
+
+/* ========== Print Styles ========== */
+@media print {
+  .gt-ad-banner,
+  .gt-premium-cta,
+  .gt-locked-overlay::after,
+  .gt-locked-badge,
+  .gt-free-banner,
+  .gt-btn-primary,
+  .gt-btn-secondary,
+  .gt-toast {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+    color: #333 !important;
+  }
+  .gt-card {
+    background: #fff !important;
+    border-color: #ccc !important;
+    break-inside: avoid;
+  }
+  .gt-equip-slot {
+    break-inside: avoid;
+  }
+  .gt-header h1 { color: #3b2615 !important; }
+}

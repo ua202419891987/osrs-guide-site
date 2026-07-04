@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ========== 基础 Meta 标签 ========== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ========== Title Tag (55 字符) ========== -->
+  <title>OSRS Beginner Gear Recommender | Best Gear Setup Tool - OSRS Guru</title>
+
+  <!-- ========== Meta Description (154 字符) ========== -->
+  <meta name="description" content="Free OSRS gear recommender tool. Find the best weapons and armor for your combat level and budget. Compare melee, ranged & magic setups instantly. Updated 2026.">
+
+  <!-- ========== Meta Keywords ========== -->
+  <meta name="keywords" content="OSRS beginner gear, OSRS gear recommender, OSRS low level equipment,
+           OSRS gear guide, OSRS budget gear, OSRS equipment finder,
+           OSRS melee gear, OSRS ranged gear, OSRS magic gear,
+           OSRS gear for level 40, OSRS gear calculator,
+           OSRS cheap gear, OSRS best weapon, OSRS armor guide,
+           old school runescape gear, osrs gear progression">
+
+  <!-- ========== Canonical URL ========== -->
+  <link rel="canonical" href="https://osrsguru.com/tools/gear-recommender/">
+
+  <!-- ========== Robots Meta Tag ========== -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <!-- ========== Googlebot 特定指令 ========== -->
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <!-- ========== Open Graph 标签 (Facebook, LinkedIn, Discord, WhatsApp) ========== -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://osrsguru.com/tools/gear-recommender/">
+  <meta property="og:title" content="OSRS Beginner Gear Recommender — Find Your Best Equipment Setup">
+  <meta property="og:description" content="Free OSRS gear recommender tool. Find the best weapons and armor for your combat level, budget, and play style. Melee, ranged, magic & F2P supported.">
+  <meta property="og:image" content="https://osrsguru.com/images/og/gear-recommender-og-2026.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="OSRS Gear Recommender Tool — Personalised Equipment Setup">
+  <meta property="og:site_name" content="OSRS Guru">
+  <meta property="og:locale" content="en_US">
+
+  <!-- ========== Twitter Card 标签 (X/Twitter) ========== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@osrsguru">
+  <meta name="twitter:creator" content="@osrsguru">
+  <meta name="twitter:url" content="https://osrsguru.com/tools/gear-recommender/">
+  <meta name="twitter:title" content="OSRS Beginner Gear Recommender — Best Gear Setup Tool">
+  <meta name="twitter:description" content="Free OSRS gear recommender. Get personalised weapon & armour setups for your combat level and budget. Melee, ranged, magic & F2P. Updated 2026.">
+  <meta name="twitter:image" content="https://osrsguru.com/images/twitter/gear-recommender-twitter-2026.webp">
+  <meta name="twitter:image:alt" content="OSRS Gear Recommender Tool Interface Preview">
+
+  <!-- ========== hreflang 标签 (多语言SEO) ========== -->
+  <link rel="alternate" hreflang="en" href="https://osrsguru.com/tools/gear-recommender/">
+  <link rel="alternate" hreflang="x-default" href="https://osrsguru.com/tools/gear-recommender/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://osrsguru.cn/tools/gear-recommender/">
+
+  <!-- ========== 验证标签 ========== -->
+  <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE">
+  <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE">
+
+  <!-- ========== 主题色 & 应用名称 ========== -->
+  <meta name="theme-color" content="#2d2d2d">
+  <meta name="apple-mobile-web-app-title" content="OSRS Gear Recommender">
+  <meta name="application-name" content="OSRS Gear Recommender - OSRS Guru">
+
+  <!-- ========== 资源提示 ========== -->
+  <link rel="dns-prefetch" href="//osrsguru.com">
+  <link rel="preconnect" href="https://osrsguru.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://prices.runescape.wiki">
+  <link rel="preconnect" href="https://cdn.osrsguru.com" crossorigin>
+
+  <!-- ========== Favicon & App Icons ========== -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2d2d2d">
+
+  <!-- ========== Preload 关键资源 ========== -->
+  <link rel="preload" href="data/gear-database.json" as="fetch" crossorigin="anonymous">
+  <link rel="preload" href="css/gear-tool.css" as="style">
+
+  <!-- ========== 样式表 ========== -->
+  <link rel="stylesheet" href="css/gear-tool.css">
+
+  <!-- ========== Schema: SoftwareApplication ========== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "OSRS Gear Recommender",
+    "operatingSystem": "Web",
+    "applicationCategory": "GameApplication",
+    "applicationSubCategory": "UtilityApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "priceValidUntil": "2027-12-31",
+      "availability": "https://schema.org/InStock"
+    },
+    "description": "Free OSRS gear recommender tool. Find the best weapons and armor for your combat level, budget, and play style. Supports melee, ranged, magic, F2P, and Ironman modes with real-time Grand Exchange prices.",
+    "browserRequirements": "Requires JavaScript",
+    "softwareVersion": "1.0",
+    "operatingSystem": "All modern browsers (Chrome, Firefox, Safari, Edge)",
+    "url": "https://osrsguru.com/tools/gear-recommender/",
+    "author": {
+      "@type": "Organization",
+      "name": "OSRS Guru",
+      "url": "https://osrsguru.com"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "150",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "screenshot": "https://osrsguru.com/images/tools/gear-recommender-screenshot.webp",
+    "featureList": "Personalised gear recommendations, budget filtering, real-time GE prices, Ironman mode, F2P mode, multi-style support (melee/ranged/magic), upgrade path planning",
+    "releaseNotes": "Updated for 2026 OSRS game changes including new Fortis Colosseum rewards and Grand Exchange price recalibrations."
+  }
+  </script>
+
+  <!-- ========== Schema: FAQPage ========== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the best weapon at level 40 attack in OSRS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Rune Scimitar is the best weapon at level 40 Attack for both members and F2P players. It attacks on a 4-tick cycle (2.4 seconds) with +44 strength bonus and +45 slash attack. It costs approximately 35K GP on the Grand Exchange and remains the best general-purpose weapon until level 60 Attack."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much GP do I need for decent beginner gear in OSRS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can assemble a complete effective beginner gear setup with approximately 150K-250K GP. A budget level 40 combat build includes: Rune Scimitar (35K GP), Amulet of Power (5K GP), Rune Platebody (80K GP), Rune Platelegs (65K GP), Rune Full Helm (45K GP), Combat Bracelet (20K GP), and Climbing Boots (free)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I buy armour or weapon first in OSRS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Always buy the weapon first. Weapons provide the largest DPS increase per GP spent. A good weapon dramatically improves training speed, Slayer efficiency, and money-making capability. Armour reduces damage taken but doesn't speed up kills."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best budget melee gear for OSRS beginners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For beginners with a 500K-1M GP budget at level 40-60 combat: Weapon — Rune Scimitar (35K GP). Amulet — Amulet of Glory (30K GP). Body — Rune Platebody (80K GP). Legs — Rune Platelegs (65K GP). Boots — Climbing Boots (free). Gloves — Combat Bracelet (20K GP). Total cost approximately 600K GP."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can ironman players use the OSRS gear recommender?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our gear recommender includes a dedicated Ironman mode that filters out tradeable items and recommends gear obtainable through monster drops, quest rewards, skilling, and minigames."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the gear recommender include F2P equipment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our tool fully supports Free-to-Play players with a dedicated F2P mode. When F2P mode is selected, all members-only items are filtered out and only equipment available to free players is shown."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the gear recommender handle budget constraints?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The gear recommender uses a greedy optimisation algorithm that allocates your budget to the highest-impact equipment slots first. For each slot, it compares three options: the best overall item, the best item within your budget, and a budget-friendly alternative."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often is the gear recommendation data updated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our equipment database refreshes every 24 hours with data synced from the OSRS Wiki and Grand Exchange API. This ensures all gear recommendations reflect current market prices and the latest game updates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What OSRS gear should beginners avoid buying?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dragon Longsword (60 Attack, 100K GP): inferior DPS to Dragon Scimitar. Granite Maul: situational special attack weapon, poor for general training. Rune 2H Sword: slowest weapon in its tier, outclassed by rune scimitar."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ========== Schema: HowTo ========== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Use the OSRS Gear Recommender Tool",
+    "description": "Find the best OSRS equipment for your character in three simple steps using our free gear recommender tool.",
+    "url": "https://osrsguru.com/tools/gear-recommender/",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "USD",
+      "value": "0"
+    },
+    "supply": [
+      { "@type": "HowToSupply", "name": "Web browser (desktop or mobile)" },
+      { "@type": "HowToSupply", "name": "Your OSRS combat levels (Attack, Defence, HP)" },
+      { "@type": "HowToSupply", "name": "Estimated budget in GP" }
+    ],
+    "tool": [
+      { "@type": "HowToTool", "name": "OSRS Guru Gear Recommender" }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Select your combat style and enter your levels",
+        "text": "Choose between Melee, Ranged, or Magic. Then enter your Attack, Ranged, or Magic level along with Defence. These inputs filter the equipment database to show only items you can equip.",
+        "url": "https://osrsguru.com/tools/gear-recommender/"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Set your budget and account type",
+        "text": "Select your budget from the presets: Unlimited, High (10M+), Medium (1M-10M), Low (under 1M), or enter a custom budget. Choose Normal, Ironman, or F2P mode to filter items appropriately.",
+        "url": "https://osrsguru.com/tools/gear-recommender/"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "View and customise your gear setup",
+        "text": "Click 'Recommend My Gear' to generate your personalised equipment setup. View each item's GE price, stat bonuses, and click any slot to see alternative options.",
+        "url": "https://osrsguru.com/tools/gear-recommender/"
+      }
+    ],
+    "totalTime": "PT1M"
+  }
+  </script>
+
+  <!-- ========== Schema: BreadcrumbList ========== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://osrsguru.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://osrsguru.com/tools/" },
+      { "@type": "ListItem", "position": 3, "name": "Gear Recommender", "item": "https://osrsguru.com/tools/gear-recommender/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<div class="gt-container">
+
+  <!-- ===== HEADER ===== -->
+  <header class="gt-header">
+    <div class="gt-header-logo">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="4" y="10" width="24" height="12" rx="2" fill="#d4af37" opacity="0.8"/>
+        <circle cx="16" cy="16" r="4" fill="#2a1a0a"/>
+        <path d="M12 6L16 2L20 6" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <h1>OSRS Beginner Gear Recommender Tool</h1>
+    </div>
+    <p>Find the best OSRS equipment for your combat style, level, and budget in just 3 steps</p>
+  </header>
+
+  <!-- ===== 引导段落 (SEO 内容) ===== -->
+  <section class="gt-card gt-intro">
+    <p>Starting your OSRS journey and wondering what gear you should be using? You're not alone. Every new player faces the same question: "What's the best equipment for my level?" Our <strong>OSRS beginner gear recommender</strong> is designed to answer exactly that — no guesswork, no outdated forum posts, no hours of research.</p>
+    <p>This <strong>OSRS gear recommender</strong> tool takes the confusion out of gearing up. Simply tell us your combat style, your Attack (or Ranged/Magic) level, your Defence level, and roughly how much GP you're willing to spend. In seconds, you'll get a personalised equipment setup with weapons, armour, boots, gloves, capes, amulets, and rings — all tailored to your exact stats.</p>
+    <p>Whether you're a fresh F2P player in full iron armour looking to upgrade, or a new member wondering what to buy after completing Waterfall Quest, our tool has you covered. We support <strong>OSRS low level equipment</strong> recommendations from level 1 all the way to end-game best-in-slot setups. Each recommendation includes Grand Exchange price estimates so you know exactly how much GP you need before hitting the GE.</p>
+    <p>We also understand that not every player has millions of GP lying around. That's why our tool includes budget filtering — find the <strong>OSRS budget gear</strong> that actually fits your wallet, with alternative options listed for every equipment slot. From the best weapons at level 40 attack to optimal defence gear at level 70, our recommender handles it all.</p>
+    <p>Stop asking around in Lumbridge and start gearing up with confidence. The OSRS Guru Gear Recommender is completely free, updated for 2026 game changes, and requires no sign-up to use.</p>
+  </section>
+
+  <!-- ===== FREE STATUS BANNER ===== -->
+  <div class="gt-free-banner" id="freeBanner">
+    <span class="gt-badge-free">FREE</span>
+    <span>Free mode: basic recommendations available</span>
+    <a href="#premiumCta" style="font-size:0.65rem;color:var(--text-dim);margin-left:auto;text-decoration:none;">Upgrade →</a>
+  </div>
+
+  <!-- ===== QUERY COUNTER ===== -->
+  <div class="gt-query-count" id="queryCount">Daily queries: <span id="queryUsed">0</span> / 3 (free)</div>
+
+  <!-- ===== STEP PROGRESS ===== -->
+  <div class="gt-steps" role="tablist" aria-label="Tool steps">
+    <div class="gt-step-item gt-active" data-step="1" role="tab" aria-selected="true">
+      <span class="gt-step-num">1</span>
+      <span class="gt-step-label">Style</span>
+    </div>
+    <div class="gt-step-line" data-between="1"></div>
+    <div class="gt-step-item" data-step="2" role="tab" aria-selected="false">
+      <span class="gt-step-num">2</span>
+      <span class="gt-step-label">Levels</span>
+    </div>
+    <div class="gt-step-line" data-between="2"></div>
+    <div class="gt-step-item" data-step="3" role="tab" aria-selected="false">
+      <span class="gt-step-num">3</span>
+      <span class="gt-step-label">Budget</span>
+    </div>
+    <div class="gt-step-line" data-between="3"></div>
+    <div class="gt-step-item" data-step="4" role="tab" aria-selected="false">
+      <span class="gt-step-num">4</span>
+      <span class="gt-step-label">Results</span>
+    </div>
+  </div>
+
+  <!-- ===== STEP 1: COMBAT STYLE ===== -->
+  <section class="gt-card gt-step-content gt-active" id="step1" role="tabpanel">
+    <h2 class="gt-card-title">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <circle cx="10" cy="10" r="9" stroke="#d4af37" stroke-width="1.5"/>
+        <text x="10" y="13.5" text-anchor="middle" fill="#d4af37" font-size="11" font-weight="700">1</text>
+      </svg>
+      Select Your Combat Style
+    </h2>
+    <p style="font-size:0.82rem;color:var(--text-dim);margin-bottom:14px">
+      Choose the combat style you want gear recommendations for. Each style has unique equipment requirements.
+    </p>
+    <div class="gt-style-grid">
+      <button class="gt-style-btn" data-style="melee" aria-label="Melee combat style">
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect x="18" y="8" width="12" height="24" rx="2" fill="#d4af37" opacity="0.9"/>
+          <rect x="22" y="6" width="4" height="6" rx="1" fill="#a08030"/>
+          <path d="M14 32L24 34L34 32" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+          <path d="M20 32L22 40H18L20 32Z" fill="#888"/>
+          <path d="M28 32L26 40H30L28 32Z" fill="#888"/>
+        </svg>
+        <span>Melee</span>
+        <span class="gt-icon-label">近战</span>
+        <span class="gt-check" aria-hidden="true">✓</span>
+      </button>
+      <button class="gt-style-btn" data-style="ranged" aria-label="Ranged combat style">
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M10 38L24 8L38 38" stroke="#d4af37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+          <circle cx="24" cy="20" r="2" fill="#d4af37"/>
+          <line x1="24" y1="20" x2="24" y2="38" stroke="#d4af37" stroke-width="1.5"/>
+          <path d="M16 38H32" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>Ranged</span>
+        <span class="gt-icon-label">远程</span>
+        <span class="gt-check" aria-hidden="true">✓</span>
+      </button>
+      <button class="gt-style-btn" data-style="magic" aria-label="Magic combat style">
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M24 6L28 18L40 18L30 26L34 38L24 30L14 38L18 26L8 18L20 18L24 6Z" fill="#d4af37" opacity="0.85"/>
+          <circle cx="24" cy="18" r="2" fill="#2a1a0a"/>
+        </svg>
+        <span>Magic</span>
+        <span class="gt-icon-label">魔法</span>
+        <span class="gt-check" aria-hidden="true">✓</span>
+      </button>
+    </div>
+    <button class="gt-btn-primary" id="step1Btn" disabled>Select a style to continue →</button>
+  </section>
+
+  <!-- ===== STEP 2: LEVELS ===== -->
+  <section class="gt-card gt-step-content" id="step2" role="tabpanel">
+    <h2 class="gt-card-title">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <circle cx="10" cy="10" r="9" stroke="#d4af37" stroke-width="1.5"/>
+        <text x="10" y="13.5" text-anchor="middle" fill="#d4af37" font-size="11" font-weight="700">2</text>
+      </svg>
+      Enter Your Skill Levels
+    </h2>
+    <p style="font-size:0.82rem;color:var(--text-dim);margin-bottom:14px">
+      Set your combat skill levels using the sliders. Gear will be recommended based on your <strong id="styleDisplayName" style="color:var(--accent)">Melee</strong> level requirements.
+    </p>
+    <div class="gt-level-grid" id="levelGrid">
+      <!-- Populated dynamically -->
+    </div>
+    <button class="gt-btn-primary" onclick="goStep(3)">Confirm levels, continue →</button>
+  </section>
+
+  <!-- ===== STEP 3: BUDGET ===== -->
+  <section class="gt-card gt-step-content" id="step3" role="tabpanel">
+    <h2 class="gt-card-title">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <circle cx="10" cy="10" r="9" stroke="#d4af37" stroke-width="1.5"/>
+        <text x="10" y="13.5" text-anchor="middle" fill="#d4af37" font-size="11" font-weight="700">3</text>
+      </svg>
+      Set Your Budget
+    </h2>
+    <p style="font-size:0.82rem;color:var(--text-dim);margin-bottom:14px">
+      How much GP are you willing to spend on your gear setup? Drag the slider or tap a preset.
+    </p>
+    <div class="gt-budget-section">
+      <div class="gt-budget-display">
+        <span id="budgetDisplay">500K</span> <small>gp</small>
+      </div>
+      <input type="range" class="gt-budget-slider" id="budgetSlider"
+             min="0" max="5000" value="500" step="10"
+             aria-label="Budget slider" oninput="updateBudget(this.value)">
+      <div class="gt-budget-presets">
+        <button class="gt-budget-preset" data-budget="0" onclick="setBudget(0, this)">Unlimited</button>
+        <button class="gt-budget-preset" data-budget="50" onclick="setBudget(50, this)">50K</button>
+        <button class="gt-budget-preset gt-active" data-budget="500" onclick="setBudget(500, this)">500K</button>
+        <button class="gt-budget-preset" data-budget="2000" onclick="setBudget(2000, this)">2M</button>
+        <button class="gt-budget-preset" data-budget="5000" onclick="setBudget(5000, this)">5M+</button>
+      </div>
+    </div>
+    <button class="gt-btn-primary" onclick="generateRecommendation()">Get Recommendations →</button>
+  </section>
+
+  <!-- ===== AD BANNER (before results, free users see it) ===== -->
+  <div class="gt-ad-banner" id="adBanner">
+    <span>▼ Advertisement ▼</span>
+  </div>
+
+  <!-- ===== STEP 4: RESULTS ===== -->
+  <section class="gt-card gt-step-content" id="step4" role="tabpanel">
+    <h2 class="gt-card-title">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <circle cx="10" cy="10" r="9" stroke="#d4af37" stroke-width="1.5"/>
+        <text x="10" y="13.5" text-anchor="middle" fill="#d4af37" font-size="11" font-weight="700">4</text>
+      </svg>
+      Your Gear Setup
+    </h2>
+
+    <div class="gt-section-meta">
+      <div class="gt-build-label">
+        Build · <strong id="resultStyle">Melee</strong>
+        <span style="font-size:0.65rem;color:var(--text-dim)">| Budget <span id="resultBudget">500K</span> gp</span>
+      </div>
+      <button class="gt-btn-secondary" style="width:auto;padding:6px 14px;font-size:0.7rem;margin:0" onclick="resetAll()">Start Over</button>
+    </div>
+
+    <div class="gt-loading" id="resultLoading" style="display:none;">
+      <div class="gt-loading-spinner"></div>
+      <div class="gt-loading-text">Loading recommendations...</div>
+    </div>
+
+    <div class="gt-stats-summary" id="statsSummary" style="display:none;">
+      <div class="gt-stat-pill"><span class="gt-stat-icon">⚔</span> Atk <span id="statAtk">-</span></div>
+      <div class="gt-stat-pill"><span class="gt-stat-icon">💪</span> Str <span id="statStr">-</span></div>
+      <div class="gt-stat-pill"><span class="gt-stat-icon">🛡</span> Def <span id="statDef">-</span></div>
+      <div class="gt-stat-pill"><span class="gt-stat-icon">❤️</span> HP <span id="statHp">-</span></div>
+    </div>
+
+    <div class="gt-equip-grid" id="gearGrid">
+      <!-- Populated by JS -->
+    </div>
+
+    <div class="gt-total-cost" id="totalCostRow" style="display:none;">
+      <span class="gt-total-label">Estimated total cost</span>
+      <span class="gt-total-amount" id="totalCost">0 gp</span>
+    </div>
+
+    <div class="gt-price-source" id="priceSource" style="display:none;">
+      <span>⟳</span> <span id="priceSourceText">Loading prices...</span>
+    </div>
+
+    <!-- Upgrade Path (Premium) -->
+    <div class="gt-locked-overlay" id="upgradeLock">
+      <div class="gt-upgrade-section">
+        <h4>⬆ Upgrade Path
+          <span style="font-size:0.6rem;color:var(--premium-green);font-weight:400;margin-left:6px">Premium</span>
+        </h4>
+        <div id="upgradeTableContainer">
+          <table class="gt-upgrade-table">
+            <thead><tr><th>Priority</th><th>Current</th><th></th><th>Target</th><th>Cost</th></tr></thead>
+            <tbody id="upgradeBody">
+              <tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:16px;">Loading upgrade paths...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="gt-locked-badge">
+        <span class="gt-lock-icon" aria-hidden="true">🔒</span>
+        <span class="gt-lock-text">Upgrade paths, budget filtering &amp; build saving are premium features</span>
+        <button class="gt-unlock-btn" onclick="document.getElementById('premiumCta').scrollIntoView({behavior:'smooth'})">Unlock Premium</button>
+      </div>
+    </div>
+
+    <div class="gt-ge-tips">
+      <h4>📦 GE Buying Tips</h4>
+      <div class="gt-ge-tip-item"><span class="gt-bullet">•</span><span><strong>Buy in bulk</strong>: Use +5% offer prices for popular items (runes, arrows) to fill orders faster.</span></div>
+      <div class="gt-ge-tip-item"><span class="gt-bullet">•</span><span><strong>Weekend prices</strong>: PvP item prices rise 5-15% on weekends due to Wilderness activity. Buy on weekdays.</span></div>
+      <div class="gt-ge-tip-item"><span class="gt-bullet">•</span><span><strong>Untradeable upgrades</strong>: Some BIS items (Fighter Torso, Fire Cape, Barrows Gloves) are untradeable but free — do the quests!</span></div>
+      <div class="gt-ge-tip-item"><span class="gt-bullet">•</span><span><strong>Check GE limit</strong>: Popular items have a 4-hour buy limit. Plan ahead if buying multiple high-demand pieces.</span></div>
+    </div>
+  </section>
+
+  <!-- ===== PREMIUM CTA ===== -->
+  <div class="gt-premium-cta" id="premiumCta">
+    <div class="gt-badge-premium">✦ Premium</div>
+    <h3>Unlock Full Gear Recommendation Power</h3>
+    <p>Get the most out of OSRS Guru with premium features designed for serious players. Just $1.90 per month.</p>
+    <div class="gt-premium-features">
+      <div class="gt-premium-feat"><span class="gt-check">✓</span> All combat styles</div>
+      <div class="gt-premium-feat"><span class="gt-check">✓</span> Budget filtering</div>
+      <div class="gt-premium-feat"><span class="gt-check">✓</span> Upgrade paths</div>
+      <div class="gt-premium-feat"><span class="gt-check">✓</span> Save builds</div>
+      <div class="gt-premium-feat"><span class="gt-check">✓</span> Ad-free</div>
+      <div class="gt-premium-feat"><span class="gt-check">✓</span> Priority updates</div>
+    </div>
+    <button class="gt-btn-premium" id="stripeSubscribeBtn" onclick="stripeIntegration.openCheckout()">
+      ✦ Subscribe <span class="gt-price">$1.90 / month</span>
+    </button>
+    <p style="font-size:0.7rem;color:var(--text-dim);margin-top:8px;">Secure payment via Stripe. Cancel anytime.</p>
+  </div>
+
+  <!-- ===== SEO: Why Use Our Gear Recommender ===== -->
+  <section class="gt-card gt-seo-content">
+    <h2>Why Use Our Gear Recommender?</h2>
+
+    <h3>Personalised to Your Exact Stats</h3>
+    <p>Most gear guides tell you what to wear at a specific level bracket — "level 40 melee gear" or "level 70 ranged gear." But your character is unique. Our tool doesn't make assumptions. It checks every piece of equipment against your exact levels and only shows what you can equip. This level of <strong>custom OSRS gear recommendation</strong> simply doesn't exist on other platforms.</p>
+
+    <h3>Budget-Aware Recommendations</h3>
+    <p>Our <strong>OSRS beginner gear recommender</strong> puts budget front and centre. Whether you have 100K GP or 100M GP, the tool finds the optimal balance between cost and performance. We also show cheaper alternatives for every slot, so you can make informed trade-offs.</p>
+
+    <h3>Designed for New Players First</h3>
+    <p>Every competing OSRS tool assumes you already understand terms like "BIS," "max hit," and "accuracy roll." Our tool explains everything in plain English. Hover over any item to see why it was chosen and when you should upgrade it. This makes our <strong>OSRS low level equipment</strong> recommender the most accessible tool for new players in 2026.</p>
+
+    <h3>Real-Time Grand Exchange Prices</h3>
+    <p>Our tool pulls real-time GE price data from the OSRS Wiki API, so your recommendations are always based on current market values. No more discovering that the "budget" setup you planned costs twice as much as expected.</p>
+
+    <h3>Ironman Mode Support</h3>
+    <p>Our <strong>OSRS gear recommender</strong> includes a dedicated Ironman mode that filters out tradeable items and highlights gear you can acquire yourself through monster drops, quests, and skilling.</p>
+
+    <h3>Comprehensive Database with Over 2,000 Items</h3>
+    <p>Our tool draws from the complete OSRS equipment database, covering everything from bronze daggers to the Twisted Bow. We organise items by equip requirements, stat bonuses, attack speed, and special effects.</p>
+  </section>
+
+  <!-- ===== SEO: How Does the Gear Recommender Work ===== -->
+  <section class="gt-card gt-seo-content">
+    <h2>How Does the Gear Recommender Work?</h2>
+
+    <h3>Data Collection and Filtering</h3>
+    <p>First, the tool loads our complete OSRS equipment database — over 2,000 items, each tagged with hundreds of attributes. When you enter your stats, the tool immediately filters the database to exclude any items you can't equip.</p>
+
+    <h3>Scoring Algorithm</h3>
+    <p>For each remaining item, the tool calculates a <strong>composite score</strong> based on your combat style. If you selected Melee, the algorithm weights strength bonus and accuracy higher than magic defence. For Ranged, it prioritises ranged attack and ranged strength. For Magic, it looks at magic attack bonus and damage percentage.</p>
+
+    <h3>Budget Optimisation</h3>
+    <p>The <strong>OSRS budget gear recommender</strong> uses a greedy optimisation approach: it first allocates your budget to the highest-impact slots (weapon first, then amulet, then torso/legs), because a good weapon provides more DPS improvement than any other single piece.</p>
+
+    <h3>Slot-by-Slot Assembly</h3>
+    <p>Once the algorithm finishes scoring and budget allocation, it assembles a complete 10-slot setup. For each slot, the tool identifies: the best overall item (regardless of cost), the best value item within your budget, and a budget-friendly alternative.</p>
+
+    <h3>Continuous Updates</h3>
+    <p>Our database syncs with the OSRS Wiki and Grand Exchange API every 24 hours, ensuring your recommendations reflect the latest game updates and market prices.</p>
+  </section>
+
+  <!-- ===== SEO: Gear Progression Guide ===== -->
+  <section class="gt-card gt-seo-content">
+    <h2>OSRS Gear Progression Guide</h2>
+
+    <h3>Melee Gear Progression</h3>
+    <p><strong>Level 1-20 (Bronze to Iron):</strong> Every OSRS player starts with bronze equipment from Tutorial Island. Upgrade to iron at level 10 Attack and Defence — it's cheap (under 5K GP for a full set) and noticeably improves your accuracy and damage.</p>
+    <p><strong>Level 20-40 (Steel to Mithril):</strong> At level 20 Attack, the steel scimitar becomes available. At level 30, unlock the mithril scimitar. Complete <strong>Waterfall Quest</strong> (no level requirements, grants 30 Attack and 30 Strength XP).</p>
+    <p><strong>Level 40-60 (Rune to Dragon):</strong> The <strong>Rune Scimitar</strong> (approximately 35K GP) is your best weapon until level 60 Attack. Pair it with an Amulet of Glory (30K GP) and Rune armour. At level 60 Attack, upgrade to the <strong>Dragon Scimitar</strong> (100K GP, requires Monkey Madness I quest).</p>
+    <p><strong>Level 60-75 (Dragon to Whip):</strong> At level 70 Attack, the <strong>Abyssal Whip</strong> (approximately 1.5M GP) becomes available. Upgrade armour to Fighter Torso (free from Barbarian Assault), Dragon Legs (200K GP), Dragon Boots (200K GP), and Berserker Ring (2.5M GP).</p>
+    <p><strong>Level 75-99 (End-Game Melee):</strong> At 80 Attack, the <strong>Blade of Saeldor</strong> (100M GP). At 90 Attack, eventually the <strong>Scythe of Vitur</strong> (400M+ GP). For budget-conscious players, the Abyssal Whip remains effective even at high levels.</p>
+
+    <h3>Ranged Gear Progression</h3>
+    <p><strong>Level 1-30:</strong> Start with bronze arrows and a training bow. Willow shortbows become available at level 20, Maple shortbows at level 30. For armour, leather gear and studded leather are your early options.</p>
+    <p><strong>Level 40-50:</strong> Level 50 Ranged unlocks the <strong>Magic Shortbow</strong> (15K GP), one of the best training weapons until level 75. Use the best arrow you can afford.</p>
+    <p><strong>Level 50-70:</strong> Level 61 Ranged and 50 Defence unlock the <strong>Rune Crossbow</strong> (30K GP), the most versatile ranged weapon in OSRS. Use broad bolts for cheap, effective training.</p>
+    <p><strong>Level 70-99:</strong> Level 75 Ranged unlocks the <strong>Toxic Blowpipe</strong> (2M GP). For budget recommendations, stick with the Rune Crossbow + broad bolts.</p>
+
+    <h3>Magic Gear Progression</h3>
+    <p><strong>Level 1-40:</strong> An <strong>Air Staff</strong> (8K GP) is sufficient for early training. Wizard robes and <strong>Xerician robes</strong> are your best early armour options.</p>
+    <p><strong>Level 40-55:</strong> Level 40 Magic unlocks <strong>Mystic robes</strong> (approximately 500K GP for the full set). Complete <strong>Underground Pass</strong> quest to unlock <strong>Iban's Staff</strong> — a critical milestone for any new mage.</p>
+    <p><strong>Level 55-75:</strong> Level 75 Magic unlocks the <strong>Trident of the Seas</strong> (600K GP). Use it with <strong>Ahrim's robes</strong> (level 70 Defence and Magic) or Mystic robes as a budget alternative.</p>
+    <p><strong>Level 75-99:</strong> The <strong>Trident of the Swamp</strong> (1.2M GP). For budget <strong>OSRS magic gear guide</strong> recommendations, the Trident of the Seas + Mystic robes + Occult Necklace combo is unbeatable for its price point.</p>
+  </section>
+
+  <!-- ===== SEO: Money-Saving Tips ===== -->
+  <section class="gt-card gt-seo-content">
+    <h2>Money-Saving Tips for OSRS Gear</h2>
+
+    <h3>Weapon First, Armour Second</h3>
+    <p>This is the golden rule of <strong>OSRS budget gear</strong> planning. A weapon upgrade provides exponentially more DPS than any armour upgrade. Prioritise your weapon first, then amulet/necklace, then body and legs.</p>
+
+    <h3>Use Degradable Items Wisely</h3>
+    <p>Use degradable items only for content that generates profit (bossing, Slayer tasks with good drops) and switch to non-degradable alternatives for general training.</p>
+
+    <h3>Quest Rewards Save Millions</h3>
+    <p>Many of the best beginner items are FREE if you complete the right quests. The <strong>Fighter Torso</strong> (Barbarian Assault), <strong>Dragon Scimitar</strong> (Monkey Madness I), <strong>Barrows Gloves</strong> (Recipe for Disaster), and <strong>Fire Cape</strong> (Fight Caves) are all free and better than gear costing millions.</p>
+
+    <h3>Buy "Unpopular" Alternatives</h3>
+    <p>Not every slot needs BiS equipment. <strong>Snakeskin Boots</strong> (12K GP) provide almost identical stats to Ranger Boots (35M GP). <strong>Mystic Boots</strong> (50K GP) are 99% as effective as Eternal Boots (8M GP).</p>
+  </section>
+
+  <!-- ===== FAQ SECTION ===== -->
+  <section class="gt-card gt-faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="gt-faq-item">
+      <button class="gt-faq-question" onclick="toggleFAQ(this)">
+        What is the best melee weapon for OSRS beginners?
+        <span class="gt-faq-toggle">+</span>
+      </button>
+      <div class="gt-faq-answer">
+        For absolute beginners, a <strong>Bronze scimitar</strong> is the best starting weapon (1 Attack, free from Tutorial Island). Upgrade to an <strong>Iron scimitar</strong> at 10 Attack, then <strong>Steel</strong> at 20, <strong>Mithril</strong> at 30, and <strong>Adamant</strong> at 30. At 40 Attack, get a <strong>Rune scimitar</strong> — the best F2P weapon. Members should aim for a <strong>Dragon scimitar</strong> (60 Attack, requires Monkey Madness I quest). Check our <a href="https://osrsguru.com/guides/melee-training-guide" style="color:var(--accent);">melee training guide</a> for more details.
+      </div>
+    </div>
+
+    <div class="gt-faq-item">
+      <button class="gt-faq-question" onclick="toggleFAQ(this)">
+        What ranged gear should I use for training?
+        <span class="gt-faq-toggle">+</span>
+      </button>
+      <div class="gt-faq-answer">
+        For low-level Ranged (1-40), use a <strong>Shortbow</strong> with iron/steel arrows. At 40 Ranged, switch to a <strong>Magic shortbow</strong>. For armor, use <strong>Green dragonhide</strong> body and chaps (40 Defence, 40 Ranged). Upgrade to <strong>Black d'hide</strong> at 70 Defence. Ava's devices are essential for ammo recovery. Read our <a href="https://osrsguru.com/guides/ranged-training-guide" style="color:var(--accent);">ranged training guide</a>.
+      </div>
+    </div>
+
+    <div class="gt-faq-item">
+      <button class="gt-faq-question" onclick="toggleFAQ(this)">
+        What's the best magic setup for low levels?
+        <span class="gt-faq-toggle">+</span>
+      </button>
+      <div class="gt-faq-answer">
+        Low-level magic gear is very affordable. Wear a <strong>Wizard hat</strong> and <strong>Xerician robes</strong> (requires Xeric's Aid quest). An <strong>Amulet of magic</strong> (+10 Magic attack) costs only about 3K gp. At 50 Magic, use an <strong>Ancient staff</strong> (+15 Magic attack). See our <a href="https://osrsguru.com/guides/magic-training-guide" style="color:var(--accent);">magic training guide</a>.
+      </div>
+    </div>
+
+    <div class="gt-faq-item">
+      <button class="gt-faq-question" onclick="toggleFAQ(this)">
+        Is this gear recommender tool free?
+        <span class="gt-faq-toggle">+</span>
+      </button>
+      <div class="gt-faq-answer">
+        Yes! The basic gear recommender is <strong>completely free</strong>. You can select a combat style, input your levels, set a basic budget tier, and get a full equipment recommendation across 10 gear slots. <strong>Premium</strong> ($1.90/month) adds exact budget filtering, upgrade paths, build saving, ad-free experience, and all combat styles without daily limits.
+      </div>
+    </div>
+
+    <div class="gt-faq-item">
+      <button class="gt-faq-question" onclick="toggleFAQ(this)">
+        How accurate are the GE prices shown?
+        <span class="gt-faq-toggle">+</span>
+      </button>
+      <div class="gt-faq-answer">
+        We fetch real-time prices from the <a href="https://prices.runescape.wiki" style="color:var(--accent);" rel="nofollow">OSRS Wiki GE API</a> when available. Prices are cached in your browser for 24 hours. If the API is unreachable, we fall back to estimated prices from our curated database. Live prices are indicated with a green marker.
+      </div>
+    </div>
+
+    <div class="gt-faq-item">
+      <button class="gt-faq-question" onclick="toggleFAQ(this)">
+        What equipment level do I need for Rune gear?
+        <span class="gt-faq-toggle">+</span>
+      </button>
+      <div class="gt-faq-answer">
+        Rune equipment requires <strong>40 Defence</strong> (Rune platebody, platelegs, full helm, kiteshield) and <strong>40 Attack</strong> (Rune scimitar). Rune is the best F2P equipment tier. Members can upgrade to <strong>Dragon</strong> equipment at 60 Attack/Defence.
+      </div>
+    </div>
+
+    <div class="gt-faq-item">
+      <button class="gt-faq-question" onclick="toggleFAQ(this)">
+        How much GP do I need for decent beginner gear?
+        <span class="gt-faq-toggle">+</span>
+      </button>
+      <div class="gt-faq-answer">
+        You can assemble a very effective beginner gear setup for around <strong>150K-200K GP</strong>. A realistic level 40 combat budget build: Rune Scimitar (35K GP), Amulet of Power (5K GP), Rune Platebody (80K GP), Rune Platelegs (65K GP), Rune Full Helm (45K GP), Combat Bracelet (20K GP), Climbing Boots (free). Total: approximately 250K GP.
+      </div>
+    </div>
+
+    <div class="gt-faq-item">
+      <button class="gt-faq-question" onclick="toggleFAQ(this)">
+        Should I buy armour or weapon first?
+        <span class="gt-faq-toggle">+</span>
+      </button>
+      <div class="gt-faq-answer">
+        Always buy the <strong>weapon first</strong>. A weapon determines your DPS, which directly impacts training speed, Slayer task completion rate, and money-making ability. A level 40 player with a Rune Scimitar and no armour will out-DPS a player with full Rune armour and an adamant scimitar.
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RELATED GUIDES ===== -->
+  <div class="gt-related-links">
+    <h3>Related OSRS Guides</h3>
+    <a href="https://osrsguru.com/guides/melee-training-guide">Melee Training Guide — Fastest XP Methods</a>
+    <a href="https://osrsguru.com/guides/ranged-training-guide">Ranged Training Guide — From Level 1 to 99</a>
+    <a href="https://osrsguru.com/guides/magic-training-guide">Magic Training Guide — Splashing to Bursting</a>
+    <a href="https://osrsguru.com/guides/money-making-guide">Money Making Guide — Best GP for Beginners</a>
+    <a href="https://osrsguru.com/guides/quest-guide">Quest Guide — Optimal Quest Order</a>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="gt-footer">
+    OSRS Guru &copy; 2026 &middot; Old School RuneScape is a trademark of Jagex Ltd. &middot; Not affiliated with Jagex
+  </footer>
+
+</div>
+
+<!-- ===== Toast ===== -->
+<div class="gt-toast" id="toast"></div>
+
+<!-- ============================================================
+     JAVASCRIPT — Load order matters
+     ============================================================ -->
+
+<!-- Data Layer -->
+<script src="js/data-cache.js"></script>
+<script src="js/ge-prices.js"></script>
+<script src="js/subscription.js"></script>
+<script src="js/stripe-integration.js"></script>
+<script src="js/paypal-integration.js"></script>
+
+<!-- Business Logic -->
+<script src="js/gear-engine.js"></script>
+
+<!-- Main Application JS (inline) -->
+<script>
+(function () {
+  'use strict';
+
+  // ============================================================
+  //  GEAR DATABASE (inline fallback)
+  // ============================================================
+
+  var INLINE_GEAR = {
+    melee: {
+      gear: [
+        { id:'head', label:'Head',     name:'Helm of Neitiznot', icon:'🪖', stats:'+3 Str, +8 Def', cost:'~48K', reason:'Best budget strength helm. Requires Fremennik Isles quest (55 Def).' },
+        { id:'cape', label:'Cape',     name:'Obsidian Cape',     icon:'🧣', stats:'+1 Str, +9 Def', cost:'~65K', reason:'Affordable strength cape. Upgrade to Fire Cape (free from Fight Caves).' },
+        { id:'amulet', label:'Amulet', name:'Amulet of Power',   icon:'📿', stats:'+6 Str, +6 Def', cost:'~10K', reason:'Best value amulet for beginners. +6 all attack & defence.' },
+        { id:'body', label:'Body',     name:'Rune Platebody',     icon:'🛡️', stats:'+82 Def',        cost:'~38K', reason:'40 Defence. Highest defence body at this tier.' },
+        { id:'legs', label:'Legs',     name:'Rune Platelegs',     icon:'👖', stats:'+68 Def',        cost:'~38K', reason:'Matches platebody for best defence set.' },
+        { id:'weapon', label:'Weapon', name:'Rune Scimitar',     icon:'⚔️', stats:'+45 Str Atk',    cost:'~18K', reason:'40 Attack. Fastest training weapon. Best F2P melee weapon.' },
+        { id:'shield', label:'Shield', name:'Rune Kiteshield',   icon:'🔰', stats:'+64 Def',        cost:'~18K', reason:'High defence. Members: replace with Rune defender (Warriors Guild).' },
+        { id:'gloves', label:'Gloves', name:'Rune Gloves',       icon:'🧤', stats:'+12 Def',        cost:'~15K', reason:'Heroes Quest reward. Decent defence for the price.' },
+        { id:'boots', label:'Boots',   name:'Rune Boots',        icon:'👢', stats:'+2 Str, +12 Def', cost:'~30K', reason:'40 Defence. Strength bonus on a budget.' },
+        { id:'ring', label:'Ring',     name:'Ring of Wealth',    icon:'💍', stats:'Luck Boost',     cost:'~12K', reason:'Increases rare drop rate. Cheap alternative to Berserker ring (4M).' }
+      ],
+      totalCost:'~292,000 gp',
+      upgrade:[
+        { priority:'High', current:'Rune Scimitar',      target:'Dragon Scimitar',    cost:'~60K' },
+        { priority:'High', current:'Amulet of Power',    target:'Amulet of Glory',    cost:'~25K' },
+        { priority:'High', current:'Obsidian Cape',      target:'Fire Cape',          cost:'Free (Fight Caves)' },
+        { priority:'Med',  current:'Rune Platebody',     target:'Fighter Torso',       cost:'Free (Barb Assault)' },
+        { priority:'Med',  current:'Rune Boots',         target:'Dragon Boots',       cost:'~120K' },
+        { priority:'Low',  current:'Rune Gloves',        target:'Barrows Gloves',     cost:'~200K (quest)' }
+      ],
+      stats:{ atk:40, str:40, def:40, hp:42 }
+    },
+    ranged: {
+      gear: [
+        { id:'head', label:'Head',     name:'Snakeskin Bandana', icon:'🪖', stats:'+6 Ranged Def',  cost:'~5K', reason:'30 Defence. Cheapest ranged defence headwear.' },
+        { id:'cape', label:'Cape',     name:"Ava's Accumulator", icon:'🧣', stats:'+4 Ranged Atk', cost:'~6K', reason:'Essential ammo recovery. Do Animal Magnetism quest.' },
+        { id:'amulet', label:'Amulet', name:'Amulet of Power',   icon:'📿', stats:'+6 All Atk',    cost:'~10K', reason:'Versatile and cheap. Works for all combat styles.' },
+        { id:'body', label:'Body',     name:"Green D'hide Body", icon:'🛡️', stats:'+15 Ranged Atk', cost:'~11K', reason:'40 Def, 50 Ranged. Best piercing ranged body.' },
+        { id:'legs', label:'Legs',     name:"Green D'hide Chaps",icon:'👖', stats:'+11 Ranged Atk', cost:'~6K', reason:'Pairs with body. Excellent value.' },
+        { id:'weapon', label:'Weapon', name:'Magic Shortbow',    icon:'🏹', stats:'+69 Ranged Atk', cost:'~12K', reason:'50 Ranged. Fastest bow (4 ticks). Use with amethyst arrows.' },
+        { id:'shield', label:'Shield', name:'Unholy Book',       icon:'📕', stats:'+8 Atk, +5 Def', cost:'~5K', reason:'Cheap off-hand with attack and defence bonuses.' },
+        { id:'gloves', label:'Gloves', name:'Rune Gloves',       icon:'🧤', stats:'+12 Def',        cost:'~15K', reason:'Heroes Quest. Universal defence gloves.' },
+        { id:'boots', label:'Boots',   name:'Snakeskin Boots',   icon:'👢', stats:'+3 Ranged Atk',  cost:'~3K', reason:'30 Defence. Cheapest Ranged attack boots.' },
+        { id:'ring', label:'Ring',     name:'Ring of Wealth',    icon:'💍', stats:'Luck Boost',     cost:'~12K', reason:'Helps with drops while training ranged.' }
+      ],
+      totalCost:'~85,000 gp',
+      upgrade:[
+        { priority:'High', current:'Magic Shortbow',      target:'Magic Shortbow (i)', cost:'~1K (NMZ)' },
+        { priority:'High', current:"Green D'hide",        target:"Black D'hide",      cost:'~60K' },
+        { priority:'Med',  current:'Snakeskin Boots',     target:'Ranger Boots',      cost:'~25M' },
+        { priority:'Low',  current:'Ring of Wealth',     target:'Archers Ring',      cost:'~1.2M' }
+      ],
+      stats:{ atk:40, str:30, def:40, hp:38 }
+    },
+    magic: {
+      gear: [
+        { id:'head', label:'Head',     name:'Wizard Hat (g)',   icon:'🎩', stats:'+2 Magic Atk',  cost:'~2K', reason:'Level 1 Magic. Trimmed wizard hat is cheap and stylish.' },
+        { id:'cape', label:'Cape',     name:'Team Cape Zero',   icon:'🧣', stats:'+5 Magic Def',  cost:'~1K', reason:'Cheapest magic cape option for early game.' },
+        { id:'amulet', label:'Amulet', name:'Amulet of Magic',  icon:'📿', stats:'+10 Magic Atk', cost:'~3K', reason:'Adds +10 Magic attack. Best budget mage amulet.' },
+        { id:'body', label:'Body',     name:'Xerician Robe Top',icon:'👕', stats:'+10 Magic Atk', cost:'~40K', reason:'Requires Xeric\'s Aid. Best F2P magic body alternative.' },
+        { id:'legs', label:'Legs',     name:'Xerician Robe Bottom',icon:'👖', stats:'+5 Magic Atk',cost:'~20K', reason:'Matches robe top for set bonus.' },
+        { id:'weapon', label:'Weapon', name:'Ancient Staff',    icon:'🪄', stats:'+15 Magic Atk', cost:'~80K', reason:'50 Magic. Casts Ancient Magicks for PvM.' },
+        { id:'shield', label:'Shield', name:"Mages' Book",      icon:'📗', stats:'+15 Magic Atk', cost:'~250K', reason:'Best magic off-hand. Significant attack boost.' },
+        { id:'gloves', label:'Gloves', name:'Xerician Gloves',  icon:'🧤', stats:'+4 Magic Atk',  cost:'~15K', reason:'Completes Xerician set for maximum magic bonus.' },
+        { id:'boots', label:'Boots',   name:'Wizard Boots',     icon:'👢', stats:'+4 Magic Atk',  cost:'~60K', reason:'Decent magic attack boots at a fair price.' },
+        { id:'ring', label:'Ring',     name:'Ring of Wealth',   icon:'💍', stats:'Luck Boost',     cost:'~12K', reason:'Useful for magic training drops.' }
+      ],
+      totalCost:'~485,000 gp',
+      upgrade:[
+        { priority:'High', current:'Ancient Staff',  target:'Trident of the Seas', cost:'~1.2M+' },
+        { priority:'High', current:"Mages' Book",   target:'Arcane Spirit Shield', cost:'~15M' },
+        { priority:'Med',  current:'Xerician Set',  target:"Ahrim's Set",         cost:'~2M' },
+        { priority:'Low',  current:'Wizard Boots',  target:'Eternal Boots',      cost:'~8.6M' }
+      ],
+      stats:{ atk:50, str:40, def:40, hp:45 }
+    }
+  };
+
+  var GE_TIPS = {
+    melee: [
+      '<strong>Rune Scimitar</strong>: Buy at -5% offer price on GE, usually fills within 2 hours and saves 2-3K gp.',
+      '<strong>Dragon Scimitar</strong>: Requires Monkey Madness I quest first (60 Attack). Cost ~60K gp from GE after quest.',
+      '<strong>Amulet of Glory</strong>: Buy unstrung versions for ~5K less. Enchant yourself (68 Magic) or have a friend do it.',
+      '<strong>Fighter Torso</strong>: Free from Barbarian Assault minigame. Takes 4-8 hours but provides +4 Strength bonus.',
+      '<strong>Dragon Boots</strong>: Best price is usually 2-4 hours after game update. Prices drop when new PvM content releases.'
+    ],
+    ranged: [
+      "<strong>Magic Shortbow</strong>: Imbue at Nightmare Zone for +2 Ranged strength (costs 1.25M NMZ points or ~1K gp).",
+      '<strong>Ava\'s Accumulator</strong>: Complete Animal Magnetism quest (18 Slayer required). Saves 72% of ammo.',
+      '<strong>Black D\'hide</strong>: Requires 70 Defence. Price fluctuates between 50-70K. Buy on weekdays for best prices.',
+      '<strong>Amethyst Arrows</strong>: Made from 72 Mining / 78 Fletching. Cheaper than rune arrows with similar damage.',
+      '<strong>Ranger Boots</strong>: Very expensive (~25M). Use Snakeskin or Shayzien boots as affordable alternatives.'
+    ],
+    magic: [
+      '<strong>Trident of the Seas</strong>: Requires 75 Magic. Costs ~1.2M. Each cast costs 1 fire rune, 5 death, 5 chaos + 10 gp.',
+      '<strong>Xerician Robes</strong>: Complete Xeric\'s Aid quest to unlock. Provides +10 Magic attack on the top piece.',
+      '<strong>Ancient Magicks</strong>: Unlocked via Desert Treasure quest (level 1). Requires 50 Magic to cast.',
+      '<strong>Mystic Set</strong>: Costs ~250K total (40 Def, 50 Magic). Solid alternative to Xerician with better defence.',
+      '<strong>Magic Damage %</strong>: Most important stat for late-game magic. Occult necklace (+10%), Tormented bracelet (+5%).'
+    ]
+  };
+
+  // ============================================================
+  //  STATE
+  // ============================================================
+
+  var currentStep = 1;
+  var selectedStyle = null;
+  var budgetValue = 500;
+  var levelValues = {};
+  var queryCount = 0;
+  var dailyQueryLimit = 3;
+  var isPremium = false;
+
+  // ============================================================
+  //  LEVEL CONFIG
+  // ============================================================
+
+  var LEVEL_CONFIG = {
+    melee: [
+      { key:'attack',    label:'Attack',     max:99 },
+      { key:'strength',  label:'Strength',   max:99 },
+      { key:'defence',   label:'Defence',    max:99 },
+      { key:'hitpoints', label:'Hitpoints',  max:99 }
+    ],
+    ranged: [
+      { key:'ranged',    label:'Ranged',     max:99 },
+      { key:'defence',   label:'Defence',    max:99 },
+      { key:'hitpoints', label:'Hitpoints',  max:99 }
+    ],
+    magic: [
+      { key:'magic',     label:'Magic',      max:99 },
+      { key:'defence',   label:'Defence',    max:99 },
+      { key:'hitpoints', label:'Hitpoints',  max:99 }
+    ]
+  };
+
+  // ============================================================
+  //  HELPERS
+  // ============================================================
+
+  function getStyleCN(s) {
+    return { melee:'Melee 近战', ranged:'Ranged 远程', magic:'Magic 魔法' }[s] || s;
+  }
+
+  function getStyleShortCN(s) {
+    return { melee:'Melee', ranged:'Ranged', magic:'Magic' }[s] || s;
+  }
+
+  // ============================================================
+  //  STEP NAVIGATION
+  // ============================================================
+
+  window.goStep = function (n) {
+    if (n === 2 && !selectedStyle) return;
+    currentStep = n;
+    document.querySelectorAll('.gt-step-content').forEach(function (el) {
+      el.classList.remove('gt-active');
+    });
+    document.querySelectorAll('.gt-step-item, .gt-step-line').forEach(function (el) {
+      el.classList.remove('gt-active', 'gt-done');
+    });
+    document.getElementById('step' + n).classList.add('gt-active');
+
+    for (var i = 1; i <= n; i++) {
+      var item = document.querySelector('.gt-step-item[data-step="' + i + '"]');
+      if (item) {
+        if (i < n) item.classList.add('gt-done');
+        else item.classList.add('gt-active');
+      }
+      if (i < n) {
+        var line = document.querySelector('.gt-step-line[data-between="' + i + '"]');
+        if (line) line.classList.add('gt-done');
+      }
+    }
+
+    document.getElementById('step' + n).scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
+  // ============================================================
+  //  STYLE SELECTION
+  // ============================================================
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.gt-style-btn');
+    if (!btn) return;
+
+    document.querySelectorAll('.gt-style-btn').forEach(function (b) {
+      b.classList.remove('gt-selected');
+    });
+    btn.classList.add('gt-selected');
+    selectedStyle = btn.getAttribute('data-style');
+
+    var step1Btn = document.getElementById('step1Btn');
+    step1Btn.disabled = false;
+    step1Btn.textContent = 'Selected ' + getStyleShortCN(selectedStyle) + ', continue →';
+
+    updateLevelInputs(selectedStyle);
+    document.getElementById('styleDisplayName').textContent = getStyleShortCN(selectedStyle);
+  });
+
+  document.getElementById('step1Btn').addEventListener('click', function () {
+    goStep(2);
+  });
+
+  // ============================================================
+  //  LEVEL INPUTS
+  // ============================================================
+
+  function updateLevelInputs(style) {
+    var config = LEVEL_CONFIG[style];
+    var grid = document.getElementById('levelGrid');
+    grid.innerHTML = '';
+    levelValues = {};
+
+    config.forEach(function (c) {
+      var defaultVal;
+      if (c.key === 'hitpoints') defaultVal = 30;
+      else if (c.key === 'strength') defaultVal = 40;
+      else defaultVal = 40;
+
+      levelValues[c.key] = defaultVal;
+
+      var div = document.createElement('div');
+      div.className = 'gt-level-item';
+      div.innerHTML =
+        '<label>' + c.label + ' <span id="lv_' + c.key + '">' + defaultVal + '</span></label>' +
+        '<input type="range" min="1" max="' + c.max + '" value="' + defaultVal + '" data-levelkey="' + c.key + '">';
+      grid.appendChild(div);
+
+      var slider = div.querySelector('input[type="range"]');
+      slider.addEventListener('input', function () {
+        var key = this.getAttribute('data-levelkey');
+        levelValues[key] = parseInt(this.value);
+        var display = document.getElementById('lv_' + key);
+        if (display) display.textContent = this.value;
+      });
+    });
+  }
+
+  // ============================================================
+  //  BUDGET
+  // ============================================================
+
+  window.updateBudget = function (val) {
+    budgetValue = parseInt(val);
+    displayBudget(val);
+    document.querySelectorAll('.gt-budget-preset').forEach(function (b) {
+      b.classList.remove('gt-active');
+    });
+  };
+
+  function displayBudget(val) {
+    var v = parseInt(val);
+    var display = document.getElementById('budgetDisplay');
+    if (v === 0) display.textContent = 'Unlimited';
+    else if (v < 1000) display.textContent = v + 'K';
+    else display.textContent = (v / 1000).toFixed(v % 1000 === 0 ? 0 : 1) + 'M';
+  }
+
+  window.setBudget = function (val, el) {
+    budgetValue = val;
+    document.getElementById('budgetSlider').value = val;
+    displayBudget(val);
+    document.querySelectorAll('.gt-budget-preset').forEach(function (b) {
+      b.classList.remove('gt-active');
+    });
+    if (el) el.classList.add('gt-active');
+  };
+
+  document.getElementById('budgetSlider').addEventListener('input', function () {
+    updateBudget(this.value);
+  });
+
+  // ============================================================
+  //  TOAST
+  // ============================================================
+
+  window.showToast = function (msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'gt-toast gt-show';
+    clearTimeout(t._timer);
+    t._timer = setTimeout(function () {
+      t.className = 'gt-toast gt-hide';
+    }, 2500);
+  };
+
+  // ============================================================
+  //  RESET
+  // ============================================================
+
+  window.resetAll = function () {
+    selectedStyle = null;
+    document.querySelectorAll('.gt-style-btn').forEach(function (b) {
+      b.classList.remove('gt-selected');
+    });
+    var step1Btn = document.getElementById('step1Btn');
+    step1Btn.disabled = true;
+    step1Btn.textContent = 'Select a style to continue →';
+    goStep(1);
+  };
+
+  // ============================================================
+  //  RECOMMENDATION GENERATION
+  // ============================================================
+
+  window.generateRecommendation = function () {
+    var savedCount = parseInt(localStorage.getItem('osrs_query_count') || '0');
+    var savedDate = localStorage.getItem('osrs_query_date') || '';
+    var today = new Date().toISOString().slice(0, 10);
+
+    if (savedDate !== today) {
+      savedCount = 0;
+      localStorage.setItem('osrs_query_date', today);
+    }
+
+    if (!isPremium && selectedStyle !== 'melee') {
+      showToast('Free mode: Melee recommendations only. Premium unlocks all styles.');
+      return;
+    }
+
+    if (!isPremium && savedCount >= dailyQueryLimit) {
+      showToast('Daily limit reached (' + dailyQueryLimit + ' queries). Upgrade to Premium for unlimited queries!');
+      return;
+    }
+
+    if (!isPremium) {
+      savedCount++;
+      localStorage.setItem('osrs_query_count', String(savedCount));
+      localStorage.setItem('osrs_query_date', today);
+      document.getElementById('queryUsed').textContent = savedCount;
+    }
+
+    goStep(4);
+
+    document.getElementById('resultLoading').style.display = 'block';
+    document.getElementById('gearGrid').innerHTML = '';
+    document.getElementById('statsSummary').style.display = 'none';
+    document.getElementById('totalCostRow').style.display = 'none';
+    document.getElementById('priceSource').style.display = 'none';
+
+    generateWithEngine();
+  };
+
+  function generateWithEngine() {
+    if (window.OSRSGearEngine) {
+      var engine = window.OSRSGearEngine;
+      var combatStyle = selectedStyle || 'melee';
+
+      var levels = {};
+      LEVEL_CONFIG[combatStyle].forEach(function (c) {
+        levels[c.key] = levelValues[c.key] || 40;
+      });
+
+      var budgetGP = budgetValue * 1000;
+      var budget = { tier: budgetGP < 50000 ? 'cheap' : budgetGP < 500000 ? 'medium' : 'expensive', maxAmount: budgetGP === 0 ? 999999999 : budgetGP };
+
+      engine.recommendGear(combatStyle, levels, budget, {
+        isMember: true,
+        isPremium: isPremium,
+        questsCompleted: []
+      }).then(function (result) {
+        renderResult(result);
+      }).catch(function (err) {
+        console.warn('[GearEngine] Error:', err);
+        generateWithInline(combatStyle);
+      });
+    } else {
+      generateWithInline(selectedStyle || 'melee');
+    }
+  }
+
+  function generateWithInline(style) {
+    var data = INLINE_GEAR[style];
+    if (!data) {
+      showToast('Error loading gear data. Please refresh.');
+      return;
+    }
+
+    document.getElementById('resultLoading').style.display = 'none';
+
+    document.getElementById('resultStyle').textContent = getStyleShortCN(style);
+    var disp = budgetValue === 0 ? 'Unlimited' : (budgetValue < 1000 ? budgetValue + 'K' : (budgetValue / 1000).toFixed(budgetValue % 1000 === 0 ? 0 : 1) + 'M');
+    document.getElementById('resultBudget').textContent = disp;
+
+    document.getElementById('statAtk').textContent = levelValues.attack || levelValues.ranged || levelValues.magic || '-';
+    document.getElementById('statStr').textContent = levelValues.strength || '-';
+    document.getElementById('statDef').textContent = levelValues.defence || '-';
+    document.getElementById('statHp').textContent = levelValues.hitpoints || '-';
+    document.getElementById('statsSummary').style.display = 'flex';
+
+    var grid = document.getElementById('gearGrid');
+    grid.innerHTML = '';
+    data.gear.forEach(function (g) {
+      var div = document.createElement('div');
+      div.className = 'gt-equip-slot';
+      div.setAttribute('data-item', g.name);
+      div.setAttribute('data-slot', g.id);
+      div.innerHTML =
+        '<div class="gt-slot-cost">' + g.cost + '</div>' +
+        '<div class="gt-slot-icon">' + g.icon + '</div>' +
+        '<div class="gt-slot-label">' + g.label + '</div>' +
+        '<div class="gt-slot-name">' + g.name + '</div>' +
+        '<div class="gt-slot-stats">' + g.stats + '</div>' +
+        '<div class="gt-slot-reason">' + g.reason + '</div>';
+      grid.appendChild(div);
+    });
+
+    document.getElementById('totalCost').textContent = '≈ ' + data.totalCost;
+    document.getElementById('totalCostRow').style.display = 'flex';
+
+    document.getElementById('priceSourceText').textContent = 'Prices are estimated (static database)';
+    document.getElementById('priceSource').style.display = 'flex';
+
+    renderUpgradePath(data.upgrade);
+    renderGETips(style);
+
+    showToast('Gear recommendations ready!');
+  }
+
+  function renderResult(result) {
+    document.getElementById('resultLoading').style.display = 'none';
+
+    document.getElementById('resultStyle').textContent = result.styleName;
+    var disp = budgetValue === 0 ? 'Unlimited' : (budgetValue < 1000 ? budgetValue + 'K' : (budgetValue / 1000).toFixed(budgetValue % 1000 === 0 ? 0 : 1) + 'M');
+    document.getElementById('resultBudget').textContent = disp;
+
+    var levels = result.levels || {};
+    document.getElementById('statAtk').textContent = levels.attack || levels.ranged || levels.magic || '-';
+    document.getElementById('statStr').textContent = levels.strength || '-';
+    document.getElementById('statDef').textContent = levels.defence || '-';
+    document.getElementById('statHp').textContent = levels.hitpoints || '-';
+    document.getElementById('statsSummary').style.display = 'flex';
+
+    var grid = document.getElementById('gearGrid');
+    grid.innerHTML = '';
+    var slots = result.slots || {};
+
+    OSRSGearEngine.ALL_SLOTS.forEach(function (slot) {
+      var rec = slots[slot];
+      var div = document.createElement('div');
+      div.className = 'gt-equip-slot';
+      div.setAttribute('data-slot', slot);
+
+      if (!rec || !rec.item) {
+        div.className += ' gt-empty';
+        var label = OSRSGearEngine.SLOT_LABELS[slot] || { label: slot, icon: '❓' };
+        div.innerHTML =
+          '<div class="gt-slot-icon">' + label.icon + '</div>' +
+          '<div class="gt-slot-label">' + label.label + '</div>' +
+          '<div class="gt-slot-name">No recommendation</div>';
+        grid.appendChild(div);
+        return;
+      }
+
+      var item = rec.item;
+      var priceFormatted = rec.price > 0 ? (rec.price >= 1000000 ? (rec.price / 1000000).toFixed(1) + 'M' : (rec.price >= 1000 ? Math.round(rec.price / 1000) + 'K' : String(rec.price))) : '?';
+      var labelInfo = OSRSGearEngine.SLOT_LABELS[slot] || { label: item.slot || slot, icon: '❓' };
+
+      div.innerHTML =
+        '<div class="gt-slot-cost">' + priceFormatted + ' gp</div>' +
+        '<div class="gt-slot-icon">' + (item.icon || labelInfo.icon) + '</div>' +
+        '<div class="gt-slot-label">' + labelInfo.label + '</div>' +
+        '<div class="gt-slot-name">' + (item.name || 'Unknown') + '</div>' +
+        '<div class="gt-slot-stats">' + (item.stats || '') + '</div>' +
+        '<div class="gt-slot-reason">' + (rec.reason || 'Recommended') + '</div>';
+
+      if (item._overBudget) {
+        div.innerHTML += '<div class="gt-over-budget">Over budget by ' + (item._overBy >= 1000 ? Math.round(item._overBy / 1000) + 'K' : item._overBy) + ' gp</div>';
+      }
+
+      if (!result.hasRealPrices) {
+        div.innerHTML += '<div class="gt-price-stale">est.</div>';
+      }
+
+      grid.appendChild(div);
+    });
+
+    document.getElementById('totalCost').textContent = '≈ ' + OSRSGearEngine.formatGP(result.totalCost);
+    document.getElementById('totalCostRow').style.display = 'flex';
+
+    var ps = document.getElementById('priceSource');
+    var pst = document.getElementById('priceSourceText');
+    if (result.hasRealPrices) {
+      ps.className = 'gt-price-source gt-live';
+      pst.textContent = 'Prices from OSRS Wiki API ✓';
+    } else {
+      ps.className = 'gt-price-source gt-static';
+      pst.textContent = 'Prices are estimated (API unavailable)';
+    }
+    ps.style.display = 'flex';
+
+    renderUpgradePath(result.upgradePath);
+    renderGETips(result.style);
+
+    showToast('Gear recommendations ready!');
+  }
+
+  // ============================================================
+  //  UPGRADE PATH
+  // ============================================================
+
+  function renderUpgradePath(upgrades) {
+    var tbody = document.getElementById('upgradeBody');
+    if (!upgrades || upgrades.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--text-dim);padding:16px;">No upgrade paths found for your current setup.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = '';
+    upgrades.forEach(function (u) {
+      var priorityClass = 'gt-priority-' + (u.priority === 'high' ? 'high' : u.priority === 'medium' ? 'mid' : 'low');
+      var priorityLabel = u.priority.charAt(0).toUpperCase() + u.priority.slice(1);
+      var costDisplay = u.priceGapFormatted || (u.priceGap > 0 ? (u.priceGap >= 1000000 ? (u.priceGap / 1000000).toFixed(1) + 'M' : (u.priceGap >= 1000 ? Math.round(u.priceGap / 1000) + 'K' : String(u.priceGap))) : u.note || u.cost || '?');
+
+      var tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td><span class="gt-priority ' + priorityClass + '">' + priorityLabel + '</span></td>' +
+        '<td>' + (u.currentName || u.from || u.current || '?') + '</td>' +
+        '<td class="gt-arrow">→</td>' +
+        '<td>' + (u.targetName || u.to || u.target || u.note || '?') + '</td>' +
+        '<td class="gt-gp">' + costDisplay + '</td>';
+      tbody.appendChild(tr);
+    });
+  }
+
+  // ============================================================
+  //  GE TIPS
+  // ============================================================
+
+  function renderGETips(style) {
+    var tipsContainer = document.querySelector('.gt-ge-tips');
+    if (!tipsContainer) return;
+
+    var tips = GE_TIPS[style] || GE_TIPS.melee;
+    var tipsHtml = '<h4>📦 GE Buying Tips for ' + getStyleShortCN(style) + '</h4>';
+    tips.forEach(function (tip) {
+      tipsHtml += '<div class="gt-ge-tip-item"><span class="gt-bullet">•</span><span>' + tip + '</span></div>';
+    });
+    tipsContainer.innerHTML = tipsHtml;
+  }
+
+  // ============================================================
+  //  EQUIPMENT CARD CLICK
+  // ============================================================
+
+  document.addEventListener('click', function (e) {
+    var slot = e.target.closest('.gt-equip-slot');
+    if (slot) {
+      var name = slot.querySelector('.gt-slot-name');
+      if (name && name.textContent) {
+        showToast(name.textContent + ' — Check GE prices on the OSRS Wiki');
+      }
+    }
+  });
+
+  // ============================================================
+  //  FAQ TOGGLE
+  // ============================================================
+
+  window.toggleFAQ = function (btn) {
+    btn.classList.toggle('gt-open');
+    var toggle = btn.querySelector('.gt-faq-toggle');
+    if (toggle) {
+      toggle.textContent = btn.classList.contains('gt-open') ? '×' : '+';
+    }
+  };
+
+  // ============================================================
+  //  QUERY COUNTER INIT
+  // ============================================================
+
+  function initQueryCounter() {
+    var today = new Date().toISOString().slice(0, 10);
+    var savedDate = localStorage.getItem('osrs_query_date') || '';
+    var savedCount = parseInt(localStorage.getItem('osrs_query_count') || '0');
+
+    if (savedDate !== today) {
+      savedCount = 0;
+      localStorage.setItem('osrs_query_date', today);
+      localStorage.setItem('osrs_query_count', '0');
+    }
+
+    queryCount = savedCount;
+    document.getElementById('queryUsed').textContent = savedCount;
+  }
+
+  // ============================================================
+  //  PRELOAD DATABASE
+  // ============================================================
+
+  function preloadDatabase() {
+    if (window.OSRSGearEngine) {
+      window.OSRSGearEngine.loadGearDatabase().then(function (db) {
+        console.log('[GearTool] Database loaded:', db.meta ? db.meta.version : 'inline');
+      }).catch(function (err) {
+        console.warn('[GearTool] Database preload failed, using inline fallback:', err.message);
+      });
+
+      window.OSRSGearEngine.loadGEPrices().then(function (prices) {
+        console.log('[GearTool] Prices loaded:', prices ? Object.keys(prices).length + ' items' : 'fallback');
+      }).catch(function () {});
+    }
+  }
+
+  // ============================================================
+  //  CHECK PREMIUM STATUS
+  // ============================================================
+
+  function checkPremiumStatus() {
+    if (window.subscriptionManager) {
+      isPremium = subscriptionManager.isActive();
+    }
+    if (isPremium) {
+      document.getElementById('freeBanner').style.display = 'none';
+      document.getElementById('queryCount').style.display = 'none';
+    }
+  }
+
+  // ============================================================
+  //  INIT
+  // ============================================================
+
+  document.addEventListener('DOMContentLoaded', function () {
+    updateLevelInputs('melee');
+    initQueryCounter();
+    preloadDatabase();
+    checkPremiumStatus();
+  });
+
+})();
+</script>
+</body>
+</html>

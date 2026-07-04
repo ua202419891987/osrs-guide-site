@@ -1,0 +1,145 @@
+# OSRS Gear Recommender — 每日 GE 价格自动更新
+#
+# 每天 UTC 00:00（北京时间 08:00）自动运行。
+# 调用 Python 脚本从 OSRS Wiki API 获取最新 GE 价格，
+# 更新 gear-database.json 中的 ge_price_estimate 和 ge_price_category 字段。
+#
+# 工作流：
+#   1. 拉取仓库
+#   2. 安装 Python 依赖 (requests)
+#   3. 运行 update-prices.py 更新 gear-database.json
+#   4. 验证 JSON 格式完整性
+#   5. 提交并推送更新到 main 分支
+#   6. 失败时发送 GitHub Actions 通知
+
+name: Update GE Prices
+
+on:
+  # 定时触发：每天 UTC 00:00（北京时间 08:00）
+  schedule:
+    - cron: '0 0 * * *'
+
+  # 手动触发：可通过 GitHub UI 或 API 手动运行
+  workflow_dispatch:
+
+  # 当 gear-database.json 变更时也可触发
+  push:
+    paths:
+      - 'data/gear-database.json'
+
+# 权限设置：允许写入 content 以推送 commit
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  update-prices:
+    name: Update GE prices in gear-database.json
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: 检出仓库
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # 拉取完整历史以便 commit
+          fetch-depth: 1
+
+      # Step 2: 设置 Python
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      # Step 3: 安装 Python 依赖
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      # Step 4: 运行价格更新脚本
+      - name: Run price update script
+        id: update
+        run: |
+          python scripts/update-prices.py 2>&1 | tee update_output.txt
+        shell: bash
+
+      # Step 5: 验证更新后的 JSON 是否有效
+      - name: Validate updated JSON
+        run: |
+          echo "Validating gear-database.json..."
+          python -c "
+import json
+with open('data/gear-database.json', 'r', encoding='utf-8') as f:
+    data = json.load(f)
+    
+# 检查必要结构
+assert 'meta' in data, 'Missing meta'
+assert 'combat_styles' in data, 'Missing combat_styles'
+assert data['meta']['version'], 'Missing version'
+
+# 统计物品数量
+total_items = 0
+for style_name, style_data in data['combat_styles'].items():
+    for tier in style_data.get('tiers', []):
+        total_items += len(tier.get('recommended_gear', {}))
+
+print(f'✓ Valid JSON with {total_items} items across {len(data[\"combat_styles\"])} combat styles')
+"
+
+      # Step 6: 检查是否有变更
+      - name: Check for changes
+        id: git-check
+        run: |
+          if git diff --quiet && git diff --staged --quiet; then
+            echo "No changes to commit"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      # Step 7: 提交并推送更新
+      - name: Commit and push changes
+        if: steps.git-check.outputs.has_changes == 'true'
+        run: |
+          git config user.name "osrsguru-bot"
+          git config user.email "bot@osrsguru.com"
+          git add data/gear-database.json
+          UPDATE_TIME=$(date -u +'%Y-%m-%d %H:%M UTC')
+          git commit -m "chore(data): update GE prices [${UPDATE_TIME}]"
+          git push
+
+      # Step 8: 发送通知（失败时）
+      - name: Notify on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const runUrl = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`;
+            const issue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `⚠️ GE Price Update Failed [${new Date().toISOString().slice(0, 10)}]`,
+              body: `The automated GE price update workflow failed.
+
+              **Run**: ${runUrl}
+              **Time**: ${new Date().toISOString()}
+              **Branch**: ${process.env.GITHUB_REF || 'main'}
+
+              Please check the workflow logs and manually run the update if needed.`
+            });
+            console.log(`Created notification issue #${issue.data.number}`);
+
+      # Step 9: 输出更新摘要到 Workflow Run 日志
+      - name: Print update summary
+        if: always()
+        run: |
+          echo "========================================"
+          echo "  GE Price Update Summary"
+          echo "========================================"
+          if [ -f update_output.txt ]; then
+            cat update_output.txt
+          fi
+          echo "========================================"
