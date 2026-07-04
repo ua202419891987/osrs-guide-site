@@ -1,0 +1,325 @@
+﻿=== OSRS 主站 HTML 技术特征缺失扫描报告 ===
+扫描目录: C:\Users\Lenovo\osrs-guide-site\guides
+扫描时间: 2026-07-02 15:18:04
+共扫描文件数: 309
+缺少至少一个特征的文件数: 268
+
+
+--- 缺失 6 个特征（共 1 个文件）---
+
+FileName                              MissingMeta MissingQS MissingCSS MissingRelated MissingGA4 MissingAdSense
+--------                              ----------- --------- ---------- -------------- ---------- --------------
+osrs-weekly-pain-points-template.html X           X         X          X              X          X             
+
+
+
+--- 缺失 4 个特征（共 5 个文件）---
+
+FileName                                     MissingMeta MissingQS MissingCSS MissingRelated MissingGA4 MissingAdSense
+--------                                     ----------- --------- ---------- -------------- ---------- --------------
+vault-of-ralos-raid-guide-2026.html          X           X         X          X                                       
+osrs-summer-sweep-up-2026-account-guide.html X           X         X                         X                        
+osrs-sailing-wyrmscraig-guide-2026.html      X           X         X                         X                        
+osrs-gauntlet-meta-changes-2026.html         X           X         X                         X                        
+osrs-blood-moon-rises-guide-2026.html        X           X         X                         X                        
+
+
+
+--- 缺失 3 个特征（共 210 个文件）---
+
+FileName                                              MissingMeta MissingQS MissingCSS MissingRelated MissingGA4 Missin
+                                                                                                                 gAdSen
+                                                                                                                 se    
+--------                                              ----------- --------- ---------- -------------- ---------- ------
+slayer-1-99-guide-2026.html                           X           X         X                                          
+sailing-pvp-guide-2026.html                           X           X         X                                          
+sailing-phase-1-training-2026.html                    X           X         X                                          
+sailing-complete-guide-2026.html                      X           X         X                                          
+quest-cape-roadmap-2026.html                          X           X         X                                          
+osrs-wintertodt-complete-guide-2026.html              X           X         X                                          
+osrs-wilderness-survival-beginner-2026.html           X           X         X                                          
+osrs-wilderness-pvp-guide-2026.html                   X           X         X                                          
+osrs-wilderness-bosses-guide-2026.html                X           X         X                                          
+osrs-what-to-buy-first-1m-guide-2026.html             X           X         X                                          
+osrs-what-changed-2026-returning-guide.html           X           X         X                                          
+osrs-volcanic-mine-guide-2026.html                    X           X         X                                          
+osrs-viggora-guide-2026.html                          X           X         X                                          
+osrs-viggora-chainmace-guide-2026.html                X           X         X                                          
+osrs-transportation-teleport-guide-2026.html          X           X         X                                          
+osrs-training-guide-complete-2026.html                X           X         X                                          
+osrs-top-10-skills-to-train-first-2026.html           X           X         X                                          
+osrs-toa-solo-beginner-guide-2026.html                X           X         X                                          
+osrs-theatre-of-blood-guide-2026.html                 X           X         X                                          
+osrs-terminology-dictionary-2026.html                 X           X         X                                          
+osrs-tempoross-guide-2026.html                        X           X         X                                          
+osrs-summer-sweep-up-2026-guide.html                  X           X         X                                          
+osrs-stuck-progression-guide-2026.html                X           X         X                                          
+osrs-soulreaper-axe-guide-2026.html                   X           X         X                                          
+osrs-slayer-low-level-money-makers-2026.html          X           X         X                                          
+osrs-slayer-block-skip-list-2026.html                 X           X         X                                          
+osrs-slayer-beginner-first-master-guide-2026.html     X           X         X                                          
+osrs-slayer-70-to-95-money-makers-2026.html           X           X         X                                          
+osrs-skill-training-mid-game-optimization-2026.html   X           X         X                                          
+osrs-skill-training-mid-game-guide-2026.html          X           X         X                                          
+osrs-skill-training-max-account-2026.html             X           X         X                                          
+osrs-skill-training-endgame-guide-2026.html           X           X         X                                          
+osrs-skill-training-after-sweep-up-2026.html          X           X         X                                          
+osrs-skills-progression-path-2026.html                X           X         X                                          
+osrs-skills-overview-beginner-2026.html               X           X         X                                          
+osrs-seaweed-runs-guide-2026.html                     X           X         X                                          
+osrs-sarachnis-solo-guide-2026.html                   X           X         X                                          
+osrs-sarachnis-loot-guide-for-ironman.html            X           X         X                                          
+osrs-sailing-training-guide-2026.html                 X           X         X                                          
+osrs-sailing-ship-crew-guide-2026.html                X           X         X                                          
+osrs-sailing-phase-2-prep-guide-2026.html             X           X         X                                          
+osrs-sailing-best-quest-order-after-sailing-2026.html X           X         X                                          
+osrs-sailing-afk-training-guide-2026.html             X           X         X                                          
+osrs-sailing-1-99-guide-2026.html                     X           X         X                                          
+osrs-safe-spots-beginner-2026.html                    X           X         X                                          
+osrs-royal-titans-guide-2026.html                     X           X         X                                          
+osrs-returning-player-fast-track-2026.html            X           X         X                                          
+osrs-returning-player-catch-up-guide-2026.html        X           X         X                                          
+osrs-range-training-1-99-guide-2026.html              X           X         X                                          
+osrs-raid-entry-requirements-2026.html                X           X         X                                          
+osrs-quest-unlocked-money-methods-2026.html           X           X         X                                          
+osrs-quest-speedrun-order-2026.html                   X           X         X                                          
+osrs-quest-cape-guide-2026.html                       X           X         X                                          
+osrs-pyramid-plunder-guide-2026.html                  X           X         X                                          
+osrs-poh-optimal-layout-guide-2026.html               X           X         X                                          
+osrs-poh-beginner-guide-2026.html                     X           X         X                                          
+osrs-phantom-muspah-guide-2026.html                   X           X         X                                          
+osrs-pet-hunting-guide-2026.html                      X           X         X                                          
+osrs-pest-control-void-guide-2026.html                X           X         X                                          
+osrs-optimal-leveling-guide-2026.html                 X           X         X                                          
+osrs-obor-bryophyta-f2p-boss-guide-2026.html          X           X         X                                          
+osrs-nmz-beginner-guide-2026.html                     X           X         X                                          
+osrs-nightmare-phosanis-guide-2026.html               X           X         X                                          
+osrs-nex-guide-2026.html                              X           X         X                                          
+osrs-motherlode-mine-guide-2026.html                  X           X         X                                          
+osrs-money-making-summer-sweep-up-2026.html           X           X         X                                          
+osrs-mobile-membership-guide-2026.html                X           X         X                                          
+osrs-minigames-beginner-guide-2026.html               X           X         X                                          
+osrs-mid-year-review-2026.html                        X           X         X                                          
+osrs-mid-year-meta-shift-2026.html                    X           X         X                                          
+osrs-mid-to-high-progression-roadmap-2026.html        X           X         X                                          
+osrs-mid-game-breakthrough-guide-2026.html            X           X         X                                          
+osrs-members-vs-f2p-comparison-2026.html              X           X         X                                          
+osrs-membership-worth-it-2026.html                    X           X         X                                          
+osrs-membership-price-increase-2026.html              X           X         X                                          
+osrs-membership-hub.html                              X           X         X                                          
+osrs-membership-guide-2026.html                       X           X         X                                          
+osrs-members-exclusive-skills-worth-it-2026.html      X           X         X                                          
+osrs-maxing-99-order-guide-2026.html                  X           X         X                                          
+osrs-maps-travel-guide-2026.html                      X           X         X                                          
+osrs-mahogany-homes-construction-guide-2026.html      X           X         X                                          
+osrs-low-gear-setup-vorkath-guide.html                X           X         X                                          
+osrs-low-cost-1-99-herblore-guide.html                X           X         X                                          
+osrs-lms-beginner-guide-2026.html                     X           X         X                                          
+osrs-leveling-milestones-guide-2026.html              X           X         X                                          
+osrs-khopesh-vs-alternative-weapons-2026.html         X           X         X                                          
+osrs-khopesh-guide-2026.html                          X           X         X                                          
+osrs-kalphite-queen-kq-beginner-guide-2026.html       X           X         X                                          
+osrs-ironman-membership-guide-2026.html               X           X         X                                          
+osrs-ironman-1-99-smithing-guide.html                 X           X         X                                          
+osrs-interface-controls-beginner-guide-2026.html      X           X         X                                          
+osrs-inferno-guide-2026.html                          X           X         X                                          
+osrs-hunter-training-guide-2026.html                  X           X         X                                          
+osrs-how-to-unlock-the-abyss-guide.html               X           X         X                                          
+osrs-how-to-unlock-fairy-rings.html                   X           X         X                                          
+osrs-how-to-unlock-dinosaur-hunting-osrs.html         X           X         X                                          
+osrs-how-to-train-prayer-cheap-f2p.html               X           X         X                                          
+osrs-how-to-solo-god-wars-boss-for-beginners.html     X           X         X                                          
+osrs-how-to-reclaim-twisted-bow-when-lost.html        X           X         X                                          
+osrs-how-to-increase-slayer-points-fast.html          X           X         X                                          
+osrs-how-to-get-to-thermonuclear-smoke-devil.html     X           X         X                                          
+osrs-how-to-get-to-kourend-castle-quick-guide.html    X           X         X                                          
+osrs-how-to-get-to-fossil-island-quick-guide.html     X           X         X                                          
+osrs-how-to-get-to-alchemical-hydra-guide.html        X           X         X                                          
+osrs-how-to-get-rune-pouch-guide.html                 X           X         X                                          
+osrs-how-to-get-house-teleport-tablet.html            X           X         X                                          
+osrs-how-to-get-graceful-outfit-full-guide.html       X           X         X                                          
+osrs-how-to-get-dragon-defender-2026.html             X           X         X                                          
+osrs-how-to-get-99-fishing-afk-method.html            X           X         X                                          
+osrs-how-to-get-99-agility-fast-2026.html             X           X         X                                          
+osrs-how-to-finish-dragon-slayer-2-guide.html         X           X         X                                          
+osrs-how-to-fight-corporal-beast-loot-guide.html      X           X         X                                          
+osrs-how-to-complete-monkey-madness-quest.html        X           X         X                                          
+osrs-how-to-complete-lost-city-guide.html             X           X         X                                          
+osrs-how-to-complete-fremennik-trials-guide.html      X           X         X                                          
+osrs-how-to-beat-zulrah-beginners-rotation.html       X           X         X                                          
+osrs-herb-run-mastery-guide-2026.html                 X           X         X                                          
+osrs-hallowed-sepulchre-guide-2026.html               X           X         X                                          
+osrs-guardians-of-the-rift-stardust-guide-2026.html   X           X         X                                          
+osrs-guardians-of-the-rift-guide-2026.html            X           X         X                                          
+osrs-group-ironman-beginner-guide-2026.html           X           X         X                                          
+osrs-grotesque-guardians-guide-low-stats.html         X           X         X                                          
+osrs-goraik-rewards-worth-it-2026.html                X           X         X                                          
+osrs-goraik-quest-guide-2026.html                     X           X         X                                          
+osrs-god-wars-dungeon-boss-guide-2026.html            X           X         X                                          
+osrs-giants-foundry-guide-2026.html                   X           X         X                                          
+osrs-ghommal-hilt-fast-guide-2026.html                X           X         X                                          
+osrs-gear-upgrade-priority-order-2026.html            X           X         X                                          
+osrs-gear-inflation-guide-2026.html                   X           X         X                                          
+osrs-gear-before-price-hike-2026.html                 X           X         X                                          
+osrs-frustration-solutions-guide-2026.html            X           X         X                                          
+osrs-forestry-guide-2026.html                         X           X         X                                          
+osrs-first-week-progression-guide-2026.html           X           X         X                                          
+osrs-first-30-minutes-member-2026.html                X           X         X                                          
+osrs-fire-cape-to-infernal-progression-2026.html      X           X         X                                          
+osrs-fire-cape-jad-guide-2026.html                    X           X         X                                          
+osrs-find-clan-guild-guide-2026.html                  X           X         X                                          
+osrs-fighter-torso-barbarian-assault-guide-2026.html  X           X         X                                          
+osrs-fastest-leveling-guide-2026.html                 X           X         X                                          
+osrs-fastest-hunter-training-2026.html                X           X         X                                          
+osrs-fastest-99-cooking-f2p.html                      X           X         X                                          
+osrs-fastest-99-attack-strength-defence.html          X           X         X                                          
+osrs-fastest-1-99-crafting-guide-2026.html            X           X         X                                          
+osrs-early-game-weapon-tierlist-2026.html             X           X         X                                          
+osrs-drop-rate-probability-guide-2026.html            X           X         X                                          
+osrs-dragon-defender-guide-2026.html                  X           X         X                                          
+osrs-diary-easy-medium-complete-guide-2026.html       X           X         X                                          
+osrs-desert-treasure-quest-guide-low-level.html       X           X         X                                          
+osrs-death-mechanics-guide-2026.html                  X           X         X                                          
+osrs-daily-weekly-reset-activities-guide-2026.html    X           X         X                                          
+osrs-dagannoth-kings-guide-2026.html                  X           X         X                                          
+osrs-curse-of-the-empty-lord-quest-2026.html          X           X         X                                          
+osrs-crystal-extractor-guide-2026.html                X           X         X                                          
+osrs-corrupted-gauntlet-guide-2026.html               X           X         X                                          
+osrs-corrupted-gauntlet-advanced-guide-2026.html      X           X         X                                          
+osrs-construction-1-99-guide-2026.html                X           X         X                                          
+osrs-complete-skill-training-guide-2026.html          X           X         X                                          
+osrs-common-bug-fix-guide-2026.html                   X           X         X                                          
+osrs-coming-back-2026-guide-2026.html                 X           X         X                                          
+osrs-combat-triangle-guide-2026.html                  X           X         X                                          
+osrs-combat-triangle-explained-2026.html              X           X         X                                          
+osrs-combat-achievements-master-guide-2026.html       X           X         X                                          
+osrs-combat-achievements-easy-walkthrough-2026.html   X           X         X                                          
+osrs-colosseum-fortis-guide-2026.html                 X           X         X                                          
+osrs-clue-scrolls-rewards-guide-2026.html             X           X         X                                          
+osrs-clan-social-guide-2026.html                      X           X         X                                          
+osrs-cheapest-membership-2026.html                    X           X         X                                          
+osrs-cheapest-99-runecrafting-2026.html               X           X         X                                          
+osrs-cerberus-boss-guide-2026.html                    X           X         X                                          
+osrs-cancel-membership-refund-2026.html               X           X         X                                          
+osrs-budget-gear-by-combat-level-2026.html            X           X         X                                          
+osrs-boss-profit-tier-list-2026.html                  X           X         X                                          
+osrs-boss-profit-comparison-2026.html                 X           X         X                                          
+osrs-bond-vs-subscription-2026.html                   X           X         X                                          
+osrs-bond-farming-strategy-2026.html                  X           X         X                                          
+osrs-bond-farming-free-membership-2026.html           X           X         X                                          
+osrs-blood-moon-prep-checklist-2026.html              X           X         X                                          
+osrs-blast-furnace-smithing-guide-2026.html           X           X         X                                          
+osrs-birdhouse-runs-guide-2026.html                   X           X         X                                          
+osrs-best-updates-2026-ranked.html                    X           X         X                                          
+osrs-best-quests-per-skill-2026.html                  X           X         X                                          
+osrs-best-in-slot-gear-guide-2026.html                X           X         X                                          
+osrs-best-clans-discord-guide-2026.html               X           X         X                                          
+osrs-barrows-beginner-guide-2026.html                 X           X         X                                          
+osrs-bank-inventory-management-2026.html              X           X         X                                          
+osrs-araxxor-guide-2026.html                          X           X         X                                          
+osrs-all-skills-overview-guide-2026.html              X           X         X                                          
+osrs-agility-training-guide-2026.html                 X           X         X                                          
+osrs-affordable-leveling-guide-2026.html              X           X         X                                          
+osrs-achievement-diary-guide-2026.html                X           X         X                                          
+osrs-achievement-diary-beginner-guide-2026.html       X           X         X                                          
+osrs-account-security-guide-2026.html                 X           X         X                                          
+osrs-account-security-anti-scam-guide-2026.html       X           X         X                                          
+osrs-1-99-thieving-guide-ironman.html                 X           X         X                                          
+osrs-1-99-prayer-guide-all-methods-2026.html          X           X         X                                          
+osrs-1-99-magic-training-cheap-guide-2026.html        X           X         X                                          
+osrs-1-99-hunter-guide-afk-method.html                X           X         X                                          
+osrs-1-99-hunter-guide-2026.html                      X           X         X                                          
+osrs-1-99-hitpoints-training-guide-2026.html          X           X         X                                          
+osrs-1-99-hitpoints-guide-2026.html                   X           X         X                                          
+osrs-1-99-crafting-guide-2026.html                    X           X         X                                          
+new-boss-loot-guide-2026.html                         X           X         X                                          
+mid-game-money-making-2026.html                       X           X         X                                          
+max-cape-route-2026.html                              X           X         X                                          
+league-6-prep-guide-2026.html                         X           X         X                                          
+first-5m-gp-members-2026.html                         X           X         X                                          
+f2p-to-p2p-bond-guide-2026.html                       X           X         X                                          
+best-quests-new-members-2026.html                     X           X         X                                          
+barrows-first-boss-gp-2026.html                       X           X         X                                          
+account-security-guide-2026.html                      X           X         X                                          
+
+
+
+--- 缺失 2 个特征（共 32 个文件）---
+
+FileName                                                MissingMeta MissingQS MissingCSS MissingRelated MissingGA4 Miss
+                                                                                                                   ingA
+                                                                                                                   dSen
+                                                                                                                   se  
+--------                                                ----------- --------- ---------- -------------- ---------- ----
+osrs-wyrmscraig-rewards-ranking-2026.html               X                     X                                        
+osrs-wyrmscraig-activities-guide-2026.html              X                     X                                        
+osrs-trouver-system-rework-guide-2026.html              X                     X                                        
+osrs-trouver-parchment-complete-guide-2026.html         X                     X                                        
+osrs-slayer-beginner-guide-2026.html                    X                     X                                        
+osrs-runelite-setup-guide-2026.html                     X                     X                                        
+osrs-returning-player-guide-2026.html                   X                     X                                        
+osrs-regional-worlds-guide-2026.html                    X                     X                                        
+osrs-questing-beginner-guide-2026.html                  X                     X                                        
+osrs-pvm-beginner-guide-2026.html                       X                     X                                        
+osrs-new-player-guide-2026.html                         X                     X                                        
+osrs-new-player-7-day-roadmap-2026.html                 X                     X                                        
+osrs-money-making-zero-req-2026.html                    X                     X                                        
+osrs-money-making-beginner-2026.html                    X                     X                                        
+osrs-mobile-guide-2026.html                             X                     X                                        
+osrs-jagex-account-migration-guide-2026.html            X                     X                                        
+osrs-jagex-account-faq-2026.html                        X                     X                                        
+osrs-ironman-beginner-guide-2026.html                   X                     X                                        
+osrs-fractured-archive-rewards-analysis-2026.html       X                     X                                        
+osrs-fractured-archive-prep-guide-2026.html             X                     X                                        
+osrs-f2p-to-p2p-membership-guide-2026.html              X                     X                                        
+osrs-f2p-gear-progression-guide-2026.html               X                     X                                        
+osrs-diary-priority-order-beginner-2026.html            X                     X                                        
+osrs-common-beginner-mistakes-avoid-2026.html           X                     X                                        
+osrs-clue-scrolls-beginner-guide-2026.html              X                     X                                        
+osrs-blood-moon-rises-prep-checklist-detailed-2026.html X                     X                                        
+osrs-barrows-tunnel-optimization-2026.html              X                     X                                        
+osrs-bank-tags-layout-guide-2026.html                   X                     X                                        
+osrs-bank-tags-beginners-guide-2026.html                X                     X                                        
+osrs-1-99-prayer-guide-2026.html                        X                     X                                        
+combat-achievements-guide-2026.html                     X                     X                                        
+blood-moon-rises-quest-guide-2026.html                  X                     X                                        
+
+
+
+--- 缺失 1 个特征（共 20 个文件）---
+
+FileName                                              MissingMeta MissingQS MissingCSS MissingRelated MissingGA4 Missin
+                                                                                                                 gAdSen
+                                                                                                                 se    
+--------                                              ----------- --------- ---------- -------------- ---------- ------
+osrs-skill-training-beginner-fast-track-2026.html                           X                                          
+osrs-skill-training-beginner-complete-guide-2026.html                       X                                          
+osrs-prayer-training-beginner-guide-2026.html                               X                                          
+osrs-low-level-skilling-money-makers-2026.html                              X                                          
+osrs-gear-beginner-guide-2026.html                                          X                                          
+osrs-flipping-guide-beginners-2026.html                                     X                                          
+osrs-first-boss-progression-roadmap-2026.html                               X                                          
+osrs-farming-herb-runs-beginner-guide-2026.html                             X                                          
+osrs-f2p-to-member-first-10-things-2026.html                                X                                          
+osrs-f2p-slayer-guide-2026.html                                             X                                          
+osrs-f2p-quests-before-membership-2026.html                                 X                                          
+osrs-f2p-money-making-no-stats.html                                         X                                          
+osrs-f2p-money-making-first-bond-2026.html                                  X                                          
+osrs-f2p-leveling-guide-2026.html                                           X                                          
+osrs-f2p-combat-training-guide-2026.html                                    X                                          
+osrs-efficient-training-routes-beginners-2026.html                          X                                          
+osrs-combat-training-beginner-2026.html                                     X                                          
+osrs-1-99-woodcutting-guide-early-game.html                                 X                                          
+osrs-1-99-mining-guide-beginner-2026.html                                   X                                          
+osrs-1-99-farming-guide-beginner-profit-2026.html                           X                                          
+
+
+
+=== 汇总统计 ===
+缺失 0 个特征: 0 个文件
+缺失 1 个特征: 0 个文件
+缺失 2 个特征: 0 个文件
+缺失 3 个特征: 0 个文件
+缺失 4 个特征: 0 个文件
+缺失 5 个特征: 0 个文件
+缺失 6 个特征: 0 个文件

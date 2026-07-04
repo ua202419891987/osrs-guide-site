@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homepage Redesign — Before/After Comparison</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f2f0; color: #2a1a0a; padding: 40px; }
+  h1 { font-size: 1.8rem; margin-bottom: 8px; }
+  .subtitle { color: #8b7a6b; margin-bottom: 32px; font-size: 1rem; }
+  .row { display: flex; gap: 24px; flex-wrap: wrap; }
+  .col { flex: 1; min-width: 380px; }
+  .col-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid; }
+  .col-before .col-title { color: #a32d2d; border-color: #e24b4a; }
+  .col-after .col-title { color: #3b6d11; border-color: #639922; }
+  
+  .block { padding: 12px 16px; margin-bottom: 6px; border-radius: 8px; border: 1px solid #e0d5c0; font-size: .88rem; line-height: 1.4; transition: all .2s; }
+  .block:hover { transform: translateX(4px); }
+  .block-header { font-weight: 700; font-size: .72rem; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 4px; opacity: .7; }
+  .block-status { display: inline-block; font-size: .65rem; padding: 1px 8px; border-radius: 4px; margin-left: 6px; font-weight: 600; }
+  .status-keep { background: #eaf3de; color: #3b6d11; }
+  .status-merge { background: #faeeda; color: #854f0b; }
+  .status-move { background: #e6f1fb; color: #185fa5; }
+  .status-remove { background: #fcebeb; color: #a32d2d; }
+  .status-trim { background: #fbeaf0; color: #993556; }
+
+  .legends { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+  .legends span { font-size: .75rem; display: flex; align-items: center; gap: 4px; }
+  .legends .dot { display: inline-block; width: 10px; height: 10px; border-radius: 3px; }
+
+  .arrow-connector { text-align: center; padding: 8px 0; font-size: 1.5rem; color: #888780; }
+
+  .summary-box { background: #fff; border: 1px solid #d4af37; border-radius: 12px; padding: 20px 24px; margin-top: 32px; }
+  .summary-box h3 { color: #3b2615; margin-bottom: 8px; }
+  .summary-box ul { padding-left: 20px; color: #5f5e5a; line-height: 1.8; }
+  .summary-box ul li strong { color: #2a1a0a; }
+</style>
+</head>
+<body>
+
+<h1>🏗️ Homepage 结构改前 vs 改后</h1>
+<div class="subtitle">基于两组讨论结论的折中方案草案 · 导航栏和两个游戏窗口保持不变</div>
+
+<div class="legends">
+  <span><span class="dot" style="background:#eaf3de"></span> 保留原位</span>
+  <span><span class="dot" style="background:#faeeda"></span> 合并/重做</span>
+  <span><span class="dot" style="background:#e6f1fb"></span> 移动位置</span>
+  <span><span class="dot" style="background:#fbeaf0"></span> 精简数量</span>
+  <span><span class="dot" style="background:#fcebeb"></span> 删除</span>
+</div>
+
+<div class="row">
+
+<!-- ==================== BEFORE ==================== -->
+<div class="col col-before">
+  <div class="col-title">🔴 改前（当前） — 10 个竞争入口</div>
+
+  <div class="block" style="background:#fff;">
+    <div class="block-header">01 · Header Navigation <span class="block-status status-keep">⛔ 不动</span></div>
+    <div>2 行导航按钮（Roadmaps / Money / Skills / Quest / Bosses / AI Q&A 等）</div>
+  </div>
+
+  <div class="block" style="background:#fff;">
+    <div class="block-header">02 · New Games Bar <span class="block-status status-keep">⛔ 不动</span></div>
+    <div>Crimson Desert + Windrose 两个游戏窗口</div>
+  </div>
+
+  <div class="block" style="background:#f5f0e8;">
+    <div class="block-header">03 · AI Search Box <span class="block-status status-keep">保留</span></div>
+    <div>搜索框 + Popular 热门链接</div>
+  </div>
+
+  <div class="block" style="background:#f5f0e8;">
+    <div class="block-header">04 · 4 Task Cards <span class="block-status status-keep">保留</span></div>
+    <div>Money / Skills / Boss / Community 四张带图卡片</div>
+  </div>
+
+  <div class="block" style="background:#fdf5e0;">
+    <div class="block-header">05 · 30-Second Roadmap <span class="block-status status-merge">⬇ 合并到新模块</span></div>
+    <div>5 步新手路线 (Start F2P → Get Members → Train Skills → Kill Bosses → Make Bank)</div>
+  </div>
+
+  <div class="block" style="background:#fdf5e0;">
+    <div class="block-header">06 · New Player Banner <span class="block-status status-merge">⬇ 合并到新模块</span></div>
+    <div>"New to OSRS?" 横幅 + 8-Week Learning Path</div>
+  </div>
+
+  <div class="block" style="background:#f5f0e8;">
+    <div class="block-header">07 · Pain Points Solved This Week <span class="block-status status-keep">保留</span></div>
+    <div>3 列文章卡片（Skill / Combat & Money / Returning & Progression）</div>
+  </div>
+
+  <div class="block" style="background:#f5f0e8;">
+    <div class="block-header">08 · Ad Banner <span class="block-status status-keep">保留</span></div>
+    <div>728x90 广告位</div>
+  </div>
+
+  <div class="block" style="background:#fdf0f4;">
+    <div class="block-header">09 · Explore Gielinor <span class="block-status status-trim">⬇ 精简</span></div>
+    <div><strong>8 张</strong>卡片：Money / Skills / Mid-Game / Quest / Boss / Monthly / This Week / CN / BR</div>
+  </div>
+
+  <div class="block" style="background:#f5f0e8;">
+    <div class="block-header">10 · Monthly Update — June 2026 <span class="block-status status-keep">保留</span></div>
+    <div>月度更新列表</div>
+  </div>
+
+  <div class="block" style="background:#f5f0e8;">
+    <div class="block-header">11 · What's New This Week <span class="block-status status-keep">保留</span></div>
+    <div>每周更新列表</div>
+  </div>
+
+  <div class="block" style="background:#f5f0e8;">
+    <div class="block-header">12 · Hot Picks <span class="block-status status-keep">保留</span></div>
+    <div>Money Making Deep Dives 三卡片</div>
+  </div>
+
+  <div class="block" style="background:#f5f0e8;">
+    <div class="block-header">13 · Stage 0: 8-Week Beginner Roadmap <span class="block-status status-keep">保留</span></div>
+    <div>8-week learning path</div>
+  </div>
+
+</div>
+
+<!-- ==================== AFTER ==================== -->
+<div class="col col-after">
+  <div class="col-title">🟢 改后（草案） — 6 个清晰入口</div>
+
+  <div class="block" style="background:#fff;">
+    <div class="block-header">01 · Header Navigation <span class="block-status status-keep">⛔ 不动</span></div>
+    <div>2 行导航按钮（完全不变）</div>
+  </div>
+
+  <div class="block" style="background:#fff;">
+    <div class="block-header">02 · New Games Bar <span class="block-status status-keep">⛔ 不动</span></div>
+    <div>Crimson Desert + Windrose（完全不变）</div>
+  </div>
+
+  <div class="block" style="background:#eaf3de;">
+    <div class="block-header">03 · AI Search Box <span class="block-status status-keep">保留</span></div>
+    <div>搜索框 + Popular 热门链接（不变）</div>
+  </div>
+
+  <div class="block" style="background:#eaf3de;">
+    <div class="block-header">04 · 4 Task Cards <span class="block-status status-keep">保留</span></div>
+    <div>Money / Skills / Boss / Community 四张卡片（不变）</div>
+  </div>
+
+  <div class="block" style="background:#fcf2d8; border-left: 4px solid #d4af37;">
+    <div class="block-header">05 · 🎯 Your Journey Starts Here <span class="block-status status-merge">合并新建</span></div>
+    <div><strong>合并 30-Second Roadmap + New Player Banner + Stage 0</strong>，变成 4 个玩家类型入口：</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:8px;">
+      <span style="background:#fdfaf5;padding:6px 10px;border-radius:6px;font-size:.82rem;">🆕 纯新手 → Stage 0</span>
+      <span style="background:#fdfaf5;padding:6px 10px;border-radius:6px;font-size:.82rem;">🏠 AFK回归 → Returning Guide</span>
+      <span style="background:#fdfaf5;padding:6px 10px;border-radius:6px;font-size:.82rem;">💰 快速赚GP → Money Making</span>
+      <span style="background:#fdfaf5;padding:6px 10px;border-radius:6px;font-size:.82rem;">⚔️ 打BOSS变强 → Boss Hub</span>
+    </div>
+  </div>
+
+  <div class="block" style="background:#eaf3de;">
+    <div class="block-header">06 · Pain Points Solved This Week <span class="block-status status-keep">保留</span></div>
+    <div>3 列文章卡片（不变）</div>
+  </div>
+
+  <div class="block" style="background:#eaf3de;">
+    <div class="block-header">07 · Ad Banner <span class="block-status status-keep">保留</span></div>
+    <div>728x90 广告位</div>
+  </div>
+
+  <div class="block" style="background:#f8edf1; border-left: 4px solid #d4537e;">
+    <div class="block-header">08 · Explore Gielinor <span class="block-status status-trim">精简为 5 张</span></div>
+    <div>去掉重复的 Mid-Game、Monthly、This Week 三张，保留：</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:8px;">
+      <span style="background:#fdfaf5;padding:6px 10px;border-radius:6px;font-size:.82rem;">💰 Money Making</span>
+      <span style="background:#fdfaf5;padding:6px 10px;border-radius:6px;font-size:.82rem;">⚔️ Skill Training (含 Mid-Game)</span>
+      <span style="background:#fdfaf5;padding:6px 10px;border-radius:6px;font-size:.82rem;">👹 Boss Hub</span>
+      <span style="background:#fdfaf5;padding:6px 10px;border-radius:6px;font-size:.82rem;">📜 Quests</span>
+      <span style="background:#d4af37;color:#fff;padding:6px 10px;border-radius:6px;font-size:.82rem;">🌐 CN + BR 合并为 Language Station</span>
+    </div>
+  </div>
+
+  <div class="block" style="background:#eaf3de;">
+    <div class="block-header">09 · Monthly Update — June 2026 <span class="block-status status-keep">保留</span></div>
+    <div>月度更新列表（不变）</div>
+  </div>
+
+  <div class="block" style="background:#eaf3de;">
+    <div class="block-header">10 · What's New This Week <span class="block-status status-keep">保留</span></div>
+    <div>每周更新列表（不变）</div>
+  </div>
+
+  <div class="block" style="background:#eaf3de;">
+    <div class="block-header">11 · Hot Picks <span class="block-status status-keep">保留</span></div>
+    <div>Money Making Deep Dives（不变）</div>
+  </div>
+
+</div>
+</div>
+
+<!-- ====== SUMMARY ====== -->
+<div class="summary-box">
+  <h3>📊 改后变化总结</h3>
+  <ul>
+    <li><strong>保留不变：</strong> 导航栏 · New Games Bar · AI 搜索 · 4 Task Cards · Pain Points · 广告 · Monthly Update · Weekly Update · Hot Picks</li>
+    <li><strong>合并为新模块：</strong> <code>30-Second Roadmap + New Player Banner + Stage 0 标题</code> → <strong>「Your Journey Starts Here」</strong>，按玩家类型分流</li>
+    <li><strong>精简：</strong> Explore Gielinor 从 <strong>8 张 → 5 张</strong>（移除 Mid-Game、Monthly、This Week 三张重复卡片）</li>
+    <li><strong>总入口数：</strong> 从 ~10 个竞争入口 → <strong>~6 个清晰入口</strong></li>
+    <li><strong>不上的功能：</strong> 热门讨论滚动条（论坛不活跃，造假伤信任）</li>
+  </ul>
+</div>
+
+<p style="margin-top:24px;color:#888780;font-size:.85rem;">✅ 这个草案不修改导航栏 HTML，不修改 New Games Bar HTML，只调整顺序和合并部分内容块。确认后我可以直接落地改 index.html。</p>
+
+</body>
+</html>
