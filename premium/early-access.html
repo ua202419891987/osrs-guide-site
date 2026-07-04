@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Early Access — OSRS Guru Premium</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #1a0f0a;
+      color: #e8d5b7;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      padding: 24px;
+      min-height: 100vh;
+    }
+    .container { max-width: 720px; margin: 40px auto; }
+    .card {
+      background: #2a1a0a;
+      border: 1px solid #4a3320;
+      border-radius: 12px;
+      padding: 36px 32px;
+      text-align: center;
+    }
+    h1 { color: #d4af37; font-size: 24px; margin-bottom: 8px; }
+    p { line-height: 1.7; color: #c8b89a; font-size: 15px; margin-bottom: 12px; }
+    .badge {
+      display: inline-block;
+      background: #1a3a1a;
+      border: 1px solid #2e7d32;
+      color: #7dd87d;
+      padding: 6px 20px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    /* Lock Screen */
+    #lockScreen {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .lock-icon { font-size: 48px; display: block; margin-bottom: 12px; }
+    .input-group { margin: 20px 0; }
+    .input-group input {
+      width: 100%;
+      padding: 14px 16px;
+      background: #1a0f0a;
+      border: 2px solid #4a3320;
+      border-radius: 8px;
+      color: #e8d5b7;
+      font-size: 20px;
+      text-align: center;
+      letter-spacing: 4px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .input-group input:focus {
+      border-color: #d4af37;
+    }
+    .input-group input::placeholder { color: #5a4a3a; letter-spacing: 1px; font-size: 14px; }
+    .input-error { color: #ff9999; font-size: 13px; min-height: 20px; margin-bottom: 4px; }
+    .btn-primary {
+      display: inline-block;
+      padding: 14px 40px;
+      background: #d4af37;
+      color: #1a0f0a;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-secondary {
+      display: inline-block;
+      padding: 10px 24px;
+      background: #4a3320;
+      color: #d4af37;
+      border: 1px solid #6a5330;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: 16px;
+    }
+    .btn-secondary:hover { opacity: 0.9; }
+    .hint { font-size: 12px; color: #706050; margin-top: 16px; }
+
+    /* Content Screen */
+    #contentScreen { display: none; }
+    .article-card {
+      background: #3b2615;
+      border: 1px solid #5a4320;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 16px 0;
+      text-align: left;
+      transition: border-color 0.2s;
+    }
+    .article-card:hover { border-color: #d4af37; }
+    .article-card h3 { color: #d4af37; font-size: 16px; margin-bottom: 6px; }
+    .article-card .meta { color: #a09080; font-size: 12px; margin-bottom: 6px; }
+    .article-card p { color: #c8b89a; font-size: 14px; margin: 0; line-height: 1.6; }
+    .article-card .tag {
+      display: inline-block;
+      background: #d4af37;
+      color: #1a0f0a;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .footer-text { font-size: 12px; color: #706050; margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <span class="badge">&#9733; OSRS Guru Premium</span>
+
+      <!-- Lock Screen (password required) -->
+      <div id="lockScreen">
+        <span class="lock-icon">&#128272;</span>
+        <h1>Early Access Guides</h1>
+        <p>Enter the password from your purchase confirmation page to unlock 3 exclusive guides before public release.</p>
+
+        <div class="input-group">
+          <input type="password" id="passwordInput" placeholder="Enter password" maxlength="20" autocomplete="off">
+        </div>
+        <div class="input-error" id="errorMsg"></div>
+        <button class="btn-primary" id="unlockBtn" onclick="unlock()">Unlock</button>
+
+        <p class="hint">&#128273; Password is on your <a href="/premium/guide-pack-success.html" style="color:#d4af37;">guide-pack-success.html</a> page.</p>
+        <a href="/" class="btn-secondary">Back to OSRS Guru</a>
+      </div>
+
+      <!-- Content Screen (unlocked) -->
+      <div id="contentScreen">
+        <span class="icon" style="font-size:44px;display:block;margin-bottom:10px;">&#127881;</span>
+        <h1>You're In &#8212; 3 Early Access Guides</h1>
+        <p style="font-size:14px;margin-bottom:16px;">These guides are exclusive to our premium supporters. Share the password and we'll have to change it! &#128521;</p>
+
+        <div class="article-card">
+          <span class="tag">EARLY ACCESS</span>
+          <h3>&#9876;&#65039; OSRS Varlamore Part 3 &#8212; The Finale Guide</h3>
+          <div class="meta">&#128197; Coming July 2026 &middot; Grandmaster Quest &middot; New Boss</div>
+          <p>Complete walkthrough for the epic Varlamore conclusion. New boss mechanics, puzzle solutions, loot tables, and post-quest unlocks. Updated for the latest game update.</p>
+        </div>
+
+        <div class="article-card">
+          <span class="tag">EARLY ACCESS</span>
+          <h3>&#9973; OSRS Sailing &#8212; Complete Skill Guide 2026</h3>
+          <div class="meta">&#128197; Coming August 2026 &middot; New Skill &middot; 1-99</div>
+          <p>The ultimate Sailing skill guide: training methods, ship upgrades, island exploration, resource gathering, and profit analysis. Everything you need for the most anticipated skill in OSRS history.</p>
+        </div>
+
+        <div class="article-card">
+          <span class="tag">EARLY ACCESS</span>
+          <h3>&#128306; OSRS Amoxliatl Boss Guide &#8212; Strategies &amp; Drops</h3>
+          <div class="meta">&#128197; Coming July 2026 &middot; Demi-Boss &middot; New Weapons</div>
+          <p>Master the Amoxliatl boss fight in the new Varlamore content. Attack patterns, gear recommendations, inventory setup, and drop table analysis. Includes ironman-friendly strategies.</p>
+        </div>
+
+        <p style="font-size:13px;color:#a09080;margin-top:8px;">These guides will be free for everyone in 3 days. You're seeing them first! &#127775;</p>
+        <a href="/" class="btn-primary" style="text-decoration:none;display:inline-block;margin-top:16px;">Browse All Guides</a>
+      </div>
+    </div>
+
+    <p class="footer-text">OSRS Guru Premium &middot; $1.90 Early Access Guide Pack &middot; Questions? support@osrsguru.com</p>
+  </div>
+
+  <script>
+    // Same dynamic password as guide-pack-success.html
+    function getPassword() {
+      var d = new Date();
+      var month = ('0' + (d.getMonth() + 1)).slice(-2);
+      var year = d.getFullYear();
+      return 'early' + month + year;
+    }
+
+    // Check URL parameter for auto-unlock
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('pw') === getPassword()) {
+        document.getElementById('lockScreen').style.display = 'none';
+        document.getElementById('contentScreen').style.display = 'block';
+      }
+    })();
+
+    function unlock() {
+      var input = document.getElementById('passwordInput');
+      var error = document.getElementById('errorMsg');
+      var entered = input.value.trim().toLowerCase();
+
+      if (!entered) {
+        error.textContent = 'Please enter your password.';
+        return;
+      }
+
+      if (entered === getPassword()) {
+        document.getElementById('lockScreen').style.display = 'none';
+        document.getElementById('contentScreen').style.display = 'block';
+        error.textContent = '';
+      } else {
+        error.textContent = 'Incorrect password. Check your purchase confirmation page.';
+        input.value = '';
+        input.focus();
+      }
+    }
+
+    // Enter key to submit
+    document.getElementById('passwordInput').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') { unlock(); }
+    });
+  </script>
+</body>
+</html>

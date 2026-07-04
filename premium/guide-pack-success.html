@@ -105,8 +105,40 @@
         </ul>
       </div>
 
+      <!-- Early Access Password Section -->
+      <div style="margin: 28px 0 16px; padding: 20px; border: 2px solid #d4af37; border-radius: 10px; background: #1f1208;">
+        <h3 style="color:#d4af37; font-size:17px; margin-bottom:8px;">🔐 Early Access — 3 New Guides</h3>
+        <p style="font-size:14px; color:#c8b89a; margin-bottom:12px;">
+          Be the first to read our newest guides before public release. Your password is below:
+        </p>
+        <div style="background:#3b2615; border-radius:8px; padding:14px; margin-bottom:12px;">
+          <code id="earlyPassword" style="font-size:22px; color:#d4af37; font-weight:700; letter-spacing:2px; user-select:all;">early072026</code>
+          <button onclick="copyPassword()" style="margin-left:10px; background:#d4af37; color:#1a0f0a; border:none; border-radius:4px; padding:4px 12px; font-size:13px; font-weight:600; cursor:pointer;">Copy</button>
+        </div>
+        <p style="font-size:13px; color:#a09080;">
+          👉 Visit <a href="/premium/early-access.html" style="color:#d4af37; font-weight:600;">early-access.html</a> and enter your password to unlock the guides.
+        </p>
+      </div>
+
       <p style="font-size:13px;color:#706050;margin-top:20px;">Any questions? Contact support@osrsguru.com — we'll get back within 12 hours.</p>
       <a href="/" class="btn">Browse All Guides</a>
+
+      <script>
+        // Generate dynamic monthly password
+        (function() {
+          var d = new Date();
+          var month = ('0' + (d.getMonth() + 1)).slice(-2);
+          var year = d.getFullYear();
+          var pw = 'early' + month + year;
+          document.getElementById('earlyPassword').textContent = pw;
+        })();
+        function copyPassword() {
+          var pw = document.getElementById('earlyPassword').textContent;
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(pw);
+          }
+        }
+      </script>
     </div>
   </div>
 </body>
