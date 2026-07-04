@@ -28,7 +28,7 @@
    *
    * 重定向: 在 PayPal 按钮设置中配置 return_url = https://osrsguru.com/premium/verify.html
    */
-  var PAYPAL_SUBSCRIPTION_LINK = 'https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=YOUR_PLAN_ID_HERE';
+  var PAYPAL_SUBSCRIPTION_LINK = 'https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7YW48381J13616844NJEMW2I';
 
   /**
    * 成功付款后的重定向页面 URL
