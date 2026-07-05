@@ -1,0 +1,78 @@
+======================================================================
+  OSRS Guru — Google 搜索排名报告
+  日期范围: 2026-06-28 至 2026-07-04
+  查询时间: 2026-07-05 10:28
+======================================================================
+
+📊 总展示次数: 241
+🖱️  总点击次数: 3
+📄 总页面数: 16
+
+----------------------------------------------------------------------
+    排名     点击       展示     平均排名  页面路径
+----------------------------------------------------------------------
+   1.      2       12     26.2  osrsguru.com/guides/osrs-mobile-guide-2026.html
+   2.      1       21     21.0  osrsguru.com/guides/osrs-returning-player-guide...
+   3.      0        6     30.2  osrsguru.com/
+   4.      0        7     14.0  osrsguru.com/boss-guides.html
+   5.      0        6      8.0  osrsguru.com/guides/osrs-barrows-beginner-guide...
+   6.      0       39     34.0  osrsguru.com/guides/osrs-desert-treasure-quest-...
+   7.      0       27     47.3  osrsguru.com/guides/osrs-grand-exchange-guide-2...
+   8.      0        1     27.0  osrsguru.com/guides/osrs-how-to-fight-corporal-...
+   9.      0        3     25.0  osrsguru.com/guides/osrs-ironman-beginner-guide...
+  10.      0        7     39.0  osrsguru.com/guides/osrs-new-player-guide-2026....
+  11.      0       30     40.6  osrsguru.com/guides/osrs-prayer-training-beginn...
+  12.      0        2     31.0  osrsguru.com/guides/osrs-pvm-beginner-guide-202...
+  13.      0       25     36.6  osrsguru.com/guides/osrs-slayer-beginner-guide-...
+  14.      0        1     29.0  osrsguru.com/money-making.html
+  15.      0       36     43.5  osrsguru.com/quest-guides.html
+  16.      0       18     37.2  osrsguru.com/skill-training.html
+----------------------------------------------------------------------
+
+📌 排名靠前页面的热门关键词
+======================================================================
+
+1. osrsguru.com/guides/osrs-mobile-guide-2026.html
+   总点击: 2  |  总展示: 12  |  平均排名: #26.2
+   热门关键词:
+     🟢 # 3.0     1次点击      1次展示  「osrs mobile guide」
+     🟢 # 5.0     1次点击      1次展示  「runelite for mobile」
+     🔴 #32.0     0次点击      1次展示  「mobile osrs」
+     🔴 #46.0     0次点击      1次展示  「osrs android」
+     🟡 #29.0     0次点击      1次展示  「osrs for mobile」
+
+2. osrsguru.com/guides/osrs-returning-player-guide-2026...
+   总点击: 1  |  总展示: 21  |  平均排名: #21.0
+   热门关键词:
+     🟢 # 5.7     1次点击      7次展示  「osrs returning player guide 2026」
+     🔴 #44.0     0次点击      1次展示  「disc of returning」
+     🔴 #40.5     0次点击      2次展示  「disc of returning osrs」
+     🔴 #51.0     0次点击      3次展示  「disk of returning」
+     🟢 # 7.0     0次点击      5次展示  「osrs returning player guide」
+
+3. osrsguru.com/
+   总点击: 0  |  总展示: 6  |  平均排名: #30.2
+   热门关键词:
+     🟡 #30.0     0次点击      2次展示  「how to get rigour osrs」
+     🔴 #35.0     0次点击      1次展示  「in search of knowledge osrs」
+     🟡 #24.0     0次点击      1次展示  「osrs guides」
+     🔴 #32.0     0次点击      1次展示  「rigour prayer scroll」
+     🟡 #30.0     0次点击      1次展示  「rigour scroll osrs」
+
+4. osrsguru.com/boss-guides.html
+   总点击: 0  |  总展示: 7  |  平均排名: #14.0
+   热门关键词:
+     🟡 #24.0     0次点击      1次展示  「osrs khopesh」
+     🟡 #27.0     0次点击      1次展示  「viggora osrs」
+     🟢 # 8.0     0次点击      1次展示  「vorkath ironman」
+     🟢 # 9.0     0次点击      1次展示  「zulrah or vorkath」
+     🟢 #10.0     0次点击      3次展示  「zulrah vs vorkath」
+
+5. osrsguru.com/guides/osrs-barrows-beginner-guide-2026...
+   总点击: 0  |  总展示: 6  |  平均排名: #8.0
+   热门关键词:
+     🟢 # 8.0     0次点击      6次展示  「osrs barrows guide 2026」
+
+======================================================================
+  图例：🟢 排名前10  🟡 排名11-30  🔴 排名30+
+======================================================================
