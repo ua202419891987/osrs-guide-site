@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Optional, List
 from dotenv import load_dotenv
 
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
@@ -290,6 +290,85 @@ async def verify_paypal_subscription(subscription_id: str):
     except Exception as e:
         return {"verified": False, "status": "error", "subscription_id": subscription_id,
                 "message": str(e)}
+
+# ============================================================
+# Payment Notification — PushPlus WeChat Alert
+# ============================================================
+PUSHPLUS_TOKEN = os.getenv("PUSHPLUS_TOKEN", "")
+
+async def send_pushplus_notification(title: str, content: str) -> bool:
+    """Send WeChat notification via PushPlus."""
+    if not PUSHPLUS_TOKEN:
+        print("PushPlus not configured - set PUSHPLUS_TOKEN env var")
+        return False
+    try:
+        async with httpx.AsyncClient(timeout=10) as client:
+            resp = await client.post(
+                "https://www.pushplus.plus/send",
+                json={
+                    "token": PUSHPLUS_TOKEN,
+                    "title": title,
+                    "content": content,
+                    "template": "html"
+                },
+                headers={"Content-Type": "application/json"}
+            )
+            return resp.status_code == 200
+    except Exception as e:
+        print(f"PushPlus error: {e}")
+        return False
+
+@app.post("/api/payment/ipn")
+async def paypal_ipn(request: Request):
+    """
+    PayPal Instant Payment Notification (IPN) endpoint.
+    Called by PayPal when a payment is completed, canceled, or refunded.
+    Sends WeChat notification via PushPlus.
+    """
+    try:
+        form = await request.form()
+        form_dict = dict(form)
+        
+        txn_type = form_dict.get("txn_type", "unknown")
+        payment_status = form_dict.get("payment_status", "")
+        payer_email = form_dict.get("payer_email", "unknown")
+        mc_gross = form_dict.get("mc_gross", "0")
+        mc_currency = form_dict.get("mc_currency", "USD")
+        item_name = form_dict.get("item_name", "Unknown Item")
+        receiver_email = form_dict.get("receiver_email", "")
+        
+        # Build notification message
+        status_emoji = "✅" if payment_status == "Completed" else "❌"
+        title = f"{status_emoji} OSRS Guru 收款通知"
+        
+        html_content = f"""
+        <h3>{status_emoji} 新订单通知</h3>
+        <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%">
+        <tr><td><b>商品</b></td><td>{item_name}</td></tr>
+        <tr><td><b>金额</b></td><td>${mc_gross} {mc_currency}</td></tr>
+        <tr><td><b>支付状态</b></td><td>{payment_status}</td></tr>
+        <tr><td><b>付款人</b></td><td>{payer_email}</td></tr>
+        <tr><td><b>交易类型</b></td><td>{txn_type}</td></tr>
+        </table>
+        <p>时间: {__import__("datetime").datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
+        """
+        
+        sent = await send_pushplus_notification(title, html_content)
+        
+        return {"received": True, "notified": sent, "status": payment_status}
+        
+    except Exception as e:
+        print(f"IPN handler error: {e}")
+        return {"received": True, "error": str(e)}
+
+@app.get("/api/payment/ipn-status")
+async def ipn_status():
+    """Check if IPN + PushPlus is configured."""
+    return {
+        "pushplus_configured": bool(PUSHPLUS_TOKEN),
+        "paypal_credentials": bool(PAYPAL_CLIENT_ID and PAYPAL_CLIENT_SECRET),
+        "message": "Go to pushplus.plus to register and get your token. Set it as PUSHPLUS_TOKEN in Vercel env vars."
+    }
 
 # ============================================================
 # Run: uvicorn main:app --host 0.0.0.0 --port 8000

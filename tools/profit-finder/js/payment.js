@@ -132,66 +132,42 @@
     };
   }
 
-  // ──────────────────────── Stripe Integration ────────────────────────
+  // ──────────────────────── Payment Initialization ────────────────────
 
-  /**
-   * Render the Stripe Checkout button and wire its click handler.
-   * In production, replace the mock call with actual Stripe.redirectToCheckout().
-   */
-  function _initStripeButton() {
-    const btn = _getEl('stripe-checkout-btn');
-    if (!btn) return;
-
-    btn.addEventListener('click', function (e) {
-      e.preventDefault();
-      btn.disabled = true;
-      btn.textContent = 'Redirecting...';
-
-      // ──── MOCK / PLACEHOLDER ────
-      // In production, call your backend to create a Checkout Session, then:
-      //   const stripe = Stripe(STRIPE_PUBLIC_KEY);
-      //   stripe.redirectToCheckout({ sessionId: 'cs_live_...' });
-      //
-      // For now we simulate a successful redirect via URL param.
-
-      console.log('[Payment] Stripe Checkout triggered — redirecting to mock success...');
-      window.location.href = window.location.pathname + '?' + CALLBACK_PARAM + '=success';
-
-      // Re-enable on error (never reached in mock, but useful in real flow)
-      btn.disabled = false;
-      btn.textContent = 'Unlock $1.90';
-    });
+  function _initPaymentButtons() {
+    // Primary: PayPal NCP link button
+    _initPayPalButton();
   }
 
-  // ──────────────────────── PayPal Integration ────────────────────────
+  // ──────────────────────── PayPal (Primary) ────────────────────────
 
   /**
-   * Render the PayPal button placeholder.
-   * In production, load the PayPal JS SDK and render buttons here.
+   * Render the real PayPal payment link button.
+   * Uses the same PayPal NCP link as the site-wide support cards.
    */
+  const PAYPAL_NCP_LINK = 'https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4';
+
   function _initPayPalButton() {
     const container = _getEl('paypal-button-container');
     if (!container) return;
 
-    // ──── MOCK / PLACEHOLDER ────
-    // When PayPal JS SDK is loaded on the page:
-    //   paypal.Buttons({
-    //     createOrder: function(data, actions) { ... },
-    //     onApprove:  function(data, actions) { ... }
-    //   }).render('#paypal-button-container');
-
     container.innerHTML =
-      '<button id="paypal-mock-btn" ' +
-      'style="width:100%;padding:10px;background:#ffc439;border:0;border-radius:4px;font-size:16px;cursor:pointer;">' +
-      'PayPal — $' + PAYMENT_AMOUNT_USD.toFixed(2) +
-      '</button>';
+      '<a href="' + PAYPAL_NCP_LINK + '" target="_blank" ' +
+      'style="display:block;width:100%;padding:12px;background:#ffc439;' +
+      'border:0;border-radius:4px;font-size:16px;cursor:pointer;' +
+      'text-align:center;text-decoration:none;color:#111;font-weight:600;">' +
+      '&#127881; PayPal — $' + PAYMENT_AMOUNT_USD.toFixed(2) +
+      '</a>' +
+      '<p style="font-size:12px;color:#666;margin-top:8px;">' +
+      'After payment, return here and refresh the page to unlock premium.</p>';
 
-    const mockBtn = _getEl('paypal-mock-btn');
-    if (mockBtn) {
-      mockBtn.addEventListener('click', function () {
-        console.log('[Payment] PayPal mock button clicked — simulating success...');
-        window.location.href = window.location.pathname + '?' + CALLBACK_PARAM + '=success';
-      });
+    // Also check for return URL parameter from PayPal redirect
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('payment_success') === '1') {
+      unlockPremium('paypal_ncp_' + Date.now());
+      var url = new URL(window.location);
+      url.searchParams.delete('payment_success');
+      window.history.replaceState({}, document.title, url.toString());
     }
   }
 
@@ -306,8 +282,7 @@
     }
 
     // Always wire up payment buttons (they are hidden behind paywall anyway)
-    _initStripeButton();
-    _initPayPalButton();
+    _initPaymentButtons();
 
     console.log('[Payment] Initialized. Unlocked:', isUnlocked());
   }
