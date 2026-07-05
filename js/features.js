@@ -228,3 +228,31 @@
     init();
   }
 })();
+
+/* ========== 7. PayPal NCP 支付重定向（与 Gear Recommender 统一逻辑） ========== */
+(function() {
+  'use strict';
+
+  var NCP_URL = 'https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4';
+  var VERIFY_PAGE = window.location.origin + '/premium/verify.html';
+
+  function setupPayPalRedirect() {
+    var links = document.querySelectorAll('a[href*="paypal.com/ncp/payment/XW8PRCTGNMUG4"]');
+    for (var i = 0; i < links.length; i++) {
+      (function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          var separator = NCP_URL.indexOf('?') === -1 ? '?' : '&';
+          var paypalUrl = NCP_URL + separator + 'return_url=' + encodeURIComponent(VERIFY_PAGE);
+          window.open(paypalUrl, '_blank', 'width=800,height=700,scrollbars=yes,resizable=yes');
+        });
+      })(links[i]);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupPayPalRedirect);
+  } else {
+    setupPayPalRedirect();
+  }
+})();
