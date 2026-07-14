@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert 1.13 Patch Controller / Gamepad Regression Fix (2026)</title>
+    <meta name="description" content="Crimson Desert 1.13.00 (July 2026) introduced controller input regression on PS5, Xbox, and PC gamepads — unresponsive buttons, input lag, and dead zones. Here are the official notes and concrete fixes you can apply now on console and PC.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Crimson Desert 1.13 controller fix, Crimson Desert gamepad not working, Pearl Abyss controller input lag, Crimson Desert PS5 controller dead zone fix 2026">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-113-controller-fix-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{color:#7a64b8!important}
+        .guide-content h3{color:#7a64b8!important}
+        .guide-content .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;color:#2d2a33}
+        .guide-content .tip-box strong{color:#7a64b8}
+        .guide-content .warn-box{background:#fef9f5;border:1px solid #e8c8a0;color:#2d2a33}
+        .guide-content .warn-box strong{color:#b84a3a}
+        .guide-content .action-step{background:#faf8fc;border:1px solid #e0d8f0;margin:1.2rem 0;padding:1.2rem 1.5rem}
+        .guide-content .action-step h4{color:#7a64b8;margin:0 0 .6rem 0}
+        .guide-content .method-box{background:#faf8fc;border:1px solid #e0d8f0;padding:1.4rem;margin:1.25rem 0}
+        .guide-content .method-box h4{color:#7a64b8;margin:0 0 .85rem 0}
+        .guide-content .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .guide-content .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .guide-content .toc{background:#fff;border:1px solid #e0d8f0;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .guide-content .toc h3{color:#7a64b8!important}
+        .guide-content li{color:#2d2a33!important}
+        .guide-content p{color:#2d2a33!important}
+        .progress-widget{display:none!important}
+        table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+        table th{background:#f8f6fc;color:#7a64b8;padding:10px 14px;text-align:left;border:1px solid #e0d8f0;font-weight:700}
+        table td{padding:9px 14px;border:1px solid #eee;color:#333}
+        table tr:nth-child(even){background:#fafbfd}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Crimson Desert <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#what">What Happened</a></li>
+                    <li><a href="#console">Console Fix</a></li>
+                    <li><a href="#pc">PC Fix</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../guides/crimson-desert/crimson-desert-new-player-guide-2026.html">Crimson Desert</a> / 1.13 Controller Fix</p>
+            <h1>Crimson Desert 1.13 Patch Controller / Gamepad Regression Fix</h1>
+            <p class="subtitle">After the 1.13.00 update (July 3&ndash;4, 2026), many PS5, Xbox, and PC gamepad players reported unresponsive buttons, input lag, and broken dead zones. This guide explains the regression and gives you fixes you can apply today &mdash; on console and PC.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🎮</span> <strong>Controller Fix</strong> · 7 min read · Updated July 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#7a64b8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>1.13.00 (July 3&ndash;4, 2026)</strong> caused controller input regression on PS5 / Xbox / PC gamepads.</li>
+                    <li>📌 <strong>Symptoms:</strong> button presses ignored, aim/stick dead zones, delayed dodges, menu drift.</li>
+                    <li>📌 <strong>Console fix now:</strong> re-pair the controller, reset the control scheme, disable vibration, rebuild the input cache.</li>
+                    <li>📌 <strong>PC fix now:</strong> switch to XInput mode, update firmware, clear the gamepad profile in Windows, rebind in-game.</li>
+                    <li>📌 <strong>A full fix</strong> is expected in a future 1.13.x hotfix &mdash; track the official notice board.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#what">What Happened in 1.13</a></li>
+                    <li><a href="#symptoms">Common Symptoms</a></li>
+                    <li><a href="#console">How to Fix on PS5 / Xbox</a></li>
+                    <li><a href="#pc">How to Fix on PC (Gamepad)</a></li>
+                    <li><a href="#settings">Input & Dead Zone Tweaks</a></li>
+                    <li><a href="#when">When to Expect a Real Fix</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ol>
+            </div>
+
+            <section id="what">
+                <h2>1. What Happened in 1.13</h2>
+                <p>Pearl Abyss shipped <strong>1.13.00 on July 3&ndash;4, 2026</strong> with a revised input handling layer for gamepads. Almost immediately, players on PS5, Xbox Series, and PC controllers reported that inputs felt "off" &mdash; parries and dodges came out late, and some face buttons stopped registering in menus and combat. This is a software-side input regression, not a fault with your physical controller.</p>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Not Your Hardware</div>
+                    <p>If your controller worked flawlessly on 1.12, the 1.13 input change is the likely cause. Test the same controller in another game to confirm it is still healthy.</p>
+                </div>
+            </section>
+
+            <section id="symptoms">
+                <h2>2. Common Symptoms</h2>
+                <table>
+                    <tr><th>Symptom</th><th>What it looks like</th><th>Most affected</th></tr>
+                    <tr><td>Dead buttons</td><td>Face buttons (□/△/○/✕) ignored in menus or combat</td><td>PS5 / Xbox</td></tr>
+                    <tr><td>Input lag</td><td>Dodge / parry fires 100&ndash;300ms late</td><td>All gamepads</td></tr>
+                    <tr><td>Stick dead zone</td><td>Camera or movement needs a big push to respond</td><td>PC gamepad</td></tr>
+                    <tr><td>Menu drift</td><td>Cursor slowly drifts or selects wrong item</td><td>All gamepads</td></tr>
+                    <tr><td>Vibration lock</td><td>Rumble stuck on, or triggers misfire</td><td>Xbox / PC</td></tr>
+                </table>
+            </section>
+
+            <section id="console">
+                <h2>3. How to Fix on PS5 / Xbox</h2>
+                <p>Consoles cannot roll back the input layer, so use these steps in order:</p>
+                <div class="action-step">
+                    <h4>① Re-pair / Re-sync the Controller</h4>
+                    <p>PS5: Settings &rarr; Accessories &rarr; Controllers &rarr; turn it off, then press the PS button again. Xbox: hold the pair button until it re-links. This clears a stale Bluetooth/USB session that 1.13 sometimes keeps open.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Reset the In-Game Control Scheme</h4>
+                    <p>In Crimson Desert, go to Settings &rarr; Controls &rarr; Reset to Default. 1.13 changed several default bindings; an old profile can leave buttons unmapped.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Disable Vibration / Trigger Effects</h4>
+                    <p>Temporarily turn off vibration and adaptive trigger effects. On some builds these queue extra input events that delay your real button presses.</p>
+                </div>
+                <div class="action-step">
+                    <h4>④ Rebuild the Console Input Cache</h4>
+                    <p>PS5: fully close the game (Options &rarr; Close Game), then restart. A hard reboot of the console (hold power 3s) also clears the cached input profile.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Reality Check</div>
+                    <p>These steps restore playable input on most consoles, but the underlying 1.13 dead-zone curve may still feel heavier than 1.12 until a hotfix ships.</p>
+                </div>
+            </section>
+
+            <section id="pc">
+                <h2>4. How to Fix on PC (Gamepad)</h2>
+                <p>PC players have more levers &mdash; firmware, drivers, and the in-game input mode.</p>
+                <div class="method-box">
+                    <h4>🖥️ PC Gamepad Fix Checklist</h4>
+                    <ol>
+                        <li>Open the controller maker's app (DSX / Xbox Accessories / Steam Big Picture) and <strong>update firmware</strong>.</li>
+                        <li>Force <strong>XInput mode</strong> if your pad supports it &mdash; 1.13's DirectInput path is where most dead zones appear.</li>
+                        <li>In Windows, go to Devices &rarr; remove the gamepad, then re-pair. This clears a corrupt profile.</li>
+                        <li>In Crimson Desert Settings &rarr; Controls, set <strong>Input Device = Gamepad</strong> explicitly (don't leave it on Auto).</li>
+                        <li>Rebind the affected buttons manually even if they look correct &mdash; re-saving the scheme forces a profile rewrite.</li>
+                    </ol>
+                </div>
+                <div class="action-step">
+                    <h4>Steam Input</h4>
+                    <p>If you launch via Steam, try toggling <strong>Steam Input</strong> off (Properties &rarr; Controller &rarr; Disable Steam Input). Some 1.13 builds double-map inputs through Steam and the game at once.</p>
+                </div>
+            </section>
+
+            <section id="settings">
+                <h2>5. Input & Dead Zone Tweaks</h2>
+                <table>
+                    <tr><th>Setting</th><th>Recommended (1.13)</th><th>Why</th></tr>
+                    <tr><td>Input Device</td><td>Gamepad (explicit)</td><td>Avoids Auto mis-detect</td></tr>
+                    <tr><td>Vibration</td><td>Off (temporarily)</td><td>Stops queued input delay</td></tr>
+                    <tr><td>Left Stick Dead Zone</td><td>0.15 &ndash; 0.20</td><td>Restores snappy movement</td></tr>
+                    <tr><td>Right Stick Dead Zone</td><td>0.20 &ndash; 0.25</td><td>Fixes camera drift</td></tr>
+                    <tr><td>Steam Input</td><td>Off (if via Steam)</td><td>Avoids double mapping</td></tr>
+                </table>
+            </section>
+
+            <section id="when">
+                <h2>6. When to Expect a Real Fix</h2>
+                <p>Pearl Abyss has acknowledged input-related regressions in the 1.13 line and is investigating. A fuller controller fix is expected in a future <strong>1.13.x</strong> hotfix. Until then, the steps above are the practical workaround. Avoid "input remapper" mods &mdash; they risk your account and can conflict with anti-cheat.</p>
+                <div class="tip-box">
+                    <div class="tip-title">🔔 Stay Updated</div>
+                    <p>Check the in-game notice board and the official Crimson Desert news page weekly for the hotfix date.</p>
+                </div>
+            </section>
+
+            <section id="faq">
+                <h2>7. FAQs</h2>
+                <div class="faq-item">
+                    <h4>Will a factory reset on my console fix it?</h4>
+                    <p>No. This is a software regression in 1.13's input layer, not a console fault. A re-pair and in-game reset is enough &mdash; don't wipe your console.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Does keyboard + mouse still work on PC?</h4>
+                    <p>Yes. If the gamepad is unplayable, switch to mouse/keyboard in Settings &rarr; Controls &rarr; Input Device = Keyboard. Many players use this as a stopgap.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is my controller broken?</h4>
+                    <p>Almost certainly not. Test it in another game; if it responds normally there, the 1.13 input change is the cause.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do I lose my save by resetting the control scheme?</h4>
+                    <p>No. Control bindings are separate from your save data. Resetting them only restores default button maps.</p>
+                </div>
+            </section>
+
+            <div class="next-steps">
+                <h3>🎯 More Crimson Desert Help</h3>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Rebind properly with <a href="crimson-desert-controls-keybindings-guide-2026.html" style="color:#7a64b8; font-weight:bold;">Controls &amp; Keybindings Guide 2026</a>
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Tune your console with <a href="crimson-desert-console-settings-guide-2026.html" style="color:#7a64b8; font-weight:bold;">Console Settings Guide 2026</a>
+                </div>
+            </div>
+
+            <div class="related-guides">
+                <h3>More Crimson Desert Guides</h3>
+                <div class="article-grid">
+                    <a href="crimson-desert-controls-keybindings-guide-2026.html" class="article-card">
+                        <h3>Controls &amp; Keybindings Guide</h3>
+                        <p>Master the input scheme and rebind keys.</p>
+                    </a>
+                    <a href="crimson-desert-console-settings-guide-2026.html" class="article-card">
+                        <h3>Console Settings Guide</h3>
+                        <p>Best console tweaks for stable input.</p>
+                    </a>
+                    <a href="crimson-desert-best-settings-performance-2026.html" class="article-card">
+                        <h3>Best Settings for Performance 2026</h3>
+                        <p>Full optimized settings for PC and console.</p>
+                    </a>
+                    <a href="crimson-desert-crash-fix-guide-2026.html" class="article-card">
+                        <h3>Crash Fix Guide 2026</h3>
+                        <p>Fix D3D12 and UE5 fatal errors.</p>
+                    </a>
+                </div>
+
+                <div class="tool-callout" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+                    <p style="color:#7a64b8;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">📚 More Crimson Desert Guides</p>
+                    <p style="color:#2D2A33!important;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Stuck on another issue? Browse our full Crimson Desert guide library.</p>
+                    <a href="../../guides/crimson-desert/crimson-desert-new-player-guide-2026.html" style="display:inline-block;padding:0.65rem 1.8rem;background:#9B84D4;color:#fff;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Browse Guides →</a>
+                </div>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🔓</span>
+                    <div class="support-text">
+                        <h3>Every guide is free — this one stays free either way.</h3>
+                        <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+                        <p style="margin:6px 0 0 0;line-height:1.7">
+                            📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                            ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                            ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                            🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+                        </p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack</a>
+                        </div>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>Crimson Desert Guru</h4><p>Free Crimson Desert guides updated weekly.</p></div>
+                <div class="footer-col"><h4>Guides</h4><ul>
+                    <li><a href="crimson-desert-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="crimson-desert-best-settings-performance-2026.html">Performance Settings</a></li>
+                    <li><a href="crimson-desert-boss-guide-2026.html">Boss Guide</a></li>
+                    <li><a href="crimson-desert-controls-keybindings-guide-2026.html">Controls</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>More</h4><ul>
+                    <li><a href="../../index.html">OSRS Guru Home</a></li>
+                    <li><a href="../../guides/crimson-desert/index.html">All CD Guides</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #7a64b8;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Crimson Desert is a trademark of Pearl Abyss. Not affiliated with or endorsed by Pearl Abyss.</p>
+    </div>
+
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content{color:#2d2a33!important}
+    .guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#2d2a33!important}
+    .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .faq-item,.guide-content .warn-box,.guide-content .next-steps{background:#fff!important;border:1px solid #e0d8f0!important}
+    .guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .action-step p,.guide-content .action-step li,.guide-content .warn-box p,.guide-content .warn-box li,.guide-content .next-steps p,.guide-content .next-steps li{color:#2d2a33!important}
+    .guide-content .faq-item h4,.guide-content .method-box h4,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warn-box strong,.guide-content .next-steps strong{color:#7a64b8!important}
+    .guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+    .guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    .guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    </style>
+</body>
+</html>

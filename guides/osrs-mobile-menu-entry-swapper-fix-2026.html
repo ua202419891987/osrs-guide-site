@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Mobile Menu Entry Swapper Not Working — Fix Guide 2026</title>
+    <meta name="description" content="Updated July 2026. OSRS Mobile Menu Entry Swapper (MES) not working or bugged after the latest update? Here are the root causes and step-by-step fixes to get MES running again on iOS and Android.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS mobile menu entry swapper not working, OSRS MES mobile fix, OSRS mobile client bug 2026, Old School RuneScape mobile settings reset">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/osrs-mobile-menu-entry-swapper-fix-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRSGuru</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../skill-training.html">Skill Training</a></li>
+                    <li><a href="../money-making.html">Money Making</a></li>
+                    <li><a href="../boss-guides.html">Boss Guides</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../mobile-guide-2026.html">Mobile</a> / OSRS Mobile MES Fix</p>
+            <h1>OSRS Mobile Menu Entry Swapper Not Working — Fix Guide 2026</h1>
+            <p class="subtitle">One of the most upvoted OSRS mobile complaints in July 2026: Menu Entry Swapper (MES) stops working or behaves oddly after an update. This guide covers why it happens and exactly how to fix it on iOS and Android.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📱</span> <strong>Mobile Fix</strong> · 7 min read · Updated July 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#b8860b;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Symptom:</strong> MES options greyed out, swaps not applying, or settings reset after an update.</li>
+                    <li>📌 <strong>Common cause:</strong> client version mismatch, post-update settings reset, or Android 32-bit deprecation.</li>
+                    <li>📌 <strong>Fix:</strong> update the app, clear cache, re-enable MES in Settings &rarr; Gameplay, re-log.</li>
+                    <li>📌 <strong>Last resort:</strong> reinstall the app (your account is safe &mdash; it is server-side).</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#what-is-mes">What Is Menu Entry Swapper on Mobile</a></li>
+                    <li><a href="#why-broken">Why MES Stops Working</a></li>
+                    <li><a href="#fix-steps">Step-by-Step Fix</a></li>
+                    <li><a href="#android-32">Android 32-bit Note</a></li>
+                    <li><a href="#mobile-settings">Mobile-Friendly Settings</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ol>
+            </div>
+
+            <section id="what-is-mes">
+                <h2>1. What Is Menu Entry Swapper on Mobile</h2>
+                <p>Menu Entry Swapper (MES) lets you customize right-click / long-press menu options &mdash; for example, making "Pick-flax" the default instead of "Pick". On mobile it is even more valuable because screen taps are slower than mouse clicks. When MES breaks, everyday tasks like banking, pickpocketing, or bossing become frustrating.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Where to Find It</div>
+                    <p>Settings &rarr; Gameplay &rarr; Menu Entry Swapper. On mobile, you long-press an option on the action menu, then tap the pin/swap icon.</p>
+                </div>
+            </section>
+
+            <section id="why-broken">
+                <h2>2. Why MES Stops Working</h2>
+                <p>The July 2026 reports cluster around a few repeatable causes:</p>
+                <div class="action-step">
+                    <h4>① Client Version Mismatch</h4>
+                    <p>Your app did not auto-update, so the MES data format from the server no longer matches your local client. Result: swaps silently fail.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Post-Update Settings Reset</h4>
+                    <p>Some updates wipe or partially reset local preferences. Your carefully pinned swaps disappear and the toggle looks off even if it was on.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Android 32-bit Deprecation</h4>
+                    <p>Jagex dropped 32-bit Android support. Devices stuck on old 32-bit builds may launch an outdated client where MES behaves differently or not at all.</p>
+                </div>
+                <div class="action-step">
+                    <h4>④ Known Mobile Client Bugs</h4>
+                    <p>Occasional mobile-only regressions ship with updates. If a specific swap is broken for everyone, it is likely a client bug Jagex will patch.</p>
+                </div>
+            </section>
+
+            <section id="fix-steps">
+                <h2>3. Step-by-Step Fix</h2>
+                <div class="method-box highlight">
+                    <h4>✅ The Reliable Fix (do these in order)</h4>
+                    <ol>
+                        <li><strong>Update the app</strong> from the App Store / Google Play (or download the latest APK from the official OSRS site if your store is slow).</li>
+                        <li><strong>Clear cache</strong> (Android: Settings &rarr; Apps &rarr; OSRS &rarr; Storage &rarr; Clear Cache. iOS: offload and reinstall the app).</li>
+                        <li><strong>Re-enable MES:</strong> Settings &rarr; Gameplay &rarr; Menu Entry Swapper &rarr; toggle ON.</li>
+                        <li><strong>Re-pin your swaps:</strong> long-press the menu option you want, tap the pin icon, confirm.</li>
+                        <li><strong>Log out and back in</strong> so the server pushes fresh MES data.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">⚠️ Still Broken After That?</div>
+                    <p>If swaps still will not apply, it is probably a client-side bug Jagex is fixing. Wait for the next point release and re-check. Do not keep toggling &mdash; it will not help.</p>
+                </div>
+            </section>
+
+            <section id="android-32">
+                <h2>4. Android 32-bit Note</h2>
+                <p>If you are on an older Android phone that only runs 32-bit apps, the OSRS mobile client may no longer receive updates. Symptoms include MES and other features acting strangely.</p>
+                <ul>
+                    <li>Check your device architecture (Settings &rarr; About &rarr; look for "64-bit" support).</li>
+                    <li>If it is 32-bit only, the long-term fix is a 64-bit device. The client will keep degrading on 32-bit.</li>
+                    <li>You can still play on the official desktop client or via a 64-bit emulator in the meantime.</li>
+                </ul>
+            </section>
+
+            <section id="mobile-settings">
+                <h2>5. Mobile-Friendly Settings</h2>
+                <p>While fixing MES, set up your mobile client to be efficient:</p>
+                <div class="method-box">
+                    <h4>🛡️ Gear Recommender for Mobile</h4>
+                    <p>Not sure what to equip on a small screen? Our <a href="/tools/gear-recommender/" style="color:#8b6914;font-weight:700;">Gear Recommender</a> gives you a clean, level-appropriate setup so you are not fiddling with inventory mid-fight.</p>
+                    <p><a href="/tools/gear-recommender/" style="color:#8b6914;font-weight:700;">Open Gear Recommender →</a></p>
+                </div>
+                <ul>
+                    <li>Enable "Tap to drop" for fast banking cycles.</li>
+                    <li>Use preset loads (if unlocked) to swap gear in one tap.</li>
+                    <li>Turn on "Mobile target cycling" to avoid mis-taps on bosses.</li>
+                </ul>
+            </section>
+
+            <section id="faq">
+                <h2>6. FAQs</h2>
+                <div class="faq-item">
+                    <h4>Will reinstalling the app delete my account?</h4>
+                    <p>No. Your account lives on Jagex servers. Reinstalling only clears the local app; just log back in.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>My swaps disappeared after the update. Are they gone forever?</h4>
+                    <p>They are stored locally and can reset on update. Re-pin them following Section 3. They are not lost from your account &mdash; just the device.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is MES a paid feature?</h4>
+                    <p>No, Menu Entry Swapper is free for all players. You do not need membership to use it.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>When will Jagex fix the mobile bug?</h4>
+                    <p>Jagex ships mobile client point releases regularly. Check the official news page for the next mobile update notes.</p>
+                </div>
+            </section>
+
+            <div class="next-steps">
+                <h3>🎯 Related Mobile Help</h3>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                    <strong>→</strong> Read the full <a href="osrs-mobile-guide-2026.html" style="color:#8b6914; font-weight:bold;">OSRS Mobile Guide 2026</a>
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                    <strong>→</strong> Optimize gear with <a href="/tools/gear-recommender/" style="color:#8b6914; font-weight:bold;">Gear Recommender</a>
+                </div>
+            </div>
+
+            <div class="related-guides">
+                <h3>More Mobile &amp; Beginner Guides</h3>
+                <div class="article-grid">
+                    <a href="osrs-mobile-guide-2026.html" class="article-card">
+                        <h3>OSRS Mobile Guide 2026</h3>
+                        <p>Complete setup, settings, and tips for playing OSRS on iOS and Android.</p>
+                    </a>
+                    <a href="osrs-mobile-membership-guide-2026.html" class="article-card">
+                        <h3>OSRS Mobile Membership Guide 2026</h3>
+                        <p>How membership works on mobile and whether to subscribe in-app.</p>
+                    </a>
+                    <a href="osrs-beginner-guide-2026.html" class="article-card">
+                        <h3>OSRS Beginner Guide 2026</h3>
+                        <p>Start here if you are new to the game entirely.</p>
+                    </a>
+                    <a href="osrs-runelite-setup-guide-2026.html" class="article-card">
+                        <h3>OSRS RuneLite Setup Guide 2026</h3>
+                        <p>Desktop client setup with the same QoL plugins as MES.</p>
+                    </a>
+                </div>
+
+                <div class="tool-callout" style="background:#2a1a0a;border:1px solid #d4af37;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+                    <p style="color:#d4af37;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">🛡️ Gear Recommender</p>
+                    <p style="color:#e8d5b7;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Not sure what to equip? Get a clean, level-based setup for melee, ranged, and magic in seconds.</p>
+                    <a href="/tools/gear-recommender/" style="display:inline-block;padding:0.65rem 1.8rem;background:#d4af37;color:#1a0f0a;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Find Your Best Gear Setup →</a>
+                </div>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🔓</span>
+                    <div class="support-text">
+                        <h3>Every guide is free — this one stays free either way.</h3>
+                        <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+                        <p style="margin:6px 0 0 0;line-height:1.7">
+                            📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                            ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                            ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                            🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+                        </p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack</a>
+                        </div>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ New Players (Stage 0)</h4><ul>
+                    <li><a href="osrs-interface-controls-beginner-guide-2026.html">Game Interface</a></li>
+                    <li><a href="osrs-combat-training-beginner-2026.html">Combat Training</a></li>
+                    <li><a href="osrs-money-making-beginner-2026.html">Beginner Money Making</a></li>
+                    <li><a href="osrs-gear-beginner-guide-2026.html">Gear Guide</a></li>
+                    <li><a href="osrs-prayer-training-beginner-guide-2026.html">Prayer Training</a></li>
+                    <li><a href="osrs-f2p-to-p2p-membership-guide-2026.html">F2P to P2P Transition</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+    </div>
+
+    <script src="../js/features.js"></script>
+    <script src="../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content{color:#1a1a1a!important}
+    .guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+    .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+    .guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+    .guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#3b2615!important}
+    .guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+    .guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+    .guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    .guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    </style>
+</body>
+</html>

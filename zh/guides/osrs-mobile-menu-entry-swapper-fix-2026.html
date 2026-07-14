@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS 移动端菜单项切换（MES）失效修复指南 2026 — OSRS Guru</title>
+    <meta name="description" content="Updated July 2026. OSRS Mobile Menu Entry Swapper (MES) stops working or behaves wrong after an update? This guide explains the root cause and gives step-by-step fix instructions for iOS and Android so MES works again.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS 移动端菜单项切换失效, OSRS MES 手机修复, OSRS 移动端客户端 bug 2026, OSRS 移动端设置重置">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/zh/guides/osrs-mobile-menu-entry-swapper-fix-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS Guru</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../updates.html">Updates</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../mobile-guide-2026.html">Mobile</a> / MES Fix 2026</p>
+            <h1 class="cn-title" style="font-size:1.5rem;color:#1a1a1a;margin-bottom:4px;font-weight:700;">OSRS 移动端菜单项切换（MES）失效修复指南 2026</h1>
+            <p class="cn-summary" style="color:#333;font-size:0.95rem;margin-bottom:16px;line-height:1.6;">更新于 2026年7月。OSRS 移动端菜单项切换（MES）更新后失效或异常？本文讲清根本原因，并给出 iOS 与 Android 逐步修复步骤。</p>
+            <h1 style="color:#7a64b8;font-size:2.2rem;margin:1rem 0 0.5rem;font-weight:700;">📱 OSRS Mobile Menu Entry Swapper (MES) Fix Guide 2026</h1>
+            <p class="subtitle" style="color:#1a1a1a;font-size:1.05rem;line-height:1.6;margin:0.5rem 0 1rem;">One of the most-upvoted complaints on OSRS Mobile in July 2026: Menu Entry Swapper (MES) stops working or behaves wrong after an update. This guide explains exactly why it happens and how to fix it on iOS and Android.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📱</span> <strong>Updated: July 2026</strong> — Mobile Fix Guide · 7 min read
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#7a64b8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary — 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Symptom:</strong> MES options greyed out, swaps not taking effect, or settings reset after an update.</li>
+                    <li>📌 <strong>Common causes:</strong> Client version mismatch, post-update setting reset, or 32-bit Android being dropped.</li>
+                    <li>📌 <strong>Fix:</strong> Update the app, clear cache, re-enable MES in Settings → Gameplay, re-pin swaps, log out and back in.</li>
+                    <li>📌 <strong>Last resort:</strong> Reinstall the app (your account is server-side — totally safe).</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>⚡ Quick-Jump Table of Contents（快速跳转目录）</h3>
+                <ol>
+                    <li><a href="#what-is-mes">① 📖 What Is Mobile Menu Entry Swapper（移动端菜单项切换是什么）</a></li>
+                    <li><a href="#why-broken">② 🔍 Why MES Stops Working After Updates（更新后为何 MES 会失效）</a></li>
+                    <li><a href="#fix-steps">③ 🛠️ Step-by-Step Fix（逐步修复）</a></li>
+                    <li><a href="#android-32">④ 📱 Android 32-bit Note（Android 32 位说明）</a></li>
+                    <li><a href="#mobile-settings">⑤ ⚙️ Mobile-Friendly Settings（移动端友好设置）</a></li>
+                    <li><a href="#faq">⑥ ❓ FAQ — Mobile MES Fix 2026（常见问题）</a></li>
+                </ol>
+            </div>
+
+            <section id="what-is-mes">
+                <h2>1. 📖 What Is Mobile Menu Entry Swapper（移动端菜单项切换是什么）</h2>
+                <p><strong>Menu Entry Swapper (MES)</strong> lets you customize right-click / long-press menu options — for example, setting "Pick flax" as the default instead of just "Pick"（让你自定义右键/长按菜单选项）。On mobile, MES is even more valuable than on desktop because tap targets are slower than mouse clicks. When MES breaks, banking, thieving, and bossing all feel clunky.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Where to Find It（在哪里找到它）</div>
+                    <p>Settings → Gameplay → Menu Entry Swapper. On mobile, long-press an entry in the action menu and tap the pin/swap icon.</p>
+                </div>
+            </section>
+
+            <section id="why-broken">
+                <h2>2. 🔍 Why MES Stops Working After Updates（更新后为何 MES 会失效）</h2>
+                <p>July 2026 reports cluster around a few reproducible causes:</p>
+                <div class="action-step">
+                    <h4>① Client Version Mismatch（客户端版本不匹配）</h4>
+                    <p>Your app didn't auto-update, so the server-pushed MES data format no longer matches your local client. Result: swaps silently fail.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Post-Update Settings Reset（更新后设置重置）</h4>
+                    <p>Some updates wipe or partially reset local preferences. Your carefully pinned swaps disappear; the toggle looks off even when it was on.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ 32-bit Android Dropped（Android 32 位被弃用）</h4>
+                    <p>Jagex dropped support for 32-bit Android. Devices stuck on old 32-bit builds may load an outdated client where MES behaves differently — or not at all.</p>
+                </div>
+                <div class="action-step">
+                    <h4>④ Known Mobile Client Bug（已知移动端客户端 Bug）</h4>
+                    <p>Updates occasionally introduce mobile-only regressions. If a particular swap fails for everyone, it's likely a Jagex-side bug they will patch.</p>
+                </div>
+            </section>
+
+            <section id="fix-steps">
+                <h2>3. 🛠️ Step-by-Step Fix（逐步修复）</h2>
+                <div class="method-box highlight">
+                    <h4>✅ Reliable Fix — Do In Order（可靠修复：按顺序做）</h4>
+                    <ol>
+                        <li><strong>Update the app</strong>（更新应用）: Pull the latest from App Store / Google Play. If the store is slow, grab the newest APK from the official OSRS site.</li>
+                        <li><strong>Clear cache</strong>（清缓存）: Android → Settings → Apps → OSRS → Storage → Clear cache. iOS → uninstall and reinstall the app.</li>
+                        <li><strong>Re-enable MES</strong>（重新开启 MES）: Settings → Gameplay → Menu Entry Swapper → toggle on.</li>
+                        <li><strong>Re-pin your swaps</strong>（重新固定切换）: Long-press the menu entry you want, tap the pin icon, confirm.</li>
+                        <li><strong>Log out and back in</strong>（退出重登）: Forces the server to push the latest MES data to your client.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">⚠️ Still Not Working?（做完还是不行？）</div>
+                    <p>Most likely a Jagex-side client bug. Wait for the next minor mobile build — don't keep toggling on and off, that won't help.</p>
+                </div>
+            </section>
+
+            <section id="android-32">
+                <h2>4. 📱 Android 32-bit Note（Android 32 位说明）</h2>
+                <p>If your older Android device can only run 32-bit apps, the OSRS Mobile client may stop receiving updates. Symptoms include MES and other features misbehaving.</p>
+                <ul>
+                    <li>Check your device architecture (Settings → About → look for "64-bit" support).</li>
+                    <li>If you can only run 32-bit, the long-term fix is upgrading to a 64-bit device. The 32-bit client will keep degrading.</li>
+                    <li>In the meantime, you can play on the official desktop client or a 64-bit Android emulator.</li>
+                </ul>
+            </section>
+
+            <section id="mobile-settings">
+                <h2>5. ⚙️ Mobile-Friendly Settings（移动端友好设置）</h2>
+                <p>While you're fixing MES, tune the rest of the mobile UI for speed:</p>
+                <div class="method-box">
+                    <h4>🛡️ Mobile Gear Recommendations（移动端配装推荐）</h4>
+                    <p>Not sure what to wear on a small screen? Our <a href="/tools/gear-recommender/" style="color:#7a64b8;font-weight:700;">Gear Recommender</a> gives you clean, level-matched Melee / Ranged / Magic setups so you stop fumbling the inventory mid-fight.</p>
+                    <p><a href="/tools/gear-recommender/" style="color:#7a64b8;font-weight:700;">Open Gear Recommender →</a></p>
+                </div>
+                <ul>
+                    <li>Turn on <strong>Tap-to-drop</strong> to speed up bank runs.</li>
+                    <li>Use <strong>Equipment presets</strong> (if unlocked) for one-tap gear swaps.</li>
+                    <li>Enable <strong>Mobile target cycle</strong> to avoid mis-taps during boss fights.</li>
+                </ul>
+            </section>
+
+            <section id="faq">
+                <h2>6. ❓ FAQ — Mobile MES Fix 2026（常见问题）</h2>
+                <div class="faq-item">
+                    <h4>Will reinstalling the app delete my account?（重装应用会删我账号吗？）</h4>
+                    <p>No. Your account lives on Jagex's servers. Reinstalling only clears the local app — log back in and you're good.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>After an update, my swaps are gone — did I lose them forever?（更新后我的切换没了，永久丢了吗？）</h4>
+                    <p>Swaps are stored locally, so updates can reset them. Just re-pin them following Section 3. They were not lost from your account — only the device.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is MES a paid feature?（MES 是付费功能吗？）</h4>
+                    <p>No, Menu Entry Swapper is free for all players. You don't need membership to use it.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>When will Jagex fix the mobile bug?（Jagex 什么时候修移动端 bug？）</h4>
+                    <p>Jagex ships regular mobile hotfixes. Check the official news page for the next mobile build's patch notes.</p>
+                </div>
+            </section>
+
+            <div class="next-steps">
+                <h3>🎯 Related Mobile Help（相关移动端帮助）</h3>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #9B84D4;">
+                    <strong>→ Step 1:</strong> Read the full <a href="osrs-mobile-guide-2026.html" style="color:#7a64b8; font-weight:bold;">OSRS Mobile Guide 2026</a>
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #9B84D4;">
+                    <strong>→ Step 2:</strong> Use <a href="/tools/gear-recommender/" style="color:#7a64b8; font-weight:bold;">Gear Recommender</a> to optimize your setup
+                </div>
+            </div>
+
+            <div class="related-guides">
+                <h3>More Mobile & Beginner Guides（更多移动端与新手攻略）</h3>
+                <div class="article-grid">
+                    <a href="osrs-mobile-guide-2026.html" class="article-card">
+                        <h3>OSRS Mobile Guide 2026</h3>
+                        <p>Complete iOS & Android setup, options, and tips.</p>
+                    </a>
+                    <a href="osrs-mobile-membership-guide-2026.html" class="article-card">
+                        <h3>OSRS Mobile Membership Guide 2026</h3>
+                        <p>How mobile membership works and whether in-app subs apply.</p>
+                    </a>
+                    <a href="osrs-beginner-guide-2026.html" class="article-card">
+                        <h3>OSRS Beginner Guide 2026</h3>
+                        <p>If you're brand new, start here.</p>
+                    </a>
+                    <a href="osrs-runelite-setup-guide-2026.html" class="article-card">
+                        <h3>OSRS RuneLite Setup Guide 2026</h3>
+                        <p>Desktop client setup, including QoL plugins similar to MES.</p>
+                    </a>
+                </div>
+
+                <div class="tool-callout" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+                    <p style="color:#7a64b8;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">🛡️ Gear Recommender（配装工具）</p>
+                    <p style="color:#2D2A33!important;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Not sure what to wear? Get clean Melee / Ranged / Magic setups matched to your level in seconds.</p>
+                    <a href="/tools/gear-recommender/" style="display:inline-block;padding:0.65rem 1.8rem;background:#9B84D4;color:#fff;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Find My Best Setup →</a>
+                </div>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🔓</span>
+                    <div class="support-text">
+                        <h3>Every guide is free — this one stays free either way.（每篇攻略都免费——这篇也永远免费。）</h3>
+                        <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong>（抢先体验攻略包） gives you more:</p>
+                        <p style="margin:6px 0 0 0;line-height:1.7">
+                            📚 <strong>10 Beginner Guides</strong>（10 篇新手攻略）— zero to mid-game in one pack<br>
+                            ⭐ <strong>5 Premium Picks</strong>（5 篇精选深度）— our most popular expert deep-dives<br>
+                            ⏰ <strong>3-Day Early Access</strong>（3 天抢先读）— read new guides before everyone else<br>
+                            🔄 <strong>3 New Guides Every Month</strong>（每月 3 篇新攻略）— and each one fuels us to write faster
+                        </p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above（购买即获上述全部权限）</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack（购买抢先体验攻略包）</a>
+                        </div>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone — no strings attached. 🤝（每篇攻略永远对所有人免费——绝无附加条件。）</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRS Guru</h4><p>Free OSRS guides, updated weekly. No ads, no paywalls.（免费 OSRS 攻略，每周更新。无广告，无付费墙。）</p></div>
+                <div class="footer-col"><h4>🗺️ Beginner (Stage 0)（新手：第 0 阶段）</h4><ul>
+                    <li><a href="osrs-interface-controls-beginner-guide-2026.html">Game Interface</a></li>
+                    <li><a href="osrs-combat-training-beginner-2026.html">Combat Training</a></li>
+                    <li><a href="osrs-money-making-beginner-2026.html">Beginner Money</a></li>
+                    <li><a href="osrs-gear-beginner-guide-2026.html">Gear Guide</a></li>
+                    <li><a href="osrs-prayer-training-beginner-guide-2026.html">Prayer Training</a></li>
+                    <li><a href="osrs-f2p-to-p2p-membership-guide-2026.html">F2P to Members</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides（热门攻略）</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Hub</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First-Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">This content uses Jagex's intellectual property under the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. Not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #9B84D4;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violators will be reported to search engines and hosting providers. | Content created under the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#7a64b8;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#7a64b8;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+    </div>
+
+    <script src="../js/features.js"></script>
+    <script src="../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content{color:#1a1a1a!important}
+    .guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+    .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+    .guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+    .guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#7a64b8!important}
+    .guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+    .guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+    .guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    .guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    </style>
+</body>
+</html>
