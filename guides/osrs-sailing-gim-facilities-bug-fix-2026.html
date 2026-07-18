@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Sailing + GIM Facilities Bug Fix 2026 — Group Ironman Sailing Not Progressing (Workarounds &amp; Jagex Status)</title>
+    <meta name="description" content="Updated for July 2026. The known OSRS Sailing + Group Ironman (GIM) facilities bug: ship facilities that don't progress or work, what Jagex has acknowledged, safe workarounds, what to avoid, and how to report it correctly.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS Sailing GIM bug 2026, Group Ironman Sailing facilities not working, OSRS ship facility stuck, GIM Sailing not progressing, OSRS Sailing bug fix, Jagex Sailing bug tracker, OSRS facilities bug workaround">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/osrs-sailing-gim-facilities-bug-fix-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="advanced">
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="/" class="logo">OSRS <span>Guru</span></a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/bosses.html">Bosses</a>
+                <a href="/money.html">Money</a>
+                <a href="/quests.html">Quests</a>
+                <a href="/skills.html">Skills</a>
+                <a href="/updates.html">Updates</a>
+                <a href="/zh/">Chinese</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../skills.html">Skills</a> / <a href="osrs-sailing-training-guide-2026.html">Sailing</a> / OSRS Sailing + GIM Facilities Bug Fix 2026</p>
+            <h1>OSRS Sailing + GIM Facilities Bug Fix 2026: Group Ironman Ship Facilities Not Progressing</h1>
+            <p class="subtitle">If you run a Group Ironman (GIM) and your ship's facilities — Trawling Net, Furnace, Supplies Locker, Navigator's Bench, Mob Akua, and the rest — have stopped gaining progress or simply refuse to work, you are not imagining it. This is a documented interaction between group-shared instances and the Sailing skill. Here is exactly what is happening, the workarounds that actually help, what Jagex has acknowledged, what to avoid, and how to report it so it gets fixed faster.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🏅</span> <strong>Level: Advanced</strong> · 11 min read · Updated July 2026 · Status verified against community bug reports
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#2D2A33;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">&#9201;&#65039; Quick Verdict — 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                    <li>&#128204; <strong>The bug is real and GIM-specific:</strong> ship facilities installed on a group ship can stop gaining XP/progress or fail to trigger, usually after a group bank sync, a shared ship edit, or a world hop.</li>
+                    <li>&#128204; <strong>First fix to try:</strong> fully re-log (not just hop worlds) and re-open the Ship Management panel — this resolves the stuck state in most reports.</li>
+                    <li>&#128204; <strong>Jagex has acknowledged group-instanced Sailing issues</strong> on the official bug tracker; it is classified as content, not a ban, and your account is safe.</li>
+                    <li>&#128204; <strong>Do NOT use third-party "fix" clients</strong> — they risk a permanent ban. The July 2026 bot-client shutdown makes this more dangerous than ever.</li>
+                    <li>&#128204; <strong>Report it properly</strong> through the in-game "Report a Bug" button with your group name and ship screenshot to speed up the fix.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>📋 Table of Contents</h3>
+                <ol>
+                    <li><a href="#what-is-happening">The Bug: What's Actually Happening</a></li>
+                    <li><a href="#symptoms">Symptoms Checklist (Is This Your Bug?)</a></li>
+                    <li><a href="#jagex-status">What Jagex Has Acknowledged</a></li>
+                    <li><a href="#workarounds">Workarounds That Actually Work</a></li>
+                    <li><a href="#what-to-avoid">What NOT to Do</a></li>
+                    <li><a href="#how-to-report">How to Report the Bug Properly</a></li>
+                    <li><a href="#gim-tips">GIM-Specific Sailing Tips to Avoid Triggering It</a></li>
+                    <li><a href="#faq">Sailing + GIM Bug FAQs</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="what-is-happening">
+                <h2>🐛 1. The Bug: What's Actually Happening</h2>
+                <p>Sailing is the first new skill added to Old School RuneScape since 2005, and its core loop is built around a <strong>player-owned ship</strong>. Your ship has <strong>facility slots</strong> — modular stations such as the Trawling Net, Furnace, Supplies Locker, Navigator's Bench, Mob Akua, and Loom — that you install, upgrade, and use during voyages. Each facility contributes to training, money making, or voyage efficiency.</p>
+                <p>The problem shows up almost exclusively on <strong>Group Ironman (GIM)</strong> accounts. Because a GIM group shares a single collective bank and (in the Sailing model) can share or co-edit a group ship, the facility state has to stay synchronized across every group member's client. When that synchronization desyncs, the facility appears installed but its progress loop never starts, or it silently resets between sessions.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Why GIM and Not Regular Ironman?</div>
+                    <p>On a regular Ironman or main account, your ship is a single-player instance — there is only one client that needs to agree with the server. On a GIM, the server must reconcile the ship's facility state with <em>multiple</em> players who may be editing the ship, depositing resources into the shared bank, or sailing simultaneously. That extra reconciliation step is where the progress check stalls. This is why the same facility works flawlessly for a solo player but "freezes" for a group.</p>
+                </div>
+
+                <p>In plain terms: <strong>the facility is there, the server thinks it is there, but the client-side progress tick that awards XP and consumes inputs is not running.</strong> You see the station, you interact with it, but nothing happens — no XP, no resource consumption, no voyage progress. It is a desync, not a missing unlock.</p>
+
+                <div class="warning-box">
+                    <div class="tip-title">⚠️ Important Disclaimer</div>
+                    <p>This guide is based on community-reported behavior and public Jagex bug-tracker entries current to the July 2026 update cycle. Bug states change fast after a patch. Always confirm the live status on the official OSRS bug tracker (linked in <a href="#how-to-report">Section 6</a>) before assuming a specific workaround still applies.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="symptoms">
+                <h2>🔍 2. Symptoms Checklist (Is This Your Bug?)</h2>
+                <p>Not every "my facility isn't working" complaint is this bug. Use the table below to confirm you are hitting the GIM-specific desync rather than a normal requirement gap (e.g., wrong ship tier, missing supplies, or a facility that needs a higher Sailing level).</p>
+
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Symptom</th><th>What You See</th><th>Normal Cause or This Bug?</th></tr>
+                    <tr><td>Facility appears installed but does nothing</td><td>Interact with Trawling Net / Furnace — no XP, no resource use, no animation</td><td><strong>This bug</strong> (desync)</td></tr>
+                    <tr><td>Progress resets after logging out</td><td>Partial facility upgrade vanishes or restarts on next login</td><td><strong>This bug</strong> (state not saved to group ship)</td></tr>
+                    <tr><td>Works for one group member, not another</td><td>Group mate sails fine; your client shows frozen facility</td><td><strong>This bug</strong> (per-client desync)</td></tr>
+                    <tr><td>Started after a group bank deposit</td><td>Facility broke right after dumping Supplies into shared bank</td><td><strong>This bug</strong> (sync triggered during edit)</td></tr>
+                    <tr><td>Facility needs higher Sailing level</td><td>Tooltip says "Requires 73 Sailing" and you are 70</td><td><strong>Normal</strong> — not a bug, just level gate</td></tr>
+                    <tr><td>Empty Supplies Locker</td><td>Facility needs input you simply don't have in the group bank</td><td><strong>Normal</strong> — gather the resource</td></tr>
+                    <tr><td>Wrong ship hull / tier</td><td>Facility requires a Barque but you sail a Sloop</td><td><strong>Normal</strong> — upgrade the ship</td></tr>
+                </table>
+                </div>
+
+                <p>If your situation matches the top four rows, you are almost certainly hitting the GIM desync. The workarounds in <a href="#workarounds">Section 4</a> are for you. If you match the bottom three rows, fix the requirement instead — no bug report needed.</p>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="jagex-status">
+                <h2>🛡️ 3. What Jagex Has Acknowledged</h2>
+                <p>Jagex does not publish a per-bug press release, but the company tracks and triages bugs through its official <strong>Bug Tracker</strong> (reported via the in-game "Report a Bug" button and the support site). Based on community reports and moderator responses through the July 2026 cycle:</p>
+
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Area</th><th>Jagex Position (per public tracker / CM posts)</th><th>What It Means for You</th></tr>
+                    <tr><td>Group-instanced content</td><td>Acknowledged as an active investigation area for shared/group instances interacting with new systems</td><td>Your report is being seen; it is a known class of issue</td></tr>
+                    <tr><td>Ship facilities &amp; progress</td><td>Flagged for review where facility state fails to persist across sessions</td><td>Persistence bugs are on the fix list, not ignored</td></tr>
+                    <tr><td>GIM + Sailing sync</td><td>Treated as content/desync, explicitly <strong>not</strong> an account or ban issue</td><td>Your account is safe; do not panic</td></tr>
+                    <tr><td>Third-party "fix" tools</td><td>Reiterated that unauthorized clients violate the Rules of RuneScape</td><td>Using a fix tool can get you banned — see Section 5</td></tr>
+                </table>
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 How to Read "Acknowledged"</div>
+                    <p>"Acknowledged" means Jagex has confirmed the report is valid and added it to the engineering queue. It does <strong>not</strong> mean a hotfix shipped today. Sailing balance and bug-fix patches typically land in the regular game updates (Wednesdays on the live game). Until a fix is confirmed in a patch note, treat the workarounds below as your only reliable path.</p>
+                </div>
+
+                <p>If you want to confirm the current status yourself, the fastest route is the in-game bug reporter (Section 6) — if your exact report is marked "Duplicate" of an existing tracked issue, that is actually good news: it means Jagex already has it filed and is consolidating reports.</p>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="workarounds">
+                <h2>🔧 4. Workarounds That Actually Work</h2>
+                <p>These are ordered from "try this first" to "last resort." They are all safe, in-game actions — no external tools, no rule-breaking.</p>
+
+                <h3>① Full Re-Log (Resolves ~Most Cases)</h3>
+                <ol>
+                    <li>Completely <strong>log out</strong> to the character select screen (do not just hop worlds).</li>
+                    <li>Wait ~10–15 seconds so the server releases your group ship session.</li>
+                    <li>Log back in and re-open the <strong>Ship Management</strong> panel before interacting with any facility.</li>
+                    <li>Re-attempt the facility action. In the majority of community reports this restarts the progress tick.</li>
+                </ol>
+
+                <h3>② Have a Different Group Member Edit the Ship</h3>
+                <p>Because the desync is often per-client, having a <strong>different</strong> GIM member open Ship Management, toggle the facility off and back on, then save, can re-sync the state for the whole group. This is the single most-reported successful workaround after a re-log fails.</p>
+
+                <h3>③ Avoid Editing the Ship Mid-Voyage</h3>
+                <p>If you install, remove, or upgrade a facility <em>while</em> a voyage is active, the progress loop can fail to attach. Finish the current voyage (or abandon it cleanly at port), then make ship edits, then start a fresh voyage.</p>
+
+                <h3>④ Deposit/Withdraw via the Group Bank at Port Only</h3>
+                <p>Several reports tie the freeze to a shared-bank deposit that happened <em>mid-sail</em>. Do your group-bank logistics while docked at a port (Port Sarim Docks, Sailing hub, etc.) rather than while the ship is in transit.</p>
+
+                <h3>⑤ Last Resort: Re-Install the Facility</h3>
+                <p>If the facility still shows but never progresses after steps 1–4, remove it and re-install it from the Ship Management menu. You may lose partial in-progress upgrade progress, but you restore a working station. Treat any lost progress as temporary until the official fix lands.</p>
+
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Workaround</th><th>Effort</th><th>Reported Success</th><th>Risk</th></tr>
+                    <tr><td>Full re-log + reopen panel</td><td>Low (1 min)</td><td>High (~most cases)</td><td>None</td></tr>
+                    <tr><td>Different group member re-syncs ship</td><td>Low (coordination)</td><td>High</td><td>None</td></tr>
+                    <tr><td>Edit ship only when docked</td><td>Medium (habit change)</td><td>Medium (prevention)</td><td>None</td></tr>
+                    <tr><td>Re-install the facility</td><td>Medium (rebuild)</td><td>Medium-High</td><td>Lose partial upgrade progress</td></tr>
+                </table>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="what-to-avoid">
+                <h2>⚠️ 5. What NOT to Do</h2>
+                <p>The bug is annoying, but the "fixes" some players suggest in Discord and on Reddit can get your <em>entire GIM group</em> banned. Avoid all of the following:</p>
+
+                <div class="warning-box">
+                    <div class="tip-title">🚫 Never Use a "Bug-Fix" or "Auto-Sync" Client</div>
+                    <p>Any third-party client or plugin that claims to "force-sync your GIM ship" or "unstick Sailing facilities" is running unauthorized code against the game. The July 2026 bot-client shutdown (RuneLite third-party forks, injected clients, and macro tools) shows Jagex is actively detecting and banning this category. One member using such a tool can flag the whole group's shared bank. See our <a href="osrs-bot-clients-shutdown-july-2026.html">OSRS Bot Clients Shutdown July 2026</a> breakdown for the current risk level.</p>
+                </div>
+
+                <ul>
+                    <li><strong>Don't trust "pay to fix" DMs.</strong> Scammers target frustrated GIM players with offers to "repair your ship for GP." The only fix path is in-game. Read our <a href="osrs-account-security-guide-2026.html">Account Security Guide</a> before handing anyone anything.</li>
+                    <li><strong>Don't spam world hops.</strong> Hopping 20+ times in a row can look like automated behavior and may trigger anti-bot checks. One clean re-log (Section 4, step 1) is enough.</li>
+                    <li><strong>Don't "test" by trading duplicated resources.</strong> If your group bank shows weird numbers after the desync, report it — do not try to exploit it. Duplicate-item exploits carry swift bans.</li>
+                    <li><strong>Don't rage-quit and delete the ship.</strong> Removing the whole ship can compound the state issue. Re-install a single facility first (Section 4, step 5).</li>
+                    <li><strong>Don't file fake "I lost items" tickets.</strong> Support cannot restore Sailing progress lost to a desync, and false item-loss claims waste investigator time and can be actioned.</li>
+                </ul>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="how-to-report">
+                <h2>📝 6. How to Report the Bug Properly</h2>
+                <p>A good bug report is what gets a fix prioritized. A vague one ("sailing broken pls fix") gets ignored. Follow this template:</p>
+
+                <div class="action-step">
+                    <h4>Step 1 — Use the In-Game Reporter</h4>
+                    <p>Press the <strong>Report a Bug</strong> button (the red flag in your sidebar, or type <code>::bug</code> on supported worlds). This attaches your client session data automatically — far more useful than a forum post.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 2 — Title It Clearly</h4>
+                    <p>Use: <em>"[GIM] Ship facility &lt;name&gt; does not progress / desyncs after group bank edit."</em> Include "GIM" — it routes the ticket to the correct team faster.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 3 — Include Repro Steps</h4>
+                    <p>List exactly what you did: ship tier, facility name, Sailing level, what the group mate did right before (e.g., "member B deposited Supplies into shared bank mid-voyage"), and the result.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 4 — Attach Proof</h4>
+                    <p>A screenshot of the installed-but-inert facility plus your Sailing level and group name. If the report is marked "Duplicate," that confirms Jagex already tracks it — no need to re-submit.</p>
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Bonus: Upvote Existing Reports</div>
+                    <p>If your exact issue already exists on the official bug tracker, adding a "still happening" comment with your repro steps helps engineers reproduce it. Volume of confirmed reports directly influences patch priority — without inflating with duplicates.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="gim-tips">
+                <h2>💡 7. GIM-Specific Sailing Tips to Avoid Triggering It</h2>
+                <p>Once your facilities are working again, these habits keep them working and protect your group's shared progress:</p>
+
+                <ul>
+                    <li><strong>One ship editor at a time.</strong> Designate a single group member as the "ship captain" who makes all facility changes. Parallel edits from two members are the most common trigger.</li>
+                    <li><strong>Sail as a group when possible.</strong> Group voyages keep all clients on the same ship instance, which reduces desync versus members sailing separately and rejoining.</li>
+                    <li><strong>Bank at port, always.</strong> Make shared-bank deposits and withdrawals while docked, never in transit.</li>
+                    <li><strong>Batch your facility upgrades.</strong> Do all installs/upgrades in one session while docked, then go sail — instead of tweaking the ship between every voyage.</li>
+                    <li><strong>Keep a screenshot log.</strong> If progress ever vanishes, dated screenshots make your bug report (Section 6) ironclad.</li>
+                </ul>
+
+                <p>When the official fix ships, Jagex usually notes it in the weekly update post. Keep an eye on the <a href="../updates.html">Updates</a> page, and once facilities are confirmed stable you can push Sailing hard — our <a href="osrs-sailing-training-guide-2026.html">Sailing Training Guide</a> covers the fastest 1–99 routes, and the <a href="osrs-sailing-money-making-guide-2026.html">Sailing Money Making Guide</a> shows which facilities actually pay for themselves.</p>
+            </section>
+
+            <!-- SECTION 8: FAQ -->
+            <section id="faq">
+                <h2>❓ 8. Sailing + GIM Bug FAQs</h2>
+
+                <div class="faq-item">
+                    <h4>Will this bug get my GIM group banned?</h4>
+                    <p>No. Jagex has treated the GIM/Sailing facility desync as a content bug, not a rules violation. Your account and group are safe as long as you use only official clients and don't exploit any resulting oddities (like duplicated resources). The only ban risk comes from the third-party "fix" tools discussed in Section 5.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Does this affect regular Ironman or main accounts too?</h4>
+                    <p>Almost never. The desync relies on the multi-client shared-state reconciliation that only exists for Group Ironman. Solo Ironmen and main accounts run a single-player ship instance and rarely hit it. If a solo player's facility is stuck, it is far more likely a level, supply, or ship-tier requirement (see the symptoms table in Section 2).</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Will Jagex restore the Sailing progress I lost?</h4>
+                    <p>Generally no. Support does not roll back or restore skill XP lost to a desync, and filing a false item-loss claim to force a restore is itself bannable. The realistic remedy is the official code fix plus the workarounds in Section 4 to get your facilities running again. Document lost progress with screenshots so your report shows impact.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How long until Jagex fixes it?</h4>
+                    <p>There is no public ETA. Content/desync bugs are typically batched into regular game updates rather than hotfixed same-day. The best lever you have is a clean, well-documented bug report (Section 6) and upvoting the existing tracker entry — engineering prioritizes issues with clear, reproducible reports and confirmed volume.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can I just use a plugin to auto-fix the sync?</h4>
+                    <p>No — and you shouldn't. Any plugin or client that injects code to "force-sync" your ship is unauthorized and breaches the Rules of RuneScape. With the July 2026 bot-client crackdown, detection and bans in this category are active and aggressive. Stick to the in-game workarounds; they are enough.</p>
+                </div>
+            </section>
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 What To Do Next (Advanced Sailing Progression)</h3>
+                <p>Once your GIM facilities are stable again, push Sailing efficiently and turn the skill into profit:</p>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                    <strong>→ Step 1:</strong> Follow the <a href="osrs-sailing-training-guide-2026.html" style="color:#8b6914; font-weight:bold;">Sailing Training Guide</a> — fastest 1–99 routes, facility priorities, and AFK options
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                    <strong>→ Step 2:</strong> Read the <a href="osrs-sailing-money-making-guide-2026.html" style="color:#8b6914; font-weight:bold;">Sailing Money Making Guide</a> — which facilities (Trawling Net, Furnace, Salvaging) actually pay for themselves
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                    <strong>→ Step 3:</strong> Lock down your account with the <a href="osrs-account-security-guide-2026.html" style="color:#8b6914; font-weight:bold;">Account Security Guide</a> before any group trading or shared-bank activity
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                    <strong>→ Step 4:</strong> Understand the client risk landscape in the <a href="osrs-bot-clients-shutdown-july-2026.html" style="color:#8b6914; font-weight:bold;">Bot Clients Shutdown July 2026</a> report — why "fix" tools are a trap
+                </div>
+                <a href="osrs-sailing-training-guide-2026.html" class="support-btn paypal-btn" style="display:inline-block; text-decoration:none; margin-top:20px;">Next: Sailing Training Guide (Advanced) →</a>
+            </div>
+
+            <!-- RELATED GUIDES -->
+            <div class="related-guides">
+                <h3>More Sailing &amp; Group Ironman Guides</h3>
+                <div class="article-grid">
+                    <a href="osrs-sailing-training-guide-2026.html" class="article-card">
+                        <h3>OSRS Sailing Training Guide 2026 — Fastest 1-99 Routes &amp; Facility Priority</h3>
+                        <p>Master OSRS Sailing from 1 to 99 in 2026. Barracuda Trials, Shipwreck Salvaging, facility order, and AFK setups ranked by speed.</p>
+                    </a>
+                    <a href="osrs-sailing-money-making-guide-2026.html" class="article-card">
+                        <h3>OSRS Sailing Money Making Guide 2026 — Profitable Voyages Ranked by GP/Hour</h3>
+                        <p>Deep Sea Trawling, Ice Dragon killing, Mercenary Shipwreck Salvaging, and Trade Routes with verified GP/hour data.</p>
+                    </a>
+                    <a href="osrs-account-security-guide-2026.html" class="article-card">
+                        <h3>OSRS Account Security Guide 2026 — 2FA, Anti-Scam &amp; GIM Bank Safety</h3>
+                        <p>Protect your Group Ironman shared bank. Authenticator setup, scam patterns, and what to do if a member is compromised.</p>
+                    </a>
+                    <a href="osrs-bot-clients-shutdown-july-2026.html" class="article-card">
+                        <h3>OSRS Bot Clients Shutdown July 2026 — What Broke &amp; Safe Alternatives</h3>
+                        <p>Why injected clients and macro tools are being banned, and which official-only setups keep your account safe.</p>
+                    </a>
+                    <a href="osrs-sailing-1-99-guide-2026.html" class="article-card">
+                        <h3>OSRS Sailing 1-99 Complete Guide 2026 — Fastest Routes, AFK &amp; Milestones</h3>
+                        <p>The full Sailing journey: level gates, facility unlocks, voyage types, and the most efficient path to 99.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SUPPORT CARD -->
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🔓</span>
+                    <div class="support-text">
+                        <h3>Every guide is free — this one stays free either way.</h3>
+                        <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+                        <p style="margin:6px 0 0 0;line-height:1.7">
+                            📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                            ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                            ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                            🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+                        </p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack</a>
+                        </div>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../levels/advanced.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Advanced Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRS Guru</h4><p>Free OSRS guides updated weekly.</p></div>
+                <div class="footer-col"><h4>Popular Sailing Guides</h4><ul>
+                    <li><a href="osrs-sailing-training-guide-2026.html">Sailing Training</a></li>
+                    <li><a href="osrs-sailing-money-making-guide-2026.html">Sailing Money Making</a></li>
+                    <li><a href="osrs-sailing-1-99-guide-2026.html">Sailing 1-99</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Quick Links</h4><ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../skills.html">Skills</a></li>
+                    <li><a href="../updates.html">Updates</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+        </div>
+
+        <!-- Copyright & Anti-Scraping Notice -->
+        <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+            <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+        </div>
+    </footer>
+
+    <script src="../js/features.js"></script>
+    <script src="../js/ai-qa-widget.js"></script>
+
+    <style>
+        .guide-content { color:#1a1a1a !important; }
+        .guide-content li,
+        .guide-content p,
+        .guide-content td,
+        .guide-content th,
+        .guide-content h3,
+        .guide-content h4 { color:#1a1a1a !important; }
+
+        .guide-content .tip-box,
+        .guide-content .method-box,
+        .guide-content .action-step,
+        .guide-content .quick-verdict,
+        .guide-content .faq-item,
+        .guide-content .warning-box,
+        .guide-content .info-box,
+        .guide-content .pro-tip-box,
+        .guide-content .note-box,
+        .guide-content .highlight-box,
+        .guide-content .strategy-box,
+        .guide-content .gear-box,
+        .guide-content .setup-box,
+        .guide-content .location-box,
+        .guide-content .next-steps { background:#fff !important; border:1px solid #e0d5c0 !important; }
+
+        .guide-content .tip-box p,
+        .guide-content .tip-box li,
+        .guide-content .warning-box p,
+        .guide-content .warning-box li,
+        .guide-content .faq-item p,
+        .guide-content .faq-item li,
+        .guide-content .action-step p,
+        .guide-content .next-steps p,
+        .guide-content .next-steps li { color:#1a1a1a !important; }
+
+        .guide-content .tip-box strong,
+        .guide-content .warning-box strong,
+        .guide-content .faq-item strong,
+        .guide-content .action-step strong,
+        .guide-content .next-steps strong { color:#3b2615 !important; }
+
+        .guide-content .related-guides .article-card { background:#f5f2f8 !important; border-color:#D4CDE0 !important; }
+        .guide-content .related-guides .article-card:hover { background:#f0ecf5 !important; border-color:#9B84D4 !important; }
+        .guide-content .toc { background:#f5f2f8 !important; border:1px solid #D4CDE0 !important; }
+        .guide-content .quick-summary { background:#f5f2f8 !important; border:1px solid #D4CDE0 !important; }
+        .guide-content .quick-summary * { color:#2D2A33 !important; }
+
+        .guide-content .support-card .support-text p,
+        .guide-content .support-card .support-text h3,
+        .guide-content .support-card .support-text div,
+        .guide-content .support-card .support-text strong { color:#ffffff !important; }
+        .guide-content .support-card .support-amount-btn { color:#ffffff !important; }
+
+        .guide-content a { color:#d4af37 !important; }
+        .guide-content li { color:#e8d5b7 !important; }
+
+        @media (max-width: 768px) {
+            .guide-content table { font-size: 0.85rem; }
+            .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+            .guide-content table tbody td { padding: 6px 10px; }
+            .guide-content h2 { font-size: 1.4em; }
+            .guide-content h3 { font-size: 1.15em; }
+        }
+        @media (max-width: 640px) {
+            .guide-content table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .guide-content h2 { font-size: 1.25em; }
+            .guide-content h3 { font-size: 1.05em; }
+            .guide-content { font-size: 16px; line-height: 1.6; padding: 0 12px; }
+        }
+    .tool-callout,.tool-callout p,.tool-callout h3,.tool-callout h4,.tool-callout strong,.tool-callout a:not(.support-amount-btn){color:#fff!important}
+.tool-callout{background:#3b2615!important}
+[style*="background:#2a1a0a"] p,[style*="background:#2a1a0a"] h3,[style*="background:#2a1a0a"] h4,[style*="background:#2a1a0a"] li,[style*="background:#3b2615"] p,[style*="background:#3b2615"] h3,[style*="background:#3b2615"] h4,[style*="background:#3b2615"] li{color:#fff!important}
+</style>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert Intel Arc GPU Support Fix (2026) — Drivers, XeSS & Recommended Settings</title>
+    <meta name="description" content="Crimson Desert on Intel Arc A-series (A380, A580, A750, A770, A770 16GB) — install the latest Arc drivers, enable XeSS upscaling, fix known issues, and apply recommended settings for stable FPS in 2026.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Crimson Desert Intel Arc support, Intel Arc A770 Crimson Desert, XeSS Crimson Desert, Arc driver Crimson Desert, Intel Arc A-series settings 2026">
+    <meta name="article:published_time" content="2026-07-18">
+    <meta name="article:modified_time" content="2026-07-18">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-intel-arc-support-fix-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{color:#7a64b8!important}
+        .guide-content h3{color:#7a64b8!important}
+        .guide-content .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;color:#2d2a33}
+        .guide-content .tip-box strong{color:#7a64b8}
+        .guide-content .warn-box{background:#fef9f5;border:1px solid #e8c8a0;color:#2d2a33}
+        .guide-content .warn-box strong{color:#b84a3a}
+        .guide-content .action-step{background:#faf8fc;border:1px solid #e0d8f0;margin:1.2rem 0;padding:1.2rem 1.5rem}
+        .guide-content .action-step h4{color:#7a64b8;margin:0 0 .6rem 0}
+        .guide-content .method-box{background:#faf8fc;border:1px solid #e0d8f0;padding:1.4rem;margin:1.25rem 0}
+        .guide-content .method-box h4{color:#7a64b8;margin:0 0 .85rem 0}
+        .guide-content .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .guide-content .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .guide-content .toc{background:#fff;border:1px solid #e0d8f0;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .guide-content .toc h3{color:#7a64b8!important}
+        .guide-content li{color:#2d2a33!important}
+        .guide-content p{color:#2d2a33!important}
+        .progress-widget{display:none!important}
+        table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+        table th{background:#f8f6fc;color:#7a64b8;padding:10px 14px;text-align:left;border:1px solid #e0d8f0;font-weight:700}
+        table td{padding:9px 14px;border:1px solid #eee;color:#333}
+        table tr:nth-child(even){background:#fafbfd}
+    </style>
+    <style>.progress-widget{display:none!important}</style>
+</head>
+<body data-level="novice">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Crimson Desert <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#drivers">Arc Drivers</a></li>
+                    <li><a href="#xess">XeSS</a></li>
+                    <li><a href="#issues">Known Issues</a></li>
+                    <li><a href="#settings">Settings</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../guides/crimson-desert/crimson-desert-new-player-guide-2026.html">Crimson Desert</a> / Intel Arc GPU Support</p>
+            <h1>Crimson Desert Intel Arc GPU Support Fix</h1>
+            <p class="subtitle">Intel Arc (Alchemist A-series) graphics cards are fully supported by Crimson Desert &mdash; but only if you install the right drivers and turn on XeSS. This guide walks Arc owners through driver setup, upscaling, known issues, and the settings that keep FPS stable.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🎮</span> <strong>GPU Support Fix</strong> · Level: <strong>Novice</strong> · 9 min read · Updated July 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#7a64b8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Intel Arc A-series is supported</strong> &mdash; A380, A580, A750, A770 (8GB &amp; 16GB) all run Crimson Desert.</li>
+                    <li>📌 <strong>Install the latest Arc drivers</strong> (Intel Arc &amp; Iris Xe Graphics Driver) &mdash; older builds crash or stutter.</li>
+                    <li>📌 <strong>Turn on XeSS upscaling</strong> &mdash; Intel's own AI upscaler is the single biggest FPS boost on Arc.</li>
+                    <li>📌 <strong>Known issues:</strong> first-launch shader compile stutter, high VRAM on A380, occasional D3D12 errors on old drivers.</li>
+                    <li>📌 <strong>Recommended:</strong> XeSS Performance/Balanced + Medium shadows + Medium textures for smooth 1080p&ndash;1440p.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#intro">Is Intel Arc Supported in Crimson Desert?</a></li>
+                    <li><a href="#drivers">Install the Latest Arc Drivers</a></li>
+                    <li><a href="#xess">Enable XeSS Upscaling</a></li>
+                    <li><a href="#issues">Known Issues on Intel Arc</a></li>
+                    <li><a href="#settings">Recommended Settings for Arc</a></li>
+                    <li><a href="#trouble">Troubleshooting Fallbacks</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ol>
+            </div>
+
+            <section id="intro">
+                <h2>1. 🎯 Is Intel Arc Supported in Crimson Desert?</h2>
+                <p>Yes &mdash; Crimson Desert runs on Intel Arc graphics through Unreal Engine 5's DirectX 12 path. The entire Alchemist <strong>A-series</strong> lineup is officially capable of playing the game: the entry-level <strong>A380</strong>, the mainstream <strong>A580</strong> and <strong>A750</strong>, and the flagship <strong>A770</strong> in both 8&nbsp;GB and 16&nbsp;GB variants.</p>
+                <p>Unlike the first wave of Arc launch titles, Crimson Desert does <em>not</em> require you to do anything exotic. There is no separate "Arc build" to download and no manual DLL to copy. The two things that actually decide whether your Arc card runs well are <strong>(1) having a current driver</strong> and <strong>(2) enabling XeSS</strong> instead of leaving the game on native resolution. Skip either one and you will likely see stutter, low FPS, or a crash on first launch.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Why Arc Is Different</div>
+                    <p>Arc GPUs rely heavily on modern APIs and on-die matrix (XMX) units for upscaling. Crimson Desert is a heavy UE5 title, so an out-of-date driver leaves the GPU's scheduler and XeSS path under-optimized. A driver update alone can add 20&ndash;40% more FPS on the same settings.</p>
+                </div>
+                <p>If you are brand new to the game itself, start with the <a href="crimson-desert-new-player-guide-2026.html" style="color:#7a64b8;font-weight:bold;">New Player Guide 2026</a> first, then come back here for the GPU-specific tuning.</p>
+            </section>
+
+            <section id="drivers">
+                <h2>2. 💾 Install the Latest Intel Arc Drivers</h2>
+                <p>Arc support in Crimson Desert improves with almost every Intel driver release. If you bought your card and never updated, you are almost certainly on a build that predates proper UE5 optimization. Update before touching any in-game setting.</p>
+                <div class="action-step">
+                    <h4>① Open the Intel Driver &amp; Support Assistant (or Arc Control)</h4>
+                    <p>Download <strong>Intel Driver &amp; Support Assistant (iDSA)</strong> or open <strong>Arc Control</strong> from your system tray. Both detect the exact Arc model you own.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Check for "Intel Arc &amp; Iris Xe Graphics Driver"</h4>
+                    <p>This is the unified package for Arc A-series. Look for the newest <strong>Game On Driver</strong> &mdash; Intel tags releases that include day-zero or next-day game optimizations. Crimson Desert is covered by these.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Perform a Clean Install</h4>
+                    <p>In the installer, choose <strong>"Clean Installation"</strong> (or use Device Manager &rarr; Display adapters &rarr; uninstall with "Delete the driver software" ticked, then reboot). A clean install removes stale shader caches that cause first-launch hangs.</p>
+                </div>
+                <div class="action-step">
+                    <h4>④ Reboot, Then Verify in Arc Control</h4>
+                    <p>After reboot, open Arc Control &rarr; System &rarr; Driver and confirm the version. Launch Crimson Desert once and let it sit on the main menu for a minute so the initial shader precompile finishes.</p>
+                </div>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Don't Use Windows Update Drivers</div>
+                    <p>Windows Update often pushes a generic Microsoft Basic Display Driver or an older Arc package. It will launch the game but without XeSS optimization and with lower FPS. Always use Intel's own package.</p>
+                </div>
+                <p>For a deeper walkthrough of GPU driver hygiene across all vendors, see our <a href="crimson-desert-gpu-driver-guide-2026.html" style="color:#7a64b8;font-weight:bold;">GPU Driver Guide 2026</a>.</p>
+            </section>
+
+            <section id="xess">
+                <h2>3. 🚀 Enable XeSS Upscaling</h2>
+                <p><strong>XeSS (Xe Super Sampling)</strong> is Intel's AI upscaler, and on Arc it runs on dedicated XMX matrix cores &mdash; so it costs far less performance than running the game at native resolution. This is the most important setting for Arc owners.</p>
+                <div class="method-box">
+                    <h4>🧩 How to Turn On XeSS</h4>
+                    <ol>
+                        <li>Launch Crimson Desert &rarr; Settings &rarr; Graphics.</li>
+                        <li>Find <strong>Upscaling / Resolution Scaling</strong>.</li>
+                        <li>Set the method to <strong>XeSS</strong> (not FSR, not TSR, not Off).</li>
+                        <li>Pick a quality preset: <strong>Balanced</strong> for 1440p, <strong>Performance</strong> for 1080p or an A380.</li>
+                        <li>Set your render resolution target one step below your monitor (e.g. 1440p render on a 4K screen).</li>
+                        <li>Apply and re-enter the game world to feel the gain.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 XeSS vs FSR on Arc</div>
+                    <p>On an Arc card, XeSS is specifically tuned for the XMX units and usually looks sharper and runs faster than FSR. FSR still works, but XeSS is the recommended path. TSR (Unreal's own) is the fallback if XeSS is missing on an older driver.</p>
+                </div>
+                <table>
+                    <tr><th>XeSS Preset</th><th>Internal Render Scale</th><th>Best For</th></tr>
+                    <tr><td>Ultra Quality</td><td>~77%</td><td>A770 at 1440p, max clarity</td></tr>
+                    <tr><td>Quality</td><td>~67%</td><td>A770 / A750 at 1440p</td></tr>
+                    <tr><td>Balanced</td><td>~58%</td><td>A750 / A580 at 1080p&ndash;1440p</td></tr>
+                    <tr><td>Performance</td><td>~50%</td><td>A580 / A380 at 1080p</td></tr>
+                    <tr><td>Ultra Performance</td><td>~33%</td><td>A380 only, when struggling</td></tr>
+                </table>
+                <p>Pair XeSS with the global tips in our <a href="crimson-desert-best-settings-performance-2026.html" style="color:#7a64b8;font-weight:bold;">Best Settings for Performance 2026</a> guide for a fully tuned profile.</p>
+            </section>
+
+            <section id="issues">
+                <h2>4. ⚠️ Known Issues on Intel Arc</h2>
+                <p>Arc support is solid, but a few reproducible issues show up across the A-series. None are permanent &mdash; all have a workaround below.</p>
+                <div class="method-box">
+                    <h4>🐞 Issue 1 — First-Launch Shader Stutter</h4>
+                    <p>On the very first run, the game compiles its UE5 shader cache. Arc cards can stutter hard for the first 5&ndash;10 minutes. <strong>Fix:</strong> sit in the open world or a town for ~10 minutes, then restart the game. The cache persists after that.</p>
+                </div>
+                <div class="method-box">
+                    <h4>🐞 Issue 2 — A380 VRAM Limit</h4>
+                    <p>The A380 has only 6&nbsp;GB of VRAM. At 1080p High+ the game can hit the ceiling and drop to single-digit FPS or crash. <strong>Fix:</strong> use XeSS Performance, drop textures to Medium, and keep shadows on Low.</p>
+                </div>
+                <div class="method-box">
+                    <h4>🐞 Issue 3 — D3D12 / Fatal Error on Old Drivers</h4>
+                    <p>Pre-2025 Arc drivers sometimes throw a D3D12 device-removed error in cutscenes. <strong>Fix:</strong> this is exactly why Section 2 exists &mdash; update to the latest Game On Driver and do a clean install.</p>
+                </div>
+                <div class="method-box">
+                    <h4>🐞 Issue 4 — HDR / VRR Hand-Off</h4>
+                    <p>A few Arc + certain monitors report a black screen when HDR is forced on at the OS level. <strong>Fix:</strong> leave HDR off in Windows, let the game manage tone mapping, and enable VRR only in the game's display options.</p>
+                </div>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Still Crashing?</div>
+                    <p>If you have updated drivers, enabled XeSS, and still crash with a D3D12 or UE5 fatal error, jump to our <a href="crimson-desert-crash-fix-guide-2026.html" style="color:#7a64b8;font-weight:bold;">Crash Fix Guide 2026</a> for the full error-by-error recovery steps.</p>
+                </div>
+            </section>
+
+            <section id="settings">
+                <h2>5. 🛠️ Recommended Settings for Arc</h2>
+                <p>These are the settings we recommend per Arc tier. They balance image quality and stable FPS using XeSS as the backbone.</p>
+                <table>
+                    <tr><th>Setting</th><th>A770 (16GB)</th><th>A750 / A580</th><th>A380 (6GB)</th></tr>
+                    <tr><td>Upscaling</td><td>XeSS Quality</td><td>XeSS Balanced</td><td>XeSS Performance</td></tr>
+                    <tr><td>Render Resolution</td><td>1440p</td><td>1080p&ndash;1440p</td><td>1080p</td></tr>
+                    <tr><td>Textures</td><td>High</td><td>Medium</td><td>Medium</td></tr>
+                    <tr><td>Shadows</td><td>Medium</td><td>Medium</td><td>Low</td></tr>
+                    <tr><td>Volumetric Fog</td><td>Medium</td><td>Low</td><td>Low</td></tr>
+                    <tr><td>Motion Blur</td><td>Off</td><td>Off</td><td>Off</td></tr>
+                    <tr><td>Ray Tracing</td><td>Off</td><td>Off</td><td>Off</td></tr>
+                    <tr><td>Expected FPS</td><td>~60+ @1440p</td><td>~50&ndash;60 @1080p</td><td>~35&ndash;45 @1080p</td></tr>
+                </table>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Turn Ray Tracing Off</div>
+                    <p>Arc A-series has no dedicated RT horsepower for a UE5 game this heavy. Leaving RT on is the fastest way to tank your frame rate. Save it for screenshots, not gameplay.</p>
+                </div>
+            </section>
+
+            <section id="trouble">
+                <h2>6. 🔧 Troubleshooting Fallbacks</h2>
+                <p>If something still feels wrong after the steps above, work through these in order:</p>
+                <div class="action-step">
+                    <h4>① Confirm XeSS Is Actually Active</h4>
+                    <p>Open Arc Control's performance overlay (Alt+I) and check GPU usage. If the game is rendering at native res, usage will peg near 100% with low FPS. With XeSS on, usage drops and FPS rises.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Reset the Shader Cache</h4>
+                    <p>If stutter returns after a patch, delete the game's saved shader cache (in the Crimson Desert saved folder) and let it rebuild once.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Cap the Frame Rate</h4>
+                    <p>On Arc, an uncapped frame rate can cause coil-whine and temp spikes. Cap at 60 (or your monitor's refresh) in Arc Control &rarr; Global Settings.</p>
+                </div>
+                <div class="action-step">
+                    <h4>④ Check Windows Power Mode</h4>
+                    <p>Set Windows power plan to <strong>High Performance</strong> (or "Best Performance" on modern builds). Balanced mode can throttle the Arc GPU under load.</p>
+                </div>
+            </section>
+
+            <section id="faq">
+                <h2>7. ❓ FAQs</h2>
+                <div class="faq-item">
+                    <h4>Is the Intel Arc A380 good enough for Crimson Desert?</h4>
+                    <p>Yes, at 1080p with XeSS Performance and Medium/Low settings. Expect 35&ndash;45 FPS. It is the entry point &mdash; playable, not maxed out.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do I need a special Arc build of the game?</h4>
+                    <p>No. There is one PC build for everyone. Arc support comes entirely from your GPU driver and the in-game XeSS option.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Should I use XeSS or FSR on my Arc card?</h4>
+                    <p>Use XeSS. It runs on Arc's dedicated XMX cores and is tuned for this hardware, giving better image quality and higher FPS than FSR on the same card.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Why does the game stutter only on the first launch?</h4>
+                    <p>UE5 is compiling its shader cache. Let it run about 10 minutes in-game, then restart. The cache is saved and subsequent launches are smooth.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>My A770 crashes in cutscenes &mdash; is the card faulty?</h4>
+                    <p>Almost never. That specific crash is a D3D12 device-removed error tied to old drivers. Update to the latest Game On Driver with a clean install (Section 2) and it resolves.</p>
+                </div>
+            </section>
+
+            <div class="next-steps">
+                <h3>🎯 Go Deeper on Your GPU</h3>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Master driver hygiene with the <a href="crimson-desert-gpu-driver-guide-2026.html" style="color:#7a64b8; font-weight:bold;">GPU Driver Guide 2026</a> (next-level deep dive)
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Fix crashes with <a href="crimson-desert-crash-fix-guide-2026.html" style="color:#7a64b8; font-weight:bold;">Crash Fix Guide 2026</a>
+                </div>
+            </div>
+
+            <div class="related-guides">
+                <h3>More Crimson Desert Guides</h3>
+                <div class="article-grid">
+                    <a href="crimson-desert-gpu-driver-guide-2026.html" class="article-card">
+                        <h3>GPU Driver Guide 2026</h3>
+                        <p>Keep every vendor driver optimized for Crimson Desert.</p>
+                    </a>
+                    <a href="crimson-desert-best-settings-performance-2026.html" class="article-card">
+                        <h3>Best Settings for Performance 2026</h3>
+                        <p>Full optimized settings for PC and console.</p>
+                    </a>
+                    <a href="crimson-desert-crash-fix-guide-2026.html" class="article-card">
+                        <h3>Crash Fix Guide 2026</h3>
+                        <p>Fix D3D12 and UE5 fatal errors.</p>
+                    </a>
+                    <a href="crimson-desert-new-player-guide-2026.html" class="article-card">
+                        <h3>New Player Guide 2026</h3>
+                        <p>Start your journey the right way.</p>
+                    </a>
+                </div>
+
+                <div class="tool-callout" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+                    <p style="color:#7a64b8;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">📚 More Crimson Desert Guides</p>
+                    <p style="color:#2D2A33!important;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Stuck on another issue? Browse our full Crimson Desert guide library.</p>
+                    <a href="../../guides/crimson-desert/crimson-desert-new-player-guide-2026.html" style="display:inline-block;padding:0.65rem 1.8rem;background:#9B84D4;color:#fff;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Browse Guides →</a>
+                </div>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🔓</span>
+                    <div class="support-text">
+                        <h3>Every guide is free — this one stays free either way.</h3>
+                        <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+                        <p style="margin:6px 0 0 0;line-height:1.7">
+                            📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                            ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                            ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                            🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+                        </p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack</a>
+                        </div>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../../levels/novice.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Novice Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>Crimson Desert Guru</h4><p>Free Crimson Desert guides updated weekly.</p></div>
+                <div class="footer-col"><h4>Guides</h4><ul>
+                    <li><a href="crimson-desert-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="crimson-desert-best-settings-performance-2026.html">Performance Settings</a></li>
+                    <li><a href="crimson-desert-gpu-driver-guide-2026.html">GPU Driver Guide</a></li>
+                    <li><a href="crimson-desert-crash-fix-guide-2026.html">Crash Fix</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>More</h4><ul>
+                    <li><a href="../../index.html">OSRS Guru Home</a></li>
+                    <li><a href="../../guides/crimson-desert/index.html">All CD Guides</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #7a64b8;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Crimson Desert is a trademark of Pearl Abyss. Not affiliated with or endorsed by Pearl Abyss.</p>
+    </div>
+
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content{color:#2d2a33!important}
+    .guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#2d2a33!important}
+    .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .faq-item,.guide-content .warn-box,.guide-content .next-steps{background:#fff!important;border:1px solid #e0d8f0!important}
+    .guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .action-step p,.guide-content .action-step li,.guide-content .warn-box p,.guide-content .warn-box li,.guide-content .next-steps p,.guide-content .next-steps li{color:#2d2a33!important}
+    .guide-content .faq-item h4,.guide-content .method-box h4,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warn-box strong,.guide-content .next-steps strong{color:#7a64b8!important}
+    .guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+    .guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    .guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    .tool-callout,.tool-callout p,.tool-callout h3,.tool-callout h4,.tool-callout strong,.tool-callout a:not(.support-amount-btn){color:#fff!important}
+.tool-callout{background:#3b2615!important}
+[style*="background:#2a1a0a"] p,[style*="background:#2a1a0a"] h3,[style*="background:#2a1a0a"] h4,[style*="background:#2a1a0a"] li,[style*="background:#3b2615"] p,[style*="background:#3b2615"] h3,[style*="background:#3b2615"] h4,[style*="background:#3b2615"] li{color:#fff!important}
+</style>
+</body>
+</html>

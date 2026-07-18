@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert FSR4 Rain Rendering Bug Fix (Flickering & Artifacts) — 2026</title>
+    <meta name="description" content="Crimson Desert FSR4 rain rendering bug: flickering and artifacting during rain after the 1.1x update. Disable FSR4, switch to FSR3 or XeSS, fix GPU drivers, verify game files, and report to Pearl Abyss.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Crimson Desert FSR4 rain bug, FSR4 flickering rain fix, Crimson Desert 1.1x artifacting, FSR4 rain artifacts, Crimson Desert upscaler comparison, Pearl Abyss FSR4 rain report">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-fsr4-rain-bug-fix-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{color:#7a64b8!important}
+        .guide-content h3{color:#7a64b8!important}
+        .guide-content .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;color:#2d2a33}
+        .guide-content .tip-box strong{color:#7a64b8}
+        .guide-content .warn-box{background:#fef9f5;border:1px solid #e8c8a0;color:#2d2a33}
+        .guide-content .warn-box strong{color:#b84a3a}
+        .guide-content .action-step{background:#faf8fc;border:1px solid #e0d8f0;margin:1.2rem 0;padding:1.2rem 1.5rem}
+        .guide-content .action-step h4{color:#7a64b8;margin:0 0 .6rem 0}
+        .guide-content .method-box{background:#faf8fc;border:1px solid #e0d8f0;padding:1.4rem;margin:1.25rem 0}
+        .guide-content .method-box h4{color:#7a64b8;margin:0 0 .85rem 0}
+        .guide-content .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .guide-content .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .guide-content .toc{background:#fff;border:1px solid #e0d8f0;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .guide-content .toc h3{color:#7a64b8!important}
+        .guide-content li{color:#2d2a33!important}
+        .guide-content p{color:#2d2a33!important}
+        .progress-widget{display:none!important}
+        table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+        table th{background:#f8f6fc;color:#7a64b8;padding:10px 14px;text-align:left;border:1px solid #e0d8f0;font-weight:700}
+        table td{padding:9px 14px;border:1px solid #eee;color:#333}
+        table tr:nth-child(even){background:#fafbfd}
+    </style>
+</head>
+<body data-level="intermediate">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Crimson Desert <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#what">What Happened</a></li>
+                    <li><a href="#disable">Disable FSR4</a></li>
+                    <li><a href="#switch">FSR3 / XeSS</a></li>
+                    <li><a href="#upscalers">Compare</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../guides/crimson-desert/crimson-desert-new-player-guide-2026.html">Crimson Desert</a> / FSR4 Rain Rendering Bug Fix</p>
+            <h1>Crimson Desert FSR4 Rain Rendering Bug Fix (Flickering &amp; Artifacts)</h1>
+            <p class="subtitle">After the 1.1x update, many players on AMD RDNA4 and supported GPUs saw the screen flicker and shimmer with rainbow artifacts whenever it rained. This guide explains the FSR4 rain bug and gives you a step-by-step fix you can apply today on PC and console.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🌧️</span> <strong>Rendering Fix</strong> · Intermediate · 9 min read · Updated July 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#7a64b8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Verdict &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>The bug:</strong> FSR4 upscaling corrupts the rain shader after the 1.1x update &mdash; flickering, rainbow shimmer, and artifacting in wet weather.</li>
+                    <li>📌 <strong>Fastest fix:</strong> temporarily disable FSR4 (or drop to Quality mode) until the rain shader is patched.</li>
+                    <li>📌 <strong>Best alternative:</strong> switch to FSR3 or XeSS &mdash; both render rain cleanly on most setups.</li>
+                    <li>📌 <strong>Also do:</strong> update your GPU driver and verify game files to rule out corrupt shaders.</li>
+                    <li>📌 <strong>Help the fix:</strong> report the issue to Pearl Abyss with your GPU, driver, and a screenshot/clip.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#what">What Is the FSR4 Rain Rendering Bug</a></li>
+                    <li><a href="#disable">Step 1 &mdash; Disable FSR4 Temporarily</a></li>
+                    <li><a href="#switch">Step 2 &mdash; Switch to FSR3 or XeSS</a></li>
+                    <li><a href="#drivers">Step 3 &mdash; GPU Driver Fixes</a></li>
+                    <li><a href="#verify">Step 4 &mdash; Verify Game Files</a></li>
+                    <li><a href="#upscalers">Upscaler Comparison Table</a></li>
+                    <li><a href="#report">Step 5 &mdash; Report to the Developers</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ol>
+            </div>
+
+            <section id="what">
+                <h2>🌧️ What Is the FSR4 Rain Rendering Bug</h2>
+                <p>Starting with the <strong>1.1x update</strong>, Crimson Desert's upgrade to FSR4 (FidelityFX Super Resolution 4, AMD's RDNA4 machine-learning upscaler) exposed a conflict between the new upscaler and the game's <em>rain particle and screen-space wetness shader</em>. On affected GPUs, the moment the weather turns to rain the image starts to <strong>flicker, shimmer with colored artifacts, and tear at the edges</strong> of moving objects.</p>
+                <p>The bug is reproducible and tied to FSR4 specifically &mdash; not to your hardware failing. Players on Radeon RX 9000-series cards (and some 7000-series using the FSR4 fallback path) report it most, but a smaller number of console players on the unified renderer have seen similar shimmer during storms since 1.1x.</p>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ How to Confirm It's This Bug</div>
+                    <p>If the flickering <strong>only appears during rain or heavy wet weather</strong> and disappears the instant you disable FSR4, you are hitting the FSR4 rain shader bug &mdash; not a driver crash or a hardware fault.</p>
+                </div>
+            </section>
+
+            <section id="disable">
+                <h2>🛑 Step 1 &mdash; Disable FSR4 Temporarily</h2>
+                <p>The quickest and most reliable workaround is to turn FSR4 off until Pearl Abyss ships a shader fix. You won't lose the game &mdash; you simply render at native resolution (or a different upscaler).</p>
+                <div class="action-step">
+                    <h4>① Open Graphics Settings</h4>
+                    <p>From the main menu or pause menu, go to <strong>Settings &rarr; Graphics &rarr; Upscaling</strong>.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Set Upscaler to "Off" or "Native"</h4>
+                    <p>Select <strong>Off / Native</strong> to render at your display resolution. If FPS drops too far, jump to Step 2 and use FSR3 or XeSS instead.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ If You Must Keep FSR4, Use Quality Mode</h4>
+                    <p>Some players find the bug is far milder at <strong>FSR4 Quality</strong> (less aggressive upscaling) than at Balanced/Performance. This is a partial mitigation, not a cure.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Console Note</div>
+                    <p>On PS5 / PS5 Pro the FSR4 path is fixed by the publisher. If you see rain shimmer on console, the only lever is lowering the upscaling/sharpness setting and waiting for the 1.1x follow-up patch.</p>
+                </div>
+            </section>
+
+            <section id="switch">
+                <h2>🔄 Step 2 &mdash; Switch to FSR3 or XeSS</h2>
+                <p>If native resolution tanks your frame rate, <strong>FSR3</strong> and <strong>XeSS</strong> are the best drop-in replacements. Both render the rain shader correctly on the current build for the large majority of players, and both still give you a solid upscaling boost.</p>
+                <div class="method-box">
+                    <h4>🖥️ How to Switch Upscalers (PC)</h4>
+                    <ol>
+                        <li>In <strong>Settings &rarr; Graphics &rarr; Upscaling</strong>, change the engine from <em>FSR4</em> to <em>FSR3</em> or <em>XeSS</em>.</li>
+                        <li>Pick <strong>Balanced</strong> or <strong>Quality</strong> to keep image clarity high.</li>
+                        <li>Apply, then reload the area (fast-travel or re-enter) so the rain shader re-initializes.</li>
+                        <li>Test in a rainy zone (e.g. the coastal or highland regions during a storm) before long sessions.</li>
+                    </ol>
+                </div>
+                <div class="action-step">
+                    <h4>Which Should You Pick?</h4>
+                    <p><strong>FSR3</strong> is ideal on AMD GPUs and keeps the familiar look. <strong>XeSS</strong> (Intel's AI upscaler) often looks sharper on NVIDIA and Intel Arc hardware and is a great fallback if FSR3 also shimmers on your machine.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Frame Generation</div>
+                    <p>If you use FSR3's frame generation, keep it on &mdash; it is unaffected by the rain bug. Only the <em>FSR4 reconstruction path</em> is the culprit.</p>
+                </div>
+            </section>
+
+            <section id="drivers">
+                <h2>📟 Step 3 &mdash; GPU Driver Fixes</h2>
+                <p>Outdated or buggy GPU drivers can amplify shader artifacts. A clean driver update often reduces (and in some cases eliminates) the residual shimmer even on FSR3/XeSS.</p>
+                <div class="action-step">
+                    <h4>① Update to the Latest Game-Ready Driver</h4>
+                    <p>Grab the newest driver from your vendor: <strong>AMD Adrenalin</strong>, <strong>NVIDIA Game Ready</strong>, or <strong>Intel Arc</strong>. Crimson Desert's 1.1x era saw several hot driver revisions that specifically improved FSR compatibility.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Use a Clean Install</h4>
+                    <p>Pick the <strong>"Clean Install" / "Factory Reset"</strong> option in your driver installer. Leftover shader caches from the old driver can keep feeding corrupted rain data into FSR4.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Clear the Shader Cache</h4>
+                    <p>After the driver install, delete the game's shader cache folder (or use the "Clear Shader Cache" toggle in the launcher if present) so Crimson Desert rebuilds clean rain shaders on next launch.</p>
+                </div>
+                <p>For a full, vendor-by-vendor walkthrough of stable driver versions and clean-install steps, see our <a href="crimson-desert-gpu-driver-guide-2026.html" style="color:#7a64b8;font-weight:bold;">GPU Driver Guide 2026</a>.</p>
+            </section>
+
+            <section id="verify">
+                <h2>🗂️ Step 4 &mdash; Verify Game Files</h2>
+                <p>A partially downloaded or corrupt 1.1x patch can leave the rain shader half-installed, which looks identical to the FSR4 bug. Rule this out before assuming it's purely the upscaler.</p>
+                <div class="method-box">
+                    <h4>✅ Verify on Steam</h4>
+                    <ol>
+                        <li>Open Steam &rarr; Library &rarr; Crimson Desert.</li>
+                        <li>Right-click &rarr; <strong>Properties &rarr; Installed Files</strong>.</li>
+                        <li>Click <strong>"Verify integrity of game files"</strong>.</li>
+                        <li>Let it finish; if it re-downloads anything, restart and re-test in rain.</li>
+                    </ol>
+                </div>
+                <div class="action-step">
+                    <h4>Platform Alternatives</h4>
+                    <p>On <strong>Epic / console</strong>, use the "Check for Updates" / "Repair" option in the client or system storage menu. A repair pass fixes a surprising number of "rendering glitch" reports that turn out to be corrupt assets.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Still Flickering After Verify?</div>
+                    <p>If file verification passes and the flicker remains <em>only with FSR4</em>, you've confirmed it's the upscaler-shader conflict &mdash; proceed to the report step so Pearl Abyss has your data point.</p>
+                </div>
+            </section>
+
+            <section id="upscalers">
+                <h2>📊 Upscaler Comparison Table</h2>
+                <p>Use this table to choose the right upscaler for your hardware <em>until the FSR4 rain bug is patched</em>. "Rain Safety" reflects the current 1.1x build.</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Upscaler</th><th>Best On</th><th>Rain Safety (1.1x)</th><th>Image Sharpness</th><th>FPS Boost</th><th>Verdict</th></tr>
+                    <tr><td><strong>FSR4</strong></td><td>AMD RDNA4 (RX 9000)</td><td>❌ Buggy (flicker/artifacts)</td><td>Very High</td><td>Highest</td><td>Avoid until patched</td></tr>
+                    <tr><td><strong>FSR4 Quality</strong></td><td>AMD RDNA4</td><td>⚠️ Partial / milder</td><td>Very High</td><td>High</td><td>Temporary if needed</td></tr>
+                    <tr><td><strong>FSR3</strong></td><td>AMD &amp; most GPUs</td><td>✅ Clean</td><td>High</td><td>High</td><td>Recommended fallback</td></tr>
+                    <tr><td><strong>XeSS</strong></td><td>Intel Arc / NVIDIA</td><td>✅ Clean</td><td>High–Very High</td><td>Medium–High</td><td>Best for non-AMD</td></tr>
+                    <tr><td><strong>Native / Off</strong></td><td>All (high-end)</td><td>✅ Clean</td><td>Native</td><td>None</td><td>Safe but heaviest</td></tr>
+                    <tr><td><strong>TAA / Internal AA</strong></td><td>All</td><td>✅ Clean</td><td>Medium</td><td>Low</td><td>Last resort</td></tr>
+                </table>
+                </div>
+                <p>For the full performance-tuned preset that pairs your chosen upscaler with the right shadow and fog settings, see <a href="crimson-desert-best-settings-performance-2026.html" style="color:#7a64b8;font-weight:bold;">Best Settings for Performance 2026</a>.</p>
+            </section>
+
+            <section id="report">
+                <h2>📨 Step 5 &mdash; Report to the Developers</h2>
+                <p>Pearl Abyss prioritizes bugs with the most reproducible reports. A good report dramatically speeds up the shader fix.</p>
+                <div class="action-step">
+                    <h4>① Gather the Essentials</h4>
+                    <p>Note your <strong>GPU model, driver version, in-game upscaler setting, and the exact 1.1x build number</strong> (shown on the main menu).</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Capture Proof</h4>
+                    <p>Take a screenshot or short clip of the rain flicker, ideally toggling FSR4 off and on to show the difference. Attach it to your report.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Submit Through Official Channels</h4>
+                    <p>Use the in-game <strong>Support &rarr; Report a Bug</strong> tool and the official Crimson Desert community/discord bug board. Mention "FSR4 rain rendering artifact &mdash; 1.1x" in the title so it groups with other reports.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">🔔 Don't Use "Fix" Mods</div>
+                    <p>Third-party shader mods that claim to patch FSR4 can corrupt your save or trip anti-tamper protection. Stick to official settings and wait for the patch.</p>
+                </div>
+                <p>If the rain bug comes bundled with a full crash or fatal error, our <a href="crimson-desert-crash-fix-guide-2026.html" style="color:#7a64b8;font-weight:bold;">Crash Fix Guide 2026</a> covers D3D12 and UE5 error recovery.</p>
+            </section>
+
+            <section id="faq">
+                <h2>❓ FAQs</h2>
+                <div class="faq-item">
+                    <h4>Is my GPU dying if I see rainbow artifacts in rain?</h4>
+                    <p>Almost certainly not. The FSR4 rain bug is a software shader conflict introduced in 1.1x, reproducible across many GPUs. If the artifacts vanish the moment you disable FSR4, your hardware is fine.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Will switching to FSR3 lower my image quality a lot?</h4>
+                    <p>Only slightly. FSR3 is a spatial upscaler versus FSR4's ML path, so fine detail is a touch softer, but rain renders cleanly and you keep most of the FPS gain. Most players can't tell the difference in motion.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Does this bug affect console players too?</h4>
+                    <p>A small number of console players on the unified 1.1x renderer reported similar rain shimmer. Console has no upscaler toggle, so the only fixes are lowering sharpness/upscaling settings and waiting for Pearl Abyss's patch.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Will verifying game files alone fix the flicker?</h4>
+                    <p>Only if the rain shader was corrupt from a botched download. If files verify clean and the flicker persists with FSR4 on, it's the upscaler conflict &mdash; disable FSR4 or switch to FSR3/XeSS.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>When will Pearl Abyss fix FSR4 rain?</h4>
+                    <p>No fixed date yet, but the bug is widely reported and tied to the 1.1x upscaler upgrade. Expect a shader correction in a follow-up 1.1x hotfix. Track the official news page and report your case to raise its priority.</p>
+                </div>
+            </section>
+
+            <div class="next-steps">
+                <h3>🎯 Continue Tuning Your Setup</h3>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Optimize everything else in <a href="crimson-desert-best-settings-performance-2026.html" style="color:#7a64b8; font-weight:bold;">Best Settings for Performance 2026</a>
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Clean your drivers with <a href="crimson-desert-gpu-driver-guide-2026.html" style="color:#7a64b8; font-weight:bold;">GPU Driver Guide 2026</a>
+                </div>
+            </div>
+
+            <div class="related-guides">
+                <h3>More Crimson Desert Guides</h3>
+                <div class="article-grid">
+                    <a href="crimson-desert-best-settings-performance-2026.html" class="article-card">
+                        <h3>Best Settings for Performance 2026</h3>
+                        <p>Full optimized settings for PC and console.</p>
+                    </a>
+                    <a href="crimson-desert-gpu-driver-guide-2026.html" class="article-card">
+                        <h3>GPU Driver Guide 2026</h3>
+                        <p>Stable drivers and clean-install steps.</p>
+                    </a>
+                    <a href="crimson-desert-crash-fix-guide-2026.html" class="article-card">
+                        <h3>Crash Fix Guide 2026</h3>
+                        <p>Fix D3D12 and UE5 fatal errors.</p>
+                    </a>
+                    <a href="crimson-desert-new-player-guide-2026.html" class="article-card">
+                        <h3>New Player Guide 2026</h3>
+                        <p>Start your journey the right way.</p>
+                    </a>
+                </div>
+
+                <div class="tool-callout" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+                    <p style="color:#7a64b8;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">📚 More Crimson Desert Guides</p>
+                    <p style="color:#2D2A33!important;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Stuck on another issue? Browse our full Crimson Desert guide library.</p>
+                    <a href="../../guides/crimson-desert/crimson-desert-new-player-guide-2026.html" style="display:inline-block;padding:0.65rem 1.8rem;background:#9B84D4;color:#fff;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Browse Guides →</a>
+                </div>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🔓</span>
+                    <div class="support-text">
+                        <h3>Every guide is free — this one stays free either way.</h3>
+                        <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+                        <p style="margin:6px 0 0 0;line-height:1.7">
+                            📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                            ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                            ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                            🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+                        </p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack</a>
+                        </div>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../../levels/intermediate.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Intermediate Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>Crimson Desert Guru</h4><p>Free Crimson Desert guides updated weekly.</p></div>
+                <div class="footer-col"><h4>Guides</h4><ul>
+                    <li><a href="crimson-desert-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="crimson-desert-best-settings-performance-2026.html">Performance Settings</a></li>
+                    <li><a href="crimson-desert-gpu-driver-guide-2026.html">GPU Driver Guide</a></li>
+                    <li><a href="crimson-desert-crash-fix-guide-2026.html">Crash Fix</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>More</h4><ul>
+                    <li><a href="../../index.html">OSRS Guru Home</a></li>
+                    <li><a href="../../guides/crimson-desert/index.html">All CD Guides</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #7a64b8;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Crimson Desert is a trademark of Pearl Abyss. Not affiliated with or endorsed by Pearl Abyss.</p>
+    </div>
+
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content{color:#2d2a33!important}
+    .guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#2d2a33!important}
+    .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .faq-item,.guide-content .warn-box,.guide-content .next-steps{background:#fff!important;border:1px solid #e0d8f0!important}
+    .guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .action-step p,.guide-content .action-step li,.guide-content .warn-box p,.guide-content .warn-box li,.guide-content .next-steps p,.guide-content .next-steps li{color:#2d2a33!important}
+    .guide-content .faq-item h4,.guide-content .method-box h4,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warn-box strong,.guide-content .next-steps strong{color:#7a64b8!important}
+    .guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+    .guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    .guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    .tool-callout,.tool-callout p,.tool-callout h3,.tool-callout h4,.tool-callout strong,.tool-callout a:not(.support-amount-btn){color:#fff!important}
+.tool-callout{background:#3b2615!important}
+[style*="background:#2a1a0a"] p,[style*="background:#2a1a0a"] h3,[style*="background:#2a1a0a"] h4,[style*="background:#2a1a0a"] li,[style*="background:#3b2615"] p,[style*="background:#3b2615"] h3,[style*="background:#3b2615"] h4,[style*="background:#3b2615"] li{color:#fff!important}
+</style>
+</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Mobile Can't Log In? Fix It After the July 2026 Jagex PSA (Unified Flow)</title>
+    <meta name="description" content="Updated for July 2026. Can't log in to OSRS Mobile after the July 7 2026 Jagex PSA/maintenance? One unified fix flow: check server status, pick the right account type (Steam/Google/Apple), fix Authenticator/2FA, clear cached credentials, clean reinstall, and use the Jagex Launcher login.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS mobile can't log in 2026, OSRS mobile login failed, Jagex PSA July 2026, OSRS mobile Steam Google Apple login, OSRS mobile authenticator 2FA fix, OSRS mobile cached credentials, Jagex Launcher mobile login, Old School RuneScape mobile troubleshooting">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<meta name="article:published_time" content="2026-07-08">
+<meta name="article:modified_time" content="2026-07-18">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-mobile-cant-login-fix-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="beginner">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../updates.html">Updates</a></li>
+                    <li><a href="../zh/index.html">Chinese</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="osrs-mobile-guide-2026.html">OSRS Mobile</a> / Can't Log In? Fix After the July 2026 PSA</p>
+            <h1>OSRS Mobile Can't Log In? Fix It After the July 2026 Jagex PSA</h1>
+            <p class="subtitle">After the July 7, 2026 Jagex PSA and server maintenance, thousands of players hit "Failed to log in", an endless loading spinner, or "Invalid credentials" on the OSRS Mobile app — even with the right password. This is one unified fix flow that covers every cause, in the right order, so you can get back in fast.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>Stage 0 · Beginner Troubleshooting</strong> — Updated July 2026 · 11 min read
+            </div>
+            <div class="level-badge" style="display:inline-block;margin-top:14px;padding:6px 16px;border:1px solid #d4af37;border-radius:20px;background:#3b2615;color:#d4af37;font-weight:700;font-size:.9rem;letter-spacing:.5px;">🎓 Level: Beginner</div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#2D2A33;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Verdict — 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Don't panic &amp; don't spam login</strong> — most July 2026 failures were Jagex-side maintenance, now fixed. Confirm status first.</li>
+                    <li>📌 <strong>#1 cause:</strong> wrong account type — Steam, Google (Android), and Apple (iOS) logins each need their own button. Email+password won't work for them.</li>
+                    <li>📌 <strong>2FA/Authenticator:</strong> the maintenance force-signed many players out; you need your 6-digit code or backup codes, not your password.</li>
+                    <li>📌 <strong>Stuck token?</strong> Force-stop + clear cache (Android) or Offload (iOS) to wipe cached credentials without losing data.</li>
+                    <li>📌 <strong>Still stuck?</strong> Clean reinstall, then log in through the Jagex Launcher flow with your verified Jagex account.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#server-status">🔍 Is It You or Jagex? Check Server Status First</a></li>
+                    <li><a href="#account-type">🔑 Wrong Account Type — Steam vs Google vs Apple</a></li>
+                    <li><a href="#authenticator">🛡️ Authenticator / 2FA Issues (Lost Codes, New Phone)</a></li>
+                    <li><a href="#cached">🧹 Cached / Stuck Credentials — Force Sign-Out</a></li>
+                    <li><a href="#reinstall">♻️ Clean Reinstall (Android &amp; iOS)</a></li>
+                    <li><a href="#launcher">💻 Jagex Launcher Login on Mobile (2026 Change)</a></li>
+                    <li><a href="#symptom-table">🗺️ Symptom → Fix Quick Reference</a></li>
+                    <li><a href="#faq">❓ FAQ — OSRS Mobile Login</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="server-status">
+                <h2>1. 🔍 Is It You or Jagex? Check Server Status First</h2>
+                <p>On July 7, 2026, Jagex published a PSA about planned server maintenance that briefly disrupted login across both the desktop client and the OSRS Mobile app. During that window, players saw "Failed to log in", a spinner that never finished, or a sudden "You have been disconnected" the moment they tapped Play. None of those were account problems — the login servers were simply not accepting sessions.</p>
+                <p>Before you change a single setting, confirm whether the problem is on Jagex's side. This takes 30 seconds and saves you from "fixing" something that isn't broken:</p>
+                <div class="action-step">
+                    <h4>Step 1 — Check the official status channels</h4>
+                    <ul>
+                        <li>Open <strong>@JagexSupport</strong> on X (Twitter) — outages and maintenance windows are posted here first.</li>
+                        <li>Visit the official Old School RuneScape status / news page for any "Login issues" banner.</li>
+                        <li>Ask in a Discord or look at r/2007scape — if hundreds of players can't log in at the same time, it's Jagex, not you.</li>
+                    </ul>
+                </div>
+                <div class="action-step">
+                    <h4>Step 2 — Rule out your own connection</h4>
+                    <ul>
+                        <li>Switch from mobile data to Wi-Fi (or vice-versa) and retry once.</li>
+                        <li>Open any website in your phone's browser. No internet at all? Fix the connection first.</li>
+                        <li>Try logging into the <strong>desktop client or the official website</strong> with the same account. If desktop also fails, it's account/server side, not the app.</li>
+                    </ul>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The 10-Minute Rule</div>
+                    <p>If status channels confirm maintenance, just wait. Hammering the login button does not speed things up and can temporarily rate-limit your account. Step away for 10–15 minutes, then come back and continue this flow from Step 2 (account type).</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="account-type">
+                <h2>2. 🔑 Wrong Account Type — Steam vs Google vs Apple</h2>
+                <p>This is the single most common reason mobile players <strong>who have the right password</strong> still can't get in. Old School RuneScape accounts are not all "email + password" accounts. Depending on how you first created or linked your account, you must use a specific login button — and the wrong one always returns "Invalid credentials" or "Failed to log in".</p>
+                <div class="method-box highlight">
+                    <h4>🎯 The Golden Rule of Mobile Login</h4>
+                    <p>You must log in on mobile the <strong>same way your account was created</strong>. If you made it through Steam, you sign in with Steam. Through an Android phone with Google, you use Google. On an iPhone with "Sign in with Apple", you use Apple. There is no universal password fallback for these linked accounts on mobile.</p>
+                </div>
+
+                <h3>② Which button do you tap?</h3>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>How You Made / Link Your Account</th><th>Tap This on the Mobile Login Screen</th><th>What Goes Wrong If You Pick Wrong</th></tr>
+                    <tr><td><strong>Jagex account</strong> (email + password set on the Jagex website)</td><td>The <strong>email + password</strong> fields</td><td>— (correct path)</td></tr>
+                    <tr><td><strong>Steam</strong> (created/linked via Steam)</td><td>The <strong>"Steam"</strong> button</td><td>Email+password shows "Invalid credentials" even though your Steam login works on PC</td></tr>
+                    <tr><td><strong>Google</strong> (Android, linked Google)</td><td>The <strong>"Google"</strong> button</td><td>Typing your Gmail + password fails; you must pick the Google SSO tile</td></tr>
+                    <tr><td><strong>Apple</strong> (iOS, "Sign in with Apple")</td><td>The <strong>"Apple"</strong> button</td><td>Your Apple ID password is not your RuneScape password — use the Apple SSO button</td></tr>
+                </table>
+                </div>
+
+                <h3>③ How to tell which one you are</h3>
+                <ul>
+                    <li><strong>On PC right now?</strong> However you log into the desktop client or Jagex Launcher is exactly how you log into mobile. Mirror it.</li>
+                    <li><strong>Not sure if you have a Jagex account?</strong> Go to the official Jagex account site and try "Sign in". If it recognizes your email and asks for a password + (possibly) 2FA, you're a Jagex-account user.</li>
+                    <li><strong>Bought membership through Steam/iOS/Google Play?</strong> That usually means your character is linked to that platform — use that button.</li>
+                </ul>
+                <div class="tip-box">
+                    <div class="tip-title">⚠️ Common Mix-Up</div>
+                    <p>Many players who normally play on PC via the Jagex Launcher assume "my account is email + password" — and they're right. But if you originally migrated from a Steam or Apple login, the mobile app may still present those SSO buttons as the only working route. When in doubt, try the SSO button that matches where you bought or created the account.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="authenticator">
+                <h2>3. 🛡️ Authenticator / 2FA Issues (Lost Codes, New Phone)</h2>
+                <p>The July 2026 maintenance force-signed a large number of sessions out at once. When you next opened OSRS Mobile, the app asked for your <strong>6-digit Authenticator code</strong> — not your password. If you couldn't produce it, you were locked out even though your credentials were correct.</p>
+
+                <h3>④ You have your Authenticator app</h3>
+                <ul>
+                    <li>Open your authenticator app (Google Authenticator, Authy, FreeOTP, or similar) and find the entry for your Jagex account.</li>
+                    <li>Enter the current 6-digit code. Codes rotate every 30 seconds — type the one on screen <em>now</em>, not the previous one.</li>
+                    <li>If the code is "always wrong", your phone's clock may be off. Enable automatic date &amp; time; an unsynced clock breaks TOTP codes.</li>
+                </ul>
+
+                <h3>⑤ You lost your phone / can't generate codes</h3>
+                <div class="action-step">
+                    <h4>Option A — Use backup codes</h4>
+                    <p>When you first enabled 2FA, Jagex gave you one-time <strong>backup codes</strong>. Find that saved list (notes app, password manager, printed copy). Each code works once and bypasses the authenticator app.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Option B — Account recovery</h4>
+                    <p>No backup codes? Start the official <strong>Jagex account recovery</strong> process from a browser. You'll verify ownership (creation details, past transactions, linked emails). This can take time but is the only route if both the app and backup codes are gone.</p>
+                </div>
+                <div class="warning-box" style="border-left:4px solid #b8860b;padding:12px 16px;background:#fff;border-radius:6px;margin:14px 0;">
+                    <div class="tip-title" style="color:#3b2615;">🚨 Never Share Your Code</div>
+                    <p>Jagex support will <strong>never</strong> ask for your authenticator code or password. Anyone who DMs you "to verify your account" during an outage is a scammer. Report and block them. See our <a href="../account-security-guide-2026.html" style="color:#8b6914;font-weight:bold;">Account Security Guide</a> for the full anti-phishing checklist.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="cached">
+                <h2>4. 🧹 Cached / Stuck Credentials — Force Sign-Out</h2>
+                <p>Even after Jagex fixed the servers, the app can hold a <strong>stale login token</strong> from before the maintenance. That dead token keeps the app stuck on "Loading" or loops you back to the login screen. You don't need to delete the app — just clear the cached session.</p>
+
+                <h3>⑥ Android — Force stop + clear cache</h3>
+                <ol>
+                    <li>Open <strong>Settings → Apps → Old School RuneScape</strong>.</li>
+                    <li>Tap <strong>Force Stop</strong> (this kills the stuck process).</li>
+                    <li>Tap <strong>Storage → Clear Cache</strong>. (Use <em>Clear Data</em> only if cache alone doesn't work — it removes locally saved settings but not your account.)</li>
+                    <li>Reopen the app and log in fresh.</li>
+                </ol>
+
+                <h3>⑦ iPhone / iPad — Offload, don't delete your data</h3>
+                <ol>
+                    <li>Open <strong>Settings → General → iPhone Storage → Old School RuneScape</strong>.</li>
+                    <li>Tap <strong>Offload App</strong>. This removes the app binary but <strong>keeps your documents &amp; data</strong> (your cached login is wiped).</li>
+                    <li>Reinstall from the App Store and open it.</li>
+                    <li>If offload isn't available, delete and reinstall (your character lives on Jagex's servers, not your phone, so nothing is lost).</li>
+                </ol>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Why this fixes the "spinner of death"</div>
+                    <p>The cached token is like an expired ticket. The app keeps presenting it, the server rejects it, and you loop forever. Clearing cache throws the bad ticket away so the app is forced to request a brand-new session — which is exactly what the post-maintenance login needs.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="reinstall">
+                <h2>5. ♻️ Clean Reinstall (Android &amp; iOS)</h2>
+                <p>If clearing cache didn't help, do a full clean reinstall. This removes any corrupted local files from the interrupted July maintenance update.</p>
+                <div class="method-box">
+                    <h4>🤖 Android</h4>
+                    <ul>
+                        <li>Long-press the OSRS icon → <strong>Uninstall</strong> (or Settings → Apps → Uninstall).</li>
+                        <li>Restart your phone once.</li>
+                        <li>Open the <strong>Google Play Store</strong>, search "Old School RuneScape", and reinstall. Avoid third-party APK mirrors.</li>
+                        <li>Open the app and log in with the correct account-type button from Section 2.</li>
+                    </ul>
+                </div>
+                <div class="method-box">
+                    <h4>🍎 iOS (iPhone / iPad)</h4>
+                    <ul>
+                        <li>Long-press the OSRS icon on the home screen → <strong>Remove App → Delete App</strong>.</li>
+                        <li>Restart the device.</li>
+                        <li>Reinstall from the <strong>App Store</strong> (not a backup restore, which can re-copy the bad cache).</li>
+                        <li>Log in with the matching SSO or email method.</li>
+                    </ul>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">🔋 Don't Forget the Basics</div>
+                    <p>After reinstall, make sure the app has <strong>background data / cellular permission</strong> enabled and that your OS is reasonably up to date. An outdated OS version can silently break the secure login handshake even with a fresh install.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="launcher">
+                <h2>6. 💻 Jagex Launcher Login on Mobile (2026 Change)</h2>
+                <p>In 2026 Jagex expanded how accounts are managed, and a growing number of players now use a <strong>Jagex account</strong> governed by the Jagex Launcher ecosystem. If your character was migrated or created under a Jagex account, the most reliable mobile login is to first confirm the credentials on the web, then reuse them in the app.</p>
+                <div class="action-step">
+                    <h4>Step 1 — Verify on the web</h4>
+                    <p>On a browser, go to the official Jagex account sign-in page and log in with your email + password + 2FA. If this works, your credentials are correct and the mobile failure is almost certainly the account-type button (Section 2) or a cached token (Section 4).</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 2 — Re-link if prompted</h4>
+                    <p>Some July 2026 accounts were asked to <strong>re-link</strong> their platform (Steam/Google/Apple) to the Jagex account during the maintenance cleanup. If mobile says "account not linked", complete the link once on the website, then retry on mobile.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 3 — Use the same email on mobile</h4>
+                    <p>Once verified, open OSRS Mobile and choose the <strong>email + password</strong> route (not an SSO button) if your account is a full Jagex account. The July maintenance reset many sessions, so expect to re-enter your 2FA code one time — that's normal, not a hack.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Still "Invalid credentials" after all this?</div>
+                    <p>Triple-check for typos: mobile keyboards sometimes auto-capitalize the first letter or add a trailing space. Type your email in all lowercase and paste or carefully type the password. If it still fails on both web and mobile, your account may be locked or recovered — contact official Jagex Support with your character name and creation details.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7: Symptom table -->
+            <section id="symptom-table">
+                <h2>7. 🗺️ Symptom → Fix Quick Reference</h2>
+                <p>Not sure which step applies? Match what you see to the fix:</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>You See…</th><th>Most Likely Cause</th><th>Go To</th></tr>
+                    <tr><td>"Failed to log in" for everyone at once</td><td>Jagex maintenance / outage</td><td><a href="#server-status" style="color:#8b6914;font-weight:bold;">§1 Server Status</a></td></tr>
+                    <tr><td>"Invalid credentials" but password is right</td><td>Wrong account-type button (Steam/Google/Apple)</td><td><a href="#account-type" style="color:#8b6914;font-weight:bold;">§2 Account Type</a></td></tr>
+                    <tr><td>Asks for a 6-digit code you can't make</td><td>Lost authenticator / new phone</td><td><a href="#authenticator" style="color:#8b6914;font-weight:bold;">§3 Authenticator</a></td></tr>
+                    <tr><td>Endless "Loading…" or login loop</td><td>Stale cached token</td><td><a href="#cached" style="color:#8b6914;font-weight:bold;">§4 Cached Credentials</a></td></tr>
+                    <tr><td>App crashes on the login screen</td><td>Corrupted local files</td><td><a href="#reinstall" style="color:#8b6914;font-weight:bold;">§5 Reinstall</a></td></tr>
+                    <tr><td>"Account not linked" after maintenance</td><td>Jagex account re-link required</td><td><a href="#launcher" style="color:#8b6914;font-weight:bold;">§6 Jagex Launcher</a></td></tr>
+                </table>
+                </div>
+            </section>
+
+            <!-- SECTION 8: FAQ -->
+            <section id="faq">
+                <h2>8. ❓ FAQ — OSRS Mobile Login</h2>
+
+                <div class="faq-item">
+                    <h4>Why did OSRS Mobile suddenly log me out after July 7, 2026?</h4>
+                    <p>Jagex's July 2026 PSA covered server maintenance that force-expired a large batch of active login sessions for security and stability. Being signed out was expected behavior, not a ban or a hack. Just sign back in using the correct account-type button and, if prompted, your 2FA code.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>I play on Steam on PC — how do I log into mobile?</h4>
+                    <p>Tap the <strong>"Steam"</strong> button on the mobile login screen, not the email/password fields. Your Steam-linked character has no usable email+password login on mobile. If you'd rather use email+password, first convert/link the account to a Jagex account on the website, then use that email on mobile.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>My authenticator codes are "always wrong" — what's happening?</h4>
+                    <p>Nine times out of ten your phone clock is out of sync. Authenticator codes are time-based; a wrong clock makes every code invalid. Turn on automatic date &amp; time in your phone settings, wait 30 seconds, and retry. If that fails, use a one-time backup code or start account recovery.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Will a clean reinstall delete my character or my bank?</h4>
+                    <p>No. Your character, levels, and bank are stored on Jagex's servers, never on your phone. Uninstalling and reinstalling OSRS Mobile only removes the app and its local cache. You'll log back into the exact same account afterward.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>I've tried everything and still can't log in — what now?</h4>
+                    <p>Confirm you can log in on the official website with the same method. If web works but mobile doesn't, it's app-side — try the clean reinstall (§5). If neither works and you have no 2FA access, use the official Jagex account recovery form with your character name and original creation details, then contact Jagex Support.</p>
+                </div>
+            </section>
+
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 What To Do After You're Back In</h3>
+                <p>Once you've logged in, take a few minutes to make sure this never happens again:</p>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 1:</strong> Save your <a href="../account-security-guide-2026.html" style="color:#8b6914; font-weight:bold;">2FA backup codes</a> somewhere safe so a lost phone can't lock you out
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 2:</strong> Learn the full <a href="osrs-mobile-guide-2026.html" style="color:#8b6914; font-weight:bold;">OSRS Mobile Guide</a> — settings, controls, and play tips
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 3:</strong> Set up <a href="osrs-mobile-membership-guide-2026.html" style="color:#8b6914; font-weight:bold;">Mobile Membership</a> the right way for your account type
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 4:</strong> Bookmark our <a href="osrs-mobile-menu-entry-swapper-fix-2026.html" style="color:#8b6914; font-weight:bold;">Menu Entry Swapper Fix</a> in case the next update resets your mobile settings
+                    </div>
+                </div>
+                <a href="osrs-mobile-guide-2026.html" class="support-btn paypal-btn" style="display:inline-block; text-decoration:none; margin-top:20px;">Next: Full OSRS Mobile Guide →</a>
+            </div>
+
+            <!-- RELATED GUIDES -->
+                    <div class="related-guides">
+      <h3>More OSRS Mobile &amp; Account Guides</h3>
+      <div class="article-grid">
+        <a href="osrs-mobile-guide-2026.html" class="article-card">
+          <h3>OSRS Mobile Guide 2026 — Settings, Controls &amp; Play Tips</h3>
+          <p>Everything you need to actually enjoy Old School RuneScape on your phone, from layout to performance tweaks.</p>
+        </a>
+        <a href="osrs-mobile-membership-guide-2026.html" class="article-card">
+          <h3>OSRS Mobile Membership Guide 2026</h3>
+          <p>How to subscribe and manage membership on mobile for every account type without getting locked out.</p>
+        </a>
+        <a href="account-security-guide-2026.html" class="article-card">
+          <h3>OSRS Account Security Guide 2026</h3>
+          <p>Set up 2FA, store backup codes, and avoid the phishing scams that spike during every major outage.</p>
+        </a>
+        <a href="osrs-mobile-menu-entry-swapper-fix-2026.html" class="article-card">
+          <h3>OSRS Mobile Menu Entry Swapper Fix 2026</h3>
+          <p>When a game update resets your mobile right-click menus, here's the fast fix to get them back.</p>
+        </a>
+      </div>
+    
+<div class="tool-callout" style="background:#2a1a0a;border:1px solid #d4af37;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+    <p style="color:#d4af37;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">🔧 Try Our OSRS Account Recovery Checklist</p>
+    <p style="color:#e8d5b7;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Locked out for real? Our step-by-step recovery checklist walks you through Jagex account recovery, backup codes, and support tickets — <strong>for both desktop and mobile</strong>.</p>
+    <a href="../account-security-guide-2026.html" style="display:inline-block;padding:0.65rem 1.8rem;background:#d4af37;color:#1a0f0a;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Open the Security Guide →</a>
+</div>
+</div><div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>Every guide is free — this one stays free either way.</h3>
+            <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+            <p style="margin:6px 0 0 0;line-height:1.7">
+                📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+            </p>
+            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+            <div class="support-amounts">
+                <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+<!-- SUPPORT CARD -->
+      
+      <!-- SUPPORT CARD -->
+    <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../levels/beginner.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Beginner Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ New Players (Stage 0)</h4><ul>
+                    <li><a href="osrs-mobile-guide-2026.html">OSRS Mobile Guide</a></li>
+                    <li><a href="osrs-mobile-membership-guide-2026.html">Mobile Membership</a></li>
+                    <li><a href="account-security-guide-2026.html">Account Security</a></li>
+                    <li><a href="osrs-mobile-menu-entry-swapper-fix-2026.html">Menu Entry Swapper Fix</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+<!-- Copyright & Anti-Scraping Notice -->
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+<style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#3b2615!important}
+.guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+.guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+.guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+@media (max-width: 768px) {
+    .guide-content table { font-size: 0.85rem; }
+    .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+    .guide-content table tbody td { padding: 6px 10px; }
+    .guide-content h2 { font-size: 1.4em; }
+    .guide-content h3 { font-size: 1.15em; }
+}
+@media (max-width: 640px) {
+    .guide-content table { display: block; overflow-x: auto; }
+    .guide-content h2 { font-size: 1.25em; }
+    .guide-content h3 { font-size: 1.05em; }
+}
+.tool-callout,.tool-callout p,.tool-callout h3,.tool-callout h4,.tool-callout strong,.tool-callout a:not(.support-amount-btn){color:#fff!important}
+.tool-callout{background:#3b2615!important}
+[style*="background:#2a1a0a"] p,[style*="background:#2a1a0a"] h3,[style*="background:#2a1a0a"] h4,[style*="background:#2a1a0a"] li,[style*="background:#3b2615"] p,[style*="background:#3b2615"] h3,[style*="background:#3b2615"] h4,[style*="background:#3b2615"] li{color:#fff!important}
+</style>
+
+</body>
+</html>

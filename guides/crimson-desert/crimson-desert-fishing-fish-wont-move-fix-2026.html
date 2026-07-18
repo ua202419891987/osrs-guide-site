@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert Fishing Mini-Game: Fish Won't Move / Won't Bite Bug Fix (2026)</title>
+    <meta name="description" content="Fish frozen and refusing to bite in the Crimson Desert fishing mini-game? Here are the working workarounds — reload your save, re-enter the fishing spot, verify files — and how to report it to Pearl Abyss.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Crimson Desert fishing bug, fish won't move, fish won't bite, fishing mini-game frozen, Crimson Desert fishing fix 2026, Pearl Abyss fishing glitch">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-fishing-fish-wont-move-fix-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{color:#7a64b8!important}
+        .guide-content h3{color:#7a64b8!important}
+        .guide-content .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;color:#2d2a33}
+        .guide-content .tip-box strong{color:#7a64b8}
+        .guide-content .warn-box{background:#fef9f5;border:1px solid #e8c8a0;color:#2d2a33}
+        .guide-content .warn-box strong{color:#b84a3a}
+        .guide-content .action-step{background:#faf8fc;border:1px solid #e0d8f0;margin:1.2rem 0;padding:1.2rem 1.5rem}
+        .guide-content .action-step h4{color:#7a64b8;margin:0 0 .6rem 0}
+        .guide-content .method-box{background:#faf8fc;border:1px solid #e0d8f0;padding:1.4rem;margin:1.25rem 0}
+        .guide-content .method-box h4{color:#7a64b8;margin:0 0 .85rem 0}
+        .guide-content .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .guide-content .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .guide-content .toc{background:#fff;border:1px solid #e0d8f0;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .guide-content .toc h3{color:#7a64b8!important}
+        .guide-content li{color:#2d2a33!important}
+        .guide-content p{color:#2d2a33!important}
+        .progress-widget{display:none!important}
+        table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+        table th{background:#f8f6fc;color:#7a64b8;padding:10px 14px;text-align:left;border:1px solid #e0d8f0;font-weight:700}
+        table td{padding:9px 14px;border:1px solid #eee;color:#333}
+        table tr:nth-child(even){background:#fafbfd}
+    </style>
+</head>
+<body data-level="novice">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Crimson Desert <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#what">The Bug</a></li>
+                    <li><a href="#reload">Reload Save</a></li>
+                    <li><a href="#reenter">Re-Enter Spot</a></li>
+                    <li><a href="#verify">Verify Files</a></li>
+                    <li><a href="#report">Report</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../guides/crimson-desert/crimson-desert-new-player-guide-2026.html">Crimson Desert</a> / Fishing Mini-Game: Fish Won't Move Fix</p>
+            <h1>Crimson Desert Fishing Mini-Game: Fish Won't Move / Won't Bite Bug Fix</h1>
+            <p class="subtitle">You cast your line, the bobber drops, and then nothing happens. The fish sit frozen and never bite. This guide explains the fishing-specific glitch, gives you three workarounds you can try right now, and shows how to report it to Pearl Abyss so it gets fixed for everyone.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🐟</span> <strong>Novice</strong> · Bug Fix · 7 min read · Updated July 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#7a64b8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                    <li>📌 The <strong>fish won't move / won't bite</strong> glitch freezes the fishing mini-game after you cast.</li>
+                    <li>📌 It is a <strong>local state desync</strong>, not a broken save &mdash; your progress is safe.</li>
+                    <li>📌 <strong>Workaround 1:</strong> reload your save from the pause menu.</li>
+                    <li>📌 <strong>Workaround 2:</strong> leave and re-enter the fishing spot (walk away and back).</li>
+                    <li>📌 <strong>Workaround 3:</strong> verify game files if it repeats across spots.</li>
+                    <li>📌 Still stuck? <strong>Report it to the devs</strong> with your platform and steps.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#what">What Is the "Fish Won't Move / Won't Bite" Bug</a></li>
+                    <li><a href="#why">Why It Happens in the Fishing System</a></li>
+                    <li><a href="#reload">Workaround 1 &mdash; Reload Your Save</a></li>
+                    <li><a href="#reenter">Workaround 2 &mdash; Re-Enter the Fishing Spot</a></li>
+                    <li><a href="#verify">Workaround 3 &mdash; Verify Game Files</a></li>
+                    <li><a href="#trouble">Quick Troubleshooting Table</a></li>
+                    <li><a href="#report">How to Report to the Devs</a></li>
+                    <li><a href="#prevent">Preventing It Next Time</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ol>
+            </div>
+
+            <section id="what">
+                <h2>🐟 1. What Is the "Fish Won't Move / Won't Bite" Bug</h2>
+                <p>The <strong>fishing mini-game</strong> in Crimson Desert is a small timing-based activity: you cast near a body of water, wait for a fish to approach the bobber, and then press the prompt when it bites. Under normal conditions the fish swim toward your line, the bobber dips, and you get a short window to reel in.</p>
+                <p>In this bug, that loop breaks. After you cast, the water goes still. No fish swim in, the bobber never twitches, and the "bite" prompt never appears. You can stand there for minutes and nothing happens. It is <em>not</em> a controller issue &mdash; the input is fine &mdash; the mini-game's spawn and bite logic has simply failed to start.</p>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Don't Keep Waiting</div>
+                    <p>Holding your line indefinitely will not "catch up." Once the fishing state has desynced, the only fix is to reset it. The three workarounds below do exactly that.</p>
+                </div>
+            </section>
+
+            <section id="why">
+                <h2>🔍 2. Why It Happens in the Fishing System</h2>
+                <p>This glitch is specific to the <strong>fishing system</strong>, not the broader game. The fishing mini-game relies on a localized "active spot" state that tracks which fish are spawned, whether the bobber is armed, and whether the bite timer is running. The bug appears when that state gets out of sync &mdash; usually from one of these triggers:</p>
+                <div class="method-box">
+                    <h4>📋 Common Triggers</h4>
+                    <ul>
+                        <li><strong>Fast travel or quest cutscene</strong> fired while a line was still cast.</li>
+                        <li><strong>Leaving the fishing spot mid-bite</strong> and returning without reloading.</li>
+                        <li><strong>Network / co-op sync hiccup</strong> if you are playing with others.</li>
+                        <li><strong>Auto-save landing on the exact cast frame</strong>, locking the state.</li>
+                    </ul>
+                </div>
+                <p>The good news: because the problem lives in the <em>session's mini-game state</em> rather than your save file, a simple reset restores normal fishing. Your caught-fish progress and inventory are untouched.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Is It Just a Slow Spot?</div>
+                    <p>Some fishing locations genuinely have long waits. Before assuming it is the bug, count to 60 seconds. If zero fish approach and the bobber never moves at all, it is the glitch &mdash; not slow RNG.</p>
+                </div>
+            </section>
+
+            <section id="reload">
+                <h2>🔄 3. Workaround 1 &mdash; Reload Your Save</h2>
+                <p>The fastest, most reliable fix is to reload your save. This wipes the broken session state and rebuilds the fishing system cleanly.</p>
+                <div class="action-step">
+                    <h4>① Reload from the Pause Menu</h4>
+                    <ol>
+                        <li>Open the <strong>pause menu</strong> (Options / ESC).</li>
+                        <li>Select <strong>System &rarr; Load Game</strong> (or "Reload Save").</li>
+                        <li>Pick your most recent autosave &mdash; it is usually only seconds behind.</li>
+                        <li>Once loaded, walk back to the water and cast again.</li>
+                    </ol>
+                </div>
+                <p>This is the option we recommend trying <strong>first</strong>. It costs you almost no progress and resolves the frozen-fish state in the large majority of cases.</p>
+            </section>
+
+            <section id="reenter">
+                <h2>🚶 4. Workaround 2 &mdash; Re-Enter the Fishing Spot</h2>
+                <p>If you would rather not reload, you can often clear the bug just by cycling the fishing spot's active state. Think of it as "rebooting" the mini-game without touching your save.</p>
+                <div class="action-step">
+                    <h4>① Leave and Return</h4>
+                    <ol>
+                        <li><strong>Reel in</strong> (or cancel) your current cast if the prompt is available.</li>
+                        <li>Walk <strong>far enough away</strong> that the fishing spot unloads &mdash; roughly two to three screen-widths, or until the spot marker disappears from your compass.</li>
+                        <li>Open and close the <strong>map</strong> once to force a state refresh (optional but helps on console).</li>
+                        <li>Return to the exact water edge and cast again.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Co-op Tip</div>
+                    <p>If you are in a shared session, the host should be the one to leave and re-enter. Client-side spot reloads sometimes do not propagate to the host's fishing state.</p>
+                </div>
+            </section>
+
+            <section id="verify">
+                <h2>📂 5. Workaround 3 &mdash; Verify Game Files</h2>
+                <p>If the fish won't bite <em>everywhere</em> &mdash; not just one spot &mdash; the issue may be a corrupted fishing asset rather than a session desync. In that case, reload and re-entry will not help, and you should verify your game files.</p>
+                <div class="method-box">
+                    <h4>🖥️ PC (Steam / Launcher)</h4>
+                    <ol>
+                        <li>Steam &rarr; Library &rarr; Crimson Desert &rarr; right-click &rarr; <strong>Properties &rarr; Installed Files &rarr; Verify integrity of game files</strong>.</li>
+                        <li>Wait for the scan. Any corrupted fishing data file is redownloaded automatically.</li>
+                        <li>Launch and test the nearest fishing spot.</li>
+                    </ol>
+                </div>
+                <div class="action-step">
+                    <h4>Console (PS5 / Xbox)</h4>
+                    <p>Consoles cannot verify files directly. Instead, <strong>rebuild the database</strong> (PS5: Settings &rarr; Storage &rarr; Console Storage &rarr; "Rebuild Database" via Safe Mode) or simply reinstall if the bug is persistent across all spots. A full reinstall is the console equivalent of a file check.</p>
+                </div>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Back Up First</div>
+                    <p>Before any reinstall, make sure your cloud save is synced. Your fishing progress is tied to your character save, so a backup keeps everything safe.</p>
+                </div>
+            </section>
+
+            <section id="trouble">
+                <h2>📊 6. Quick Troubleshooting Table</h2>
+                <p>Use this table to map your symptom to the right fix:</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Symptom</th><th>Likely Cause</th><th>Try First</th><th>Success Rate</th></tr>
+                    <tr><td>Fish frozen at one spot, bobber still</td><td>Session state desync</td><td>Reload save</td><td>Very high</td></tr>
+                    <tr><td>Bobber never dips after cast</td><td>Mini-game not armed</td><td>Re-enter spot</td><td>High</td></tr>
+                    <tr><td>Every spot broken, no fish anywhere</td><td>Corrupted fishing asset</td><td>Verify files</td><td>High</td></tr>
+                    <tr><td>Bug repeats after co-op session</td><td>Host/client sync issue</td><td>Host re-enters</td><td>Medium-High</td></tr>
+                    <tr><td>Only slow bites, fish do approach</td><td>Normal RNG, not a bug</td><td>Wait longer</td><td>N/A</td></tr>
+                </table>
+                </div>
+            </section>
+
+            <section id="report">
+                <h2>📨 7. How to Report to the Devs</h2>
+                <p>Workarounds fix it for you, but they do not fix it for everyone. If you hit this bug, a clean bug report to Pearl Abyss helps the team prioritize a permanent patch. A good report includes:</p>
+                <div class="method-box">
+                    <h4>📋 What to Include</h4>
+                    <ul>
+                        <li><strong>Platform</strong> (PS5, PS5 Pro, Xbox, or PC with spec summary).</li>
+                        <li><strong>Game version</strong> &mdash; check the main menu build number.</li>
+                        <li><strong>Exact fishing spot</strong> (region / lake / river name).</li>
+                        <li><strong>What you were doing</strong> right before &mdash; fast travel, cutscene, co-op, etc.</li>
+                        <li><strong>Steps to reproduce</strong> in 2&ndash;3 lines.</li>
+                        <li><strong>Screenshot or clip</strong> of the frozen bobber (very helpful).</li>
+                    </ul>
+                </div>
+                <p>Submit through the official <strong>in-game support / "Report a Bug"</strong> menu, or the Pearl Abyss customer support portal. Reference "fishing mini-game &mdash; fish won't move / won't bite" in the subject so it is triaged correctly.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 One Report, Many Helped</div>
+                    <p>Duplicate reports still help &mdash; they show the team how widespread the fishing bug is. Don't assume someone else already filed it.</p>
+                </div>
+            </section>
+
+            <section id="prevent">
+                <h2>🛡️ 8. Preventing It Next Time</h2>
+                <p>While you wait for a permanent fix, a few habits make the bug far less likely:</p>
+                <div class="action-step">
+                    <h4>① Reel in Before You Leave</h4>
+                    <p>Always cancel or reel in your line before fast traveling, starting a quest, or walking away. Casting-then-leaving is the #1 trigger.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Let the Bite Finish</h4>
+                    <p>If a fish is mid-bite, complete the reel before opening the map or menu. Interrupting the bite window is the second-most-common trigger.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Save Before a Long Fishing Run</h4>
+                    <p>Manual-save before settling in for a fishing session. If the state desyncs, your reload is only seconds old.</p>
+                </div>
+            </section>
+
+            <section id="faq">
+                <h2>❓ 9. FAQs</h2>
+                <div class="faq-item">
+                    <h4>Will reloading my save delete the fish I already caught?</h4>
+                    <p>No. Caught fish and inventory are part of your character save, which is written continuously. Reloading only rolls back a few seconds of session state &mdash; your catches stay.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is this a sign my save file is corrupted?</h4>
+                    <p>Almost never. The bug lives in the live mini-game state, not your save data. A corrupted save would show far broader problems (broken quests, missing items), not just frozen fish.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Does verifying files fix the one-spot version too?</h4>
+                    <p>It can, but it is overkill for a single frozen spot. Try reload or re-enter first &mdash; they are faster. Use file verification only when <em>every</em> fishing spot is broken.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>My co-op friend can fish fine but I can't &mdash; why?</h4>
+                    <p>The fishing state can desync on one client without affecting others. Have the host leave and re-enter the spot; if that fails, the affected player reloads their own save.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is there a mod or cheat that forces fish to bite?</h4>
+                    <p>We do not recommend any third-party tool. It risks your account, your save, and potentially your hardware. The official workarounds above are safe and sufficient.</p>
+                </div>
+            </section>
+
+            <div class="next-steps">
+                <h3>🎯 Go Deeper on Crimson Desert Bugs</h3>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> See every known issue in one place with <a href="crimson-desert-known-bugs-fixes-guide-2026.html" style="color:#7a64b8; font-weight:bold;">Crimson Desert Known Bugs &amp; Fixes Guide 2026</a>
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Learn the full loop in <a href="crimson-desert-fishing-guide-2026.html" style="color:#7a64b8; font-weight:bold;">Fishing Guide 2026</a>
+                </div>
+            </div>
+
+            <div class="related-guides">
+                <h3>More Crimson Desert Guides</h3>
+                <div class="article-grid">
+                    <a href="crimson-desert-known-bugs-fixes-guide-2026.html" class="article-card">
+                        <h3>Known Bugs &amp; Fixes Guide 2026</h3>
+                        <p>The master list of every confirmed issue and fix.</p>
+                    </a>
+                    <a href="crimson-desert-fishing-guide-2026.html" class="article-card">
+                        <h3>Fishing Guide 2026</h3>
+                        <p>Master the fishing mini-game and best catch spots.</p>
+                    </a>
+                    <a href="crimson-desert-crash-fix-guide-2026.html" class="article-card">
+                        <h3>Crash Fix Guide 2026</h3>
+                        <p>Fix D3D12 and UE5 fatal errors.</p>
+                    </a>
+                    <a href="crimson-desert-new-player-guide-2026.html" class="article-card">
+                        <h3>New Player Guide 2026</h3>
+                        <p>Start your journey the right way.</p>
+                    </a>
+                </div>
+
+                <div class="tool-callout" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+                    <p style="color:#7a64b8;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">📚 More Crimson Desert Guides</p>
+                    <p style="color:#2D2A33!important;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Stuck on another issue? Browse our full Crimson Desert guide library.</p>
+                    <a href="../../guides/crimson-desert/crimson-desert-new-player-guide-2026.html" style="display:inline-block;padding:0.65rem 1.8rem;background:#9B84D4;color:#fff;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Browse Guides →</a>
+                </div>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🔓</span>
+                    <div class="support-text">
+                        <h3>Every guide is free — this one stays free either way.</h3>
+                        <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+                        <p style="margin:6px 0 0 0;line-height:1.7">
+                            📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                            ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                            ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                            🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+                        </p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack</a>
+                        </div>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../../levels/novice.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Novice Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>Crimson Desert Guru</h4><p>Free Crimson Desert guides updated weekly.</p></div>
+                <div class="footer-col"><h4>Guides</h4><ul>
+                    <li><a href="crimson-desert-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="crimson-desert-fishing-guide-2026.html">Fishing Guide</a></li>
+                    <li><a href="crimson-desert-crash-fix-guide-2026.html">Crash Fix</a></li>
+                    <li><a href="crimson-desert-known-bugs-fixes-guide-2026.html">Known Bugs</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>More</h4><ul>
+                    <li><a href="../../index.html">OSRS Guru Home</a></li>
+                    <li><a href="../../guides/crimson-desert/index.html">All CD Guides</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #7a64b8;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Crimson Desert is a trademark of Pearl Abyss. Not affiliated with or endorsed by Pearl Abyss.</p>
+    </div>
+
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content{color:#2d2a33!important}
+    .guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#2d2a33!important}
+    .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .faq-item,.guide-content .warn-box,.guide-content .next-steps{background:#fff!important;border:1px solid #e0d8f0!important}
+    .guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .action-step p,.guide-content .action-step li,.guide-content .warn-box p,.guide-content .warn-box li,.guide-content .next-steps p,.guide-content .next-steps li{color:#2d2a33!important}
+    .guide-content .faq-item h4,.guide-content .method-box h4,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warn-box strong,.guide-content .next-steps strong{color:#7a64b8!important}
+    .guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+    .guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    .guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    .tool-callout,.tool-callout p,.tool-callout h3,.tool-callout h4,.tool-callout strong,.tool-callout a:not(.support-amount-btn){color:#fff!important}
+.tool-callout{background:#3b2615!important}
+[style*="background:#2a1a0a"] p,[style*="background:#2a1a0a"] h3,[style*="background:#2a1a0a"] h4,[style*="background:#2a1a0a"] li,[style*="background:#3b2615"] p,[style*="background:#3b2615"] h3,[style*="background:#3b2615"] h4,[style*="background:#3b2615"] li{color:#fff!important}
+</style>
+</body>
+</html>

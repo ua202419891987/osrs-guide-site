@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windrose Dedicated Server Port 3478 Forward Fix (2026)</title>
+    <meta name="description" content="Running a Windrose dedicated co-op server but players can't join? You need UDP port 3478 open on the server's router and firewall. Learn how to forward it, open it in Windows/Linux, and verify the port is reachable.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Windrose dedicated server port 3478, Windrose server can't join, Windrose co-op server forwarding, Windrose host port forward, Windrose server firewall 3478">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/windrose/windrose-port-3478-dedicated-server-forward-fix-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{color:#7a64b8!important}
+        .guide-content h3{color:#7a64b8!important}
+        .guide-content .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;color:#2d2a33}
+        .guide-content .tip-box strong{color:#7a64b8}
+        .guide-content .warn-box{background:#fef9f5;border:1px solid #e8c8a0;color:#2d2a33}
+        .guide-content .warn-box strong{color:#b84a3a}
+        .guide-content .action-step{background:#faf8fc;border:1px solid #e0d8f0;margin:1.2rem 0;padding:1.2rem 1.5rem}
+        .guide-content .action-step h4{color:#7a64b8;margin:0 0 .6rem 0}
+        .guide-content .method-box{background:#faf8fc;border:1px solid #e0d8f0;padding:1.4rem;margin:1.25rem 0}
+        .guide-content .method-box h4{color:#7a64b8;margin:0 0 .85rem 0}
+        .guide-content .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .guide-content .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .guide-content .toc{background:#fff;border:1px solid #e0d8f0;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .guide-content .toc h3{color:#7a64b8!important}
+        .guide-content li{color:#2d2a33!important}
+        .guide-content p{color:#2d2a33!important}
+        .progress-widget{display:none!important}
+        table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+        table th{background:#f8f6fc;color:#7a64b8;padding:10px 14px;text-align:left;border:1px solid #e0d8f0;font-weight:700}
+        table td{padding:9px 14px;border:1px solid #eee;color:#333}
+        table tr:nth-child(even){background:#fafbfd}
+    </style>
+</head>
+<body data-level="intermediate">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Windrose <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#what">What This Fix Is</a></li>
+                    <li><a href="#understand">Port 3478</a></li>
+                    <li><a href="#router">Router Forward</a></li>
+                    <li><a href="#firewall">Firewall</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#windrose">Windrose</a> / Dedicated Server Port 3478 Forward</p>
+            <h1>Windrose Dedicated Server Port 3478 Forward Fix</h1>
+            <p class="subtitle">You set up a Windrose dedicated co-op server, the process is running, but your friends see <strong>"Failed to join"</strong> or time out forever. Nine times out of ten the server's <strong>UDP port 3478</strong> isn't reachable from the internet &mdash; it's blocked by the server's router NAT or the machine's firewall. This host-side guide walks you through forwarding 3478 and opening it end to end.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🖥️</span> <strong>Level: Intermediate</strong> · 10 min read · Updated July 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#7a64b8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Symptom:</strong> server runs, but remote players can't join &mdash; local/LAN players may work while internet players can't.</li>
+                    <li>📌 <strong>Root cause:</strong> UDP <strong>port 3478</strong> isn't forwarded on the server's router or opened in the server firewall.</li>
+                    <li>📌 <strong>Step 1:</strong> forward UDP 3478 from the router to the server's LAN IP.</li>
+                    <li>📌 <strong>Step 2:</strong> allow UDP 3478 inbound in the Windows/Linux firewall.</li>
+                    <li>📌 <strong>Step 3:</strong> verify from outside with an online UDP port checker or a friend.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#what">What This Fix Is For</a></li>
+                    <li><a href="#understand">Understanding Port 3478 in Co-op</a></li>
+                    <li><a href="#router">Forward Port 3478 on the Server Router</a></li>
+                    <li><a href="#firewall">Open Port 3478 in the Server Firewall</a></li>
+                    <li><a href="#verify">Verify the Port Is Reachable</a></li>
+                    <li><a href="#pitfalls">Common Host-Side Pitfalls</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ol>
+            </div>
+
+            <section id="what">
+                <h2>1. 🖥️ What This Fix Is For</h2>
+                <p>This is the <strong>host / server operator</strong> counterpart to the player-side guide. If you run a dedicated Windrose co-op server &mdash; a separate PC, a home lab box, or a rented machine behind your own router &mdash; then <em>you</em> are responsible for making UDP 3478 reachable from the public internet. The fix lives on your network and your server OS, not on each player's machine.</p>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ LAN Works, Internet Doesn't?</div>
+                    <p>If players on the <em>same</em> network as the server can join but remote friends cannot, that's the textbook sign of a missing router forward / firewall block. LAN traffic never leaves your router, so it bypasses the exact rule that's failing for the internet.</p>
+                </div>
+                <p>A clean server setup needs three things lined up: the server process actually listening on 3478, the firewall permitting it, and the router sending external UDP 3478 to the server's internal IP. Miss any one and remote joins fail.</p>
+            </section>
+
+            <section id="understand">
+                <h2>2. 📡 Understanding Port 3478 in Windrose Co-op</h2>
+                <p>Windrose dedicated servers advertise and exchange real-time session data over <strong>UDP port 3478</strong>. When a player clicks "Join," their client sends a UDP packet to your public IP on 3478. The path it must travel:</p>
+                <table>
+                    <tr><th>Step</th><th>What must happen</th><th>Fails if…</th></tr>
+                    <tr><td>1. Internet &rarr; Router</td><td>Router receives UDP 3478 on its public IP</td><td>No port-forward rule exists</td></tr>
+                    <tr><td>2. Router &rarr; Server LAN IP</td><td>NAT maps 3478 to the server's internal address</td><td>Wrong internal IP / port</td></tr>
+                    <tr><td>3. OS Firewall</td><td>Windows/Linux allows inbound UDP 3478</td><td>Firewall blocks the port</td></tr>
+                    <tr><td>4. Server Process</td><td>Windrose server is listening on 3478</td><td>Server not running / wrong port</td></tr>
+                </table>
+                <div class="tip-box">
+                    <div class="tip-title">💡 UDP, Not TCP</div>
+                    <p>Set every rule to <strong>UDP</strong>. A TCP-only forward on 3478 will look "open" in some checkers but Windrose co-op packets will still be dropped. When in doubt, choose "UDP" or "Both."</p>
+                </div>
+            </section>
+
+            <section id="router">
+                <h2>3. 🔧 Forward Port 3478 on the Server Router</h2>
+                <p>This is the single most important step. You're telling the router: "anything that arrives on public UDP 3478 belongs to the server at this LAN address."</p>
+                <div class="action-step">
+                    <h4>① Assign the Server a Static LAN IP</h4>
+                    <p>Reserve a fixed address for the server (e.g. <code>192.168.1.20</code>) via DHCP reservation in the router, or set it statically on the server OS. A changing IP would break the forward every reboot.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Open Port Forwarding on the Router</h4>
+                    <p>Log in to the router (often <code>192.168.0.1</code> / <code>192.168.1.1</code>). Go to <strong>Port Forwarding / Virtual Server / NAT</strong> and add:</p>
+                    <table>
+                        <tr><th>Field</th><th>Value</th></tr>
+                        <tr><td>Name</td><td>Windrose-Server</td></tr>
+                        <tr><td>Protocol</td><td><strong>UDP</strong></td></tr>
+                        <tr><td>External / WAN port</td><td>3478</td></tr>
+                        <tr><td>Internal / LAN port</td><td>3478</td></tr>
+                        <tr><td>Internal IP</td><td>server static LAN IP (e.g. 192.168.1.20)</td></tr>
+                        <tr><td>Status</td><td>Enabled</td></tr>
+                    </table>
+                </div>
+                <div class="action-step">
+                    <h4>③ Save &amp; Reboot the Router</h4>
+                    <p>Apply the rule and reboot the router so NAT reloads cleanly. Confirm the server still has the reserved IP before testing.</p>
+                </div>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Double NAT Trap</div>
+                    <p>If your server sits behind <em>two</em> routers (e.g., ISP modem/router + your own), you must forward 3478 on <strong>both</strong>, or put the ISP box in bridge mode. A single forward on the inner router won't help if the outer one still drops 3478.</p>
+                </div>
+            </section>
+
+            <section id="firewall">
+                <h2>4. 🧱 Open Port 3478 in the Server Firewall</h2>
+                <p>Even with a perfect router forward, the server's own OS firewall can silently drop inbound UDP 3478. Open it on whatever OS your server runs.</p>
+                <div class="method-box">
+                    <h4>🪟 Windows Server / PC</h4>
+                    <ol>
+                        <li>Open <strong>Windows Defender Firewall &rarr; Advanced Settings</strong>.</li>
+                        <li>Select <strong>Inbound Rules &rarr; New Rule &rarr; Port</strong>.</li>
+                        <li>Choose <strong>UDP</strong>, Specific local ports: <code>3478</code>.</li>
+                        <li>Action: <strong>Allow the connection</strong>.</li>
+                        <li>Apply to Domain / Private / Public (or at least the network profile the server uses).</li>
+                        <li>Name it "Windrose Co-op UDP 3478" and finish.</li>
+                    </ol>
+                    <p style="margin-top:.6rem">Or run as admin in PowerShell:</p>
+                    <p style="background:#2d2a33;color:#f5f2f8;padding:.8rem 1rem;border-radius:6px;font-family:monospace;font-size:.85rem;">New-NetFirewallRule -DisplayName "Windrose 3478 UDP" -Direction Inbound -Protocol UDP -LocalPort 3478 -Action Allow</p>
+                </div>
+                <div class="method-box">
+                    <h4>🐧 Linux Server (ufw / iptables)</h4>
+                    <ol>
+                        <li>With <code>ufw</code>: <code>sudo ufw allow 3478/udp</code> then <code>sudo ufw reload</code>.</li>
+                        <li>With raw <code>iptables</code>: <code>sudo iptables -A INPUT -p udp --dport 3478 -j ACCEPT</code>.</li>
+                        <li>On systemd servers, also confirm no <code>firewalld</code> zone is blocking: <code>sudo firewall-cmd --add-port=3478/udp --permanent &amp;&amp; sudo firewall-cmd --reload</code>.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">🔔 Cloud / VPS Hosts</div>
+                    <p>If your "dedicated server" is a VPS (AWS, GCP, Azure, a game host), you usually also have a <strong>provider security group / firewall</strong> layered on top. Open inbound UDP 3478 there too &mdash; the OS rule alone won't help if the platform blocks it.</p>
+                </div>
+            </section>
+
+            <section id="verify">
+                <h2>5. 🧪 Verify the Port Is Reachable</h2>
+                <p>Don't assume &mdash; verify from outside your network. A single missed step still blocks joins.</p>
+                <div class="action-step">
+                    <h4>① Confirm the Server Is Listening</h4>
+                    <p>On the server, check the process is bound to 3478:</p>
+                    <p style="background:#2d2a33;color:#f5f2f8;padding:.8rem 1rem;border-radius:6px;font-family:monospace;font-size:.85rem;"># Linux:  ss -lunp | grep 3478   &nbsp; # Windows:  netstat -an | find "3478"</p>
+                    <p>You should see <code>0.0.0.0:3478</code> (or <code>:3478</code>) in a LISTENING / bound state.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Test From a Remote Location</h4>
+                    <p>From a different network (a friend's house, a phone on cellular, or a cloud shell), use an online UDP port checker against your <strong>public IP</strong> on 3478 &mdash; or simply have a remote friend try to join. Success = the full chain works.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Check Your Public IP Matches the Forward</h4>
+                    <p>If your ISP uses CGNAT, your "public" IP shown by the router may not be the real internet-facing one, so the forward points at nothing reachable. Compare the router's WAN IP with a site like "whatismyip" &mdash; if they differ, you're behind CGNAT (see pitfalls).</p>
+                </div>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ UDP Checkers Can Be Tricky</div>
+                    <p>Because UDP is connectionless, some online checkers report "closed" even when the server answers. The most reliable test is a <strong>real remote friend joining</strong> while the server is live.</p>
+                </div>
+            </section>
+
+            <section id="pitfalls">
+                <h2>6. 🚨 Common Host-Side Pitfalls</h2>
+                <ul>
+                    <li><strong>Double NAT:</strong> two routers in line &mdash; forward on both or bridge the ISP modem.</li>
+                    <li><strong>CGNAT:</strong> ISP shares one IP &mdash; request a public IP, or run the server behind a port-forwarding VPN / tunnel.</li>
+                    <li><strong>Wrong protocol:</strong> TCP-only forward &mdash; must be UDP.</li>
+                    <li><strong>Dynamic server IP:</strong> DHCP reassigned the server's LAN IP &mdash; use a static reservation.</li>
+                    <li><strong>Firewall on the host OS:</strong> router is fine but Windows/Linux still blocks &mdash; open UDP 3478 inbound.</li>
+                    <li><strong>Server not actually on 3478:</strong> a config flag set a different port &mdash; match the forward to the real listen port.</li>
+                </ul>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Tell Players to Read the Player Fix Too</div>
+                    <p>Even with a perfect server, a joining player behind a <em>Strict NAT</em> may still struggle. Point them to the player-side guide so both ends are clean &mdash; co-op needs at least one side with a usable NAT.</p>
+                </div>
+            </section>
+
+            <section id="faq">
+                <h2>7. ❓ FAQs</h2>
+                <div class="faq-item">
+                    <h4>Do I need to forward 3478 if players join over a lobby code?</h4>
+                    <p>Yes &mdash; relaying still ultimately needs the server reachable on UDP 3478 from the internet. The lobby code doesn't bypass the port; it just tells clients where to send the 3478 packets.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>TCP or UDP for the server forward?</h4>
+                    <p><strong>UDP.</strong> Windrose co-op uses UDP 3478. A TCP-only rule will not let players join.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>LAN players join but internet players can't &mdash; what's wrong?</h4>
+                    <p>Classic missing router forward or firewall block. LAN traffic skips NAT/firewall routing, so it works locally while remote 3478 traffic is dropped. Follow sections 3&ndash;4.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>My router WAN IP differs from whatismyip &mdash; now what?</h4>
+                    <p>You're behind CGNAT. Ask your ISP for a public IPv4, or host the server behind a VPN/tunnel that supports UDP port forwarding.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Does the server need UPnP instead of manual forwarding?</h4>
+                    <p>Manual forwarding is more reliable for a dedicated server, especially on Linux/headless boxes where UPnP may be off. Set the static forward and firewall rule directly.</p>
+                </div>
+            </section>
+
+            <div class="next-steps">
+                <h3>🎯 More Windrose Help</h3>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Players still can't join? Send them <a href="windrose-port-3478-coop-player-fix-2026.html" style="color:#7a64b8; font-weight:bold;">Port 3478 Player-Side Fix</a>
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Plan your server with <a href="windrose-coop-multiplayer-guide-2026.html" style="color:#7a64b8; font-weight:bold;">Windrose Co-op &amp; Multiplayer Guide 2026</a>
+                </div>
+            </div>
+
+            <div class="related-guides">
+                <h3>More Windrose Guides</h3>
+                <div class="article-grid">
+                    <a href="windrose-coop-multiplayer-guide-2026.html" class="article-card">
+                        <h3>Co-op &amp; Multiplayer Guide</h3>
+                        <p> Sessions, invites, and NAT explained.</p>
+                    </a>
+                    <a href="windrose-beginner-guide-2026.html" class="article-card">
+                        <h3>Beginner Guide</h3>
+                        <p>Start your captain career the right way.</p>
+                    </a>
+                    <a href="windrose-performance-optimization-2026.html" class="article-card">
+                        <h3>Performance Optimization</h3>
+                        <p>Keep the server and client smooth.</p>
+                    </a>
+                    <a href="windrose-port-3478-coop-player-fix-2026.html" class="article-card">
+                        <h3>Player Port 3478 Fix</h3>
+                        <p>The other side of this fix.</p>
+                    </a>
+                </div>
+
+                <div class="tool-callout" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+                    <p style="color:#7a64b8;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">📚 More Windrose Guides</p>
+                    <p style="color:#2D2A33!important;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Stuck on another issue? Browse our full Windrose guide library.</p>
+                    <a href="../../index.html#windrose" style="display:inline-block;padding:0.65rem 1.8rem;background:#9B84D4;color:#fff;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Browse Guides →</a>
+                </div>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🔓</span>
+                    <div class="support-text">
+                        <h3>Every guide is free — this one stays free either way.</h3>
+                        <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+                        <p style="margin:6px 0 0 0;line-height:1.7">
+                            📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                            ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                            ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                            🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+                        </p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack</a>
+                        </div>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../../levels/intermediate.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Intermediate Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>Windrose Guru</h4><p>Free Windrose guides updated weekly.</p></div>
+                <div class="footer-col"><h4>Guides</h4><ul>
+                    <li><a href="windrose-beginner-guide-2026.html">Beginner Guide</a></li>
+                    <li><a href="windrose-coop-multiplayer-guide-2026.html">Co-op &amp; Multiplayer</a></li>
+                    <li><a href="windrose-performance-optimization-2026.html">Performance</a></li>
+                    <li><a href="windrose-port-3478-coop-player-fix-2026.html">Player Port Fix</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>More</h4><ul>
+                    <li><a href="../../index.html">OSRS Guru Home</a></li>
+                    <li><a href="../../index.html#windrose">All Windrose Guides</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 Windrose Guru &middot; Not affiliated with Windrose Studio &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #7a64b8;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Windrose is a trademark of its respective owner. Not affiliated with or endorsed by the game's developers.</p>
+    </div>
+
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content{color:#2d2a33!important}
+    .guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#2d2a33!important}
+    .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .faq-item,.guide-content .warn-box,.guide-content .next-steps{background:#fff!important;border:1px solid #e0d8f0!important}
+    .guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .action-step p,.guide-content .action-step li,.guide-content .warn-box p,.guide-content .warn-box li,.guide-content .next-steps p,.guide-content .next-steps li{color:#2d2a33!important}
+    .guide-content .faq-item h4,.guide-content .method-box h4,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warn-box strong,.guide-content .next-steps strong{color:#7a64b8!important}
+    .guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+    .guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    .guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    .tool-callout,.tool-callout p,.tool-callout h3,.tool-callout h4,.tool-callout strong,.tool-callout a:not(.support-amount-btn){color:#fff!important}
+.tool-callout{background:#3b2615!important}
+[style*="background:#2a1a0a"] p,[style*="background:#2a1a0a"] h3,[style*="background:#2a1a0a"] h4,[style*="background:#2a1a0a"] li,[style*="background:#3b2615"] p,[style*="background:#3b2615"] h3,[style*="background:#3b2615"] h4,[style*="background:#3b2615"] li{color:#fff!important}
+</style>
+</body>
+</html>

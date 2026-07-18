@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS VPN Login Blocked? Fix It in 2026 — Why Jagex Blocks VPNs & How to Log In Safely</title>
+    <meta name="description" content="Updated for July 2026. Why Jagex blocks VPN logins, which VPN setups still work, how to log in with a VPN using allowlist / dedicated IP / split tunneling, Jagex's official policy, and safe alternatives to avoid the 'login blocked' error.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS VPN login blocked, Jagex blocks VPN, OSRS cannot login with VPN, Old School RuneScape VPN fix 2026, Jagex account VPN policy, OSRS login blocked error, how to use VPN with OSRS">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<meta property="article:published_time" content="2026-07-18">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-vpn-login-blocked-fix-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="novice">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRSGuru</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../skill-training.html">Skill Training</a></li>
+                    <li><a href="../money-making.html">Money Making</a></li>
+                    <li><a href="../boss-guides.html">Boss Guides</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#beginners">Account &amp; Login</a> / OSRS VPN Login Blocked Fix 2026</p>
+            <h1>OSRS VPN Login Blocked? How to Log In Safely in 2026</h1>
+            <p class="subtitle">"We couldn't sign you in" the moment you switch on a VPN? You're not alone. Jagex aggressively flags datacenter IPs because that's where most bots live — but a VPN for privacy is still allowed. This guide explains exactly why the block happens, which VPN setups still slip through, and the three techniques (allowlist, dedicated IP, split tunneling) that get you back in without breaking any rules.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🎓</span> <strong>Level: Novice</strong> — Account &amp; Login Access · 11 min read · Updated July 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#b8860b;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Verdict &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>A VPN is NOT bannable</strong> — Jagex blocks the <em>IP</em>, not the VPN. Shared datacenter IPs used by botters get flagged automatically.</li>
+                    <li>📌 <strong>Use a dedicated / static IP</strong> add-on so you always exit from the same address Jagex can learn to trust.</li>
+                    <li>📌 <strong>Split tunneling</strong> routes only OSRS through the VPN and keeps the rest of your session on your real IP — the safest middle ground.</li>
+                    <li>📌 <strong>Free &amp; public VPNs almost always fail</strong> — thousands of users share those IPs, so Jagex treats them as high-risk.</li>
+                    <li>📌 <strong>Safe fallback:</strong> your phone's mobile hotspot uses a residential carrier IP that Jagex rarely blocks.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#why-blocked">Why Jagex Blocks VPN Logins</a></li>
+                    <li><a href="#policy">Jagex's Official VPN Policy</a></li>
+                    <li><a href="#which-vpns">Which VPN Setups Still Work in 2026</a></li>
+                    <li><a href="#how-to-login">How to Log In With a VPN (3 Methods)</a></li>
+                    <li><a href="#troubleshoot">Troubleshooting "Login Blocked" Errors</a></li>
+                    <li><a href="#alternatives">Safe Alternatives to a VPN</a></li>
+                    <li><a href="#faq">VPN Login FAQs</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="why-blocked">
+                <h2>🔧 1. Why Jagex Blocks VPN Logins</h2>
+                <p>Jagex does not have a personal vendetta against people who value privacy. The block exists for one reason: <strong>the vast majority of bot, gold-farmer, and Real-World-Trading (RWT) accounts connect through commercial datacenter VPNs and proxies</strong>. When a single IP address launches hundreds of OSRS clients a day, Jagex's anti-cheat systems learn to treat that entire address range as hostile.</p>
+                <p>Here is the core problem with most VPNs:</p>
+                <div class="method-box highlight">
+                    <h4>🌐 The Shared-IP Trap</h4>
+                    <ul>
+                        <li>A typical "shared" VPN exit node is used by <strong>thousands of people at once</strong>.</li>
+                        <li>Many of those users are bot operators cycling through the same IP to dodge bans.</li>
+                        <li>Jagex flags the IP as <em>high-risk</em> — so when <strong>you</strong> log in from it, you inherit that reputation.</li>
+                        <li>Result: step-up verification, temporary locks, or a flat "we couldn't sign you in" message.</li>
+                    </ul>
+                </div>
+                <p>It's worth separating two different systems Jagex runs. The <strong>rules engine</strong> (which decides bans) and the <strong>risk engine</strong> (which decides logins) are different. A VPN won't get you <em>banned</em> by itself — but it can absolutely trip the risk engine and stop you from logging in until the IP builds a cleaner reputation.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The One-Sentence Version</div>
+                    <p>Jagex blocks <strong>bad IPs</strong>, not VPNs. If your exit IP is clean and consistent, you can usually play through a VPN without ever seeing an error.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="policy">
+                <h2>🛡️ 2. Jagex's Official VPN Policy</h2>
+                <p>Jagex's published rules do <strong>not</strong> list "using a VPN" as a bannable offence. What they do prohibit is <a href="osrs-bot-clients-shutdown-july-2026.html" style="color:#8b6914;font-weight:bold;">botting, macroing, and RWT</a> — all of which happen to cluster on datacenter IPs. The company's guidance, repeated in official communications and the <a href="osrs-jagex-account-faq-2026.html" style="color:#8b6914;font-weight:bold;">Jagex Account FAQ</a>, boils down to this:</p>
+                <div class="action-step">
+                    <h4>① VPN use is allowed — but at your own risk</h4>
+                    <p>Jagex will not punish you simply for masking your IP. However, if that IP is shared with rule-breakers, the login friction is on you to resolve.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② "New location" checks are intentional</h4>
+                    <p>Since the move to the <strong>Jagex Account</strong> system, logging in from an unfamiliar IP (including a fresh VPN node) can trigger extra verification: email confirmations, SMS codes, or the Authenticator app. This is a security feature, not a punishment.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Datacenter ranges are throttled, not banned outright</h4>
+                    <p>Jagex quietly de-prioritizes logins from known hosting/cloud providers. You may get through after a few tries, or you may be asked to prove you're human. Persistent use from a dirty IP raises the chance of an account lock.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">⚠️ What Crosses the Line</div>
+                    <p>Using a VPN to run <strong>many accounts from one shared IP</strong>, to dodge a previous ban, or to fabricate a different location for <a href="../account-security-guide-2026.html" style="color:#8b6914;font-weight:bold;">account recovery</a> claims <em>can</em> violate the rules. Privacy? Fine. Ban evasion? Not fine.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="which-vpns">
+                <h2>💡 3. Which VPN Setups Still Work in 2026</h2>
+                <p>Not all VPNs are equal in Jagex's eyes. The deciding factor is <strong>IP reputation and consistency</strong>, not brand name. Here is how the common setups rank:</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>VPN Setup</th><th>Works With Jagex?</th><th>Block Risk</th><th>Why</th></tr>
+                    <tr><td>Free / public VPN</td><td>❌ Rarely</td><td>Very High</td><td>Massive shared user pool, almost always on Jagex's flagged list</td></tr>
+                    <tr><td>Shared datacenter VPN (default)</td><td>⚠️ Sometimes</td><td>High</td><td>Exit IP rotates among thousands, including bot traffic</td></tr>
+                    <tr><td>Premium VPN + dedicated/static IP</td><td>✅ Usually</td><td>Low</td><td>You keep one fixed IP Jagex learns to trust</td></tr>
+                    <tr><td>Residential proxy VPN</td><td>✅ Usually</td><td>Low</td><td>IP looks like a normal home connection</td></tr>
+                    <tr><td>Mobile carrier hotspot (no VPN)</td><td>✅ Almost always</td><td>Very Low</td><td>Carrier IPs are trusted residential ranges</td></tr>
+                </table>
+                </div>
+                <p>The providers that tend to cooperate best are the ones offering a <strong>dedicated or static IP add-on</strong> (for example NordVPN, Surfshark, ProtonVPN, and Mullvad all sell some form of fixed-address option). No single brand is guaranteed — Jagex updates its detection constantly — but a <em>fixed, residential-looking</em> IP is dramatically more reliable than a rotating datacenter one.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The Cheap Test</div>
+                    <p>Before paying for a dedicated IP, connect to a single VPN server repeatedly over a day. If the exit IP <strong>stays the same</strong> across sessions, that server is already behaving like a dedicated IP and may work fine.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="how-to-login">
+                <h2>⚡ 4. How to Log In With a VPN (3 Methods)</h2>
+                <p>If you need a VPN on (travel, public Wi-Fi, privacy), these three techniques are the difference between "blocked" and "playing."</p>
+
+                <h3>② Method 1 — Allowlist / Trusted Devices</h3>
+                <p>Jagex Account rewards <strong>consistency</strong>. The more often you log in from the same IP, the less it questions you. Build trust deliberately:</p>
+                <div class="action-step">
+                    <h4>Step 1: Settle on one VPN exit IP</h4>
+                    <p>Pick a single server and stick to it. Every switch teaches Jagex that this IP is "you." Pair it with the <a href="osrs-jagex-account-migration-guide-2026.html" style="color:#8b6914;font-weight:bold;">Jagex Account migration</a> so your trusted devices carry over.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 2: Enable the Authenticator app</h4>
+                    <p>2-step verification (not SMS) proves you're the owner even from a "new" IP. It turns a hard block into a quick code entry.</p>
+                </div>
+
+                <h3>③ Method 2 — Dedicated / Static IP</h3>
+                <p>This is the most reliable fix. A dedicated IP means <strong>you are the only OSRS player on that address</strong>, so bot reputation can't rub off on you.</p>
+                <div class="method-box" style="margin:16px 0; padding:16px; background:#fff; border-left:4px solid #8b6914;">
+                    <h4>🏠 How to Set It Up</h4>
+                    <p><strong>1.</strong> Subscribe to the dedicated/static IP add-on from your VPN provider (usually a few dollars extra per month).</p>
+                    <p><strong>2.</strong> Connect once, confirm the IP is fixed, then log into the Jagex Launcher.</p>
+                    <p><strong>3.</strong> Accept the first verification prompt — after 3–5 clean logins, Jagex stops challenging that IP.</p>
+                    <p><strong>4.</strong> Never switch servers afterward; consistency is the whole point.</p>
+                </div>
+
+                <h3>④ Method 3 — Split Tunneling</h3>
+                <p>Split tunneling lets you choose <em>which traffic</em> goes through the VPN. Route only OSRS/Jagex domains through the tunnel and keep your browser, Discord, and email on your real IP. Jagex sees a steadier session overall, and you still get VPN protection where you want it.</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Technique</th><th>How It Works</th><th>Best For</th><th>Difficulty</th></tr>
+                    <tr><td>Allowlist / trusted device</td><td>Repeat same IP until Jagex trusts it</td><td>Everyone, zero extra cost</td><td>Easy</td></tr>
+                    <tr><td>Dedicated IP</td><td>Fixed address used only by you</td><td>Daily VPN users</td><td>Easy (paid)</td></tr>
+                    <tr><td>Split tunneling</td><td>Only OSRS routed via VPN</td><td>Privacy + reliability balance</td><td>Medium</td></tr>
+                </table>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Use the Official Jagex Launcher</div>
+                    <p>Third-party clients add their own fingerprint. The official <strong>Jagex Launcher</strong> is the cleanest path through a VPN and is what Jagex expects you to use.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="troubleshoot">
+                <h2>🐛 5. Troubleshooting "Login Blocked" Errors</h2>
+                <p>Still stuck? Match your message to the fix below.</p>
+                <div class="faq-item">
+                    <h4>"We couldn't sign you in. Please try again."</h4>
+                    <p>This generic message usually means the IP is temporarily throttled. <strong>Disable the VPN, wait 10–15 minutes, then reconnect to a different (ideally dedicated) server</strong> and retry. Avoid hammering the button — repeated failures extend the cooldown.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>"Your account has been locked."</h4>
+                    <p>A lock is a security step, not necessarily a ban. Go to the Jagex Account recovery page, verify your registered email, and follow the unlock flow. If you were on a dirty shared VPN IP, switch off the VPN entirely and unlock from your home connection.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>"Too many login attempts."</h4>
+                    <p>Cool down for at least 30 minutes with the VPN off. Clear the launcher cache, then log in once from your normal IP before re-introducing the VPN on a trusted server.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>"We need to verify it's you."</h4>
+                    <p>Complete the step-up check (email / Authenticator). Once cleared from a consistent IP, it stops appearing. This is the system working as intended after a <a href="osrs-account-security-anti-scam-guide-2026.html" style="color:#8b6914;font-weight:bold;">account-security</a> standpoint.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">⚠️ Don't Panic Into a Ban</div>
+                    <p>Creating a "new account" to escape a lock, or hopping VPNs wildly, looks exactly like ban evasion to Jagex. Patience and a single clean IP beat frantic switching every time.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="alternatives">
+                <h2>🚀 6. Safe Alternatives to a VPN</h2>
+                <p>If your only goal is "log in without the block," you often don't need a VPN at all. Try these lower-risk options first:</p>
+                <div class="method-box highlight">
+                    <h4>📱 1. Mobile Hotspot</h4>
+                    <p>Your phone's LTE/5G connection uses a residential carrier IP that Jagex almost never blocks. Tether once to log in, then you can usually switch back to Wi-Fi.</p>
+                </div>
+                <div class="method-box highlight">
+                    <h4>🏠 2. Just Use Your Home IP</h4>
+                    <p>For everyday play, your real ISP IP is the <em>most trusted</em> address you have. Save the VPN for genuine travel or untrusted networks.</p>
+                </div>
+                <div class="method-box highlight">
+                    <h4>🔐 3. Lock Down the Account Instead</h4>
+                    <p>A VPN hides your IP; strong <a href="../account-security-guide-2026.html" style="color:#8b6914;font-weight:bold;">account security</a> (unique password, Authenticator, registered email) protects the thing behind it. Combine both for the safest setup.</p>
+                </div>
+                <div class="method-box highlight">
+                    <h4>🌍 4. Residential Proxy (Advanced)</h4>
+                    <p>If you must appear from a specific region, a residential proxy (not a datacenter one) mimics a real home connection and slips past most blocks — at a higher cost.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7: FAQ -->
+            <section id="faq">
+                <h2>❓ 7. VPN Login FAQs</h2>
+
+                <div class="faq-item">
+                    <h4>Will using a VPN get my OSRS account banned?</h4>
+                    <p>No — using a VPN is not against Jagex's rules. What gets accounts punished is botting, macroing, and RWT, which happen to concentrate on shared datacenter IPs. A clean, consistent VPN connection is fine. The only real risk is login friction from a dirty shared IP.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>What's the single best VPN setup for OSRS in 2026?</h4>
+                    <p>A premium VPN with a <strong>dedicated (static) IP add-on</strong>, used through the official Jagex Launcher with the Authenticator enabled. The fixed IP builds trust fast, and the Authenticator clears any stray verification prompts. Free VPNs are the worst choice.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>My VPN worked yesterday but is blocked today — why?</h4>
+                    <p>Your VPN likely rotated you to a different exit node that Jagex currently flags. This is exactly why a <em>dedicated</em> IP matters: with it, your address never changes. If you're on a shared plan, reconnect until you land on a cleaner server, or switch to mobile data to log in.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Is split tunneling safe for OSRS?</h4>
+                    <p>Yes, and it's one of the smarter setups. By routing only OSRS through the VPN and leaving the rest of your traffic on your real IP, you reduce the "everything looks suspicious" signal Jagex receives. Just make sure the Jagex Launcher itself is included in the tunneled app list.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>I'm traveling abroad and can't log in at all — what now?</h4>
+                    <p>First, try the hotel/home Wi-Fi without a VPN, or tether your phone. If Jagex still challenges you, complete the step-up verification from a number/email you control. Avoid bouncing between a dozen VPN countries; pick one stable connection and let the trusted-device system catch up over a few logins.</p>
+                </div>
+            </section>
+
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 What To Do After Fixing Your VPN Login</h3>
+                <p>Getting in is step one — keeping the account safe long-term is the real win. Here's the recommended next step on your path:</p>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 1:</strong> Harden your login with the <a href="osrs-account-security-anti-scam-guide-2026.html" style="color:#8b6914; font-weight:bold;">Account Security &amp; Anti-Scam Guide</a> — enable the Authenticator and kill recovery loopholes
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 2:</strong> Understand the bigger picture in the <a href="osrs-jagex-account-faq-2026.html" style="color:#8b6914; font-weight:bold;">Jagex Account FAQ</a> — trusted devices, locks, and recovery
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 3:</strong> See why IP reputation matters in the <a href="osrs-bot-clients-shutdown-july-2026.html" style="color:#8b6914; font-weight:bold;">Bot Client Shutdown July 2026</a> breakdown
+                    </div>
+                </div>
+                <a href="osrs-account-security-anti-scam-guide-2026.html" class="support-btn paypal-btn" style="display:inline-block; text-decoration:none; margin-top:20px;">Next: Account Security &amp; Anti-Scam Guide (Intermediate) →</a>
+            </div>
+
+            <!-- RELATED GUIDES -->
+                    <div class="related-guides">
+      <h3>Related Account &amp; Login Guides</h3>
+      <div class="article-grid">
+        <a href="account-security-guide-2026.html" class="article-card">
+          <h3>OSRS Account Security Guide 2026 — Password, 2FA &amp; Recovery</h3>
+          <p>Lock down your account the right way: unique passwords, Authenticator 2-step, registered email, and how to recover a hijacked account safely.</p>
+        </a>
+        <a href="osrs-jagex-account-faq-2026.html" class="article-card">
+          <h3>Jagex Account FAQ 2026 — Migration, Locks &amp; Trusted Devices</h3>
+          <p>Everything about the Jagex Account system: why migration helps, what triggers a lock, and how trusted devices keep logins smooth.</p>
+        </a>
+        <a href="osrs-jagex-account-migration-guide-2026.html" class="article-card">
+          <h3>Jagex Account Migration Guide 2026 — Step-by-Step</h3>
+          <p>Move your old login to a Jagex Account without losing progress, and carry your trusted devices and security settings with you.</p>
+        </a>
+        <a href="osrs-bot-clients-shutdown-july-2026.html" class="article-card">
+          <h3>OSRS Bot Client Shutdown July 2026 — What Changed</h3>
+          <p>Why Jagex cracked down on third-party clients, how datacenter IPs got flagged, and what it means for honest players using a VPN.</p>
+        </a>
+      </div>
+    
+<div class="tool-callout" style="background:#2a1a0a;border:1px solid #d4af37;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+    <p style="color:#d4af37;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">🔧 Try Our OSRS Gear Recommender Tool</p>
+    <p style="color:#e8d5b7;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Not sure what gear to use? Enter your combat level and budget — get personalized weapon &amp; armor recommendations for <strong>melee, ranged, and magic</strong> in seconds.</p>
+    <a href="/tools/gear-recommender/" style="display:inline-block;padding:0.65rem 1.8rem;background:#d4af37;color:#1a0f0a;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Find Your Best Gear Setup →</a>
+</div>
+</div><div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>Every guide is free — this one stays free either way.</h3>
+            <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+            <p style="margin:6px 0 0 0;line-height:1.7">
+                📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+            </p>
+            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+            <div class="support-amounts">
+                <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+<!-- SUPPORT CARD -->
+      
+      <!-- SUPPORT CARD -->
+    <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../levels/novice.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Novice Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ New Players (Stage 0)</h4><ul>
+                    <li><a href="osrs-interface-controls-beginner-guide-2026.html">Game Interface</a></li>
+                    <li><a href="osrs-combat-triangle-explained-2026.html">Combat Triangle</a></li>
+                    <li><a href="osrs-skills-overview-beginner-2026.html">Skills Overview</a></li>
+                    <li><a href="osrs-bank-inventory-management-2026.html">Bank &amp; Inventory</a></li>
+                    <li><a href="osrs-maps-travel-guide-2026.html">Maps &amp; Travel</a></li>
+                    <li><a href="osrs-questing-beginner-guide-2026.html">Questing Basics</a></li>
+                    <li><a href="osrs-combat-training-beginner-2026.html">Combat Training</a></li>
+                    <li><a href="osrs-money-making-beginner-2026.html">Beginner Money Making</a></li>
+                    <li><a href="osrs-gear-beginner-guide-2026.html">Gear Guide</a></li>
+                    <li><a href="osrs-safe-spots-beginner-2026.html">Safe Spots</a></li>
+                    <li><a href="osrs-prayer-training-beginner-guide-2026.html">Prayer Training</a></li>
+                    <li><a href="osrs-f2p-to-p2p-membership-guide-2026.html">F2P to P2P Transition</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+<!-- Copyright & Anti-Scraping Notice -->
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+<style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#3b2615!important}
+.guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+.guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+.guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+@media (max-width: 768px) {
+    .guide-content table { font-size: 0.85rem; }
+    .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+    .guide-content table tbody td { padding: 6px 10px; }
+    .guide-content h2 { font-size: 1.4em; }
+    .guide-content h3 { font-size: 1.15em; }
+}
+@media (max-width: 640px) {
+    .guide-content table { display: block; overflow-x: auto; }
+    .guide-content h2 { font-size: 1.25em; }
+    .guide-content h3 { font-size: 1.05em; }
+}
+.tool-callout,.tool-callout p,.tool-callout h3,.tool-callout h4,.tool-callout strong,.tool-callout a:not(.support-amount-btn){color:#fff!important}
+.tool-callout{background:#3b2615!important}
+[style*="background:#2a1a0a"] p,[style*="background:#2a1a0a"] h3,[style*="background:#2a1a0a"] h4,[style*="background:#2a1a0a"] li,[style*="background:#3b2615"] p,[style*="background:#3b2615"] h3,[style*="background:#3b2615"] h4,[style*="background:#3b2615"] li{color:#fff!important}
+</style>
+
+</body>
+</html>

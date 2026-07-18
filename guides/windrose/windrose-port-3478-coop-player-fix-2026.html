@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windrose Co-op Blocked by ISP / Port 3478 — Player Fix (2026)</title>
+    <meta name="description" content="Can't join your friends in Windrose co-op? Your ISP may be blocking UDP port 3478. Learn how to test the port, enable UPnP, manually forward 3478 on your router, and confirm the block with a mobile hotspot.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Windrose co-op blocked, Windrose port 3478, Windrose can't join friends, Windrose NAT strict, Windrose ISP blocking co-op, Windrose UPnP fix">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/windrose/windrose-port-3478-coop-player-fix-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{color:#7a64b8!important}
+        .guide-content h3{color:#7a64b8!important}
+        .guide-content .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;color:#2d2a33}
+        .guide-content .tip-box strong{color:#7a64b8}
+        .guide-content .warn-box{background:#fef9f5;border:1px solid #e8c8a0;color:#2d2a33}
+        .guide-content .warn-box strong{color:#b84a3a}
+        .guide-content .action-step{background:#faf8fc;border:1px solid #e0d8f0;margin:1.2rem 0;padding:1.2rem 1.5rem}
+        .guide-content .action-step h4{color:#7a64b8;margin:0 0 .6rem 0}
+        .guide-content .method-box{background:#faf8fc;border:1px solid #e0d8f0;padding:1.4rem;margin:1.25rem 0}
+        .guide-content .method-box h4{color:#7a64b8;margin:0 0 .85rem 0}
+        .guide-content .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .guide-content .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .guide-content .toc{background:#fff;border:1px solid #e0d8f0;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .guide-content .toc h3{color:#7a64b8!important}
+        .guide-content li{color:#2d2a33!important}
+        .guide-content p{color:#2d2a33!important}
+        .progress-widget{display:none!important}
+        table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+        table th{background:#f8f6fc;color:#7a64b8;padding:10px 14px;text-align:left;border:1px solid #e0d8f0;font-weight:700}
+        table td{padding:9px 14px;border:1px solid #eee;color:#333}
+        table tr:nth-child(even){background:#fafbfd}
+    </style>
+</head>
+<body data-level="intermediate">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Windrose <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#symptoms">Symptoms</a></li>
+                    <li><a href="#why">Why 3478</a></li>
+                    <li><a href="#test">Test Port</a></li>
+                    <li><a href="#fix">Fix It</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#windrose">Windrose</a> / Co-op Blocked by ISP / Port 3478</p>
+            <h1>Windrose Co-op Blocked by ISP / Port 3478 — Player Fix</h1>
+            <p class="subtitle">You can launch Windrose, but every time you try to join a friend's co-op session you get stuck on <strong>"Connecting…"</strong>, a "Strict NAT" warning, or an instant "Failed to join." If your internet works for everything else, the culprit is almost always <strong>UDP port 3478</strong> being blocked or filtered by your router or ISP. This guide shows you how to confirm it and fix it from the player side.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🎮</span> <strong>Level: Intermediate</strong> · 9 min read · Updated July 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#7a64b8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Symptom:</strong> you can't join co-op sessions, get "Strict NAT," or fail to connect while normal browsing is fine.</li>
+                    <li>📌 <strong>Root cause:</strong> Windrose uses <strong>UDP port 3478</strong> for co-op traffic; many routers/ISPs block or don't forward it.</li>
+                    <li>📌 <strong>Step 1:</strong> test the port to prove it's blocked (not a game bug).</li>
+                    <li>📌 <strong>Step 2:</strong> enable <strong>UPnP</strong> on your router, then manually forward 3478 if needed.</li>
+                    <li>📌 <strong>Step 3:</strong> confirm with a <strong>mobile hotspot</strong> &mdash; if co-op works there, your ISP/home router is the problem.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#symptoms">What the Block Looks Like</a></li>
+                    <li><a href="#why">Why Port 3478 &amp; Your ISP Matter</a></li>
+                    <li><a href="#test">How to Test if Port 3478 Is Blocked</a></li>
+                    <li><a href="#upnp">Enable UPnP on Your Router</a></li>
+                    <li><a href="#forward">Manually Port-Forward 3478</a></li>
+                    <li><a href="#hotspot">Use a Mobile Hotspot to Confirm</a></li>
+                    <li><a href="#cgnat">When UPnP &amp; Forwarding Aren't Enough</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ol>
+            </div>
+
+            <section id="symptoms">
+                <h2>1. 🔍 What the Block Looks Like</h2>
+                <p>Before you start changing router settings, confirm you're actually looking at a port/network block and not a different problem. A blocked UDP 3478 connection produces a very specific set of symptoms that separate it from server downtime or a corrupted install.</p>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Is It Really the Port?</div>
+                    <p>If <em>every</em> online feature fails &mdash; you can't even reach the main menu server list &mdash; that's a different outage, not your port 3478. This guide is for the case where <strong>the game runs fine but co-op joining fails</strong> while everything else on your PC/console works.</p>
+                </div>
+                <table>
+                    <tr><th>Symptom</th><th>What you see</th><th>Points to port 3478 block?</th></tr>
+                    <tr><td>Stuck connecting</td><td>"Connecting to session…" forever, then timeout</td><td>Yes — very typical</td></tr>
+                    <tr><td>Strict / Moderate NAT</td><td>Game shows "Strict NAT" or "Teredo unavailable"</td><td>Yes</td></tr>
+                    <tr><td>Invite fails</td><td>Friend's invite never arrives or "Failed to join" instantly</td><td>Yes</td></tr>
+                    <tr><td>Single-player fine</td><td>Campaign / solo sailing works with zero issues</td><td>Confirms it's network, not game</td></tr>
+                    <tr><td>Hotspot works</td><td>Switching to phone tethering lets you join</td><td>Definitively your home ISP/router</td></tr>
+                </table>
+            </section>
+
+            <section id="why">
+                <h2>2. 🧠 Why Port 3478 &amp; Your ISP Matter</h2>
+                <p>Windrose's co-op netcode sends real-time ship-state updates over <strong>UDP port 3478</strong>. Unlike normal web traffic (which rides HTTP/HTTPS on ports 80/443 and is almost never touched by your ISP), game peer-to-peer ports like 3478 are frequently:</p>
+                <ul>
+                    <li><strong>Closed by default in your router's NAT</strong> &mdash; the router doesn't know which internal device should receive the incoming packets, so it drops them.</li>
+                    <li><strong>Filtered by some ISPs</strong> &mdash; certain carriers (especially mobile, satellite, and some budget fiber/resellers) block or "throttle" uncommon UDP ranges to cut down on peer-to-peer traffic.</li>
+                    <li><strong>Hidden behind CGNAT</strong> &mdash; if your ISP shares one public IP among many customers, normal port-forwarding on your router can't expose you at all.</li>
+                </ul>
+                <p>The good news: as a <em>player</em> (not the host), you usually don't need the port perfectly open on both sides &mdash; you just need your own router to allow the outbound/return traffic and to negotiate a clean NAT type. Enabling UPnP or forwarding 3478 to your machine clears the vast majority of cases.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 UDP, not TCP</div>
+                    <p>Windrose co-op uses <strong>UDP</strong> on 3478. If a guide tells you to forward TCP 3478 only, that will NOT fix co-op. Always set the rule to <strong>UDP</strong> (or "Both" if your router forces it), never TCP-only.</p>
+                </div>
+            </section>
+
+            <section id="test">
+                <h2>3. 🧪 How to Test if Port 3478 Is Blocked</h2>
+                <p>You don't have to guess. Run these quick checks in order &mdash; by step 3 you'll know for certain whether 3478 is the problem.</p>
+                <div class="action-step">
+                    <h4>① Check the In-Game Network / NAT Indicator</h4>
+                    <p>Open Windrose's settings &rarr; Network (or the co-op lobby). If it reports <strong>"Strict"</strong> or "Failed to detect NAT," your router isn't opening the port for the game. An "Open" or "Moderate" result already suggests the issue is on the friend's side instead.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Try a Direct Invite From a Known-Good Friend</h4>
+                    <p>Ask a friend who <em>can</em> play co-op with others to invite you. If you still can't connect but they connect with everyone else, the block is on your end. This isolates "my network" vs. "their network."</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Test the Port From Your PC</h4>
+                    <p>On Windows, open PowerShell and check whether anything is listening / reachable:</p>
+                    <p style="background:#2d2a33;color:#f5f2f8;padding:.8rem 1rem;border-radius:6px;font-family:monospace;font-size:.85rem;">Test-NetConnection -ComputerName &lt;friend-or-server-ip&gt; -Port 3478 -InformationLevel Detailed</p>
+                    <p>If <code>TcpTestSucceeded</code> shows <strong>False</strong> (and recall Windrose uses UDP, so also try a UDP-capable tester like <em>yougetsignal</em> or <em>portchecker</em> aimed at your own public IP while the game is running), the port is not reaching you. That's your confirmation.</p>
+                </div>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Don't Trust a Single Tool</div>
+                    <p>Some online "port checkers" only test TCP. Because Windrose uses UDP, a checker may falsely report 3478 as "closed" even when it's fine. Use the in-game NAT indicator + the hotspot test (section 6) as your real proof.</p>
+                </div>
+            </section>
+
+            <section id="upnp">
+                <h2>4. ⚙️ Enable UPnP on Your Router</h2>
+                <p>UPnP (Universal Plug and Play) lets Windrose ask your router to open port 3478 automatically. It's the easiest fix and resolves most player-side blocks.</p>
+                <div class="action-step">
+                    <h4>① Log In to Your Router</h4>
+                    <p>Find your gateway address (usually <code>192.168.0.1</code> or <code>192.168.1.1</code> &mdash; check <code>ipconfig</code> under "Default Gateway" on Windows, or "Router" in your OS network settings). Open it in a browser and log in with the admin credentials printed on the router or set by you.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Find the UPnP Setting</h4>
+                    <p>Look under <strong>Advanced &rarr; NAT Forwarding &rarr; UPnP</strong> (names vary: "ALG," "Internet Sharing," "Device Discovery"). Toggle <strong>UPnP / NAT-PMP</strong> to <strong>On</strong> and save. Reboot the router if prompted.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Restart Windrose and Re-Test</h4>
+                    <p>Fully close the game, relaunch, and check the NAT indicator again. In most home networks this flips "Strict" to "Open/Moderate" and co-op starts working without any manual forwarding.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">🔔 Security Note</div>
+                    <p>UPnP has a small security trade-off (any device can request an open port). For a home gaming network it's generally acceptable, but if you run a tightly locked-down network, prefer manual forwarding (next section) and leave UPnP off.</p>
+                </div>
+            </section>
+
+            <section id="forward">
+                <h2>5. 🔓 Manually Port-Forward Port 3478</h2>
+                <p>If UPnP didn't help, set a permanent rule so your router always sends UDP 3478 to your machine. You'll need a <strong>static LAN IP</strong> for your PC/console first.</p>
+                <div class="action-step">
+                    <h4>① Give Your Device a Static LAN IP</h4>
+                    <p>On Windows: Settings &rarr; Network &rarr; Properties &rarr; set IPv4 to "Manual" with a fixed address like <code>192.168.1.50</code>, gateway <code>192.168.1.1</code>, and your ISP's DNS. On console: network settings &rarr; assign a static IP in the same range as your router.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Create the Forwarding Rule</h4>
+                    <p>In the router, go to <strong>Port Forwarding / Virtual Server</strong>. Add a rule:</p>
+                    <table>
+                        <tr><th>Field</th><th>Value</th></tr>
+                        <tr><td>Service name</td><td>Windrose-Coop</td></tr>
+                        <tr><td>Protocol</td><td><strong>UDP</strong> (or Both)</td></tr>
+                        <tr><td>External port</td><td>3478</td></tr>
+                        <tr><td>Internal port</td><td>3478</td></tr>
+                        <tr><td>Internal IP</td><td>your static LAN IP (e.g. 192.168.1.50)</td></tr>
+                        <tr><td>Status</td><td>Enabled</td></tr>
+                    </table>
+                </div>
+                <div class="action-step">
+                    <h4>③ Save, Reboot Router, Re-Test</h4>
+                    <p>Apply the rule, reboot the router, relaunch Windrose, and re-check the NAT indicator. A manual UDP 3478 forward typically yields a clean "Open" NAT and lets you join any friend whose own NAT is Moderate or Open.</p>
+                </div>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Both Sides Usually Need a Usable NAT</div>
+                    <p>Peer-to-peer co-op needs at least one side with an Open/Moderate NAT. If your friend is also Strict, you may <em>both</em> need to forward 3478. Point them to the host-side guide below if they're running a dedicated server.</p>
+                </div>
+            </section>
+
+            <section id="hotspot">
+                <h2>6. 📱 Use a Mobile Hotspot to Confirm</h2>
+                <p>This is the cleanest "is it my ISP?" test, and it takes two minutes. If co-op works on a hotspot but not on your home Wi-Fi, your home connection is definitively the blocker.</p>
+                <div class="method-box">
+                    <h4>📋 Hotspot Confirmation Steps</h4>
+                    <ol>
+                        <li>On your phone, enable <strong>Personal Hotspot / Tethering</strong> (USB or Wi-Fi).</li>
+                        <li>Connect your PC/console to the hotspot instead of your home router.</li>
+                        <li>Launch Windrose and try to join the same friend's session.</li>
+                        <li>If you connect instantly &rarr; <strong>your home ISP/router is blocking 3478</strong>. Apply sections 4&ndash;5 at home.</li>
+                        <li>If it still fails on the hotspot &rarr; the block is on the <em>friend's</em> side, or it's a game/server issue. Have them read the host fix.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Why Hotspots Usually Work</div>
+                    <p>Mobile carriers handle UDP 3478 differently and often present a friendlier NAT for gaming. A successful hotspot join is strong, reproducible proof you can hand to your ISP if you need to argue for an unfiltered connection.</p>
+                </div>
+            </section>
+
+            <section id="cgnat">
+                <h2>7. 🛡️ When UPnP &amp; Forwarding Aren't Enough</h2>
+                <p>If you've enabled UPnP, forwarded UDP 3478, set a static IP, and co-op <em>still</em> fails at home, you're likely behind <strong>CGNAT</strong> or your ISP is hard-filtering the port. Options, in order of effort:</p>
+                <ul>
+                    <li><strong>Ask your ISP for a public IPv4 / disable CGNAT.</strong> Many ISPs will move you to a dedicated IP (sometimes for a small fee) &mdash; this makes port-forwarding actually work.</li>
+                    <li><strong>Request they stop filtering UDP 3478.</strong> Cite "I need UDP 3478 open for Windrose co-op" &mdash; some residential filters are removable on request.</li>
+                    <li><strong>Use a gaming-friendly VPN that supports UDP forwarding.</strong> A reputable VPN with port-forwarding can tunnel 3478 around an ISP block. Avoid free VPNs &mdash; they often add lag that ruins ship combat.</li>
+                    <li><strong>Play via hotspot or a friend's network</strong> as a temporary workaround while you sort the home line.</li>
+                </ul>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Don't Touch Anti-Cheat</div>
+                    <p>Never install "NAT unlocker" or "co-op booster" tools from unknown sources. They can trigger Windrose's anti-cheat and risk your account. Stick to router, ISP, and VPN changes you control.</p>
+                </div>
+            </section>
+
+            <section id="faq">
+                <h2>8. ❓ FAQs</h2>
+                <div class="faq-item">
+                    <h4>Do I need to forward the port if I'm just joining, not hosting?</h4>
+                    <p>Often no &mdash; enabling UPnP alone fixes most "joiner" cases because it opens the return path. Manual forwarding is the next step if UPnP doesn't clear your Strict NAT.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>TCP or UDP for port 3478?</h4>
+                    <p><strong>UDP.</strong> Windrose co-op rides UDP 3478. Forwarding TCP-only will not help. Set the rule to UDP, or "Both" if your router gives no choice.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>My friend can play with everyone except me &mdash; who's blocked?</h4>
+                    <p>That points at your side. Run the hotspot test (section 6): if co-op works on the hotspot, your home network is the blocker and sections 4&ndash;5 are your fix.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Will reinstalling Windrose fix the port block?</h4>
+                    <p>No. This is a network/router issue, not a game file problem. Reinstalling won't open UDP 3478.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is this the same fix as the dedicated-server host needs?</h4>
+                    <p>Similar idea, different device. If you or your friend runs a dedicated co-op server, the port must be forwarded on the <em>server's</em> router/firewall &mdash; see the host-side guide linked below.</p>
+                </div>
+            </section>
+
+            <div class="next-steps">
+                <h3>🎯 More Windrose Help</h3>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Running a dedicated server? Read <a href="windrose-port-3478-dedicated-server-forward-fix-2026.html" style="color:#7a64b8; font-weight:bold;">Port 3478 Dedicated Server Forward Fix</a>
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Set up co-op properly with <a href="windrose-coop-multiplayer-guide-2026.html" style="color:#7a64b8; font-weight:bold;">Windrose Co-op &amp; Multiplayer Guide 2026</a>
+                </div>
+            </div>
+
+            <div class="related-guides">
+                <h3>More Windrose Guides</h3>
+                <div class="article-grid">
+                    <a href="windrose-coop-multiplayer-guide-2026.html" class="article-card">
+                        <h3>Co-op &amp; Multiplayer Guide</h3>
+                        <p>Invites, sessions, and NAT explained.</p>
+                    </a>
+                    <a href="windrose-beginner-guide-2026.html" class="article-card">
+                        <h3>Beginner Guide</h3>
+                        <p>Start your captain career the right way.</p>
+                    </a>
+                    <a href="windrose-performance-optimization-2026.html" class="article-card">
+                        <h3>Performance Optimization</h3>
+                        <p>Smooth sailing on any hardware.</p>
+                    </a>
+                    <a href="windrose-port-3478-dedicated-server-forward-fix-2026.html" class="article-card">
+                        <h3>Dedicated Server Port Fix</h3>
+                        <p>Forward 3478 on the host side.</p>
+                    </a>
+                </div>
+
+                <div class="tool-callout" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+                    <p style="color:#7a64b8;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">📚 More Windrose Guides</p>
+                    <p style="color:#2D2A33!important;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Stuck on another issue? Browse our full Windrose guide library.</p>
+                    <a href="../../index.html#windrose" style="display:inline-block;padding:0.65rem 1.8rem;background:#9B84D4;color:#fff;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Browse Guides →</a>
+                </div>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🔓</span>
+                    <div class="support-text">
+                        <h3>Every guide is free — this one stays free either way.</h3>
+                        <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+                        <p style="margin:6px 0 0 0;line-height:1.7">
+                            📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                            ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                            ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                            🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+                        </p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack</a>
+                        </div>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../../levels/intermediate.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Intermediate Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>Windrose Guru</h4><p>Free Windrose guides updated weekly.</p></div>
+                <div class="footer-col"><h4>Guides</h4><ul>
+                    <li><a href="windrose-beginner-guide-2026.html">Beginner Guide</a></li>
+                    <li><a href="windrose-coop-multiplayer-guide-2026.html">Co-op &amp; Multiplayer</a></li>
+                    <li><a href="windrose-performance-optimization-2026.html">Performance</a></li>
+                    <li><a href="windrose-port-3478-dedicated-server-forward-fix-2026.html">Server Port Fix</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>More</h4><ul>
+                    <li><a href="../../index.html">OSRS Guru Home</a></li>
+                    <li><a href="../../index.html#windrose">All Windrose Guides</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 Windrose Guru &middot; Not affiliated with Windrose Studio &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #7a64b8;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Windrose is a trademark of its respective owner. Not affiliated with or endorsed by the game's developers.</p>
+    </div>
+
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content{color:#2d2a33!important}
+    .guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#2d2a33!important}
+    .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .faq-item,.guide-content .warn-box,.guide-content .next-steps{background:#fff!important;border:1px solid #e0d8f0!important}
+    .guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .action-step p,.guide-content .action-step li,.guide-content .warn-box p,.guide-content .warn-box li,.guide-content .next-steps p,.guide-content .next-steps li{color:#2d2a33!important}
+    .guide-content .faq-item h4,.guide-content .method-box h4,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warn-box strong,.guide-content .next-steps strong{color:#7a64b8!important}
+    .guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+    .guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    .guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    .tool-callout,.tool-callout p,.tool-callout h3,.tool-callout h4,.tool-callout strong,.tool-callout a:not(.support-amount-btn){color:#fff!important}
+.tool-callout{background:#3b2615!important}
+[style*="background:#2a1a0a"] p,[style*="background:#2a1a0a"] h3,[style*="background:#2a1a0a"] h4,[style*="background:#2a1a0a"] li,[style*="background:#3b2615"] p,[style*="background:#3b2615"] h3,[style*="background:#3b2615"] h4,[style*="background:#3b2615"] li{color:#fff!important}
+</style>
+</body>
+</html>

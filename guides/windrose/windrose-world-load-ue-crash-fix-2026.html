@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windrose World Load Unreal Engine Fatal Error Crash Fix (2026)</title>
+    <meta name="description" content="Windrose crashes to desktop with an Unreal Engine fatal error while loading a world? Here are the confirmed causes and step-by-step fixes — verify game files, update GPU driver, lower settings, disable overlays, and reinstall.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Windrose world load crash, Windrose Unreal Engine fatal error, Windrose UE crash fix 2026, Windrose crashes when loading world">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/windrose/windrose-world-load-ue-crash-fix-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{color:#7a64b8!important}
+        .guide-content h3{color:#7a64b8!important}
+        .guide-content .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;color:#2d2a33}
+        .guide-content .tip-box strong{color:#7a64b8}
+        .guide-content .warn-box{background:#fef9f5;border:1px solid #e8c8a0;color:#2d2a33}
+        .guide-content .warn-box strong{color:#b84a3a}
+        .guide-content .action-step{background:#faf8fc;border:1px solid #e0d8f0;margin:1.2rem 0;padding:1.2rem 1.5rem}
+        .guide-content .action-step h4{color:#7a64b8;margin:0 0 .6rem 0}
+        .guide-content .method-box{background:#faf8fc;border:1px solid #e0d8f0;padding:1.4rem;margin:1.25rem 0}
+        .guide-content .method-box h4{color:#7a64b8;margin:0 0 .85rem 0}
+        .guide-content .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .guide-content .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .guide-content .toc{background:#fff;border:1px solid #e0d8f0;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .guide-content .toc h3{color:#7a64b8!important}
+        .guide-content li{color:#2d2a33!important}
+        .guide-content p{color:#2d2a33!important}
+        .progress-widget{display:none!important}
+        table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+        table th{background:#f8f6fc;color:#7a64b8;padding:10px 14px;text-align:left;border:1px solid #e0d8f0;font-weight:700}
+        table td{padding:9px 14px;border:1px solid #eee;color:#333}
+        table tr:nth-child(even){background:#fafbfd}
+    </style>
+</head>
+<body data-level="novice">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Windrose <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#what">What Happened</a></li>
+                    <li><a href="#causes">Causes</a></li>
+                    <li><a href="#fix">How to Fix</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#windrose">Windrose</a> / World Load UE Crash Fix</p>
+            <h1>Windrose World Load Unreal Engine Fatal Error Crash Fix</h1>
+            <p class="subtitle">You click <strong>Enter World</strong> and Windrose instantly crashes to desktop with an <strong>Unreal Engine fatal error</strong> &mdash; or it hangs on the loading screen and dies before the port ever appears. This guide covers the confirmed causes and the exact fixes that get crashing players back into the sea on PC and console.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🎮</span> <strong>Level: Novice</strong> · 7 min read · Updated July 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#7a64b8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Verdict &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Symptom:</strong> the game closes on world load with "Unreal Engine is exiting due to a fatal error" (or a GPU crash report).</li>
+                    <li>📌 <strong>Fix 1:</strong> verify / repair game files &mdash; the most common cause is a corrupt or partial install.</li>
+                    <li>📌 <strong>Fix 2:</strong> update your GPU driver; outdated drivers are the #1 trigger for UE fatal crashes.</li>
+                    <li>📌 <strong>Fix 3:</strong> lower graphics settings (especially shadows and world detail) and disable overlays.</li>
+                    <li>📌 <strong>Fix 4:</strong> if all else fails, do a clean reinstall &mdash; last resort, almost always works.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#what">What the Crash Looks Like</a></li>
+                    <li><a href="#causes">Common Crash Causes vs Fixes (Table)</a></li>
+                    <li><a href="#verify">Step 1 — Verify Game Files</a></li>
+                    <li><a href="#driver">Step 2 — Update Your GPU Driver</a></li>
+                    <li><a href="#settings">Step 3 — Lower Graphics Settings</a></li>
+                    <li><a href="#overlays">Step 4 — Disable Overlays</a></li>
+                    <li><a href="#reinstall">Step 5 — Clean Reinstall</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ol>
+            </div>
+
+            <section id="what">
+                <h2>1. 💥 What the Crash Looks Like</h2>
+                <p>Windrose is built on Unreal Engine, and when the engine hits a condition it cannot recover from during world streaming, it throws a <strong>fatal error</strong> and closes the process. Players report a few typical patterns:</p>
+                <ul>
+                    <li>A pop-up reading <em>"Unreal Engine is exiting due to a fatal error"</em> right after pressing Enter World.</li>
+                    <li>A loading bar that reaches ~30&ndash;70% and then freezes, followed by a silent crash to desktop.</li>
+                    <li>A GPU crash reporter (often from the graphics driver) mentioning <em>device removed</em> or <em>lost D3D device</em>.</li>
+                    <li>On console, the game returns to the dashboard or shows a generic "game closed because of an error" message.</li>
+                </ul>
+                <p>The key detail is <strong>when</strong> it happens: on world load, not mid-combat. That narrows the cause down to asset streaming, driver/hardware handshakes, or a broken install &mdash; not your ship build or skills.</p>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Don't Panic About Your Save</div>
+                    <p>A world-load crash almost never damages your save file. The crash happens before the world finishes streaming, so your progress is still on disk. Fix the loading pipeline, not your account.</p>
+                </div>
+            </section>
+
+            <section id="causes">
+                <h2>2. 📊 Common Crash Causes vs Fixes</h2>
+                <p>Use this table to match your symptom to the fastest fix. Most crashes fall into one of these buckets.</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Crash Cause</th><th>Typical Symptom</th><th>Recommended Fix</th><th>Difficulty</th></tr>
+                    <tr><td>Corrupt / partial game files</td><td>Crash at a specific load % every time</td><td>Verify / repair game files</td><td>Novice</td></tr>
+                    <tr><td>Outdated GPU driver</td><td>GPU crash reporter, "device removed"</td><td>Update to latest GPU driver</td><td>Novice</td></tr>
+                    <tr><td>Settings too high for hardware</td><td>Freeze then crash on heavy worlds</td><td>Lower shadows / world detail</td><td>Novice</td></tr>
+                    <tr><td>Overlay conflict (Discord, Steam, etc.)</td><td>Crash only with overlay enabled</td><td>Disable all overlays</td><td>Novice</td></tr>
+                    <tr><td>Broken install / registry leftovers</td><td>Crashes persist after file check</td><td>Clean reinstall</td><td>Novice</td></tr>
+                    <tr><td>Overclock / unstable GPU</td><td>Random crashes in other UE games too</td><td>Reset to stock clocks</td><td>Intermediate</td></tr>
+                </table>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Start at the Top</div>
+                    <p>If you only do one thing, do the file verification (Step 1). It resolves the majority of world-load crashes in under five minutes and costs you nothing.</p>
+                </div>
+            </section>
+
+            <section id="verify">
+                <h2>3. 🔧 Step 1 — Verify Game Files</h2>
+                <p>A corrupt, missing, or partially-downloaded asset is the single most common reason Windrose throws a fatal error on load. Verifying forces the launcher to scan every file and re-download anything that doesn't match.</p>
+                <div class="action-step">
+                    <h4>① Steam</h4>
+                    <p>Open your Steam library, right-click <strong>Windrose</strong> &rarr; <em>Properties</em> &rarr; <em>Installed Files</em> &rarr; <strong>Verify integrity of game files</strong>. Wait for the scan, then retry the world load.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Epic Games Store</h4>
+                    <p>In the Epic launcher, go to your Library, click the three dots next to Windrose, and choose <strong>Verify</strong>. Let it finish completely &mdash; don't launch early.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Console (Xbox / PlayStation)</h4>
+                    <p>Consoles don't have a verify button, but you can trigger a repair by highlighting the game &rarr; <em>Manage / Options</em> &rarr; <strong>Check for updates</strong>, then fully close and restart the game. If the issue persists, see the reinstall step.</p>
+                </div>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ If Verification Finds Nothing</div>
+                    <p>That's actually useful information &mdash; it means your install is intact and the crash is almost certainly driver, settings, or overlay related. Move to Step 2.</p>
+                </div>
+            </section>
+
+            <section id="driver">
+                <h2>4. 🖥️ Step 2 — Update Your GPU Driver</h2>
+                <p>Outdated graphics drivers are the #1 trigger for Unreal Engine fatal crashes during world streaming. UE's renderer leans hard on modern driver APIs, and a driver from even a year ago can choke on a world-load shader compile.</p>
+                <div class="action-step">
+                    <h4>① NVIDIA</h4>
+                    <p>Open <strong>GeForce Experience</strong> (or the NVIDIA App) &rarr; <em>Drivers</em> &rarr; <strong>Check for updates</strong>, or download the latest Game Ready Driver directly from NVIDIA's site. Do a clean install if the option appears.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② AMD</h4>
+                    <p>Use the <strong>AMD Adrenalin</strong> software &rarr; <em>Check for Updates</em>, or grab the newest WHQL driver from AMD's support page. A clean install helps rule out leftover config conflicts.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Intel Arc</h4>
+                    <p>Open the <strong>Intel Arc Control</strong> panel &rarr; <em>Drivers</em> &rarr; update to the latest release. Intel's UE5 driver support improves rapidly, so staying current matters most here.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Not Just "A" Driver</div>
+                    <p>Pick the <strong>Game Ready / WHQL</strong> branch, not a beta. Beta drivers sometimes introduce new UE crashes while fixing others. If a brand-new driver <em>caused</em> the crash, roll back to the previous stable version.</p>
+                </div>
+            </section>
+
+            <section id="settings">
+                <h2>5. 🎚️ Step 3 — Lower Graphics Settings</h2>
+                <p>If your hardware is right at the edge of Windrose's requirements, the world-load shader burst can overwhelm it and trigger a fatal error. Dropping a few settings reduces the peak load just enough to get past loading.</p>
+                <div class="method-box">
+                    <h4>📋 Settings to Lower First</h4>
+                    <ol>
+                        <li><strong>Shadows</strong> &mdash; set to Medium or Low. Shadow map streaming is a common crash point on load.</li>
+                        <li><strong>World / Environment Detail</strong> &mdash; reduces the asset count streamed at once.</li>
+                        <li><strong>Anti-Aliasing</strong> &mdash; switch from TAA to FXAA if available; lighter on the GPU.</li>
+                        <li><strong>Resolution Scale</strong> &mdash; drop to 90% to ease the memory bandwidth spike.</li>
+                        <li><strong>Ray Tracing / Global Illumination</strong> &mdash; turn off entirely if your GPU is older.</li>
+                    </ol>
+                </div>
+                <p>Change these from the launcher's graphics options <em>before</em> loading, or edit them in the in-game menu if you can reach it. If the game now loads with lower settings, you've found your ceiling &mdash; you can slowly raise settings one at a time to find the stable maximum.</p>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Integrated Graphics</div>
+                    <p>On laptops with both integrated and dedicated GPUs, make sure Windrose is set to use the <strong>dedicated</strong> card in your OS graphics settings. Running it on integrated graphics is a frequent cause of world-load fatal errors.</p>
+                </div>
+            </section>
+
+            <section id="overlays">
+                <h2>6. 🚫 Step 4 — Disable Overlays</h2>
+                <p>Overlays hook into the game's rendering pipeline, and on Unreal Engine they can collide with the world-load draw call, producing a fatal error that vanishes the moment you turn them off.</p>
+                <div class="action-step">
+                    <h4>① Disable These Common Overlays</h4>
+                    <p>Turn off: <strong>Discord</strong> overlay, <strong>Steam</strong> overlay, <strong>GeForce Experience / NVIDIA</strong> overlay, <strong>Xbox Game Bar</strong>, and any capture or RGB software (e.g., MSI Afterburner, RivaTuner, Razer Synapse). Each one can be toggled in its own settings menu.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Test a Clean Launch</h4>
+                    <p>With every overlay disabled, launch Windrose and load a world. If it works, re-enable overlays one at a time to find the culprit &mdash; then leave just that one off.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Background Apps Count Too</div>
+                    <p>Even without an "overlay," hardware monitors and capture tools running in the background can cause the same crash. Close them via the system tray before testing.</p>
+                </div>
+            </section>
+
+            <section id="reinstall">
+                <h2>7. ♻️ Step 5 — Clean Reinstall (Last Resort)</h2>
+                <p>If file verification, drivers, settings, and overlays all failed, a clean reinstall almost always resolves a stubborn world-load crash. The trick is removing <em>leftovers</em>, not just the game folder.</p>
+                <div class="method-box">
+                    <h4>📋 Clean Reinstall Checklist</h4>
+                    <ol>
+                        <li>Uninstall Windrose through your launcher <em>and</em> the OS "Add or Remove Programs" if listed twice.</li>
+                        <li>Delete leftover folders: the install directory and <code>%LOCALAPPDATA%/Windrose</code> (Windows) / the console's saved-data for the game.</li>
+                        <li>Restart your PC/console so no driver handles stay locked.</li>
+                        <li>Reinstall to an <strong>SSD</strong> with at least 15% free space &mdash; a slow or full drive can stall asset streaming and cause the crash.</li>
+                        <li>Launch once, let shaders fully compile, then load a world.</li>
+                    </ol>
+                </div>
+                <p>This is the most reliable fix because it rebuilds the entire rendering and asset cache from scratch. If a crash still happens after a clean reinstall with current drivers and overlays off, the cause is likely hardware-level (overclock instability or a failing drive) &mdash; see the FAQ.</p>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Don't Skip the Leftovers</div>
+                    <p>A normal uninstall often leaves cache and config files behind. If you reinstall without deleting <code>%LOCALAPPDATA%/Windrose</code>, the same corrupt config can crash you again immediately.</p>
+                </div>
+            </section>
+
+            <section id="faq">
+                <h2>8. ❓ FAQs</h2>
+                <div class="faq-item">
+                    <h4>Will a clean reinstall delete my save?</h4>
+                    <p>No &mdash; Windrose saves are stored separately from the game files (and often in the cloud). A reinstall only touches the install and local cache folders. Your progress stays safe.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Why does it crash only on certain worlds, not others?</h4>
+                    <p>Heavier worlds stream more assets and shaders at once, pushing a borderline GPU/driver/setting combo past its limit. That's why lowering settings (Step 3) often fixes "some worlds crash, others don't."</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is this a Windrose bug or my PC's fault?</h4>
+                    <p>Usually your local setup. A fatal error on load is overwhelmingly a driver, overlay, or install problem &mdash; not a game-wide server issue. If <em>everyone</em> were crashing, the official channels would be flooded; check those only after the local fixes fail.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>My GPU is overclocked — could that cause it?</h4>
+                    <p>Yes. Unstable GPU overclocks cause "device removed" fatal errors in Unreal Engine specifically during shader-heavy moments like world load. Reset your GPU to stock clocks and test again.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What if nothing here works?</h4>
+                    <p>Check your drive health (a failing SSD can stall streaming) and your RAM with a quick memory test. If hardware checks pass and crashes continue after a clean reinstall, capture the exact error text and report it through official support with your system specs.</p>
+                </div>
+            </section>
+
+            <div class="next-steps">
+                <h3>🎯 Keep Your Windrose Running Smoothly</h3>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Tune your rig long-term with <a href="windrose-performance-optimization-2026.html" style="color:#7a64b8; font-weight:bold;">Performance Optimization Guide 2026</a>
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> See what each update changed in <a href="windrose-performance-after-patch-guide-2026.html" style="color:#7a64b8; font-weight:bold;">Performance After Patch Guide 2026</a>
+                </div>
+            </div>
+
+            <div class="related-guides">
+                <h3>More Windrose Guides</h3>
+                <div class="article-grid">
+                    <a href="windrose-performance-optimization-2026.html" class="article-card">
+                        <h3>Performance Optimization</h3>
+                        <p>Tune settings for a stable frame rate.</p>
+                    </a>
+                    <a href="windrose-performance-after-patch-guide-2026.html" class="article-card">
+                        <h3>Performance After Patch</h3>
+                        <p>What each patch changed and broke.</p>
+                    </a>
+                    <a href="windrose-beginner-guide-2026.html" class="article-card">
+                        <h3>Beginner Guide</h3>
+                        <p>Start your captain journey the right way.</p>
+                    </a>
+                    <a href="windrose-ssd-bug-fix-guide-2026.html" class="article-card">
+                        <h3>SSD Bug Fix Guide</h3>
+                        <p>Protect your drive from write bugs.</p>
+                    </a>
+                </div>
+
+                <div class="tool-callout" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+                    <p style="color:#7a64b8;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">📚 More Windrose Guides</p>
+                    <p style="color:#2D2A33!important;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Stuck on another issue? Browse our full Windrose guide library.</p>
+                    <a href="../../index.html#windrose" style="display:inline-block;padding:0.65rem 1.8rem;background:#9B84D4;color:#fff;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Browse Guides →</a>
+                </div>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🔓</span>
+                    <div class="support-text">
+                        <h3>Every guide is free — this one stays free either way.</h3>
+                        <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+                        <p style="margin:6px 0 0 0;line-height:1.7">
+                            📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                            ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                            ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                            🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+                        </p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack</a>
+                        </div>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../../levels/novice.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Novice Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>Windrose Guru</h4><p>Free Windrose guides updated weekly.</p></div>
+                <div class="footer-col"><h4>Guides</h4><ul>
+                    <li><a href="windrose-beginner-guide-2026.html">Beginner Guide</a></li>
+                    <li><a href="windrose-performance-optimization-2026.html">Performance Optimization</a></li>
+                    <li><a href="windrose-performance-after-patch-guide-2026.html">After Patch</a></li>
+                    <li><a href="windrose-ssd-bug-fix-guide-2026.html">SSD Bug Fix</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>More</h4><ul>
+                    <li><a href="../../index.html">OSRS Guru Home</a></li>
+                    <li><a href="../../index.html#windrose">All Windrose Guides</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 Windrose Guru &middot; Not affiliated with Windrose Studio &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #7a64b8;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Windrose is a trademark of its respective owner. Not affiliated with or endorsed by the game's developers.</p>
+    </div>
+
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content{color:#2d2a33!important}
+    .guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#2d2a33!important}
+    .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .faq-item,.guide-content .warn-box,.guide-content .next-steps{background:#fff!important;border:1px solid #e0d8f0!important}
+    .guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .action-step p,.guide-content .action-step li,.guide-content .warn-box p,.guide-content .warn-box li,.guide-content .next-steps p,.guide-content .next-steps li{color:#2d2a33!important}
+    .guide-content .faq-item h4,.guide-content .method-box h4,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warn-box strong,.guide-content .next-steps strong{color:#7a64b8!important}
+    .guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+    .guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    .guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    .tool-callout,.tool-callout p,.tool-callout h3,.tool-callout h4,.tool-callout strong,.tool-callout a:not(.support-amount-btn){color:#fff!important}
+.tool-callout{background:#3b2615!important}
+[style*="background:#2a1a0a"] p,[style*="background:#2a1a0a"] h3,[style*="background:#2a1a0a"] h4,[style*="background:#2a1a0a"] li,[style*="background:#3b2615"] p,[style*="background:#3b2615"] h3,[style*="background:#3b2615"] h4,[style*="background:#3b2615"] li{color:#fff!important}
+</style>
+</body>
+</html>

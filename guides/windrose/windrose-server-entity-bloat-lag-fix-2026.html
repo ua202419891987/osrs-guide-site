@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windrose Server Entity Bloat Causing Lag — Fix (2026)</title>
+    <meta name="description" content="Windrose dedicated and co-op servers slowly grind to a halt as thousands of un-despawned entities pile up: dropped loot, corpses, structures, dormant NPCs, and stray projectiles. Here is how entity bloat causes server lag and the exact fixes — despawn rules, structure limits, admin cleanup, and restarts — you can apply today.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Windrose server lag, Windrose entity bloat, Windrose dedicated server slow, Windrose rubber banding fix, Windrose despawn rules, Windrose admin cleanup 2026">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/windrose/windrose-server-entity-bloat-lag-fix-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{color:#7a64b8!important}
+        .guide-content h3{color:#7a64b8!important}
+        .guide-content .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;color:#2d2a33}
+        .guide-content .tip-box strong{color:#7a64b8}
+        .guide-content .warn-box{background:#fef9f5;border:1px solid #e0d8f0;color:#2d2a33}
+        .guide-content .warn-box strong{color:#7a64b8}
+        .guide-content .action-step{background:#faf8fc;border:1px solid #e0d8f0;margin:1.2rem 0;padding:1.2rem 1.5rem}
+        .guide-content .action-step h4{color:#7a64b8;margin:0 0 .6rem 0}
+        .guide-content .method-box{background:#faf8fc;border:1px solid #e0d8f0;padding:1.4rem;margin:1.25rem 0}
+        .guide-content .method-box h4{color:#7a64b8;margin:0 0 .85rem 0}
+        .guide-content .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .guide-content .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .guide-content .toc{background:#fff;border:1px solid #e0d8f0;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .guide-content .toc h3{color:#7a64b8!important}
+        .guide-content li{color:#2d2a33!important}
+        .guide-content p{color:#2d2a33!important}
+        .progress-widget{display:none!important}
+        table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+        table th{background:#f8f6fc;color:#7a64b8;padding:10px 14px;text-align:left;border:1px solid #e0d8f0;font-weight:700}
+        table td{padding:9px 14px;border:1px solid #eee;color:#333}
+        table tr:nth-child(even){background:#fafbfd}
+    </style>
+</head>
+<body data-level="intermediate">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Windrose <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#what">What Happened</a></li>
+                    <li><a href="#rules">Despawn Rules</a></li>
+                    <li><a href="#cleanup">Admin Cleanup</a></li>
+                    <li><a href="#restart">Restart</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#windrose">Windrose</a> / Server Entity Bloat Lag Fix</p>
+            <h1>Windrose Server Entity Bloat Causing Lag — Fix</h1>
+            <div class="weekly-badge">
+                <span class="badge-icon">🏴‍☠️</span> <strong>Intermediate</strong> · Server / Performance Fix · 9 min read · Updated July 2026
+            </div>
+            <p class="subtitle">Your Windrose dedicated or co-op server started smooth, then after a few in-game weeks it began to <strong>stutter, rubber-band, and drop ticks</strong>. The usual culprit is not your hardware &mdash; it is <strong>entity bloat</strong>: thousands of un-despawned objects (dropped loot, corpses, player structures, dormant NPCs, and stray projectiles) piling up on the server until the simulation can no longer keep up. This guide explains the mechanics and gives you a repeatable cleanup routine.</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#7a64b8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Symptom:</strong> server runs fine for days, then ticks drop, players rubber-band, and the simulation slows to a crawl.</li>
+                    <li>📌 <strong>Cause:</strong> entities that never despawn (loot, corpses, structures, dormant NPCs) accumulate until the server is overloaded.</li>
+                    <li>📌 <strong>Fix 1:</strong> learn the despawn timers and stop leaving loot on the ground.</li>
+                    <li>📌 <strong>Fix 2:</strong> cap your structures per island and consolidate storage.</li>
+                    <li>📌 <strong>Fix 3:</strong> run periodic admin cleanup and schedule automatic restarts.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#what">What Entity Bloat Looks Like</a></li>
+                    <li><a href="#why">Why Servers Get Bloated</a></li>
+                    <li><a href="#rules">Despawn Rules (Timers Table)</a></li>
+                    <li><a href="#limit">Limit Structures &amp; Builds</a></li>
+                    <li><a href="#cleanup">Admin Cleanup Routine</a></li>
+                    <li><a href="#restart">Restart the Server</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ol>
+            </div>
+
+            <section id="what">
+                <h2>1. 🌊 What Entity Bloat Looks Like</h2>
+                <p>Entity bloat is slow and sneaky. A fresh Windrose server simulates a few hundred objects comfortably &mdash; ships, players, fish, weather, a handful of NPCs. Over time, every dropped cannonball, every uncollected treasure pile, every sunk-ship wreck, every decorative chest, and every despawned enemy corpse adds one more object the server must track every tick. None of these are visible as "lag" individually, but together they push the server past its comfortable ceiling.</p>
+                <p>The classic progression is: <strong>week one</strong> feels buttery smooth; <strong>week two</strong> you notice occasional micro-stutters during combat; <strong>week three</strong> the server ticks start dropping during peak hours and players complain about rubber-banding; <strong>week four</strong> the world literally crawls &mdash; cannons fire in slow motion, NPCs teleport, and the save takes forever. That curve is the fingerprint of entity bloat, not a bad GPU or a weak internet connection.</p>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ It Is the Server, Not the Client</div>
+                    <p>If every player on the server lags at the same time &mdash; regardless of their own PC or console &mdash; the bottleneck is the simulation running on the host. Client-side fixes (lower graphics, reinstall) will not help. You need to reduce what the server has to simulate.</p>
+                </div>
+            </section>
+
+            <section id="why">
+                <h2>2. 🧠 Why Servers Get Bloated</h2>
+                <p>Windrose tracks "entities" on the server as long-lived simulation objects. Some are supposed to stay forever (your built base, your anchored ship). Others are meant to be temporary &mdash; but only if their despawn condition is actually met. Bloat happens when temporary entities are created faster than they are removed, or when "permanent" entities multiply without limit.</p>
+                <p>The biggest sources, in practice:</p>
+                <ul>
+                    <li><strong>Dropped loot:</strong> players toss junk on the deck or shore instead of selling or storing it. Each pile is a tracked entity.</li>
+                    <li><strong>Corpses &amp; wrecks:</strong> sunk enemy ships and defeated enemies leave bodies that linger.</li>
+                    <li><strong>Redundant structures:</strong> dozens of chests, barrels, and decorative blocks that could be consolidated into a few storage units.</li>
+                    <li><strong>Dormant NPCs:</strong> villagers, merchants, and wildlife that have wandered into loaded areas and never leave.</li>
+                    <li><strong>Stray projectiles &amp; effects:</strong> uncollected cannonballs, lingering status effects, and orphaned physics objects after a crash.</li>
+                </ul>
+                <p>On a <em>non-dedicated</em> (host-played) session the world unloads when the host sails away, which naturally clears a lot of this. On a <strong>dedicated server that runs 24/7</strong>, nothing ever unloads on its own &mdash; so bloat compounds until you intervene. If you run a persistent world, the routine below is mandatory, not optional. For co-op hosting tips, see our <a href="windrose-coop-multiplayer-guide-2026.html" style="color:#7a64b8;font-weight:bold;">Co-op Multiplayer Guide 2026</a>.</p>
+            </section>
+
+            <section id="rules">
+                <h2>3. ⏳ Despawn Rules You Should Know</h2>
+                <p>Windrose does have automatic despawn logic, but the timers vary by entity type &mdash; and several objects are <em>exempt</em> entirely. Knowing the rules lets you stop bloat at the source instead of cleaning it up later. The table below summarizes the typical behavior (exact values can shift between patches, so treat these as planning targets rather than guarantees).</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Entity type</th><th>Typical despawn</th><th>Auto-clears?</th><th>Notes</th></tr>
+                    <tr><td>Loose dropped items</td><td>~10&ndash;20 min</td><td>Yes</td><td>Longest if on a loaded chunk; pick up loot promptly.</td></tr>
+                    <tr><td>Enemy corpses</td><td>~5&ndash;10 min</td><td>Yes</td><td>Can linger after large battles; clear the field.</td></tr>
+                    <tr><td>Sunk-ship wrecks</td><td>~15&ndash;30 min</td><td>Usually</td><td>Big wreck models are heavy; sink them away from base.</td></tr>
+                    <tr><td>Dormant wildlife/NPC</td><td>None (persists)</td><td>No</td><td>Stay loaded if near a player or build.</td></tr>
+                    <tr><td>Player structures</td><td>Never</td><td>No</td><td>Permanent until demolished by a player or admin.</td></tr>
+                    <tr><td>Anchored ships</td><td>Never</td><td>No</td><td>Count toward the server's persistent entity load.</td></tr>
+                    <tr><td>Stray projectiles</td><td>~1&ndash;3 min</td><td>Yes</td><td>Orphaned after crashes; restart clears them.</td></tr>
+                </table>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The Key Insight</div>
+                    <p>Only the <em>temporary</em> rows above self-clean. Everything marked "No" stays until a human or an admin command removes it. Bloat is almost always the accumulation of the "No" rows &mdash; structures and dormant NPCs &mdash; plus temporary rows that never got a chance to despawn because the chunk stayed loaded.</p>
+                </div>
+            </section>
+
+            <section id="limit">
+                <h2>4. 🏗️ Limit Structures &amp; Builds</h2>
+                <p>Structures never despawn, so they are the part of the entity count you control most directly. A tidy, intentional base is dramatically cheaper to simulate than a sprawling one. You do not need to live in a shoebox &mdash; you need to be deliberate.</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Category</th><th>Recommended approach</th><th>Why it helps</th></tr>
+                    <tr><td>Storage</td><td>Use 1&ndash;2 large chests per function, not 20 small ones</td><td>Fewer container entities, same capacity</td></tr>
+                    <tr><td>Decorations</td><td>Cap non-functional blocks per island</td><td>Purely cosmetic entities still cost ticks</td></tr>
+                    <tr><td>Ships anchored</td><td>Anchor only what you use; un-anchor the rest</td><td>Each anchored hull is a persistent load</td></tr>
+                    <tr><td>Automation</td><td>Avoid redundant duplicated stations</td><td>Cut passive simulation overhead</td></tr>
+                    <tr><td>Outposts</td><td>Consolidate into one main base when possible</td><td>Fewer loaded build clusters</td></tr>
+                </table>
+                </div>
+                <div class="action-step">
+                    <h4>① Audit Your Base Monthly</h4>
+                    <p>Walk every island you own and demolish anything you do not actively use. Old test builds, duplicate chests, and "someday" projects are the silent killers of server performance.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Consolidate Storage</h4>
+                    <p>Twenty small chests = twenty entities. Two large chests = two entities with the same total space. Consolidation is the single highest-impact change most bloated servers can make.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Keep Combat Away From Base</h4>
+                    <p>Sink enemy ships and fight battles at a distance. Wrecks and corpses that spawn inside your permanently-loaded base radius will sit there until manually cleared.</p>
+                </div>
+            </section>
+
+            <section id="cleanup">
+                <h2>5. 🧹 Admin Cleanup Routine</h2>
+                <p>If bloat has already set in, the fastest fix is an admin cleanup pass. Windrose dedicated servers expose admin commands that let you wipe loose entities, clear dropped items, and remove dormant NPCs without touching player-built structures. The exact command syntax lives in our admin reference &mdash; consult it for the precise tokens on your build.</p>
+                <div class="method-box">
+                    <h4>📋 A Safe Cleanup Pass (order matters)</h4>
+                    <ol>
+                        <li><strong>Warn players</strong> &mdash; announce a 5-minute cleanup window so nobody loses an item they just dropped.</li>
+                        <li><strong>Clear dropped items</strong> &mdash; purge loose loot and stray projectiles from the world.</li>
+                        <li><strong>Remove dormant NPCs</strong> &mdash; despawn wildlife/merchants that drifted into loaded zones.</li>
+                        <li><strong>Clear corpses &amp; wrecks</strong> &mdash; remove lingering battle debris.</li>
+                        <li><strong>Verify structures</strong> &mdash; do NOT mass-demolish; only remove orphaned/duplicate builds with player consent.</li>
+                        <li><strong>Save and report</strong> &mdash; confirm the entity count dropped and tell players the server is healthy again.</li>
+                    </ol>
+                </div>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Protect Player Bases</div>
+                    <p>Admin "wipe all" commands exist &mdash; and they will delete player-built structures and stored items. Never run a blanket wipe to fix lag. Target only loose entities and dormant NPCs. If you need the full command list and safe flags, see the dedicated admin reference and our <a href="windrose-performance-optimization-2026.html" style="color:#7a64b8;font-weight:bold;">Performance Optimization Guide 2026</a>.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Automate It</div>
+                    <p>Once you know the safe commands, script a lightweight cleanup that runs on a schedule (e.g., nightly) so loose entities never pile up. Pair it with the restart routine in the next section for a self-maintaining server.</p>
+                </div>
+            </section>
+
+            <section id="restart">
+                <h2>6. 🔄 Restart the Server</h2>
+                <p>A clean restart is the cheapest, most reliable bloat remedy &mdash; and it clears the categories nothing else touches. When the server process exits and reloads, transient memory (orphaned projectiles, stuck physics objects, desync states, and un-collected effects from a crash) is released. Persistent structures and stored items remain, because they live in the save file, not in volatile memory.</p>
+                <div class="action-step">
+                    <h4>① Schedule Regular Restarts</h4>
+                    <p>For a 24/7 dedicated server, a daily or every-other-day restart during low-traffic hours prevents slow accumulation. Most server hosts let you set a cron-style restart schedule &mdash; use it.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Save Before You Restart</h4>
+                    <p>Always trigger a manual save (or confirm autosave fired) immediately before restarting. A restart mid-unsaved-state can roll back recent progress and, ironically, leave orphaned entities behind.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Restart, Don't Just Reload the Map</h4>
+                    <p>A full process restart clears volatile memory. A soft "reload" that keeps the process alive may keep the bloat. Confirm the server process actually stopped and started fresh.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">🔔 Combine Restart + Cleanup</div>
+                    <p>The most robust setup: a nightly admin cleanup pass, followed by an automatic restart. Together they keep entity counts low permanently with zero manual effort after the first configuration.</p>
+                </div>
+            </section>
+
+            <section id="faq">
+                <h2>7. ❓ FAQs</h2>
+                <div class="faq-item">
+                    <h4>Why does lag only appear on my dedicated server, not in solo play?</h4>
+                    <p>In solo play the world unloads when you sail away, which silently clears most temporary entities. A dedicated server runs continuously, so nothing unloads on its own &mdash; bloat accumulates until you intervene with cleanup and restarts.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do dropped items really cause noticeable lag?</h4>
+                    <p>Individually, no. But a busy server can accumulate hundreds of loose item stacks and stray projectiles over weeks. Each is a tracked entity the server simulates every tick, and the combined load is a major bloat source. Pick up loot and run cleanup passes.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How often should I restart the server?</h4>
+                    <p>For a persistent 24/7 world, a restart every 1&ndash;2 days during off-peak hours is a good baseline. If you also run scheduled admin cleanup, you can stretch toward every 2&ndash;3 days. Watch tick rate; if it dips, restart sooner.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Will an admin cleanup wipe my base or my friend's storage?</h4>
+                    <p>Not if you target only loose entities and dormant NPCs. Structures and stored items are permanent and separate from the cleanup commands. Avoid any "wipe all" or "demolish everything" command &mdash; those are the ones that delete bases.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can a non-dedicated co-op session get entity bloat?</h4>
+                    <p>Less often, because the host sailing away unloads the area. But long co-op sessions in one persistent region &mdash; especially with many structures &mdash; can still bloat. A session restart and a tidy base (see the <a href="windrose-beginner-guide-2026.html" style="color:#7a64b8;font-weight:bold;">Beginner Guide 2026</a>) cover most cases.</p>
+                </div>
+            </section>
+
+            <div class="next-steps">
+                <h3>🎯 Keep Your Server Healthy</h3>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Host smarter with the <a href="windrose-coop-multiplayer-guide-2026.html" style="color:#7a64b8; font-weight:bold;">Co-op Multiplayer Guide 2026</a>
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Go deeper in the <a href="windrose-performance-optimization-2026.html" style="color:#7a64b8; font-weight:bold;">Performance Optimization Guide 2026</a>
+                </div>
+            </div>
+
+            <div class="related-guides">
+                <h3>More Windrose Guides</h3>
+                <div class="article-grid">
+                    <a href="windrose-coop-multiplayer-guide-2026.html" class="article-card">
+                        <h3>Co-op Multiplayer Guide</h3>
+                        <p>Host, join, and manage shared worlds.</p>
+                    </a>
+                    <a href="windrose-performance-optimization-2026.html" class="article-card">
+                        <h3>Performance Optimization</h3>
+                        <p>Settings and habits for a smooth server.</p>
+                    </a>
+                    <a href="windrose-beginner-guide-2026.html" class="article-card">
+                        <h3>Beginner Guide</h3>
+                        <p>Start clean and avoid early mistakes.</p>
+                    </a>
+                </div>
+
+                <div class="tool-callout" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+                    <p style="color:#7a64b8;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">📚 More Windrose Guides</p>
+                    <p style="color:#2D2A33!important;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Stuck on another issue? Browse our full Windrose guide library.</p>
+                    <a href="../../index.html#windrose" style="display:inline-block;padding:0.65rem 1.8rem;background:#9B84D4;color:#fff;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Browse Guides →</a>
+                </div>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🔓</span>
+                    <div class="support-text">
+                        <h3>Every guide is free — this one stays free either way.</h3>
+                        <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+                        <p style="margin:6px 0 0 0;line-height:1.7">
+                            📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                            ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                            ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                            🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+                        </p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack</a>
+                        </div>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../../levels/intermediate.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Intermediate Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>Windrose Guru</h4><p>Free Windrose guides updated weekly.</p></div>
+                <div class="footer-col"><h4>Guides</h4><ul>
+                    <li><a href="windrose-beginner-guide-2026.html">Beginner Guide</a></li>
+                    <li><a href="windrose-coop-multiplayer-guide-2026.html">Co-op Multiplayer</a></li>
+                    <li><a href="windrose-performance-optimization-2026.html">Performance</a></li>
+                    <li><a href="../../index.html#windrose">All Windrose Guides</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>More</h4><ul>
+                    <li><a href="../../index.html">OSRS Guru Home</a></li>
+                    <li><a href="../../index.html#windrose">All Windrose Guides</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 Windrose Guru &middot; Not affiliated with Windrose Studio &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #7a64b8;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Windrose is a trademark of its respective owner. Not affiliated with or endorsed by the game's developers.</p>
+    </div>
+
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content{color:#2d2a33!important}
+    .guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#2d2a33!important}
+    .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .faq-item,.guide-content .warn-box,.guide-content .next-steps{background:#fff!important;border:1px solid #e0d8f0!important}
+    .guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .action-step p,.guide-content .action-step li,.guide-content .warn-box p,.guide-content .warn-box li,.guide-content .next-steps p,.guide-content .next-steps li{color:#2d2a33!important}
+    .guide-content .faq-item h4,.guide-content .method-box h4,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warn-box strong,.guide-content .next-steps strong{color:#7a64b8!important}
+    .guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+    .guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    .guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    .tool-callout,.tool-callout p,.tool-callout h3,.tool-callout h4,.tool-callout strong,.tool-callout a:not(.support-amount-btn){color:#fff!important}
+.tool-callout{background:#3b2615!important}
+[style*="background:#2a1a0a"] p,[style*="background:#2a1a0a"] h3,[style*="background:#2a1a0a"] h4,[style*="background:#2a1a0a"] li,[style*="background:#3b2615"] p,[style*="background:#3b2615"] h3,[style*="background:#3b2615"] h4,[style*="background:#3b2615"] li{color:#fff!important}
+</style>
+</body>
+</html>

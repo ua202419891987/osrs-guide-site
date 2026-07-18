@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS RuneLite GPU Plugin Crashing &amp; Auto-Disabling Fix 2026 — Settings, Drivers &amp; Fallback</title>
+    <meta name="description" content="Updated for July 2026. Why RuneLite's GPU plugin turns off or crashes, the safest GPU plugin settings, how to update NVIDIA/AMD drivers, OpenGL vs Vulkan, known plugin conflicts, and how to fall back to software rendering.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="runelite gpu plugin crash, runelite gpu plugin disabled, runelite gpu plugin not working, osrs gpu plugin settings, runelite opengl vs vulkan, runelite gpu plugin conflict, runelite software rendering fallback, fix runelite gpu crash 2026">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-runelite-gpu-plugin-crash-fix-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="novice">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../updates.html">Updates</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="osrs-runelite-setup-guide-2026.html">RuneLite</a> / RuneLite GPU Plugin Crash Fix 2026</p>
+            <h1>🎮 RuneLite GPU Plugin Crashing &amp; Auto-Disabling — Fix Guide 2026</h1>
+            <p class="subtitle">The RuneLite GPU plugin is what turns Old School RuneScape from a blurry CPU-rendered game into a smooth, high-FPS experience. When it crashes or silently switches itself off, the game drops to software rendering and stutters badly. This guide explains exactly why it happens and how to fix it on NVIDIA, AMD, and Intel hardware.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🎮</span> <strong>Level: Novice</strong> — RuneLite Client Help · 12 min read · Updated July 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#b8860b;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Verdict — 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>RuneLite auto-disables the GPU plugin when the render context fails</strong> — the game keeps running on the slower CPU/software renderer, so nothing is broken.</li>
+                    <li>📌 <strong>90% of crashes are driver problems, not the plugin</strong> — update your NVIDIA/AMD/Intel GPU driver before changing anything else.</li>
+                    <li>📌 <strong>Turn OFF heavy settings on weak hardware</strong> — MSAA anti-aliasing, anisotropic filtering, and increased memory buffers are the usual culprits.</li>
+                    <li>📌 <strong>OpenGL is the safe default</strong> — only enable Vulkan if your drivers are current and you want extra FPS.</li>
+                    <li>📌 <strong>Suspect a conflict?</strong> Launch RuneLite in Safe Mode (hold Shift at startup) to isolate the bad plugin.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#why-crashes">Why the GPU Plugin Turns Off or Crashes</a></li>
+                    <li><a href="#settings">GPU Plugin Settings That Prevent Crashes</a></li>
+                    <li><a href="#drivers">Update Your GPU Drivers (NVIDIA &amp; AMD)</a></li>
+                    <li><a href="#opengl-vulkan">OpenGL vs Vulkan: Which to Use</a></li>
+                    <li><a href="#conflicts">Known Plugin Conflicts</a></li>
+                    <li><a href="#fallback">Fallback to Software Rendering</a></li>
+                    <li><a href="#faq">FAQ — RuneLite GPU Plugin</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="why-crashes">
+                <h2>1. 🔧 Why the GPU Plugin Turns Off or Crashes</h2>
+                <p>RuneLite's <strong>GPU plugin</strong> replaces the game's default software renderer with a hardware-accelerated one using <strong>OpenGL</strong> (the default) or <strong>Vulkan</strong> (an opt-in backend). Instead of your CPU drawing every frame, your graphics card does it — which is why the GPU plugin is responsible for almost all of RuneLite's performance gains.</p>
+                <p>When something goes wrong with that hardware pipeline, RuneLite protects you by <strong>automatically disabling the GPU plugin</strong> and dropping back to the built-in software renderer. You'll usually see a message in the chat box or client log such as <em>"GPU plugin disabled due to an error"</em> or <em>"The GPU plugin failed to start"</em>. The game does not close — it just runs slower.</p>
+
+                <h3>② 🧠 The Most Common Root Causes</h3>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Cause</th><th>How Common</th><th>What Happens</th></tr>
+                    <tr><td>Outdated / corrupted GPU driver</td><td>Very common</td><td>Render context fails on launch; plugin disables itself</td></tr>
+                    <tr><td>Too-heavy plugin settings on weak GPU</td><td>Common</td><td>Driver runs out of memory mid-session and crashes</td></tr>
+                    <tr><td>Vulkan backend instability</td><td>Common (AMD especially)</td><td>Client freezes or closes when Vulkan is enabled</td></tr>
+                    <tr><td>Conflicting third-party plugin</td><td>Occasional</td><td>Two plugins fight over the render pipeline</td></tr>
+                    <tr><td>Overlay / capture software</td><td>Occasional</td><td>Discord, RivaTuner, OBS hook the context and crash it</td></tr>
+                    <tr><td>Corrupted shader cache</td><td>Rare</td><td>Plugin fails to compile shaders and disables</td></tr>
+                    <tr><td>Wrong GPU selected (laptop)</td><td>Rare</td><td>Game runs on Intel integrated instead of discrete GPU</td></tr>
+                </table>
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 First Question to Ask Yourself</div>
+                    <p>Did the crash start <strong>right after a Windows / driver / RuneLite update</strong>, or did you just <strong>change a GPU plugin setting</strong>? If it followed an update, the driver is the prime suspect. If it followed a settings change, revert that setting first — it's the fastest fix.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="settings">
+                <h2>2. ⚡ GPU Plugin Settings That Prevent Crashes</h2>
+                <p>Open the GPU plugin config (RuneLite &rarr; <strong>Configuration</strong> &rarr; search "GPU"). These are the settings that most often cause crashes on weaker or integrated hardware, and the safe values we recommend for a stable session:</p>
+
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Setting</th><th>Safe Value</th><th>Why</th></tr>
+                    <tr><td>Use Vulkan</td><td><strong>OFF</strong> (use OpenGL)</td><td>Vulkan is faster but crashes on many drivers, especially AMD</td></tr>
+                    <tr><td>Anti-aliasing (MSAA)</td><td>Off, or 2x max</td><td>4x/8x MSAA eats VRAM and crashes integrated GPUs</td></tr>
+                    <tr><td>Anisotropic filtering</td><td>Off on integrated, 2x-4x on dedicated</td><td>High filtering drains memory buffers quickly</td></tr>
+                    <tr><td>Sampling mode</td><td>Nearest (or Bilinear)</td><td>Nearest is the most compatible with old drivers</td></tr>
+                    <tr><td>True color</td><td>Off if crashing</td><td>Uses extra framebuffer memory</td></tr>
+                    <tr><td>UI scaling</td><td>1.0 (or match your screen)</td><td>Non-integer scaling can glitch the context</td></tr>
+                    <tr><td>FPS target / Unlock FPS</td><td>Cap at 60 (or your monitor Hz)</td><td>Uncapped FPS overheats laptops and destabilizes drivers</td></tr>
+                    <tr><td>Stretched mode</td><td>Use GPU plugin's own stretch only</td><td>External Stretched Mode plugin conflicts with GPU</td></tr>
+                    <tr><td>Increase texture memory limit</td><td>Leave default unless you know why</td><td>Too-high limits can exceed what your GPU allows</td></tr>
+                </table>
+                </div>
+
+                <div class="action-step">
+                    <h4>① The 30-Second Stability Reset</h4>
+                    <p>If you just want it to stop crashing: open GPU config, set <strong>Anti-aliasing &rarr; Off</strong>, <strong>Use Vulkan &rarr; Off</strong>, <strong>Anisotropic filtering &rarr; Off</strong>, and <strong>FPS target &rarr; 60</strong>. Restart RuneLite. For most players this alone fixes the crash.</p>
+                </div>
+
+                <div class="method-box highlight">
+                    <h4>🎯 When You CAN Turn Settings Up</h4>
+                    <p>Once your drivers are current and the plugin is stable, you can re-enable <strong>2x-4x anisotropic filtering</strong> and <strong>2x MSAA</strong> if you have a dedicated GPU. Only push further if a full session shows zero crashes — no setting is worth a crash mid-boss.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="drivers">
+                <h2>3. 🛡️ Update Your GPU Drivers (NVIDIA &amp; AMD)</h2>
+                <p>The single most reliable fix for a crashing GPU plugin is a clean, current driver. RuneLite talks directly to your graphics driver through OpenGL/Vulkan, so a stale or corrupted driver is the #1 reason the render context dies. Here is how to do it per manufacturer.</p>
+
+                <h3>③ 🟢 NVIDIA (GeForce / RTX)</h3>
+                <div class="action-step">
+                    <h4>Step 1 — Get the latest Game Ready driver</h4>
+                    <p>Open the <strong>NVIDIA App</strong> (or GeForce Experience) &rarr; <strong>Drivers</strong> tab &rarr; <strong>Check for updates</strong>. Download and install the newest <em>Game Ready Driver</em>. Alternatively, download it manually from nvidia.com/drivers by entering your GPU model.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 2 — Choose "Custom" + "Clean install"</h4>
+                    <p>Pick <strong>Custom (Advanced)</strong> and tick <strong>Perform a clean installation</strong> to wipe old OpenGL/Vulkan profiles — a common crash source. Restart your PC afterward.</p>
+                </div>
+
+                <h3>④ 🔴 AMD (Radeon / RX)</h3>
+                <div class="action-step">
+                    <h4>Step 1 — Update through Adrenalin</h4>
+                    <p>Open <strong>AMD Software: Adrenalin Edition</strong> &rarr; <strong>Settings (gear)</strong> &rarr; <strong>System</strong> &rarr; <strong>Check for updates</strong>. Install the latest driver. AMD's Vulkan driver in particular is updated frequently, so staying current matters more here than on NVIDIA.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 2 — Use AMD Cleanup Utility if needed</h4>
+                    <p>If crashes persist, run the <strong>AMD Cleanup Utility</strong> in Safe Mode to fully remove the old driver, then reinstall fresh. This fixes "worked yesterday, crashes today" cases after a half-finished update.</p>
+                </div>
+
+                <h3>⑤ 🔵 Intel (Arc / Iris / UHD — common on laptops)</h3>
+                <p>Intel integrated graphics rely on the <strong>Intel Arc &amp; Iris Xe Graphics driver</strong> (or the generic Intel graphics driver for older UHD parts). Download the latest from Intel's driver site and install it. Integrated GPUs have the least memory headroom, so keep MSAA and anisotropic filtering OFF here.</p>
+
+                <div class="warning-box">
+                    <div class="tip-title">⚠️ Laptop Owners: Pick the Right GPU</div>
+                    <p>Many gaming laptops have <strong>two</strong> GPUs — an efficient Intel integrated chip and a discrete NVIDIA/AMD card. Windows sometimes runs RuneLite (<code>javaw.exe</code>) on the weak integrated GPU. Force the discrete card: <strong>Windows Settings &rarr; System &rarr; Display &rarr; Graphics</strong>, add <code>javaw.exe</code> (find it via Task Manager &rarr; right-click RuneLite &rarr; "Open file location"), and set it to <strong>High performance</strong>. Then restart RuneLite.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="opengl-vulkan">
+                <h2>4. 💡 OpenGL vs Vulkan: Which Should You Use?</h2>
+                <p>The GPU plugin can render through two backends. You switch between them with the <strong>"Use Vulkan"</strong> toggle in the GPU config. The backend you pick has the biggest impact on both FPS and stability.</p>
+
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Factor</th><th>OpenGL (Default)</th><th>Vulkan (Opt-in)</th></tr>
+                    <tr><td>Compatibility</td><td>Excellent — works on almost everything</td><td>Good, but needs very recent drivers</td></tr>
+                    <tr><td>Stability</td><td>Very stable</td><td>Can crash, especially on AMD</td></tr>
+                    <tr><td>Performance</td><td>Solid, mature codebase</td><td>Often 10-30% more FPS when it works</td></tr>
+                    <tr><td>Best for</td><td>Everyone, especially laptops/integrated</td><td>High-end desktops with stable NVIDIA drivers</td></tr>
+                    <tr><td>Our recommendation</td><td><strong>Use this first</strong></td><td>Only after drivers are current and stable</td></tr>
+                </table>
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 The Practical Rule</div>
+                    <p>Leave <strong>Use Vulkan OFF</strong> unless you have a specific reason to chase extra FPS and your system is rock-solid. If you enable Vulkan and the client crashes or the plugin disables itself, switch straight back to OpenGL — the FPS gain is never worth a crash in the middle of a Vorkath kill.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="conflicts">
+                <h2>5. 🐛 Known Plugin Conflicts</h2>
+                <p>RuneLite plugins all share one render pipeline. When two plugins try to control it at the same time, the GPU plugin can fail to initialize or crash mid-session. These are the conflicts players report most often:</p>
+
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Conflict Source</th><th>Effect</th><th>Fix</th></tr>
+                    <tr><td>117 HD plugin</td><td>Requires the GPU plugin; disabling GPU while 117 HD is on breaks rendering</td><td>Keep GPU enabled; never toggle GPU off with 117 HD active</td></tr>
+                    <tr><td>External "RuneLite HD" / forked clients</td><td>Replaces the renderer entirely; conflicts with official GPU plugin</td><td>Use only official RuneLite from runelite.net</td></tr>
+                    <tr><td>Stretched Mode plugin + GPU stretch</td><td>Two stretch routines fight over the framebuffer</td><td>Use GPU plugin's built-in stretch, disable the separate plugin</td></tr>
+                    <tr><td>Discord / Steam overlay</td><td>Hooks the OpenGL context and can crash it</td><td>Disable in-game overlay for RuneLite</td></tr>
+                    <tr><td>RivaTuner / MSI Afterburner</td><td>On-screen stats inject into the context</td><td>Add RuneLite to the exclusion list, or close the tool</td></tr>
+                    <tr><td>OBS (certain capture modes)</td><td>Game capture can destabilize the context</td><td>Use Display Capture, or run OBS as administrator</td></tr>
+                </table>
+                </div>
+
+                <div class="action-step">
+                    <h4>① Isolate the Culprit in Safe Mode</h4>
+                    <p>Hold <strong>Shift</strong> while double-clicking the RuneLite launcher (or pick "Safe Mode" if your launcher offers it). This starts RuneLite with <strong>all plugins disabled</strong>. If the GPU plugin works fine in Safe Mode, a plugin is the problem — re-enable your plugins one batch at a time until the crash returns, then remove that plugin.</p>
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">🛡️ Stay on Official RuneLite</div>
+                    <p>After the <a href="osrs-bot-clients-shutdown-july-2026.html" style="color:#8b6914;font-weight:bold;">July 2026 bot-client shutdown</a>, unsupported or modified clients are both risky for your account and far more likely to crash the GPU plugin. Always download RuneLite from the official site and keep your <a href="osrs-account-security-guide-2026.html" style="color:#8b6914;font-weight:bold;">account security</a> tight.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="fallback">
+                <h2>6. 🔄 Fallback to Software Rendering</h2>
+                <p>If the GPU plugin simply will not run on your machine, you are not stuck. RuneLite automatically falls back to its <strong>built-in software renderer</strong> (your CPU draws the game). It is slower — often 15-30 FPS instead of 50+ — but it is fully playable for skilling, questing, and most content.</p>
+
+                <h3>⑥ How to Recover After a Crash</h3>
+                <div class="action-step">
+                    <h4>Step 1 — Confirm the fallback is active</h4>
+                    <p>The game is on software rendering if it looks slightly softer and FPS dropped. This is normal and safe — keep playing or close and fix the cause.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 2 — Clear the corrupted shader cache</h4>
+                    <p>A corrupted cached shader is a known crash trigger. Close RuneLite, then delete the GPU shader cache. On Windows it lives at <code>%USERPROFILE%\.runelite\cache\gpu</code> — delete that <code>gpu</code> folder. RuneLite rebuilds it cleanly on next launch.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 3 — Re-enable the plugin</h4>
+                    <p>Update your driver (Section 3), set the safe profile (Section 2), then re-toggle the <strong>GPU</strong> plugin on in the plugin hub. If it still disables itself, leave it off and enjoy software rendering — it is a legitimate way to play.</p>
+                </div>
+
+                <div class="method-box highlight">
+                    <h4>📱 No Working GPU? Play on Mobile</h4>
+                    <p>If your PC's graphics are truly unusable for the session, the official <a href="osrs-mobile-guide-2026.html" style="color:#8b6914;font-weight:bold;">OSRS Mobile app</a> lets you continue your account from a phone or tablet with zero client setup. It is a perfect stopgap while you sort out drivers at home. (If you ever see a <a href="osrs-vpn-login-blocked-fix-2026.html" style="color:#8b6914;font-weight:bold;">VPN login block</a>, that guide walks you through clearing it.)</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7: FAQ -->
+            <section id="faq">
+                <h2>7. ❓ FAQ — RuneLite GPU Plugin</h2>
+
+                <div class="faq-item">
+                    <h4>Why does my GPU plugin say "disabled due to an error"?</h4>
+                    <p>RuneLite disables the plugin automatically when the OpenGL/Vulkan render context fails — usually from an outdated driver, a too-heavy setting, or a plugin conflict. The game switches to the software renderer so you can keep playing. Update your GPU driver, set the safe profile in Section 2, and re-enable the plugin.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Is Vulkan better than OpenGL in RuneLite?</h4>
+                    <p>Vulkan can deliver 10-30% higher FPS on high-end desktops with current drivers, but it is less stable and crashes far more often — particularly on AMD hardware. OpenGL is the default for good reason: it works almost everywhere. Keep Vulkan off unless you specifically need the extra FPS and your system is stable.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Will using the GPU plugin get me banned?</h4>
+                    <p>No. The GPU plugin is an official, Jagex-approved part of the RuneLite client. It only changes how the game is drawn, not how you play. You will not be flagged for using it. What gets accounts banned is third-party "HD" clients or botting software — stick to official RuneLite.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>My FPS dropped badly right after a RuneLite update. What happened?</h4>
+                    <p>The update likely reset or changed the GPU plugin, or a driver/Windows update broke the render context. First check whether the GPU plugin is still enabled (Configuration &rarr; GPU). If it disabled itself, follow the recovery steps in Section 6. If it is enabled but slow, your driver may need a clean reinstall.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How do I fully reset the GPU plugin to default?</h4>
+                    <p>In RuneLite, right-click the GPU plugin in the plugin hub and choose <strong>Reset</strong> (or toggle it off, then on). For a deeper reset, close RuneLite and delete the <code>%USERPROFILE%\.runelite\cache\gpu</code> folder so shaders are recompiled from scratch. Combined with a clean driver install, this resolves almost every persistent crash.</p>
+                </div>
+            </section>
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 What To Do After the GPU Plugin Is Stable</h3>
+                <p>Once RuneLite runs smoothly again, put that performance to use. Here's where to go next:</p>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 1:</strong> Tune the rest of your client in the <a href="osrs-runelite-setup-guide-2026.html" style="color:#8b6914; font-weight:bold;">Full RuneLite Setup Guide</a> — the next-level walkthrough for plugins, hotkeys, and FPS
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 2:</strong> Protect your account with the <a href="osrs-account-security-guide-2026.html" style="color:#8b6914; font-weight:bold;">Account Security Guide</a> — 2FA and anti-phishing before you boss for profit
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 3:</strong> Keep playing anywhere via the <a href="osrs-mobile-guide-2026.html" style="color:#8b6914; font-weight:bold;">OSRS Mobile Guide</a> — a reliable fallback when your PC GPU acts up
+                    </div>
+                </div>
+                <a href="osrs-runelite-setup-guide-2026.html" class="support-btn paypal-btn" style="display:inline-block; text-decoration:none; margin-top:20px;">Next: Full RuneLite Setup Guide →</a>
+            </div>
+
+            <!-- RELATED GUIDES -->
+                    <div class="related-guides">
+      <h3>Related Guides</h3>
+      <div class="article-grid">
+        <a href="osrs-runelite-setup-guide-2026.html" class="article-card">
+          <h3>OSRS RuneLite Setup Guide 2026 — Plugins, Hotkeys &amp; FPS</h3>
+          <p>The complete next-level walkthrough: install RuneLite safely, pick the best plugins, bind hotkeys, and maximize FPS without crashing.</p>
+        </a>
+        <a href="osrs-mobile-guide-2026.html" class="article-card">
+          <h3>OSRS Mobile Guide 2026 — Play Anywhere</h3>
+          <p>Set up the official mobile app, sync your account, and keep skilling on the go when your PC GPU lets you down.</p>
+        </a>
+        <a href="osrs-account-security-guide-2026.html" class="article-card">
+          <h3>OSRS Account Security Guide 2026 — 2FA &amp; Anti-Phishing</h3>
+          <p>Lock down your account with two-factor auth and learn to spot scams before you lose a hard-earned bank.</p>
+        </a>
+        <a href="osrs-bot-clients-shutdown-july-2026.html" class="article-card">
+          <h3>Bot Clients Shutdown July 2026 — What It Means for Players</h3>
+          <p>Why unofficial clients are being shut down, and why sticking to official RuneLite keeps both your FPS and your account safe.</p>
+        </a>
+        <a href="osrs-vpn-login-blocked-fix-2026.html" class="article-card">
+          <h3>OSRS VPN Login Blocked — Fix 2026</h3>
+          <p>Hit a login block while using a VPN? Here's how to clear it and get back into your account fast.</p>
+        </a>
+      </div>
+</div>
+
+<!-- SUPPORT CARD -->
+<div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>Every guide is free — this one stays free either way.</h3>
+            <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+            <p style="margin:6px 0 0 0;line-height:1.7">
+                📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+            </p>
+            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+            <div class="support-amounts">
+                <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+        </div>
+    </div>
+</div>
+
+        </div>
+<!-- SUPPORT CARD -->
+    <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../levels/novice.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Novice Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ Client &amp; Setup</h4><ul>
+                    <li><a href="osrs-runelite-setup-guide-2026.html">RuneLite Setup</a></li>
+                    <li><a href="osrs-mobile-guide-2026.html">Mobile Guide</a></li>
+                    <li><a href="osrs-account-security-guide-2026.html">Account Security</a></li>
+                    <li><a href="osrs-bot-clients-shutdown-july-2026.html">Bot Client Shutdown</a></li>
+                    <li><a href="osrs-vpn-login-blocked-fix-2026.html">VPN Login Fix</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+<!-- Copyright & Anti-Scraping Notice -->
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+<style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#3b2615!important}
+.guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+.guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+.guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+@media (max-width: 768px) {
+    .guide-content table { font-size: 0.85rem; }
+    .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+    .guide-content table tbody td { padding: 6px 10px; }
+    .guide-content h2 { font-size: 1.4em; }
+    .guide-content h3 { font-size: 1.15em; }
+}
+@media (max-width: 640px) {
+    .guide-content table { display: block; overflow-x: auto; }
+    .guide-content h2 { font-size: 1.25em; }
+    .guide-content h3 { font-size: 1.05em; }
+}
+.tool-callout,.tool-callout p,.tool-callout h3,.tool-callout h4,.tool-callout strong,.tool-callout a:not(.support-amount-btn){color:#fff!important}
+.tool-callout{background:#3b2615!important}
+[style*="background:#2a1a0a"] p,[style*="background:#2a1a0a"] h3,[style*="background:#2a1a0a"] h4,[style*="background:#2a1a0a"] li,[style*="background:#3b2615"] p,[style*="background:#3b2615"] h3,[style*="background:#3b2615"] h4,[style*="background:#3b2615"] li{color:#fff!important}
+</style>
+
+</body>
+</html>

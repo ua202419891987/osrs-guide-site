@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windrose Dedicated Server Admin Commands &amp; How to Enable Admin (2026)</title>
+    <meta name="description" content="Run a Windrose dedicated server? Learn how to enable admin access and use every admin command — kick, ban, give, set time, weather, spawn and more — with syntax and real examples.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Windrose dedicated server admin commands, Windrose enable admin, Windrose server commands, Windrose kick ban give spawn command">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/windrose/windrose-dedicated-server-admin-commands-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{color:#7a64b8!important}
+        .guide-content h3{color:#7a64b8!important}
+        .guide-content .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;color:#2d2a33}
+        .guide-content .tip-box strong{color:#7a64b8}
+        .guide-content .warn-box{background:#fef9f5;border:1px solid #e8c8a0;color:#2d2a33}
+        .guide-content .warn-box strong{color:#b84a3a}
+        .guide-content .action-step{background:#faf8fc;border:1px solid #e0d8f0;margin:1.2rem 0;padding:1.2rem 1.5rem}
+        .guide-content .action-step h4{color:#7a64b8;margin:0 0 .6rem 0}
+        .guide-content .method-box{background:#faf8fc;border:1px solid #e0d8f0;padding:1.4rem;margin:1.25rem 0}
+        .guide-content .method-box h4{color:#7a64b8;margin:0 0 .85rem 0}
+        .guide-content .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .guide-content .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .guide-content .toc{background:#fff;border:1px solid #e0d8f0;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .guide-content .toc h3{color:#7a64b8!important}
+        .guide-content li{color:#2d2a33!important}
+        .guide-content p{color:#2d2a33!important}
+        .progress-widget{display:none!important}
+        table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+        table th{background:#f8f6fc;color:#7a64b8;padding:10px 14px;text-align:left;border:1px solid #e0d8f0;font-weight:700}
+        table td{padding:9px 14px;border:1px solid #eee;color:#333}
+        table tr:nth-child(even){background:#fafbfd}
+        .level-badge{display:inline-block;margin:.6rem 0 0;padding:.35rem 1rem;border-radius:20px;background:#f5f2f8;border:1px solid #9B84D4;color:#7a64b8;font-size:.85rem;font-weight:700;letter-spacing:.4px}
+        code,.cmd{font-family:Consolas,Monaco,'Courier New',monospace;background:#f3eefb;color:#7a64b8;padding:1px 6px;border-radius:4px;font-size:.88rem}
+    </style>
+</head>
+<body data-level="advanced">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Windrose <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#enable">Enable Admin</a></li>
+                    <li><a href="#commands">Command Table</a></li>
+                    <li><a href="#scenarios">Scenarios</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#windrose">Windrose</a> / Dedicated Server Admin Commands</p>
+            <h1>Windrose Dedicated Server Admin Commands &amp; How to Enable Admin</h1>
+            <span class="level-badge">🎖️ Level: Advanced</span>
+            <p class="subtitle">Hosting your own <strong>Windrose dedicated server</strong>? Admin access is what turns a bare lobby into a managed world. This guide shows you exactly how to <strong>promote yourself to admin</strong>, then walks through every admin command &mdash; <code>kick</code>, <code>ban</code>, <code>give</code>, <code>settime</code>, <code>weather</code>, <code>spawn</code> and more &mdash; with syntax and copy-paste examples you can run today.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🛡️</span> <strong>Server Administration</strong> · 10 min read · Updated July 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#7a64b8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Enable admin:</strong> set an <code>AdminPassword</code> in the server config, then run <code>/enableadmin [password]</code> in-game as the host or a promoted player.</li>
+                    <li>📌 <strong>Promote others:</strong> use <code>/setpermission [player] admin</code> so trusted friends can help moderate without sharing the password.</li>
+                    <li>📌 <strong>Moderate:</strong> <code>/kick</code> and <code>/ban</code> remove troublemakers; <code>/unban</code> reverses it from the ban list.</li>
+                    <li>📌 <strong>World control:</strong> <code>/settime</code>, <code>/weather</code>, <code>/spawn</code> and <code>/give</code> let you script events, fix stuck players, or seed resources.</li>
+                    <li>📌 <strong>Stay safe:</strong> keep the admin password out of public chat, log commands, and never grant admin to strangers.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#before">What You Need Before Starting</a></li>
+                    <li><a href="#enable">How to Enable Admin on a Dedicated Server</a></li>
+                    <li><a href="#permissions">Admin vs. Mod Permission Tiers</a></li>
+                    <li><a href="#commands">Admin Commands Reference Table</a></li>
+                    <li><a href="#scenarios">Practical Admin Scenarios (Examples)</a></li>
+                    <li><a href="#mistakes">Common Mistakes &amp; Safety Tips</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ol>
+            </div>
+
+            <section id="before">
+                <h2>1. 🔧 What You Need Before Starting</h2>
+                <p>Before you can run a single admin command, your dedicated server has to be in a state where admin is actually <em>possible</em>. Most "commands don't work" tickets come from skipping one of these prerequisites, not from bad syntax.</p>
+                <div class="action-step">
+                    <h4>① You must be running a dedicated server (not peer-to-peer)</h4>
+                    <p>Admin commands described here apply to a <strong>dedicated / rented Windrose server</strong> with console or config access. If you are just hosting a quick co-op session from the in-game menu, moderation is limited to the host's in-game pause menu. For true <code>kick</code>/<code>ban</code>/<code>spawn</code> control you need a dedicated instance &mdash; see the multiplayer guide linked below.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② You need write access to the server config</h4>
+                    <p>This means either SSH / file access to the server box, or the hosting panel's "Configuration" / "Startup Parameters" editor. You'll be editing a file (commonly <code>ServerSettings.ini</code> or the equivalent) to set the admin password.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ You need the in-game console open</h4>
+                    <p>Windrose admin commands are entered through the in-game chat/console (usually by typing <code>/</code> then the command, or pressing <code>~</code> / <code>F1</code> to open the dev console depending on your build). Keep it handy before you promote yourself.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Tip</div>
+                    <p>If you are migrating from a home-hosted world, back up your <code>Save</code> folder first. Enabling admin and running <code>give</code>/<code>spawn</code> commands modifies the live world &mdash; a backup means you can roll back if a command goes sideways.</p>
+                </div>
+            </section>
+
+            <section id="enable">
+                <h2>2. ⚙️ How to Enable Admin on a Dedicated Server</h2>
+                <p>Enabling admin is a two-part process: <strong>declare an admin password in the server config</strong>, then <strong>authenticate in-game</strong>. Follow these steps in order.</p>
+
+                <div class="method-box">
+                    <h4>Step 1 — Set the Admin Password in Config</h4>
+                    <p>Open your server's configuration file and add (or edit) the admin password line. A typical entry looks like this:</p>
+                    <p><code>AdminPassword=YourSecretPass123</code></p>
+                    <p>Choose a long, unique password. Do <strong>not</strong> reuse your panel login or anything guessable. Save the file and <strong>restart the server</strong> so the new password loads.</p>
+                </div>
+
+                <div class="method-box">
+                    <h4>Step 2 — Authenticate In-Game</h4>
+                    <p>Join the server, open the console, and run:</p>
+                    <p><code>/enableadmin YourSecretPass123</code></p>
+                    <p>If the password matches the config, you'll see a confirmation like <em>"You are now an admin."</em> From this point every admin command in section 4 will execute for you.</p>
+                </div>
+
+                <div class="method-box">
+                    <h4>Step 3 — (Optional) Promote Trusted Players</h4>
+                    <p>Instead of handing out the password, promote specific players so they can moderate without it:</p>
+                    <p><code>/setpermission CaptainRhea admin</code></p>
+                    <p>They then run <code>/enableadmin</code> with their own session &mdash; you stay in control of the master password while they get kick/ban authority.</p>
+                </div>
+
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Password in Chat = Compromised</div>
+                    <p>Never type the raw <code>AdminPassword</code> into public chat. Other players can see it and lock you out of your own server. Always authenticate via the console, which is local to your client.</p>
+                </div>
+            </section>
+
+            <section id="permissions">
+                <h2>3. 🛡️ Admin vs. Mod Permission Tiers</h2>
+                <p>Windrose uses a simple permission ladder. Knowing the tiers stops you from accidentally giving a random player full world-edit powers.</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Tier</th><th>Can do</th><th>Set with</th></tr>
+                    <tr><td>Player (default)</td><td>Play, build on claimed land, trade</td><td>&mdash;</td></tr>
+                    <tr><td>Mod</td><td>Kick, ban, mute, view logs</td><td><code>/setpermission [player] mod</code></td></tr>
+                    <tr><td>Admin</td><td>Everything a mod can, plus give, spawn, settime, weather, teleport, wipe</td><td><code>/setpermission [player] admin</code></td></tr>
+                    <tr><td>Owner</td><td>Full control incl. config-level resets</td><td>Config <code>AdminPassword</code> holder</td></tr>
+                </table>
+                </div>
+                <p>For most community servers, keep <strong>admins to 1&ndash;2 people</strong> and hand out <code>mod</code> to a few active, trusted regulars. That limits the blast radius if an account is shared or compromised.</p>
+            </section>
+
+            <section id="commands">
+                <h2>4. 📋 Admin Commands Reference Table</h2>
+                <p>This is the core cheat-sheet. Every command below assumes you have already authenticated with <code>/enableadmin</code>. Replace the bracketed tokens (<code>[player]</code>, <code>[item]</code>, etc.) with real values &mdash; examples are shown in the right column.</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Command</th><th>Syntax</th><th>Description</th><th>Example</th></tr>
+                    <tr><td><code>/enableadmin</code></td><td><code>/enableadmin [password]</code></td><td>Authenticate as admin for the session</td><td><code>/enableadmin Secret99</code></td></tr>
+                    <tr><td><code>/setpermission</code></td><td><code>/setpermission [player] [tier]</code></td><td>Grant mod / admin to a player</td><td><code>/setpermission Rhea admin</code></td></tr>
+                    <tr><td><code>/kick</code></td><td><code>/kick [player] [reason]</code></td><td>Remove a player from the server</td><td><code>/kick Troll42 Disrupting crew</code></td></tr>
+                    <tr><td><code>/ban</code></td><td><code>/ban [player] [reason]</code></td><td>Permanently block a player by ID</td><td><code>/ban Griefer01 Repeated spawn-kill</code></td></tr>
+                    <tr><td><code>/unban</code></td><td><code>/unban [player]</code></td><td>Remove a player from the ban list</td><td><code>/unban Griefer01</code></td></tr>
+                    <tr><td><code>/give</code></td><td><code>/give [player] [item] [amount]</code></td><td>Spawn items into a player's inventory</td><td><code>/give Rhea oak_plank 50</code></td></tr>
+                    <tr><td><code>/settime</code></td><td><code>/settime [hour]</code></td><td>Set the world clock (0&ndash;23)</td><td><code>/settime 18</code></td></tr>
+                    <tr><td><code>/weather</code></td><td><code>/weather [type]</code></td><td>Force clear / rain / storm</td><td><code>/weather storm</code></td></tr>
+                    <tr><td><code>/spawn</code></td><td><code>/spawn [entity] [count]</code></td><td>Spawn an entity near you</td><td><code>/spawn serpent 1</code></td></tr>
+                    <tr><td><code>/teleport</code></td><td><code>/tp [player] [player]</code></td><td>Move a player to another player</td><td><code>/tp Newbie Rhea</code></td></tr>
+                    <tr><td><code>/heal</code></td><td><code>/heal [player]</code></td><td>Restore HP / stamina to full</td><td><code>/heal Rhea</code></td></tr>
+                    <tr><td><code>/godmode</code></td><td><code>/godmode [on|off]</code></td><td>Toggle invulnerability for a target</td><td><code>/godmode on</code></td></tr>
+                    <tr><td><code>/broadcast</code></td><td><code>/broadcast [message]</code></td><td>Send a server-wide announcement</td><td><code>/broadcast Event starts in 5m!</code></td></tr>
+                    <tr><td><code>/listplayers</code></td><td><code>/listplayers</code></td><td>List all online players + IDs</td><td><code>/listplayers</code></td></tr>
+                    <tr><td><code>/save</code></td><td><code>/save</code></td><td>Force a world save</td><td><code>/save</code></td></tr>
+                    <tr><td><code>/shutdown</code></td><td><code>/shutdown [seconds]</code></td><td>Gracefully stop the server</td><td><code>/shutdown 30</code></td></tr>
+                </table>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Exact Token Names</div>
+                    <p>Item and entity tokens vary by Windrose build. If <code>/give Rhea oak_plank 50</code> fails, run <code>/listitems</code> (or check your server's item list) to get the exact internal name. Wrong casing is the #1 cause of "command accepted but nothing happens."</p>
+                </div>
+            </section>
+
+            <section id="scenarios">
+                <h2>5. 🎯 Practical Admin Scenarios (Examples)</h2>
+                <p>Theory is fine, but here are real situations where these commands save your server.</p>
+
+                <div class="action-step">
+                    <h4>Scenario A — A griefer is spawn-killing newcomers</h4>
+                    <p>Open console, identify them, then <code>/kick Griefer01 Stop griefing</code>. If they return, escalate to <code>/ban Griefer01 Repeated spawn-kill</code>. The ban sticks across reconnects via their player ID.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Scenario B — Your community wants a night-time festival</h4>
+                    <p>Set the mood without waiting for the cycle: <code>/settime 21</code> then <code>/weather clear</code>. Broadcast it: <code>/broadcast Tonight's lantern festival begins now!</code></p>
+                </div>
+                <div class="action-step">
+                    <h4>Scenario C — A new player is stuck under the deck / out of bounds</h4>
+                    <p>Rescue them with <code>/tp Newbie Rhea</code> (pull them to you) or <code>/heal Newbie</code> if they're taking void damage. No need to restart the session.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Scenario D — You want to seed a trading hub with starter mats</h4>
+                    <p>Hand a builder resources: <code>/give BuilderBob iron_ingot 200</code>. Pair with <code>/save</code> right after so the grant is persisted before anyone disconnects.</p>
+                </div>
+                <div class="method-box">
+                    <h4>📋 Pre-event Admin Checklist</h4>
+                    <ol>
+                        <li>Confirm you're authenticated (<code>/enableadmin</code> succeeded).</li>
+                        <li>Run <code>/listplayers</code> to grab exact names/IDs.</li>
+                        <li>Pre-stage any <code>/give</code> or <code>/spawn</code> commands in notepad.</li>
+                        <li>Announce with <code>/broadcast</code> at start and end.</li>
+                        <li>Finish with <code>/save</code> to lock in changes.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section id="mistakes">
+                <h2>6. ⚠️ Common Mistakes &amp; Safety Tips</h2>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Mistake</th><th>Why it bites you</th><th>Fix</th></tr>
+                    <tr><td>Sharing the admin password in chat</td><td>Anyone can lock you out</td><td>Use <code>/setpermission</code> instead; keep password private</td></tr>
+                    <tr><td>Granting admin to a stranger</td><td>They can <code>/give</code> themselves everything and <code>/ban</code> you</td><td>Start with <code>mod</code>, promote slowly</td></tr>
+                    <tr><td>Wrong item/entity casing</td><td>Command "succeeds" but nothing spawns</td><td>Verify tokens with <code>/listitems</code></td></tr>
+                    <tr><td>Forgetting <code>/save</code></td><td>Grants lost on crash</td><td>Save after every batch of edits</td></tr>
+                    <tr><td>Over-banning for minor issues</td><td>Empty server, bad reputation</td><td><code>/kick</code> + warn first, <code>/ban</code> as last resort</td></tr>
+                </table>
+                </div>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Log Everything</div>
+                    <p>Most dedicated hosts write admin actions to a log file. Review it after events &mdash; if a "mod" banned someone with no reason, you'll catch abuse early. Transparency keeps your community trusting the team.</p>
+                </div>
+            </section>
+
+            <section id="faq">
+                <h2>7. ❓ FAQs</h2>
+                <div class="faq-item">
+                    <h4>Why do my admin commands say "unknown command"?</h4>
+                    <p>Nine times out of ten you haven't authenticated. Run <code>/enableadmin [password]</code> first, and make sure the password in config matches exactly (case-sensitive). Also confirm you're on a dedicated server, not a peer-to-peer session.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I enable admin without restarting the server?</h4>
+                    <p>The password itself must be loaded at startup, so changing <code>AdminPassword</code> requires a restart. But once it's set, you can promote/demote players live with <code>/setpermission</code> without restarting.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How do I unban someone I banned by mistake?</h4>
+                    <p>Run <code>/unban [player]</code> from an admin session. If the ban was written to a ban list file, you can also remove the line there and restart. Always note the exact player ID when banning so unban is clean.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Will using admin commands flag me as a cheater?</h4>
+                    <p>No &mdash; admin commands are a legitimate server-management feature, not an exploit. They only affect your own dedicated world. Just don't use them on official/ranked servers you don't own.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>My <code>/give</code> worked but the items vanished on logout &mdash; why?</h4>
+                    <p>You likely didn't run <code>/save</code> before the player disconnected or the server crashed. Get in the habit of saving after every grant. Also double-check the item token was valid; an invalid token can "succeed" with no effect.</p>
+                </div>
+            </section>
+
+            <div class="next-steps">
+                <h3>🎯 Level Up Your Server</h3>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Keep your world smooth with <a href="windrose-performance-optimization-2026.html" style="color:#7a64b8; font-weight:bold;">Performance Optimization Guide 2026</a> (next-level server tuning)
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Set up multiplayer correctly first in <a href="windrose-coop-multiplayer-guide-2026.html" style="color:#7a64b8; font-weight:bold;">Co-op &amp; Multiplayer Guide 2026</a>
+                </div>
+            </div>
+
+            <div class="related-guides">
+                <h3>More Windrose Guides</h3>
+                <div class="article-grid">
+                    <a href="windrose-beginner-guide-2026.html" class="article-card">
+                        <h3>Beginner Guide</h3>
+                        <p>Start your Windrose journey right.</p>
+                    </a>
+                    <a href="windrose-coop-multiplayer-guide-2026.html" class="article-card">
+                        <h3>Co-op &amp; Multiplayer</h3>
+                        <p>Host, join, and manage sessions.</p>
+                    </a>
+                    <a href="windrose-performance-optimization-2026.html" class="article-card">
+                        <h3>Performance Optimization</h3>
+                        <p>Keep dedicated servers running fast.</p>
+                    </a>
+                    <a href="windrose-beginner-guide-2026.html" class="article-card">
+                        <h3>New Player Basics</h3>
+                        <p>Core systems every captain needs.</p>
+                    </a>
+                </div>
+
+                <div class="tool-callout" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+                    <p style="color:#7a64b8;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">📚 More Windrose Guides</p>
+                    <p style="color:#2D2A33!important;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Stuck on another issue? Browse our full Windrose guide library.</p>
+                    <a href="../../index.html#windrose" style="display:inline-block;padding:0.65rem 1.8rem;background:#9B84D4;color:#fff;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Browse Guides →</a>
+                </div>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🔓</span>
+                    <div class="support-text">
+                        <h3>Every guide is free — this one stays free either way.</h3>
+                        <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+                        <p style="margin:6px 0 0 0;line-height:1.7">
+                            📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                            ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                            ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                            🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+                        </p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack</a>
+                        </div>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../../levels/advanced.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Advanced Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>Windrose Guru</h4><p>Free Windrose guides updated weekly.</p></div>
+                <div class="footer-col"><h4>Guides</h4><ul>
+                    <li><a href="windrose-beginner-guide-2026.html">Beginner Guide</a></li>
+                    <li><a href="windrose-coop-multiplayer-guide-2026.html">Co-op &amp; Multiplayer</a></li>
+                    <li><a href="windrose-performance-optimization-2026.html">Performance</a></li>
+                    <li><a href="../../index.html#windrose">All Windrose Guides</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>More</h4><ul>
+                    <li><a href="../../index.html">OSRS Guru Home</a></li>
+                    <li><a href="../../index.html#windrose">All Windrose Guides</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 Windrose Guru &middot; Not affiliated with Windrose Studio &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #7a64b8;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Windrose is a trademark of its respective owner. Not affiliated with or endorsed by the game's developers.</p>
+    </div>
+
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content{color:#2d2a33!important}
+    .guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#2d2a33!important}
+    .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .faq-item,.guide-content .warn-box,.guide-content .next-steps{background:#fff!important;border:1px solid #e0d8f0!important}
+    .guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .action-step p,.guide-content .action-step li,.guide-content .warn-box p,.guide-content .warn-box li,.guide-content .next-steps p,.guide-content .next-steps li{color:#2d2a33!important}
+    .guide-content .faq-item h4,.guide-content .method-box h4,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warn-box strong,.guide-content .next-steps strong{color:#7a64b8!important}
+    .guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+    .guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    .guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    .tool-callout,.tool-callout p,.tool-callout h3,.tool-callout h4,.tool-callout strong,.tool-callout a:not(.support-amount-btn){color:#fff!important}
+.tool-callout{background:#3b2615!important}
+[style*="background:#2a1a0a"] p,[style*="background:#2a1a0a"] h3,[style*="background:#2a1a0a"] h4,[style*="background:#2a1a0a"] li,[style*="background:#3b2615"] p,[style*="background:#3b2615"] h3,[style*="background:#3b2615"] h4,[style*="background:#3b2615"] li{color:#fff!important}
+</style>
+</body>
+</html>

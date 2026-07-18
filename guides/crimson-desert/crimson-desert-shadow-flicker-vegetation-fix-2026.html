@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert Shadow Flicker &amp; Vegetation Jitter Fix (2026)</title>
+    <meta name="description" content="Crimson Desert shadow flicker and vegetation jitter make the world shimmer and crawl. Here are the exact graphics settings — shadow quality, contact shadows, foliage density, anti-aliasing, and draw distance — to fix it on PS5 and PC.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Crimson Desert shadow flicker fix, Crimson Desert vegetation jitter, foliage shimmer fix, contact shadows flicker, Crimson Desert graphics settings 2026">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-shadow-flicker-vegetation-fix-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .progress-widget{display:none!important}
+        .guide-content h2{color:#7a64b8!important}
+        .guide-content h3{color:#7a64b8!important}
+        .guide-content .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;color:#2d2a33}
+        .guide-content .tip-box strong{color:#7a64b8}
+        .guide-content .warn-box{background:#fef9f5;border:1px solid #e8c8a0;color:#2d2a33}
+        .guide-content .warn-box strong{color:#b84a3a}
+        .guide-content .action-step{background:#faf8fc;border:1px solid #e0d8f0;margin:1.2rem 0;padding:1.2rem 1.5rem}
+        .guide-content .action-step h4{color:#7a64b8;margin:0 0 .6rem 0}
+        .guide-content .method-box{background:#faf8fc;border:1px solid #e0d8f0;padding:1.4rem;margin:1.25rem 0}
+        .guide-content .method-box h4{color:#7a64b8;margin:0 0 .85rem 0}
+        .guide-content .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .guide-content .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .guide-content .toc{background:#fff;border:1px solid #e0d8f0;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .guide-content .toc h3{color:#7a64b8!important}
+        .guide-content li{color:#2d2a33!important}
+        .guide-content p{color:#2d2a33!important}
+        .progress-widget{display:none!important}
+        table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+        table th{background:#f8f6fc;color:#7a64b8;padding:10px 14px;text-align:left;border:1px solid #e0d8f0;font-weight:700}
+        table td{padding:9px 14px;border:1px solid #eee;color:#333}
+        table tr:nth-child(even){background:#fafbfd}
+    </style>
+</head>
+<body data-level="novice">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Crimson Desert <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#cause">The Cause</a></li>
+                    <li><a href="#shadow">Shadow Quality</a></li>
+                    <li><a href="#contact">Contact Shadows</a></li>
+                    <li><a href="#foliage">Foliage</a></li>
+                    <li><a href="#table">Settings Table</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../guides/crimson-desert/crimson-desert-new-player-guide-2026.html">Crimson Desert</a> / Shadow Flicker &amp; Vegetation Jitter Fix</p>
+            <h1>Crimson Desert Shadow Flicker &amp; Vegetation Jitter Fix</h1>
+            <p class="subtitle">If the grass dances, the leaves shimmer, and shadows pop in and out as you move, you are not imagining it. This guide shows the exact graphics settings — shadow quality, contact shadows, foliage density, anti-aliasing, and draw distance — that calm the flicker on PS5, PS5 Pro, and PC.</p>
+            <div class="weekly-badge">
+                <span class="level-badge">🟢 Novice</span> <strong>Graphics Fix</strong> · 7 min read · Updated July 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#7a64b8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Shadow flicker</strong> is usually caused by high shadow quality + long draw distance fighting for GPU headroom.</li>
+                    <li>📌 <strong>Vegetation jitter</strong> comes from dense foliage plus weak anti-aliasing shimmering on thin leaves.</li>
+                    <li>📌 <strong>Set Shadow Quality to Medium</strong> and turn <strong>Contact Shadows off</strong> for the biggest stability gain.</li>
+                    <li>📌 <strong>Drop Foliage Density to Medium</strong> and use <strong>TAA or FSR AA</strong> instead of off/none.</li>
+                    <li>📌 <strong>Lower Draw Distance</strong> one notch to shrink the amount of geometry the engine re-renders each frame.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#cause">What Causes Shadow Flicker &amp; Vegetation Jitter</a></li>
+                    <li><a href="#shadow">Shadow Quality: The #1 Fix</a></li>
+                    <li><a href="#contact">Contact Shadows: Disable for Stability</a></li>
+                    <li><a href="#foliage">Foliage Density: Calm the Canopy</a></li>
+                    <li><a href="#aa">Anti-Aliasing: Stop the Shimmer</a></li>
+                    <li><a href="#draw">Draw Distance: Less Geometry, Less Flicker</a></li>
+                    <li><a href="#table">Settings vs Impact Data Table</a></li>
+                    <li><a href="#console">Console vs PC Notes</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ol>
+            </div>
+
+            <section id="cause">
+                <h2>🌿 1. What Causes Shadow Flicker &amp; Vegetation Jitter</h2>
+                <p>Crimson Desert renders a huge, lush open world. That beauty has a cost: thousands of shadow-casting objects and dense vegetation all compete for the same GPU budget every frame. When the engine cannot keep up, two visual glitches appear.</p>
+                <div class="method-box">
+                    <h4>🔦 Shadow Flicker</h4>
+                    <p>Shadows "pop," crawl, or strobe along edges as the camera moves. This happens when <strong>shadow resolution is too high for the distance it covers</strong> — the shadow map runs out of texels, so tiny details alias and flicker. Long draw distance makes it worse because more objects share the same shadow map.</p>
+                </div>
+                <div class="method-box">
+                    <h4>🌾 Vegetation Jitter</h4>
+                    <p>Grass, leaves, and branches shimmer or "crawl" when you move. This is <strong>geometry aliasing</strong>: thin, high-frequency surfaces (blades of grass) are not sampled smoothly, especially with weak or disabled anti-aliasing. High foliage density stacks millions of these surfaces on screen at once.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Good News</div>
+                    <p>Neither problem is a hardware fault. Both are settings-driven, so you can fix them entirely in the graphics menu in about two minutes.</p>
+                </div>
+            </section>
+
+            <section id="shadow">
+                <h2>🎚️ 2. Shadow Quality: The #1 Fix</h2>
+                <p>Shadow Quality controls the resolution of the shadow map. <strong>Ultra / High</strong> looks crisp up close but forces the engine to re-render a massive shadow map every frame, and when the GPU is busy the map samples inconsistently — that is your flicker.</p>
+                <div class="action-step">
+                    <h4>① Set Shadow Quality to Medium</h4>
+                    <p>Medium is the sweet spot. It keeps shadows readable while cutting the per-frame shadow cost dramatically, which is what stops the popping. On weaker GPUs, <strong>Low</strong> is fine and removes flicker almost entirely.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Avoid "Ultra" Unless You Have Headroom</h4>
+                    <p>If you are on a base PS5 or a mid-range PC GPU, Ultra shadows are the single most common cause of shadow strobing in towns and forests. Drop it before touching anything else.</p>
+                </div>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Test One Change at a Time</div>
+                    <p>Change Shadow Quality, then walk into a forest and look at the ground. If flicker remains, move to the next setting. This isolates what actually helps on your hardware.</p>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2>🟦 3. Contact Shadows: Disable for Stability</h2>
+                <p>Contact Shadows add small, soft shadows where objects meet the ground (great for grounding grass and rocks). But they are computed separately and are a frequent source of <strong>micro-strobing</strong> on vegetation, because thousands of grass blades each try to cast a tiny contact shadow.</p>
+                <div class="action-step">
+                    <h4>① Turn Contact Shadows Off</h4>
+                    <p>Disabling them removes a large chunk of vegetation flicker with almost no visible loss in open-world scenes. This is the highest-impact toggle after Shadow Quality.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② If You Must Keep Them, Lower Resolution</h4>
+                    <p>Some builds let you set contact shadow resolution. Keep it at Low. Never pair High contact shadows with High foliage density — that combination is the classic jitter recipe.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Why This Works</div>
+                    <p>Contact shadows are screen-space effects recalculated every frame. Cutting them reduces the number of shadow passes the GPU must finish in your frame budget — fewer passes, fewer flickers.</p>
+                </div>
+            </section>
+
+            <section id="foliage">
+                <h2>🌳 4. Foliage Density: Calm the Canopy</h2>
+                <p>Foliage Density decides how many grass blades, bushes, and leaves are drawn. At <strong>High / Ultra</strong>, the engine pushes millions of thin, high-frequency surfaces that anti-aliasing struggles to sample — producing the crawling, shimmering canopy.</p>
+                <div class="action-step">
+                    <h4>① Drop Foliage Density to Medium</h4>
+                    <p>Medium visibly reduces the number of grass instances while still looking lush. The shimmer drops because there is simply less fine geometry to alias.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② On Weak Hardware, Use Low</h4>
+                    <p>Low foliage is the most reliable way to kill vegetation jitter on base PS5 or older PCs. You lose some ground cover, but the world stops crawling.</p>
+                </div>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Do Not Crank Foliage With Weak AA</div>
+                    <p>Foliage Density and Anti-Aliasing interact. High foliage + off/weak AA = guaranteed shimmer. Lower foliage first, then fix AA (next section).</p>
+                </div>
+            </section>
+
+            <section id="aa">
+                <h2>🔍 5. Anti-Aliasing: Stop the Shimmer</h2>
+                <p>Anti-aliasing (AA) is what smooths jagged edges and, crucially, <strong>reduces the shimmer on thin vegetation</strong>. Running with AA off is the second-biggest cause of grass jitter after high foliage density.</p>
+                <div class="action-step">
+                    <h4>① Use TAA or FSR AA (Not Off)</h4>
+                    <p>Temporal Anti-Aliasing (TAA) samples across frames, which is exactly what thin grass needs to stop crawling. FSR's AA mode also helps. Avoid "None" unless your GPU is very weak.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② If TAA Looks Too Soft, Use FSR Quality + AA</h4>
+                    <p>Some players find TAA blurs distant detail. On PC, pair FSR at "Quality" with its AA on. On PS5, TAA is usually the best balance of sharpness and stability.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 AA vs FPS</div>
+                    <p>TAA is cheaper than you think and prevents the most annoying jitter. The FPS you "save" by disabling AA is not worth the shimmer it creates.</p>
+                </div>
+            </section>
+
+            <section id="draw">
+                <h2>📏 6. Draw Distance: Less Geometry, Less Flicker</h2>
+                <p>Draw Distance controls how far the engine renders objects, including shadows and foliage. Longer distance means more objects share the same shadow map and more vegetation is visible — both amplify flicker.</p>
+                <div class="action-step">
+                    <h4>① Lower Draw Distance One Notch</h4>
+                    <p>Moving from Ultra to High (or High to Medium) shrinks the rendered world slightly but cuts the shadow-map load and foliage count meaningfully. This is a quiet hero setting for flicker.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Keep It Consistent With Shadow Quality</h4>
+                    <p>If shadows are Medium but draw distance is Ultra, you still over-load the shadow map with distant objects. Match them: Medium shadows + Medium-High draw distance.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">🔧 The 5-Setting Combo</div>
+                    <p>The reliable anti-flicker preset is: <strong>Shadow Quality Medium · Contact Shadows Off · Foliage Density Medium · AA TAA/FSR · Draw Distance one step down.</strong> Apply all five together for a clean, stable image.</p>
+                </div>
+            </section>
+
+            <section id="table">
+                <h2>📊 7. Settings vs Impact Data Table</h2>
+                <p>The table below ranks each setting by how much it reduces flicker/jitter versus how much visual quality and FPS it costs. Use it to decide what to trade on your hardware.</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Setting</th><th>Recommended</th><th>Flicker / Jitter Reduction</th><th>FPS Cost</th><th>Visual Quality Loss</th><th>Priority</th></tr>
+                    <tr><td>Shadow Quality</td><td>Medium (Low on weak GPU)</td><td>High</td><td>Medium save</td><td>Low&ndash;Medium</td><td>1 (do first)</td></tr>
+                    <tr><td>Contact Shadows</td><td>Off</td><td>High</td><td>Small save</td><td>Very Low</td><td>2</td></tr>
+                    <tr><td>Foliage Density</td><td>Medium (Low on weak GPU)</td><td>High</td><td>Medium save</td><td>Low&ndash;Medium</td><td>3</td></tr>
+                    <tr><td>Anti-Aliasing</td><td>TAA / FSR AA (never Off)</td><td>Medium&ndash;High</td><td>Low cost</td><td>None (sharper)</td><td>4</td></tr>
+                    <tr><td>Draw Distance</td><td>One notch down</td><td>Medium</td><td>Small&ndash;Medium save</td><td>Low</td><td>5</td></tr>
+                    <tr><td>Motion Blur</td><td>Off (optional)</td><td>Low</td><td>Tiny save</td><td>Low</td><td>6</td></tr>
+                    <tr><td>Volumetric Fog</td><td>Low (optional)</td><td>Low</td><td>Small save</td><td>Low&ndash;Medium</td><td>7</td></tr>
+                </table>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">📌 How to Read It</div>
+                    <p>"Flicker / Jitter Reduction" is the bang for your buck. Shadow Quality and Contact Shadows give the most stability per setting changed. AA is nearly free and should never be off.</p>
+                </div>
+            </section>
+
+            <section id="console">
+                <h2>🎮 8. Console vs PC Notes</h2>
+                <p>The fixes above work on both platforms, but the menus differ slightly.</p>
+                <div class="method-box">
+                    <h4>🕹️ PS5 / PS5 Pro</h4>
+                    <p>Open <strong>Settings &rarr; Graphics</strong>. Use <strong>Performance Mode</strong> (not Resolution Mode) for extra headroom, then apply the five-setting combo. Consoles cannot roll back patches, so settings are your only lever &mdash; but they fully fix the flicker for most players.</p>
+                </div>
+                <div class="method-box">
+                    <h4>🖥️ PC</h4>
+                    <p>You have finer control and can also update your <strong>GPU driver</strong> for better shadow handling. If flicker persists after settings, a driver update (or a clean driver reinstall) often resolves residual shadow-map artifacts.</p>
+                </div>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Mods Are Not the Answer</div>
+                    <p>Do not install "anti-flicker" mods or config hacks. They risk your save data and account, and the in-game settings already solve this cleanly.</p>
+                </div>
+            </section>
+
+            <section id="faq">
+                <h2>❓ 9. FAQs</h2>
+                <div class="faq-item">
+                    <h4>Will lowering these settings make the game look bad?</h4>
+                    <p>Minimally. Shadow Quality Medium and Foliage Medium still look great in motion. The flicker you remove is far more distracting than the tiny detail you trade away.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Why does grass shimmer even when I am standing still?</h4>
+                    <p>That is usually weak or disabled anti-aliasing plus dense foliage. Turn AA on (TAA/FSR) and drop Foliage Density &mdash; the standing-still shimmer should disappear.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is shadow flicker a 1.13 regression like the FPS drop?</h4>
+                    <p>Not exactly. Flicker is settings-driven and present on most builds; the 1.13 FPS regression is separate. Fixing settings helps both, but the FPS regression also needs the patch notes covered in our performance guide.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do I need to restart the game after changing these?</h4>
+                    <p>Most take effect instantly. Shadow and foliage changes sometimes need you to move to a new area (or a quick menu close/reopen) to fully refresh. A full restart is never required.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>My GPU is high-end but I still see flicker &mdash; why?</h4>
+                    <p>Ultra shadow quality with Ultra draw distance can still over-load even strong GPUs in dense forests. Drop both one notch; the flicker is about shadow-map coverage, not raw power.</p>
+                </div>
+            </section>
+
+            <div class="next-steps">
+                <h3>🎯 Take It Further</h3>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Want the full tuned preset? Read <a href="crimson-desert-best-settings-performance-2026.html" style="color:#7a64b8; font-weight:bold;">Best Settings for Performance 2026</a> for the complete optimized configuration across every platform.
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Still seeing artifacts after a driver update? See <a href="crimson-desert-gpu-driver-guide-2026.html" style="color:#7a64b8; font-weight:bold;">GPU Driver Guide 2026</a> to clean-install the right drivers.
+                </div>
+            </div>
+
+            <div class="related-guides">
+                <h3>More Crimson Desert Guides</h3>
+                <div class="article-grid">
+                    <a href="crimson-desert-best-settings-performance-2026.html" class="article-card">
+                        <h3>Best Settings for Performance 2026</h3>
+                        <p>Full optimized settings for PC and console.</p>
+                    </a>
+                    <a href="crimson-desert-gpu-driver-guide-2026.html" class="article-card">
+                        <h3>GPU Driver Guide 2026</h3>
+                        <p>Clean-install drivers to kill residual artifacts.</p>
+                    </a>
+                    <a href="crimson-desert-crash-fix-guide-2026.html" class="article-card">
+                        <h3>Crash Fix Guide 2026</h3>
+                        <p>Fix D3D12 and UE5 fatal errors.</p>
+                    </a>
+                    <a href="crimson-desert-new-player-guide-2026.html" class="article-card">
+                        <h3>New Player Guide 2026</h3>
+                        <p>Start your journey the right way.</p>
+                    </a>
+                </div>
+
+                <div class="tool-callout" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+                    <p style="color:#7a64b8;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">📚 More Crimson Desert Guides</p>
+                    <p style="color:#2D2A33!important;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Stuck on another issue? Browse our full Crimson Desert guide library.</p>
+                    <a href="../../guides/crimson-desert/crimson-desert-new-player-guide-2026.html" style="display:inline-block;padding:0.65rem 1.8rem;background:#9B84D4;color:#fff;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Browse Guides →</a>
+                </div>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🔓</span>
+                    <div class="support-text">
+                        <h3>Every guide is free — this one stays free either way.</h3>
+                        <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+                        <p style="margin:6px 0 0 0;line-height:1.7">
+                            📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                            ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                            ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                            🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+                        </p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack</a>
+                        </div>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../../levels/novice.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Novice Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>Crimson Desert Guru</h4><p>Free Crimson Desert guides updated weekly.</p></div>
+                <div class="footer-col"><h4>Guides</h4><ul>
+                    <li><a href="crimson-desert-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="crimson-desert-best-settings-performance-2026.html">Performance Settings</a></li>
+                    <li><a href="crimson-desert-gpu-driver-guide-2026.html">GPU Drivers</a></li>
+                    <li><a href="crimson-desert-crash-fix-guide-2026.html">Crash Fix</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>More</h4><ul>
+                    <li><a href="../../index.html">OSRS Guru Home</a></li>
+                    <li><a href="../../guides/crimson-desert/index.html">All CD Guides</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #7a64b8;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Crimson Desert is a trademark of Pearl Abyss. Not affiliated with or endorsed by Pearl Abyss.</p>
+    </div>
+
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content{color:#2d2a33!important}
+    .guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#2d2a33!important}
+    .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .faq-item,.guide-content .warn-box,.guide-content .next-steps{background:#fff!important;border:1px solid #e0d8f0!important}
+    .guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .action-step p,.guide-content .action-step li,.guide-content .warn-box p,.guide-content .warn-box li,.guide-content .next-steps p,.guide-content .next-steps li{color:#2d2a33!important}
+    .guide-content .faq-item h4,.guide-content .method-box h4,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warn-box strong,.guide-content .next-steps strong{color:#7a64b8!important}
+    .guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+    .guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    .guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    .tool-callout,.tool-callout p,.tool-callout h3,.tool-callout h4,.tool-callout strong,.tool-callout a:not(.support-amount-btn){color:#fff!important}
+.tool-callout{background:#3b2615!important}
+[style*="background:#2a1a0a"] p,[style*="background:#2a1a0a"] h3,[style*="background:#2a1a0a"] h4,[style*="background:#2a1a0a"] li,[style*="background:#3b2615"] p,[style*="background:#3b2615"] h3,[style*="background:#3b2615"] h4,[style*="background:#3b2615"] li{color:#fff!important}
+</style>
+</body>
+</html>
