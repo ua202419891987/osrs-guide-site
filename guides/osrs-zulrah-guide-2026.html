@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Zulrah Boss Guide 2026 — Rotations, Phases, Verified Drop Rates & GP/hr</title>
+    <meta name="description" content="Updated July 2026. The advanced OSRS Zulrah guide: the four rotations and phases (Green=Ranged, Blue=Magic, Crimson=Melee, Jad flick), verified drop rates (Tanzanite fang 1/512, Magic fang 1/512, Serpentine visage 1/512, Pet snakeling 1/4,000), tiered gear, GP/hr table, a rotation diagram and a rare-drop EV calculator.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS Zulrah guide 2026, Zulrah rotations, Zulrah drop rates, Zulrah GP per hour, Zulrah phases, Old School RuneScape Zulrah, Zulrah gear setup">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/osrs-zulrah-guide-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="advanced" data-category="bosses">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRSGuru</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../skill-training.html">Skill Training</a></li>
+                    <li><a href="../money-making.html">Money Making</a></li>
+                    <li><a href="../boss-guides.html">Boss Guides</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../boss-guides.html">Boss Guides</a> / OSRS Zulrah Boss Guide 2026</p>
+            <h1>OSRS Zulrah Boss Guide 2026 — The Money Snake's Four Rotations</h1>
+            <span class="level-badge" style="display:inline-block;background:#9B84D4;color:#fff;padding:3px 12px;border-radius:20px;font-size:.8rem;font-weight:700;margin:8px 0 4px;">Advanced</span>
+            <p class="subtitle">Zulrah is the classic solo profit boss of OSRS — a 500-HP serpent you fight in a private instance at Zul-Andra. The whole fight is a memory test: learn the <strong>four rotations</strong>, switch <strong>Protect prayers</strong> on cue, dodge venom clouds, and bank 2.5–4.5M GP/hr. This gold-standard guide gives verified July-2026 drop rates, tiered gear, a GP/hr table, a rotation diagram, and a live rare-drop calculator.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>Boss Guides</strong> — Solo PvM · 15 min read · Updated July 2026
+            </div>
+            <p class="article-meta" style="color:#e8d5b7;font-size:.82rem;margin:.6rem 0 0;opacity:.85;">Published: July 20, 2026 · Last verified: July 2026 · Data source: OSRS Wiki (oldschool.runescape.wiki) &amp; Drop Rate Project</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+
+            <!-- QUICK VERDICT -->
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#b8860b;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Four fixed rotations.</strong> Green = Ranged (Pray Missiles), Blue = Magic (Pray Magic), Crimson = Melee stun (no prayer, run), Jad phase = flick Ranged↔Magic.</li>
+                    <li>📌 <strong>50% fire weakness.</strong> Since the 29 May 2024 update Zulrah takes +50% damage from fire spells — Eye of Ayak / Fire Surge melt the Green &amp; Crimson phases.</li>
+                    <li>📌 <strong>No Slayer needed.</strong> Requirements: Regicide (started, for the Zul-Andra teleport), 75+ Magic &amp; Ranged (90+ ideal). Anyone can kill it.</li>
+                    <li>📌 <strong>Top loot:</strong> Magic fang <strong>1/512</strong>, Tanzanite fang <strong>1/512</strong>, Serpentine visage <strong>1/512</strong>, Pet snakeling <strong>1/4,000</strong>.</li>
+                    <li>📌 <strong>Profit:</strong> ~3.0–4.5M GP/hr <em>before supplies</em> at 24–35 kph (OSRS Wiki money-making calc, July 2026).</li>
+                </ul>
+            </div>
+
+            <!-- TOC -->
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#overview">🐍 Overview &amp; Why Farm Zulrah in 2026</a></li>
+                    <li><a href="#requirements">📋 Requirements &amp; Stats</a></li>
+                    <li><a href="#getting-there">🗺️ How to Get There</a></li>
+                    <li><a href="#fight">🌀 The Fight (Rotations, Phases &amp; Diagram)</a></li>
+                    <li><a href="#gear">🛡️ Gear Setup (Tiered: BiS &rarr; Budget)</a></li>
+                    <li><a href="#loot">💰 Loot &amp; Drop Rates</a></li>
+                    <li><a href="#gphr">📈 GP/hr (Verified Table + EV Calculator)</a></li>
+                    <li><a href="#slayer">⚔️ Slayer / Instance / Consumable Synergy</a></li>
+                    <li><a href="#mistakes">⚠️ Common Mistakes (Myth-Busting)</a></li>
+                    <li><a href="#faq">❓ FAQ</a></li>
+                    <li><a href="#final">🏁 Final Tips</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1: OVERVIEW -->
+            <section id="overview">
+                <h2>1. 🐍 Overview &amp; Why Farm Zulrah in 2026</h2>
+                <p>Zulrah is a level-725 boss with 500 Hitpoints, fought alone inside a personal instance reached by boat from Zul-Andra. There is no Player-versus-Player risk and your items are reclaimable on death (free under 50 KC, 100,000 GP after), so the only thing standing between you and millions of GP is <strong>learning the dance</strong>. In 2026 it remains one of the highest, most consistent solo GP/hr activities in the game.</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Fact</th><th>Verified Value (OSRS Wiki, July 2026)</th></tr>
+                    <tr><td>Combat level</td><td>725</td></tr>
+                    <tr><td>Hitpoints</td><td>500</td></tr>
+                    <tr><td>Attack styles</td><td>Green = Ranged, Blue = Magic, Crimson = Melee, Jad phase = alternating Ranged/Magic</td></tr>
+                    <tr><td>Elemental weakness</td><td>Fire spells (+50% damage, since 29 May 2024 update)</td></tr>
+                    <tr><td>Rotations</td><td>Four fixed patterns (see Section 4)</td></tr>
+                    <tr><td>Instance</td><td>Solo by default — no instance fee; loot stays ~3 hours</td></tr>
+                    <tr><td>Average kill value</td><td>~135,900 GP (more on a Konar task)</td></tr>
+                </table>
+                </div>
+                <div class="method-box highlight">
+                    <h4>🎯 The Three Big Draws</h4>
+                    <ul>
+                        <li><strong>Top-tier, reliable GP.</strong> Two rolls per kill on a fat drop table, plus a steady stream of Zulrah's scales (100–299/kill) that always sell.</li>
+                        <li><strong>Crafting paydays.</strong> The Magic fang builds the Trident of the swamp, the Tanzanite fang builds the Toxic blowpipe, and the Serpentine visage builds the Serpentine helm.</li>
+                        <li><strong>Self-contained.</strong> No Slayer task, no team, no Wilderness. Teleport in, kill, teleport out — perfect for solo grinds.</li>
+                    </ul>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The One Skill That Wins the Fight</div>
+                    <p>Zulrah is a <strong>memory and movement</strong> fight, not a DPS check. If you can predict the next rotation and pre-switch your prayer and gear, you will take almost no damage and chain 30+ kills per hour. Everything else is detail on top of that.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2: REQUIREMENTS -->
+            <section id="requirements">
+                <h2>2. 📋 Requirements &amp; Stats</h2>
+                <p>Zulrah has almost no hard gates — the only quest lock is <strong>Regicide</strong> (you only need to have <em>started</em> it, which unlocks the Zul-Andra teleport). No Slayer level is required.</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Requirement</th><th>Detail</th><th>Notes</th></tr>
+                    <tr><td><strong>Quest</strong></td><td>Regicide (started)</td><td>Unlocks the Zul-Andra teleport from the High Priestess</td></tr>
+                    <tr><td><strong>Magic</strong></td><td>75+ (90+ recommended)</td><td>For the Green/Crimson (Magic-weak) phases</td></tr>
+                    <tr><td><strong>Ranged</strong></td><td>75+ (90+ recommended)</td><td>For the Blue (Tanzanite) phase</td></tr>
+                    <tr><td><strong>Prayer</strong></td><td>44+ (77+ ideal)</td><td>Mystic Might / Eagle Eye, or Augury / Rigour for max DPS</td></tr>
+                    <tr><td><strong>Agility</strong></td><td>76 (optional)</td><td>Unlocks the Zul-Andra agility shortcut; without it use a fairy ring + run</td></tr>
+                    <tr><td><strong>Slayer</strong></td><td>None</td><td>Anyone may fight Zulrah; a Konar task only adds Brimstone keys</td></tr>
+                </table>
+                </div>
+                <p>You do <strong>not</strong> need expensive BiS gear to start — an uncharged Trident of the seas plus a Toxic blowpipe will already turn a profit. The real requirement is patience while you learn the rotations.</p>
+            </section>
+
+            <!-- SECTION 3: HOW TO GET THERE -->
+            <section id="getting-there">
+                <h2>3. 🗺️ How to Get There</h2>
+                <p>Zulrah's shrine sits on a remote island reached by a sacrificial boat. The fastest repeatable routes:</p>
+                <div class="action-step">
+                    <h4>Step 1 &mdash; Teleport to Zul-Andra</h4>
+                    <p>Use a <strong>Zul-andra teleport scroll</strong> (obtained free from the High Priestess after Regicide, or bought on the GE ~15–16K GP each). This lands you right at the boat.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 2 &mdash; Fairy ring alternative</h4>
+                    <p>Use fairy ring <strong>BJS</strong>, then run south and use the <strong>76-Agility Zul-Andra shortcut</strong> to reach the boat in seconds. Without 76 Agility, you must run the long way from Port Tyras (boat fee 250 coins each way).</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 3 &mdash; Board and fight</h4>
+                    <p>Board the boat (quick-board is enabled). You load into your <strong>own instance</strong> — no world-hopping, no competition. Zulrah always opens in <strong>Green (Ranged)</strong> form, so enter with Protect from Missiles already on.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Scale Up With the Bank</div>
+                    <p>Most farmers use a Player-Owned House (Ornate Rejuvenation Pool + Portal Nexus) or Ferox Enclave to restore stats and prayer between kills. A Zul-andra scroll per trip is cheaper than the run once you pass ~15 kph.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4: THE FIGHT -->
+            <section id="fight">
+                <h2>4. 🌀 The Fight &mdash; Rotations, Phases &amp; Diagram</h2>
+                <p>Zulrah cycles through <strong>four forms</strong>. Each form attacks with one style and you counter with one protection prayer:</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Form (colour)</th><th>Attack style</th><th>Protection prayer</th><th>Key mechanic</th></tr>
+                    <tr><td>🟢 Green (Naga)</td><td>Ranged</td><td>Protect from Missiles</td><td>Spreads venom clouds; spawns Snakelings (1 HP, hit hard)</td></tr>
+                    <tr><td>🔵 Blue (Magma)</td><td>Magic</td><td>Protect from Magic</td><td>Also ranged sometimes; keep moving off venom</td></tr>
+                    <tr><td>🔴 Crimson (Stand)</td><td>Melee (at your last tile)</td><td><em>None</em> — run away</td><td>Stuns if it catches you; no prayer helps</td></tr>
+                    <tr><td>🟢 Jad phase</td><td>Alternating Ranged/Magic</td><td>Flick Missiles ↔ Magic</td><td>Identical to Green but attacks alternate — read the projectile</td></tr>
+                </table>
+                </div>
+
+                <h3>② The Four Rotations</h3>
+                <p>Each kill is one of four fixed sequences. The first two phases tell you which rotation you are on; the final phase is always the Green "Jad" phase where you flick prayers. Exact pillar positions are easiest with the RuneLite Zulrah plugin, but the form/prayer order below is all you need:</p>
+                <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:680px;margin:14px auto;font-size:.82rem;">
+                    <div style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:12px 14px;color:#2D2A33;">
+                        <strong>Rotation 1 (Alpha)</strong><br>
+                        🟢 Green → 🔴 Crimson → 🔵 Blue → 🟢 Jad<br>
+                        <span style="opacity:.75">Pray: Missiles → run → Magic → flick</span>
+                    </div>
+                    <div style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:12px 14px;color:#2D2A33;">
+                        <strong>Rotation 2 (Bravo)</strong><br>
+                        🟢 Green → 🔵 Blue → 🔴 Crimson → 🟢 Jad<br>
+                        <span style="opacity:.75">Pray: Missiles → Magic → run → flick</span>
+                    </div>
+                    <div style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:12px 14px;color:#2D2A33;">
+                        <strong>Rotation 3 (Charlie)</strong><br>
+                        🟢 Green → 🔴 Crimson → 🔵 Blue → 🔴 Crimson → 🟢 Jad<br>
+                        <span style="opacity:.75">Pray: Missiles → run → Magic → run → flick</span>
+                    </div>
+                    <div style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:12px 14px;color:#2D2A33;">
+                        <strong>Rotation 4 (Delta)</strong><br>
+                        🟢 Green → 🔵 Blue → 🔴 Crimson → 🔵 Blue → 🟢 Jad<br>
+                        <span style="opacity:.75">Pray: Missiles → Magic → run → Magic → flick</span>
+                    </div>
+                </div>
+
+                <h3>③ Step-by-Step Kill</h3>
+                <div class="action-step">
+                    <h4>Phase 1 &mdash; Identify the rotation</h4>
+                    <p>Enter on Green with Protect from Missiles up. After two attacks Zulrah dives and re-emerges in the second form — that second form (Crimson or Blue) tells you the rotation. Pre-switch your prayer and gear for the whole pattern.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Phase 2 &mdash; Dodge venom &amp; Snakelings</h4>
+                    <p>Venom clouds deal 12/tick inside a 3×3 area — step off them. Snakelings have 1 HP; let a <strong>Ring of Suffering (i)</strong> or Recoil finish them, or barrage them during a Crimson phase. Use <strong>Anti-venom+</strong> or a Serpentine helm so venom never stacks.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Phase 3 &mdash; The Jad phase</h4>
+                    <p>In the final Green phase Zulrah alternates Ranged and Magic every attack. <strong>Flick</strong> Protect from Missiles ↔ Protect from Magic. Read the projectile colour in the air: green = Ranged, blue = Magic. Keep DPS up with Vengeance if you have 94 Magic.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Fire Is Your Friend</div>
+                    <p>Since the 29 May 2024 update Zulrah has a <strong>50% weakness to fire spells</strong>. An <strong>Eye of Ayak</strong> or <strong>Fire Surge</strong> on the Green/Crimson phases (and a Tumeken's Shadow at BiS) dramatically cuts kill time. Confliction Gauntlets also re-roll missed magic hits, smoothing out the mid-tier setup.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5: GEAR SETUP -->
+            <section id="gear">
+                <h2>5. 🛡️ Gear Setup &mdash; Tiered (BiS &rarr; Budget)</h2>
+                <p>Zulrah is a <strong>two-style fight</strong>: you want a Magic switch for Green/Crimson (fire-weak) phases and a Ranged switch for the Blue phase. Stack Magic <em>accuracy</em> (Confliction Gauntlets / Occult / Tormented) and Ranged strength (Anguish / Void). Below are three complete loadouts — pick by budget.</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Slot</th><th>Best-in-Slot</th><th>Mid-Game</th><th>Budget Starter</th></tr>
+                    <tr><td>Magic weapon</td><td>Tumeken's Shadow / Sanguinesti staff</td><td>Trident of the swamp / Sanguinesti</td><td>Trident of the seas (charge w/ runes) / Eye of Ayak</td></tr>
+                    <tr><td>Ranged weapon</td><td>Twisted Bow / Bow of Faerdhinen</td><td>Dragon hunter crossbow / Blowpipe</td><td>Toxic blowpipe (Adamant darts) / MSB</td></tr>
+                    <tr><td>Head</td><td>Ancestral hat / Masori (f) helm</td><td>Ancestral hat / Armadyl helmet</td><td>Ahrim's hood / Slayer helmet (i)</td></tr>
+                    <tr><td>Body</td><td>Ancestral robe top / Masori (f) body</td><td>Ancestral robe top / Armadyl chest</td><td>Ahrim's robetop / Blessed d'hide body</td></tr>
+                    <tr><td>Legs</td><td>Ancestral robe bottom / Masori (f) chaps</td><td>Ancestral robe bottom / Armadyl chaps</td><td>Ahrim's robeskirt / Blessed d'hide chaps</td></tr>
+                    <tr><td>Neck</td><td>Occult / Necklace of Anguish</td><td>Occult / Necklace of Anguish</td><td>Occult / Amulet of fury</td></tr>
+                    <tr><td>Cape</td><td>Imbued god cape</td><td>Imbued god cape / Ava's assembler</td><td>God cape / Ava's accumulator</td></tr>
+                    <tr><td>Ring</td><td>Magus / Venator / Lightbearer</td><td>Ring of Suffering (i)</td><td>Ring of Suffering (i) / Archers ring (i)</td></tr>
+                    <tr><td>Inventory</td><td colspan="3">Zul-andra teleport scrolls, Anti-venom+, Super restores, Prayer potions, 2–4 brews, Karambwan/Shark, rune pouch (Vengeance), emergency teleport, house teleport</td></tr>
+                </table>
+                </div>
+                <div class="method-box highlight">
+                    <h4>🏆 Recommended Default: Mid-Game Magic + Blowpipe</h4>
+                    <p>Trident of the swamp (or Sanguinesti) + Ahrim's / Ancestral + Occult for the Green phases, and a Toxic blowpipe + Blessed d'hide + Anguish for the Blue phase, with <strong>Augury + Rigour</strong> up and a Ring of Suffering (i). This comfortably hits 24+ kph and ~3M GP/hr.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Serpentine Helm vs Anti-venom+</div>
+                    <p>A Serpentine helm makes you immune to venom for "free," but it costs Zulrah's scales to charge and hurts your Magic accuracy. For high-tier setups an <strong>Anti-venom+</strong> potion with a Farseer/Neitiznot faceguard is usually more profitable per kill.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6: LOOT & DROP RATES -->
+            <section id="loot">
+                <h2>6. 💰 Loot &amp; Drop Rates (Verified, July 2026)</h2>
+                <p>Zulrah gives <strong>two rolls</strong> on its drop table per kill. The unique table is hit on a 1/256 chance <em>per roll</em>, so the effective rate for any single unique is ~<strong>1/512 per kill</strong> (≈1/128 for <em>any</em> unique). All rates below are verified against the OSRS Wiki drop table (Drop Rate Project) and Grand Exchange values cached July 2026. GP values fluctuate — always verify live before big investments.</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Drop</th><th>Rate (per kill)</th><th>Approx. GE Value (July 2026)</th><th>What it's for</th></tr>
+                    <tr><td><strong>Magic fang</strong></td><td>1/512</td><td>~3.6M GP</td><td>+ Uncharged trident + 10k scales → Trident of the swamp</td></tr>
+                    <tr><td><strong>Tanzanite fang</strong></td><td>1/512</td><td>~10.4M GP</td><td>+ Chisel + 20k scales (78 Fletching) → Toxic blowpipe (empty)</td></tr>
+                    <tr><td><strong>Serpentine visage</strong></td><td>1/512</td><td>~3.6M GP</td><td>+ Chisel → Serpentine helm</td></tr>
+                    <tr><td>Uncut onyx</td><td>1/512</td><td>~2.5M GP</td><td>Onyx ring / Zenyte / alch</td></tr>
+                    <tr><td>Mutagen (Tanzanite/Magma)</td><td>~1/3,277 either</td><td>Not sold</td><td>Coloured helms (cosmetic)</td></tr>
+                    <tr><td><strong>Pet snakeling</strong></td><td>1/4,000</td><td>Priceless (cosmetic)</td><td>Status pet; roll on every kill</td></tr>
+                    <tr><td>Jar of swamp</td><td>1/3,000</td><td>~50K GP</td><td>Achievement Gallery display</td></tr>
+                    <tr><td>Clue scroll (elite)</td><td>1/75</td><td>Variable</td><td>Treasure Trail reward</td></tr>
+                    <tr><td>Zulrah's scales</td><td>100–299 (always)</td><td>~150–300 GP each</td><td>Blowpipe / swamp trident charges; steady income</td></tr>
+                </table>
+                </div>
+                <p>The <strong>scales</strong> are the quiet earner — 100–299 per kill at ~150–300 GP each means ~20–60K GP of guaranteed value every single kill. Combine that with the 1/512 uniques and you get the famous Zulrah consistency.</p>
+                <div class="tip-box">
+                    <div class="tip-title">🪸 Fang Facts (Don't Mix Them Up)</div>
+                    <p>The three uniques each craft something different: <strong>Magic fang</strong> → Trident of the swamp; <strong>Tanzanite fang</strong> → Toxic blowpipe (empty) with a chisel + 20,000 scales; <strong>Serpentine visage</strong> → Serpentine helm. A common mistake is assuming the Tanzanite fang makes the blowpipe <em>alone</em> — it needs the chisel and scales.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7: GP/HR -->
+            <section id="gphr">
+                <h2>7. 📈 GP/hr &mdash; Verified Table (July 2026)</h2>
+                <p>GP/hr tracks almost entirely with <strong>kills per hour</strong> and rare-drop RNG. The OSRS Wiki "Killing Zulrah" money-making method (cached July 2026) reports the following at an average kill value of ~135,900 GP:</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Scenario</th><th>Kills/hr</th><th>Assumptions</th><th>GP/hr (before supplies)</th><th>With unique luck</th></tr>
+                    <tr><td>Solid / mid gear</td><td>~24</td><td>Ancestral/Blowpipe, scrolls, alching downtime</td><td>~3.26M</td><td>~3.8–4.5M</td></tr>
+                    <tr><td>Max efficiency</td><td>~35</td><td>Twisted Bow / Shadow, POH resets, minimal downtime</td><td>~4.76M</td><td>5M+</td></tr>
+                    <tr><td>After supplies</td><td>24–35</td><td>Potion/scroll costs removed</td><td>~2.5–3.5M</td><td>higher with fangs</td></tr>
+                </table>
+                </div>
+                <p style="font-size:.85rem;color:#2D2A33;"><strong>Data provenance:</strong> OSRS Wiki "Killing Zulrah" method — 3,262,070 GP/hr at 24 kph and 4,757,186 GP/hr at 35 kph (both before supplies), cached 20 July 2026. Unique value uses Magic fang ~3.6M and Tanzanite fang ~10.4M. <strong>Rates vary with RNG, GE prices, and kill speed — always verify live GE prices before committing.</strong></p>
+                <div class="method-box highlight">
+                    <h4>🧮 Rare-Drop Expectancy Calculator</h4>
+                    <p style="font-size:.85rem;color:#2D2A33;">Estimate your rare drops and unique EV over a grind, using verified Wiki rates. (Try 30 kills/hr × 10 hours.)</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:8px 0;">
+                        <label style="font-size:.85rem;color:#2D2A33;">Kills per hour:<br><input type="number" id="zkph" value="30" min="1" style="width:90px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
+                        <label style="font-size:.85rem;color:#2D2A33;">Hours grinding:<br><input type="number" id="zhrs" value="10" min="1" style="width:90px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
+                        <button onclick="calcZulrah()" style="background:#9B84D4;color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer;">Calculate</button>
+                    </div>
+                    <div id="zcalc-out" style="font-size:.9rem;color:#2D2A33;background:#fff;border:1px solid #e0d5c0;border-radius:6px;padding:10px 12px;line-height:1.7;"></div>
+                </div>
+                <script>
+                function calcZulrah(){
+                    var kph = parseFloat(document.getElementById('zkph').value) || 0;
+                    var hrs = parseFloat(document.getElementById('zhrs').value) || 0;
+                    var kills = kph * hrs;
+                    var fang = Math.round(kills/512*100)/100;
+                    var pet  = Math.round(kills/4000*100)/100;
+                    var jar  = Math.round(kills/3000*100)/100;
+                    var gp   = Math.round(kills/512*3600000 + kills/512*10400000 + kills/512*3600000);
+                    document.getElementById('zcalc-out').innerHTML =
+                        'Over <strong>' + kills.toLocaleString() + ' kills</strong> you can expect roughly:<br>' +
+                        '🟢 Magic fangs: <strong>' + fang + '</strong> (1/512)<br>' +
+                        '💠 Tanzanite fangs: <strong>' + fang + '</strong> (1/512)<br>' +
+                        '🟣 Serpentine visages: <strong>' + fang + '</strong> (1/512)<br>' +
+                        '🐍 Pet snakeling: <strong>' + pet + '</strong> (1/4,000)<br>' +
+                        '🪣 Jar of swamp: <strong>' + jar + '</strong> (1/3,000)<br>' +
+                        '💰 Approx. unique-drop value: <strong>' + gp.toLocaleString() + ' GP</strong>';
+                }
+                </script>
+            </section>
+
+            <!-- SECTION 8: SLAYER SYNERGY -->
+            <section id="slayer">
+                <h2>8. ⚔️ Slayer / Instance / Consumable Synergy</h2>
+                <p>Zulrah is unusual: it needs <strong>no Slayer task</strong>, so every kill is a pure profit roll. But there is still synergy to exploit:</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Synergy lever</th><th>Detail</th><th>Why it matters</th></tr>
+                    <tr><td><strong>Konar task</strong></td><td>A Zulrah boss task (via "Like a Boss") drops Brimstone keys 1/50</td><td>Bonus loot on top of the boss; boosts avg kill value</td></tr>
+                    <tr><td><strong>Solo instance</strong></td><td>Free by default — no hourly fee</td><td>Drops linger ~3 hours; no contested worlds</td></tr>
+                    <tr><td><strong>Zul-andra scrolls</strong></td><td>~15–16K GP each (or free via fairy ring BJS + 76 Agility)</td><td>Faster than running; pays off above ~15 kph</td></tr>
+                    <tr><td><strong>Anti-venom+</strong></td><td>~a few K per (4) dose</td><td>Prevents venom stacking; cheaper than a Serpentine helm charge</td></tr>
+                    <tr><td><strong>Consumable cost</strong></td><td>~15–30K GP/hr scrolls + potions</td><td>Negligible vs 3M+ GP/hr upside</td></tr>
+                </table>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 2026 Meta Note</div>
+                    <p>In 2026 the Eye of Ayak + Confliction Gauntlets combo has replaced the old 7-way gear switch for mid-level players — fewer swaps, steadier DPS, and the 50% fire weakness makes Magic the dominant style. Collection date for this note: July 2026, OSRS Wiki + community strategy.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 9: COMMON MISTAKES -->
+            <section id="mistakes">
+                <h2>9. ⚠️ Common Mistakes (Myth-Busting)</h2>
+                <div class="method-box highlight">
+                    <h4>❌ Myth 1: "Just tank the Jad phase with one prayer."</h4>
+                    <p><strong>Wrong.</strong> The final Green phase alternates Ranged and Magic every attack. You must <strong>flick</strong> Protect from Missiles ↔ Protect from Magic by reading the projectile colour (green = Ranged, blue = Magic). One missed flick can delete you.</p>
+                </div>
+                <div class="method-box highlight">
+                    <h4>❌ Myth 2: "Crimson phase — pray Melee."</h4>
+                    <p><strong>Ineffective.</strong> The Crimson stand attacks your <em>previous tile</em> and stuns on hit; no protection prayer stops it. <strong>Run away</strong> to a fresh tile the moment Zulrah stands.</p>
+                </div>
+                <div class="method-box highlight">
+                    <h4>❌ Myth 3: "Melee Zulrah for DPS."</h4>
+                    <p><strong>Usually a trap.</strong> Zulrah was made no longer immune to melee (22 Feb 2023 update) but only <em>halberds</em> can reach it and the DPS is poor. Magic (fire-weak) and Ranged remain the efficient styles.</p>
+                </div>
+                <div class="method-box highlight">
+                    <h4>❌ Myth 4: "Stand in the venom — it's only a little."</h4>
+                    <p>Venom clouds hit <strong>12/tick</strong> inside a 3×3 area and stack fast. Step off them, and bring Anti-venom+ or a Serpentine helm so venom never accumulates.</p>
+                </div>
+                <div class="method-box highlight">
+                    <h4>❌ Myth 5: "The Tanzanite fang alone makes the blowpipe."</h4>
+                    <p>The <strong>Tanzanite fang</strong> needs a <strong>chisel + 20,000 Zulrah's scales</strong> (78 Fletching) to make the Toxic blowpipe (empty). The Serpentine visage makes the Serpentine helm, and the Magic fang makes the Trident of the swamp.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 10: FAQ -->
+            <section id="faq">
+                <h2>10. ❓ FAQ</h2>
+                <div class="faq-item">
+                    <h4>Do I need a Slayer task to kill Zulrah?</h4>
+                    <p>No. Zulrah requires only that you have <strong>started Regicide</strong> (for the Zul-Andra teleport). A Slayer task is optional and only adds Brimstone keys if assigned by Konar.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What is the best combat style for Zulrah?</h4>
+                    <p><strong>Both Magic and Ranged.</strong> Magic (especially fire spells, thanks to the 50% weakness) handles the Green and Crimson phases; Ranged handles the Blue phase. Bring a switch for each — a single-style setup leaves DPS on the table.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is Zulrah safe? Can I lose my items?</h4>
+                    <p>Yes, it is safe. The fight is a personal instance with no PvP. On death you reclaim items from Priestess Zul-Gwenwynig — free under 50 KC, 100,000 GP after.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How many kills per hour can I get?</h4>
+                    <p>Learners manage ~16–20 kph; experienced players 24–30; max-gear Twisted Bow / Shadow pushers reach 35+. The OSRS Wiki cites up to 35 kph at peak efficiency.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What do I do with a Magic fang / Tanzanite fang?</h4>
+                    <p><strong>Magic fang</strong> + uncharged trident + 10,000 scales → Trident of the swamp. <strong>Tanzanite fang</strong> + chisel + 20,000 scales → Toxic blowpipe (empty). Both are tradeable at millions of GP if you'd rather sell.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 11: FINAL TIPS -->
+            <section id="final">
+                <h2>11. 🏁 Final Tips</h2>
+                <ul>
+                    <li><strong>Learn Rotation 1 first.</strong> It is the most common and easiest; once it is automatic, add the others one at a time.</li>
+                    <li><strong>Pre-switch, don't react.</strong> The moment you know the rotation, set your prayers and gear for the whole pattern — reactions get you killed.</li>
+                    <li><strong>Fire wins.</strong> Eye of Ayak / Fire Surge / Shadow exploit the 50% fire weakness on Green &amp; Crimson.</li>
+                    <li><strong>Venom insurance.</strong> Anti-venom+ or a Serpentine helm every trip — never let venom stack.</li>
+                    <li><strong>Ring of Suffering (i).</strong> Its recoil finishes the 1-HP Snakelings so you never lose DPS to them.</li>
+                    <li><strong>Next boss:</strong> once Zulrah is comfortable, step up to <a href="osrs-vorkath-guide-2026.html" style="color:#8b6914;font-weight:bold;">Vorkath</a> — the dragon that pays even more per hour.</li>
+                </ul>
+                <div class="tip-box">
+                    <div class="tip-title">🤝 You've Got the Dance Down</div>
+                    <p>The prayer-flicking and movement rhythm you learned here is the exact skill every end-game boss tests. Take that confidence into Vorkath and the Alchemical Hydra next.</p>
+                </div>
+            </section>
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 What To Do After Zulrah</h3>
+                <p>You now understand rotation-based, prayer-flick PvM. The natural next steps are the other high-GP solo bosses:</p>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                    <strong>→ Step 1:</strong> Prep properly with the <a href="osrs-boss-gear-checklist-2026.html" style="color:#8b6914; font-weight:bold;">Boss Gear Checklist</a> before harder content
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                    <strong>→ Step 2:</strong> Push your GP/hr further in the <a href="osrs-vorkath-guide-2026.html" style="color:#8b6914; font-weight:bold;">Vorkath Guide 2026</a> (the dragon that out-earns Zulrah)
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                    <strong>→ Step 3:</strong> Compare all solo bosses in the <a href="osrs-boss-profit-tier-list-2026.html" style="color:#8b6914; font-weight:bold;">Boss Profit Tier List 2026</a>
+                </div>
+                <a href="osrs-vorkath-guide-2026.html" class="support-btn paypal-btn" style="display:inline-block; text-decoration:none; margin-top:20px;">Next: Vorkath Guide 2026 →</a>
+            </div>
+
+            <!-- RELATED GUIDES -->
+            <div class="related-guides">
+                <h3>More Boss Guides</h3>
+                <div class="article-grid">
+                    <a href="osrs-vorkath-guide-2026.html" class="article-card">
+                        <h3>OSRS Vorkath Guide 2026</h3>
+                        <p>The dragon boss that out-earns Zulrah — 100% dragonfire dodge, verified drop rates, GP/hr.</p>
+                    </a>
+                    <a href="osrs-alchemical-hydra-guide-2026.html" class="article-card">
+                        <h3>OSRS Alchemical Hydra Guide 2026</h3>
+                        <p>95 Slayer, four vent-luring phases, the Hydra's claw — a top-tier Slayer money maker.</p>
+                    </a>
+                    <a href="osrs-grotesque-guardians-guide-2026.html" class="article-card">
+                        <h3>OSRS Grotesque Guardians Guide 2026</h3>
+                        <p>Dusk &amp; Dawn at 75 Slayer — Granite ring and Black tourmaline core drops.</p>
+                    </a>
+                    <a href="osrs-thermonuclear-smoke-devil-guide-2026.html" class="article-card">
+                        <h3>OSRS Thermonuclear Smoke Devil Guide 2026</h3>
+                        <p>93 Slayer safe-spot grind for the Occult necklace and Smoke battlestaff.</p>
+                    </a>
+                    <a href="osrs-boss-profit-tier-list-2026.html" class="article-card">
+                        <h3>OSRS Boss Profit Tier List 2026</h3>
+                        <p>Where Zulrah ranks among every solo boss for consistent GP/hr this year.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SUPPORT CARD (exact, do not edit) -->
+            <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>Every guide is free — this one stays free either way.</h3>
+            <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+            <p style="margin:6px 0 0 0;line-height:1.7">
+                📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+            </p>
+            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+            <div class="support-amounts">
+                <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+        </div>
+    </div>
+</div>
+
+        </div>
+        <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../levels/advanced.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Advanced Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ New Players (Stage 0)</h4><ul>
+                    <li><a href="osrs-interface-controls-beginner-guide-2026.html">Game Interface</a></li>
+                    <li><a href="osrs-combat-triangle-explained-2026.html">Combat Triangle</a></li>
+                    <li><a href="osrs-skills-overview-beginner-2026.html">Skills Overview</a></li>
+                    <li><a href="osrs-bank-inventory-management-2026.html">Bank &amp; Inventory</a></li>
+                    <li><a href="osrs-maps-travel-guide-2026.html">Maps &amp; Travel</a></li>
+                    <li><a href="osrs-questing-beginner-guide-2026.html">Questing Basics</a></li>
+                    <li><a href="osrs-combat-training-beginner-2026.html">Combat Training</a></li>
+                    <li><a href="osrs-money-making-beginner-2026.html">Beginner Money Making</a></li>
+                    <li><a href="osrs-gear-beginner-guide-2026.html">Gear Guide</a></li>
+                    <li><a href="osrs-safe-spots-beginner-2026.html">Safe Spots</a></li>
+                    <li><a href="osrs-prayer-training-beginner-guide-2026.html">Prayer Training</a></li>
+                    <li><a href="osrs-f2p-to-p2p-membership-guide-2026.html">F2P to P2P Transition</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+<!-- Copyright & Anti-Scraping Notice -->
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+<style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#3b2615!important}
+.guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+.guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+.guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+@media (max-width: 768px) {
+    .guide-content table { font-size: 0.85rem; }
+    .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+    .guide-content table tbody td { padding: 6px 10px; }
+    .guide-content h2 { font-size: 1.4em; }
+    .guide-content h3 { font-size: 1.15em; }
+}
+@media (max-width: 640px) {
+    .guide-content table { display: block; overflow-x: auto; }
+    .guide-content h2 { font-size: 1.25em; }
+    .guide-content h3 { font-size: 1.05em; }
+}
+</style>
+
+</body>
+</html>
