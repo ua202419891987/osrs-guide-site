@@ -72,8 +72,29 @@
         "dateModified": "2026-01-15"
     }
     </script>
+<style>
+  /* ===== Mobile Responsive Overrides (P0 Standard) ===== */
+  @media (max-width: 768px) {
+    .guide-content table { font-size: 0.85rem; }
+    .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+    .guide-content table tbody td { padding: 6px 10px; }
+    .guide-content h2 { font-size: 1.4em; }
+    .guide-content h3 { font-size: 1.15em; }
+    .guide-content div[style*="border-radius:12px"] { padding: 16px !important; }
+    .guide-content div[style*="border-radius:8px"] { padding: 14px !important; }
+  }
+  @media (max-width: 640px) {
+    .guide-content table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .guide-content h2 { font-size: 1.25em; }
+    .guide-content h3 { font-size: 1.05em; }
+    .guide-content p { font-size: 0.95rem; line-height: 1.7; }
+    .guide-content li { font-size: 0.95rem; line-height: 1.8; }
+    .copyright-protection { margin: 12px 8px !important; padding: 8px 12px !important; }
+    .copyright-protection p { font-size: 0.72rem !important; }
+  }
+</style>
 </head>
-<body>
+<body data-level="novice" data-category="bosses">
     <!-- Header -->
     <header class="site-header">
         <div class="container">
@@ -106,7 +127,7 @@
             <!-- Quick Summary -->
             <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
                 <h3 style="color:#b8860b;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
-                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
                     <li>📌 <strong>Requirements:</strong> 91 Slayer + Hellhound task, 80+ combat stats recommended (70 minimum), Priest in Peril quest completed</li>
                     <li>📌 <strong>Best setup:</strong> Melee (Crush) with Dragon Hunter Lance + Bandos armor — 45-60 second kills. Serpentine Helm for venom DPS</li>
                     <li>📌 <strong>Fight pattern:</strong> Ghosts spawn at start, 200HP and 100HP in order Mage &rarr; Range &rarr; Melee — prayer switch or kill them quickly</li>
@@ -126,6 +147,7 @@
             <!-- Article Header -->
             <header class="article-header">
                 <h1>OSRS Cerberus Boss Guide 2026 — Mid-Game Slayer Boss</h1>
+            <span class="level-badge" style="display:inline-block;background:#9B84D4;color:#fff;padding:3px 12px;border-radius:20px;font-size:.8rem;font-weight:700;margin:8px 0 4px;">Novice</span>
                 <div class="article-meta">
                     <span class="author">By OSRSGuru</span>
                     <span class="date">Updated: January 15, 2026</span>

@@ -56,7 +56,7 @@
             <!-- QUICK VERDICT -->
             <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
                 <h3 style="color:#b8860b;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
-                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
                     <li>📌 <strong>Fastest:</strong> 3-tick granite (3t4g) — ~87K XP/hr at 45 rising to ~126K XP/hr at 99. Extremely click-intensive.</li>
                     <li>📌 <strong>Cheapest / AFK:</strong> Motherlode Mine — ~40&ndash;62K XP/hr, passive, and it unlocks the Prospector kit (+2.5% XP).</li>
                     <li>📌 <strong>Most GP:</strong> Blast Mine (~200&ndash;400K GP/hr at 75+) and Amethyst (~300&ndash;500K GP/hr at 92+).</li>
@@ -172,7 +172,7 @@
                     <tr><td>Amethyst</td><td>92&ndash;99</td><td>20K&ndash;25K</td><td>300K&ndash;500K</td><td>Very</td><td>~1,100 GP each</td></tr>
                 </table>
                 </div>
-                <p style="font-size:.85rem;color:#2D2A33;"><strong>Data provenance:</strong> XP/hr ranges derived from the OSRS Wiki Mining training page and the osrsbestinslot Mining calculator (cached 20 July 2026). GP/hr uses GE mid-prices (Amethyst ~1,100 GP; Blast Mine gold/runite ore values). <strong>Always verify live GE prices before committing capital.</strong></p>
+                <p style="font-size:.85rem;color:#1a1a1a;"><strong>Data provenance:</strong> XP/hr ranges derived from the OSRS Wiki Mining training page and the osrsbestinslot Mining calculator (cached 20 July 2026). GP/hr uses GE mid-prices (Amethyst ~1,100 GP; Blast Mine gold/runite ore values). <strong>Always verify live GE prices before committing capital.</strong></p>
             </section>
 
             <!-- SECTION 5: GEAR / SETUP -->
@@ -202,14 +202,14 @@
             <!-- SECTION 6: CALCULATOR -->
             <section id="calculator">
                 <h2>6. 🧮 XP-to-99 + Cost Calculator</h2>
-                <p style="font-size:.85rem;color:#2D2A33;">Enter your current level and a method's XP/hr (and GP/hr, negative = cost) to estimate time and total GP. Try granite at 126K XP/hr, &minus;35K GP/hr.</p>
+                <p style="font-size:.85rem;color:#1a1a1a;">Enter your current level and a method's XP/hr (and GP/hr, negative = cost) to estimate time and total GP. Try granite at 126K XP/hr, &minus;35K GP/hr.</p>
                 <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:8px 0;">
-                    <label style="font-size:.85rem;color:#2D2A33;">Current level:<br><input type="number" id="m_cur" value="45" min="1" max="98" style="width:90px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
-                    <label style="font-size:.85rem;color:#2D2A33;">XP/hr:<br><input type="number" id="m_xp" value="126000" min="1" style="width:100px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
-                    <label style="font-size:.85rem;color:#2D2A33;">GP/hr (neg = cost):<br><input type="number" id="m_gp" value="-35000" style="width:100px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
+                    <label style="font-size:.85rem;color:#1a1a1a;">Current level:<br><input type="number" id="m_cur" value="45" min="1" max="98" style="width:90px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
+                    <label style="font-size:.85rem;color:#1a1a1a;">XP/hr:<br><input type="number" id="m_xp" value="126000" min="1" style="width:100px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
+                    <label style="font-size:.85rem;color:#1a1a1a;">GP/hr (neg = cost):<br><input type="number" id="m_gp" value="-35000" style="width:100px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
                     <button onclick="calcMining()" style="background:#9B84D4;color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer;">Calculate</button>
                 </div>
-                <div id="m_out" style="font-size:.9rem;color:#2D2A33;background:#fff;border:1px solid #e0d5c0;border-radius:6px;padding:10px 12px;line-height:1.7;"></div>
+                <div id="m_out" style="font-size:.9rem;color:#1a1a1a;background:#fff;border:1px solid #e0d5c0;border-radius:6px;padding:10px 12px;line-height:1.7;"></div>
                 <script>
                 function xpToReach(level){
                     var total=0;
@@ -282,12 +282,12 @@
                 <h2>9. 🎲 Rare Reward Expectancy &mdash; Rock Golem Pet</h2>
                 <p>Mining's rare reward is the <strong>Rock Golem</strong> skilling pet. Its drop rate follows the OSRS pet formula and <strong>varies by method</strong> (higher XP-per-action methods are rarer per action but faster overall). Use the calculator to estimate expected pet rolls over a grind.</p>
                 <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:8px 0;">
-                    <label style="font-size:.85rem;color:#2D2A33;">Actions/hr (approx):<br><input type="number" id="m_act" value="2600" min="1" style="width:110px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
-                    <label style="font-size:.85rem;color:#2D2A33;">Pet 1/N (verify on Wiki):<br><input type="number" id="m_n" value="250000" min="1" style="width:110px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
-                    <label style="font-size:.85rem;color:#2D2A33;">Hours grinding:<br><input type="number" id="m_h" value="40" min="1" style="width:90px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
+                    <label style="font-size:.85rem;color:#1a1a1a;">Actions/hr (approx):<br><input type="number" id="m_act" value="2600" min="1" style="width:110px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
+                    <label style="font-size:.85rem;color:#1a1a1a;">Pet 1/N (verify on Wiki):<br><input type="number" id="m_n" value="250000" min="1" style="width:110px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
+                    <label style="font-size:.85rem;color:#1a1a1a;">Hours grinding:<br><input type="number" id="m_h" value="40" min="1" style="width:90px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
                     <button onclick="calcMinePet()" style="background:#9B84D4;color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer;">Expectancy</button>
                 </div>
-                <div id="m_pet" style="font-size:.9rem;color:#2D2A33;background:#fff;border:1px solid #e0d5c0;border-radius:6px;padding:10px 12px;line-height:1.7;"></div>
+                <div id="m_pet" style="font-size:.9rem;color:#1a1a1a;background:#fff;border:1px solid #e0d5c0;border-radius:6px;padding:10px 12px;line-height:1.7;"></div>
                 <script>
                 function calcMinePet(){
                     var act = parseFloat(document.getElementById('m_act').value)||0;

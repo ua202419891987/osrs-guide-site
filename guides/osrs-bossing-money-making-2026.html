@@ -56,7 +56,7 @@
             <!-- QUICK VERDICT -->
             <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
                 <h3 style="color:#b8860b;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
-                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
                     <li>📌 <strong>Entry bosses</strong> (low req): Scurrius ~200K, Sarachnis ~506K, Kraken ~1.0M GP/hr.</li>
                     <li>📌 <strong>Mid-tier solo bosses</strong>: Vorkath 2.8&ndash;4.1M, Cerberus 3.6M, Zulrah 3.4M, Abyssal Sire 2.9M, Nightmare 3.4M GP/hr (OSRS Wiki MMG, July 2026).</li>
                     <li>📌 <strong>High-end</strong>: Vet'ion 4.4M, Spindel 3.9M, Callisto 3.7M, Corp 3.4M, ToA Expert 4.4M GP/hr.</li>
@@ -118,7 +118,7 @@
                     <tr><td>High</td><td>Tombs of Amascut (Expert)</td><td>82+ / 85+ combats, team</td><td>~4,414,000</td><td>Low (instanced raid)</td></tr>
                 </table>
                 </div>
-                <p style="font-size:.85rem;color:#2D2A33;"><strong>Data provenance:</strong> OSRS Wiki Money Making Guide, cached 20 July 2026. Profit is net of the 2% Grand Exchange tax and assumes the listed method/gear. Wilderness bosses carry PK risk not reflected in the number &mdash; a death there means losing your whole unsold loot stack.</p>
+                <p style="font-size:.85rem;color:#1a1a1a;"><strong>Data provenance:</strong> OSRS Wiki Money Making Guide, cached 20 July 2026. Profit is net of the 2% Grand Exchange tax and assumes the listed method/gear. Wilderness bosses carry PK risk not reflected in the number &mdash; a death there means losing your whole unsold loot stack.</p>
             </section>
 
             <!-- SECTION 3: ENTRY -->
@@ -181,7 +181,7 @@
                     <tr><td>Doom of Mokhaiotl (high delve)</td><td>90+ Ranged, 80+ Magic, 77 Prayer</td><td>~12.8&ndash;17.2M</td><td>Delve scales difficulty &amp; pay</td></tr>
                 </table>
                 </div>
-                <p style="font-size:.85rem;color:#2D2A33;">Figures for the delve/colosseum bosses come from 2026 community rate analyses derived from OSRS Wiki drop data; they assume a maxed, best-in-slot account sustaining peak efficiency. Most players will earn far less until mechanically perfect. <strong>Data verified July 2026, source: OSRS Wiki.</strong></p>
+                <p style="font-size:.85rem;color:#1a1a1a;">Figures for the delve/colosseum bosses come from 2026 community rate analyses derived from OSRS Wiki drop data; they assume a maxed, best-in-slot account sustaining peak efficiency. Most players will earn far less until mechanically perfect. <strong>Data verified July 2026, source: OSRS Wiki.</strong></p>
             </section>
 
             <!-- SECTION 7: LOOT & EV -->
@@ -190,14 +190,14 @@
                 <p>Bossing income has two parts: <strong>consistent alchables/supplies</strong> (the floor) and <strong>rare uniques</strong> (the spike). The EV calculator below tells you how many rares to expect over a grind using the verified 1/N rates &mdash; so you can set realistic expectations and not quit before the maths catches up.</p>
                 <div class="method-box highlight">
                     <h4>🧮 Rare-Drop EV Calculator</h4>
-                    <p style="font-size:.85rem;color:#2D2A33;">Enter your kill rate and grind length, plus a drop's 1-in-N rate, to see the expected number of drops and the expected kills to land one.</p>
+                    <p style="font-size:.85rem;color:#1a1a1a;">Enter your kill rate and grind length, plus a drop's 1-in-N rate, to see the expected number of drops and the expected kills to land one.</p>
                     <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:8px 0;">
-                        <label style="font-size:.85rem;color:#2D2A33;">Kills per hour:<br><input type="number" id="bkph" value="30" min="1" style="width:90px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
-                        <label style="font-size:.85rem;color:#2D2A33;">Hours grinding:<br><input type="number" id="bhrs" value="20" min="1" style="width:90px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
-                        <label style="font-size:.85rem;color:#2D2A33;">Drop rate (1 in N):<br><input type="number" id="brate" value="512" min="1" style="width:100px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
+                        <label style="font-size:.85rem;color:#1a1a1a;">Kills per hour:<br><input type="number" id="bkph" value="30" min="1" style="width:90px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
+                        <label style="font-size:.85rem;color:#1a1a1a;">Hours grinding:<br><input type="number" id="bhrs" value="20" min="1" style="width:90px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
+                        <label style="font-size:.85rem;color:#1a1a1a;">Drop rate (1 in N):<br><input type="number" id="brate" value="512" min="1" style="width:100px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
                         <button onclick="calcBoss()" style="background:#9B84D4;color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer;">Calculate</button>
                     </div>
-                    <div id="bcalc-out" style="font-size:.9rem;color:#2D2A33;background:#fff;border:1px solid #e0d5c0;border-radius:6px;padding:10px 12px;line-height:1.7;"></div>
+                    <div id="bcalc-out" style="font-size:.9rem;color:#1a1a1a;background:#fff;border:1px solid #e0d5c0;border-radius:6px;padding:10px 12px;line-height:1.7;"></div>
                 </div>
                 <script>
                 function calcBoss(){
@@ -213,7 +213,7 @@
                         '⏱️ That is about <strong>' + (rate / kph).toFixed(1) + ' hours</strong> of grinding on average.';
                 }
                 </script>
-                <p style="font-size:.85rem;color:#2D2A33;">Example verified rates: Vorkath Draconic visage 1/5,000; Cerberus primordial crystal 1/128; Zulrah Tanzanite mutate 1/512; Kraken tentacle 1/400; Abyssal Sire pet 1/2,500. <strong>Source: OSRS Wiki drop tables, July 2026.</strong></p>
+                <p style="font-size:.85rem;color:#1a1a1a;">Example verified rates: Vorkath Draconic visage 1/5,000; Cerberus primordial crystal 1/128; Zulrah Tanzanite mutate 1/512; Kraken tentacle 1/400; Abyssal Sire pet 1/2,500. <strong>Source: OSRS Wiki drop tables, July 2026.</strong></p>
             </section>
 
             <!-- SECTION 8: GEAR -->

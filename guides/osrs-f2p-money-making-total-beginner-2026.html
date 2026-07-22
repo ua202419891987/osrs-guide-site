@@ -56,7 +56,7 @@
             <!-- QUICK VERDICT -->
             <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
                 <h3 style="color:#b8860b;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
-                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
                     <li>📌 <strong>Start here:</strong> Collecting cowhides at the Lumbridge cow field is the classic 0-requirement starter — ~180K&ndash;250K GP/hr (Wiki-estimated, vary with GE hide price).</li>
                     <li>📌 <strong>Spin for more:</strong> With just 10 Crafting, buy flax and spin bowstrings for ~150K&ndash;250K GP/hr (capped by GE buy limits).</li>
                     <li>📌 <strong>Fish lobsters:</strong> At 40 Fishing, raw lobsters at Musa Point earn ~50K&ndash;90K GP/hr, fully AFK.</li>
@@ -132,7 +132,7 @@
                     <tr><td><strong>&rarr; Crafting nature runes (P2P)</strong></td><td>44 Runecraft</td><td>~1,132,000 (Wiki)</td><td>Members; via the Abyss; 91 RC recommended; 70+ Mining optional to mine through rocks</td></tr>
                 </table>
                 </div>
-                <p style="font-size:.85rem;color:#2D2A33;"><strong>Data provenance:</strong> Cowhide/flax/lobster figures derived from OSRS Wiki money-making method pages and Grand Exchange values cached July 2026; nature-rune figure is the Wiki's stated "Crafting nature runes through the Abyss" hourly profit (1,132,000). <strong>Always re-check live GE prices — these are estimates, not guarantees.</strong></p>
+                <p style="font-size:.85rem;color:#1a1a1a;"><strong>Data provenance:</strong> Cowhide/flax/lobster figures derived from OSRS Wiki money-making method pages and Grand Exchange values cached July 2026; nature-rune figure is the Wiki's stated "Crafting nature runes through the Abyss" hourly profit (1,132,000). <strong>Always re-check live GE prices — these are estimates, not guarantees.</strong></p>
             </section>
 
             <!-- SECTION 4: COWHIDES -->
@@ -214,22 +214,22 @@
                 <div class="method-box highlight">
                     <h4>🧮 Beginner Profit Calculator</h4>
                     <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:8px 0;">
-                        <label style="font-size:.85rem;color:#2D2A33;">Buy price/item (GP):<br><input type="number" id="buy" value="4" min="0" style="width:110px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
-                        <label style="font-size:.85rem;color:#2D2A33;">Sell price/item (GP):<br><input type="number" id="sell" value="110" min="0" style="width:110px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
-                        <label style="font-size:.85rem;color:#2D2A33;">Items processed/hr:<br><input type="number" id="vol" value="2000" min="1" style="width:120px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
+                        <label style="font-size:.85rem;color:#1a1a1a;">Buy price/item (GP):<br><input type="number" id="buy" value="4" min="0" style="width:110px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
+                        <label style="font-size:.85rem;color:#1a1a1a;">Sell price/item (GP):<br><input type="number" id="sell" value="110" min="0" style="width:110px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
+                        <label style="font-size:.85rem;color:#1a1a1a;">Items processed/hr:<br><input type="number" id="vol" value="2000" min="1" style="width:120px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
                         <button onclick="calcProfit()" style="background:#9B84D4;color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer;">Calculate</button>
                     </div>
-                    <div id="profit-out" style="font-size:.9rem;color:#2D2A33;background:#fff;border:1px solid #e0d5c0;border-radius:6px;padding:10px 12px;line-height:1.7;"></div>
+                    <div id="profit-out" style="font-size:.9rem;color:#1a1a1a;background:#fff;border:1px solid #e0d5c0;border-radius:6px;padding:10px 12px;line-height:1.7;"></div>
                 </div>
                 <div class="method-box highlight">
                     <h4>🎲 Rare-Drop Expectancy (EV)</h4>
                     <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:8px 0;">
-                        <label style="font-size:.85rem;color:#2D2A33;">Kills/collects per hr:<br><input type="number" id="rarKph" value="200" min="1" style="width:110px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
-                        <label style="font-size:.85rem;color:#2D2A33;">Hours grinding:<br><input type="number" id="rarHrs" value="10" min="1" style="width:90px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
-                        <label style="font-size:.85rem;color:#2D2A33;">Rare rate (1 in N):<br><input type="number" id="rarN" value="128" min="1" style="width:90px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
+                        <label style="font-size:.85rem;color:#1a1a1a;">Kills/collects per hr:<br><input type="number" id="rarKph" value="200" min="1" style="width:110px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
+                        <label style="font-size:.85rem;color:#1a1a1a;">Hours grinding:<br><input type="number" id="rarHrs" value="10" min="1" style="width:90px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
+                        <label style="font-size:.85rem;color:#1a1a1a;">Rare rate (1 in N):<br><input type="number" id="rarN" value="128" min="1" style="width:90px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
                         <button onclick="calcEV()" style="background:#9B84D4;color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer;">Calculate</button>
                     </div>
-                    <div id="ev-out" style="font-size:.9rem;color:#2D2A33;background:#fff;border:1px solid #e0d5c0;border-radius:6px;padding:10px 12px;line-height:1.7;"></div>
+                    <div id="ev-out" style="font-size:.9rem;color:#1a1a1a;background:#fff;border:1px solid #e0d5c0;border-radius:6px;padding:10px 12px;line-height:1.7;"></div>
                 </div>
                 <script>
                 function calcProfit(){
@@ -313,7 +313,7 @@
                     <li><strong>Check GE first:</strong> margins flip daily. A 2-minute price check saves a wasted bulk buy.</li>
                     <li><strong>Stay safe:</strong> all four methods are non-Wilderness and risk-free. Never "upgrade" into a Wilderness method as a beginner.</li>
                     <li><strong>Skill while you earn:</strong> each method trains a skill — your bank and your account grow together.</li>
-                    <li><strong>Next step:</strong> once you have a few million, read the <a href="osrs-beginner-money-making-no-requirements-2026.html" style="color:#8b6914;font-weight:bold;">0-Requirement Money Making guide</a> for shop methods that scale with capital, then the <a href="osrs-member-money-making-2026.html" style="color:#8b6914;font-weight:bold;">Member Money Making guide</a> when you subscribe.</li>
+                    <li><strong>Next step:</strong> once you have a few million, read the <a href="osrs-beginner-money-making-no-requirements-2026.html" style="color:#8b6914;font-weight:bold;">0-Requirement Money Making guide</a> for shop methods that scale with capital, then the <a href="osrs-member-money-making-low-level-2026.html" style="color:#8b6914;font-weight:bold;">Member Money Making guide</a> when you subscribe.</li>
                 </ul>
                 <div class="tip-box">
                     <div class="tip-title">🤝 You've Got the F2P Foundation</div>
@@ -332,7 +332,7 @@
                     <strong>→ Step 2:</strong> Bridge to membership with the <a href="osrs-f2p-to-bond-guide-2026.html" style="color:#8b6914; font-weight:bold;">F2P to Bond Guide 2026</a>
                 </div>
                 <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
-                    <strong>→ Step 3:</strong> Unlock real money as a member in the <a href="osrs-member-money-making-2026.html" style="color:#8b6914; font-weight:bold;">Member Money Making Guide 2026</a>
+                    <strong>→ Step 3:</strong> Unlock real money as a member in the <a href="osrs-member-money-making-low-level-2026.html" style="color:#8b6914; font-weight:bold;">Member Money Making Guide 2026</a>
                 </div>
                 <a href="osrs-beginner-money-making-no-requirements-2026.html" class="support-btn paypal-btn" style="display:inline-block; text-decoration:none; margin-top:20px;">Next: 0-Requirement Money Making →</a>
             </div>
@@ -395,8 +395,8 @@
                 <div class="footer-col"><h4>🪙 Money Making</h4><ul>
                     <li><a href="../money-making.html">Money Making Hub</a></li>
                     <li><a href="osrs-beginner-money-making-no-requirements-2026.html">0-Requirement Money</a></li>
-                    <li><a href="osrs-member-money-making-2026.html">Member Money Making</a></li>
-                    <li><a href="osrs-high-level-money-making-2026.html">High-Level Money</a></li>
+                    <li><a href="osrs-member-money-making-low-level-2026.html">Member Money Making</a></li>
+                    <li><a href="osrs-high-level-money-making-osrs-2026.html">High-Level Money</a></li>
                     <li><a href="osrs-f2p-to-bond-guide-2026.html">F2P to Bond</a></li>
                 </ul></div>
                 <div class="footer-col"><h4>Popular Guides</h4><ul>

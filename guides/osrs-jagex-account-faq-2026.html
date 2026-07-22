@@ -22,7 +22,7 @@
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
 </head>
-<body>
+<body data-level="novice" data-category="account">
 <div id="reading-progress" style="position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#d4af37,#f0d68a);z-index:99999;width:0%;transition:width .1s ease-out;"></div>
     <header>
         <div class="container">
@@ -30,7 +30,7 @@
                 <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
                 <ul class="nav-links">
                     <li><a href="../index.html">Home</a></li>
-                    <li><a href="../updates.html">Updates</a></li>
+                    <li><a href="../weekly-updates.html">Updates</a></li>
                     <li><a href="../skill-training.html">Skills</a></li>
                     <li><a href="../money-making.html">Money</a></li>
                     <li><a href="../boss-guides.html">Bosses</a></li>
@@ -41,8 +41,9 @@
 
     <section class="guide-hero">
         <div class="container">
-            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../updates.html">Updates</a> / Jagex Account Migration FAQ</p>
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../weekly-updates.html">Updates</a> / Jagex Account Migration FAQ</p>
             <h1>🔐 Jagex Account Migration FAQ — Everything You Need to Know Before Migrating</h1>
+            <span class="level-badge" style="display:inline-block;background:#9B84D4;color:#fff;padding:3px 12px;border-radius:20px;font-size:.8rem;font-weight:700;margin:8px 0 4px;">Novice</span>
             <p class="subtitle">Jagex is making a full transition to Jagex Accounts later in 2026. If you're an OSRS player, you'll need to migrate your existing character(s) to a Jagex Account to continue playing. This FAQ covers everything — from RuneLite compatibility and Nvidia plugin support to managing multiple characters and whether migration is reversible. All answers are verified against official Jagex sources and the OSRS Wiki.</p>
             <div class="weekly-badge">
                 <span class="badge-icon">📅</span> <strong>Published: June 28, 2026</strong> — Account Guide · 12 min read
@@ -52,7 +53,7 @@
     <!-- Quick Summary -->
     <div class="quick-summary" style="background:#fff;border:1px solid #e0d5c0;border-left:4px solid #d4af37;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
         <h3 style="color:#b8860b;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
-        <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+        <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
             <li><strong>RuneLite fully compatible</strong> &mdash; all plugins, HDOS, and GPU rendering work fine</li>
             <li>Manage up to <strong>20 characters</strong> under one Jagex Account &mdash; switch with one click in launcher</li>
             <li>Migration is <strong>irreversible</strong> &mdash; characters, stats, items all carry over intact</li>
@@ -545,7 +546,7 @@
                         <li><a href="../skill-training.html">Skill Training</a></li>
                         <li><a href="../money-making.html">Money Making</a></li>
                         <li><a href="../boss-guides.html">Boss Guides</a></li>
-                        <li><a href="../updates.html">Updates</a></li>
+                        <li><a href="../weekly-updates.html">Updates</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -592,5 +593,27 @@ window.addEventListener('scroll', function(){
 .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item{background:#fff!important;border-color:#e0d5c0!important}
 .guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p{color:#1a1a1a!important}
 .guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong{color:#3b2615!important}
+
+ /* ===== Mobile Responsive Overrides (P0 Standard) ===== */
+ @media (max-width: 768px) {
+  .guide-content table { font-size: 0.85rem; }
+  .guide-content table thead tr th { padding:8px 10px; font-size:0.8rem; }
+  .guide-content table tbody td { padding:6px 10px; }
+  .guide-content h2 { font-size: 1.4em; }
+  .guide-content h3 { font-size: 1.15em; }
+  .guide-content div[style*="border-radius:12px"] { padding: 16px !important; }
+  .guide-content div[style*="border-radius:8px"] { padding: 14px !important; }
+ }
+
+ @media (max-width: 640px) {
+  .guide-content table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .guide-content h2 { font-size: 1.25em; }
+  .guide-content h3 { font-size: 1.05em; }
+  .guide-content p { font-size: 0.95rem; line-height: 1.7; }
+  .guide-content li { font-size: 0.95rem; line-height: 1.8; }
+  .copyright-protection { margin: 12px 8px !important; padding: 8px 12px !important; }
+  .copyright-protection p { font-size: 0.72rem !important; }
+ }
+
 </style>
 </html>

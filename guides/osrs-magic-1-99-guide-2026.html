@@ -56,7 +56,7 @@
             <!-- QUICK VERDICT -->
             <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
                 <h3 style="color:#b8860b;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
-                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
                     <li>📌 <strong>Quests first:</strong> Witch's Potion, Witch's House, The Grand Tree, Desert Treasure (20k XP) and Lunar Diplomacy (5k) give free early levels.</li>
                     <li>📌 <strong>High Alchemy (55+):</strong> 65 XP/cast, ~200k XP/hr, can break even or profit &mdash; the default training method.</li>
                     <li>📌 <strong>Bursting/Barraging (70/94):</strong> 150k&ndash;305k XP/hr but costs <strong>&minus;1.3M to &minus;2.5M GP/hr</strong> (Ancient Magicks).</li>
@@ -157,7 +157,7 @@
                     <tr><td>Splashing</td><td>12k&ndash;40k</td><td>~&minus;5k (runes only)</td><td>Community (2026)</td></tr>
                 </table>
                 </div>
-                <p style="font-size:.85rem;color:#2D2A33;"><strong>Data provenance:</strong> OSRS Wiki Magic training page (cached 20 July 2026). Burst/barrage costs are net of runes only &mdash; on Slayer tasks (Dust Devils, Nechryaels) monster drops partially offset the cost. <strong>Always verify live rune GE prices before a long grind.</strong></p>
+                <p style="font-size:.85rem;color:#1a1a1a;"><strong>Data provenance:</strong> OSRS Wiki Magic training page (cached 20 July 2026). Burst/barrage costs are net of runes only &mdash; on Slayer tasks (Dust Devils, Nechryaels) monster drops partially offset the cost. <strong>Always verify live rune GE prices before a long grind.</strong></p>
             </section>
 
             <!-- SECTION 5 -->
@@ -185,11 +185,11 @@
             <!-- SECTION 6: CALCULATOR -->
             <section id="calculator">
                 <h2>6. 🧮 Cost to 99 Calculator</h2>
-                <p style="font-size:.9rem;color:#2D2A33;">Pick your current level, target, and method. The calculator estimates hours and the <strong>total GP cost</strong> (rune cost only; Slayer-task drops not included). Uses verified July 2026 XP/hr and net GP/hr.</p>
+                <p style="font-size:.9rem;color:#1a1a1a;">Pick your current level, target, and method. The calculator estimates hours and the <strong>total GP cost</strong> (rune cost only; Slayer-task drops not included). Uses verified July 2026 XP/hr and net GP/hr.</p>
                 <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:10px 0;">
-                    <label style="font-size:.85rem;color:#2D2A33;">Current level:<br><input type="number" id="mgCur" value="55" min="1" max="98" style="width:80px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
-                    <label style="font-size:.85rem;color:#2D2A33;">Target level:<br><input type="number" id="mgTgt" value="99" min="2" max="99" style="width:80px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
-                    <label style="font-size:.85rem;color:#2D2A33;">Method:<br>
+                    <label style="font-size:.85rem;color:#1a1a1a;">Current level:<br><input type="number" id="mgCur" value="55" min="1" max="98" style="width:80px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
+                    <label style="font-size:.85rem;color:#1a1a1a;">Target level:<br><input type="number" id="mgTgt" value="99" min="2" max="99" style="width:80px;padding:4px;border:1px solid #D4CDE0;border-radius:4px;"></label>
+                    <label style="font-size:.85rem;color:#1a1a1a;">Method:<br>
                         <select id="mgMeth" style="padding:4px;border:1px solid #D4CDE0;border-radius:4px;">
                             <option value="200|-50000">High Alchemy (slight cost)</option>
                             <option value="130|0">Superheat Item (break-even)</option>
@@ -202,7 +202,7 @@
                     </label>
                     <button onclick="calcMG()" style="background:#9B84D4;color:#fff;border:none;padding:8px 16px;border-radius:6px;font-weight:700;cursor:pointer;">Calculate</button>
                 </div>
-                <div id="mg-out" style="font-size:.9rem;color:#2D2A33;background:#fff;border:1px solid #e0d5c0;border-radius:6px;padding:10px 12px;line-height:1.7;"></div>
+                <div id="mg-out" style="font-size:.9rem;color:#1a1a1a;background:#fff;border:1px solid #e0d5c0;border-radius:6px;padding:10px 12px;line-height:1.7;"></div>
                 <script>
                 function xpToReachM(level){
                     var total=0;
@@ -327,7 +327,7 @@
                     <li><strong>Alch while skilling:</strong> High Alchemy during Agility laps or farm runs is "free" XP.</li>
                     <li><strong>Burst on Slayer:</strong> offset rune cost with task drops (Dust Devils, Nechryaels).</li>
                     <li><strong>Splash for AFK:</strong> &minus;65 Magic attack bonus, staff of air, caged monster.</li>
-                    <li><strong>Next skill:</strong> pair Magic with <a href="osrs-runecrafting-1-99-guide-2026.html" style="color:#8b6914;font-weight:bold;">Runecrafting</a> (your runes) and <a href="osrs-slayer-1-99-guide-2026.html" style="color:#8b6914;font-weight:bold;">Slayer</a> (your burst tasks).</li>
+                    <li><strong>Next skill:</strong> pair Magic with <a href="osrs-runecrafting-1-99-guide-2026.html" style="color:#8b6914;font-weight:bold;">Runecrafting</a> (your runes) and <a href="osrs-slayer-1-99-fastest-2026.html" style="color:#8b6914;font-weight:bold;">Slayer</a> (your burst tasks).</li>
                 </ul>
                 <div class="tip-box">
                     <div class="tip-title">🤝 You've Got the Spellbook Down</div>
@@ -343,10 +343,10 @@
                     <strong>→ Step 1:</strong> Fuel your runes with the <a href="osrs-runecrafting-1-99-guide-2026.html" style="color:#8b6914; font-weight:bold;">Runecrafting 1-99 Guide 2026</a>
                 </div>
                 <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
-                    <strong>→ Step 2:</strong> Use burst tasks from the <a href="osrs-slayer-1-99-guide-2026.html" style="color:#8b6914; font-weight:bold;">Slayer 1-99 Guide 2026</a> to offset costs
+                    <strong>→ Step 2:</strong> Use burst tasks from the <a href="osrs-slayer-1-99-fastest-2026.html" style="color:#8b6914; font-weight:bold;">Slayer 1-99 Guide 2026</a> to offset costs
                 </div>
                 <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
-                    <strong>→ Step 3:</strong> Brew potions for your new PvM with the <a href="osrs-herblore-1-99-guide-2026.html" style="color:#8b6914; font-weight:bold;">Herblore 1-99 Guide 2026</a>
+                    <strong>→ Step 3:</strong> Brew potions for your new PvM with the <a href="osrs-low-cost-1-99-herblore-guide.html" style="color:#8b6914; font-weight:bold;">Herblore 1-99 Guide 2026</a>
                 </div>
                 <a href="osrs-runecrafting-1-99-guide-2026.html" class="support-btn paypal-btn" style="display:inline-block; text-decoration:none; margin-top:20px;">Next: Runecrafting 1-99 Guide 2026 →</a>
             </div>
@@ -416,7 +416,7 @@
                     <li><a href="osrs-combat-training-beginner-2026.html">Combat Training</a></li>
                     <li><a href="osrs-money-making-beginner-2026.html">Beginner Money Making</a></li>
                     <li><a href="osrs-gear-beginner-guide-2026.html">Gear Guide</a></li>
-                    <li><a href="osrs-safe-spots-beginner-guide-2026.html">Safe Spots</a></li>
+                    <li><a href="osrs-safe-spots-beginner-2026.html">Safe Spots</a></li>
                     <li><a href="osrs-prayer-training-beginner-guide-2026.html">Prayer Training</a></li>
                     <li><a href="osrs-f2p-to-p2p-membership-guide-2026.html">F2P to P2P Transition</a></li>
                 </ul></div>
