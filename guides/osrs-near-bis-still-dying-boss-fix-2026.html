@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Near-BiS but Still Dying to Bosses? OSRS Death Diagnosis &amp; Fix (2026)</title>
+    <meta name="description" content="Updated for July 2026. Near-maxed gear but still getting one-shot by Vorkath, Zulrah or Vardorvis? A step-by-step OSRS death diagnosis: wrong protection prayers, missed gear switches, failed tick eating, flick misfires, inflated DPS and missing boss plugins — with an instant fix for each.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS dying to bosses near bis, OSRS death diagnosis, OSRS protection prayer mistakes, OSRS gear switch Vorkath Zulrah, OSRS tick eating guide, OSRS prayer flick failing, OSRS why do I keep dying boss, OSRS DPS calculator">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-near-bis-still-dying-boss-fix-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="advanced" data-category="pvm">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRSGuru</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../skill-training.html">Skill Training</a></li>
+                    <li><a href="../money-making.html">Money Making</a></li>
+                    <li><a href="../boss-guides.html">Boss Guides</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../boss-guides.html">Boss Guides</a> / Near-BiS but Still Dying to Bosses?</p>
+            <h1>Near-BiS but Still Dying to Bosses? OSRS Death Diagnosis &amp; Fix (2026)</h1>
+            <p class="subtitle">You finally bought the gear. Torva, Ancestral, Scythe, Bowfa — almost Best-in-Slot. Yet Vorkath still deletes you, Zulrah clips you for 40s, and Vardorvis one-shots you off a pillar. This is a death diagnosis, not a gear guide: we go cause-by-cause through why expensive armour is not saving you, and give you the exact fix for each.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">☠️</span> <strong>Advanced PvM</strong> — Death Diagnosis &middot; 13 min read &middot; Updated July 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#b8860b;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Gear is rarely the killer.</strong> Near-BiS deaths are almost always prayer, switch, or timing mistakes — not a missing item.</li>
+                    <li>📌 <strong>Wrong / un-switched protection prayer</strong> is the #1 cause — Zulrah's three forms demand three different prayers.</li>
+                    <li>📌 <strong>Missing gear switches</strong> (no Salve vs undead, no crush weapon for the spawn) quietly tanks your kill and extends the fight.</li>
+                    <li>📌 <strong>Failed tick eating &amp; brew/restore loops</strong> leave you at 1 HP with no buffer when the big hit lands.</li>
+                    <li>📌 <strong>No boss timers / plugins</strong> means you read raw animations instead of the attack rhythm — fixable in 5 minutes.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#the-paradox">The Near-BiS Paradox: Why Gear Isn't Saving You</a></li>
+                    <li><a href="#protection-prayer">Protection Prayer Mistakes That Get You Killed</a></li>
+                    <li><a href="#gear-switch">Gear Switch &amp; Amulet Mistakes</a></li>
+                    <li><a href="#tick-eating">Tick Eating &amp; Brew/Restore Loop Failures</a></li>
+                    <li><a href="#prayer-flick">Prayer Flick Misfires</a></li>
+                    <li><a href="#dps-inflation">Inflated DPS: Boosts &amp; Style Blind Spots</a></li>
+                    <li><a href="#boss-plugins">Missing Boss Timers &amp; Plugins</a></li>
+                    <li><a href="#one-shot-mechanics">Boss-Specific One-Shot Mechanics</a></li>
+                    <li><a href="#faq">Death Diagnosis FAQs</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="the-paradox">
+                <h2>1. 💀 The Near-BiS Paradox: Why Gear Isn't Saving You</h2>
+                <p>Here is the uncomfortable truth advanced players hate to hear: <strong>armour mitigates damage, it does not prevent it.</strong> A protection prayer prevents 100% of one attack style. A Defence level and armour only reduce the size of the hit you still take. If you are wearing Torva but praying the wrong style — or not praying at all during a gap — that expensive armour just makes a lethal hit slightly less lethal. It does not stop the death.</p>
+                <p>When we review near-BiS deaths, the gear is almost never the problem. The pattern is always one of seven causes. Before you spend another 100M on a marginally better item, run this diagnosis top to bottom. Most players fix their death rate by changing <em>habits</em>, not <em>items</em>.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 How to Use This Diagnosis</div>
+                    <p>For each death, ask: which of the seven sections below matches what happened? Write it down. After three deaths you will usually see the same 1–2 causes repeating. Fix those first — they are responsible for the vast majority of your deaths. Then read our companion piece, <a href="osrs-boss-mechanics-death-prevention-2026.html" style="color:#8b6914;font-weight:bold;">OSRS Boss Mechanics Mastery: Stop Dying for Good</a>, to build the habits that prevent these in the first place.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="protection-prayer">
+                <h2>2. 🛡️ Protection Prayer Mistakes That Get You Killed</h2>
+                <p>The single most common near-BiS death. You have the prayer points, you have the levels — but the prayer is wrong, un-switched, or off at the wrong moment.</p>
+
+                <h3>① Symptom: you take a huge unblocked hit out of nowhere</h3>
+                <p>You are at full prayer, you are "praying", and yet a single attack removes half your HP. The fight did not feel dangerous until that one hit.</p>
+
+                <h3>② Root cause: wrong prayer selected (or never switched)</h3>
+                <p>This shows up most brutally at bosses with multiple phases. At <strong>Zulrah</strong>, the three forms each use a different style: the <strong>green</strong> form attacks with <strong>Ranged</strong> (pray Protect from Missiles), the <strong>red</strong> form attacks with <strong>Magic</strong> (pray Protect from Magic), and the <strong>blue</strong> form attacks with <strong>Melee</strong> (pray Protect from Melee). Players who leave Protect from Magic on through a green phase eat every ranged hit. At <strong>Vorkath</strong>, his standard attacks are blocked by <strong>Protect from Magic</strong> combined with an anti-dragon shield (or Dragonfire ward) and an anti-fire potion — praying the wrong style there is a slow death by dragonfire. Some bosses also flip attack styles mid-fight; if your prayer never flips with them, you are taking 100% of the new style.</p>
+
+                <h3>③ Instant fix</h3>
+                <div class="action-step">
+                    <h4>Match the prayer to the current attack style, every phase</h4>
+                    <p>Learn each boss's style order by heart, not by reaction. For Zulrah, pre-decide your prayer for each of the ~4 rotation positions before you start. For Vorkath, lock Protect from Magic + anti-fire from the first tick and keep it. If a boss switches styles, switch your prayer on the same game tick the new phase begins — a RuneLite boss plugin (see <a href="#boss-plugins" style="color:#8b6914;font-weight:bold;">Section 7</a>) will flash the correct prayer so you stop guessing.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="gear-switch">
+                <h2>3. ⚔️ Gear Switch &amp; Amulet Mistakes</h2>
+                <p>You brought the BiS armour, but a missing secondary switch quietly extends every kill and leaves you exposed longer than you should be.</p>
+
+                <h3>① Symptom: the kill takes 30–50% longer than your DPS calculator promised</h3>
+                <p>Your sheet says the fight should be 90 seconds; it is taking 130. Longer fights = more special attacks = more death chances. The gear is "right" but the kill is slow.</p>
+
+                <h3>② Root cause: wrong amulet and missing style/weapon switches</h3>
+                <p>Two classic misses. First, the <strong>Salve amulet (i / ei)</strong> gives a large accuracy and damage boost against <strong>undead</strong> targets — Vorkath is undead. Players who wear a attack/speed amulet (or a strength amulet) instead of a Salve are leaving free DPS on the table. Second, many bosses demand a <strong>gear switch mid-fight</strong>: Vorkath spawns a <strong>Zombified Spawn</strong> during the acid phase that is weak to <strong>crush</strong> — trying to kill it with your slash/stab Bossing weapon is slow and risks the acid pooling on you. Skipping your spec weapon, void switch, or bane/elemental switch has the same effect.</p>
+
+                <h3>③ Instant fix</h3>
+                <div class="action-step">
+                    <h4>Build a real switch list and pre-bind it</h4>
+                    <p>Before the fight, write down every switch the boss needs: Salve for undead, the correct style weapon for each phase, a spec weapon for burst windows, and a defensive switch for special attacks. Bind each to a function key (RuneLite "Key Remapping" or F-keys) so the swap is one press, not a fumble through the bank. If you are learning the Vorkath or Zulrah kill, our <a href="osrs-vorkath-money-making-guide-2026.html" style="color:#8b6914;font-weight:bold;">Vorkath money guide</a> and <a href="osrs-zulrah-money-making-guide-2026.html" style="color:#8b6914;font-weight:bold;">Zulrah money guide</a> lay out the exact switch setups.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="tick-eating">
+                <h2>4. 🍖 Tick Eating &amp; Brew/Restore Loop Failures</h2>
+                <p>You are praying correctly and switching fine — but the moment a big hit lands you are at 1 HP with no food left. That is an eating/discipline problem, not a gear problem.</p>
+
+                <h3>① Symptom: you die to the "big hit" with food in the bag but not in your mouth</h3>
+                <p>The special attack lands and you go from 60 HP to dead in one tick. You had sharks / brews, but they were never clicked in time.</p>
+
+                <h3>② Root cause: no tick eating, or a broken brew/restore cycle</h3>
+                <p><strong>Tick eating</strong> means eating one game tick (0.6s) before the dangerous hit lands, so the heal applies and negates the damage. Players who eat "when the HP bar looks low" eat one tick too late and die. The <strong>Saradomin brew + Super restore loop</strong> is the standard tank sustain: a brew heals a % of your HP plus a flat amount but temporarily lowers your combat stats, so you follow each brew with a Super restore to recover those stats. Players who only bring brews (and watch their accuracy/defence crater) or only bring restores (and never actually heal) both end up fragile.</p>
+
+                <h3>③ Instant fix</h3>
+                <div class="action-step">
+                    <h4>Eat on the tick, and run a clean brew→restore rhythm</h4>
+                    <p>Enable the RuneLite <strong>HP</strong> plugin (or a tick counter) so you can see exactly when the next hit lands, and practise eating one tick before it. For sustain, carry a stack of Saradomin brews and Super restores in a ~2:1 ratio (two brews per restore, keep at least one restore dosed). Sip brew to heal, sip restore to recover stats, repeat. Never let your stats sit depleted — that is when the "safe" hits start hitting hard.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="prayer-flick">
+                <h2>5. ⚡ Prayer Flick Misfires</h2>
+                <p>You are trying to be efficient and flick your protection prayer to save points — but a missed flick is worse than no flick, because it costs you both the prayer point and the protection.</p>
+
+                <h3>① Symptom: prayer points drain fast AND you still take hits</h3>
+                <p>You thought you were flicking, but the prayer was off during the attack. You paid the point cost in your head without getting the protection.</p>
+
+                <h3>② Root cause: flicking on the wrong tick, or flicking a boss that shouldn't be flicked</h3>
+                <p>A correct flick turns the prayer <strong>on</strong> on the exact tick the boss's attack is processed, then off immediately after. Flick one tick early or late and you eat the hit. Some players also try to flick bosses whose attack speed makes flicking unreliable, or flick during a phase where the boss attacks faster than their reaction allows. A misfired flick during a multi-hit special is an instant death.</p>
+
+                <h3>③ Instant fix</h3>
+                <div class="action-step">
+                    <h4>Flick only what you can reliably time — otherwise hold</h4>
+                    <p>Start by <strong>holding</strong> Protect prayers through the dangerous phases and only flick during safe, predictable windows (e.g. between Vorkath phases). When you do flick, anchor to the boss's attack animation, not the HP bar. Practise the rhythm on a low-risk Slayer task first. The deeper habit-building is in <a href="osrs-boss-mechanics-death-prevention-2026.html" style="color:#8b6914;font-weight:bold;">our prevention guide</a> — but the rule today: a held prayer that is on beats a flicked prayer that is off.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="dps-inflation">
+                <h2>6. 📉 Inflated DPS: Boosts &amp; Style Blind Spots</h2>
+                <p>"My stats are 99 and I have a Scythe, why is my DPS so low?" Because unbuffed 99s are not your real DPS, and the style you are using may be the wrong one.</p>
+
+                <h3>① Symptom: the boss lives far longer than expected, and you run out of supplies</h3>
+                <p>Your max hits look fine in the combat tab, but in practice the kill drags and you burn through food/prayer before the boss dies.</p>
+
+                <h3>② Root cause: no combat potions, wrong attack style, or an uncharged setup</h3>
+                <p>High combat stats are a ceiling, not a floor. Without <strong>Super combat / Ranging / Magic potions</strong> (or the equivalent overload at higher content), you are fighting at base levels. On top of that, using the wrong <strong>attack style</strong> for the monster's weakness (e.g. crush vs a slash-weak target), fighting without an <strong>imbued / enchanted</strong> ring or bane amulet, or using a weapon whose charges have run out all quietly cut your true DPS. A <strong>DPS calculator</strong> run with your actual buffed numbers usually reveals the gap immediately — you are not doing the damage you think you are.</p>
+
+                <h3>③ Instant fix</h3>
+                <div class="action-step">
+                    <h4>Buff, match the style, then verify with a calculator</h4>
+                    <p>Always enter the fight with the correct potion already sipped and the right style selected for that monster's weakness. Then sanity-check with a DPS calculator using your <em>buffed</em> stats, not your base ones. If the calculator says 20% less DPS than you assumed, that 20% is extra deaths you are volunteering for. (Full calculator workflow is in <a href="osrs-boss-mechanics-death-prevention-2026.html" style="color:#8b6914;font-weight:bold;">the prevention guide, Section 2</a>.)</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="boss-plugins">
+                <h2>7. 🔌 Missing Boss Timers &amp; Plugins</h2>
+                <p>You are reading raw animations and hoping. The players who "never die" are reading a clean overlay that tells them the rhythm, the safe tile, and the next prayer.</p>
+
+                <h3>① Symptom: you get caught off guard by attacks you "should have seen coming"</h3>
+                <p>Every death feels like a surprise. You react to the boss instead of anticipating it.</p>
+
+                <h3>② Root cause: no boss-specific plugin, so you read animations instead of the attack cycle</h3>
+                <p>Without a boss timer overlay, you are guessing when the next special lands. That guess is wrong often enough to kill you. RuneLite's official plugin hub ships boss-specific plugins (Vorkath, Zulrah, the Chambers/Nightmare/ToA overlays, etc.) that show attack cycles, safe tiles, and the correct prayer. Running without them is fighting with one eye closed.</p>
+
+                <h3>③ Instant fix</h3>
+                <div class="action-step">
+                    <h4>Install the boss plugin and let it tell you the rhythm</h4>
+                    <p>Open the RuneLite plugin hub, search the boss name, and enable its overlay. Set the "prayer" helper (where available) so the correct Protect prayer is highlighted — <strong>note: this only highlights, you still click it; true auto-prayer is bannable</strong>. Suddenly the "surprise" hits become predictable. For wider boss coverage, the <a href="osrs-wilderness-bosses-guide-2026.html" style="color:#8b6914;font-weight:bold;">Wilderness bosses guide</a> and the money-making guides above cover which overlays matter per fight.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 8 -->
+            <section id="one-shot-mechanics">
+                <h2>8. ☠️ Boss-Specific One-Shot Mechanics</h2>
+                <p>Some deaths are not about prayer or DPS at all — they are a telegraphed mechanic you simply did not dodge.</p>
+
+                <h3>① Symptom: a single mechanic removes you from full HP in one go</h3>
+                <p>There is one attack — a line, a pool, a falling object — that, if you are standing in the wrong place, ends the run instantly regardless of your gear.</p>
+
+                <h3>② Root cause: the dodge was telegraphed but you did not move</h3>
+                <p>Most one-shots are telegraphed one or more ticks ahead: a marked tile, a line on the ground, a wind-up animation. <strong>Vardorvis</strong> telegraphs an axe throw along a straight line — step off the marked tiles before it lands or take a massive hit. Many Colosseum and raid bosses follow the same pattern: the safe spot is shown, and dying means you ignored it. Gear cannot save you from standing in the red.</p>
+
+                <h3>③ Instant fix</h3>
+                <div class="action-step">
+                    <h4>Move on the telegraph, not after the damage</h4>
+                    <p>Train yourself to react to the <em>warning</em>, not the <em>impact</em>. The moment a tile/line appears, your only job is to be elsewhere by the time it resolves. Practise the dodge in isolation (see the low-risk drill in <a href="osrs-boss-mechanics-death-prevention-2026.html" style="color:#8b6914;font-weight:bold;">the prevention guide</a>) until stepping off becomes automatic. One dodge learned = one death cause removed permanently.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 9: FAQ -->
+            <section id="faq">
+                <h2>9. ❓ Death Diagnosis FAQs</h2>
+
+                <div class="faq-item">
+                    <h4>My gear is near-BiS, so why am I still dying at Vorkath?</h4>
+                    <p>Almost always one of three things: (1) you are not praying Protect from Magic + anti-fire, so dragonfire is chipping you; (2) you are not dealing with the Zombified Spawn fast enough during the acid phase, so acid pools build; or (3) you are not using a Salve amulet (Vorkath is undead), so the kill drags. None of these are fixed by better armour. See <a href="osrs-vorkath-money-making-guide-2026.html" style="color:#8b6914;font-weight:bold;">our Vorkath guide</a> for the exact setup.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Why do I keep dying at Zulrah even with good range gear?</h4>
+                    <p>Zulrah switches between Ranged (green), Magic (red) and Melee (blue) forms. If your protection prayer does not switch with the form, you eat 100% of that style. Pre-learn the rotation and flip your prayer on the same tick the form changes. A Zulrah plugin that flashes the correct prayer removes almost all of these deaths.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Is tick eating worth learning, or should I just bring more food?</h4>
+                    <p>Both help, but tick eating is what actually prevents the one-shot. More food only helps if you click it in time. Learn to eat one tick before the big hit lands (use the RuneLite HP plugin as a timer). It turns "dead at 1 HP" into "took 0".</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>My Saradomin brews heal me but my hits get weak — what am I doing wrong?</h4>
+                    <p>You are brewing without restoring. A brew lowers your combat stats (attack/strength/defence/ranged/magic) while it heals. Follow every brew with a Super restore to recover those stats, or you fight as a 90%-strength version of yourself and the kill drags. Keep at least one restore dosed at all times.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>I flick my prayer to save points but I still die — should I stop?</h4>
+                    <p>If your flicks are missing, yes — hold the prayer instead. A held Protect prayer that is on beats a flicked prayer that is off. Only flick during predictable, safe windows once your timing is reliable.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Do RuneLite boss plugins get you banned?</h4>
+                    <p>No — RuneLite and its official plugin hub are permitted by Jagex, and boss overlays/timers are standard. What is bannable is anything that <em>automates input</em> for you (auto-prayer, auto-eating, auto-click). Information overlays that you still have to act on are fine.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How do I know if my DPS is actually too low?</h4>
+                    <p>Run your setup through a DPS calculator with your <em>buffed</em> stats (after potions) and the correct style. If the number is well below what you assumed, your kills are longer than they should be and you are taking more special attacks than necessary. That gap is death risk you are choosing.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Vardorvis one-shots me off the pillar — how do I avoid it?</h4>
+                    <p>The axe throw is telegraphed along a line/tiles before it lands. The fix is purely positional: step off the marked tiles before the attack resolves. No gear change saves you from standing in it. Drill the dodge in isolation until it is muscle memory.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>I died and lost untradeables — can I get them back?</h4>
+                    <p>If the items are reclaimable (most quest/raid uniques are), reclaim them from the relevant NPC for a GP fee. If they were lost permanently (e.g. dropped, or a non-reclaimable item), recovery depends on the situation. Our <a href="osrs-account-recovery-after-hack-2026.html" style="color:#8b6914;font-weight:bold;">account recovery guide</a> covers Jagex's recovery process for account-level issues, but item loss from normal death is generally not restoreable — learn the dodge instead.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>What is the fastest way to stop dying overall?</h4>
+                    <p>Fix the top two causes from your own death log (Section 1), install the boss plugin (Section 7), and read <a href="osrs-boss-mechanics-death-prevention-2026.html" style="color:#8b6914;font-weight:bold;">OSRS Boss Mechanics Mastery: Stop Dying for Good</a> to build the habits that prevent these deaths before they happen.</p>
+                </div>
+            </section>
+
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 What To Do After This Diagnosis</h3>
+                <p>You now know <em>why</em> near-BiS gear is not keeping you alive. Turn the diagnosis into permanent survival with these next steps:</p>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 1:</strong> Log your next 3 deaths and tag each with the section number that caused it — patterns appear fast
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 2:</strong> Install the boss plugin for your main target and learn the correct prayer per phase (<a href="osrs-zulrah-money-making-guide-2026.html" style="color:#8b6914; font-weight:bold;">Zulrah</a> / <a href="osrs-vorkath-money-making-guide-2026.html" style="color:#8b6914; font-weight:bold;">Vorkath</a>)
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 3:</strong> Build your gear-switch list and pre-bind it — Salve for undead, crush weapon for spawns, spec weapon for burst
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 4:</strong> Read <a href="osrs-boss-mechanics-death-prevention-2026.html" style="color:#8b6914; font-weight:bold;">OSRS Boss Mechanics Mastery</a> to make these fixes permanent habits
+                    </div>
+                <a href="osrs-boss-mechanics-death-prevention-2026.html" class="support-btn paypal-btn" style="display:inline-block; text-decoration:none; margin-top:20px;">Next: Stop Dying for Good (Prevention Guide) →</a>
+            </div>
+
+            <!-- RELATED GUIDES -->
+                    <div class="related-guides">
+      <h3>More Advanced PvM Guides</h3>
+      <div class="article-grid">
+        <a href="osrs-boss-mechanics-death-prevention-2026.html" class="article-card">
+          <h3>OSRS Boss Mechanics Mastery: Stop Dying for Good (2026)</h3>
+          <p>The prevention companion to this diagnosis — build the habits, switches and plugin setup that keep you alive for good.</p>
+        </a>
+        <a href="osrs-vorkath-money-making-guide-2026.html" class="article-card">
+          <h3>OSRS Vorkath Money Making Guide 2026</h3>
+          <p>Exact Vorkath gear switches, Salve vs undead, and the Zombified Spawn crush kill — the setup that ends your Vorkath deaths.</p>
+        </a>
+        <a href="osrs-zulrah-money-making-guide-2026.html" class="article-card">
+          <h3>OSRS Zulrah Money Making Guide 2026</h3>
+          <p>Learn Zulrah's three-form rotation and the per-phase protection prayer that stops the surprise hits.</p>
+        </a>
+        <a href="osrs-wilderness-bosses-guide-2026.html" class="article-card">
+          <h3>OSRS Wilderness Bosses Guide 2026</h3>
+          <p>Vet'ion, Callisto, Venenatis and more — which overlays and prayers keep you alive (and PK-safe) in the Wildy.</p>
+        </a>
+        <a href="osrs-account-recovery-after-hack-2026.html" class="article-card">
+          <h3>OSRS Account Recovery After Hack 2026</h3>
+          <p>If a death ever becomes account loss, here is Jagex's recovery path and what to do in the first hour.</p>
+        </a>
+      </div>
+    
+<div class="tool-callout" style="background:#2a1a0a;border:1px solid #d4af37;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+    <p style="color:#d4af37;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">🔧 Try Our OSRS DPS Calculator Tool</p>
+    <p style="color:#e8d5b7;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Not sure if your DPS is the problem? Plug in your buffed stats, weapon and style — see your true damage per second and find the switch that fixes your death rate.</p>
+    <a href="/tools/dps-calculator/" style="display:inline-block;padding:0.65rem 1.8rem;background:#d4af37;color:#1a0f0a;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Check Your True DPS →</a>
+</div>
+</div><div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>Every guide is free — this one stays free either way.</h3>
+            <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+            <p style="margin:6px 0 0 0;line-height:1.7">
+                📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+            </p>
+            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+            <div class="support-amounts">
+                <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+<!-- SUPPORT CARD -->
+      
+      <!-- SUPPORT CARD -->
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ New Players (Stage 0)</h4><ul>
+                    <li><a href="osrs-interface-controls-beginner-guide-2026.html">Game Interface</a></li>
+                    <li><a href="osrs-combat-triangle-explained-2026.html">Combat Triangle</a></li>
+                    <li><a href="osrs-skills-overview-beginner-2026.html">Skills Overview</a></li>
+                    <li><a href="osrs-bank-inventory-management-2026.html">Bank &amp; Inventory</a></li>
+                    <li><a href="osrs-maps-travel-guide-2026.html">Maps &amp; Travel</a></li>
+                    <li><a href="osrs-questing-beginner-guide-2026.html">Questing Basics</a></li>
+                    <li><a href="osrs-combat-training-beginner-2026.html">Combat Training</a></li>
+                    <li><a href="osrs-money-making-beginner-2026.html">Beginner Money Making</a></li>
+                    <li><a href="osrs-gear-beginner-guide-2026.html">Gear Guide</a></li>
+                    <li><a href="osrs-safe-spots-beginner-2026.html">Safe Spots</a></li>
+                    <li><a href="osrs-prayer-training-beginner-guide-2026.html">Prayer Training</a></li>
+                    <li><a href="osrs-f2p-to-p2p-membership-guide-2026.html">F2P to P2P Transition</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+<!-- Copyright & Anti-Scraping Notice -->
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+<style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#3b2615!important}
+.guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+.guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+.guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+@media (max-width: 768px) {
+    .guide-content table { font-size: 0.85rem; }
+    .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+    .guide-content table tbody td { padding: 6px 10px; }
+    .guide-content h2 { font-size: 1.4em; }
+    .guide-content h3 { font-size: 1.15em; }
+}
+@media (max-width: 640px) {
+    .guide-content table { display: block; overflow-x: auto; }
+    .guide-content h2 { font-size: 1.25em; }
+    .guide-content h3 { font-size: 1.05em; }
+}
+</style>
+
+</body>
+</html>
