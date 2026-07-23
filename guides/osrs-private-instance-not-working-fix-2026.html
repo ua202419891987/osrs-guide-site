@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Boss Instance Not Working? Fix "Instance Full", Crashes &amp; Lost Progress (2026)</title>
+    <meta name="description" content="Updated for July 2026. A pain-point fix guide for advanced PvMers: why your OSRS boss instance says 'full/unavailable', what happens to your paid instance fee after a disconnect or crash, how reconnect and GIM group instances behave, where your gravestone spawns, and how to force-rebuild an instance when the world is too full.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS instance not working, OSRS this instance is full, OSRS boss instance disconnected, OSRS paid instance fee lost, OSRS GIM group instance, OSRS instance crash fix, Old School RuneScape private instance troubleshooting">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-private-instance-not-working-fix-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="advanced" data-category="pvm">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRSGuru</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../skill-training.html">Skill Training</a></li>
+                    <li><a href="../money-making.html">Money Making</a></li>
+                    <li><a href="../boss-guides.html">Boss Guides</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../boss-guides.html">Boss Guides</a> / OSRS Boss Instance Not Working? Fix Guide 2026</p>
+            <h1>OSRS Boss Instance Not Working? Fix "Instance Full", Crashes &amp; Lost Progress (2026)</h1>
+            <p class="subtitle">You paid 50k for a Vorkath instance, the client froze, and now the entrance says "This instance is unavailable." Or your GIM mate can't get in. These are the exact failure modes advanced PvMers hit most — and the precise recovery steps that actually work, without wasting a second instance fee.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🛠️</span> <strong>Advanced PvM · Pain-Point Fix</strong> — 11 min read · Updated July 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#b8860b;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>"This instance is full/unavailable"</strong> = the world can't allocate a new instance or a shared instance hit its player cap &mdash; hop worlds, don't re-pay blindly</li>
+                    <li>📌 <strong>Your paid instance survives a disconnect</strong> &mdash; you can usually re-enter the same instance within a few minutes; the hourly timer keeps running</li>
+                    <li>📌 <strong>GIM group instances</strong> require every member on the same world + in the same group; out-of-sync mates must leave and re-enter</li>
+                    <li>📌 <strong>Most boss instances are safe deaths</strong> &mdash; you keep your items and respawn at the entrance, no gravestone needed</li>
+                    <li>📌 <strong>Force a rebuild</strong> by leaving, hopping to a low-population world, then re-creating the instance from scratch</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#instance-full">"This Instance Is Full / Unavailable" &mdash; What It Means</a></li>
+                    <li><a href="#paid-disconnect">Paid the Fee, Then Disconnected or Crashed</a></li>
+                    <li><a href="#reconnect-state">Reconnect After Disconnect &mdash; Instance State</a></li>
+                    <li><a href="#gim-group">GIM / Group Instance Won't Let Mates In or Sync</a></li>
+                    <li><a href="#death-items">Death Inside an Instance &mdash; Where Your Items Go</a></li>
+                    <li><a href="#world-full">World Too Full &mdash; Can't Grab an Instance at All</a></li>
+                    <li><a href="#force-rebuild">How to Force-Refresh / Change World / Rebuild</a></li>
+                    <li><a href="#faq">Instance Failure FAQs</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="instance-full">
+                <h2>1. "This Instance Is Full / Unavailable" &mdash; What It Means</h2>
+                <p>This is the single most common instance error, and it does <strong>not</strong> mean your account is bugged. It means the game server could not place you into an instance. There are two distinct causes, and the fix differs for each.</p>
+
+                <h3>② Symptom A &mdash; Trying to join a <em>shared</em> instance</h3>
+                <div class="method-box highlight">
+                    <h4>🔍 Symptom → Cause → Fix</h4>
+                    <p><strong>Symptom:</strong> You right-click a friend's or clanmate's instance (or a group instance) and get "This instance is full."</p>
+                    <p><strong>Cause:</strong> That specific instance has reached its player cap. Boss instances support a limited number of concurrent players (often 1 per owner for solo bosses; group instances allow the group plus any invited players). Someone is already inside.</p>
+                    <p><strong>Fix:</strong></p>
+                    <ul>
+                        <li>Ask the owner to dismiss/remove a player, or wait for a slot to free up.</li>
+                        <li>If it's your own instance, nobody else should be in it &mdash; see Section 6/7 for a rebuild.</li>
+                        <li>For group content, confirm the host actually invited you (right-click player → "Invite to instance" where supported).</li>
+                    </ul>
+                </div>
+
+                <h3>③ Symptom B &mdash; Creating your <em>own</em> private instance</h3>
+                <div class="method-box highlight">
+                    <h4>🔍 Symptom → Cause → Fix</h4>
+                    <p><strong>Symptom:</strong> You click "Instance" on the entrance (Vorkath coffer, Zulrah altar, GWD boss door, etc.) and get "This instance is unavailable right now" or the option greys out.</p>
+                    <p><strong>Cause:</strong> The <em>world</em> has hit its total instance-allocation limit, or the specific instance tile/region is temporarily locked. This happens most on crowded popular worlds (often worlds 1&ndash;10 and the official boss worlds).</p>
+                    <p><strong>Fix (do this in order):</strong></p>
+                    <ol>
+                        <li>Do <strong>not</strong> keep clicking &mdash; you haven't been charged yet for a failed creation.</li>
+                        <li>Hop to a less populated world (US, EU, or AU worlds in the 40s&ndash;90s are usually calmer).</li>
+                        <li>Retry the "Instance" option on the new world.</li>
+                        <li>If it still fails, log to the lobby and back in, then hop again.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Don't Double-Pay</div>
+                    <p>A failed "unavailable" creation does <strong>not</strong> deduct your coins. Only a <em>successful</em> instance creation takes the fee. If you see the fee leave your pouch, the instance exists &mdash; the problem is something else (see Section 3).</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="paid-disconnect">
+                <h2>2. Paid the Fee, Then Disconnected or Crashed</h2>
+                <p>This is the panic moment: you paid for the instance, the client crashed or the wifi dropped, and you're staring at a login screen wondering if your 50k (and your kill streak) just evaporated.</p>
+
+                <h3>④ What actually happens to your instance</h3>
+                <p>When you successfully create a private boss instance, the game reserves that instance for you for the duration you paid (billed hourly, e.g. ~50,000 GP/hour &mdash; the exact amount shows at creation). The instance is tied to <strong>your account and the world</strong>, not to your live connection.</p>
+                <div class="method-box highlight">
+                    <h4>✅ Good news: a disconnect does NOT instantly delete your instance</h4>
+                    <ul>
+                        <li>The instance keeps running on the server &mdash; the hourly timer does <strong>not</strong> pause while you're logged out.</li>
+                        <li>You can log back in on the <strong>same world</strong> and re-enter the same instance through the same entrance.</li>
+                        <li>You do <strong>not</strong> re-pay to get back in, as long as the original instance is still active.</li>
+                    </ul>
+                </div>
+
+                <h3>⑤ Step-by-step recovery after a crash</h3>
+                <div class="action-step">
+                    <h4>Step 1 &mdash; Reconnect fast</h4>
+                    <p>Log back in as quickly as you can. The instance stays reserved for a short grace window after disconnect; the faster you return, the safer. Your banked items and unsaved progress are never at risk from a crash.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 2 &mdash; Return to the same world</h4>
+                    <p>Make sure you log into the <strong>exact same world</strong> you created the instance on. An instance does not follow you across worlds &mdash; logging into a different world means you'll see no instance and may be tempted to pay again. Don't.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 3 &mdash; Re-enter via the entrance</h4>
+                    <p>Walk back to the boss entrance and click "Instance" / "Enter instance." If your instance is still active, you'll drop right back in. If it says it no longer exists, the hourly window expired while you were out &mdash; you'll simply pay again to make a fresh one.</p>
+                </div>
+                <div class="warning-box">
+                    <p><strong>⚠️ The only real loss:</strong> the elapsed instance time. If you disconnect for 20 minutes, that's 20 minutes of paid instance time you can't get back. The kill you were on is reset, but you aren't charged a second fee to re-enter.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="reconnect-state">
+                <h2>3. Reconnect After Disconnect &mdash; Instance State</h2>
+                <p>Understanding exactly what persists versus what resets saves you from repeating mistakes. Here is the precise state after you disconnect mid-instance and return:</p>
+
+                <table>
+                    <tr><th>Thing</th><th>State after reconnect</th><th>Notes</th></tr>
+                    <tr><td>Your instance</td><td>Still active (if window not expired)</td><td>Re-enter free on same world</td></tr>
+                    <tr><td>Paid time</td><td>Keeps ticking</td><td>Not refunded for downtime</td></tr>
+                    <tr><td>Current boss fight</td><td>Reset / boss healed</td><td>You restart the kill</td></tr>
+                    <tr><td>Items on the ground</td><td>Lost if not picked up</td><td>Loot you dropped despawns after the timer</td></tr>
+                    <tr><td>Your bank / inventory</td><td>Untouched</td><td>Crash never deletes items</td></tr>
+                    <tr><td>Prayer / HP / run</td><td>Restored to pre-fight</td><td>You re-enter at the entrance</td></tr>
+                </table>
+
+                <h3>⑥ If the instance "isn't there" after reconnect</h3>
+                <p>If you log back on the same world and the entrance acts like no instance exists:</p>
+                <ul>
+                    <li>You likely landed on a <em>different</em> world than you created it on &mdash; check the world number top-left.</li>
+                    <li>The hourly window expired while you were gone (only if you were out a long time).</li>
+                    <li>The instance was a <em>group</em> instance and the owner dismissed it &mdash; see Section 4.</li>
+                </ul>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Pro Move: Note the World First</div>
+                    <p>Before every paid instance, glance at the world number and mentally note it. After any crash, that single habit prevents 90% of "where did my instance go" confusion.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="gim-group">
+                <h2>4. GIM / Group Instance Won't Let Mates In or Sync</h2>
+                <p>Group Ironman (and group boss instances generally) add a layer of permission logic that breaks in predictable ways.</p>
+
+                <h3>⑦ Symptom &mdash; Mate "can't enter the instance"</h3>
+                <div class="method-box highlight">
+                    <h4>🔍 Symptom → Cause → Fix</h4>
+                    <p><strong>Symptom:</strong> You made a GIM group instance; a group member right-clicks the entrance and gets nothing, or "you cannot enter this instance."</p>
+                    <p><strong>Cause:</strong> They are on a <strong>different world</strong> than the instance owner, or they are not actually in the same Group Ironman group (wrong account, or the group name doesn't match).</p>
+                    <p><strong>Fix:</strong></p>
+                    <ol>
+                        <li>Confirm all members are on the <strong>same world</strong> as the instance owner.</li>
+                        <li>Confirm they're in the <strong>same GIM group</strong> (check the group panel).</li>
+                        <li>Owner re-invites: dismiss the instance and re-create it with the group present.</li>
+                        <li>If using manual invites, the owner must invite each player via the instance interface.</li>
+                    </ol>
+                </div>
+
+                <h3>⑧ Symptom &mdash; "Out of sync" / mate sees different boss state</h3>
+                <div class="method-box highlight">
+                    <h4>🔍 Symptom → Cause → Fix</h4>
+                    <p><strong>Symptom:</strong> One mate is inside fighting, another is stuck at the loading screen, or they see the boss already dead/already spawned that you don't.</p>
+                    <p><strong>Cause:</strong> A desync from a mid-instance world hop, a partial disconnect, or one member entering a <em>different</em> instance copy.</p>
+                    <p><strong>Fix:</strong></p>
+                    <ul>
+                        <li>Everyone <strong>leaves</strong> the instance (walk out / teleport).</li>
+                        <li>Owner <strong>dismisses</strong> the instance entirely.</li>
+                        <li>All members hop to the <strong>same world</strong> together.</li>
+                        <li>Owner re-creates the instance; members re-enter in one wave.</li>
+                    </ul>
+                </div>
+                <div class="warning-box">
+                    <p><strong>⚠️ GIM rule:</strong> Group instances are bound to the <em>group</em>, not one player. If the group leader is offline or in another world, the instance can't be joined by the rest until someone with permission re-creates it. Plan who "owns" the instance before you start.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="death-items">
+                <h2>5. Death Inside an Instance &mdash; Where Your Items Go</h2>
+                <p>A lot of fear around instances comes from the Wilderness gravestone horror story. For standard boss instances, that fear is misplaced &mdash; but there are edges worth knowing.</p>
+
+                <h3>⑨ Standard boss instances = safe deaths</h3>
+                <p>Private instances for bosses like <a href="osrs-vorkath-money-making-guide-2026.html" style="color:#8b6914;font-weight:bold;">Vorkath</a>, <a href="osrs-zulrah-money-making-guide-2026.html" style="color:#8b6914;font-weight:bold;">Zulrah</a>, the God Wars Dungeon bosses, and the Thermonuclear smoke devil are fought in <strong>safe areas</strong>. If you die:</p>
+                <ul>
+                    <li>You <strong>keep every item</strong> &mdash; no gravestone, no drop, nothing lost.</li>
+                    <li>You respawn at the instance entrance (or the nearest respawn point) fully intact.</li>
+                    <li>The only cost is the lost instance time and the interrupted kill.</li>
+                </ul>
+                <div class="tip-box">
+                    <div class="tip-title">💡 When a Gravestone DOES Apply</div>
+                    <p>A gravestone only spawns on <strong>dangerous</strong> deaths. Most instanced PvM is safe, so you won't see one. The gravestone appears <em>outside</em> the dangerous area at your normal respawn &mdash; for Wilderness boss instances (e.g. Wilderness bosses), dying drops a gravestone at the Wilderness entrance, and another player can loot it. That's a Wilderness risk, not a standard boss-instance risk.</p>
+                </div>
+
+                <h3>⑩ Edge case &mdash; dangerous instances &amp; the Bank PIN</h3>
+                <p>If you ever instance content in a dangerous zone (certain Wilderness activities), treat death like any Wilderness death: items drop to a gravestone that decays, and a PKer can take them. Keep valuable gear out, and rely on the 3-item Protect Item prayer. For the normal boss instances covered here, this does not apply &mdash; death is free.</p>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="world-full">
+                <h2>6. World Too Full &mdash; Can't Grab an Instance at All</h2>
+                <p>On the official boss worlds and the lowest-numbered members worlds, instance creation can fail repeatedly because the world's instance slots are saturated by hundreds of other players doing the exact same thing.</p>
+
+                <h3>⑪ How to tell it's a world-load problem</h3>
+                <div class="method-box highlight">
+                    <h4>🔍 Symptom → Cause → Fix</h4>
+                    <p><strong>Symptom:</strong> "Instance" option fails on world 1&ndash;10 but works fine on world 60+. The world shows a high player count in the lobby.</p>
+                    <p><strong>Cause:</strong> The world has hit its server-side instance allocation cap. No new instances can be created until others expire.</p>
+                    <p><strong>Fix:</strong></p>
+                    <ul>
+                        <li>Hop to a <strong>higher-numbered or regional</strong> world (US West/East, EU, AU) where instance load is lower.</li>
+                        <li>Avoid the designated "boss worlds" during peak EU evening hours.</li>
+                        <li>If you must use a busy world, create the instance during off-peak (early morning UTC).</li>
+                    </ul>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The "Try a Dead World" Trick</div>
+                    <p>Worlds in the 40s&ndash;90s that aren't flagged as skill/boss worlds are routinely near-empty for PvM. You'll almost never hit an instance cap there, and you also dodge the "world too full" lobby queue.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="force-rebuild">
+                <h2>7. How to Force-Refresh / Change World / Rebuild</h2>
+                <p>When an instance is stuck in a broken state &mdash; can't enter, says unavailable, or is desynced &mdash; a clean rebuild almost always fixes it. Here's the reliable sequence.</p>
+
+                <h3>⑫ The forced rebuild checklist</h3>
+                <div class="action-step">
+                    <h4>Step 1 &mdash; Leave the instance cleanly</h4>
+                    <p>Walk out the entrance (or use the "Leave instance" / teleport option). Don't just disconnect &mdash; a clean exit lets the server release the slot faster.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 2 &mdash; Hop worlds</h4>
+                    <p>Open the world switcher and move to a different, lower-population world. This is the actual "refresh" &mdash; it puts you on a fresh instance allocator.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 3 &mdash; Re-create from scratch</h4>
+                    <p>Return to the entrance and pay for a new instance. If the old one was still active, it expires on its own timer &mdash; you're not double-charged for the old one, you simply start a new hourly block.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 4 &mdash; For group: re-invite everyone together</h4>
+                    <p>GIM/group: have all members on the new world <em>before</em> the owner creates. Invite in one batch, then enter together to avoid desync (see Section 4).</p>
+                </div>
+                <div class="warning-box">
+                    <p><strong>⚠️ Still failing after a rebuild?</strong> Log to the lobby, wait ~30 seconds, and try a third world. If it fails on <em>every</em> world, it's a temporary game-wide instance service hiccup &mdash; check the official OSRS status channels and wait it out. You are not being singled out.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 8: FAQ -->
+            <section id="faq">
+                <h2>8. Instance Failure FAQs</h2>
+
+                <div class="faq-item">
+                    <h4>Do I lose my instance fee if the instance says "unavailable"?</h4>
+                    <p>No. A failed creation never charges you. The coins are only taken when the instance is successfully created. If you got the "unavailable" message, your money is still in your pouch &mdash; just hop worlds and retry.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How long does my instance survive after I disconnect?</h4>
+                    <p>The instance stays reserved for a short grace window after disconnect, and the hourly timer keeps running the whole time. Log back on the <em>same world</em> quickly and you'll re-enter for free. If you're gone longer than the paid hour, the instance expires and you pay again.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Why does my GIM mate see "you cannot enter this instance"?</h4>
+                    <p>Two causes: they're on a different world than the instance owner, or they're not in the same Group Ironman group. Get everyone on the same world and confirm the group panel matches, then have the owner re-create and re-invite.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Will I drop my items if I die inside a boss instance?</h4>
+                    <p>No &mdash; standard boss instances (Vorkath, Zulrah, GWD, Thermy, etc.) are safe areas. You keep all items and respawn at the entrance. A gravestone only matters for dangerous/Wilderness deaths, which these are not.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can I pause my instance timer by logging out?</h4>
+                    <p>No. Once created, the hourly instance fee timer runs whether you're online or not. Logging out to "save" instance time doesn't work &mdash; only actually being inside fighting uses the time you paid for.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>The "Instance" option is greyed out on the entrance &mdash; why?</h4>
+                    <p>The world's instance allocation is likely saturated, or you're standing in the wrong spot (some entrances require you to be at a specific tile). Hop to a quieter world first; if it's still greyed, walk fully onto the entrance tile and re-right-click.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>My whole group got desynced mid-fight. Fastest fix?</h4>
+                    <p>Everyone leaves, the owner dismisses the instance, all members hop to the same world together, owner re-creates, and the group enters in one wave. Don't let people trickle in one at a time &mdash; that's what causes the desync.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Is there any way to get a refund on a wasted instance?</h4>
+                    <p>No. Jagex does not refund instance fees, even for disconnects or crashes. The mitigation is purely operational: reconnect fast on the same world to use the time you paid for, and avoid creating instances on overloaded worlds.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Does using a VPN or proxy cause instance errors?</h4>
+                    <p>A VPN itself doesn't break instances, but unstable connections that cause frequent disconnects will repeatedly trigger the "reconnect within the grace window" problem. If you instance often, use the most stable connection you have &mdash; a dropped VPN tunnel mid-kill is the classic culprit.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>What's the difference between a solo and a group instance for the same boss?</h4>
+                    <p>A solo instance is yours alone and can't be joined. A group instance (where supported, e.g. GIM or group content) lets approved group members enter. If you only want to farm solo, make a solo instance &mdash; group instances add the permission complexity covered in Section 4.</p>
+                </div>
+            </section>
+
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 What To Do Next</h3>
+                <p>Now that you can recover from any instance failure, make sure you're using instances the right way in the first place &mdash; and that you're farming the bosses where an instance actually pays off.</p>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 1:</strong> Read our root-cause breakdown &mdash; <a href="osrs-boss-instances-guide-avoid-issues-2026.html" style="color:#8b6914; font-weight:bold;">OSRS Boss Instances Explained: Costs, Benefits &amp; How to Avoid Problems</a>
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 2:</strong> Pick the right boss &mdash; <a href="osrs-vorkath-money-making-guide-2026.html" style="color:#8b6914; font-weight:bold;">Vorkath Money Making</a> and <a href="osrs-zulrah-money-making-guide-2026.html" style="color:#8b6914; font-weight:bold;">Zulrah Money Making</a> both benefit hugely from instancing
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 3:</strong> For team content, plan your raid &mdash; <a href="osrs-theatre-of-blood-guide-2026.html" style="color:#8b6914; font-weight:bold;">Theatre of Blood Guide</a> and <a href="osrs-toa-solo-beginner-guide-2026.html" style="color:#8b6914; font-weight:bold;">Tombs of Amascut (ToA) Solo</a>
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 4:</strong> Worried about Wilderness PKs instead? <a href="osrs-wilderness-bosses-guide-2026.html" style="color:#8b6914; font-weight:bold;">Wilderness Bosses Guide</a> covers the no-instance risk bosses
+                    </div>
+                </div>
+                <a href="osrs-boss-instances-guide-avoid-issues-2026.html" class="support-btn paypal-btn" style="display:inline-block; text-decoration:none; margin-top:20px;">Next: How to Use Boss Instances Correctly →</a>
+            </div>
+
+            <!-- RELATED GUIDES -->
+                    <div class="related-guides">
+      <h3>More PvM &amp; Boss Guides</h3>
+      <div class="article-grid">
+        <a href="osrs-boss-instances-guide-avoid-issues-2026.html" class="article-card">
+          <h3>OSRS Boss Instances Explained: Costs, Benefits &amp; How to Avoid Problems (2026)</h3>
+          <p>The root-cause companion to this fix guide &mdash; fees, benefits, and when instancing is worth it.</p>
+        </a>
+        <a href="osrs-vorkath-money-making-guide-2026.html" class="article-card">
+          <h3>OSRS Vorkath Money Making Guide 2026</h3>
+          <p>Vorkath is the poster child for instancing &mdash; learn the profit-per-hour and why a private instance pays for itself.</p>
+        </a>
+        <a href="osrs-zulrah-money-making-guide-2026.html" class="article-card">
+          <h3>OSRS Zulrah Money Making Guide 2026</h3>
+          <p>Another safe, instance-friendly boss. Instance it to skip competition and rotations queueing.</p>
+        </a>
+        <a href="osrs-wilderness-bosses-guide-2026.html" class="article-card">
+          <h3>OSRS Wilderness Bosses Guide 2026</h3>
+          <p>These bosses have NO instances &mdash; understand the PK risk before you go in unprotected.</p>
+        </a>
+        <a href="osrs-theatre-of-blood-guide-2026.html" class="article-card">
+          <h3>OSRS Theatre of Blood Guide 2026</h3>
+          <p>Team raid content where group-instance sync matters &mdash; complements the GIM section above.</p>
+        </a>
+      </div>
+    
+<div class="tool-callout" style="background:#2a1a0a;border:1px solid #d4af37;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+    <p style="color:#d4af37;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">🔧 Try Our OSRS Gear Recommender Tool</p>
+    <p style="color:#e8d5b7;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Not sure what gear to use? Enter your combat level and budget — get personalized weapon &amp; armor recommendations for <strong>melee, ranged, and magic</strong> in seconds.</p>
+    <a href="/tools/gear-recommender/" style="display:inline-block;padding:0.65rem 1.8rem;background:#d4af37;color:#1a0f0a;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Find Your Best Gear Setup →</a>
+</div>
+</div><div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>Every guide is free — this one stays free either way.</h3>
+            <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+            <p style="margin:6px 0 0 0;line-height:1.7">
+                📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+            </p>
+            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+            <div class="support-amounts">
+                <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+<!-- SUPPORT CARD -->
+      
+      <!-- SUPPORT CARD -->
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ New Players (Stage 0)</h4><ul>
+                    <li><a href="osrs-interface-controls-beginner-guide-2026.html">Game Interface</a></li>
+                    <li><a href="osrs-combat-triangle-explained-2026.html">Combat Triangle</a></li>
+                    <li><a href="osrs-skills-overview-beginner-2026.html">Skills Overview</a></li>
+                    <li><a href="osrs-bank-inventory-management-2026.html">Bank &amp; Inventory</a></li>
+                    <li><a href="osrs-maps-travel-guide-2026.html">Maps &amp; Travel</a></li>
+                    <li><a href="osrs-questing-beginner-guide-2026.html">Questing Basics</a></li>
+                    <li><a href="osrs-combat-training-beginner-2026.html">Combat Training</a></li>
+                    <li><a href="osrs-money-making-beginner-2026.html">Beginner Money Making</a></li>
+                    <li><a href="osrs-gear-beginner-guide-2026.html">Gear Guide</a></li>
+                    <li><a href="osrs-safe-spots-beginner-2026.html">Safe Spots</a></li>
+                    <li><a href="osrs-prayer-training-beginner-guide-2026.html">Prayer Training</a></li>
+                    <li><a href="osrs-f2p-to-p2p-membership-guide-2026.html">F2P to P2P Transition</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+<!-- Copyright & Anti-Scraping Notice -->
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+<style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#3b2615!important}
+.guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+.guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+.guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+@media (max-width: 768px) {
+    .guide-content table { font-size: 0.85rem; }
+    .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+    .guide-content table tbody td { padding: 6px 10px; }
+    .guide-content h2 { font-size: 1.4em; }
+    .guide-content h3 { font-size: 1.15em; }
+}
+@media (max-width: 640px) {
+    .guide-content table { display: block; overflow-x: auto; }
+    .guide-content h2 { font-size: 1.25em; }
+    .guide-content h3 { font-size: 1.05em; }
+}
+</style>
+
+</body>
+</html>
