@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crimson Desert Guide 2026 — Complete Walkthroughs, Boss Strategies &amp; Builds</title>
 <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/">
-<meta name="description" content="87+ expert Crimson Desert guides for 2026: boss strategies, combat system, skill builds, farming routes, beginner roadmap, and more. Free, updated weekly.">
+<meta name="description" content="104 expert Crimson Desert guides for 2026: boss strategies, combat system, skill builds, farming routes, beginner roadmap, and more. Free, updated weekly.">
 <meta name="keywords" content="crimson desert guide 2026, crimson desert boss guide, crimson desert beginner, crimson desert skills, crimson desert farming, crimson desert tenebrum, crimson desert staglord, crimson desert matthias, pywel mercenary guide, pearl abyss crimson desert walkthrough">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-<meta property="og:title" content="Crimson Desert Guru — 87+ Expert Guides 2026">
+<meta property="og:title" content="Crimson Desert Guru — 104 Expert Guides 2026">
 <meta property="og:description" content="Boss strategies, combat deep dives, farming routes, and a complete 4-week beginner roadmap. All free.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://osrsguru.com/guides/crimson-desert/">
@@ -25,9 +25,9 @@
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "Crimson Desert Guide 2026 — 87 Expert Guides",
+  "name": "Crimson Desert Guide 2026 — 104 Expert Guides",
   "url": "https://osrsguru.com/guides/crimson-desert/",
-  "description": "Complete Crimson Desert strategy hub with 87+ guides covering bosses, combat, skills, farming, and beginner roadmap.",
+  "description": "Complete Crimson Desert strategy hub with 104 guides covering bosses, combat, skills, farming, and beginner roadmap.",
   "publisher": {
     "@type": "Organization",
     "name": "OSRS Guru",
@@ -264,6 +264,48 @@ body{background:#f5f2f8;}
   .cd-search-row{flex-direction:column;max-width:100%;}
   .cd-search-btn{width:100%;}
 }
+/* STAGE ROUTING (CD self-routing) */
+.cd-stage-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:18px;}
+.cd-stage-card{display:block;background:#fff;border:2px solid #D4CDE0;border-radius:12px;padding:18px 18px 16px;text-decoration:none;transition:all .2s ease;box-shadow:0 2px 8px rgba(122,100,184,0.06);}
+.cd-stage-card:hover{border-color:#7A64B8;transform:translateY(-3px);box-shadow:0 6px 20px rgba(122,100,184,0.14);}
+.cd-stage-emoji{font-size:1.9rem;line-height:1;}
+.cd-stage-name{font-size:1.05rem;font-weight:800;color:#5B4A9C;margin:8px 0 4px;font-family:'Cinzel',serif;}
+.cd-stage-desc{font-size:.8rem;color:#666;line-height:1.45;}
+.cd-stage-count{display:inline-block;margin-top:10px;background:linear-gradient(135deg,#7A64B8,#5B4A9C);color:#fff;font-size:.72rem;font-weight:700;padding:4px 13px;border-radius:20px;}
+.cd-stage-group{margin-top:22px;}
+.cd-stage-h3{color:#5B4A9C;font-family:'Cinzel',serif;font-size:1.2rem;margin:0 0 10px;border-bottom:2px solid #D4CDE0;padding-bottom:8px;}
+.cd-stage-hcount{display:inline-block;margin-left:8px;background:#f0ecfb;color:#5B4A9C;font-size:.7rem;font-weight:700;padding:2px 10px;border-radius:20px;vertical-align:middle;}
+.cd-stage-list{list-style:none;padding:0;margin:0;column-count:2;column-gap:30px;}
+.cd-stage-list li{padding:5px 0;border-bottom:1px dashed #f0ecfb;break-inside:avoid;}
+.cd-stage-list li a{color:#5B4A9C;text-decoration:none;font-weight:600;font-size:.9rem;}
+.cd-stage-list li a:hover{color:#7A64B8;text-decoration:underline;}
+@media(max-width:900px){.cd-stage-grid{grid-template-columns:repeat(2,1fr);}.cd-stage-list{column-count:1;}}
+@media(max-width:540px){.cd-stage-grid{grid-template-columns:1fr;}}
+
+/* ===== HERO BANNER ===== */
+.cd-hero-banner{
+  position:relative;background:linear-gradient(135deg,rgba(91,74,156,0.92),rgba(122,100,184,0.87)),url('./images/cd-combat.jpg');
+  background-size:cover;background-position:center 30%;padding:70px 24px 58px;text-align:center;
+  border-bottom:3px solid #d4af37;
+}
+.cd-hero-content{position:relative;z-index:1;max-width:800px;margin:0 auto;}
+.cd-hero-banner h1{font-family:'Cinzel',serif;font-size:2.8rem;color:#fff;margin:0 0 10px;text-shadow:0 2px 16px rgba(0,0,0,.4);}
+.cd-hero-banner p{color:rgba(255,255,255,.92);font-size:1.12rem;margin:0 0 20px;}
+.cd-hero-meta{display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+.cd-hero-meta span{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.25);padding:4px 14px;border-radius:20px;font-size:.78rem;font-weight:700;}
+
+/* ===== STAGE CARD IMAGES ===== */
+.cd-stage-img{width:calc(100% + 36px);height:120px;object-fit:cover;margin:-18px -18px 14px;border-radius:10px 10px 0 0;display:block;}
+
+/* ===== VIEW ALL CARD ===== */
+.cd-view-all-card{grid-column:1/-1;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#7A64B8,#5B4A9C);color:#fff;border:2px solid #7A64B8;border-radius:12px;padding:16px;text-decoration:none;transition:all .2s ease;gap:10px;}
+.cd-view-all-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(122,100,184,0.25);}
+.cd-view-all-card span{font-weight:800;font-size:1.05rem;}
+
+@media(max-width:540px){
+  .cd-hero-banner h1{font-size:2rem;}
+  .cd-hero-banner p{font-size:1rem;}
+}
 </style>
 </head>
 <body>
@@ -272,7 +314,7 @@ body{background:#f5f2f8;}
 <header class="cd-header">
   <div class="cd-header-inner">
     <a href="../index.html" class="cd-logo">⚔️ Crimson Desert <span>Guru</span></a>
-    <span class="cd-badge">87+ Guides · Free · Updated June 29, 2026</span>
+    <span class="cd-badge">104 Guides · Free · Updated June 29, 2026</span>
     <nav class="cd-nav">
       <a href="#roadmap" class="nav-active">🗺️ Roadmap</a>
       <a href="#topics">📑 Topics</a>
@@ -284,11 +326,24 @@ body{background:#f5f2f8;}
   </div>
 </header>
 
+<!-- ========== HERO BANNER ========== -->
+<div class="cd-hero-banner">
+  <div class="cd-hero-content">
+    <h1>Crimson Desert Guru</h1>
+    <p>Your complete strategy hub for Pywel. 104 expert guides, from first login to endgame.</p>
+    <div class="cd-hero-meta">
+      <span>104 Guides</span>
+      <span>Free</span>
+      <span>Updated 2026</span>
+    </div>
+  </div>
+</div>
+
 <!-- ========== SEARCH WITH AI ========== -->
 <div class="container">
 <div class="cd-search-box">
   <div class="cd-search-title">🔍 Find Your Perfect Crimson Desert Guide</div>
-  <div class="cd-search-sub">Search 87+ guides, or ask AI any Crimson Desert question 🤖</div>
+  <div class="cd-search-sub">Search 104 guides, or ask AI any Crimson Desert question 🤖</div>
   <div class="cd-search-row">
     <div class="cd-search-input-wrp">
       <input type="text" class="cd-search-input" placeholder="e.g., Tenebrum, Boss Strategy, Fishing... (ask AI 🍑)">
@@ -297,7 +352,7 @@ body{background:#f5f2f8;}
     <button class="cd-search-btn" id="cd-search-ai-btn">🔍 AI Search</button>
   </div>
   <div style="margin-top:8px;font-size:.72rem;color:#7A64B8;text-align:center;">
-    💡 Tip: Type any question or browse by topic below — all 87+ guides are free!
+    💡 Tip: Type any question or browse by topic below — all 104 guides are free!
   </div>
   <div style="margin-top:10px;font-size:.74rem;color:#aaa;">
     <span>🔥 Popular:</span>
@@ -310,7 +365,57 @@ body{background:#f5f2f8;}
 </div>
 </div>
 
-<!-- ========== TOPIC CATEGORIES (Vertical Cards like OSRS main site) ========== -->
+<!-- ========== CD STAGE ROUTING ========== -->
+<div class="container" id="pick-your-stage" style="margin-top:28px;">
+  <div class="cd-section-header" style="border-color:#7A64B8;">
+    <div class="cd-section-title">🎯 Pick Your Stage</div>
+    <span style="background:#7A64B8;color:#fff;padding:3px 10px;border-radius:10px;font-size:.7rem;font-weight:700;">104 Guides · 5 Stages</span>
+  </div>
+  <p style="color:#666;font-size:.9rem;margin:8px 0 0;padding:0 4px;">New to Pywel or chasing 100%? Jump straight to the guides that match where you are right now.</p>
+  <div class="cd-stage-grid">
+  <a class="cd-stage-card" href="all-guides.html#stage-new">
+    <img src="./images/cd-getting-started.jpg" alt="Crimson Desert New Player" class="cd-stage-img" loading="lazy">
+    <div class="cd-stage-emoji">🌱</div>
+    <div class="cd-stage-name">New Player</div>
+    <div class="cd-stage-desc">New to Pywel? Start here — your first 0–10 hours.</div>
+    <div class="cd-stage-count">12 Guides</div>
+  </a>
+  <a class="cd-stage-card" href="all-guides.html#stage-early">
+    <img src="./images/cd-combat.jpg" alt="Crimson Desert Early Game" class="cd-stage-img" loading="lazy">
+    <div class="cd-stage-emoji">⚔️</div>
+    <div class="cd-stage-name">Early Game</div>
+    <div class="cd-stage-desc">Core combat, quests, and your first bosses.</div>
+    <div class="cd-stage-count">19 Guides</div>
+  </a>
+  <a class="cd-stage-card" href="all-guides.html#stage-mid">
+    <img src="./images/cd-farming.jpg" alt="Crimson Desert Mid Game" class="cd-stage-img" loading="lazy">
+    <div class="cd-stage-emoji">🛡️</div>
+    <div class="cd-stage-name">Mid Game</div>
+    <div class="cd-stage-desc">Builds, gear, farming routes, and world bosses.</div>
+    <div class="cd-stage-count">33 Guides</div>
+  </a>
+  <a class="cd-stage-card" href="all-guides.html#stage-end">
+    <img src="./images/cd-story.jpg" alt="Crimson Desert Endgame" class="cd-stage-img" loading="lazy">
+    <div class="cd-stage-emoji">👑</div>
+    <div class="cd-stage-name">Endgame</div>
+    <div class="cd-stage-desc">Post-game, Abyss Sanctum, PvP, and 100% completion.</div>
+    <div class="cd-stage-count">15 Guides</div>
+  </a>
+  <a class="cd-stage-card" href="all-guides.html#stage-tech">
+    <img src="./images/cd-skills.jpg" alt="Crimson Desert Technical Guides" class="cd-stage-img" loading="lazy">
+    <div class="cd-stage-emoji">🔧</div>
+    <div class="cd-stage-name">Technical & Fixes</div>
+    <div class="cd-stage-desc">Performance, settings, crashes, and known bug fixes.</div>
+    <div class="cd-stage-count">25 Guides</div>
+  </a>
+  <a class="cd-view-all-card" href="all-guides.html">
+    <span>📚 View All 104 Guides →</span>
+  </a>
+  </div>
+</div>
+
+
+<!-- ========== TOPIC CATEGORIES (Classic view — kept for returning users) ========== -->
 <div class="container" id="topics">
 <div class="cd-section-header">
   <div class="cd-section-title">📑 Explore Pywel — Guide Categories</div>
@@ -844,7 +949,7 @@ body{background:#f5f2f8;}
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">Crimson Desert Guru</div>
-        <p>Your go-to Crimson Desert guide hub. 87 expert articles updated for 2026. Part of OSRS Guru network.</p>
+        <p>Your go-to Crimson Desert guide hub. 104 expert articles updated for 2026. Part of OSRS Guru network.</p>
         <p style="margin-top:8px"><a href="../about.html" style="color:var(--text-muted)">About</a> · <a href="../privacy-policy.html" style="color:var(--text-muted)">Privacy Policy</a> · <a href="../index.html" style="color:var(--text-muted)">← OSRS Guru Home</a></p>
       </div>
       <div class="footer-col"><h4>Getting Started</h4><ul>
@@ -885,26 +990,26 @@ body{background:#f5f2f8;}
   </div>
 </footer>
 
-<!-- ========== AI 助手 蓝色水蜜桃 ========== -->
+<!-- ========== AI ASSISTANT WIDGET ========== -->
 <script src="../../js/ai-qa-widget.js"></script>
 <script>
-// 让6大卡片整体可点击 → 跳转到分类第一篇攻略
+// Make category cards clickable → jump to first article
 document.querySelectorAll('.cd-cat-card').forEach(function(card) {
   card.addEventListener('click', function(e) {
-    // 如果点击的是 <a> 链接本身，不拦截（让链接自然跳转）
+    // If the clicked element is an <a> link itself, don't intercept (let it navigate naturally)
     if (e.target.closest('a')) return;
     var url = this.getAttribute('data-first-article');
     if (url) window.location.href = url;
   });
 });
-// 搜索框 → 触发 AI 助手
+// Search box → trigger AI assistant
 document.getElementById('cd-search-ai-btn').addEventListener('click', function() {
   var query = document.querySelector('.cd-search-input').value.trim();
   var toggleBtn = document.getElementById('osrs-qa-toggle-btn');
   if (toggleBtn) {
-    toggleBtn.click(); // 打开 AI 助手
+    toggleBtn.click(); // open AI assistant
     if (query) {
-      // 预填搜索词
+      // Pre-fill the search term
       setTimeout(function() {
         var input = document.querySelector('#osrs-qa-widget .qa-input');
         if (input) { input.value = query; }
@@ -914,7 +1019,7 @@ document.getElementById('cd-search-ai-btn').addEventListener('click', function()
     alert('AI Assistant is loading... Please try again in a moment!');
   }
 });
-// 回车也触发
+// Enter key also triggers
 document.querySelector('.cd-search-input').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') document.getElementById('cd-search-ai-btn').click();
 });
