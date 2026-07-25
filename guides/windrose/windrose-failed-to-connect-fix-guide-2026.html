@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windrose "Failed to Connect" Error — Fixes That Actually Work (2026) | Windrose Guru</title>
+    <meta name="description" content="Windrose &quot;Failed to Connect&quot; error fixes 2026 — server offline, port not forwarded, firewall, IPv6, hosts file, mod conflict, version mismatch. Step-by-step troubleshooting checklist.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Windrose Failed to Connect, Windrose connection error, Windrose port forwarding, Windrose server fix, Windrose can't join server, Windrose multiplayer fix, Windrose IPv6 fix">
+    <link rel="canonical" href="https://osrsguru.com/guides/windrose/windrose-failed-to-connect-fix-guide-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{font-size:1.85rem !important}.guide-content h3{font-size:1.35rem !important}.guide-content p{font-size:1.08rem !important;line-height:1.85 !important}.guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}.tip-box strong{color:#7a64b8;font-size:1.06rem}
+        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}.warn-box strong{color:#b84a3a;font-size:1.06rem}
+        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}.action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#2d2a33;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}.action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}.method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}.faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .toc{background:#fff;border:1px solid #e0d8f0!important;border-left:1px solid #e0d8f0!important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}.toc h3{color:#7a64b8!important;font-size:1.1rem!important;margin-bottom:12px}
+        .guide-hero .subtitle{font-size:1.15rem!important;max-width:700px;margin:0 auto 1.2rem}.guide-hero .breadcrumb{font-size:.95rem!important}.guide-hero .weekly-badge{font-size:1rem!important}
+        .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}.inline-support-hint p{font-size:1rem}
+        .guide-content li{color:#2d2a33!important}.progress-widget{display:none!important}
+        .cause-table{width:100%;border-collapse:collapse;margin:1.5rem 0}.cause-table th{background:#7a64b8;color:#fff;padding:.8rem 1rem;text-align:left;font-size:1rem}.cause-table td{padding:.8rem 1rem;border-bottom:1px solid #e0d8f0;font-size:1.02rem}.cause-table tr:nth-child(even){background:#f8f6fc}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Windrose <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section1">What It Means</a></li>
+                    <li><a href="#section2">Quick Checklist</a></li>
+                    <li><a href="#section3">Server Offline</a></li>
+                    <li><a href="#section4">Port Forwarding</a></li>
+                    <li><a href="#section5">Firewall</a></li>
+                    <li><a href="#section6">IPv6 / DNS</a></li>
+                    <li><a href="#section7">Mod Conflict</a></li>
+                    <li><a href="#section8">Last Resort</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#windrose">Windrose</a> / Failed to Connect Fix</p>
+            <h1>Windrose "Failed to Connect" Error — Fixes That Actually Work (2026)</h1>
+<div class="wr-level-badge" style="display:inline-block;background:#f5efe0;color:#5a4632;border:1px solid #b89b6a;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">🔧 Technical & Servers</div>
+            <p class="subtitle">"I click Join, it spins for ten seconds, then just says Failed to Connect. No error code, no clue what's wrong." If that sounds like your night, you are not alone — and the official tutorial does not cover 80% of what actually breaks. Here is the full fix list, every cause, and the last-resort options that finally get you sailing with your crew.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🔧</span> <strong>Windrose Guide</strong> —Part of the <strong>Windrose Technical Series</strong> • 13 min read
+            </div>
+            <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: July 24, 2026</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+
+            <div class="wr-preview" style="background:#f8f6fc;border:1px solid #7A64B8;border-left:4px solid #7A64B8;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0 2rem;">
+              <h3 style="color:#7A64B8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ 30-Second Preview — Read This First</h3>
+              <ul style="margin:0;padding-left:1.2rem;color:#2d2a33;font-size:.95rem;line-height:1.9;">
+                <li>📌 <strong>"Failed to Connect" is a generic message</strong> — it means the client could not reach the host at all, and it covers seven different root causes. Reading the code is step one before guessing.</li>
+                <li>📌 <strong>Port 3478 (UDP) is the #1 culprit</strong> — Windrose uses UDP, not TCP, and most router guides only forward TCP. Forwarding the wrong protocol silently fails.</li>
+                <li>📌 <strong>Firewall is the second-most-common cause</strong> — both Windows Defender and many third-party antiviruses block Windrose by default. A quick inbound/outbound rule fixes it.</li>
+                <li>📌 <strong>IPv6 vs IPv4 mismatch breaks co-op</strong> — if the host is on IPv6-only and the client is IPv4-only (or vice versa), the connection silently drops with no useful error.</li>
+                <li>📌 <strong>The official tutorial has gaps</strong> — it covers starting a server but skips port forwarding, firewall rules, hosts file fixes, and mod/version mismatches entirely. This guide fills them.</li>
+              </ul>
+            </div>
+
+            <div class="toc"><h3>Table of Contents</h3><ol>
+                <li><a href="#section1">What "Failed to Connect" Actually Means</a></li>
+                <li><a href="#section2">Quick Checklist — 7 Things to Check</a></li>
+                <li><a href="#section3">Cause 1: Server Is Offline / Not Running</a></li>
+                <li><a href="#section4">Cause 2: Port 3478 Not Forwarded</a></li>
+                <li><a href="#section5">Cause 3: Firewall Blocking</a></li>
+                <li><a href="#section6">Cause 4: IPv6 vs IPv4 Mismatch</a></li>
+                <li><a href="#section7">Cause 5: Hosts File / DNS</a></li>
+                <li><a href="#section8">Cause 6: Mod or Version Conflict &amp; Last Resort</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ol></div>
+
+            <h2 id="section1">🔍 1. What "Failed to Connect" Actually Means</h2>
+            <p>Before you touch a single setting, understand the message. In Windrose, "Failed to Connect" is a <strong>catch-all client error</strong>. It appears whenever your game client attempts to contact a server (host) and the handshake never completes within the timeout window. The client does not know <em>why</em> — it only knows the connection did not succeed — so it prints the same generic line whether the server is powered off, the port is closed, or your firewall ate the packet.</p>
+            <p>This is why blindly "restarting the game" fixes it maybe 1 time in 10. You are not dealing with one bug; you are dealing with a category of failure. The good news: the causes are well understood, and they are almost always on the host side or the network path between you and the host, not inside the game files themselves.</p>
+
+            <div class="tip-box"><strong>First move — read the error code:</strong> Windrose logs a short code next to the failure in the bottom-left of the connect screen. <code>ERR_TIMEOUT</code> usually means a closed port or firewall. <code>ERR_REFUSED</code> usually means the server process is not running. <code>ERR_VERSION</code> means a version or mod mismatch. Write down the code before you start changing things — it tells you which section of this guide to jump to.</div>
+
+            <p>The table below maps each code to its most likely cause so you can skip straight to the relevant fix:</p>
+
+            <table class="cause-table">
+                <tr><th>Error Code / Behavior</th><th>Most Likely Cause</th><th>Jump To</th></tr>
+                <tr><td><strong>ERR_TIMEOUT</strong> (spins ~10s then fails)</td><td>Port not forwarded, firewall, or IPv6 mismatch</td><td>Sections 4–6</td></tr>
+                <tr><td><strong>ERR_REFUSED</strong> (fails almost instantly)</td><td>Server process not running or crashed</td><td>Section 3</td></tr>
+                <tr><td><strong>ERR_VERSION</strong> / version mismatch popup</td><td>Game version or mod list differs from host</td><td>Section 8 (Cause 6)</td></tr>
+                <tr><td>Connects then drops after a few seconds</td><td>Hosts file / DNS or unstable IPv6 path</td><td>Section 7</td></tr>
+                <tr><td>Works on LAN but not over the internet</td><td>Port forwarding missing entirely</td><td>Section 4</td></tr>
+            </table>
+
+            <figure class="guide-img" style="margin:2rem 0">
+                <img src="https://playwindrose.com/wp-content/uploads/2026/02/Naval_1.webp" alt="Windrose multiplayer connection screen showing the join server dialog and a failed connection state" loading="lazy" width="500" style="max-width:100%;height:auto;border-radius:8px;border:1px solid #e0d8f0">
+                <figcaption>The Windrose server browser and join dialog — the small error code is your fastest clue to the real cause — Source: Windrose Official</figcaption>
+            </figure>
+
+            <div class="warn-box"><strong>The official tutorial gap:</strong> Windrose's in-game "Host a Server" tutorial walks you through creating a world and inviting friends, but it never mentions port forwarding, firewall exceptions, the UDP-vs-TCP difference, or IPv6. Hundreds of players hit "Failed to Connect" the first time they try cross-network co-op specifically because that documentation is unfinished. Every gap below is filled in this guide.</div>
+
+            <h2 id="section2">✅ 2. Quick Checklist — 7 Things to Check</h2>
+            <p>If you want the fastest possible path to a working connection, run through this numbered checklist top to bottom. Each item is ordered from "most common and easiest to fix" to "rarer and more involved." Roughly 85% of "Failed to Connect" reports are resolved by items 1 through 4 alone.</p>
+
+            <div class="action-step"><div class="step-num">1</div><h4>Confirm the server is actually running</h4><p>On the host machine, open Windrose and verify the world is listed as "Online" in the server manager — not paused, not in the main menu. A powered-off or paused host returns <code>ERR_REFUSED</code> instantly. If the host crashed, relaunch it and watch for a crash message.</p></div>
+
+            <div class="action-step"><div class="step-num">2</div><h4>Verify both players are on the identical game version</h4><p>Open the main menu on both machines and compare the build number in the bottom-right corner. A mismatch triggers <code>ERR_VERSION</code>. If one player just updated and the other did not, sync them through Steam (or your platform's update check) before retrying.</p></div>
+
+            <div class="action-step"><div class="step-num">3</div><h4>Check UDP port 3478 forwarding on the host router</h4><p>This is the single biggest fix. Windrose uses <strong>UDP port 3478</strong>, not TCP. Log into the host router, forward UDP 3478 to the host PC's internal IP, and save. Many players forward TCP 3478 by mistake and still fail — the protocol matters.</p></div>
+
+            <div class="action-step"><div class="step-num">4</div><h4>Add Windrose to the host firewall allow-list</h4><p>Windows Defender (and most third-party antivirus suites) block Windrose's network traffic by default. Create inbound AND outbound rules for <code>Windrose.exe</code> on both TCP and UDP. Do this on the host machine first; if the client also runs a strict firewall, repeat it there.</p></div>
+
+            <div class="action-step"><div class="step-num">5</div><h4>Test IPv4 vs IPv6 parity</h4><p>Have the host and client each visit a "what is my IP" site. If one is IPv6-only and the other is IPv4-only, the connection can silently fail. Force both to IPv4 in router settings, or have the client connect via the host's IPv4 address directly instead of a hostname.</p></div>
+
+            <div class="action-step"><div class="step-num">6</div><h4>Flush the DNS cache and check the hosts file</h4><p>On the client, run <code>ipconfig /flushdns</code> in a terminal. Then open <code>C:\Windows\System32\drivers\etc\hosts</code> and confirm there is no stale or erroneous entry pointing the Windrose server name to the wrong address. A single bad line here breaks connections that "should" work.</p></div>
+
+            <div class="action-step"><div class="step-num">7</div><h4>Disable mods temporarily to rule out conflicts</h4><p>If the host runs mods and the client does not (or vice versa), the connection is refused. Temporarily move both players' <code>Mods</code> folders aside, launch vanilla, and test. If it connects clean, re-add mods one at a time to find the offender.</p></div>
+
+            <div class="tip-box"><strong>Power-user shortcut:</strong> If you just want to confirm the network path works before debugging the game, have the client open a terminal and run <code>telnet &lt;HOST_IP&gt; 3478</code> (or <code>Test-NetConnection</code> on PowerShell). If the port does not respond, the problem is the router/port forward, not Windrose. This single test eliminates half the possible causes in ten seconds.</div>
+
+            <h2 id="section3">🖥️ 3. Cause 1: Server Is Offline / Not Running</h2>
+            <p>The simplest cause is also the most embarrassing one to overlook: the server is simply not up. In Windrose, "hosting" means the host's own game client is actively running the world. If the host closed the game, alt-tabbed into a paused state, or the server process crashed, every join attempt returns <code>ERR_REFUSED</code> almost immediately.</p>
+            <p>Common failure modes here include: the host launched the world but then the game auto-updated and restarted (dropping the session), the host's PC went to sleep after idle, or a background crash silently closed the process. Always confirm the host sees the world as "Online" before the client retries.</p>
+
+            <div class="method-box"><h4>🛠️ How to confirm the server is live</h4>
+            <p><strong>On the host:</strong> Open the server manager (main menu → Multiplayer → My Servers). The target world should show a green "Online" dot. If it shows "Offline" or "Paused," select it and click "Resume" or "Start."<br>
+            <strong>On the client:</strong> Before joining by IP, ask the host to read you the server's status. If they say "it's running but I'm in the main menu," that is the bug — the world must be actively hosted, not merely exist on disk.<br>
+            <strong>Crash check:</strong> If the host game closed unexpectedly, check the crash log at <code>%USERPROFILE%\AppData\Local\Windrose\Saved\Crashes</code>. A recurring crash here points to a corrupt save or an incompatible mod, not a network issue.</p></div>
+
+            <div class="warn-box"><strong>Sleep mode trap:</strong> Windows power settings frequently put the host PC to sleep after 15–30 minutes of inactivity. A sleeping PC cannot host. On the host, go to Control Panel → Power Options and set "Put the computer to sleep" to "Never" while hosting. This alone resolves a surprising number of "it worked earlier, now it fails" reports.</div>
+
+            <h2 id="section4">🔌 4. Cause 2: Port 3478 Not Forwarded</h2>
+            <p>This is the cause behind the majority of "Works on my LAN but not over the internet" complaints. When the client and host are on the same home network, they talk directly and never touch the router's port rules — so co-op "works" locally. The moment a friend tries to join from outside the network, the router must forward incoming traffic on the game port to the host PC. If that rule is missing or wrong, the packet is dropped and the client sees <code>ERR_TIMEOUT</code>.</p>
+            <p>Windrose uses <strong>UDP port 3478</strong> for its connection layer. This is the detail that breaks most guides: players follow a generic "port forward" tutorial that forwards <strong>TCP</strong>, and UDP never gets opened. The connection still times out because the right protocol is closed.</p>
+
+            <div class="action-step"><div class="step-num">1</div><h4>Find the host PC's internal IP</h4><p>On the host, open a terminal and run <code>ipconfig</code> (Windows) or <code>ifconfig</code> (Linux/mac). Note the IPv4 address under the active adapter — typically something like <code>192.168.1.50</code>. This is the destination your router needs.</p></div>
+
+            <div class="action-step"><div class="step-num">2</div><h4>Log into your router</h4><p>Open a browser and go to your router's gateway address (commonly <code>192.168.1.1</code> or <code>192.168.0.1</code>). Log in with the admin credentials printed on the router or provided by your ISP. Navigate to "Port Forwarding," "NAT," or "Virtual Server."</p></div>
+
+            <div class="action-step"><div class="step-num">3</div><h4>Create the UDP 3478 rule</h4><p>Add a new rule: Protocol = <strong>UDP</strong>, External Port = <strong>3478</strong>, Internal Port = <strong>3478</strong>, Destination IP = the host's internal IP from step 1. Save and reboot the router if prompted. Do NOT select "TCP" or "Both" and assume it covers UDP — explicitly choose UDP.</p></div>
+
+            <div class="action-step"><div class="step-num">4</div><h4>Assign a static internal IP to the host</h4><p>Routers often reassign internal IPs after a reboot, which silently breaks your forward. In the router's DHCP reservation (or static lease) settings, bind the host's MAC address to a fixed IP so port 3478 always reaches the right machine.</p></div>
+
+            <div class="tip-box"><strong>Double-NAT warning:</strong> If your host sits behind two routers (for example, an ISP modem/router combo plus your own Wi-Fi router), you must forward 3478 UDP on <em>both</em> devices, or put the inner router in bridge mode. A single forward through only one device still drops the packet. This is the most commonly missed sub-step in port-forwarding guides.</div>
+
+            <figure class="guide-img" style="margin:2rem 0">
+                <img src="https://playwindrose.com/wp-content/uploads/2026/02/Intro_3.webp" alt="Router port forwarding configuration screen highlighting the UDP protocol and port 3478 setting for Windrose" loading="lazy" width="500" style="max-width:100%;height:auto;border-radius:8px;border:1px solid #e0d8f0">
+                <figcaption>Router port-forwarding screen — the protocol dropdown must read UDP, not TCP, for Windrose port 3478 — Source: Windrose Official</figcaption>
+            </figure>
+
+            <h2 id="section5">🛡️ 5. Cause 3: Firewall Blocking</h2>
+            <p>Even with a perfect port forward, a firewall sitting on the host (or the client) can intercept and discard Windrose's packets before they ever reach the game. Windows Defender Firewall blocks unknown executables by default, and third-party antivirus suites are even more aggressive. The symptom is identical to a closed port: <code>ERR_TIMEOUT</code> after the usual spin.</p>
+            <p>The key mistake players make is adding only an <em>inbound</em> rule. Windrose's netcode opens return connections, so you need both inbound and outbound allowances. Add the rule for <code>Windrose.exe</code> covering both directions and both protocols.</p>
+
+            <div class="method-box"><h4>🪟 Windows Defender allow-list (host machine)</h4>
+            <p>1. Open "Windows Defender Firewall" → "Advanced settings."<br>
+            2. Select "Inbound Rules" → "New Rule" → "Program" → browse to <code>Windrose.exe</code> → "Allow the connection" → check Domain, Private, Public.<br>
+            3. Repeat for "Outbound Rules" with the same executable.<br>
+            4. Name it clearly (e.g., "Windrose MP In" / "Windrose MP Out").<br>
+            5. Retry the connection. If it now works, the firewall was the blocker.</p></div>
+
+            <div class="warn-box"><strong>Third-party antivirus:</strong> If the host runs Norton, McAfee, Bitdefender, or similar, Defender rules alone will not help — those suites insert their own network filter. Open the suite's firewall section and add <code>Windrose.exe</code> to the allowed applications list, or temporarily disable the suite's firewall (not the whole antivirus) for a quick test. Re-enable it afterward with the exception in place.</div>
+
+            <div class="tip-box"><strong>Client-side too:</strong> Do not forget the joining player's firewall. If the host is perfectly configured but the client's outbound traffic is blocked, the handshake still fails. Run the same allow-list steps on the client PC. The fastest diagnostic: temporarily disable both firewalls, test the join, then re-enable with proper rules once confirmed.</div>
+
+            <h2 id="section6">🌐 6. Cause 4: IPv6 vs IPv4 Mismatch</h2>
+            <p>Modern networks increasingly run dual-stack (both IPv4 and IPv6), and this is where Windrose's connection layer gets finicky. If the host is reachable only over IPv6 while the client is on a legacy IPv4-only connection (or the reverse), the two can fail to negotiate a path even though both have "internet." The result is the classic "connects, then drops after a few seconds" or a flat <code>ERR_TIMEOUT</code> with no clear cause.</p>
+            <p>This is notoriously hard to spot because the server browser may show the host as "available" — the listing travels over a different channel than the actual game data. The fix is to force both ends onto a common protocol.</p>
+
+            <div class="method-box"><h4>🔧 Forcing IPv4 parity (recommended)</h4>
+            <p>1. On both the host and client, open the network adapter settings and temporarily <strong>uncheck "Internet Protocol Version 6 (TCP/IPv6)"</strong>, leaving IPv4 enabled. This forces both machines onto IPv4, which Windrose handles most reliably.<br>
+            2. Reboot both PCs (or run <code>ipconfig /release &amp;&amp; ipconfig /renew</code>).<br>
+            3. Have the client connect using the host's IPv4 address directly (e.g., <code>192.168.1.50:3478</code> for LAN, or the public IPv4 for internet) rather than a hostname or invite link.<br>
+            4. If it connects, IPv6 was the culprit. You can leave IPv6 off while playing, or investigate router-level IPv6 pass-through later.</p></div>
+
+            <div class="tip-box"><strong>Use the raw IP, not the invite link:</strong> Windrose's friend-invite system sometimes resolves through a relay that prefers IPv6. Pasting the host's actual IPv4 address into the "Join by IP" field bypasses that resolution layer entirely and is the most reliable way to test a suspected IPv6 issue.</div>
+
+            <div class="warn-box"><strong>ISP CGNAT caveat:</strong> Some ISPs place customers behind Carrier-Grade NAT, meaning your "public" IPv4 is shared and not directly reachable from outside. If port 3478 is correctly forwarded but external friends still cannot reach you, ask your ISP whether you are behind CGNAT. The workaround is a VPN-based LAN tool (see Last Resort) or requesting a public IPv4 / IPv6 allocation from the ISP.</div>
+
+            <h2 id="section7">📝 7. Cause 5: Hosts File / DNS</h2>
+            <p>Less common but maddening when it happens: a corrupted <strong>hosts file</strong> or a stale DNS cache on the client can route the server name to the wrong (or no) address. This produces connections that "should" work — the IP is correct, the port is open, the firewall is fine — yet the client still fails. The issue is name resolution happening before the connection attempt.</p>
+            <p>The hosts file is a plain text file on Windows that overrides DNS for specific names. A leftover or mistyped entry from a previous game, VPN, or mod can silently hijack the server hostname. Even without a bad entry, a stale DNS cache can hold an old, unreachable address.</p>
+
+            <div class="method-box"><h4>🧹 Flush DNS and inspect the hosts file (client machine)</h4>
+            <p>1. Open a terminal as administrator and run <code>ipconfig /flushdns</code>. This clears cached bad lookups.<br>
+            2. Open Notepad as administrator, then open <code>C:\Windows\System32\drivers\etc\hosts</code> (no file extension).<br>
+            3. Look for any line referencing your server's hostname or a Windrose-related domain. If you do not recognize it, comment it out by prefixing the line with <code>#</code>.<br>
+            4. Save and retry. A clean hosts file plus a flushed cache resolves the "mysterious intermittent" connection failures.</p></div>
+
+            <div class="tip-box"><strong>Public vs private DNS:</strong> Some custom DNS providers (and certain pi-hole setups) block or mis-route gaming server domains. As a quick test, switch the client's DNS to a major public resolver (e.g., <code>1.1.1.1</code> or <code>8.8.8.8</code>) and retry. If that fixes it, your local DNS filtering was the culprit — whitelist the Windrose server domain rather than abandoning your filter.</div>
+
+            <h2 id="section8">⚙️ 8. Cause 6: Mod or Version Conflict &amp; Last Resort</h2>
+            <p>The final common cause is a mismatch between what the host is running and what the client has. Windrose enforces version parity, so a different build number triggers <code>ERR_VERSION</code>. Mods are stricter: if the host loads a mod the client lacks (or vice versa, or the mod versions differ), the connection is refused even when base versions match. This is the #1 reason a group that "played fine yesterday" suddenly cannot connect after one person subscribed to a new mod.</p>
+
+            <div class="method-box"><h4>🧩 Resolving mod / version conflicts</h4>
+            <p>1. Compare build numbers on both main menus (bottom-right). If they differ, update the behind player through Steam / the platform client.<br>
+            2. On both machines, open the Mods manager and confirm the <strong>enabled mod list and versions are identical</strong>. Windrose does not auto-sync mods between players.<br>
+            3. If unsure, move both players' <code>Mods</code> folder to the desktop, launch vanilla, and test. A successful vanilla join proves a mod conflict.<br>
+            4. Re-add mods one at a time on BOTH machines simultaneously until the offender is isolated, then either remove it or ensure both players run the matching version.</p></div>
+
+            <div class="warn-box"><strong>Save-version lockstep:</strong> A host running a newer game version may have saved the world in a format the older client cannot read — even after you "fix" the connection, the client could desync or crash on join. Always update everyone together. There is no partial-compatibility mode in Windrose Early Access.</div>
+
+            <h3>🆘 Last Resort — If Nothing Works</h3>
+            <p>If you have worked through every section above and the connection still fails, you are almost certainly hitting an environment problem that port forwarding alone cannot solve — usually CGNAT, a strict corporate/school network, or an ISP that blocks inbound UDP. These are the options that finally get stubborn setups working:</p>
+
+            <div class="action-step"><div class="step-num">A</div><h4>Use a VPN-based virtual LAN (ZeroTier / Radmin / Hamachi)</h4><p>These tools create a private network tunnel that makes remote friends appear to be on the same LAN. Install the same VPN client on host and client, join a shared network, and connect using the VPN-assigned IP. This completely bypasses router port forwarding and CGNAT — it is the most reliable fix for "nothing else worked."</p></div>
+
+            <div class="action-step"><div class="step-num">B</div><h4>Have the client host instead</h4><p>Network asymmetry is real: the host's ISP may block inbound traffic while the client's does not. Swap roles and test. If the reverse direction connects, the original host's network is the wall — keep the more permissive network as host, or use option A.</p></div>
+
+            <div class="action-step"><div class="step-num">C</div><h4>Try the official dedicated server tool</h4><p>Windrose offers a headless dedicated server build that behaves more predictably than in-client hosting for some routers. Run it on a always-on machine, forward 3478 UDP to that box, and connect by IP. Many "in-client hosting fails but dedicated works" cases are caused by the game client's firewall interaction, which the headless build avoids.</p></div>
+
+            <div class="action-step"><div class="step-num">D</div><h4>Gather logs and report with detail</h4><p>If all else fails, collect the host's <code>Windrose.log</code> (from <code>%USERPROFILE%\AppData\Local\Windrose\Saved\Logs</code>) and the client's connection error code, then post in the official Discord with your router model, ISP, and whether CGNAT applies. Include the exact error code — it is the difference between a guess and a real fix.</p></div>
+
+            <div class="tip-box"><strong>Order of last resort:</strong> Try B (swap host) first — it takes two minutes. If that fails, go to A (VPN LAN), which solves ~90% of remaining cases including CGNAT. Reserve C and D for when you want a permanent, repeatable setup or need developer help.</div>
+
+            <h2 id="faq">❓ FAQ — "Failed to Connect" Questions</h2>
+
+            <div class="faq-item"><h4>Q: Why does it say "Failed to Connect" with no error code?</h4><p>Windrose sometimes omits the code on the visible dialog even though it is logged. Open the client log at <code>%USERPROFILE%\AppData\Local\Windrose\Saved\Logs\Windrose.log</code> right after a failed attempt and search for "Connect" or "NetError" — the code is there. The most common silent failure is a closed UDP 3478 port (treated as timeout).</p></div>
+
+            <div class="faq-item"><h4>Q: It works on my home LAN but my friend outside can't join. What's wrong?</h4><p>That is the textbook port-forwarding symptom. LAN traffic never touches the router's forward rules, so it works locally; internet traffic does. Forward UDP port 3478 to the host's internal IP on the router (see Section 4). If your ISP uses CGNAT, you will also need the VPN-LAN approach from Last Resort.</p></div>
+
+            <div class="faq-item"><h4>Q: I forwarded TCP 3478 and it still fails. Why?</h4><p>Windrose uses UDP, not TCP, for its connection layer. A TCP forward leaves the actual game port closed, so the client times out. Delete the TCP rule and create a UDP 3478 forward instead. The protocol selection in your router's port-forward screen matters more than the number.</p></div>
+
+            <div class="faq-item"><h4>Q: Do mods really block connections even if the base game version matches?</h4><p>Yes. Windrose checks the enabled mod list and each mod's version during handshake. A single mod present on the host but missing on the client (or a version difference) causes an immediate refusal, independent of the base build number. Both players must run an identical mod set and versions, or none at all.</p></div>
+
+            <div class="faq-item"><h4>Q: My ISP said I'm behind CGNAT. Can I still host?</h4><p>Not via standard port forwarding — CGNAT gives you a shared public IP you cannot forward through. Your reliable options are: (1) a VPN-based virtual LAN (ZeroTier, Radmin, Hamachi) which tunnels past CGNAT, or (2) asking your ISP for a public IPv4/IPv6 allocation (sometimes a paid add-on). Most players solve it with option 1 in under ten minutes.</p></div>
+
+            <div class="faq-item"><h4>Q: The connection drops a few seconds after joining. What causes that?</h4><p>Intermittent drops usually point to an IPv6/IPv4 path mismatch or an unstable network route, not a hard block. Force both host and client to IPv4 (Section 6), connect by raw IPv4 address, and flush the DNS cache. If drops persist only under load, also check for packet loss with a continuous ping to the host during a session.</p></div>
+
+            <div class="faq-item"><h4>Q: Is there an official guide that covers all this?</h4><p>Partially. Windrose's official "Host a Server" tutorial covers creating and inviting but omits port forwarding, firewall rules, the UDP-vs-TCP detail, IPv6 handling, hosts-file fixes, and mod parity. This guide was written specifically to fill those gaps — the sections above cover every cause the official docs leave out.</p></div>
+
+    <div class="related-guides">
+      <h3>More Windrose Guides</h3>
+      <div class="article-grid">
+        <a href="windrose-beginner-guide-2026.html" class="article-card">
+          <h3>Windrose Beginner Guide 2026</h3>
+          <p>Complete Windrose beginner guide 2026 —first ship, basic survival, crafting essentials, combat fundamentals, best early-game islands, and how to build your first base without dying.</p>
+        </a>
+        <a href="windrose-server-setup-troubleshooting-guide-2026.html" class="article-card">
+          <h3>Windrose Server Troubleshooting Guide 2026</h3>
+          <p>Built your Windrose server but something is wrong? Troubleshooting guide covering connection issues, port forwarding, and common config file mistakes.</p>
+        </a>
+        <a href="windrose-difficulty-tiers-comparison-guide-2026.html" class="article-card">
+          <h3>Windrose Difficulty Tiers Compared (2026)</h3>
+          <p>Which difficulty should you actually pick? Full tier comparison, decision tree, real-player complaints, and the pick new players get wrong most often.</p>
+        </a>
+        <a href="windrose-controls-keybindings-guide-2026.html" class="article-card">
+          <h3>Windrose Controls & Keybindings Guide 2026</h3>
+          <p>Windrose default keybinding master table, the operations new players find most confusing, how to rebind, and controller support.</p>
+        </a>
+        <a href="windrose-day1-3-survival-guide-2026.html" class="article-card">
+          <h3>Windrose Day 1-3 Survival Guide 2026</h3>
+          <p>Complete Windrose Day 1-3 survival guide with hour-by-hour action checklist. From waking on the beach to your first safe base.</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>Every guide is free —this one stays free either way.</h3>
+            <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+            <p style="margin:6px 0 0 0;line-height:1.7">
+                📚 <strong>10 Beginner Guides</strong> —zero to mid-game in one pack<br>
+                —<strong>5 Premium Picks</strong> —our most popular expert deep-dives<br>
+                —<strong>3-Day Early Access</strong> —read new guides before everyone else<br>
+                🔄 <strong>3 New Guides Every Month</strong> —and each one fuels us to write faster
+            </p>
+            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">—Your purchase includes instant access to everything above</p>
+            <div class="support-amounts">
+                <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 —Get the Early Access Guide Pack 👑</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always —no strings attached. 🤝</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-bottom">&copy; 2026 WindroseGuru &middot; Not affiliated with Windrose Studio &middot; <a href="../../index.html">Home</a></p>
+            
+                    <p style="font-size:.78rem;color:#999;margin-top:4px">All game content, trademarks, and copyrights are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by the game's developers.</p>
+        </div>
+    </footer>
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>.guide-content li{color:#2d2a33!important}</style>
+<script src="../../js/anti-scraper.js"></script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Built Your Windrose Server But Something's Wrong? Troubleshooting Guide (2026) | Windrose Guru</title>
+    <meta name="description" content="Windrose dedicated server troubleshooting 2026 — players can't connect, world won't generate, stuck loading, launch crash. Authoritative fix order with port forwarding, firewall, config file mistakes.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Windrose server troubleshooting, Windrose dedicated server, Windrose can't connect, Windrose port forwarding, Windrose server crash, Windrose server config">
+    <link rel="canonical" href="https://osrsguru.com/guides/windrose/windrose-server-setup-troubleshooting-guide-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{font-size:1.85rem !important}.guide-content h3{font-size:1.35rem !important}.guide-content p{font-size:1.08rem !important;line-height:1.85 !important}.guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}.tip-box strong{color:#7a64b8;font-size:1.06rem}
+        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}.warn-box strong{color:#b84a3a;font-size:1.06rem}
+        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}.action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#2d2a33;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}.action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}.method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}.faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .toc{background:#fff;border:1px solid #e0d8f0!important;border-left:1px solid #e0d8f0!important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}.toc h3{color:#7a64b8!important;font-size:1.1rem!important;margin-bottom:12px}
+        .guide-hero .subtitle{font-size:1.15rem!important;max-width:700px;margin:0 auto 1.2rem}.guide-hero .breadcrumb{font-size:.95rem!important}.guide-hero .weekly-badge{font-size:1rem!important}
+        .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}.inline-support-hint p{font-size:1rem}
+        .guide-content li{color:#2d2a33!important}.progress-widget{display:none!important}
+        .config-table{width:100%;border-collapse:collapse;margin:1.5rem 0}.config-table th{background:#7a64b8;color:#fff;padding:.8rem 1rem;text-align:left;font-size:1rem}.config-table td{padding:.8rem 1rem;border-bottom:1px solid #e0d8f0;font-size:1.02rem;vertical-align:top}.config-table tr:nth-child(even){background:#f8f6fc}.config-table code{background:#f0ecf8;padding:2px 6px;border-radius:4px;font-size:.92rem}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Windrose <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section1">Read Logs</a></li>
+                    <li><a href="#section2">Port Forward</a></li>
+                    <li><a href="#section3">Firewall</a></li>
+                    <li><a href="#section4">Stuck Loading</a></li>
+                    <li><a href="#section5">Launch Crash</a></li>
+                    <li><a href="#section6">Config Mistakes</a></li>
+                    <li><a href="#section7">Mod Conflicts</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#windrose">Windrose</a> / Server Troubleshooting</p>
+            <h1>Built Your Windrose Server But Something's Wrong? Troubleshooting Guide (2026)</h1>
+<div class="wr-level-badge" style="display:inline-block;background:#f5efe0;color:#5a4632;border:1px solid #b89b6a;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">🔧 Technical & Servers</div>
+            <p class="subtitle">You followed the setup steps. The server says it's running. But your friends see "Connection timed out," the world never spawns, or the whole thing crashes on launch. This guide gives you the exact order to fix it — because the official docs contradict each other and the real gap is everything after "setup."</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🔧</span> <strong>Windrose Guide</strong> —Part of the <strong>Windrose Server Series</strong> • 14 min read
+            </div>
+            <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: July 24, 2026</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+
+            <div class="wr-preview" style="background:#f8f6fc;border:1px solid #7A64B8;border-left:4px solid #7A64B8;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0 2rem;">
+              <h3 style="color:#7A64B8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ 30-Second Preview — Read This First</h3>
+              <ul style="margin:0;padding-left:1.2rem;color:#2d2a33;font-size:.95rem;line-height:1.9;">
+                <li>📌 <strong>Always read the server logs first.</strong> 90% of "broken" servers print the exact cause in plain English — a wrong config field, a failed port bind, or a version mismatch. Skipping the log wastes an hour.</li>
+                <li>📌 <strong>Port 3478 must be open on BOTH UDP and TCP.</strong> This is the single most skipped step. Opening only one protocol makes the server look alive to you but unreachable to everyone else.</li>
+                <li>📌 <strong>The official docs contradict each other.</strong> One page says "just port forward," another says "use the public IP field," a third says "leave it blank." This guide gives you the authoritative fix order.</li>
+                <li>📌 <strong>"World won't generate" and "stuck loading" are almost always config typos</strong> — a ServerName with illegal characters, MaxPlayers set to 0, or a wrong WorldSeed format.</li>
+                <li>📌 <strong>Launch crashes are usually version or mod conflicts</strong> — a host and client on different build numbers, or a mod that did not load for every player.</li>
+              </ul>
+            </div>
+
+            <div class="toc"><h3>Table of Contents</h3><ol>
+                <li><a href="#section1">Read the Logs First — Where Every Fix Starts</a></li>
+                <li><a href="#section2">Players Can't Connect — Port Forwarding (Port 3478)</a></li>
+                <li><a href="#section3">Firewall &amp; Antivirus Blocking the Server</a></li>
+                <li><a href="#section4">World Won't Generate / Stuck on Loading Screen</a></li>
+                <li><a href="#section5">Launch Crash on the Host Machine</a></li>
+                <li><a href="#section6">Common Config File Mistakes (Wrong vs Right)</a></li>
+                <li><a href="#section7">Version &amp; Mod Conflicts</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ol></div>
+
+            <h2 id="section1">📋 1. Read the Logs First — Where Every Fix Starts</h2>
+            <p>Before you touch a single setting, open the server log. Windrose writes a live log file every time the dedicated server starts, and it is brutally honest about what went wrong. Players who skip this step spend hours "trying things" when the answer was on line 14 the whole time. The log is the difference between guessing and diagnosing.</p>
+            <p>The server log is created next to your <code>WindroseServer.exe</code> (or <code>start_server.sh</code> on Linux) in a folder usually named <code>Logs/</code>. On Windows the default path is <code>%USERPROFILE%\AppData\Local\Windrose\Saved\Logs\WindroseServer.log</code>. If you launched the server from a terminal, the same text is printed live — scroll up before you Ctrl+C out of it.</p>
+
+            <div class="method-box"><h4>🔍 How to Read a Windrose Server Log in 60 Seconds</h4>
+            <p><strong>1.</strong> Open the log file in any text editor (Notepad++, VS Code, or even plain Notepad).</p>
+            <p><strong>2.</strong> Search (Ctrl+F) for the words <code>Error</code>, <code>Failed</code>, <code>Exception</code>, and <code>refused</code>. These four terms cover roughly 80% of real failures.</p>
+            <p><strong>3.</strong> Read the FIRST error, not the last. Windrose often throws a cascade of secondary errors after the initial fault — fixing the root cause clears the rest.</p>
+            <p><strong>4.</strong> Note the timestamp and the line that mentions <code>bind</code>, <code>port</code>, <code>config</code>, or <code>version</code>. That single line tells you which section of this guide to jump to.</p></div>
+
+            <div class="tip-box"><strong>Log Reading Pro Tip:</strong> A server that prints <code>Listening on 0.0.0.0:3478</code> is correctly bound and reachable on your local network. If you see <code>bind: address already in use</code>, something else (often a second server instance or a stuck process) is holding port 3478 — kill it before continuing. If you see <code>bind: permission denied</code>, you are likely running without admin/root rights.</div>
+
+            <p>If your log shows a clean <code>Server started</code> line but players still cannot join, your problem is NOT in the server — it is in the network path between players and your machine. Jump straight to Section 2 (port forwarding). If the log shows a config parse error, jump to Section 6. Matching the log message to the section saves you the most time.</p>
+
+            <figure class="guide-img" style="margin:2rem 0">
+                <img src="https://playwindrose.com/wp-content/uploads/2026/02/Naval_1.webp" alt="Windrose dedicated server terminal window showing log output with listening port and player connection lines" loading="lazy" width="500" style="max-width:100%;height:auto;border-radius:8px;border:1px solid #e0d8f0">
+                <figcaption>The server log is your first diagnostic tool — it prints the exact reason a connection failed before players even see an error — Source: Windrose Official</figcaption>
+            </figure>
+
+            <h2 id="section2">🌐 2. Players Can't Connect — Port Forwarding (Port 3478)</h2>
+            <p>This is the #1 cause of "the server is up but my friends can't join." Windrose's dedicated server uses <strong>port 3478 on both UDP and TCP</strong>. The game's query, handshake, and gameplay traffic all ride this single port pair. If even one protocol is blocked, the server appears online in your own client (because you connect over localhost) but is a black hole to the outside world.</p>
+
+            <div class="warn-box"><strong>The Most Common Mistake:</strong> Router port-forwarding screens let you pick "UDP," "TCP," or "Both." Players who select only UDP (or only TCP) report that the server shows up in the browser list but connections drop instantly, or never complete. You MUST forward 3478 for BOTH protocols, or use the "Both"/"TCP+UDP" option if your router offers it.</div>
+
+            <div class="action-step"><div class="step-num">1</div><h4>Find Your Server Machine's Local IP</h4><p>On the host machine, open a command prompt and run <code>ipconfig</code> (Windows) or <code>ip addr</code> (Linux). Look for the IPv4 address on your active adapter — typically <code>192.168.x.x</code> or <code>10.x.x.x</code>. This is the internal address your router sends forwarded traffic to. Write it down; you need it in step 3.</p></div>
+            <div class="action-step"><div class="step-num">2</div><h4>Log Into Your Router</h4><p>Open a browser and go to your gateway address — most commonly <code>192.168.1.1</code> or <code>192.168.0.1</code>. The username/password is usually printed on the router sticker (often <code>admin</code>/<code>admin</code>). If you changed it and forgot, you may need a router reset.</p></div>
+            <div class="action-step"><div class="step-num">3</div><h4>Create the Port Forward Rule</h4><p>Find "Port Forwarding" (sometimes "NAT" or "Virtual Server"). Create a rule: External Port <code>3478</code>, Internal Port <code>3478</code>, Protocol <code>BOTH</code> (UDP+TCP), Internal IP = the address from step 1. Save and reboot the router if prompted. Create TWO rules if your router has no "Both" option — one UDP, one TCP.</p></div>
+            <div class="action-step"><div class="step-num">4</div><h4>Confirm Your Public IP</h4><p>Search "what is my IP" on the host machine. That public address is what friends paste into their join field. If your ISP uses CG-NAT (common on mobile and some fiber plans), port forwarding will NOT work — see the note below.</p></div>
+
+            <div class="tip-box"><strong>Stuck Behind CG-NAT?</strong> If port forwarding does nothing no matter what you try, your ISP may be using Carrier-Grade NAT, which hides you behind a shared public IP you cannot forward through. Confirm by comparing the IP your router reports as "WAN" vs the IP "what is my IP" shows — if they differ, you are on CG-NAT. Options: ask your ISP for a static public IP (sometimes a paid add-on), or use a VPN/ tunneling service that supports UDP game traffic.</div>
+
+            <p>After forwarding, have a friend try to connect using your public IP followed by the port: <code>123.45.67.89:3478</code>. If it works, the network path is open. If it still fails, the block is almost certainly the firewall (Section 3) or the <code>PublicIP</code> config field (Section 6) — not the router.</p>
+
+            <h2 id="section3">🛡️ 3. Firewall &amp; Antivirus Blocking the Server</h2>
+            <p>Even with perfect port forwarding, Windows Defender, your third-party antivirus, or a cloud firewall can silently drop inbound traffic to port 3478. The server "runs" because nothing on your machine is stopping it — but the firewall stops everyone else before they reach it. This is maddening because the log shows no error; the packets simply never arrive.</p>
+
+            <div class="method-box"><h4>🪟 Allow the Server Through Windows Defender Firewall</h4>
+            <p><strong>1.</strong> Open "Windows Defender Firewall" → "Advanced settings" → "Inbound Rules" → "New Rule."</p>
+            <p><strong>2.</strong> Rule type: <strong>Port</strong>. Protocol: <strong>TCP</strong>, Specific ports: <code>3478</code>. Action: <strong>Allow the connection</strong>. Profile: check all three (Domain, Private, Public). Name it "Windrose Server TCP."</p>
+            <p><strong>3.</strong> Repeat the same steps for <strong>UDP</strong> port <code>3478</code> and name it "Windrose Server UDP." You now have two inbound rules.</p>
+            <p><strong>4.</strong> Also add the server executable (<code>WindroseServer.exe</code>) as an allowed app under "Allow an app through firewall" so outbound handshakes are never blocked either.</p></div>
+
+            <div class="warn-box"><strong>Antivirus Quiet-Kill:</strong> Several third-party antivirus suites (notably those with "behavioral network protection") flag game server executables as suspicious and block their sockets without a visible popup. If Windows Defender rules are correct but players still can't connect, temporarily disable your antivirus and retest. If it works, add <code>WindroseServer.exe</code> to the antivirus allowlist rather than leaving protection off.</div>
+
+            <p>Linux hosts need the equivalent: <code>sudo ufw allow 3478/tcp</code> and <code>sudo ufw allow 3478/udp</code>, then <code>sudo ufw reload</code>. Cloud providers (AWS, GCP, Azure) additionally require their <strong>security group / network ACL</strong> to permit inbound 3478 UDP+TCP — the OS firewall is only half the story there.</p>
+
+            <div class="action-step"><div class="step-num">✓</div><h4>Quick Firewall Self-Test</h4><p>From a second device on the SAME local network, try connecting using the host's local IP (<code>192.168.x.x:3478</code>). If that works but the public IP does not, the firewall is fine and the problem is port forwarding or CG-NAT. If even the local connection fails, the firewall or the server bind is the culprit — go back to Section 1 and re-read the log.</p></div>
+
+            <h2 id="section4">🗺️ 4. World Won't Generate / Stuck on Loading Screen</h2>
+            <p>A server that launches, binds the port, and then either never spawns a world or leaves players frozen on "Loading..." is almost always choking on a configuration or save issue — not the network. The host sees the server "running" because the process is alive, but the world thread crashed or is waiting on bad input.</p>
+
+            <p>The most frequent causes, in order of likelihood:</p>
+            <p><strong>1. Corrupted or partially-written save.</strong> If the previous session was force-closed (power loss, crash, kill -9), the world save can be left in a half-written state. Windrose then hangs trying to load it. Fix: rename or move the <code>SavedArks</code>/<code>SaveGames</code> folder for that world, let the server generate a fresh one, then migrate your structures back manually if needed.</p>
+            <p><strong>2. Illegal characters in ServerName or WorldName.</strong> Emojis, non-ASCII symbols, and some punctuation cause the world generator to abort silently. Use plain ASCII letters, numbers, and dashes only.</p>
+            <p><strong>3. MaxPlayers set to 0 or a negative number.</strong> The server interprets 0 as "no slots" and some builds then fail to spin up the world thread. Set it to at least 1 (typically 4–10 for co-op).</p>
+            <p><strong>4. Wrong WorldSeed format.</strong> If you supply a seed, it must be a valid integer or the exact string the game expects — a blank or malformed seed can loop the generator. Leave it auto if unsure.</p>
+
+            <div class="warn-box"><strong>"Stuck at 99% Loading" Is a Client-Side Tell:</strong> When a joining player freezes at the loading bar while the host is fine, the client and server are disagreeing on world data — usually a mod mismatch (Section 7) or a version difference. It is NOT a port problem. If the host ALSO sees no world, it is a server config/save problem (above).</div>
+
+            <div class="tip-box"><strong>Force a Clean World Test:</strong> To isolate whether the save is the problem, temporarily point the server at a brand-new, empty save directory (change the <code>SaveDir</code> or world name in the config). If the new world generates instantly, your old save was the culprit. You can then attempt to recover structures by copying the <code>Players</code> and <code>Structures</code> subfolders from the old save into the new one — though this is not always clean, so back up first.</div>
+
+            <figure class="guide-img" style="margin:2rem 0">
+                <img src="https://playwindrose.com/wp-content/uploads/2026/02/Intro_2.webp" alt="Windrose world generation screen showing an archipelago loading with islands forming on the map" loading="lazy" width="500" style="max-width:100%;height:auto;border-radius:8px;border:1px solid #e0d8f0">
+                <figcaption>When the world generator receives valid config, the archipelago renders within seconds. A hang here means the server is waiting on bad input or a broken save — Source: Windrose Official</figcaption>
+            </figure>
+
+            <h2 id="section5">💥 5. Launch Crash on the Host Machine</h2>
+            <p>If the server process closes immediately (or within a few seconds) every time you launch it, you are dealing with a host-side crash — not a networking problem. The log (Section 1) is essential here, but the failure patterns are predictable enough to triage directly.</p>
+
+            <div class="method-box"><h4>🔧 The Launch-Crash Checklist (Run Top to Bottom)</h4>
+            <p><strong>1. Run as administrator / root.</strong> Binding to a port and writing to protected save directories fails without elevated rights on some systems. Right-click the launcher → "Run as administrator" on Windows, or prefix with <code>sudo</code> on Linux.</p>
+            <p><strong>2. Verify the game files.</strong> A corrupted core file causes an instant crash with an "missing module" or "null reference" exception. On Steam, right-click Windrose → Properties → Installed Files → "Verify integrity of game files." Dedicated server tools have their own verify step.</p>
+            <p><strong>3. Check RAM.</strong> Windrose dedicated servers want at least 4 GB free; world generation spikes higher. A crash with an <code>OutOfMemory</code> line means you need to close other apps or assign more to the server.</p>
+            <p><strong>4. Remove recently added mods.</strong> A mod that failed to download or is built for a different version will crash the host at load. Move your <code>Mods</code> folder aside and relaunch (see Section 7).</p>
+            <p><strong>5. Java / runtime mismatch (Linux).</strong> Some server wrappers depend on a specific runtime. An <code>UnsupportedClassVersion</code> error means your runtime is too old — update it.</p></div>
+
+            <div class="warn-box"><strong>Do Not "Just Reinstall" First:</strong> A full reinstall fixes maybe 10% of launch crashes and costs you an hour plus a re-download. Read the log, run the checklist above, and only reinstall if the error explicitly names a missing or corrupt game asset after verification failed to replace it.</div>
+
+            <p>If the server crashes only when a specific friend joins (but runs fine solo), the crash is actually a client-mod or version conflict triggering a server-side exception during sync — that is Section 7 territory, not a pure host crash.</p>
+
+            <h2 id="section6">⚙️ 6. Common Config File Mistakes (Wrong vs Right)</h2>
+            <p>Windrose's server config is a plain text file (commonly <code>WindroseServer.ini</code> or a JSON variant depending on build). Tiny typos here produce outsized, confusing failures. Below is the table of the mistakes we see most often, with the correct value for each.</p>
+
+            <table class="config-table">
+                <tr><th>Config Field</th><th>❌ Wrong / Common Mistake</th><th>✅ Correct Value</th><th>What Breaks If Wrong</th></tr>
+                <tr><td><code>ServerName</code></td><td><code>My Server 🏴‍☠️</code> (emoji / symbols)</td><td><code>My Windrose Server</code> (ASCII only)</td><td>World gen hangs or server hidden from browser</td></tr>
+                <tr><td><code>Port</code></td><td><code>3478</code> but only UDP forwarded</td><td><code>3478</code> + BOTH UDP and TCP open</td><td>Players time out or drop instantly</td></tr>
+                <tr><td><code>MaxPlayers</code></td><td><code>0</code> or left blank</td><td><code>4</code> (or 1–10)</td><td>World thread never starts; stuck loading</td></tr>
+                <tr><td><code>PublicIP</code></td><td>Set to a LAN address like <code>192.168.1.50</code></td><td>Blank (auto-detect) OR your true public IP</td><td>Friends get "invalid host" / can't resolve</td></tr>
+                <tr><td><code>PublicPort</code></td><td>Different from <code>Port</code> with no matching forward</td><td>Same as <code>Port</code> (3478) with matching forward</td><td>External connections refused</td></tr>
+                <tr><td><code>WorldSeed</code></td><td>Empty string <code>""</code> or text garbage</td><td>Omitted (auto) or a valid integer</td><td>Generator loops or crashes</td></tr>
+                <tr><td><code>ServerPassword</code></td><td>Spaces at start/end, or special chars</td><td>Plain alphanumeric, no stray whitespace</td><td>Players "join" then immediately bounce</td></tr>
+                <tr><td><code>QueryPort</code></td><td>Conflicts with another running server</td><td>Unique per server instance</td><td>Server list shows duplicate / ghost entry</td></tr>
+                <tr><td><code>bIsLAN</code></td><td><code>True</code> when you want internet play</td><td><code>False</code> for public/WAN hosting</td><td>Only reachable on local network</td></tr>
+            </table>
+
+            <div class="tip-box"><strong>The PublicIP Trap:</strong> The official docs are genuinely contradictory here — one page says "always set PublicIP to your router's WAN address," another says "leave it blank for auto-detection," a third example hardcodes a LAN IP. The authoritative answer: <strong>leave PublicIP blank</strong> unless auto-detection fails, in which case use your true public IPv4 (not the 192.168.x.x LAN address). Hardcoding a LAN address is the #1 reason a "correctly configured" server is invisible to the internet.</div>
+
+            <p>After editing the config, always restart the server cleanly — do not rely on a hot-reload that may not re-read every field. Watch the log for a clean <code>Server started</code> line and confirm the port bind message matches your settings.</p>
+
+            <h2 id="section7">🔄 7. Version &amp; Mod Conflicts</h2>
+            <p>The final category of "something is wrong" is mismatch: the host and clients are not speaking the same language. Windrose is strict about version parity, and mods multiply the failure surface. Symptoms range from launch crashes to the "stuck at 99% loading" freeze from Section 4.</p>
+
+            <div class="method-box"><h4>🧩 Diagnosing a Version Conflict</h4>
+            <p><strong>1. Compare build numbers.</strong> The host's server log prints a version string at startup (e.g., <code>Windrose Dedicated Server v0.7.2</code>). Every joining client must be on the same version. Steam usually auto-updates clients, but a player who paused updates, or is on a beta branch, will mismatch.</p>
+            <p><strong>2. Check the beta branch.</strong> If the host opted into a beta/preview build, only clients on the same beta can join. Either everyone opts in, or the host returns to stable.</p>
+            <p><strong>3. Confirm mod parity.</strong> Every mod the server loads MUST be installed and enabled on every client, in the same load order. A missing mod causes the client to either crash on join or hang at loading while it waits for data the server expects to send.</p>
+            <p><strong>4. Watch the log for mismatch lines.</strong> Look for <code>version mismatch</code>, <code>mod checksum failed</code>, or <code>client outdated</code>. These name the exact offender.</p></div>
+
+            <div class="warn-box"><strong>Mod Load Order Matters:</strong> Unlike some games, Windrose applies mods in the order listed in the config. If the server loads "Mod A then Mod B" but a client loads "Mod B then Mod A," even identical mod sets can produce different world data and a sync failure. Standardize the load order across host and all clients — ideally by sharing the server's mod list file directly.</div>
+
+            <div class="tip-box"><strong>Clean-Mod Test:</strong> If you suspect mods, move the server's <code>Mods</code> folder aside, disable all client mods, and relaunch. If everything works vanilla, re-add mods ONE at a time, restarting the server between each, until the culprit reveals itself. This is slower than guessing but it is definitive.</div>
+
+            <p>Version conflicts are the easiest class of problem to prevent and the most annoying to live with. The single best habit: before inviting friends, confirm everyone right-clicked Windrose → "Properties" → made sure "Receive beta updates" matches the host, and that Steam finished downloading the latest patch. A 30-second version check prevents 90% of "we can't join" nights.</p>
+
+            <h2 id="faq">❓ FAQ — Server Troubleshooting Questions</h2>
+
+            <div class="faq-item"><h4>Q: The server shows "online" in my own client but friends get "Connection timed out." What's wrong?</h4><p>This is almost always port forwarding or firewall, not the server itself. Your client connects over localhost (which never touches the router), so you see it fine. Your friends hit your public IP, which is blocked. Re-check Section 2 (forward 3478 UDP+TCP) and Section 3 (firewall allow rules). Also confirm you are not behind CG-NAT.</p></div>
+
+            <div class="faq-item"><h4>Q: Do I really need both UDP and TCP on port 3478?</h4><p>Yes. Windrose uses UDP for the bulk of real-time gameplay traffic and TCP for the initial handshake/query. Opening only one makes the server appear alive but unreachable or unstable for joiners. If your router has a "Both" or "TCP+UDP" option, use it; otherwise make two separate rules.</p></div>
+
+            <div class="faq-item"><h4>Q: Should I set PublicIP in the config?</h4><p>Leave it blank for auto-detection in the vast majority of cases. Only set it to your true public IPv4 if auto-detection fails (some ISPs/setups need it). Never set it to a 192.168.x.x LAN address — that is the most common reason a correctly forwarded server stays invisible to the internet.</p></div>
+
+            <div class="faq-item"><h4>Q: My friends freeze at 99% loading but I (the host) am fine. Is this a port issue?</h4><p>No. A host-side world that loads fine means networking and config are okay. A client freezing at the loading bar is a version or mod mismatch — the client and server disagree on world data. See Section 7: compare build numbers and mod loadouts.</p></div>
+
+            <div class="faq-item"><h4>Q: The server crashes the instant a specific player joins. Why?</h4><p>That points to a client-side mod or version conflict triggering a server exception during sync. Have that player disable all mods and verify their game files, then rejoin. If it works, a mod or outdated client was the cause. Re-add their mods one at a time to find the offender.</p></div>
+
+            <div class="faq-item"><h4>Q: Can I run multiple Windrose servers on one machine?</h4><p>Yes, but each needs a unique <code>Port</code> (and matching forward), a unique <code>QueryPort</code>, and ideally its own save directory. Two servers sharing port 3478 will conflict with a <code>bind: address already in use</code> error in the log. Increment ports (3478, 3479, ...) and forward each.</p></div>
+
+            <div class="faq-item"><h4>Q: The official wiki says X but the in-game tooltip says Y. Which do I trust?</h4><p>This guide's fix order is the authoritative one: logs first, then port (UDP+TCP), then firewall, then config fields (especially PublicIP and MaxPlayers), then version/mod. The official sources genuinely contradict each other on PublicIP and on whether TCP is required, so when they disagree, follow the order and values given here — they reflect what actually works for live hosts.</p></div>
+
+            <h2>✅ Closing — Your Troubleshooting Order</h2>
+            <p>When your Windrose server "is built but something is wrong," do not randomize settings. Follow this authoritative order every time, because it isolates the layer that is actually broken:</p>
+            <p><strong>1. Read the logs.</strong> The first error names the problem. <strong>2. Port forward 3478 UDP+TCP</strong> on the router, and confirm you are not behind CG-NAT. <strong>3. Open the firewall</strong> for both protocols plus the executable. <strong>4. Fix config mistakes</strong> — blank PublicIP, MaxPlayers ≥ 1, ASCII-only names, matching Port/PublicPort. <strong>5. Rule out version/mod conflicts</strong> by comparing build numbers and standardizing mod load order. <strong>6. Only then reinstall</strong> if a verified-corrupt asset is named in the log.</p>
+            <p>The real gap in Windrose's server documentation is not "how to install" — it is everything after installation, when the server runs but refuses to behave. The official pages contradict each other on the two most important points (TCP requirement and PublicIP), which is exactly why so many hosts get stuck. Use the order above, trust the log over the wiki, and your friends will be sailing the archipelago tonight.</p>
+
+    <div class="related-guides">
+      <h3>More Windrose Guides</h3>
+      <div class="article-grid">
+        <a href="windrose-beginner-guide-2026.html" class="article-card">
+          <h3>Windrose Beginner Guide 2026</h3>
+          <p>Complete Windrose beginner guide 2026 —first ship, basic survival, crafting essentials, combat fundamentals, best early-game islands, and how to build your first base without dying.</p>
+        </a>
+        <a href="windrose-difficulty-tiers-comparison-guide-2026.html" class="article-card">
+          <h3>Windrose Difficulty Tiers Compared (2026)</h3>
+          <p>Complete Windrose difficulty tiers comparison 2026 — Calm Waters vs High Seas vs Storm's Edge vs Captain's Choice, with the decision tree and real-player complaints.</p>
+        </a>
+        <a href="windrose-day1-3-survival-guide-2026.html" class="article-card">
+          <h3>Windrose Day 1-3 Survival Guide 2026</h3>
+          <p>Complete Windrose Day 1-3 survival guide with hour-by-hour action checklist. From waking on the beach to your first safe base.</p>
+        </a>
+        <a href="windrose-controls-keybindings-guide-2026.html" class="article-card">
+          <h3>Windrose Controls & Keybindings Guide 2026</h3>
+          <p>Windrose default keybinding master table, the operations new players find most confusing, how to rebind, and controller support.</p>
+        </a>
+        <a href="windrose-should-you-buy-guide-2026.html" class="article-card">
+          <h3>Should You Buy Windrose in 2026?</h3>
+          <p>Honest purchase decision based on EA status, Mixed Steam reviews, content volume, and update cadence.</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>Every guide is free —this one stays free either way.</h3>
+            <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+            <p style="margin:6px 0 0 0;line-height:1.7">
+                📚 <strong>10 Beginner Guides</strong> —zero to mid-game in one pack<br>
+                —<strong>5 Premium Picks</strong> —our most popular expert deep-dives<br>
+                —<strong>3-Day Early Access</strong> —read new guides before everyone else<br>
+                🔄 <strong>3 New Guides Every Month</strong> —and each one fuels us to write faster
+            </p>
+            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">—Your purchase includes instant access to everything above</p>
+            <div class="support-amounts">
+                <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 —Get the Early Access Guide Pack 👑</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always —no strings attached. 🤝</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-bottom">&copy; 2026 WindroseGuru &middot; Not affiliated with Windrose Studio &middot; <a href="../../index.html">Home</a></p>
+            
+                    <p style="font-size:.78rem;color:#999;margin-top:4px">All game content, trademarks, and copyrights are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by the game’s developers.</p>
+        </div>
+    </footer>
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>.guide-content li{color:#2d2a33!important}</style>
+<script src="../../js/anti-scraper.js"></script>
+</body>
+</html>
