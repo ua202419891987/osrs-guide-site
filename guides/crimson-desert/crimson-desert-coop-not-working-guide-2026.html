@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert Co-op Not Working? Fix Lobby, Session & Friend Invite Errors 2026 | CD Guru</title>
+    <meta name="description" content="Crimson Desert co-op not working? Fix friend invite not showing, lobby stuck loading, session not found, and mid-fight disconnects. Covers NAT type, version mismatch, host migration, and PC/PS5/Xbox cross-platform limits.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Crimson Desert co-op not working, friend invite not showing, lobby stuck loading, session not found, co-op disconnect, Crimson Desert cross-play, Crimson Desert multiplayer fix">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-coop-not-working-guide-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        /* ── Light theme — matches Violet Sunrise global CSS ── */
+        /* Larger type: h2=1.85rem, h3=1.35rem, body=1.08rem */
+
+        .guide-content h2{font-size:1.85rem !important}
+        .guide-content h3{font-size:1.35rem !important}
+        .guide-content h3 strong{font-size:1.35rem}
+        .guide-content p{font-size:1.08rem !important;line-height:1.85 !important}
+        .guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+
+        /* Custom tip / warning boxes — light background, full four-sided border, purple accents */
+        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .tip-box strong{color:#7a64b8;font-size:1.06rem}
+        .warn-box{background:#faf7fd;border:1px solid #d8ccef;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .warn-box strong{color:#5a4a8a;font-size:1.06rem}
+
+        /* Action steps — light style, heading x1.4 */
+        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}
+        .action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#2d2a33;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+        .action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+        .action-step p{color:#2d2a33;font-size:1.08rem;line-height:1.75}
+
+        /* Method boxes — light, heading x1.4 */
+        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}
+        .method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .method-box p{color:#2d2a33;font-size:1.06rem;line-height:1.75}
+
+        /* FAQ */
+        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .faq-item p{color:#2d2a33;font-size:1.03rem;line-height:1.7}
+
+        /* TOC — full four-sided border */
+        .toc{background:#fff;border:1px solid #e0d8f0 !important;border-left:1px solid #e0d8f0 !important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .toc h3{color:#7a64b8 !important;font-size:1.1rem !important;margin-bottom:12px}
+        .guide-hero .subtitle{font-size:1.15rem !important;max-width:700px;margin:0 auto 1.2rem}
+        .guide-hero .breadcrumb{font-size:.95rem !important}
+        .guide-hero .weekly-badge{font-size:1rem !important}
+
+        /* Image captions */
+        .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}
+
+        /* Inline support hint */
+        .inline-support-hint p{font-size:1rem}
+
+        /* li text color for readability */
+        .guide-content li{color:#2d2a33 !important}
+
+        /* Hide OSRS progress bar — not needed on Crimson Desert pages */
+        .progress-widget{display:none !important}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Crimson Desert <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section1">Limits</a></li>
+                    <li><a href="#section2">Invites</a></li>
+                    <li><a href="#section3">Lobby</a></li>
+                    <li><a href="#section4">Drops</a></li>
+                    <li><a href="#section7">Cross-Play</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#crimson-desert">Crimson Desert</a> / Co-op Troubleshooting</p>
+            <h1>Crimson Desert Co-op Not Working? Fix Lobby, Session & Friend Invite Errors</h1>
+      <div class="cd-level-badge" style="display:inline-block;background:#f0ebfa;color:#5a4a8a;border:1px solid #7a64b8;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">🛡️ Mid Game Guide</div>
+            <p class="subtitle">Friend invite won't show, lobby won't load, session drops mid-fight? A practical troubleshooting guide for CD's co-op — including the cross-platform limits nobody tells you.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>CD Guide</strong> — Part of the <strong>Crimson Desert Series</strong> · 13 min read
+            </div>
+            <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: July 23, 2026</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <!-- 30-SECOND PREVIEW -->
+            <div class="cd-preview" style="background:#f8f6fc;border:1px solid #7A64B8;border-left:4px solid #7A64B8;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0 2rem;">
+              <h3 style="color:#7A64B8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ 30-Second Preview</h3>
+              <ul style="margin:0;padding-left:1.2rem;color:#2d2a33;font-size:.95rem;line-height:1.9;">
+                <li>📌 <strong>Most "co-op won't connect" cases are privacy/visibility settings</strong>, not outages — check invite visibility.</li>
+                <li>📌 <strong>"Friend invite not showing" is usually a cross-platform ID mismatch</strong> — PS and Xbox friends need linked accounts.</li>
+                <li>📌 <strong>"Lobby stuck loading" / "session not found" = a NAT or UPnP block</strong> between you and the host.</li>
+                <li>📌 <strong>Mid-fight disconnects are usually Wi-Fi jitter</strong> — wired fixes most "we keep disconnecting" cases.</li>
+                <li>📌 <strong>PC, PS5, and Xbox do NOT share every co-op feature</strong> — read the cross-platform section.</li>
+              </ul>
+            </div>
+
+            <!-- TOC -->
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ol>
+                    <li><a href="#section1">What Co-op in CD Actually Supports (Read This First)</a></li>
+                    <li><a href="#section2">Fix: Friend Invite Not Appearing</a></li>
+                    <li><a href="#section3">Fix: Lobby Stuck on Loading / "Session Not Found"</a></li>
+                    <li><a href="#section4">Fix: Mid-Session Disconnects & Desync</a></li>
+                    <li><a href="#section5">Fix: "Version Mismatch" / Different Patch Levels</a></li>
+                    <li><a href="#section6">Host Migration & Who Keeps Progress</a></li>
+                    <li><a href="#section7">Cross-Platform Reality: PC ↔ PS5 ↔ Xbox</a></li>
+                    <li><a href="#section8">Still Broken? Last-Resort Steps + Where to Report</a></li>
+                    <li><a href="#faq">FAQ — Co-op Questions Answered</a></li>
+                </ol>
+            </div>
+
+            <!-- Section 1 -->
+            <h2 id="section1">🔍 1. What Co-op in CD Actually Supports (Read This First)</h2>
+            <p>Before you sink an hour "fixing" something that was never a bug, understand what CD's co-op was designed to do. The biggest source of "co-op not working" frustration is expectation mismatch: players assume full cross-progression and seamless drop-in play, when the reality is narrower. This guide is for the mid-game player bringing a friend along — so let's set the ground rules first.</p>
+            <p>CD's co-op is a "summon a partner into your session" system, not a persistent MMO. One player hosts; the others join that host's instance. Loot, quest flags, and world state tie to the host's save. That is why so many lobby and invite errors happen — the session lives or dies on the host's connection. Once you see co-op as "guest visits host," the rest makes sense.</p>
+            <p>The second thing veterans wish they'd known: co-op in CD isn't available for every activity. Certain story beats, scripted cutscenes, and boss phases temporarily lock joining. If your friend's invite "won't show" only during a mission cutscene, that is by design — wait for free-roam. Compare with the fuller breakdown in our <a href="crimson-desert-coop-multiplayer-guide-2026.html">Crimson Desert Co-op & Multiplayer Guide 2026</a>.</p>
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> Decide up front who hosts. The host should have the more stable wired connection and further-along progression, because guests inherit the host's world state. Getting this wrong causes many "why did I lose loot" tickets.
+            </div>
+            <table>
+                <tr><th>Co-op Feature</th><th>Supported?</th><th>Notes for Mid-Game Players</th></tr>
+                <tr><td>Drop-in / drop-out partner</td><td>Yes</td><td>Up to the mode's player cap in free-roam</td></tr>
+                <tr><td>Shared open-world instance</td><td>Partial</td><td>Guest mirrors host's world; own progress is separate</td></tr>
+                <tr><td>Cross-play PC ↔ console</td><td>Yes (limited)</td><td>See Section 7 for the real limits</td></tr>
+                <tr><td>Cross-progression (same save everywhere)</td><td>No</td><td>Saves are per-platform</td></tr>
+                <tr><td>Co-op during every cutscene</td><td>No</td><td>Scripted beats temporarily lock joining</td></tr>
+            </table>
+
+            <figure class="guide-img" style="margin:2rem 0">
+                <img src="./images/cd-combat.jpg" alt="Crimson Desert co-op session lobby screen showing player slots and invite status" loading="lazy" width="500" style="max-width:100%;height:auto;border-radius:8px;border:1px solid #e0d8f0">
+                <figcaption>Co-op lobby screen — player slots, host indicator, invite status. Most failures show here before loading in — Source: CD Guru</figcaption>
+            </figure>
+
+            <!-- Section 2 -->
+            <h2 id="section2">📨 2. Fix: Friend Invite Not Appearing</h2>
+            <p>"My friend sent me an invite but it never showed up." This is the most-reported co-op problem, and nine times out of ten it is not a server issue — it is a visibility or identity problem. When an invite silently fails, the game is doing exactly what your privacy settings told it to do. Here is our ordered checklist, most-common cause first.</p>
+
+            <div class="action-step">
+                <div class="step-num">1</div>
+                <h4>Confirm you are friends on the RIGHT account layer</h4>
+                <p>CD ties co-op invites to your platform's friends list (PlayStation Network, Xbox Live, or PC/Pearl Abyss), not a separate in-game list. If your friend is on PS5 and you on PC, both must link to the same cross-play layer — a PlayStation invite won't reach an unlinked PC player. Verify the sender appears in the in-game social menu before blaming the network.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">2</div>
+                <h4>Check "Allow Invites From" privacy setting</h4>
+                <p>Both players should open Settings → Privacy / Social and set "Allow Game Invites" to "Friends" or "Everyone" (temporarily). A setting left on "No One" or "Friends of Friends" swallows invites with no error — the invite simply never arrives.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">3</div>
+                <h4>Restart the social / presence service</h4>
+                <p>On console, fully close the game (not suspend) and relaunch. On PC, sign out of the launcher's friends service and back in. A stale presence token frequently causes "invite sent, invite not received" — a clean restart re-registers you as online and joinable.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">4</div>
+                <h4>Re-send as a direct session code, not a friend push</h4>
+                <p>If the push invite still won't appear, have the host generate a session code from the co-op menu and share it through voice chat or a messaging app. The guest enters it manually — this bypasses the friends-list layer and works even when platform sync is flaky.</p>
+            </div>
+            <div class="warn-box">
+                <strong>Note:</strong> Invites <em>expire</em>. A pending co-op invite is typically valid for a few minutes. If your friend "sent it a while ago" and then went to grab a drink, the invite is gone — resend a fresh one. We cover invite expiry in the FAQ.
+            </div>
+
+            <!-- Section 3 -->
+            <h2 id="section3">🌀 3. Fix: Lobby Stuck on Loading / "Session Not Found"</h2>
+            <p>You got the invite, clicked join, and now face an endless "Connecting to session" spinner or a "Session Not Found" boot. This almost always means the guest's client cannot reach the host's session slot — the host's game is fine, but the <em>route</em> between you is blocked, pointing straight at NAT and router settings.</p>
+            <p>"Session Not Found" means the session ID the invite carried is no longer valid — the host left, or their router reassigned the port while you connected. Quick test: instant failure means the session is gone (check the host); a 20–40 second spin then failure means a NAT/UPnP block on your side.</p>
+
+            <div class="method-box">
+                <h4>🛠️ Enable UPnP (fixes ~60% of lobby-load failures)</h4>
+                <p>Log into your router and enable "UPnP" (Universal Plug and Play). CD requests a temporary port mapping on launch; if UPnP is off, guests can't reach you. After enabling, restart both the router and the game — this resolves most "lobby stuck loading" reports.</p>
+            </div>
+            <div class="method-box">
+                <h4>🛠️ Check your NAT type</h4>
+                <p>The console network test shows your NAT type: Open is ideal, Moderate usually works with UPnP, Strict/Closed blocks most joins. PC players can verify with a command-line test. If either player is Strict, the guest should host, or use the port forwarding steps in Section 8.</p>
+            </div>
+            <div class="method-box">
+                <h4>🛠️ Rule out a "double NAT"</h4>
+                <p>If your modem and router both do NAT (common with ISP gateway combos), you are behind two layers. Put the ISP box in bridge mode, or connect the device directly to it — double NAT produces exactly the "spins forever then Session Not Found" symptom because the port mapping points at the wrong device.</p>
+            </div>
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> The host should watch their own co-op menu during the join. If they see the guest "Connecting…" then "Failed," the problem is on the guest's network; if the host never sees the attempt, the invite never reached the session layer — go back to Section 2.
+            </div>
+
+            <figure class="guide-img" style="margin:2rem 0">
+                <img src="./images/cd-skills.jpg" alt="Crimson Desert network and console settings screen showing NAT type and UPnP options" loading="lazy" width="500" style="max-width:100%;height:auto;border-radius:8px;border:1px solid #e0d8f0">
+                <figcaption>Console network settings — where your NAT type and UPnP status are shown. Strict NAT is the usual cause of lobby-load failures — Source: CD Guru</figcaption>
+            </figure>
+
+            <!-- Section 4 -->
+            <h2 id="section4">📡 4. Fix: Mid-Session Disconnects & Desync</h2>
+            <p>"We keep disconnecting in the middle of a fight." Unlike invite and lobby problems, mid-session drops are about connection <em>stability</em>, not reachability. You connected fine, the lobby loaded, then five minutes into a boss the guest gets yanked — the most maddening variant because it wastes real progress, and it is almost always a Wi-Fi or packet-loss issue, not a game bug.</p>
+            <h3>① Wired beats wireless — every time</h3>
+            <p>The number-one fix for "we keep disconnecting" is to stop using Wi-Fi for the player who drops. A phone, microwave, or Bluetooth headset causes micro-drops a browser survives but a real-time session does not. Run an Ethernet or powerline adapter to that device — going wired eliminates 80%+ of recurring mid-fight disconnects.</p>
+                <h3>② Desync is a symptom, not a separate bug</h3>
+                <p>When the guest sees enemies in different positions than the host, or attacks "miss" that visually connected, that is desync from packet loss or high latency. The game re-syncs, and if it can't, it drops the guest to protect save integrity. Staying closer together and pausing downloads/streams keeps the sync window healthy.</p>
+            <table>
+                <tr><th>Symptom</th><th>Likely Cause</th><th>First Fix to Try</th></tr>
+                <tr><td>Drop every few minutes</td><td>Wi-Fi jitter / interference</td><td>Switch to wired Ethernet</td></tr>
+                <tr><td>Drop only during boss AOE</td><td>Latency spike under load</td><td>Close background downloads / streams</td></tr>
+                <tr><td>Enemies in wrong spots</td><td>Packet loss / desync</td><td>Stay closer to host in-world</td></tr>
+                <tr><td>Guest kicked, host fine</td><td>Guest-side NAT/router</td><td>Guest opens port or hosts instead</td></tr>
+            </table>
+            <div class="warn-box">
+                <strong>Note:</strong> If disconnects hit <em>both</em> players at once, the problem is the host's upstream or ISP, not the guest — swap who hosts. Persistent simultaneous drops can also trace to an ISP-level issue.
+            </div>
+
+            <!-- Section 5 -->
+            <h2 id="section5">🔄 5. Fix: "Version Mismatch" / Different Patch Levels</h2>
+            <p>A "Version Mismatch" is the easiest co-op problem to diagnose and fix, yet it surprises players after a mid-week patch. CD requires all session members to run the same version. If your friend updated and you didn't — or vice versa — the join is refused before the lobby loads, often with a cryptic code rather than a plain "update your game" message.</p>
+            <div class="action-step">
+                <div class="step-num">1</div>
+                <h4>Fully close and relaunch the game</h4>
+                <p>Most platforms download patches in the background but only <em>apply</em> them on a clean launch. If you "updated" but never quit, you may still be on the old build — close completely, reopen, and let the launcher verify.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">2</div>
+                <h4>Force a consistency check (PC)</h4>
+                <p>On PC launchers, use "Verify / Repair". A partial or interrupted download leaves you on a fractional version the server rejects — a verify pass replaces the corrupt chunks.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">3</div>
+                <h4>Confirm console "auto-update" actually ran</h4>
+                <p>Consoles often queue updates and wait for a maintenance window or Rest Mode. Check the game's "Information" / "Manage" page, install any pending update, then reboot so the patch commits.</p>
+            </div>
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> Right after a major update (like the one in our <a href="crimson-desert-113-ps5-performance-fix-2026.html">Crimson Desert 1.13 PS5 Performance Fix Guide 2026</a>), expect a surge of version-mismatch errors — your friend may have auto-updated mid-session. Agree on an "everyone updates, then regroup" rule.
+            </div>
+
+            <!-- Section 6 -->
+            <h2 id="section6">👑 6. Host Migration & Who Keeps Progress</h2>
+            <p>This is the section that prevents rage-quits. When a session ends — cleanly or via disconnect — players often find loot, quest progress, or world changes "vanished." Understanding host migration and save ownership up front saves friendship-ending arguments.</p>
+            <p>In CD's model, the <strong>host owns the session</strong>. Loot a guest picks up is recorded to the guest's own save, but world-state changes (cleared camps, contracts, story flags) belong to the host. If the host migrates or the session collapses mid-fight, here is what typically happens:</p>
+            <div class="method-box">
+                <h4>🎒 Loot you personally picked up = yours</h4>
+                <p>Items that dropped into your inventory during the session save to your character when it syncs on exit. The "lost loot" panic happens because the sync only writes on a clean disconnect — a hard crash rolls back the last few minutes. Always return to a safe menu (camp or pause → leave session) rather than Alt-F4.</p>
+            </div>
+            <div class="method-box">
+                <h4>🗺️ World changes = host's</h4>
+                <p>Enemies you cleared and chests you opened count toward the host's world. As a guest you helped, but your own world won't reflect those clears — which is why guests sometimes "re-fight" a camp later. Expected, not a bug.</p>
+            </div>
+            <div class="method-box">
+                <h4>🔁 If the host leaves, the session ends</h4>
+                <p>CD does not perform seamless host migration to a guest — when the host disconnects, the session ends for everyone. Guests should extract their loot by leaving through the menu <em>before</em> the host quits, so the sync writes cleanly. See the exact "leave session" steps in our <a href="crimson-desert-known-bugs-fixes-guide-2026.html">Crimson Desert Known Bugs & Fixes Guide 2026</a>.</p>
+            </div>
+            <div class="warn-box">
+                <strong>Important:</strong> If you crashed rather than leaving cleanly, any loot gained in the final ~30–60 seconds may not have synced. There is no recovery for that — it is the game protecting save integrity. Build the habit of a clean exit and you will never lose a haul to a hard disconnect.
+            </div>
+
+            <!-- Section 7 -->
+            <h2 id="section7">🔗 7. Cross-Platform Reality: PC ↔ PS5 ↔ Xbox — What Works / What Doesn't</h2>
+            <p>Cross-play sells plenty of co-op sessions that later fall apart because nobody explained the limits. Here is the honest, mid-game-level breakdown — CD's cross-play <em>does</em> exist across PC, PS5, and Xbox, but it is gated by account linking and a few feature gaps the marketing glosses over.</p>
+            <h3>① What works</h3>
+            <p>You can invite and join across PC, PS5, and Xbox once both accounts are linked to the same cross-play identity. Free-roam co-op, shared combat, and most contract activities function across platforms. Voice chat depends on your platform's party system — cross-platform voice is not unified in-game, so use a third-party voice app for one shared call.</p>
+            <h3>② What doesn't (the gotchas)</h3>
+            <p>Cross-progression is <strong>not</strong> supported: your PC save will not appear on your PS5. Mods or PC-only graphical tweaks have no console equivalent, and a host running heavy mods may be incompatible with vanilla console clients. Some platform-exclusive events or store items also won't surface for cross-platform guests. These are not bugs — they are hard platform boundaries.</p>
+            <table>
+                <tr><th>Pairing</th><th>Co-op Join</th><th>Shared Saves</th><th>Voice In-Game</th></tr>
+                <tr><td>PC ↔ PC</td><td>Yes</td><td>Yes (same PC account)</td><td>Via platform app</td></tr>
+                <tr><td>PS5 ↔ PS5</td><td>Yes</td><td>Yes (same PSN)</td><td>PSN party</td></tr>
+                <tr><td>Xbox ↔ Xbox</td><td>Yes</td><td>Yes (same Xbox live)</td><td>Xbox party</td></tr>
+                <tr><td>PC ↔ PS5</td><td>Yes (linked)</td><td>No</td><td>Third-party app</td></tr>
+                <tr><td>PC ↔ Xbox</td><td>Yes (linked)</td><td>No</td><td>Third-party app</td></tr>
+                <tr><td>PS5 ↔ Xbox</td><td>Yes (linked)</td><td>No</td><td>Third-party app</td></tr>
+            </table>
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> Console players should review their system-level network and privacy config — our <a href="crimson-desert-console-settings-guide-2026.html">Crimson Desert Console Settings Guide 2026</a> covers where cross-play invites get silently blocked.
+            </div>
+
+            <!-- Section 8 -->
+            <h2 id="section8">🧰 8. Still Broken? Last-Resort Steps + Where to Report</h2>
+            <p>If you have worked through Sections 2–7 and co-op still won't cooperate, it is time for the last-resort checklist and a proper bug report — either fix the stubborn case or hand the developers a report they can act on.</p>
+            <div class="action-step">
+                <div class="step-num">1</div>
+                <h4>Power-cycle everything</h4>
+                <p>Router off for 30 seconds, console/PC off, then bring it back in order: modem → router → device. This clears stale NAT mappings and presence tokens no in-game restart will touch.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">2</div>
+                <h4>Manually forward the co-op ports</h4>
+                <p>If UPnP didn't help and you are on Strict NAT, forward the game's required TCP/UDP ports to your device's static IP in the router — a static LAN IP keeps the rule pointed at the right device after a reboot. The definitive fix for "Session Not Found" on locked-down networks.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">3</div>
+                <h4>Test with a different host and a different network</h4>
+                <p>Have your friend host. If it works from their end, the problem is isolated to your network and you can stop chasing game settings. If possible, tether one device to a phone hotspot for a single test join — a successful tethered session proves the issue is your router, not Crimson Desert.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">4</div>
+                <h4>Gather a report and file it</h4>
+                <p>Before contacting support, capture: your platform, game version (title/menu), NAT type, the exact error text, and whether it fails at invite, lobby, or mid-session. Screenshots turn a useless "it doesn't work" ticket into a fixable bug. Check the <a href="crimson-desert-known-bugs-fixes-guide-2026.html">Crimson Desert Known Bugs & Fixes Guide 2026</a> first — your error may already be tracked.</p>
+            </div>
+            <div class="warn-box">
+                <strong>Final note:</strong> Server-side outages do happen, especially around major patches. If <em>everyone</em> you know is failing at once and your own network tests clean, it is likely the co-op service itself — wait for the official status update rather than reformatting your router.
+            </div>
+
+            <!-- FAQ -->
+            <h2 id="faq">❓ FAQ — Co-op Questions Answered</h2>
+            <div class="faq-item">
+                <h4>Can I cross-play Crimson Desert between PC and PS5?</h4>
+                <p>Yes, but only after both accounts are linked to the same cross-play layer. Once linked, a PC and PS5 player can invite and join for free-roam co-op. You won't share saves and in-game voice isn't unified, so use a third-party voice app.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How many players can be in a co-op session?</h4>
+                <p>CD's co-op supports a small partner group, not a large raid squad. Free-roam is built around a handful of players. Check the co-op menu's slot indicator — full slots make extra invites silently fail, which looks like "the invite won't show."</p>
+            </div>
+            <div class="faq-item">
+                <h4>Do we both need the DLC / same edition to play co-op?</h4>
+                <p>Base co-op needs only the base game on both sides. Platform-exclusive or edition-specific content (cosmetics, events, store items) won't appear for a guest whose version lacks it, but it won't block the join. If one player owns a major expansion and the other doesn't, the host should avoid expansion-gated content while the guest is present.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Why did I lose my loot after we disconnected?</h4>
+                <p>Because the session ended on a hard crash rather than a clean exit, the last sync window (final 30–60 seconds) never wrote to your save. Earlier loot is safe; only the tail end is at risk — always leave via "Leave Session" so it commits; there is no recovery for a hard-disconnect rollback by design.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Do I need to port-forward to play co-op?</h4>
+                <p>Not usually. With UPnP on and an Open or Moderate NAT, most networks connect fine without manual forwarding. You only forward ports on Strict/Closed NAT when UPnP failed — the classic "lobby stuck loading" case in Sections 3 and 8.</p>
+            </div>
+            <div class="faq-item">
+                <h4>My friend invite expired — what does that mean?</h4>
+                <p>A co-op invite is time-limited (a few minutes). If the recipient doesn't accept in that window, it expires with no error — have the host resend. If invites keep expiring, check the console/PC notification tray; the UI prompt may be buried there.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Why does the lobby say "Session Not Found" even though my friend is online?</h4>
+                <p>That error means the session ID is no longer reachable — usually a NAT/UPnP block, a host router that reassigned the port, or the host having left. Run the Section 3 checklist and try a session code instead of a friend push.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Can I play co-op during story cutscenes and boss intros?</h4>
+                <p>Not for scripted beats. CD locks joining during certain cutscenes and boss phases so the narrative plays for the host. If an invite "won't show" only then, wait for free-roam, then re-invite — expected, not a failure.</p>
+            </div>
+            <div class="faq-item">
+                <h4>We keep disconnecting only when I'm the guest, never when I host — why?</h4>
+                <p>That pattern points at your (guest's) network: Strict NAT, Wi-Fi jitter, or double-NAT. Try hosting instead, or apply the fixes from Sections 4 and 8. If it flips when you swap hosts, it's environmental, not the client.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Is there a known-bugs list for co-op so I don't waste time?</h4>
+                <p>Yes — before deep troubleshooting, skim the <a href="crimson-desert-known-bugs-fixes-guide-2026.html">Crimson Desert Known Bugs & Fixes Guide 2026</a>, which tracks recurring co-op errors. If your exact error is listed as server-side, wait for a patch rather than reconfiguring your network.</p>
+            </div>
+
+            <!-- Related Guides -->
+    <div class="related-guides">
+      <h3>More Crimson Desert Guides</h3>
+      <div class="article-grid">
+        <a href="crimson-desert-coop-multiplayer-guide-2026.html" class="article-card">
+          <h3>Crimson Desert Co-op & Multiplayer Guide 2026</h3>
+          <p>Crimson Desert co-op and multiplayer guide 2026 — how co-op sessions work, player caps, host rules, and cross-play setup for PC, PS5, and Xbox.</p>
+        </a>
+        <a href="crimson-desert-known-bugs-fixes-guide-2026.html" class="article-card">
+          <h3>Crimson Desert Known Bugs & Fixes Guide 2026</h3>
+          <p>Crimson Desert known bugs and fixes guide 2026 — tracked co-op errors, crashes, and performance issues with current workarounds.</p>
+        </a>
+        <a href="crimson-desert-113-ps5-performance-fix-2026.html" class="article-card">
+          <h3>Crimson Desert 1.13 PS5 Performance Fix Guide 2026</h3>
+          <p>Crimson Desert 1.13 PS5 performance fix guide 2026 — frame drops, patch notes, and settings to stabilize co-op sessions on console.</p>
+        </a>
+        <a href="crimson-desert-console-settings-guide-2026.html" class="article-card">
+          <h3>Crimson Desert Console Settings Guide 2026</h3>
+          <p>Crimson Desert console settings guide 2026 — network, privacy, and cross-play menus where co-op invites get silently blocked.</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>Every guide is free — this one stays free either way.</h3>
+            <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+            <p style="margin:6px 0 0 0;line-height:1.7">
+                📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+            </p>
+            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+            <div class="support-amounts">
+                <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack 👑</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-bottom">&copy; 2026 CDGuru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p>
+            
+                    <p style="font-size:.78rem;color:#999;margin-top:4px">Crimson Desert&trade; is a trademark of Pearl Abyss Corp. All game content and materials are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by Pearl Abyss.</p>
+        </div>
+    </footer>
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>.guide-content li{color:#2d2a33!important}</style>
+</body>
+</html>

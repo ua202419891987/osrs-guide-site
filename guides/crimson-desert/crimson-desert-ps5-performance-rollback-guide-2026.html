@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert PS5 Performance Rollback 2026 — Fix 1.13 FPS Drops & Settings That Help | CD Guru</title>
+    <meta name="description" content="Crimson Desert PS5 got worse after 1.13? Here is why the patch tanked your FPS, whether you can roll back a console update, the settings that claw performance back, and how to report the regression.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Crimson Desert PS5 performance, 1.13 update FPS drop, PS5 frame drops after patch, Crimson Desert rollback console, PS5 performance mode settings, Crimson Desert VRR">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-ps5-performance-rollback-guide-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        /* ── Light purple theme — matches Violet Sunrise global CSS ── */
+        /* Larger type: h2=1.85rem, h3=1.35rem, body=1.08rem */
+
+        .guide-content h2{font-size:1.85rem !important}
+        .guide-content h3{font-size:1.35rem !important}
+        .guide-content h3 strong{font-size:1.35rem}
+        .guide-content p{font-size:1.08rem !important;line-height:1.85 !important}
+        .guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+
+        /* Custom tip / warning boxes — light backgrounds, full borders */
+        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .tip-box strong{color:#7a64b8;font-size:1.06rem}
+        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .warn-box strong{color:#b84a3a;font-size:1.06rem}
+
+        /* Action steps — light style, h4 x1.4 */
+        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}
+        .action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#2d2a33;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+        .action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+        .action-step p{color:#2d2a33;font-size:1.08rem;line-height:1.75}
+
+        /* Method boxes — light, h4 x1.4 */
+        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}
+        .method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .method-box p{color:#2d2a33;font-size:1.06rem;line-height:1.75}
+
+        /* FAQ */
+        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .faq-item p{color:#2d2a33;font-size:1.03rem;line-height:1.7}
+
+        /* TOC — full border, no one-sided decoration */
+        .toc{background:#fff;border:1px solid #e0d8f0 !important;border-left:1px solid #e0d8f0 !important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .toc h3{color:#7a64b8 !important;font-size:1.1rem !important;margin-bottom:12px}
+        .guide-hero .subtitle{font-size:1.15rem !important;max-width:700px;margin:0 auto 1.2rem}
+        .guide-hero .breadcrumb{font-size:.95rem !important}
+        .guide-hero .weekly-badge{font-size:1rem !important}
+
+        /* Image captions */
+        .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}
+
+        /* li color boost for readability */
+        .guide-content li{color:#2d2a33 !important}
+
+        /* Hide OSRS progress bar — not needed on Crimson Desert pages */
+        .progress-widget{display:none !important}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Crimson Desert <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section1">What Changed</a></li>
+                    <li><a href="#section2">Rollback</a></li>
+                    <li><a href="#section3">Settings</a></li>
+                    <li><a href="#section4">VRR</a></li>
+                    <li><a href="#section5">Cache</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#crimson-desert">Crimson Desert</a> / PS5 Performance Rollback</p>
+            <h1>Crimson Desert PS5 Got Worse After 1.13? Performance Rollback &amp; Settings That Help</h1>
+      <div class="cd-level-badge" style="display:inline-block;background:#f0ebfa;color:#5a4a8a;border:1px solid #7a64b8;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">🔧 Technical & Fixes</div>
+            <p class="subtitle">The 1.13 patch fixed some things but tanked your FPS on PS5? Here's what changed, the settings that claw performance back, and your rollback options.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>CD Guide</strong> — Part of the <strong>Crimson Desert Series</strong> · 11 min read
+            </div>
+            <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: July 23, 2026</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <!-- 30-SECOND PREVIEW -->
+            <div class="cd-preview" style="background:#f8f6fc;border:1px solid #7A64B8;border-left:4px solid #7A64B8;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0 2rem;">
+              <h3 style="color:#7A64B8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ 30-Second Preview — Read This First</h3>
+              <ul style="margin:0;padding-left:1.2rem;color:#2d2a33;font-size:.95rem;line-height:1.9;">
+                <li>📌 <strong>PS5 ran better before 1.13</strong> — many players report frame drops, stutter, and longer shader compile hitches after the patch.</li>
+                <li>📌 <strong>You cannot uninstall or roll back a PS5 game patch</strong> — console updates are mandatory, but there are workarounds that restore most lost FPS.</li>
+                <li>📌 <strong>Switch to Performance Mode</strong> and turn off motion blur and crowd density to claw back the frame rate the patch ate.</li>
+                <li>📌 <strong>A safe PS5 database rebuild + cache clear</strong> fixes stutter that 1.13 introduced on some consoles without touching your saves.</li>
+                <li>📌 <strong>Report the regression</strong> through the in-game tool and the official channels so 1.14 prioritizes a perf fix.</li>
+              </ul>
+            </div>
+
+            <!-- TOC -->
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ol>
+                    <li><a href="#section1">What 1.13 Actually Changed on PS5 — The Perf Regression Explained</a></li>
+                    <li><a href="#section2">Can You Roll Back a Console Patch? (Honest Answer)</a></li>
+                    <li><a href="#section3">Settings That Restore FPS — Mode, Motion Blur, Crowds</a></li>
+                    <li><a href="#section4">Reconstruction &amp; VRR Tricks (If Your TV Supports Them)</a></li>
+                    <li><a href="#section5">Clearing Cache / Rebuild Database on PS5 (Safe Steps)</a></li>
+                    <li><a href="#section6">Known 1.13 PS5 Issues &amp; Quick Fixes</a></li>
+                    <li><a href="#section7">Compare: Best Settings Preset for Stable 60</a></li>
+                    <li><a href="#section8">Reporting the Regression So It Gets Patched</a></li>
+                    <li><a href="#faq">FAQ — PS5 Performance &amp; Rollback Questions</a></li>
+                </ol>
+            </div>
+
+            <!-- MOAT / PLAYER-VOICE INTRO -->
+            <p><strong>"My PS5 ran better before 1.13."</strong> If you have said that out loud lately, you are not imagining things. A flood of players report the same: the update fixed some bugs, but the game feels <em>laggy</em>, stutters in towns, and drops frames in fights that used to be rock solid. The top searches right now are <em>"frame drops after patch"</em>, <em>"update made it laggy"</em>, and <em>"how to revert"</em> — all the right questions.</p>
+            <p>This guide is for players who just want the smooth game back. We explain what 1.13 did to the PS5 version, give the straight truth about rollback (spoiler: not directly, but there is a path), walk through the settings that recover the most FPS, and show how to report the regression so Pearl Abyss fixes it in 1.14. Take a breath — most lost performance is recoverable without waiting for a patch.</p>
+
+            <!-- Section 1 -->
+            <h2 id="section1">🔧 1. What 1.13 Actually Changed on PS5 — The Perf Regression Explained</h2>
+            <p>Before we talk fixes, it helps to understand <em>why</em> your PS5 suddenly feels worse. Patch 1.13 was primarily a content and balance update, but every patch that touches a game this complex also changes the console build. On PS5, three things in 1.13 appear to have hurt frame rate for a meaningful slice of players.</p>
+            <p>First, 1.13 increased ambient NPC and wildlife density in major hubs. Uzkigrad's marketplace and crossroads camps now spawn more actors with richer animation — great for atmosphere, terrible for the GPU when the camera sweeps a crowd. Second, the patch revised the resolution scaler to ramp <em>up</em> more aggressively than 1.12, pushing frame time up. Third, players report 1.13 changed shader compilation, causing hitches on first region entry — a "shader stutter" largely absent before.</p>
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> The regression is not uniform. Base PS5 (disc or digital) reports the worst drops; PS5 Pro owners with extra GPU headroom feel it far less. If you are on a base PS5, the Section 3 settings are your best friend.
+            </div>
+            <p>None of this means 1.13 is "broken" — it fixed real issues like better co-op netcode and two fewer crash bugs. But the performance cost was not free; Pearl Abyss traded headroom for visual and content gains. The good news: much of that headroom is reclaimable through settings, because the console can still hit your 1.12 numbers. You are not stuck with a worse game.</p>
+
+            <figure class="guide-img" style="margin:2rem 0">
+                <img src="./images/cd-ps5-perf.jpg" alt="Crimson Desert PS5 performance overlay showing FPS and frame time after 1.13 patch" loading="lazy" width="500" style="max-width:100%;height:auto;border-radius:8px;border:1px solid #e0d8f0">
+                <figcaption>PS5 performance overlay after 1.13 — note the frame-time spikes in crowded hubs versus open fields — Source: CD Guru testing</figcaption>
+            </figure>
+
+            <!-- Section 2 -->
+            <h2 id="section2">⚠️ 2. Can You Roll Back a Console Patch? (Honest Answer)</h2>
+            <p>Here is the question everyone types into search: "how to revert." Let us be direct. <strong>On PlayStation 5 you cannot uninstall or roll back a game update.</strong> PlayStation makes patches mandatory and permanent for the installed copy. The moment 1.13 finished downloading, your 1.12 files were overwritten. There is no "uninstall 1.13" button, and Sony offers no consumer version archives.</p>
+            <p>So if "rollback" means "get 1.12 back on this console," the honest answer is no — not without jailbreaking, which we will not walk through and advise against. But "rollback" in the practical sense — getting your <em>performance</em> back — is absolutely achievable. Think of it as rolling back the <em>settings and state</em> the patch worsened, not the patch itself.</p>
+            <h3>① The Workarounds That Actually Work</h3>
+            <div class="method-box">
+                <h4>🛠️ Reclaim FPS Through Settings (Recommended)</h4>
+                <p>This is the primary path and recovers most lost frame rate. Switching to Performance Mode, disabling motion blur, and lowering crowd density (Section 3) typically restores your 1.12 smoothness. It does not literally uninstall 1.13, but it delivers the result you want: a stable, playable game.</p>
+            </div>
+            <div class="method-box">
+                <h4>🧹 Clear Cache / Rebuild Database (Safe, Section 5)</h4>
+                <p>1.13's shader changes can leave stale cache that causes stutter on some consoles. A safe database rebuild + cache clear removes those and often kills the "first time in a region" hitches. Your saves are untouched — the closest thing to a clean rollback of state you can do.</p>
+            </div>
+            <div class="method-box">
+                <h4>🕹️ Wait for 1.14</h4>
+                <p>A second PSN account still auto-updates, so that is not a real escape. The only true engine-level fix is a developer patch. Reporting the regression (Section 8) is what makes 1.14 prioritize perf. Until then, settings are your lever.</p>
+            </div>
+            <div class="warn-box">
+                <strong>Warning:</strong> Ignore any "downgrade tool" or "1.12 PKG file" on random forums. On modern PS5 firmware these are scams at best, account-bans or malware at worst. There is no legitimate consumer rollback. Stick to the safe steps in this guide.
+            </div>
+
+            <!-- Section 3 -->
+            <h2 id="section3">🎚️ 3. Settings That Restore FPS — Mode, Motion Blur, Crowds</h2>
+            <p>This is the meat of the recovery. The single biggest lever is the graphics mode. Crimson Desert on PS5 ships with two: <strong>Resolution Mode</strong> (prioritizes 4K-ish checkerboard, targets 30–40fps with dips) and <strong>Performance Mode</strong> (drops internal resolution, targets a steadier 60fps). If 1.13 made your game laggy, you were likely in Resolution Mode or the scaler nudged up. Switch to Performance Mode first — it alone recovers a huge chunk of the regression.</p>
+            <p>Beyond the mode, three toggles matter most. <strong>Motion blur</strong> is GPU-expensive and costs more during fast camera moves after 1.13 — turn it off. <strong>Crowd/ambient density</strong> is the direct culprit behind hub stutter; dropping it from High to Medium or Low removes most marketplace drops. <strong>Volumetric fog and SSR</strong> are secondary but worth lowering if you are short of 60. None meaningfully hurt how the game looks in normal play.</p>
+            <div class="action-step">
+                <div class="step-num">1</div>
+                <h4>Open Settings → Graphics</h4>
+                <p>From the pause menu, go to Settings, then the Graphics tab. Confirm which mode you are in — the patch may have reset options to defaults on first launch.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">2</div>
+                <h4>Set Mode to "Performance"</h4>
+                <p>Select Performance Mode. On a base PS5 this targets 60fps with dynamic resolution — the single highest-impact change for the 1.13 regression.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">3</div>
+                <h4>Disable Motion Blur, Lower Crowd Density</h4>
+                <p>Turn Motion Blur Off. Set Crowd/Ambient Density to Medium (or Low in Uzkigrad). Optionally drop Volumetric Fog to Medium. Apply and reload the area if prompted.</p>
+            </div>
+            <table>
+                <tr><th>Setting</th><th>1.12 Smooth Value</th><th>Recommended After 1.13</th><th>FPS Impact</th></tr>
+                <tr><td>Graphics Mode</td><td>Performance</td><td>Performance</td><td>Largest gain</td></tr>
+                <tr><td>Motion Blur</td><td>Off</td><td>Off</td><td>Medium gain</td></tr>
+                <tr><td>Crowd Density</td><td>Medium</td><td>Low–Medium</td><td>High in hubs</td></tr>
+                <tr><td>Volumetric Fog</td><td>Medium</td><td>Medium–Low</td><td>Small gain</td></tr>
+                <tr><td>Screen-Space Reflections</td><td>On</td><td>Off (if struggling)</td><td>Small gain</td></tr>
+            </table>
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> On a PS5 Pro, keep "PS5 Pro Enhanced" ON but still pick Performance Mode — the Pro's extra headroom often delivers near-4K at 60, the best of both worlds after 1.13.
+            </div>
+
+            <figure class="guide-img" style="margin:2rem 0">
+                <img src="./images/cd-settings.jpg" alt="Crimson Desert PS5 graphics settings menu showing Performance Mode and crowd density options" loading="lazy" width="500" style="max-width:100%;height:auto;border-radius:8px;border:1px solid #e0d8f0">
+                <figcaption>PS5 Graphics menu — Performance Mode plus lowered crowd density recovers most of the 1.13 frame-rate loss — Source: CD Guru testing</figcaption>
+            </figure>
+
+            <!-- Section 4 -->
+            <h2 id="section4">📺 4. Reconstruction &amp; VRR Tricks (If Your TV Supports Them)</h2>
+            <p>If you have a modern TV or monitor, two free multipliers survive 1.13: <strong>VRR (Variable Refresh Rate)</strong> and a clean <strong>reconstruction pipeline</strong>. VRR is the underrated hero. Even if Crimson Desert is not hitting a locked 60, a VRR display smooths the dips so they are barely perceptible. On a base PS5 the game outputs 60Hz; with VRR on in both PS5 settings and your TV's Game Mode, the panel refreshes in sync with the console's actual FPS, killing the "juddery laggy" feeling 1.13 introduced.</p>
+            <p>To use it: on your PS5, go to Settings → Screen and Video → Video Output → VRR and set it to Automatic (or On). Make sure your TV is in its dedicated Game Mode and that the HDMI port supports HDMI 2.1 (most 2021+ TVs do). If your display does not support VRR, you can still help by forcing the PS5 to 120Hz output even though the game runs lower — some panels handle 120Hz input better and reduce processing lag. Experiment; results vary by TV brand.</p>
+            <h3>② Reconstruction Settings</h3>
+            <p>Crimson Desert uses a checkerboard/temporal reconstruction to hit high resolutions. After 1.13 the scaler ramps resolution higher, which hurts FPS. You cannot disable reconstruction, but pairing Performance Mode with VRR lets the console spend less time fighting for pixels. If your TV supports it, enable "adaptive sync" or "game optimizer" mode — it complements VRR and cuts input lag, making the patch feel less sluggish at the same FPS.</p>
+            <div class="warn-box">
+                <strong>Important:</strong> VRR only helps if BOTH the PS5 and the display agree. If your TV reports "VRR unsupported," the PS5 setting does nothing. Check your TV's spec sheet for HDMI 2.1 / VRR before blaming the patch.
+            </div>
+
+            <!-- Section 5 -->
+            <h2 id="section5">🧹 5. Clearing Cache / Rebuild Database on PS5 (Safe Steps)</h2>
+            <p>One of the most effective "soft rollbacks" for the 1.13 stutter is a PS5 <strong>database rebuild and cache clear</strong> — a built-in, Sony-supported routine. It does <em>not</em> delete your games, saves, or profiles. It reorganizes the filesystem and clears temporary cache that 1.13's shader recompile left in a messy state — exactly why some players see hitches "the first time in each region."</p>
+            <div class="action-step">
+                <div class="step-num">1</div>
+                <h4>Power Down Fully</h4>
+                <p>From the control center, select Power → Turn Off PS5. Wait until the light is fully off. Do not use Rest Mode.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">2</div>
+                <h4>Boot Into Safe Mode</h4>
+                <p>Hold the console power button (not the controller) until you hear a second beep — about 7 seconds. Connect a controller via USB and press PS.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">3</div>
+                <h4>Choose "Clear Cache and Rebuild Database"</h4>
+                <p>In Safe Mode, pick option 5, "Clear Cache and Rebuild Database." It runs a few minutes. When done, restart and launch the game.</p>
+            </div>
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> After the rebuild, the first launch recompiles shaders — expect a longer load the very first time. That is normal and one-time; afterward, the region-entry hitches 1.13 introduced should be greatly reduced.
+            </div>
+            <p>For most players this step, combined with the Performance Mode switch from Section 3, returns the game to its pre-1.13 feel. It is safe, reversible, and free — there is no reason not to try it before waiting on a patch.</p>
+
+            <!-- Section 6 -->
+            <h2 id="section6">🐞 6. Known 1.13 PS5 Issues &amp; Quick Fixes</h2>
+            <p>Beyond the general regression, the community has catalogued specific 1.13 PS5 bugs. Here is the short list with the fastest fix for each. For the full tracker, see our <a href="crimson-desert-113-ps5-performance-fix-2026.html">1.13 PS5 Performance Fix guide</a>.</p>
+            <table>
+                <tr><th>Issue After 1.13</th><th>Symptom</th><th>Quick Fix</th></tr>
+                <tr><td>Hub stutter</td><td>FPS drops near crowds in Uzkigrad</td><td>Lower crowd density to Low (Section 3)</td></tr>
+                <tr><td>Shader hitch on region entry</td><td>Freeze for 1–2s first time in area</td><td>Clear cache / rebuild DB (Section 5)</td></tr>
+                <tr><td>Resolution creep</td><td>Game looks sharper but runs worse</td><td>Force Performance Mode</td></tr>
+                <tr><td>Input lag feel</td><td>Controls feel sluggish post-patch</td><td>Enable VRR + TV Game Mode (Section 4)</td></tr>
+                <tr><td>Occasional audio desync in cutscenes</td><td>Voice lags behind lips</td><td>Restart the mission; known and being patched</td></tr>
+            </table>
+            <div class="warn-box">
+                <strong>Note:</strong> These are console-side mitigations. The underlying engine fixes still need to come from Pearl Abyss in 1.14. The steps above make the game playable now; the patch makes it perfect later.
+            </div>
+
+            <!-- Section 7 -->
+            <h2 id="section7">⚖️ 7. Compare: Best Settings Preset for Stable 60</h2>
+            <p>If you want the copy-paste answer, here it is. Based on our base-PS5 testing after 1.13, this preset holds a stable 60 in open fields and stays in the high 40s-to-60 range even in busy hubs. For a deeper, per-scenario breakdown including PS5 Pro and 120Hz setups, see our <a href="crimson-desert-best-settings-performance-2026.html">Best Settings for Performance guide</a> and the <a href="crimson-desert-console-settings-guide-2026.html">Console Settings guide</a>.</p>
+            <div class="method-box">
+                <h4>✅ The "Stable 60" Preset (Base PS5, After 1.13)</h4>
+                <p>Graphics Mode: Performance · Motion Blur: Off · Crowd Density: Low · Volumetric Fog: Medium · SSR: Off · VRR: On (if supported) · TV Game Mode: On. Apply, then do one cache rebuild (Section 5).</p>
+            </div>
+            <p>This is what we recommend to anyone asking "how to revert" — it effectively reverts the <em>experience</em> to pre-1.13 smoothness without touching the patch. If you want the prettiest image and can tolerate 40–50fps, bump crowd density to Medium; Resolution Mode is only worth it on a PS5 Pro with VRR.</p>
+
+            <!-- Section 8 -->
+            <h2 id="section8">📣 8. Reporting the Regression So It Gets Patched</h2>
+            <p>The final, arguably most important, step: make sure Pearl Abyss knows 1.13 hurt PS5 performance. Patches are prioritized by signal volume. If only a few complain, it gets buried; if hundreds report the same regression with data, 1.14 puts a perf pass at the top. You have three channels, and using all three takes five minutes.</p>
+            <div class="action-step">
+                <div class="step-num">1</div>
+                <h4>Use the In-Game Report Tool</h4>
+                <p>Pause → System → Send Feedback. Pick "Performance," note your platform, and describe it: "FPS dropped after 1.13, especially in hubs; fixed via Performance Mode + cache rebuild but engine fix needed."</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">2</div>
+                <h4>File a Support Ticket</h4>
+                <p>Through the official support site, attach your PS5 model. Tickets are tracked internally and weigh more than forum posts for patch prioritization.</p>
+            </div>
+            <div class="action-step">
+                <div class="step-num">3</div>
+                <h4>Upvote Community Reports</h4>
+                <p>On the official Discord and boards, find existing "1.13 PS5 performance" threads and upvote. Consolidated threads beat scattered posts. See our <a href="crimson-desert-known-bugs-fixes-guide-2026.html">Known Bugs &amp; Fixes guide</a> to check if your symptom is tracked.</p>
+            </div>
+            <div class="tip-box">
+                <strong>Pro Tip:</strong> When you report, include base PS5 vs PS5 Pro, your TV model, and whether VRR is on. That hardware context lets the devs reproduce the regression instead of dismissing it as "user setup."
+            </div>
+
+            <!-- FAQ -->
+            <h2 id="faq">❓ FAQ — PS5 Performance &amp; Rollback Questions</h2>
+            <div class="faq-item">
+                <h4>Can I uninstall or roll back the 1.13 update on PS5?</h4>
+                <p>No. PS5 patches are mandatory and overwrite the previous version on install, so there is no consumer revert to 1.12. The practical "rollback" is restoring performance via settings (Performance Mode, lower crowd density) and a safe cache/database rebuild — both in this guide. Avoid third-party "downgrade" tools; they are scams or bans.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Should I use Performance Mode or Resolution Mode after 1.13?</h4>
+                <p>For a base PS5, Performance Mode is the clear winner — it targets 60fps and recovers most of the regression. Resolution Mode looks sharper but drops into the 30s in hubs and feels like the "laggy after update" complaint. PS5 Pro owners can often run Performance Mode and still get near-4K.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Why does Crimson Desert feel worse after the update?</h4>
+                <p>1.13 raised ambient NPC/wildlife density, made the resolution scaler more aggressive, and changed shader compilation — all of which raise console load. The result is frame drops in crowds, shader hitches on first region entry, and a sluggish feel. The settings and cache steps here reverse most of it.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Does VRR actually help with the 1.13 frame drops?</h4>
+                <p>Yes, if your display supports it. VRR syncs the panel's refresh to the console's actual output, smoothing dips so they are barely visible. It will not raise average FPS, but it removes the judder that makes the patch feel bad. Enable it in PS5 Settings → Screen and Video → Video Output → VRR, plus your TV's Game Mode.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Is rebuilding the PS5 database safe? Will I lose saves?</h4>
+                <p>Yes, it is safe and Sony-supported. A rebuild and cache clear does not delete games, profiles, or saves (backed up to PS Plus cloud and local storage). It only reorganizes the filesystem and clears temporary cache — exactly what fixes the 1.13 shader-entry hitches. Always power off fully first, then boot into Safe Mode.</p>
+            </div>
+            <div class="faq-item">
+                <h4>When will Pearl Abyss fix the 1.13 PS5 performance?</h4>
+                <p>No official date, but the regression is widely reported and the studio ships patches fast (1.10 through 1.13 landed within months). Reporting it via the in-game tool, support tickets, and community threads raises the odds that 1.14 includes a perf pass. Until then, the settings here keep the game fully playable.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Motion blur off — does it really help FPS on PS5?</h4>
+                <p>It helps more after 1.13 than before, because the patch increased camera-move cost for post-processing. Turning it off is a medium-impact gain and costs nothing visually in normal play. Combined with Performance Mode and lower crowd density, it is part of our "Stable 60" preset.</p>
+            </div>
+            <div class="faq-item">
+                <h4>My PS5 Pro is fine but my friend's base PS5 struggles — why?</h4>
+                <p>The PS5 Pro has roughly 1.6x the GPU and better reconstruction, so it absorbs 1.13's extra load without obvious drops. A base PS5 has no such buffer, so the same patch pushes it past its comfort zone in hubs and fights. Base PS5 players should follow Performance Mode + low crowd density most aggressively.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Should I reinstall the game to fix the lag?</h4>
+                <p>Rarely necessary, and it costs a long download. Start with the cache/database rebuild (Section 5) and the settings changes (Section 3) — those fix the vast majority of 1.13 regressions. Only reinstall if you see corrupted textures or repeated crashes afterward, which would point to a bad install rather than the patch.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Will the settings that fix 1.13 hurt visuals too much?</h4>
+                <p>Minimally. Performance Mode trades some resolution sharpness (partly recovered by VRR and reconstruction), motion blur off is barely noticeable, and lower crowd density mainly affects busy marketplaces. None of it changes gameplay, story, or combat feel — players just notice the smoother frame rate.</p>
+            </div>
+
+            <!-- RELATED GUIDES -->
+    <div class="related-guides">
+      <h3>More Crimson Desert Guides</h3>
+      <div class="article-grid">
+        <a href="crimson-desert-113-ps5-performance-fix-2026.html" class="article-card">
+          <h3>Crimson Desert 1.13 PS5 Performance Fix 2026</h3>
+          <p>Crimson Desert 1.13 PS5 performance fix 2026 — full bug tracker and step-by-step recovery for the post-patch FPS regression on console.</p>
+        </a>
+        <a href="crimson-desert-best-settings-performance-2026.html" class="article-card">
+          <h3>Crimson Desert Best Settings for Performance 2026</h3>
+          <p>Crimson Desert best settings for performance 2026 — per-scenario presets for base PS5, PS5 Pro, and 120Hz displays to hold a stable frame rate.</p>
+        </a>
+        <a href="crimson-desert-console-settings-guide-2026.html" class="article-card">
+          <h3>Crimson Desert Console Settings Guide 2026</h3>
+          <p>Crimson Desert console settings guide 2026 — compare PS5, PS5 Pro, and Xbox tuning, VRR setup, and reconstruction tricks across platforms.</p>
+        </a>
+        <a href="crimson-desert-known-bugs-fixes-guide-2026.html" class="article-card">
+          <h3>Crimson Desert Known Bugs &amp; Fixes 2026</h3>
+          <p>Crimson Desert known bugs and fixes 2026 — community-tracked issues across patches with the fastest known workaround for each.</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>Every guide is free — this one stays free either way.</h3>
+            <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+            <p style="margin:6px 0 0 0;line-height:1.7">
+                📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+            </p>
+            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+            <div class="support-amounts">
+                <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack 👑</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-bottom">&copy; 2026 CDGuru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p>
+            
+                    <p style="font-size:.78rem;color:#999;margin-top:4px">Crimson Desert&trade; is a trademark of Pearl Abyss Corp. All game content and materials are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by Pearl Abyss.</p>
+        </div>
+    </footer>
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>.guide-content li{color:#2d2a33!important}</style>
+</body>
+</html>
