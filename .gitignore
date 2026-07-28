@@ -7,3 +7,8 @@ scripts/*.json
 build/
 *.jar
 !gradle/wrapper/gradle-wrapper.jar
+
+# Agent-generated temp files (do NOT commit)
+_*.py
+__*.py
+_frag*.html
