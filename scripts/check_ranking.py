@@ -343,7 +343,7 @@ def main():
         print("1. 打开 https://console.cloud.google.com/apis/library/searchconsole.googleapis.com")
         print("   确认 'Search Console API' 已启用")
         print("2. 打开 https://console.cloud.google.com/apis/credentials")
-        print("   检查 OAuth consent screen 中已添加测试用户: 1530398390@qq.com")
+        print("   检查 OAuth consent screen 中已添加测试用户: fanyanchun1989@gmail.com")
         print("3. 确认该 Google 账号已在 Search Console 中添加了 osrsguru.com")
 
 
