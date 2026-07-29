@@ -18,6 +18,7 @@ REDLINE = ["osrs-how-to-make-money-with-zulrah", "osrs-wilderness-bosses-guide-2
 STRAY = ("_frag", "_enrich", "__enrich", "css_override_complete", "googlef2d4bacd14fcdb05")
 
 META = '    <meta name="robots" content="noindex,follow">\n'
+INDEX_META = '    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">\n'
 
 
 def is_excluded(rel: str) -> bool:
@@ -65,7 +66,8 @@ def add(fp):
 
 def revert(fp):
     html = fp.read_text(encoding="utf-8")
-    new, n = re.subn(r'\s*<meta name="robots" content="noindex,follow">\n?', "", html, flags=re.I)
+    # 替换回原模板的 index,follow（而非删除，保持 head 结构一致）
+    new, n = re.subn(re.escape(META.strip()), INDEX_META.strip(), html)
     if n:
         fp.write_text(new, encoding="utf-8")
         return True
