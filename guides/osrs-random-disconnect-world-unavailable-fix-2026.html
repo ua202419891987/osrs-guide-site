@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Random Disconnect &amp; "World Unavailable"? Fix It in 2026 (Server vs Local Diagnostic Tree)</title>
+    <meta name="description" content="Updated for 2026. Randomly disconnected in OSRS? "World Unavailable", a single dead world, a silent Wednesday maintenance logout, or no-warning auto sign-out? Our 7-step server-vs-local diagnostic tree tells you in 60 seconds which side is broken — and exactly how to fix it before you lose a kill or a drop.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS random disconnect, OSRS world unavailable, OSRS connection lost, Old School RuneScape random logout, OSRS Wednesday maintenance disconnect, OSRS single world down, OSRS silent auto sign out, OSRS connection troubleshooting 2026">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<meta name="article:published_time" content="2026-07-30">
+<meta name="article:modified_time" content="2026-07-30">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-random-disconnect-world-unavailable-fix-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="Beginner" data-category="account">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../weekly-updates.html">Updates</a></li>
+                    <li><a href="../zh/index.html">Chinese</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../weekly-updates.html">Updates &amp; Troubleshooting</a> / Random Disconnect &amp; "World Unavailable" Fix</p>
+            <h1>OSRS Random Disconnect &amp; "World Unavailable"? The 2026 Server-vs-Local Diagnostic Tree</h1>
+            <p class="subtitle">One minute you're mid-Zulrah, the next you're staring at a "Connection lost" screen — or a world just says "World Unavailable" with no explanation. This guide gives you a single decision tree that separates <strong>Jagex-side problems</strong> from <strong>your-side problems</strong> so you fix the right one and stop losing kills, drops, and XP.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>High-Priority Traffic Entry</strong> — Updated July 2026 · 9 min read
+            </div>
+            <div class="level-badge" style="display:inline-block;margin-top:14px;padding:6px 16px;border:1px solid #d4af37;border-radius:20px;background:#3b2615;color:#d4af37;font-weight:700;font-size:.9rem;letter-spacing:.5px;">🎓 Level: Beginner</div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#1a1a1a;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Verdict — 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Don't assume it's you.</strong> A random disconnect is 50/50 server-side vs local — diagnose before changing anything.</li>
+                    <li>📌 <strong>"World Unavailable" on ONE world</strong> = that world is down; hop to another. Not your connection.</li>
+                    <li>📌 <strong>"Connection lost" on ALL worlds + everyone else too</strong> = Jagex-side. Check <a href="https://twitter.com/JagexSupport" target="_blank" rel="noopener" style="color:#8b6914;font-weight:bold;">@JagexSupport</a> and wait.</li>
+                    <li>📌 <strong>Silent auto-logout / Wednesday kick</strong> = usually the weekly game update reset (every Wed ~10:30 UTC). Re-log, no panic.</li>
+                    <li>📌 <strong>Only you + only on Wi-Fi/cell</strong> = local network issue. Restart router, disable VPN, or switch connection.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#symptom-map">🔍 Symptom → Side Map (Read This First)</a></li>
+                    <li><a href="#server-side">🖥️ Server-Side Causes Jagex Controls</a></li>
+                    <li><a href="#local-side">📡 Local-Side Causes You Control</a></li>
+                    <li><a href="#diagnostic-tree">🌳 The 60-Second Diagnostic Tree</a></li>
+                    <li><a href="#wednesday">🗓️ The Silent Wednesday Maintenance Logout</a></li>
+                    <li><a href="#single-world">🌍 Single "World Unavailable" vs Full Outage</a></li>
+                    <li><a href="#vpn-firewall">🛡️ VPN, Firewall &amp; ISP Blocks</a></li>
+                    <li><a href="#faq">❓ FAQ — Disconnects &amp; World Errors</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="symptom-map">
+                <h2>1. 🔍 Symptom → Side Map (Read This First)</h2>
+                <p>The biggest mistake OSRS players make is "fixing their PC" when the problem is in Jagex's data center — or rebooting the router when the login server is literally offline. Before you touch a setting, match your symptom to a side. The whole point of this guide is to stop that waste. If you came from our <a href="osrs-mobile-cant-login-fix-2026.html" style="color:#8b6914;font-weight:bold;">Mobile Can't Log In fix</a>, the logic is the same: confirm <em>where</em> the failure lives before you act.</p>
+                <p>The two sides are completely different and need opposite fixes. If your problem is "can't get in at all" rather than "kicked mid-session," the <a href="osrs-mobile-cant-login-fix-2026.html" style="color:#8b6914;font-weight:bold;">Mobile Can't Log In fix</a> is the right page; this guide is for the "already playing, then disconnected" case:</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Your Symptom</th><th>Likely Side</th><th>What To Do</th></tr>
+                    <tr><td>Every world shows "Connection lost" at once</td><td><strong>Server-side</strong> (Jagex)</td><td>Check status, wait it out</td></tr>
+                    <tr><td>Only ONE world says "World Unavailable"</td><td><strong>Server-side</strong> (that world)</td><td>Hop to another world</td></tr>
+                    <tr><td>Disconnects only on Wi-Fi, fine on cell</td><td><strong>Local-side</strong> (your network)</td><td>Router / VPN fix</td></tr>
+                    <tr><td>Boots you at the same time every Wednesday</td><td><strong>Server-side</strong> (weekly update)</td><td>Expected; re-log after update</td></tr>
+                    <tr><td>Drops only during big fights / a specific area</td><td><strong>Local-side</strong> (congestion / packet loss)</td><td>Stabilize connection</td></tr>
+                    <tr><td>"You have been disconnected" with no error</td><td>Either — diagnose with the tree below</td><td>Use <a href="#diagnostic-tree" style="color:#8b6914;font-weight:bold;">§4 tree</a></td></tr>
+                </table>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The Core Rule</div>
+                    <p>If <strong>other players</strong> in the same world are also dropping, it is Jagex-side. If <strong>you alone</strong> drop while everyone else is fine, it is your connection. That single question decides everything that follows.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="server-side">
+                <h2>2. 🖥️ Server-Side Causes Jagex Controls</h2>
+                <p>These are problems you cannot fix on your end. Trying to "repair" them locally just wastes time. Here is what's actually happening on Jagex's side and how to confirm it.</p>
+
+                <h3>② Scheduled weekly game update (Wednesdays)</h3>
+                <p>Old School RuneScape deploys a game update every Wednesday. The live game is taken down briefly, then brought back. If you're online when the update hits, you get disconnected with no personal warning — it's a global reset, not a ban, not a hack. See <a href="#wednesday" style="color:#8b6914;font-weight:bold;">§5</a> for the exact timing.</p>
+
+                <h3>③ Unscheduled downtime &amp; "World Unavailable"</h3>
+                <p>Individual worlds are taken offline for restarts, DDoS mitigation, or hardware issues. When a single world goes down you'll see "World Unavailable" or "The world is currently full / unavailable." This is normal and rotates — just pick a different world. A full-service outage (all worlds) is rarer and will be announced on <a href="https://twitter.com/JagexSupport" target="_blank" rel="noopener" style="color:#8b6914;font-weight:bold;">@JagexSupport</a>.</p>
+
+                <h3>④ DDoS attacks &amp; lobby instability</h3>
+                <p>OSRS occasionally suffers DDoS attacks that cause mass random disconnects, "failed to connect to server," or inability to leave the lobby. These are Jagex-side and usually resolve within minutes to a couple of hours. During a DDoS, no local fix helps — the only move is to wait and watch the status feed.</p>
+
+                <div class="warning-box" style="border-left:4px solid #b8860b;padding:12px 16px;background:#fff;border-radius:6px;margin:14px 0;">
+                    <div class="tip-title" style="color:#3b2615;">🚨 Don't Get Re-scammed During Outages</div>
+                    <p>Scammers swarm every outage, DMing "verify your account to prevent disconnect loss." Jagex will <strong>never</strong> message you about disconnects. Our <a href="account-security-guide-2026.html" style="color:#8b6914;font-weight:bold;">Account Security Guide</a> covers the full anti-phishing checklist so you don't lose your account while chasing a connection fix.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="local-side">
+                <h2>3. 📡 Local-Side Causes You Control</h2>
+                <p>If the symptom is yours alone, the fault is almost always between your device and Jagex's servers. These are ranked by how often they're the real culprit.</p>
+
+                <h3>⑤ Wi-Fi congestion &amp; packet loss</h3>
+                <p>The #1 real-world cause of "random disconnect mid-fight." Wi-Fi drops single packets constantly; OSRS is forgiving of lag but a burst of packet loss severs the session. Signs: disconnects spike near microwave use, when someone starts a download, or when you move far from the router. Fix: use 5 GHz over 2.4 GHz, sit closer, or plug in Ethernet on desktop.</p>
+
+                <h3>⑥ Mobile data handoff &amp; sleep kills</h3>
+                <p>On <a href="osrs-mobile-guide-2026.html" style="color:#8b6914;font-weight:bold;">OSRS Mobile</a>, walking between cell towers or letting the screen sleep mid-session quietly kills the socket. The app may not even show an error — you just "are out" when you return. Keep the screen awake and stay on one connection type.</p>
+
+                <h3>⑦ Router / modem needs a reboot</h3>
+                <p>Consumer routers leak memory and drop long-lived TCP sessions after days of uptime. A 30-second power cycle clears it. If you disconnect at roughly the same interval every time (e.g., every 20 minutes), the router's NAT/state table is the suspect.</p>
+
+                <h3>⑧ Background apps stealing bandwidth</h3>
+                <p>Cloud backups, game launchers, streaming, or a Windows/phone update can saturate your upload pipe. OSRS needs a steady <em>outbound</em> heartbeat; if upload chokes, the server times you out. Pause heavy uploads while bossing.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Quick Local Test</div>
+                    <p>Open a constant ping to a stable host (e.g., <code>ping -t 8.8.8.8</code> on Windows) while you play. If the ping shows "Request timed out" at the exact moment you disconnect, your connection — not Jagex — is the problem. That single test ends 80% of arguments.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="diagnostic-tree">
+                <h2>4. 🌳 The 60-Second Diagnostic Tree</h2>
+                <p>Follow this in order. Stop at the first branch that matches. This is the fast version of everything above, built so you spend zero time fixing the wrong side.</p>
+
+                <div class="action-step">
+                    <h4>Step 1 — Is it everyone or just you?</h4>
+                    <ul>
+                        <li>Open <a href="https://twitter.com/JagexSupport" target="_blank" rel="noopener" style="color:#8b6914;font-weight:bold;">@JagexSupport</a> and r/2007scape. Hundreds of "disconnect" posts at once? → <strong>Server-side, stop here, wait.</strong></li>
+                        <li>Nobody else complaining? → Go to Step 2.</li>
+                    </ul>
+                </div>
+
+                <div class="action-step">
+                    <h4>Step 2 — One world or all worlds?</h4>
+                    <ul>
+                        <li>Only one world says "World Unavailable" → <strong>That world is down. Hop worlds, done.</strong></li>
+                        <li>Every world fails → go to Step 3.</li>
+                    </ul>
+                </div>
+
+                <div class="action-step">
+                    <h4>Step 3 — Does it happen on a second device / network?</h4>
+                    <ul>
+                        <li>Try the official client on a different connection (e.g., phone hotspot). If it's stable there → <strong>your home network is the fault</strong> (§3).</li>
+                        <li>Still drops on a clean connection → <strong>your account may be flagged or your ISP is route-blocking</strong> (see <a href="#vpn-firewall" style="color:#8b6914;font-weight:bold;">§7</a> and our <a href="osrs-vpn-login-blocked-fix-2026.html" style="color:#8b6914;font-weight:bold;">VPN Login Blocked fix</a>).</li>
+                    </ul>
+                </div>
+
+                <div class="action-step">
+                    <h4>Step 4 — Is it time-of-day patterned?</h4>
+                    <ul>
+                        <li>Same time every Wednesday → <strong>scheduled update</strong> (§5), expected.</li>
+                        <li>Same interval every session → <strong>router NAT timeout</strong> (§3, step 7), reboot + enable a keep-alive.</li>
+                    </ul>
+                </div>
+
+                <div class="method-box highlight">
+                    <h4>🎯 The 60-Second Verdict</h4>
+                    <p>Everyone + all worlds = Jagex, wait. Just you + one world = hop. Just you + all worlds = your network. Patterned timing = scheduled or router. That's the entire decision tree in four questions.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="wednesday">
+                <h2>5. 🗓️ The Silent Wednesday Maintenance Logout</h2>
+                <p>This is the disconnect that confuses the most players because it looks like a hack or a ban. Every Wednesday, Jagex takes the live game down for the weekly update. If you're logged in, you are simply disconnected — no email, no warning beyond the in-game countdown that many players miss.</p>
+
+                <h3>⑨ When it happens</h3>
+                <ul>
+                    <li>The game update typically deploys around <strong>10:30–11:00 UTC</strong> on Wednesdays (subject to change; check the in-game notice board).</li>
+                    <li>Servers go offline, then come back. Total downtime is usually 5–30 minutes.</li>
+                    <li>If you log in <em>during</em> the update window you may be bounced repeatedly — wait until the world list is back to normal.</li>
+                </ul>
+
+                <h3>⑩ It's not a ban, not a hack</h3>
+                <p>A Wednesday kick affects <strong>every single player online</strong> at that moment. If your friends also got booted, you're fine. The <a href="osrs-jagex-account-faq-2026.html" style="color:#8b6914;font-weight:bold;">Jagex Account FAQ</a> confirms scheduled maintenance never triggers a ban. Just wait for the "Worlds are now available" message and re-log.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Avoid Losing a Kill</div>
+                    <p>If you're deep in a boss when the Wednesday countdown shows, bank or teleport out <em>before</em> the shutdown. Dying in the final 60 seconds of maintenance is a completely avoidable "lost voidwaker / lost synapse" story. Set a calendar reminder for the weekly update time.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="single-world">
+                <h2>6. 🌍 Single "World Unavailable" vs Full Outage</h2>
+                <p>Players constantly confuse these two, then waste an hour "fixing" their PC for a problem that's one world away. Here's the clean distinction.</p>
+
+                <h3>⑪ One world says "World Unavailable"</h3>
+                <ul>
+                    <li>The world is restarting, full, or temporarily removed. <strong>This is normal and frequent.</strong></li>
+                    <li>Action: open the world list, pick another (ideally a less populated one for PvM). No local fix needed.</li>
+                    <li>If a world you love is "missing" for more than a day, it may have been merged or retired — check the news page.</li>
+                </ul>
+
+                <h3>⑫ Every world fails + status confirms outage</h3>
+                <ul>
+                    <li>Full login server outage or major DDoS. <strong>Nothing you do locally matters.</strong></li>
+                    <li>Action: step away, follow <a href="https://twitter.com/JagexSupport" target="_blank" rel="noopener" style="color:#8b6914;font-weight:bold;">@JagexSupport</a>, retry in 10–15 minutes.</li>
+                    <li>Don't spam login — it can rate-limit your IP and slow your return once servers are back.</li>
+                </ul>
+
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Scenario</th><th>Your Move</th><th>Wrong Move (wastes time)</th></tr>
+                    <tr><td>1 world down</td><td>Hop to another world</td><td>Reinstalling the client</td></tr>
+                    <tr><td>All worlds down, official outage</td><td>Wait for @JagexSupport</td><td>Resetting your router 10×</td></tr>
+                    <tr><td>All worlds down, only you</td><td>Fix local network / VPN</td><td>Blaming Jagex</td></tr>
+                </table>
+                </div>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="vpn-firewall">
+                <h2>7. 🛡️ VPN, Firewall &amp; ISP Blocks</h2>
+                <p>If the diagnostic tree in <a href="#diagnostic-tree" style="color:#8b6914;font-weight:bold;">§4</a> points at "your connection but not your router," the cause is usually one of these three.</p>
+
+                <h3>⑬ VPNs that break OSRS</h3>
+                <p>Some VPN exit nodes are shared by bot farms and get IP-banned by Jagex, producing random "Connection lost" or instant disconnects. If you run a VPN while playing, disable it and retry. Our <a href="osrs-vpn-login-blocked-fix-2026.html" style="color:#8b6914;font-weight:bold;">VPN Login Blocked fix</a> walks through whitelisting and safe provider choices.</p>
+
+                <h3>⑭ Firewall / antivirus interference</h3>
+                <ul>
+                    <li>A third-party firewall or "gaming optimizer" can silently drop OSRS's socket after a few minutes.</li>
+                    <li>Add the Jagex Launcher / Old School client to your firewall's allow-list (both inbound and outbound).</li>
+                    <li>On corporate or school networks, the admin may block game ports entirely — you'll need a different network.</li>
+                </ul>
+
+                <h3>⑮ ISP routing problems</h3>
+                <p>Occasionally your internet provider's route to Jagex's servers is flaky (common with mobile tethering and some rural ISPs). A different connection type or a reputable gaming VPN with a <em>clean</em> residential IP often stabilizes it. This is the one case where a VPN actually <em>helps</em> a disconnect problem.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">🔋last Resort Before You Rage-Quit</div>
+                    <p>If all else fails, reinstall the official client / <a href="osrs-mobile-cant-login-fix-2026.html" style="color:#8b6914;font-weight:bold;">clean-reinstall mobile</a> to rule out a corrupted local file, then test on a phone hotspot. If the hotspot is stable, your home ISP/router is 100% the cause — not Jagex.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 8: FAQ -->
+            <section id="faq">
+                <h2>8. ❓ FAQ — Disconnects &amp; World Errors</h2>
+
+                <div class="faq-item">
+                    <h4>Why do I keep getting randomly disconnected in the middle of bosses?</h4>
+                    <p>Almost always local packet loss (Wi-Fi congestion, router NAT timeout, or upload saturation from a background backup). Run a constant ping test while you play — if "Request timed out" lines up with your disconnects, it's your network, and the <a href="#diagnostic-tree" style="color:#8b6914;font-weight:bold;">§4 tree</a> will point you to the fix.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>What does "World Unavailable" actually mean?</h4>
+                    <p>It means that specific world is down, full, or being restarted — not that your account or game is broken. Pick a different world from the list. If every world shows it, that's a full outage (server-side), and you should wait for an official all-clear.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Is the silent Wednesday logout a ban or a hack?</h4>
+                    <p>No. It's the weekly game-update shutdown that boots everyone online at once. It's expected, affects all players, and never results in a ban. Wait for the "Worlds are available" message and re-log. See <a href="#wednesday" style="color:#8b6914;font-weight:bold;">§5</a>.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can a VPN cause random disconnects?</h4>
+                    <p>Yes — VPN exit nodes shared with bot farms get IP-banned by Jagex, causing instant or repeated disconnects. Disable the VPN first. If you need one for routing, use a provider with clean residential IPs; details in our <a href="osrs-vpn-login-blocked-fix-2026.html" style="color:#8b6914;font-weight:bold;">VPN Login Blocked fix</a>.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How do I prove it's Jagex and not me?</h4>
+                    <p>Two checks: (1) Are other players disconnecting at the same time (status feed / Reddit)? (2) Does a different device or network stay stable while yours drops? If yes to either, it's server-side or your local network respectively. The <a href="#diagnostic-tree" style="color:#8b6914;font-weight:bold;">60-second tree</a> makes this unambiguous.</p>
+                </div>
+            </section>
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 What To Do After You're Stable</h3>
+                <p>Once you've confirmed which side was breaking, lock it down so it doesn't recur:</p>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 1:</strong> Set a calendar reminder for the <a href="#wednesday" style="color:#8b6914; font-weight:bold;">Wednesday update window</a> so you never die to maintenance
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 2:</strong> Read the <a href="osrs-vpn-login-blocked-fix-2026.html" style="color:#8b6914; font-weight:bold;">VPN Login Blocked fix</a> if a VPN is part of your setup
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 3:</strong> Lock down your account with the <a href="account-security-guide-2026.html" style="color:#8b6914; font-weight:bold;">Account Security Guide</a> so outages can't be used to scam you
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 4:</strong> If you play on the go, bookmark the <a href="osrs-mobile-guide-2026.html" style="color:#8b6914; font-weight:bold;">OSRS Mobile Guide</a> for connection-stable mobile settings
+                    </div>
+                </div>
+                <a href="osrs-mobile-guide-2026.html" class="support-btn paypal-btn" style="display:inline-block; text-decoration:none; margin-top:20px;">Next: OSRS Mobile Connection Guide →</a>
+            </div>
+
+            <!-- RELATED GUIDES -->
+                    <div class="related-guides">
+      <h3>More Connection &amp; Account Troubleshooting</h3>
+      <div class="article-grid">
+        <a href="osrs-mobile-cant-login-fix-2026.html" class="article-card">
+          <h3>OSRS Mobile Can't Log In? Fix After the 2026 PSA</h3>
+          <p>The unified mobile login fix flow — server status, account type, 2FA, cached tokens, and clean reinstall.</p>
+        </a>
+        <a href="osrs-vpn-login-blocked-fix-2026.html" class="article-card">
+          <h3>OSRS VPN Login Blocked — Fix &amp; Safe Providers 2026</h3>
+          <p>Why VPN exit nodes get IP-banned and how to whitelist or pick a clean provider that stops random disconnects.</p>
+        </a>
+        <a href="account-security-guide-2026.html" class="article-card">
+          <h3>OSRS Account Security Guide 2026</h3>
+          <p>Set up 2FA, store backup codes, and dodge the phishing scams that spike during every major outage.</p>
+        </a>
+        <a href="osrs-jagex-account-faq-2026.html" class="article-card">
+          <h3>Jagex Account FAQ 2026</h3>
+          <p>Everything about Jagex accounts, migrations, and why scheduled maintenance never triggers a ban.</p>
+        </a>
+        <a href="osrs-mobile-guide-2026.html" class="article-card">
+          <h3>OSRS Mobile Guide 2026 — Settings, Controls &amp; Play Tips</h3>
+          <p>Keep your mobile session stable with the right connection and battery settings for bossing on the go.</p>
+        </a>
+      </div>
+    
+<div class="tool-callout" style="background:#2a1a0a;border:1px solid #d4af37;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+    <p style="color:#1a1a1a;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">🔧 Never Lose a Kill to a "Connection Lost" Again</p>
+    <p style="color:#1a1a1a;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Our connection-stability checklist turns random disconnects into a solved problem — <strong>for both desktop and mobile</strong>. Grab it free inside the Account Security Guide.</p>
+    <a href="account-security-guide-2026.html" style="display:inline-block;padding:0.65rem 1.8rem;background:#d4af37;color:#1a0f0a;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Open the Security Guide →</a>
+</div>
+</div><div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>Every guide is free — this one stays free either way.</h3>
+            <p>No paywalls, no subscriptions. But the <strong>Early Access 5-Pack</strong> gives you more:</p>
+            <p style="margin:6px 0 0 0;line-height:1.7">
+                📚 <strong>5 Latest Guides</strong> — early access before anyone else<br>
+                ⭐ <strong>4-Week Exclusive Window</strong> — guides go free after 4 weeks<br>
+                ⏰ <strong>Profit Finder + Gear Tool</strong> — premium tools included in the pack<br>
+                🔄 <strong>New guides added regularly</strong> — your purchase always includes the latest pack
+            </p>
+            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access 5-Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+<!-- SUPPORT CARD -->
+    <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../levels/beginner.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Beginner Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ Troubleshooting</h4><ul>
+                    <li><a href="osrs-mobile-cant-login-fix-2026.html">Mobile Can't Log In</a></li>
+                    <li><a href="osrs-vpn-login-blocked-fix-2026.html">VPN Login Blocked</a></li>
+                    <li><a href="account-security-guide-2026.html">Account Security</a></li>
+                    <li><a href="osrs-mobile-guide-2026.html">Mobile Guide</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+<!-- Copyright & Anti-Scraping Notice -->
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+<style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#3b2615!important}
+.guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+.guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+.guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+@media (max-width: 768px) {
+    .guide-content table { font-size: 0.85rem; }
+    .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+    .guide-content table tbody td { padding: 6px 10px; }
+    .guide-content h2 { font-size: 1.4em; }
+    .guide-content h3 { font-size: 1.15em; }
+}
+@media (max-width: 640px) {
+    .guide-content table { display: block; overflow-x: auto; }
+    .guide-content h2 { font-size: 1.25em; }
+    .guide-content h3 { font-size: 1.05em; }
+}
+.tool-callout,.tool-callout p,.tool-callout h3,.tool-callout h4,.tool-callout strong,.tool-callout a:not(.support-amount-btn){color:#fff!important}
+.tool-callout{background:#3b2615!important}
+[style*="background:#2a1a0a"] p,[style*="background:#2a1a0a"] h3,[style*="background:#2a1a0a"] h4,[style*="background:#2a1a0a"] li,[style*="background:#3b2615"] p,[style*="background:#3b2615"] h3,[style*="background:#3b2615"] h4,[style*="background:#3b2615"] li{color:#fff!important}
+</style>
+
+</body>
+</html>
