@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Account Locked for Suspicious Activity 2026: Unlock Flow, Inactive Locks & Email+2FA Deadlock</title>
+    <meta name="description" content="Updated for 2026. Locked out by a 'suspicious activity' message, an inactive-account freeze, or an email+authenticator double-change deadlock? This 7-step OSRS unlock guide shows the exact recovery flow, ticket templates, and what to do when Jagex support is slow — before you lose the account for good.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS account locked suspicious activity 2026, OSRS account suspended unlock, OSRS inactive account lock returning player, OSRS email authenticator deadlock, OSRS account locked can't verify, Jagex account recovery locked, OSRS security lock fix">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-account-locked-suspicious-activity-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="Intermediate" data-category="account">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRSGuru</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../skill-training.html">Skill Training</a></li>
+                    <li><a href="../money-making.html">Money Making</a></li>
+                    <li><a href="../boss-guides.html">Boss Guides</a></li>
+                    <li><a href="account-security-guide-2026.html">Account Security</a></li>
+                    <li><a href="osrs-membership-guide-2026.html">Membership</a></li>
+                    <li><a href="osrs-new-player-guide-2026.html">Beginner</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+<!--ADSTERRA_TOP-->
+<div class="ad-banner" style="text-align:center;margin:22px auto;padding:10px;border:1px dashed #d4af37;border-radius:8px;max-width:728px;min-height:90px;color:#1a1a1a;font-size:12px;box-sizing:border-box;">Adsterra ad slot — paste your Adsterra banner code here</div>
+
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="account-security-guide-2026.html">Account Security</a> / OSRS Account Locked for Suspicious Activity 2026</p>
+            <h1>OSRS Account Locked for Suspicious Activity 2026</h1>
+            <p class="subtitle">"Your account has been locked due to suspicious activity." It's one of the most panicky messages a returning or security-conscious player can see — and it is <em>not</em> the same as being hacked. This guide gives you the exact unlock flow, a table to diagnose which lock you hit, and the step-by-step breakout for the worst case: when you changed both your email and your 2FA and now can't verify either.</p>
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: Intermediate (Returning Players)</div>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>Account Recovery Series</strong> · Exclusive Pain-Point Edition · 12 min read · Updated July 30, 2026
+            </div>
+            <div class="article-meta" style="margin-top:10px;color:#1a1a1a;font-size:.85rem;">Published: July 30, 2026 &middot; Author: OSRS Guru Team &middot; Updated: July 30, 2026</div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#7A64B8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ 30-Second Quick Diagnosis — Which Lock Do You Have?</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
+                    <li>① <strong>Login works but shows "locked/suspended for suspicious activity"</strong> → Security lock. Jump to <a href="#unlock-flow" style="color:#7A64B8;font-weight:bold;">§3 Unlock Flow</a>.</li>
+                    <li>② <strong>Just logged in from a new IP, VPN, or country</strong> → New-location challenge lock. Same flow, usually resolved in minutes.</li>
+                    <li>③ <strong>Old account, untouched for years, now won't accept login</strong> → Inactive / dormant freeze. Go to <a href="#inactive" style="color:#7A64B8;font-weight:bold;">§5 Inactive Reactivation</a>.</li>
+                    <li>④ <strong>Changed BOTH email and authenticator, now can't verify either</strong> → The deadlock. This is the hard one — see <a href="#deadlock" style="color:#7A64B8;font-weight:bold;">§4 Email+2FA Deadlock</a>.</li>
+                    <li>⑤ <strong>Already got a ban or charged-back notice</strong> → Different problem entirely. Check the <a href="osrs-account-recovery-after-hack-2026.html" style="color:#7A64B8;font-weight:bold;">Account Recovery guide</a> or the <a href="osrs-membership-refund-chargeback-ban-2026.html" style="color:#7A64B8;font-weight:bold;">Chargeback Ban guide</a>.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#vs-hacked">Locked vs. Hacked: Know the Difference</a></li>
+                    <li><a href="#diagnosis">Lock Type Diagnosis Table</a></li>
+                    <li><a href="#unlock-flow">Standard Unlock Flow (Email + Authenticator)</a></li>
+                    <li><a href="#deadlock">The Email + 2FA Double-Change Deadlock</a></li>
+                    <li><a href="#inactive">Inactive / Returning-Player Reactivation</a></li>
+                    <li><a href="#slow">When Support Is Slow: Timeline &amp; Escalation</a></li>
+                    <li><a href="#prevent">Never Get Locked Again</a></li>
+                    <li><a href="#faq">Locked-Account FAQs</a></li>
+                </ol>
+            </div>
+
+            <!-- EXCLUSIVE PAIN-POINT TROUBLESHOOTING -->
+            <div class="tip-box" style="border-left:4px solid #E6A817;">
+                <div class="tip-title">🔥 Exclusive Pain-Point Troubleshooting (What Other Guides Skip)</div>
+                <p>Most "account locked" pages tell you to "contact support and wait." That advice fails the two hardest real-world cases we see every week: (1) the <strong>returning player</strong> whose years-dormant account is frozen, and (2) the player who <strong>changed their email AND their authenticator</strong> in one session and now can't satisfy either verification path. This guide is built around those two scenarios, with a copy-paste ticket template and a per-scenario breakdown. Start with the 5-step diagnosis box above, then go straight to the section that matches.</p>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="vs-hacked">
+                <h2>1. 🔒 Locked vs. Hacked: Know the Difference First</h2>
+                <p>Before you panic, confirm what state you're actually in. A <strong>lock</strong> is Jagex's system putting a hold on the account for your own protection (or for review). A <strong>hack</strong> means someone else already has control. The fix is completely different, and doing the wrong one wastes days.</p>
+                <p>If you're unsure whether you've been compromised versus merely locked, the <a href="osrs-account-hacked-prevention-2026.html" style="color:#7A64B8;font-weight:bold;">Account Hacked Prevention guide</a> explains the tell-tale signs (password still works but account is frozen = lock; password rejected and items missing = hack). For a confirmed takeover, switch immediately to the <a href="osrs-account-recovery-after-hack-2026.html" style="color:#7A64B8;font-weight:bold;">post-hack recovery walkthrough</a> instead of this lock guide.</p>
+
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Symptom</th><th>Likely State</th><th>First Move</th></tr>
+                    <tr>
+                        <td>You can still type your password but get a "locked / suspended" message</td>
+                        <td><strong>Security lock</strong> (system hold)</td>
+                        <td>Follow the unlock flow in §3. Do <em>not</em> spam login attempts.</td>
+                    </tr>
+                    <tr>
+                        <td>Login rejected, character last seen somewhere you weren't, items gone</td>
+                        <td><strong>Hacked</strong> (active compromise)</td>
+                        <td>Use the recovery form + the <a href="osrs-account-recovery-after-hack-2026.html" style="color:#7A64B8;font-weight:bold;">recovery guide</a>.</td>
+                    </tr>
+                    <tr>
+                        <td>Old account, "account does not exist" or login loops forever</td>
+                        <td><strong>Inactive / dormant</strong> freeze</td>
+                        <td>See §5 — reactivation, not recovery.</td>
+                    </tr>
+                    <tr>
+                        <td>Changed email + 2FA, now neither verification works</td>
+                        <td><strong>Verification deadlock</strong></td>
+                        <td>This is §4 — the hard case. Read carefully.</td>
+                    </tr>
+                </table>
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 The #1 Mistake</div>
+                    <p>Players see "suspicious activity" and immediately assume they were hacked, so they blow past the lock screen and start resetting everything. If your password <em>still works</em> but the account is on hold, you are <strong>locked, not hacked</strong> — and the fastest path is the verification flow below, not a full recovery scramble.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="diagnosis">
+                <h2>2. 🧭 Lock Type Diagnosis Table</h2>
+                <p>Match your exact on-screen message to the row below. The "what it means" and "typical wait" columns tell you whether this is a 10-minute fix or a multi-day ticket.</p>
+
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>On-Screen Message</th><th>What It Means</th><th>Self-Service?</th><th>Typical Resolution</th></tr>
+                    <tr>
+                        <td>"We've detected suspicious activity — your account is locked"</td>
+                        <td>Automated security flag (new IP, shared IP, odd behavior)</td>
+                        <td>Yes — verify via email/2FA</td>
+                        <td>10 min – 24 h</td>
+                    </tr>
+                    <tr>
+                        <td>"Please verify it's you" / 2SV challenge loop</td>
+                        <td>Login from unrecognized device/location</td>
+                        <td>Yes — approve the 2SV prompt</td>
+                        <td>Immediate – 1 h</td>
+                    </tr>
+                    <tr>
+                        <td>"This account has been inactive" / can't locate character</td>
+                        <td>Dormant-account freeze (returning players)</td>
+                        <td>Partly — may need recovery form</td>
+                        <td>1 – 5 days</td>
+                    </tr>
+                    <tr>
+                        <td>"We couldn't verify your identity" after email+2FA change</td>
+                        <td>Verification deadlock</td>
+                        <td>No — manual review required</td>
+                        <td>3 – 14 days</td>
+                    </tr>
+                    <tr>
+                        <td>"Your account has been banned"</td>
+                        <td>Not a lock — a sanction (often RWT/macro/chargeback)</td>
+                        <td>No — appeal only</td>
+                        <td>Appeal-dependent</td>
+                    </tr>
+                </table>
+                </div>
+                <p>If your message lands in the last row, stop — you are not "locked," you are sanctioned. A lock is reversible in hours; a ban needs an appeal. The <a href="osrs-chain-ban-linked-accounts-2026.html" style="color:#7A64B8;font-weight:bold;">linked-account chain-ban guide</a> covers the sanction side if you suspect a ripple from another account.</p>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="unlock-flow">
+                <h2>3. ✅ Standard Unlock Flow (Email + Authenticator)</h2>
+                <p>For the common security lock, the system just wants to confirm you're you. Here is the exact sequence Jagex's recovery interface expects in 2026.</p>
+
+                <div class="action-step">
+                    <h4>Step 1 — Stop and read the message</h4>
+                    <p>Note the exact wording. If it says "locked for suspicious activity" and offers a "Verify" or "Unlock" button, you're in the self-service lane. Don't close it.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 2 — Verify via your registered email</h4>
+                    <p>Jagex sends a confirmation link or code to the email on the account. Open it from the inbox (not a forwarded copy). Clicking confirms "yes, this is the owner's email."</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 3 — Approve the 2-Step Verification (2SV) prompt</h4>
+                    <p>If you have an authenticator app or passkey, approve the prompt or enter the 6-digit code. This proves possession of the second factor. The lock lifts the moment both email and 2SV check out.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 4 — Log in from a stable connection</h4>
+                    <p>Avoid VPNs, school/work networks, or mobile-data hopping for the next few logins. Frequent IP changes re-trigger the flag. Use one consistent home connection for a week.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 5 — If verification fails, open a ticket (don't loop)</h4>
+                    <p>Three failed verification attempts can extend the lock. If email or 2SV won't go through, go to §6 and file a support ticket with the template there.</p>
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">⚠️ VPN Users: Read This</div>
+                    <p>A huge share of "suspicious activity" locks are simply VPN or region-hop logins. If you play on a VPN, whitelist a consistent exit node or disable it for OSRS logins. The <a href="osrs-vpn-login-blocked-fix-2026.html" style="color:#7A64B8;font-weight:bold;">VPN login-blocked fix guide</a> walks through stopping the loop without losing your connection.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4: DEADLOCK -->
+            <section id="deadlock">
+                <h2>4. 🔐 The Email + 2FA Double-Change Deadlock (The Hard Case)</h2>
+                <p>This is the scenario almost no public guide covers, and it's the one that generates the most desperate forum posts: <strong>you changed your account email AND your authenticator in the same session, and now the unlock flow asks you to verify through the very email/2FA you just replaced.</strong> Neither path works, and you're stuck in a verification loop.</p>
+                <p>Why does this happen? Jagex's identity checks compare your <em>current</em> login claim against the <em>most recent verified</em> contact method. When both flip at once, the automated system sometimes can't establish a continuous chain of trust, so it freezes the account pending manual review. You didn't do anything wrong — you just outran the automation.</p>
+
+                <h3>① How You Probably Got Here</h3>
+                <div class="method-box">
+                    <ul>
+                        <li>You updated your email for "better security," then immediately swapped the authenticator app (or reset the phone).</li>
+                        <li>You recovered the account from an old hack, changed email + 2FA in one sitting, then got logged out by a routine check.</li>
+                        <li>You bought a "recovered" account (against the rules) and tried to re-key it — the system flagged the ownership gap.</li>
+                    </ul>
+                </div>
+
+                <h3>② Breakout Path A — Use Your Backup / Recovery Codes</h3>
+                <div class="action-step">
+                    <h4>Check for saved recovery codes first</h4>
+                    <p>When you enabled 2SV, Jagex gave you one-time backup codes. If you saved them (password manager, paper, notes app), use one to satisfy the 2FA leg. Combined with the new email confirmation, that often unlocks the account without a ticket.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Recovery contact</h4>
+                    <p>If you set a "recovery contact" (a trusted second email) during Jagex Account setup, that address can receive the verification instead of the changed primary. Use it.</p>
+                </div>
+
+                <h3>③ Breakout Path B — The Jagex Account Recovery Form</h3>
+                <p>If both verification legs fail, you must prove ownership through the <strong>Account Recovery</strong> form rather than the quick-unlock screen. This is slower but designed exactly for "I am the owner but can't verify." You'll be asked for historical evidence:</p>
+                <div class="method-box highlight">
+                    <h4>Evidence That Moves the Needle</h4>
+                    <ul>
+                        <li><strong>Creation details:</strong> roughly when you made the account, original display name, original email.</li>
+                        <li><strong>Payment history:</strong> transaction IDs from bonds/membership (even years ago). This is the strongest proof.</li>
+                        <li><strong>Connected details:</strong> old IP ranges, previously linked emails, former passwords you remember.</li>
+                        <li><strong>Character facts:</strong> total level, notable items, quest points, date of last login.</li>
+                    </ul>
+                </div>
+                <p>The <a href="osrs-jagex-account-faq-2026.html" style="color:#7A64B8;font-weight:bold;">Jagex Account FAQ</a> and the <a href="osrs-jagex-account-migration-guide-2026.html" style="color:#7A64B8;font-weight:bold;">migration guide</a> explain where these settings live and what "recovery contact" means in practice.</p>
+
+                <h3>④ What NOT to Do in a Deadlock</h3>
+                <div class="tip-box">
+                    <div class="tip-title">🚫 Do Not</div>
+                    <ul>
+                        <li><strong>Create a second Jagex Account</strong> to "start over" — if it shares your email/ID, it can trigger a <em>chain review</em> of both.</li>
+                        <li><strong>Keep hammering the login</strong> — repeated failures extend the freeze and look like an attack.</li>
+                        <li><strong>Pay a "recovery service"</strong> — they use the same form you can use free, and often social-engineer your own data.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 5: INACTIVE -->
+            <section id="inactive">
+                <h2>5. 💤 Inactive / Returning-Player Reactivation</h2>
+                <p>"I haven't played since 2011 and now it says my account doesn't exist." If that's you, welcome back — but understand that very old accounts sometimes sit in a dormant state, and the login path has changed completely since the <a href="osrs-jagex-account-migration-guide-2026.html" style="color:#7A64B8;font-weight:bold;">Jagex Account migration</a>.</p>
+
+                <h3>① What "Inactive" Means in 2026</h3>
+                <p>Jagex doesn't usually <em>delete</em> old accounts, but a multi-year gap means: (a) your old login credentials may predate the Jagex Account system, and (b) the system may flag a suddenly-reactivated ancient account as "suspicious" precisely because the behavior pattern is so different. So returning players hit <em>both</em> an activation step and a security lock at once.</p>
+
+                <h3>② Reactivation Steps</h3>
+                <div class="action-step">
+                    <h4>Step 1 — Try the Jagex Account login, not the legacy one</h4>
+                    <p>Old "Runescape Account" logins now route through a Jagex Account. Use your original email at jagex.com. If it asks to import/link, that's expected.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 2 — Expect (and pass) the security challenge</h4>
+                    <p>The new-IP + new-device + ancient-account combo almost always triggers a 2SV/email verification. Pass it once and it settles.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 3 — If the character won't load, use recovery</h4>
+                    <p>Some pre-2010 characters need the recovery form to re-link to a modern Jagex Account. Gather the same evidence from §4 and submit.</p>
+                </div>
+                <p>For a fuller returning-player plan — what changed, what to do first, how to avoid a fresh lock — see the <a href="osrs-returning-player-guide-2026.html" style="color:#7A64B8;font-weight:bold;">Returning Player Guide 2026</a> and the <a href="osrs-what-changed-2026-returning-guide.html" style="color:#7A64B8;font-weight:bold;">What Changed for Returning Players</a> breakdown.</p>
+            </section>
+
+            <!-- SECTION 6: SLOW -->
+            <section id="slow">
+                <h2>6. 🐢 When Support Is Slow: Timeline &amp; Escalation</h2>
+                <p>Real talk: Jagex support is volume-limited. A clean self-service unlock is minutes; a manual recovery review is typically <strong>3–14 days</strong>, occasionally longer during surges. Here's how to avoid making it worse and how to escalate properly.</p>
+
+                <h3>① Realistic Wait Times (2026)</h3>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Case Type</th><th>Typical First Response</th><th>Full Resolution</th></tr>
+                    <tr><td>Self-service security lock</td><td>Instant</td><td>Minutes – 24 h</td></tr>
+                    <tr><td>Email verification only</td><td>Minutes</td><td>Hours – 2 days</td></tr>
+                    <tr><td>Deadlock (email+2FA)</td><td>2 – 5 days</td><td>3 – 14 days</td></tr>
+                    <tr><td>Inactive reactivation w/ recovery</td><td>3 – 7 days</td><td>1 – 2 weeks</td></tr>
+                </table>
+                </div>
+
+                <h3>② The Escalation Ticket Template (Copy-Paste)</h3>
+                <div class="method-box highlight">
+                    <h4>📋 Support Ticket — Account Locked (Verification Deadlock)</h4>
+                    <p style="white-space:pre-line;font-family:monospace;font-size:.85rem;background:#f5f2f8;padding:12px;border-radius:6px;">Subject: Account locked — cannot verify via email or 2FA (owner request)
+
+Display name: [your character name]
+Registered email (current): [email]
+Original email (if changed): [old email]
+Approx. creation year: [year]
+Last successful login: [date]
+Membership transaction IDs (if any): [TXID]
+
+Issue: My account shows "locked for suspicious activity." I recently changed my email AND authenticator, and the unlock flow now asks me to verify through the new email/2FA, which I cannot satisfy. I am the original owner.
+
+What I've tried: [list steps]. I have backup codes: [yes/no].
+
+Request: Manual identity review via Account Recovery evidence above. I can provide payment history on request.</p>
+                </div>
+
+                <h3>③ What NOT to Do While Waiting</h3>
+                <div class="tip-box">
+                    <div class="tip-title">⏳ Patience Pays</div>
+                    <ul>
+                        <li><strong>Don't open 5 tickets</strong> — duplicates get batched and can delay the first one.</li>
+                        <li><strong>Don't reply "???" daily</strong> — it resets your place in the queue in some systems.</li>
+                        <li><strong>Don't post your TXIDs publicly</strong> — that's exactly the data a scammer needs to impersonate you.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 7: PREVENT -->
+            <section id="prevent">
+                <h2>7. 🛡️ Never Get Locked Again</h2>
+                <p>Once you're back in, lock-proof your setup so this never repeats. The core rule: <strong>change one verification method at a time, and always save backup codes first.</strong></p>
+                <div class="method-box highlight">
+                    <h4>🎯 The Lock-Proof Checklist</h4>
+                    <ol>
+                        <li><strong>Save 2SV backup codes</strong> the moment you enable 2SV — before any email change.</li>
+                        <li><strong>Change email FIRST, verify it, wait 24–48 h</strong>, THEN change authenticator. Never both same day.</li>
+                        <li><strong>Set a recovery contact</strong> (second email) so a single change can't strand you.</li>
+                        <li><strong>Play from a stable IP</strong> — disable VPN for OSRS logins or pin one node.</li>
+                        <li><strong>Keep one membership transaction ID</strong> saved — it's your strongest ownership proof for any future lock.</li>
+                    </ol>
+                </div>
+                <p>The <a href="osrs-account-security-anti-scam-guide-2026.html" style="color:#7A64B8;font-weight:bold;">Anti-Scam guide</a> and the full <a href="account-security-guide-2026.html" style="color:#7A64B8;font-weight:bold;">Account Security guide</a> round out a setup that stays open and stays yours.</p>
+            </section>
+
+            <!-- FAQ -->
+            <section id="faq">
+                <h2>8. 💡 Locked-Account FAQs</h2>
+
+                <div class="faq-item">
+                    <h4>How long does a "suspicious activity" lock last if I do nothing?</h4>
+                    <p>Most automated security locks don't have a fixed expiry — they stay until you complete verification. Ignoring it won't time out in your favor; it just stays locked. A few specific temporary holds lift after 24–72 h of no further suspicious signals, but you should still verify to be safe.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>I changed my email and now the verification goes to the OLD email I no longer have.</h4>
+                    <p>That's a partial deadlock. If you still have the authenticator, use 2FA to log in, then immediately update the email from inside Account Settings. If you have neither, use the recovery form with your payment history as proof — see §4 Path B.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Will a lock get me banned?</h4>
+                    <p>No. A lock is protective, not punitive. As long as you're the legitimate owner and you verify, it lifts cleanly with no mark on the account. A ban is a separate sanction (see the <a href="osrs-chain-ban-linked-accounts-2026.html" style="color:#7A64B8;font-weight:bold;">chain-ban guide</a>).</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>My old 2007 account — is it gone forever?</h4>
+                    <p>Almost certainly not. Jagex retains old accounts; the problem is usually that the login path moved to Jagex Account and the character needs re-linking via recovery. Start at §5 and use the <a href="osrs-returning-player-guide-2026.html" style="color:#7A64B8;font-weight:bold;">Returning Player Guide</a>.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can I speed up support by paying or by being a member?</h4>
+                    <p>Paying does not buy queue priority, and anyone offering "fast unlock for a fee" is a scam. The only levers are a complete, evidence-rich ticket and patience. Having a membership transaction ID in your message genuinely helps prove ownership, but it doesn't skip the line.</p>
+                </div>
+            </section>
+
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 If Verification Failed or You Were Hacked</h3>
+                <p>Pick the path that matches your real state:</p>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #E6A817;">
+                        <strong>→ Locked but can't verify:</strong> Use the <a href="osrs-jagex-account-faq-2026.html" style="color:#7A64B8; font-weight:bold;">Jagex Account FAQ</a> to locate your recovery settings
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #E6A817;">
+                        <strong>→ Already hacked:</strong> Follow the <a href="osrs-account-recovery-after-hack-2026.html" style="color:#7A64B8; font-weight:bold;">Account Recovery After a Hack guide</a>
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #E6A817;">
+                        <strong>→ Want to prevent this:</strong> Read the <a href="osrs-account-hacked-prevention-2026.html" style="color:#7A64B8; font-weight:bold;">Hacked Prevention guide</a>
+                    </div>
+                </div>
+                <a href="osrs-account-recovery-after-hack-2026.html" class="support-btn paypal-btn" style="display:inline-block; text-decoration:none; margin-top:20px;">Next: Recover a Hacked Account →</a>
+            </div>
+
+            <!-- RELATED GUIDES -->
+                    <div class="related-guides">
+      <h3>Related Account Security Guides</h3>
+      <div class="article-grid">
+        <a href="osrs-account-recovery-after-hack-2026.html" class="article-card">
+          <h3>OSRS Account Recovery After a Hack 2026: Step-by-Step Reclaim</h3>
+          <p>If verification failed and someone else has control, this walkthrough covers the recovery form, ownership proof, and appealing a post-hack ban.</p>
+        </a>
+        <a href="osrs-account-hacked-prevention-2026.html" class="article-card">
+          <h3>OSRS Account Hacked Prevention Guide 2026</h3>
+          <p>The prevention playbook: phishing, 2SV, password hygiene, and fake clients — so you never hit a lock in the first place.</p>
+        </a>
+        <a href="osrs-jagex-account-migration-guide-2026.html" class="article-card">
+          <h3>Jagex Account Migration Guide 2026</h3>
+          <p>How to move legacy accounts into a Jagex Account and configure 2SV and a recovery contact correctly from day one.</p>
+        </a>
+        <a href="osrs-returning-player-guide-2026.html" class="article-card">
+          <h3>OSRS Returning Player Guide 2026</h3>
+          <p>Reactivating an old account without tripping a fresh security lock — what changed and what to do first.</p>
+        </a>
+        <a href="osrs-vpn-login-blocked-fix-2026.html" class="article-card">
+          <h3>OSRS VPN Login Blocked Fix 2026</h3>
+          <p>Stop the "suspicious activity" loop caused by VPN and region-hopping logins with a stable-connection setup.</p>
+        </a>
+      </div>
+</div><div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>Every guide is free — this one stays free either way.</h3>
+            <p>No paywalls, no subscriptions. But the <strong>Early Access 5-Pack</strong> gives you more:</p>
+            <p style="margin:6px 0 0 0;line-height:1.7">
+                📚 <strong>5 Latest Guides</strong> — early access before anyone else<br>
+                ⭐ <strong>4-Week Exclusive Window</strong> — guides go free after 4 weeks<br>
+                ⏰ <strong>Profit Finder + Gear Tool</strong> — premium tools included in the pack<br>
+                🔄 <strong>New guides added regularly</strong> — your purchase always includes the latest pack
+            </p>
+            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access 5-Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+<!-- SUPPORT CARD -->
+    <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../levels/intermediate.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Intermediate Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ New Players (Stage 0)</h4><ul>
+                    <li><a href="osrs-interface-controls-beginner-guide-2026.html">Game Interface</a></li>
+                    <li><a href="osrs-combat-triangle-explained-2026.html">Combat Triangle</a></li>
+                    <li><a href="osrs-skills-overview-beginner-2026.html">Skills Overview</a></li>
+                    <li><a href="osrs-bank-inventory-management-2026.html">Bank &amp; Inventory</a></li>
+                    <li><a href="osrs-maps-travel-guide-2026.html">Maps &amp; Travel</a></li>
+                    <li><a href="osrs-questing-beginner-guide-2026.html">Questing Basics</a></li>
+                    <li><a href="osrs-combat-training-beginner-2026.html">Combat Training</a></li>
+                    <li><a href="osrs-money-making-beginner-2026.html">Beginner Money Making</a></li>
+                    <li><a href="osrs-gear-beginner-guide-2026.html">Gear Guide</a></li>
+                    <li><a href="osrs-safe-spots-beginner-2026.html">Safe Spots</a></li>
+                    <li><a href="osrs-prayer-training-beginner-guide-2026.html">Prayer Training</a></li>
+                    <li><a href="osrs-f2p-to-p2p-membership-guide-2026.html">F2P to P2P Transition</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+<!-- Copyright & Anti-Scraping Notice -->
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+<style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#3b2615!important}
+.guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+.guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+.guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+@media (max-width: 768px) {
+    .guide-content table { font-size: 0.85rem; }
+    .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+    .guide-content table tbody td { padding: 6px 10px; }
+    .guide-content h2 { font-size: 1.4em; }
+    .guide-content h3 { font-size: 1.15em; }
+}
+@media (max-width: 640px) {
+    .guide-content table { display: block; overflow-x: auto; }
+    .guide-content h2 { font-size: 1.25em; }
+    .guide-content h3 { font-size: 1.05em; }
+}
+.tool-callout,.tool-callout p,.tool-callout h3,.tool-callout h4,.tool-callout strong,.tool-callout a:not(.support-amount-btn){color:#fff!important}
+.tool-callout{background:#3b2615!important}
+[style*="background:#2a1a0a"] p,[style*="background:#2a1a0a"] h3,[style*="background:#2a1a0a"] h4,[style*="background:#2a1a0a"] li,[style*="background:#3b2615"] p,[style*="background:#3b2615"] h3,[style*="background:#3b2615"] h4,[style*="background:#3b2615"] li{color:#fff!important}
+</style>
+
+</body>
+</html>

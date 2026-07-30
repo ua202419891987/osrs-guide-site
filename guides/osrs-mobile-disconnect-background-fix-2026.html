@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Mobile Disconnects in Background? 5 Scene Fixes for 2026</title>
+    <meta name="description" content="Updated for 2026. OSRS Mobile keeps disconnecting when you switch apps, turn on Low Power Mode, or swap from Wi-Fi to mobile data? 5 scene-by-scene fixes covering background timeout, Doze, battery killers, and data vs Wi-Fi — plus per-brand settings for Samsung, Xiaomi, and iPhone.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS Mobile disconnects in background, OSRS Mobile switches app logout, OSRS Mobile keeps disconnecting Wi-Fi data, OSRS Mobile Low Power Mode disconnect, OSRS Mobile Doze battery optimization, Old School RuneScape mobile background timeout, OSRS Mobile stays connected 2026">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<meta name="article:published_time" content="2026-07-30">
+<meta name="article:modified_time" content="2026-07-30">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-mobile-disconnect-background-fix-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="Beginner" data-category="account">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../weekly-updates.html">Updates</a></li>
+                    <li><a href="../zh/index.html">Chinese</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="osrs-mobile-guide-2026.html">OSRS Mobile</a> / Disconnects in Background</p>
+            <h1>OSRS Mobile Keeps Disconnecting in the Background? 5 Scene Fixes for 2026</h1>
+            <p class="subtitle">You tap away to answer a text, lock your phone to walk somewhere, or drop from Wi-Fi to mobile data — and when you come back, OSRS Mobile has logged you out. This is the single most reported mobile annoyance in 2026, and almost none of the fixes you'll find elsewhere actually explain <em>why</em>. Below we break it into the exact 5 scenarios that cause it and fix each one.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>Stage 0 · Beginner Troubleshooting</strong> — Updated July 2026 · 13 min read
+            </div>
+            <div class="level-badge" style="display:inline-block;margin-top:14px;padding:6px 16px;border:1px solid #d4af37;border-radius:20px;background:#3b2615;color:#d4af37;font-weight:700;font-size:.9rem;letter-spacing:.5px;">🎓 Level: Beginner</div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#1a1a1a;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Verdict — 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>OSRS Mobile has no "true" background mode</strong> — Jagex's app holds an active socket that the OS closes the moment it decides the app is idle.</li>
+                    <li>📌 <strong>Scenario 1 (switch apps):</strong> Android "kill background app" + iOS "Background App Refresh off" cuts the link in seconds.</li>
+                    <li>📌 <strong>Scenario 2 (Doze / Low Power):</strong> Battery savers suspend network sockets; the game can't keep the heartbeat alive.</li>
+                    <li>📌 <strong>Scenario 3 (Wi-Fi → data):</strong> Your IP changes, and the server sees a "new" connection and boots the old session.</li>
+                    <li>📌 <strong>Scenario 4 (idle timeout):</strong> After ~5 minutes of no input, the world server force-logs an idle character — independent of your phone.</li>
+                    <li>📌 <strong>Fix the per-brand battery whitelist</strong> (Samsung, Xiaomi, iPhone) and you'll stay connected far longer.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#why">Why OSRS Mobile Drops the Connection at All</a></li>
+                    <li><a href="#scene-switch">Scenario 1 — Switching Apps / Locking the Screen</a></li>
+                    <li><a href="#scene-doze">Scenario 2 — Doze, Low Power Mode &amp; Battery Savers</a></li>
+                    <li><a href="#scene-data">Scenario 3 — Mobile Data vs Wi-Fi (IP Swap)</a></li>
+                    <li><a href="#scene-timeout">Scenario 4 — Background Idle Timeout / Auto Logout</a></li>
+                    <li><a href="#brand">Per-Brand Settings: Samsung, Xiaomi, iPhone</a></li>
+                    <li><a href="#table">Symptom → Fix Quick Reference</a></li>
+                    <li><a href="#faq">FAQ — Mobile Background Disconnects</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="why">
+                <h2>1. 🔍 Why OSRS Mobile Drops the Connection at All</h2>
+                <p>Before we fix anything, understand the architecture. The <a href="osrs-mobile-guide-2026.html" style="color:#8b6914;font-weight:bold;">official OSRS Mobile app</a> keeps a single, continuously-open network connection ("socket") to the game world server. That connection sends a tiny "heartbeat" packet every few seconds to prove you're still there. The moment your phone stops letting the app send that heartbeat — because it went to sleep, lost network, or got killed for memory — the server decides you're gone and tears the session down. You come back to a login screen.</p>
+                <p>This is different from a crash. A <a href="osrs-mobile-crashing-black-screen-android-fix-2026.html" style="color:#8b6914;font-weight:bold;">crash or black screen</a> is the app itself dying; a background disconnect is the <em>network session</em> dying while the app is technically still installed and open. Knowing the difference tells you which fix to reach for.</p>
+                <p>Most sites tell you "just stay on Wi-Fi" and stop there. That advice is useless because the three biggest causes are <strong>not</strong> your router — they're your phone's own power management, your carrier's IP behavior, and the game's idle timer. The rest of this guide attacks each one separately.</p>
+                <div class="method-box">
+                    <h4>🧩 The Four Real Triggers</h4>
+                    <ul>
+                        <li><strong>Process death</strong> — the OS closes the app when you switch away (Android) or suspends its network (iOS).</li>
+                        <li><strong>Socket suspension</strong> — Doze / Low Power / battery optimization pause all background network traffic.</li>
+                        <li><strong>IP reassignment</strong> — swapping Wi-Fi to 4G/5G gives you a new IP; the server treats the old session as a duplicate and drops it.</li>
+                        <li><strong>Idle force-logout</strong> — the world server itself logs out characters that haven't acted in ~5 minutes.</li>
+                    </ul>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The Core Truth</div>
+                    <p>you cannot make OSRS Mobile behave like a music streaming app that plays forever in your pocket. Jagex's client is not designed for indefinite backgrounding. What you <em>can</em> do is push each of the four triggers from "drops in 10 seconds" to "survives a 3–4 minute errand." That's the realistic goal, and it's very achievable.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="scene-switch">
+                <h2>2. 🔄 Scenario 1 — Switching Apps / Locking the Screen</h2>
+                <p>This is the #1 complaint: "I opened my banking app for 5 seconds and OSRS logged me out." Here's what's actually happening on each platform.</p>
+
+                <h3>② Android — the app gets killed for RAM</h3>
+                <p>Android is aggressively multitasking. When you switch to another app, the OS keeps OSRS Mobile "cached" in the background — but if memory gets tight, Android silently kills it to free RAM. Even before a full kill, Android may freeze the app's network thread the instant it's not on screen, so the heartbeat stops and the server drops you within ~30–60 seconds.</p>
+                <div class="action-step">
+                    <h4>What to do on Android</h4>
+                    <ul>
+                        <li>Open <strong>Settings → Apps → Old School RuneScape → Battery</strong> and set it to <strong>"Unrestricted"</strong> / "Don't optimize" (see §6 for brand specifics).</li>
+                        <li>After switching away, <strong>don't swipe OSRS Mobile off the recent-apps list</strong> — that force-closes it. Just leave it in the tray.</li>
+                        <li>On phones with 4 GB RAM or less, close a few other background apps first so the OS doesn't need to reclaim memory.</li>
+                        <li>Enable <strong>"lock the app"</strong> in the recent-apps view (long-press the card, tap the lock icon) on Samsung/Xiaomi so it's never auto-killed.</li>
+                    </ul>
+                </div>
+
+                <h3>③ iPhone / iPad — Background App Refresh &amp; suspension</h3>
+                <p>iOS is even stricter: unless an app is explicitly allowed, it gets <strong>suspended</strong> the moment you leave it, and its network socket is closed within seconds. OSRS Mobile is not whitelisted by default.</p>
+                <div class="action-step">
+                    <h4>What to do on iOS</h4>
+                    <ul>
+                        <li>Open <strong>Settings → General → Background App Refresh</strong> and make sure it's <strong>ON</strong> (at least for OSRS Mobile).</li>
+                        <li>Do <strong>not</strong> force-close the app (swipe up from the app switcher) before walking away — a freshly-launched-but-suspended app reconnects worse than a warm one.</li>
+                        <li>Keep the screen <strong>on</strong> if you expect to be away only briefly: use the in-game "screen always on" / disable auto-lock (Settings → Display &amp; Brightness → Auto-Lock → Never) while playing.</li>
+                        <li>Disable Low Power Mode (see §3) — it disables Background App Refresh entirely.</li>
+                    </ul>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">⚠️ Don't Trust "Recent Apps"</div>
+                    <p>Just because OSRS Mobile is still shown in your recent-apps list does <strong>not</strong> mean it's alive. On both platforms, an app in that list can be frozen or killed. The only guaranteed-alive state is "currently on your screen." Plan errands accordingly.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="scene-doze">
+                <h2>3. 🔋 Scenario 2 — Doze, Low Power Mode &amp; Battery Savers</h2>
+                <p>Both operating systems have a "save battery by killing background network" feature, and it is brutal to a game that relies on a constant heartbeat.</p>
+
+                <h3>④ Android Doze &amp; Adaptive Battery</h3>
+                <p>When your screen is off for a while, Android enters <strong>Doze mode</strong>, which defers all network traffic to infrequent "maintenance windows." OSRS Mobile's heartbeat can't wait for the next window — the server sees silence and disconnects you. <strong>Adaptive Battery</strong> makes this worse by learning to restrict "unused" apps (and it may decide a game you only open at night is unused).</p>
+                <div class="action-step">
+                    <h4>Disable the battery killers (Android)</h4>
+                    <ol>
+                        <li>Settings → <strong>Battery → Battery optimization</strong> → find Old School RuneScape → set to <strong>"Don't optimize"</strong>.</li>
+                        <li>Settings → <strong>Battery → Adaptive Battery</strong> → consider turning it <strong>off</strong> (or at least it won't target OSRS once you've whitelisted the app).</li>
+                        <li>Turn off any manufacturer "Game Booster / Device Care / Memory cleaner" that force-closes idle games.</li>
+                        <li>Keep the phone <strong>plugged in</strong> if you're AFK-fishing at your desk — charging disables Doze.</li>
+                    </ol>
+                </div>
+
+                <h3>⑤ iPhone Low Power Mode</h3>
+                <p>On iOS, <strong>Low Power Mode pauses Background App Refresh and mail fetch and reduces network activity</strong> — exactly what kills OSRS's socket. It also kicks in automatically at 20% battery.</p>
+                <div class="action-step">
+                    <h4>Disable Low Power Mode (iOS)</h4>
+                    <ul>
+                        <li>Control Center → tap the <strong>battery icon</strong> so it's not yellow, or Settings → Battery → <strong>Low Power Mode → OFF</strong>.</li>
+                        <li>If you genuinely need battery savings, accept that the game will drop when backgrounded — there's no way around it on iOS while Low Power is on.</li>
+                    </ul>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The "Plug It In" Trick</div>
+                    <p>Charging disables Doze on Android and disables Low Power Mode behavior on iOS. If you're at home AFK-skilling on mobile, keep it on the charger — you'll stay connected dramatically longer because the OS simply won't bother suspending a plugged-in app.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="scene-data">
+                <h2>4. 📶 Scenario 3 — Mobile Data vs Wi-Fi (The IP Swap)</h2>
+                <p>This scenario confuses everyone: "I never left the app, never locked the phone, but it disconnected when I walked out of the house." The cause is your <strong>IP address changing</strong>.</p>
+                <p>When you're on Wi-Fi, your phone has one public IP. The moment you leave Wi-Fi range and the phone falls back to 4G/5G, your carrier assigns a <em>different</em> IP. To the game server, that looks like two clients trying to use the same account from two locations. The server protects you from session hijacking by <strong>invalidating the old session immediately</strong> — so you get booted. Walking back into Wi-Fi and re-grabbing yet another IP can do it again.</p>
+                <div class="method-box">
+                    <h4>🎯 How to Minimize the IP-Swap Drop</h4>
+                    <ul>
+                        <li><strong>Pick one network and commit.</strong> Don't hop between Wi-Fi and data mid-session if you can avoid it. Start on the network you'll stay on.</li>
+                        <li><strong>Prefer Wi-Fi for long sessions.</strong> Home/office Wi-Fi keeps a stable IP for hours. Mobile data IPs can also rotate when the phone hands off between cell towers.</li>
+                        <li><strong>Use a stable mobile connection if Wi-Fi isn't an option.</strong> Stand still — walking between towers triggers carrier-side IP reassignments even without changing network type.</li>
+                        <li><strong>Turn off "Wi-Fi Assistant / Adaptive Wi-Fi / Switch to mobile data"</strong> features (common on Google Pixel, OnePlus, Xiaomi) that auto-hop networks behind your back.</li>
+                        <li><strong>Enable "Wi-Fi Calling" off</strong> if your carrier's Wi-Fi calling tunnels data in a way that flips your apparent IP.</li>
+                    </ul>
+                </div>
+                <div class="warning-box" style="border-left:4px solid #b8860b;padding:12px 16px;background:#fff;border-radius:6px;margin:14px 0;">
+                    <div class="tip-title" style="color:#3b2615;">🚨 Don't Blame Your VPN/Accelerator Here</div>
+                    <p>If you're outside the game's supported regions and run an accelerator (common for players in China — see our <a href="osrs-vpn-login-blocked-fix-2026.html" style="color:#8b6914;font-weight:bold;">VPN/accelerator login guide</a>), the IP swap is <em>doubly</em> disruptive: the accelerator's exit node changes and the anti-cheat may flag the new IP. Keep the accelerator on a fixed node and never let the phone auto-switch it off.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The 5-Second Rule</div>
+                    <p>If you <em>must</em> change networks, do it in under 5 seconds of "no connection" if possible, or just accept the reconnect. OSRS Mobile auto-reconnects to the login screen fast; the pain is losing your spot, not losing your account. Bank/gear are server-side.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="scene-timeout">
+                <h2>5. ⏳ Scenario 4 — Background Idle Timeout / Auto Logout</h2>
+                <p>Even with a perfect phone and perfect network, OSRS will eventually log you out if you don't act. This is <strong>not</strong> a mobile bug — it's the game's own idle timer, and it works identically on desktop.</p>
+                <div class="method-box">
+                    <h4>⏱️ The Idle Timers You're Fighting</h4>
+                    <ul>
+                        <li><strong>~5 minutes of zero input</strong> → the world server force-logs your character to free the slot.</li>
+                        <li><strong>Some minigames / dangerous areas</strong> log you faster or don't auto-log at all (you can die AFK).</li>
+                        <li><strong>The lobby</strong> also times out, but more slowly.</li>
+                    </ul>
+                </div>
+                <p>On mobile this bites because "switching apps for a minute" easily becomes "10 minutes gone" when someone texts you. The fix is to either keep sending input or accept the logout.</p>
+                <div class="action-step">
+                    <h4>Stay-alive tactics for mobile</h4>
+                    <ul>
+                        <li><strong>AFK-skilling that counts as input:</strong> activities like <em>fishing, woodcutting, mining</em> register actions and reset the idle timer as long as the action repeats — but only while the app is <em>active on screen</em>. Backgrounded, no input is sent, so the timer runs.</li>
+                        <li><strong>Use the "logout timer" warning:</strong> OSRS shows a "You will be logged out in 1 minute" notice — but you must be looking at the screen to see and click it.</li>
+                        <li><strong>Best practice:</strong> if you'll be away more than ~3 minutes, just log out cleanly from the in-game logout button. A clean logout is safer than a forced one and avoids "lost connection" streaks.</li>
+                        <li><strong>Never AFK in dangerous content</strong> expecting the background to hold. If the app drops, your character sits still and can be killed or looted.</li>
+                    </ul>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Set a Real Reminder</div>
+                    <p>Mobile players underestimate how fast 5 minutes passes. Use a phone timer for 4 minutes when you step away, so you can tap back in before the server logs you. It's low-tech but it works better than any setting.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="brand">
+                <h2>6. 📱 Per-Brand Settings: Samsung, Xiaomi, iPhone</h2>
+                <p>Generic "turn off battery optimization" advice fails because every manufacturer hides the real switch in a different menu. Here are the exact paths.</p>
+
+                <h3>⑥ Samsung (One UI)</h3>
+                <ul>
+                    <li><strong>Settings → Battery → Background usage limits</strong> → turn <strong>off</strong> "Put unused apps to sleep" and "Sleep apps."</li>
+                    <li>Add OSRS Mobile to <strong>"Never auto sleeping apps"</strong> (the + button).</li>
+                    <li><strong>Settings → Apps → Old School RuneScape → Battery</strong> → set to <strong>"Unrestricted"</strong>.</li>
+                    <li>Open the app in recent-tasks, tap the app icon → <strong>"Lock this app"</strong> so memory cleaning won't kill it.</li>
+                </ul>
+
+                <h3>⑦ Xiaomi / Redmi / POCO (MIUI / HyperOS)</h3>
+                <ul>
+                    <li><strong>Security app → Battery → App battery saver</strong> → set OSRS Mobile to <strong>"No restrictions"</strong>.</li>
+                    <li><strong>Settings → Apps → Permissions → Autostart</strong> → enable for OSRS Mobile.</li>
+                    <li>Recent-tasks → tap the lock icon to <strong>lock</strong> the app.</li>
+                    <li>Disable <strong>"MIUI optimization"</strong> side-effects by setting "App behavior" to "Show all activities."</li>
+                </ul>
+
+                <h3>⑧ iPhone / iPad (iOS)</h3>
+                <ul>
+                    <li><strong>Settings → General → Background App Refresh → ON</strong> (for OSRS at minimum).</li>
+                    <li><strong>Settings → Battery → Low Power Mode → OFF</strong>.</li>
+                    <li>While playing, <strong>Settings → Display &amp; Brightness → Auto-Lock → Never</strong> (remember to revert later to save battery).</li>
+                    <li>Keep iOS updated — older iOS versions had stricter background-socket limits.</li>
+                </ul>
+
+                <div class="tip-box">
+                    <div class="tip-title">🔋 The Battery Trade-Off</div>
+                    <p>Whitelisting OSRS Mobile from battery optimization <strong>will</strong> use more battery and the phone may run warmer. That's the unavoidable cost of staying connected. If battery life matters more than staying logged in, accept background disconnects and just re-log in — your account is never at risk either way.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7: TABLE -->
+            <section id="table">
+                <h2>7. 🗺️ Symptom → Fix Quick Reference</h2>
+                <p>Match what you experience to the scenario and the fix:</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>You Experience…</th><th>Scenario</th><th>Primary Fix</th></tr>
+                    <tr><td>Logs out 10–60s after switching apps</td><td>Process death / suspension</td><td>§2 + §6 battery whitelist</td></tr>
+                    <tr><td>Drops when screen is off for a while</td><td>Doze / Low Power Mode</td><td>§3 disable battery savers</td></tr>
+                    <tr><td>Boots when leaving Wi-Fi / entering data</td><td>IP swap</td><td>§4 stay on one network</td></tr>
+                    <tr><td>"Logged out in 1 minute" notice</td><td>Idle timeout</td><td>§5 tap back or clean logout</td></tr>
+                    <tr><td>Disconnects only while walking outside</td><td>Cell-tower IP rotation</td><td>§4 stand still / use Wi-Fi</td></tr>
+                    <tr><td>Random drops with good signal</td><td>Manufacturer killer app</td><td>§6 brand-specific settings</td></tr>
+                </table>
+                </div>
+                <h3>Expected "survival time" by setup</h3>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Setup</th><th>Typical background survival</th><th>Notes</th></tr>
+                    <tr><td>Default Android, no changes</td><td>10–60 seconds</td><td>App usually killed on switch-away</td></tr>
+                    <tr><td>Battery whitelisted (Android)</td><td>2–4 minutes</td><td>Before idle timeout claims it</td></tr>
+                    <tr><td>Plugged in + whitelisted</td><td>Until 5-min idle timer</td><td>Best realistic mobile result</td></tr>
+                    <tr><td>iPhone, BGR on, not Low Power</td><td>1–3 minutes</td><td>iOS still suspends aggressively</td></tr>
+                    <tr><td>Screen kept on (Auto-Lock off)</td><td>Until you act / idle timer</td><td>Drains battery fastest</td></tr>
+                </table>
+                </div>
+            </section>
+
+            <!-- SECTION 8: FAQ -->
+            <section id="faq">
+                <h2>8. ❓ FAQ — Mobile Background Disconnects</h2>
+
+                <div class="faq-item">
+                    <h4>Will OSRS Mobile ever stay connected forever in the background like a chat app?</h4>
+                    <p>No. The client is built around a single active game socket with a heartbeat, and both mobile OSes suspend background network for battery reasons. You can extend survival to a few minutes with the settings above, but indefinite backgrounding isn't supported. Treat "stay logged in while I do a 2-minute chore" as the achievable target.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Does using mobile data instead of Wi-Fi cause more disconnects?</h4>
+                    <p>Not by itself — a stable 4G/5G connection is fine. The problem is the <em>transition</em>: each time your IP changes (Wi-Fi↔data, or handoff between towers) the server may drop the old session as a duplicate. Staying on one network is what matters more than which network it is.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>My phone is plugged in and still disconnects — why?</h4>
+                    <p>Then the cause is likely the <strong>idle timeout</strong> (§5), not power management. Even on charge, after ~5 minutes of zero input the world server logs your character out. Keep the screen on and tap occasionally, or accept the logout. Also confirm Low Power Mode / Doze are truly off, since some phones re-enable them after updates.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Will whitelisting the app from battery optimization harm my phone?</h4>
+                    <p>It increases battery drain and heat for that app — that's the trade-off. It does not harm the device. If you'd rather save battery, simply let it disconnect and re-log in when you return; your account, bank, and progress are all server-side and completely safe.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Is there a setting inside OSRS Mobile to "stay connected"?</h4>
+                    <p>There is no in-app toggle for background persistence. The closest controls are the <strong>auto-logout warning</strong> and <strong>logout timer</strong> preferences in the in-game Settings → Gameplay, which only help you react before the server logs you. The real fixes are all in your phone's OS settings, covered in §2–§6.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Why does it disconnect more on my new Xiaomi than my old Samsung?</h4>
+                    <p>Each manufacturer tunes background-kill aggressiveness differently, and MIUI/HyperOS is among the strictest. Follow the §6 Xiaomi steps (Autostart on, no battery restrictions, lock the app) and it will behave like the Samsung did. Default brand settings — not the game — are almost always the culprit.</p>
+                </div>
+            </section>
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 What To Do After You've Fixed It</h3>
+                <p>Once disconnects are under control, a few habits keep them rare:</p>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Habit 1:</strong> Whitelist OSRS Mobile from battery optimization once, per <a href="osrs-mobile-battery-data-2026.html" style="color:#8b6914; font-weight:bold;">our mobile battery &amp; data guide</a>, so you never redo it after an OS update.
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Habit 2:</strong> Keep the <a href="osrs-mobile-best-settings-2026.html" style="color:#8b6914; font-weight:bold;">best in-game mobile settings</a> tuned so the client is lighter and reconnects faster.
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Habit 3:</strong> If you also crash (not just disconnect), see the <a href="osrs-mobile-crashing-black-screen-android-fix-2026.html" style="color:#8b6914; font-weight:bold;">Android crash &amp; black-screen fix</a>.
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Habit 4:</strong> Lock down your <a href="osrs-account-security-guide-2026.html" style="color:#8b6914; font-weight:bold;">Jagex account security</a> so a re-login never locks you out via 2FA.
+                    </div>
+                </div>
+                <a href="osrs-mobile-guide-2026.html" class="support-btn paypal-btn" style="display:inline-block; text-decoration:none; margin-top:20px;">Next: Full OSRS Mobile Guide →</a>
+            </div>
+
+            <!-- RELATED GUIDES -->
+                    <div class="related-guides">
+      <h3>More OSRS Mobile &amp; Account Guides</h3>
+      <div class="article-grid">
+        <a href="osrs-mobile-guide-2026.html" class="article-card">
+          <h3>OSRS Mobile Guide 2026 — Settings, Controls &amp; Play Tips</h3>
+          <p>The complete mobile handbook: layout, controls, and the settings that keep the client stable.</p>
+        </a>
+        <a href="osrs-mobile-battery-data-2026.html" class="article-card">
+          <h3>OSRS Mobile Battery &amp; Data Usage Guide 2026</h3>
+          <p>How much data and battery OSRS Mobile really uses, and how to tame both without constant disconnects.</p>
+        </a>
+        <a href="osrs-mobile-best-settings-2026.html" class="article-card">
+          <h3>OSRS Mobile Best Settings 2026</h3>
+          <p>The recommended graphics, interface, and performance settings for a light, fast-reconnecting client.</p>
+        </a>
+        <a href="osrs-mobile-crashing-black-screen-android-fix-2026.html" class="article-card">
+          <h3>OSRS Mobile Crashing &amp; Black Screen (Android) Fix 2026</h3>
+          <p>If your problem is a crash rather than a disconnect, this is the matching fix guide.</p>
+        </a>
+        <a href="osrs-account-security-guide-2026.html" class="article-card">
+          <h3>OSRS Account Security Guide 2026</h3>
+          <p>Set up 2FA and backup codes so re-logging in after a disconnect never locks you out.</p>
+        </a>
+      </div>
+    
+<div class="tool-callout" style="background:#2a1a0a;border:1px solid #d4af37;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+    <p style="color:#1a1a1a;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">🔧 Try Our OSRS Mobile Stability Checklist</p>
+    <p style="color:#1a1a1a;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Tired of re-logging? Our one-page checklist walks you through every brand-specific battery whitelist and network setting — <strong>for both Android and iPhone</strong> — so you stay connected through any quick errand.</p>
+    <a href="osrs-mobile-battery-data-2026.html" style="display:inline-block;padding:0.65rem 1.8rem;background:#d4af37;color:#1a0f0a;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Open the Battery &amp; Data Guide →</a>
+</div>
+</div><div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>Every guide is free — this one stays free either way.</h3>
+            <p>No paywalls, no subscriptions. But the <strong>Early Access 5-Pack</strong> gives you more:</p>
+            <p style="margin:6px 0 0 0;line-height:1.7">
+                📚 <strong>5 Latest Guides</strong> — early access before anyone else<br>
+                ⭐ <strong>4-Week Exclusive Window</strong> — guides go free after 4 weeks<br>
+                ⏰ <strong>Profit Finder + Gear Tool</strong> — premium tools included in the pack<br>
+                🔄 <strong>New guides added regularly</strong> — your purchase always includes the latest pack
+            </p>
+            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access 5-Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+<!-- SUPPORT CARD -->
+    <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../levels/beginner.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Beginner Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRS Guru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ New Players (Stage 0)</h4><ul>
+                    <li><a href="osrs-mobile-guide-2026.html">OSRS Mobile Guide</a></li>
+                    <li><a href="osrs-mobile-battery-data-2026.html">Mobile Battery &amp; Data</a></li>
+                    <li><a href="osrs-mobile-best-settings-2026.html">Mobile Best Settings</a></li>
+                    <li><a href="osrs-account-security-guide-2026.html">Account Security</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+<!-- Copyright & Anti-Scraping Notice -->
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+<style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#3b2615!important}
+.guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+.guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+.guide-content .related-guides .article-card:hover{background:#f0ecf5!important;border-color:#D4CDE0!important}
+.guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+@media (max-width: 768px) {
+    .guide-content table { font-size: 0.85rem; }
+    .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+    .guide-content table tbody td { padding: 6px 10px; }
+    .guide-content h2 { font-size: 1.4em; }
+    .guide-content h3 { font-size: 1.15em; }
+}
+@media (max-width: 640px) {
+    .guide-content table { display: block; overflow-x: auto; }
+    .guide-content h2 { font-size: 1.25em; }
+    .guide-content h3 { font-size: 1.05em; }
+}
+.tool-callout,.tool-callout p,.tool-callout h3,.tool-callout h4,.tool-callout strong,.tool-callout a:not(.support-amount-btn){color:#fff!important}
+.tool-callout{background:#3b2615!important}
+[style*="background:#2a1a0a"] p,[style*="background:#2a1a0a"] h3,[style*="background:#2a1a0a"] h4,[style*="background:#2a1a0a"] li,[style*="background:#3b2615"] p,[style*="background:#3b2615"] h3,[style*="background:#3b2615"] h4,[style*="background:#3b2615"] li{color:#fff!important}
+</style>
+
+</body>
+</html>
