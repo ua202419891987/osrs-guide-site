@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert Quest Softlock Fix: 4 Named Bugs &amp; How to Escape (2026)</title>
+    <meta name="description" content="Harmonius Hooves VIII, Delesyia vigilantes, Crab Queen and Longleaf light &mdash; four Crimson Desert quest softlocks missing from official Known Issues, plus triggers and escapes.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Crimson Desert quest softlock, Harmonius Hooves VIII bug, Crimson Desert Crab Queen stuck, Delesyia vigilante bug, Crimson Desert Longleaf light quest fix 2026">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-quest-softlock-fix-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{color:#7a64b8!important}
+        .guide-content h3{color:#7a64b8!important}
+        .guide-content .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;color:#2d2a33;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0}
+        .guide-content .tip-box strong{color:#7a64b8}
+        .guide-content .warn-box{background:#fef9f5;border:1px solid #e8c8a0;color:#2d2a33;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0}
+        .guide-content .warn-box strong{color:#b84a3a}
+        .guide-content .action-step{background:#faf8fc;border:1px solid #e0d8f0;margin:1.2rem 0;padding:1.2rem 1.5rem;border-radius:8px}
+        .guide-content .action-step h4{color:#7a64b8;margin:0 0 .6rem 0}
+        .guide-content .method-box{background:#faf8fc;border:1px solid #e0d8f0;padding:1.4rem;margin:1.25rem 0;border-radius:8px}
+        .guide-content .method-box h4{color:#7a64b8;margin:0 0 .85rem 0}
+        .guide-content .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .guide-content .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .guide-content .toc{background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .guide-content .toc h3{color:#7a64b8!important}
+        .guide-content li{color:#2d2a33!important}
+        .guide-content p{color:#2d2a33!important}
+        .progress-widget{display:none!important}
+        table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+        table th{background:#f8f6fc;color:#7a64b8;padding:10px 14px;text-align:left;border:1px solid #e0d8f0;font-weight:700}
+        table td{padding:9px 14px;border:1px solid #eee;color:#333}
+        table tr:nth-child(even){background:#fafbfd}
+        .guide-content .quick-summary{background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px}
+        .guide-content .quick-summary h3{color:#7a64b8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700}
+        .guide-content .quick-summary ul{margin:0;padding-left:1.2rem;list-style:none;color:#2d2a33;font-size:.92rem;line-height:1.8}
+        .guide-content .quick-summary li{color:#2d2a33!important}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Crimson Desert <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#prevention">Prevention</a></li>
+                    <li><a href="#named">4 Named Bugs</a></li>
+                    <li><a href="#others">Other Locks</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../guides/crimson-desert/index.html">Crimson Desert</a> / Quest Softlock Fix</p>
+            <h1>Crimson Desert Quest Softlock Fix: 4 Named Bugs &amp; How to Escape</h1>
+            <div class="cd-level-badge" style="display:inline-block;background:#f0ebfa;color:#5a4a8a;border:1px solid #7a64b8;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">🔧 Technical &amp; Fixes</div>
+            <p class="subtitle">The marker is on your map. The NPC is standing right there. Nothing happens. Crimson Desert has a handful of quest states that stop advancing permanently &mdash; and most of them are <em>not</em> in the official Known Issues list, which is all the big sites reprint.</p>
+            <p style="font-style:italic;color:#5a4a8a;margin:.4rem 0 0;font-size:.95rem;">"Forty hours in and Harmonius Hooves VIII just refuses to tick over. Every guide I found said 'wait for a patch'."</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🎮</span> <strong>Softlock Fix</strong> · 9 min read · Updated August 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <!-- QUICK SUMMARY -->
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#7a64b8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary — 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#2D2A33;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Four named quest softlocks:</strong> Harmonius Hooves VIII, the Delesyia vigilantes, the Crab Queen, and the Longleaf light puzzle.</li>
+                    <li>📌 <strong>Most are not in official Known Issues</strong> &mdash; competitor sites reprint that list, so these four are usually missing entirely.</li>
+                    <li>📌 <strong>The universal first move:</strong> hard-quit to desktop (not just reload), then load a save from <em>before</em> you entered the quest area.</li>
+                    <li>📌 <strong>Permanent-loss traps:</strong> throwing your shield then dying can lose it for good; legendary mounts can lock content after one death.</li>
+                    <li>📌 <strong>Prevention beats recovery:</strong> keep one manual save every two hours and one before every named quest chain.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#prevention">Before Anything Else: Save Discipline</a></li>
+                    <li><a href="#universal">The Universal Escape Sequence</a></li>
+                    <li><a href="#named">The 4 Named Quest Softlocks</a></li>
+                    <li><a href="#others">Other Confirmed Lock States</a></li>
+                    <li><a href="#matrix">Softlock Quick-Reference Matrix</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ol>
+            </div>
+
+            <section id="prevention">
+                <h2>1. Before Anything Else: Save Discipline</h2>
+                <p>Crimson Desert autosaves generously, and that is exactly the problem. A softlock gets baked into your autosave within a minute or two of triggering, and the rolling slots then overwrite the clean state behind it. Players who escape these bugs simply had a manual save that predated the break.</p>
+                <div class="tip-box">
+                    <strong>💡 The two-slot rule</strong>
+                    <p>Keep a manual save every couple of hours, plus one <em>immediately before</em> any named quest chain or boss arena. Two slots, rotated. Fifteen seconds now versus forty lost hours later.</p>
+                </div>
+                <p>Several Crimson Desert softlocks are <strong>state-based, not position-based</strong>. Teleporting, fast travelling or sleeping won't clear them, because the quest flag itself is stuck at an intermediate value. There is no command to reset a quest stage &mdash; rolling back a save is the reset button.</p>
+            </section>
+
+            <section id="universal">
+                <h2>2. The Universal Escape Sequence</h2>
+                <p>Work through these in order before assuming a quest is permanently dead. Roughly half of reported "softlocks" clear at step 2 or 3.</p>
+                <div class="action-step">
+                    <h4>① Hard-quit to desktop, not just to the main menu</h4>
+                    <p>The title screen keeps session state resident. Close the process completely and relaunch &mdash; this alone resolves stuck dialogue triggers and unresponsive NPCs.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Leave the region entirely, then sleep</h4>
+                    <p>Fast travel to a different region &mdash; not just another marker in the same one &mdash; then sleep a full day. This forces an NPC schedule rebuild, which unsticks patrol-based and vigilante-type quests.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Abandon and re-accept the quest, if possible</h4>
+                    <p>Side quests can often be dropped and re-taken from the original giver, re-initialising the flag chain. Main-line quests usually cannot &mdash; skip to step 4.</p>
+                </div>
+                <div class="action-step">
+                    <h4>④ Roll back to a pre-area save</h4>
+                    <p>Load the newest manual save from before you entered the quest <em>area</em> &mdash; not just before the objective. Many triggers fire on zone entry, so a save made inside the zone often carries the broken flag with it.</p>
+                </div>
+                <div class="warn-box">
+                    <strong>⚠️ Do not delete your save files.</strong>
+                    <p>A stuck quest flag is not a corrupt save. Deleting saves to "start clean" is the most common irreversible mistake in these threads. Back the folder up first.</p>
+                </div>
+            </section>
+
+            <section id="named">
+                <h2>3. The 4 Named Quest Softlocks</h2>
+                <p>These four come up repeatedly in community reports and are not fully covered on the official Known Issues board. Each entry gives the tell, the trigger, and the escape.</p>
+
+                <div class="method-box">
+                    <h4>🐴 Harmonius Hooves VIII</h4>
+                    <p><strong>What breaks:</strong> The eighth stage of the Harmonius Hooves chain fails to register completion. The objective text stays on screen, the marker persists, and re-visiting the NPC produces only generic idle barks &mdash; no quest dialogue option.</p>
+                    <p><strong>Trigger:</strong> Completing the stage objective <em>out of order</em> &mdash; arriving at the destination before the escort or mount step has registered, or dismounting inside the completion volume. Fast travelling mid-stage is a strong contributing factor.</p>
+                    <p><strong>Escape:</strong> Sleep a full day in a different region, then return on foot rather than by fast travel. If the dialogue option is still missing, roll back to before you accepted stage VIII and redo it without fast travelling or dismounting.</p>
+                    <p><strong>Prevention:</strong> Do the whole Hooves stage in one sitting, mounted, no fast travel.</p>
+                </div>
+
+                <div class="method-box">
+                    <h4>⚔️ The Delesyia Vigilantes</h4>
+                    <p><strong>What breaks:</strong> The vigilante group in Delesyia either never spawns, spawns as non-hostile statues that cannot be engaged, or one member remains alive but unreachable, leaving the "defeat the vigilantes" counter permanently short by one.</p>
+                    <p><strong>Trigger:</strong> Entering the area from an unintended direction &mdash; usually climbing or gliding in over terrain instead of the scripted approach &mdash; so the spawn volume never fires. Also reported when combat starts with a stray ranged shot before the trigger loads.</p>
+                    <p><strong>Escape:</strong> Move a full region away, hard-quit to desktop, then approach again along the road on the ground. If the counter is stuck one short, the missing member has usually fallen through geometry &mdash; that variant needs a rollback, as the kill can't be credited.</p>
+                    <p><strong>Prevention:</strong> Approach faction encounters on the ground via the intended path; don't open with a ranged attack.</p>
+                </div>
+
+                <div class="method-box">
+                    <h4>🦀 The Crab Queen</h4>
+                    <p><strong>What breaks:</strong> The Crab Queen encounter locks in one of two ways: the boss burrows and never resurfaces, leaving you in a combat state you cannot exit; or she is defeated but the post-fight script never fires, so the arena stays sealed and the quest never completes.</p>
+                    <p><strong>Trigger:</strong> Killing her during a transition animation &mdash; high burst damage landing exactly as she enters the burrow or armour-break phase skips the state the completion script waits for. Dying and respawning mid-encounter can also leave the arena flag half-set.</p>
+                    <p><strong>Escape:</strong> Stuck in combat with no boss? Hard-quit to desktop and reload; the encounter usually resets. Sealed arena after a kill needs a rollback and a refight where you deliberately <em>don't</em> burst her through phase transitions.</p>
+                    <p><strong>Prevention:</strong> Ease off during transitions. Our <a href="../../guides/crimson-desert/crimson-desert-boss-mechanics-teaching-2026.html" style="color:#7a64b8;font-weight:600">Boss Mechanics Teaching guide</a> covers which bosses have skippable transition states &mdash; those are the ones that desync.</p>
+                </div>
+
+                <div class="method-box">
+                    <h4>🕯️ The Longleaf Light Puzzle</h4>
+                    <p><strong>What breaks:</strong> The light/lantern sequence in the Longleaf area accepts your inputs but never registers the final state. Lights stay lit, no completion cue plays, and the connected door or objective remains closed.</p>
+                    <p><strong>Trigger:</strong> Interacting with the lights too rapidly, or in an order the script doesn't expect. Leaving the puzzle area partway through and returning also leaves half the sequence flagged complete and half not.</p>
+                    <p><strong>Escape:</strong> Hard-quit to desktop and reload &mdash; the puzzle often re-initialises on a fresh session. If the lights load already lit and nothing responds, that state is baked in; roll back to before you first entered, then redo it slowly, letting each light's animation finish.</p>
+                    <p><strong>Prevention:</strong> Never leave a puzzle area mid-sequence, and pace your interactions.</p>
+                </div>
+            </section>
+
+            <section id="others">
+                <h2>4. Other Confirmed Lock States</h2>
+                <p>Not quest-stage bugs in the same sense, but they lock content just as hard &mdash; and two cost you something permanently.</p>
+                <div class="action-step">
+                    <h4>Damiane / Oongka faction lock (Greymane)</h4>
+                    <p>Companion content tied to Damiane and Oongka can stall if faction standing changes while a companion questline is mid-stage. The tell: a companion who offers no dialogue but is still listed as active. Escape: advance a full day outside the faction's territory; if that fails, roll back to before the standing change.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Shield thrown + death = shield gone permanently</h4>
+                    <p>The nastiest one. Throw your shield, die before recovering it, and it can fail to return on respawn &mdash; permanently, with no recovery item. <strong>Escape: reload immediately.</strong> Don't keep playing and hope; your autosave will overwrite the state where you still had it.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Legendary mount death locks its content</h4>
+                    <p>Some legendary mounts don't respawn, and content chained to them becomes inaccessible on that save. Treat a legendary mount death as a reload-immediately event. Dismount before entering anything dangerous.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Disappearing house / camp</h4>
+                    <p>Housing and camps have been reported vanishing after certain zone transitions. Usually inconvenient rather than a true softlock &mdash; leave the region and return after an in-game day.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Sleep-induced immobilisation</h4>
+                    <p>Sleeping can leave Kliff rooted: camera works, world runs, movement input does nothing. Try mounting, or opening and closing the map. If input is genuinely dead rather than rooted, it may be the window-focus bug covered in our <a href="../../guides/crimson-desert/crimson-desert-wasd-rebind-bypass-2026.html" style="color:#7a64b8;font-weight:600">WASD rebind and input guide</a>, which has a far simpler fix.</p>
+                </div>
+            </section>
+
+            <section id="matrix">
+                <h2>5. Softlock Quick-Reference Matrix</h2>
+                <table>
+                    <tr><th>Lock</th><th>Recoverable in-session?</th><th>Fastest escape</th><th>In official Known Issues?</th></tr>
+                    <tr><td>Harmonius Hooves VIII</td><td>Sometimes</td><td>Sleep a day away, return on foot</td><td>Not listed</td></tr>
+                    <tr><td>Delesyia vigilantes</td><td>Sometimes</td><td>Leave region, hard-quit, re-approach by road</td><td>Not listed</td></tr>
+                    <tr><td>Crab Queen</td><td>Combat-state variant only</td><td>Hard-quit; sealed-arena variant needs rollback</td><td>Not listed</td></tr>
+                    <tr><td>Longleaf light puzzle</td><td>Often</td><td>Hard-quit to desktop, redo slowly</td><td>Not listed</td></tr>
+                    <tr><td>Damiane / Oongka faction</td><td>Sometimes</td><td>Advance a day outside the territory</td><td>Partially</td></tr>
+                    <tr><td>Shield lost after death</td><td>❌ No</td><td>Reload immediately &mdash; no other recovery</td><td>Not listed</td></tr>
+                    <tr><td>Legendary mount death</td><td>❌ No</td><td>Reload immediately</td><td>Not listed</td></tr>
+                    <tr><td>House / camp vanished</td><td>Usually</td><td>Leave region, sleep a day, return</td><td>Not listed</td></tr>
+                    <tr><td>Sleep immobilisation</td><td>Yes</td><td>Mount up, or fix window focus</td><td>Not listed</td></tr>
+                </table>
+                <div class="tip-box">
+                    <strong>🔔 Why this list is longer than the official one</strong>
+                    <p>Pearl Abyss's Known Issues board tracks what QA reproduced internally &mdash; a much narrower set than what players hit in the wild. Most guide sites reprint that board verbatim. We build from community reproduction reports instead, which is why these four named quests appear here and nowhere else.</p>
+                </div>
+                <p>Crimson Desert gives very little guidance on quest ordering, which is part of why out-of-sequence triggers break things. Our <a href="../../guides/crimson-desert/crimson-desert-beginner-no-guide-completion-2026.html" style="color:#7a64b8;font-weight:600">Beginner No-Guide Completion route</a> sequences the early game around the known trigger traps.</p>
+            </section>
+
+            <section id="faq">
+                <h2>6. FAQs</h2>
+                <div class="faq-item">
+                    <h4>Q: Will a patch retroactively fix a quest I'm already stuck in?</h4>
+                    <p>Sometimes, but don't count on it. Patches usually fix the trigger going forward; an already-broken flag in your save often stays broken. Rolling back is more reliable than waiting.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: Can I skip a softlocked quest and finish the game?</h4>
+                    <p>Side quests, generally yes &mdash; the main line continues. Main-line stages, no. If a main quest is locked you need a rollback.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: Does verifying game files fix a softlock?</h4>
+                    <p>No. Verification checks installed files, not save state. Harmless, but it won't help.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: My shield is gone after dying &mdash; can I get another?</h4>
+                    <p>Not reliably. Reload a save from before the death, which is why shield-throw deaths deserve an immediate reload.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: Should I back up my saves manually?</h4>
+                    <p>Yes. Copy the save folder elsewhere before any long named quest chain. It's the only true undo button this game gives you.</p>
+                </div>
+            </section>
+
+            <div class="next-steps">
+                <h3>🎯 More Crimson Desert Help</h3>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Learn the phase tells that prevent boss desyncs: <a href="../../guides/crimson-desert/crimson-desert-boss-mechanics-teaching-2026.html" style="color:#7a64b8; font-weight:bold;">Boss Mechanics Teaching 2026</a>
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Movement or input feels broken instead? <a href="../../guides/crimson-desert/crimson-desert-wasd-rebind-bypass-2026.html" style="color:#7a64b8; font-weight:bold;">WASD Rebind Bypass 2026</a>
+                </div>
+            </div>
+
+            <div class="related-guides">
+                <h3>More Crimson Desert Guides</h3>
+                <div class="article-grid">
+                    <a href="../../guides/crimson-desert/crimson-desert-beginner-no-guide-completion-2026.html" class="article-card">
+                        <h3>Beginner No-Guide Completion</h3>
+                        <p>A quest order that avoids the known trigger traps.</p>
+                    </a>
+                    <a href="../../guides/crimson-desert/crimson-desert-boss-mechanics-teaching-2026.html" class="article-card">
+                        <h3>Boss Mechanics Teaching</h3>
+                        <p>Phase tells, transition windows and safe damage timing.</p>
+                    </a>
+                    <a href="../../guides/crimson-desert/crimson-desert-wasd-rebind-bypass-2026.html" class="article-card">
+                        <h3>WASD Rebind Bypass</h3>
+                        <p>Locked movement keys and three tested workarounds.</p>
+                    </a>
+                    <a href="../../guides/crimson-desert/crimson-desert-115-patch-issues-2026.html" class="article-card">
+                        <h3>1.15 Patch Issues</h3>
+                        <p>What the latest patch fixed &mdash; and what it broke.</p>
+                    </a>
+                </div>
+
+                <div class="tool-callout" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+                    <p style="color:#7a64b8;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">📚 More Crimson Desert Guides</p>
+                    <p style="color:#2D2A33!important;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Stuck on another issue? Browse our full Crimson Desert guide library.</p>
+                    <a href="../../guides/crimson-desert/index.html" style="display:inline-block;padding:0.65rem 1.8rem;background:#9B84D4;color:#fff;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Browse Guides →</a>
+                </div>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🔓</span>
+                    <div class="support-text">
+                        <h3>Every guide is free — this one stays free either way.</h3>
+                        <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>
+                        <p style="margin:6px 0 0 0;line-height:1.7">
+                            📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>
+                            ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>
+                            ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>
+                            🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster
+                        </p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>
+                        <div class="support-amounts">
+                            <a href="https://www.paypal.com/ncp/payment/XW8PRCTGNMUG4" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack</a>
+                        </div>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>Crimson Desert Guru</h4><p>Free Crimson Desert guides updated weekly.</p></div>
+                <div class="footer-col"><h4>Guides</h4><ul>
+                    <li><a href="../../guides/crimson-desert/crimson-desert-beginner-no-guide-completion-2026.html">Beginner No-Guide Route</a></li>
+                    <li><a href="../../guides/crimson-desert/crimson-desert-boss-mechanics-teaching-2026.html">Boss Mechanics Teaching</a></li>
+                    <li><a href="../../guides/crimson-desert/crimson-desert-wasd-rebind-bypass-2026.html">WASD Rebind Bypass</a></li>
+                    <li><a href="../../guides/crimson-desert/crimson-desert-115-patch-issues-2026.html">1.15 Patch Issues</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>More</h4><ul>
+                    <li><a href="../../index.html">OSRS Guru Home</a></li>
+                    <li><a href="../../guides/crimson-desert/index.html">All CD Guides</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #7a64b8;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Crimson Desert is a trademark of Pearl Abyss. Not affiliated with or endorsed by Pearl Abyss.</p>
+    </div>
+
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content{color:#2d2a33!important}
+    .guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#2d2a33!important}
+    .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .faq-item,.guide-content .warn-box,.guide-content .next-steps{background:#fff!important;border:1px solid #e0d8f0!important}
+    .guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .action-step p,.guide-content .action-step li,.guide-content .warn-box p,.guide-content .warn-box li,.guide-content .next-steps p,.guide-content .next-steps li{color:#2d2a33!important}
+    .guide-content .faq-item h4,.guide-content .method-box h4,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warn-box strong,.guide-content .next-steps strong{color:#7a64b8!important}
+    .guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+    .guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    .guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+        .guide-content .quick-summary ul { padding-left: 0.5rem; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    </style>
+</body>
+</html>
