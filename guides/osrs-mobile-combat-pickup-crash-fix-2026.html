@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Mobile Crashing During Combat, Pickup &amp; Teleport — Fix Guide 2026</title>
+    <meta name="description" content="Updated for July 2026. Why OSRS Mobile crashes mid-combat, on loot pickup, or when teleporting — and the exact per-device fixes for Samsung, Pixel, OnePlus, iPhone, and iPad. Stop the activity-triggered crashes other guides miss.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS Mobile crashes during combat, OSRS Mobile crash on loot pickup, OSRS Mobile crash when teleporting, OSRS Mobile mid-game crash fix, Old School RuneScape app freezes in fight, Samsung Pixel iPhone OSRS crash 2026">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-mobile-combat-pickup-crash-fix-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="Intermediate" data-category="mobile">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS Guru</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../skill-training.html">Skill Training</a></li>
+                    <li><a href="../money-making.html">Money Making</a></li>
+                    <li><a href="../boss-guides.html">Boss Guides</a></li>
+                    <li><a href="../quest-guides.html">Questing</a></li>
+                    <li><a href="../new-player.html">New Player</a></li>
+                    <li><a href="../fixes-hub.html">Fixes Hub</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="osrs-mobile-guide-2026.html">OSRS Mobile</a> / In-Game Crash Fix 2026</p>
+            <h1>⚔️ OSRS Mobile Crashing During Combat, Pickup &amp; Teleport — Fix Guide 2026</h1>
+            <p class="subtitle">The app launches fine, but the moment you start a fight, grab loot, or teleport your screen freezes and the client dies. This is the "activity-triggered crash" that most launch-crash guides never cover — and below you get the real, per-device fixes for Android and iOS in 2026.</p>
+            <p class="article-meta">📅 Published: July 30, 2026 &nbsp;·&nbsp; ✏️ Updated: July 30, 2026 &nbsp;·&nbsp; ✍️ By OSRS Guru Team</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>Updated: July 2026</strong> — Troubleshooting Guide · 11 min read · <span style="background:#d4af37;color:#1a0f0a;padding:1px 8px;border-radius:3px;font-size:.78em;margin-left:4px;vertical-align:middle;font-weight:700;">Level: Intermediate</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#1a1a1a;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary — 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Different problem from a black-screen launch crash</strong> — these crashes fire the instant the client renders new entities, ground items, or a teleport animation.</li>
+                    <li>📌 <strong>Lower "Particles" and "Ground items"</strong> in graphics settings; overloaded rendering is the #1 in-game crash trigger.</li>
+                    <li>📌 <strong>Samsung, Pixel, OnePlus, and Xiaomi</strong> each have a specific quirk (RAM Plus, Adaptive Battery, MIUI memory killer) covered below.</li>
+                    <li>📌 <strong>iPhone SE and older iPads</strong> crash from low storage and thermal throttling during long fights.</li>
+                    <li>📌 <strong>Play on a quieter world (301–310)</strong> to cut the entity count the client must draw every frame.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#why">Why OSRS Mobile Crashes Mid-Activity (Not at Launch)</a></li>
+                    <li><a href="#android">Android: Combat / Pickup / Teleport Crashes by Model</a></li>
+                    <li><a href="#ios">iOS: Combat / Pickup / Teleport Crashes by Model</a></li>
+                    <li><a href="#universal">Universal Fixes That Stop In-Game Crashes</a></li>
+                    <li><a href="#table">Device-by-Device Quick Fix Table</a></li>
+                    <li><a href="#recover">Recovering After a Crash Mid-Fight</a></li>
+                    <li><a href="#server">When It's the Server, Not Your Phone</a></li>
+                    <li><a href="#faq">In-Game Crash FAQs</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="why">
+                <h2>🔍 1. Why OSRS Mobile Crashes Mid-Activity (Not at Launch)</h2>
+                <p>Most OSRS Mobile crash articles — including our own <a href="osrs-mobile-crashing-black-screen-android-fix-2026.html" style="color:#9B84D4;font-weight:700;">Android black-screen fix</a> — focus on the app failing to open. That is a <em>launch</em> crash. The crash you are hitting is different: the client opens, logs you in, and then dies the moment the game has to <strong>render a burst of new information</strong> — spinning on an enemy, a pile of loot dropping, or a teleport animation sweeping the screen.</p>
+                <p>Think of it as a rendering and memory spike. When you attack, the client spawns hit-splats, particle effects, and animation frames. When you loot, it draws dozens of ground-item sprites. When you teleport, it reloads an entire new map tile in a single frame. On a phone that is already memory-starved or running an aggressive battery manager, that spike is enough to make Android or iOS kill the process. Tuning your <a href="osrs-mobile-best-settings-2026.html" style="color:#9B84D4;font-weight:700;">in-game graphics settings</a> is the single highest-leverage change, but the root cause is often device-specific.</p>
+                <p>This matters most on mobile because phone players are disproportionately doing <strong>slayer, bossing, and clue scrolls on the go</strong> — exactly the activities that trigger the most entity rendering. iOS users are not immune either; if your iPhone also dies mid-fight, the <a href="osrs-mobile-crashing-black-screen-ios-fix-2026.html" style="color:#9B84D4;font-weight:700;">iOS crash guide</a> covers the login-side half of the problem, while this article handles the in-combat half.</p>
+                <div class="method-box">
+                    <h4>🧩 The Three Crash Triggers</h4>
+                    <ul>
+                        <li><strong>Entity burst</strong> — many players, NPCs, or projectiles appear at once (multi-combat, world events, busy banks).</li>
+                        <li><strong>Ground-item flood</strong> — loot piles from raids, bosses, or mass kills overwhelm the sprite drawer.</li>
+                        <li><strong>Map reload</strong> — teleporting, death, or entering a new region forces a full scene rebuild in one frame.</li>
+                    </ul>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The 10-Second Test</div>
+                    <p>If the app survives the lobby and a quiet bank but crashes the instant you step into a fight, you have an activity-triggered crash — not a corrupt install. Skip the reinstall and jump to the per-device fixes below.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="android">
+                <h2>🤖 2. Android: Combat / Pickup / Teleport Crashes by Model</h2>
+                <p>Android is fragmented: the same OSRS build behaves completely differently on a Samsung versus a Pixel versus a Xiaomi. Below are the model-specific culprits and the exact toggle that fixes each one.</p>
+
+                <h3>📱 Samsung Galaxy (S20 / S21 / S22 / S23 / A-series)</h3>
+                <p>Samsung's <strong>"RAM Plus"</strong> (virtual RAM) and <strong>Device Care</strong> memory cleaner aggressively reclaim background apps, and can stutter the foreground client during a teleport reload. The fix:</p>
+                <div class="action-step">
+                    <h4>Fix for Samsung</h4>
+                    <ul>
+                        <li>Open <strong>Settings → Battery → Background usage limits</strong> and remove OSRS Mobile from "Sleeping apps."</li>
+                        <li>Open <strong>Settings → Device Care → Memory</strong> → tap <strong>"Exclude apps"</strong> and add OSRS Mobile.</li>
+                        <li>Disable <strong>RAM Plus</strong> (Settings → Battery and device care → Memory → RAM Plus → set to 0 / Off) so the kernel stops swapping the client's textures.</li>
+                        <li>Set <strong>Game Booster</strong> performance mode to "Standard" or "High performance" rather than "Battery saver."</li>
+                    </ul>
+                </div>
+
+                <h3>📱 Google Pixel (6 / 7 / 8 series)</h3>
+                <p>Pixels run clean Android but have <strong>aggressive Adaptive Battery</strong> and a known GPU driver pipeline. In-combat crashes usually trace to either the memory manager or an outdated GPU driver:</p>
+                <div class="action-step">
+                    <h4>Fix for Pixel</h4>
+                    <ul>
+                        <li>Settings → Apps → OSRS Mobile → <strong>Battery → Unrestricted</strong>.</li>
+                        <li>Settings → System → System update → check for a <strong>GPU driver update</strong> (Pixels expose standalone driver updates).</li>
+                        <li>Lower in-game <strong>Particles</strong> to Low — Pixel GPUs are fast but the OSRS renderer is unoptimized for burst sprites.</li>
+                    </ul>
+                </div>
+
+                <h3>📱 OnePlus, Xiaomi (MIUI / HyperOS), OPPO, Realme</h3>
+                <p>These brands ship the most aggressive "memory killers." A long fight or a teleport that reloads the map can be killed inside 2–3 minutes unless you whitelist the app:</p>
+                <div class="action-step">
+                    <h4>Fix for OnePlus / Xiaomi / OPPO</h4>
+                    <ul>
+                        <li>OnePlus: <strong>Settings → Battery → Battery optimization → OSRS Mobile → Don't optimize</strong>; also disable <strong>"Deep Clear"</strong> in recent-apps view.</li>
+                        <li>Xiaomi/Redmi: <strong>Settings → Apps → Manage apps → OSRS Mobile → Battery saver → No restrictions</strong>; enable <strong>"Autostart"</strong> and <strong>"Lock app in background"</strong> (swipe down on the app in recents to pin it).</li>
+                        <li>OPPO/Realme: <strong>Settings → Battery → App quick freeze → Off</strong> for OSRS Mobile.</li>
+                    </ul>
+                </div>
+
+                <h3>📱 iPhone-style budget &amp; older MediaTek phones</h3>
+                <p>Low-RAM MediaTek and older budget Android phones (3 GB RAM or less) simply run out of headroom when a boss spawns 20 projectiles. There is no setting that adds RAM — your only levers are <strong>closing all other apps</strong>, dropping graphics to Low, and avoiding mass-world content. If crashes persist, the device is below the comfortable spec for modern OSRS Mobile.</p>
+                <div class="tip-box">
+                    <div class="tip-title">⚠️ Free Storage Is Non-Negotiable</div>
+                    <p>Every model above crashes more often below ~1 GB free because the client cannot write temporary render buffers. Keep <strong>2 GB free</strong> before any bossing or long slayer trip on mobile.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="ios">
+                <h2>🍎 3. iOS: Combat / Pickup / Teleport Crashes by Model</h2>
+                <p>iOS is more uniform than Android, but the crash pattern still splits by hardware generation. The two real causes are <strong>storage pressure</strong> and <strong>thermal throttling</strong>.</p>
+
+                <h3>📱 iPhone 12 / 13 / 14 / 15 (and Pro models)</h3>
+                <p>Flagship iPhones rarely crash from raw power — when they do, it is almost always <strong>low storage</strong> (iOS silently kills apps to make room) or <strong>Background App Refresh</strong> interrupting a teleport reload:</p>
+                <div class="action-step">
+                    <h4>Fix for modern iPhone</h4>
+                    <ul>
+                        <li>Keep at least <strong>2–3 GB free</strong> (Settings → General → iPhone Storage).</li>
+                        <li>Settings → General → Background App Refresh → set OSRS Mobile to <strong>Off</strong>.</li>
+                        <li>Settings → OSRS Mobile → <strong>Mobile Data</strong> should be allowed; a Wi-Fi→cellular handoff mid-fight can look like a crash.</li>
+                        <li>Force-restart after any iOS update (volume up, volume down, hold side button) to clear a stale GPU state.</li>
+                    </ul>
+                </div>
+
+                <h3>📱 iPhone SE (2nd/3rd gen) &amp; iPhone XR / 11</h3>
+                <p>These use smaller batteries and older SoCs. A teleport or a multi-phase boss fight pushes them into <strong>thermal throttling</strong>, and the client dies when frame timing collapses:</p>
+                <div class="action-step">
+                    <h4>Fix for smaller iPhones</h4>
+                    <ul>
+                        <li>Remove the case if it traps heat; play in a cool room or off a charger (charging + gaming = heat spike).</li>
+                        <li>Drop in-game <strong>Graphics quality</strong> and <strong>Particles</strong> to Low.</li>
+                        <li>Take breaks between boss attempts to let the SoC cool — thermal crashes are cumulative within a session.</li>
+                    </ul>
+                </div>
+
+                <h3>📱 iPad (standard &amp; Air)</h3>
+                <p>iPads have great thermals but often run <strong>older iPadOS</strong> versions or are shared devices with little free space. The crash fix is mostly storage + update:</p>
+                <div class="action-step">
+                    <h4>Fix for iPad</h4>
+                    <ul>
+                        <li>Update to the latest iPadOS the hardware supports (Settings → General → Software Update).</li>
+                        <li>Free storage to <strong>3 GB+</strong> — iPads fill up with photos and offline content fast.</li>
+                        <li>Disable <strong>Low Power Mode</strong> during gameplay; it caps GPU clocks and destabilizes rendering.</li>
+                    </ul>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 iOS vs Android Takeaway</div>
+                    <p>On iOS the answer is almost always <em>storage + heat + graphics</em>. On Android it is <em>memory killers + battery managers + drivers</em>. Knowing which bucket you are in saves you an hour of random troubleshooting.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="universal">
+                <h2>🛠️ 4. Universal Fixes That Stop In-Game Crashes</h2>
+                <p>Regardless of device, these four changes remove the majority of activity-triggered crashes. Do them first, then apply your model-specific fix.</p>
+
+                <h3>⚙️ Lower Particles &amp; Ground Items</h3>
+                <p>Open OSRS Mobile → <strong>menu (☰) → Settings → Graphics</strong>. Set <strong>Overall quality</strong> to Low or Medium, set <strong>Particles</strong> to Low, and reduce <strong>Ground item count</strong> if the option exists. This directly cuts the per-frame sprite load that triggers the crash.</p>
+
+                <h3>🧹 Clear the Cache (Yes, Again)</h3>
+                <p>A stale cache makes the client fetch and re-render assets every teleport. menu → Settings → <strong>Clear cache</strong>. It never touches your account and takes 30 seconds.</p>
+
+                <h3>🌍 Pick a Quieter World</h3>
+                <p>Worlds 301–310 are typically less populated than 300–305 hotspots. Fewer players on screen = fewer entities to draw = no crash. Switch via the world switcher before your trip.</p>
+
+                <h3>🚫 Kill Overlays &amp; Recorders</h3>
+                <p>Screen recorders, chat overlays, and "game booster" widgets inject drawing layers the OSRS client does not expect. Disable them during combat — they are a top cause of mid-fight freezes on both platforms.</p>
+
+                <div class="method-box">
+                    <h4>🎯 The 4-Step Pre-Fight Routine</h4>
+                    <ol>
+                        <li>Close all background apps (free RAM).</li>
+                        <li>Confirm 2 GB+ free storage.</li>
+                        <li>Set Graphics to Low / Particles Low.</li>
+                        <li>Enter a quieter world and disable overlays.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- SECTION 5: TABLE -->
+            <section id="table">
+                <h2>📊 5. Device-by-Device Quick Fix Table</h2>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Device</th><th>Top Crash Cause</th><th>Primary Fix</th></tr>
+                    <tr><td>Samsung Galaxy</td><td>RAM Plus / Device Care reclaim</td><td>Exclude from memory cleaning, disable RAM Plus</td></tr>
+                    <tr><td>Google Pixel</td><td>Adaptive Battery + GPU driver</td><td>Unrestricted battery, update GPU driver</td></tr>
+                    <tr><td>OnePlus / Xiaomi / OPPO</td><td>Aggressive memory killer</td><td>Whitelist app, lock in background, autostart</td></tr>
+                    <tr><td>iPhone 12–15</td><td>Low storage / Background Refresh</td><td>Free 2–3 GB, disable Background App Refresh</td></tr>
+                    <tr><td>iPhone SE / XR / 11</td><td>Thermal throttling</td><td>Low graphics, cool environment, breaks</td></tr>
+                    <tr><td>iPad</td><td>Old iPadOS / low storage</td><td>Update iPadOS, free 3 GB+, disable Low Power Mode</td></tr>
+                    <tr><td>Budget &lt;3 GB RAM</td><td>Out of memory</td><td>Close apps, Low graphics, avoid mass worlds</td></tr>
+                </table>
+                </div>
+                <h3>Crash Trigger → Setting Mapping</h3>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>If it crashes when…</th><th>Change this setting</th></tr>
+                    <tr><td>…you attack / get hit</td><td>Particles → Low</td></tr>
+                    <tr><td>…loot drops</td><td>Ground item count → Low</td></tr>
+                    <tr><td>…you teleport</td><td>Overall quality → Low, free storage</td></tr>
+                    <tr><td>…after 2–3 minutes</td><td>Battery / memory whitelist (per model)</td></tr>
+                </table>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="recover">
+                <h2>💀 6. Recovering After a Crash Mid-Fight</h2>
+                <p>A crash mid-combat is scary because you are usually in danger. Here is what actually happens and how to minimize losses.</p>
+
+                <h3>🎒 What Happens to Your Items</h3>
+                <p>When the client dies, the <strong>server</strong> keeps running your character for a few seconds. If you were in a safe area (most slayer caves, most PvM instanced content, the Wilderness-less bosses), you simply log back in with your items intact. If you crashed in a <strong>deadly</strong> zone, standard death rules apply — protect valuable items and retrieve from the grave or Death's office within the time limit.</p>
+
+                <h3>⚡ Reconnect Fast</h3>
+                <p>Immediately reopen the app and log in. OSRS has a short <strong>log-in grace period</strong> after disconnect; the faster you return, the less likely you are to die to a lingering attack or to be logged out fully. Avoid "World hop" right after — return to the same world you crashed on.</p>
+
+                <h3>🛡️ Prevent the Next One</h3>
+                <p>If you crashed during a boss, apply the <a href="osrs-mobile-best-settings-2026.html" style="color:#9B84D4;font-weight:700;">best mobile settings</a> and your model-specific fix <em>before</em> the next attempt. A crash in the middle of a 500K GP trip is far more expensive than five minutes of setup.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Wilderness Warning</div>
+                    <p>If you PvM or skull-trick in the Wilderness on mobile, a crash can be fatal — you cannot react to a PKer while the app is dead. Consider using the <a href="osrs-mobile-controls-guide-2026.html" style="color:#9B84D4;font-weight:700;">mobile controls guide</a> setup and keeping risky trips short until crashes stop completely.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="server">
+                <h2>🌐 7. When It's the Server, Not Your Phone</h2>
+                <p>Sometimes the crash is not your hardware at all. If <strong>everyone</strong> in your world lags or disconnects at the same time, it is a server or connection issue.</p>
+
+                <h3>📡 World-Side Instability</h3>
+                <p>During major updates, holiday events, or world issues, Jagex worlds can stutter. Check the official OSRS status channels; if a world is unstable, hop to a different one after your fix.</p>
+
+                <h3>🔌 Home Connection Drops</h3>
+                <p>A flaky Wi-Fi that drops packets will look exactly like a client crash — the app freezes, then closes. If crashes happen at home but not on mobile data, your router or ISP is the problem. Our <a href="osrs-home-network-router-troubleshoot-2026.html" style="color:#9B84D4;font-weight:700;">home network troubleshooting guide</a> walks through DNS, QoS, and driver fixes for that scenario.</p>
+
+                <h3>🔐 Login Lockouts</h3>
+                <p>Repeated crashes that bounce you to the login screen can sometimes trip a temporary account flag. If you cannot get back in, see the <a href="osrs-mobile-cant-login-fix-2026.html" style="color:#9B84D4;font-weight:700;">can't-login fix guide</a> before assuming the worst.</p>
+            </section>
+
+            <!-- SECTION 8: FAQ -->
+            <section id="faq">
+                <h2>❓ 8. In-Game Crash FAQs</h2>
+
+                <div class="faq-item">
+                    <h4>Why does the app open fine but crash only when I fight?</h4>
+                    <p>Because launch is cheap and combat is expensive. The lobby renders almost nothing; a fight spawns hit-splats, particles, and NPCs that spike GPU and memory use. A phone with aggressive battery/memory management or low free storage kills the process at that spike — this is an activity-triggered crash, not a corrupt install.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Will lowering graphics really stop the crash, or just make it prettier?</h4>
+                    <p>It directly reduces the per-frame workload. "Particles → Low" and "Ground item count → Low" cut the exact sprite bursts that trigger the kill. On borderline devices this alone takes crashes from "every fight" to "never" — it is the highest-leverage fix after freeing storage.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>My Samsung crashes 2 minutes into every boss — is the phone broken?</h4>
+                    <p>Almost certainly not. Samsung's RAM Plus and Device Care are reclaiming the client's memory in the background. Exclude OSRS Mobile from memory cleaning, disable RAM Plus, and set battery to "Unrestricted." That specific combination fixes the vast majority of Galaxy mid-fight crashes.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Does freeing storage actually help, or is that a myth?</h4>
+                    <p>It is real. The client writes temporary render and cache buffers to disk; below ~1 GB free, the OS cannot allocate those and the app dies — often right at a teleport that reloads the map. Keep 2 GB free before any bossing or long slayer trip.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Will I lose my loot if OSRS Mobile crashes mid-kill?</h4>
+                    <p>In safe PvM content your items are safe — you log back in normally. In a deadly zone, normal death rules apply, so protect valuables and return to the same world quickly to beat the grace period. The crash itself does not delete anything; only the in-game death mechanics do.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>iOS or Android — which crashes less during combat?</h4>
+                    <p>Modern flagship iPhones are generally more stable because iOS memory management is stricter and uniform. Android flagships are close, but budget Androids and aggressive manufacturer skins (MIUI, ColorOS) crash more. The difference is mostly about storage headroom and background killers, not the OS itself.</p>
+                </div>
+            </section>
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 Still Crashing After the Fixes?</h3>
+                <p>If your specific model fix did not hold, work through these next:</p>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 1:</strong> Re-read the <a href="osrs-mobile-best-settings-2026.html" style="color:#8b6914; font-weight:bold;">best mobile settings</a> and apply every Low-graphics toggle.
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 2:</strong> If crashes happen only at home, jump to the <a href="osrs-home-network-router-troubleshoot-2026.html" style="color:#8b6914; font-weight:bold;">home network guide</a> — your router may be dropping packets.
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 3:</strong> Lock in your <a href="osrs-mobile-controls-guide-2026.html" style="color:#8b6914; font-weight:bold;">mobile controls</a> so a crash costs you less reaction time next time.
+                    </div>
+                </div>
+
+            <!-- RELATED GUIDES -->
+            <div class="related-guides">
+      <h3>Related Mobile &amp; Connectivity Guides</h3>
+      <div class="article-grid">
+        <a href="osrs-mobile-crashing-black-screen-android-fix-2026.html" class="article-card">
+          <h3>OSRS Mobile Crashing &amp; Black Screen on Android — Fix Guide 2026</h3>
+          <p>The launch-crash sibling of this guide: cache clear, storage, 32-bit limits, GPU drivers, and battery optimization.</p>
+        </a>
+        <a href="osrs-mobile-crashing-black-screen-ios-fix-2026.html" class="article-card">
+          <h3>OSRS Mobile Freezing &amp; Black Screen on iPhone/iOS — Fix Guide 2026</h3>
+          <p>The iOS launch-crash guide: force-restart, iOS requirements, storage, reinstall, and Jagex Account login fixes.</p>
+        </a>
+        <a href="osrs-mobile-best-settings-2026.html" class="article-card">
+          <h3>OSRS Mobile Best Settings 2026 — Graphics, Battery &amp; Performance</h3>
+          <p>The exact graphics and battery toggles that stop in-game crashes before they start. Read this first.</p>
+        </a>
+        <a href="osrs-mobile-controls-guide-2026.html" class="article-card">
+          <h3>OSRS Mobile Controls Guide 2026 — Layout, Hotkeys &amp; Reaction Time</h3>
+          <p>Set up your mobile controls so a crash costs you less reaction time and fewer lost kills.</p>
+        </a>
+        <a href="osrs-mobile-cant-login-fix-2026.html" class="article-card">
+          <h3>OSRS Mobile Can't Login Fix 2026 — Jagex Account &amp; Lockouts</h3>
+          <p>If repeated crashes bounce you to the login screen, this guide gets you back in without losing the account.</p>
+        </a>
+      </div>
+</div><div class="support-card" style="margin:32px 0 0 0; background-color:#2e7d32; color:#fff;">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3 style="color:#fff;">Every guide and tool is free — this one stays free either way.</h3>
+            <p style="color:#fff;">No paywalls, no subscriptions. The only paid product is the printable PDF version:</p>
+            <p style="margin:6px 0 0 0;line-height:1.7;color:#fff;">
+                📚 <strong>5 PDF Guides</strong> — offline, print-friendly<br>
+                ✅ <strong>Scams / DPS / Authenticator / Recovery / Sailing Nerf</strong><br>
+                🔄 <strong>Updated after every major game update</strong><br>
+                💾 <strong>Instant download, yours forever</strong>
+            </p>
+            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.92;color:#fff;">✅ Instant download after purchase</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the PDF 5-Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.92;color:#fff;">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+<!-- SUPPORT CARD -->
+    <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../levels/intermediate.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Intermediate Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRS Guru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ New Players (Stage 0)</h4><ul>
+                    <li><a href="osrs-interface-controls-beginner-guide-2026.html">Game Interface</a></li>
+                    <li><a href="osrs-combat-triangle-explained-2026.html">Combat Triangle</a></li>
+                    <li><a href="osrs-skills-overview-beginner-2026.html">Skills Overview</a></li>
+                    <li><a href="osrs-bank-inventory-management-2026.html">Bank &amp; Inventory</a></li>
+                    <li><a href="osrs-maps-travel-guide-2026.html">Maps &amp; Travel</a></li>
+                    <li><a href="osrs-questing-beginner-guide-2026.html">Questing Basics</a></li>
+                    <li><a href="osrs-combat-training-beginner-2026.html">Combat Training</a></li>
+                    <li><a href="osrs-money-making-beginner-2026.html">Beginner Money Making</a></li>
+                    <li><a href="osrs-gear-beginner-guide-2026.html">Gear Guide</a></li>
+                    <li><a href="osrs-safe-spots-beginner-2026.html">Safe Spots</a></li>
+                    <li><a href="osrs-prayer-training-beginner-guide-2026.html">Prayer Training</a></li>
+                    <li><a href="osrs-f2p-to-p2p-membership-guide-2026.html">F2P to P2P Transition</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+<!-- Copyright & Anti-Scraping Notice -->
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+<style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#3b2615!important}
+.guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+.guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+.guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+@media (max-width: 768px) {
+    .guide-content table { font-size: 0.85rem; }
+    .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+    .guide-content table tbody td { padding: 6px 10px; }
+    .guide-content h2 { font-size: 1.4em; }
+    .guide-content h3 { font-size: 1.15em; }
+}
+@media (max-width: 640px) {
+    .guide-content table { display: block; overflow-x: auto; }
+    .guide-content h2 { font-size: 1.25em; }
+    .guide-content h3 { font-size: 1.05em; }
+}
+.tool-callout,.tool-callout p,.tool-callout h3,.tool-callout h4,.tool-callout strong,.tool-callout a:not(.support-amount-btn){color:#fff!important}
+.tool-callout{background:#3b2615!important}
+[style*="background:#2a1a0a"] p,[style*="background:#2a1a0a"] h3,[style*="background:#2a1a0a"] h4,[style*="background:#2a1a0a"] li,[style*="background:#3b2615"] p,[style*="background:#3b2615"] h3,[style*="background:#3b2615"] h4,[style*="background:#3b2615"] li{color:#fff!important}
+</style>
+
+</body>
+</html>

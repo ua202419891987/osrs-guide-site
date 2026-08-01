@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS 117HD Crash Fix 2026: FPS Drop, Screen Tearing, GPU Plugin &amp; Driver Errors</title>
+    <meta name="description" content="Updated for 2026. 117HD crashes, FPS drops, screen tearing, or 'Graphics initialization failed' in RuneLite? 8 fixes for GPU plugin conflicts, the legacy vs default renderer choice, and broken driver updates — get a stable 60 FPS again without losing your settings.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS 117HD crash 2026, 117HD FPS drop fix, 117HD screen tearing, RuneLite 117HD graphics initialization failed, 117HD legacy vs default renderer, 117HD driver update crash, OSRS GPU plugin conflict, Old School RuneScape 117HD black screen">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<meta name="article:published_time" content="2026-07-30">
+<meta name="article:modified_time" content="2026-07-30">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-runelite-117hd-render-crash-fix-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="Intermediate" data-category="client">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../weekly-updates.html">Updates</a></li>
+                    <li><a href="../zh/index.html">Chinese</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="osrs-runelite-setup-guide-2026.html">RuneLite</a> / 117HD Render Crash Fix</p>
+            <h1>OSRS 117HD Crash Fix 2026: FPS Drop, Screen Tearing, GPU Plugin &amp; Driver Errors</h1>
+            <p class="subtitle">117HD makes Old School RuneScape look stunning — until it doesn't. Black screen on launch, a sudden FPS collapse at the Grand Exchange, screen tearing during raids, or a hard crash after a GPU driver update. This is the 117HD-specific fix guide: the generic GPU-plugin advice misses the 117HD shader path, and that's exactly where these crashes live.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🎨</span> <strong>Stage 2 · RuneLite Client</strong> — Updated July 30, 2026 · 11 min read
+            </div>
+            <div class="level-badge" style="display:inline-block;margin-top:14px;padding:6px 16px;border:1px solid #d4af37;border-radius:20px;background:#3b2615;color:#d4af37;font-weight:700;font-size:.9rem;letter-spacing:.5px;">🎓 Level: Intermediate</div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#1a1a1a;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Verdict — 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>"Graphics initialization failed" = shader/OpenGL failure</strong> — usually a driver or a 117HD-vs-GPU-plugin conflict, not a broken install.</li>
+                    <li>📌 <strong>117HD and the GPU plugin are NOT the same renderer</strong> — running both, or enabling 117HD's own "GPU" toggle wrongly, is the #1 cause of crashes.</li>
+                    <li>📌 <strong>A driver update can break 117HD overnight</strong> — roll back to the previous WHQL/stable driver and the crash often vanishes.</li>
+                    <li>📌 <strong>VRAM is the silent killer</strong> — 117HD's texture cache can eat 2–4 GB; cap it or you'll hit FPS cliffs in busy areas.</li>
+                    <li>📌 <strong>Legacy vs Default in 2026:</strong> Default for modern GPUs, Legacy only if your card is ancient or you must avoid the new pipeline.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#what">🎨 What 117HD Actually Does (and Why It's Fragile)</a></li>
+                    <li><a href="#init">🖥️ "Graphics Initialization Failed" / Black Screen</a></li>
+                    <li><a href="#fps">📉 FPS Crashes &amp; Sudden Freezes (VRAM &amp; Shader Cache)</a></li>
+                    <li><a href="#tearing">🧩 Screen Tearing &amp; Stutter (VSync &amp; Renderers)</a></li>
+                    <li><a href="#legacy">⚖️ Legacy vs Default Renderer — Which in 2026</a></li>
+                    <li><a href="#driver">🔧 Driver Update Broke 117HD — Roll Back</a></li>
+                    <li><a href="#checklist">🚑 5-Minute Stability Checklist</a></li>
+                    <li><a href="#symptom-table">🗺️ Symptom → Fix Quick Reference</a></li>
+                    <li><a href="#faq">❓ FAQ — 117HD Crashes</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="what">
+                <h2>1. 🎨 What 117HD Actually Does (and Why It's Fragile)</h2>
+                <p>117HD is a community HD renderer for RuneLite that replaces the flat 2007-style look with real-time lighting, shadows, and PBR-ish materials. Under the hood it compiles custom <strong>OpenGL/GLSL shaders</strong> on your GPU every time it starts — and that shader compilation is where most crashes are born. Unlike the plain <a href="osrs-runelite-gpu-plugin-crash-fix-2026.html" style="color:#8b6914;font-weight:bold;">GPU plugin</a>, 117HD ships its own lighting pipeline, so generic "just reinstall the GPU plugin" advice rarely fixes it. If you're setting up fresh, start from our <a href="osrs-runelite-setup-guide-2026.html" style="color:#8b6914;font-weight:bold;">RuneLite setup guide</a> so the base client is correct first.</p>
+                <div class="method-box highlight">
+                    <h4>🎯 The 117HD Fragility Map</h4>
+                    <ul>
+                        <li><strong>Shader compile</strong> — needs a healthy, modern GPU driver. A half-installed or beta driver fails here → "Graphics initialization failed".</li>
+                        <li><strong>Texture / shader cache</strong> — grows with playtime and VRAM pressure; corruption here causes freezes and artifacting.</li>
+                        <li><strong>Renderer mode</strong> — 117HD can run on the Default (new) or Legacy pipeline; picking wrong for your card causes tearing or a black screen.</li>
+                        <li><strong>Co-existence with GPU plugin</strong> — enabling both 3D pipelines at once double-binds the OpenGL context and crashes the client.</li>
+                    </ul>
+                </div>
+                <p>The good news: 117HD crashes are almost always <em>configuration or driver</em> issues, not hardware death. Every fix below keeps your account, your settings, and your cache (where safe). Mobile players hitting a black screen should also see our <a href="osrs-mobile-crashing-black-screen-android-fix-2026.html" style="color:#8b6914;font-weight:bold;">Android black-screen fix</a> — the causes differ but the "force a clean GPU init" logic is similar.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 First, isolate 117HD from the rest</div>
+                    <p>Before deep fixes, temporarily disable the 117HD plugin (and the GPU plugin) and launch with the normal client renderer. If the client is now stable, you've confirmed 117HD is the culprit and can work the sections below with confidence instead of blindly reinstalling RuneLite.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="init">
+                <h2>2. 🖥️ "Graphics Initialization Failed" / Black Screen on Launch</h2>
+                <p>This is the most frightening 117HD error: the client opens, the 117HD plugin tries to build its shader program, and instead of a world you get a black screen, a frozen window, or a popup reading <strong>"Graphics initialization failed"</strong>. It means the GPU/OpenGL context could not be created or the shader failed to compile.</p>
+
+                <h3>② Fix A — Confirm the GPU plugin isn't fighting 117HD</h3>
+                <div class="action-step">
+                    <h4>Single renderer rule</h4>
+                    <ul>
+                        <li>Open RuneLite → <strong>Configuration</strong> (wrench icon) → find the <strong>GPU</strong> plugin. If it's enabled, turn it <strong>off</strong> while 117HD is on.</li>
+                        <li>In 117HD's own settings, the "Renderer" option should be set to <strong>Default (OpenGL)</strong> for modern cards — do <em>not</em> also flip the separate GPU plugin's "Enable GPU" on.</li>
+                        <li>Two 3D renderers binding one OpenGL context = instant crash on most systems.</li>
+                    </ul>
+                </div>
+
+                <h3>③ Fix B — Clear the corrupted 117HD shader cache</h3>
+                <div class="action-step">
+                    <h4>Wipe the cache, keep your account</h4>
+                    <ul>
+                        <li>Close RuneLite fully (check the system tray).</li>
+                        <li>Open your RuneLite folder: <code>%USERPROFILE%\.runelite\</code> on Windows, <code>~/.runelite/</code> on macOS/Linux.</li>
+                        <li>Delete the <strong>117hd</strong> subfolder (or the <code>shader_cache</code> / <code>materials_cache</code> inside it). This forces a clean recompile next launch.</li>
+                        <li>Reopen RuneLite. First launch will stutter for 10–30s while shaders rebuild — that's normal, not a crash.</li>
+                    </ul>
+                </div>
+
+                <h3>④ Fix C — Verify the driver actually loads</h3>
+                <ul>
+                    <li>Open <strong>dxdiag</strong> (Windows) or your GPU control panel and confirm the dedicated GPU is detected, not "Microsoft Basic Display Adapter".</li>
+                    <li>If you see the basic adapter, your real driver didn't install — go to Section 6.</li>
+                </ul>
+                <div class="warning-box" style="border-left:4px solid #b8860b;padding:12px 16px;background:#fff;border-radius:6px;margin:14px 0;">
+                    <div class="tip-title" style="color:#3b2615;">🚨 Don't "just update" on a black screen</div>
+                    <p>A blind driver update on a already-fragile setup can swap one failure for another. First confirm which driver version was stable (check your OS update history), then either roll back (Section 6) or do a <em>clean</em> install of a known-good version. DDU (Display Driver Uninstaller) on Windows gives a truly clean slate if normal uninstall leaves residue.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="fps">
+                <h2>3. 📉 FPS Crashes &amp; Sudden Freezes (VRAM &amp; Shader Cache)</h2>
+                <p>A different failure mode: the game runs, then FPS suddenly collapses from 60 to single digits, the screen freezes for a few seconds, or the client hard-crashes in busy areas (GE, Raids, large drops). This is rarely the shader compile — it's <strong>VRAM exhaustion</strong> and a bloated shader/texture cache.</p>
+
+                <h3>⑤ How much VRAM 117HD actually wants</h3>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Scene / Area</th><th>117HD VRAM Estimate</th><th>Risk on a 2 GB Card</th></tr>
+                    <tr><td>Quiet skilling (woods, mines)</td><td>~1.0–1.5 GB</td><td>Low</td></tr>
+                    <tr><td>Grand Exchange / Varrock</td><td>~2.0–2.8 GB</td><td>High — FPS cliff likely</td></tr>
+                    <tr><td>Raids / large boss masses</td><td>~2.5–4.0 GB</td><td>Very high — crash likely</td></tr>
+                    <tr><td>With HD texture pack add-on</td><td>+1.5–3 GB on top</td><td>Almost always crashes &lt;4 GB</td></tr>
+                </table>
+                </div>
+
+                <h3>⑥ Cut VRAM pressure without losing the look</h3>
+                <div class="action-step">
+                    <h4>Step 1 — Cap the 117HD texture cache</h4>
+                    <p>In 117HD settings, lower <strong>"Texture resolution"</strong> and set a <strong>max cache size</strong> (e.g., 1024 MB) so it can't balloon. Disable the separate HD texture pack if you're on a 2–4 GB card.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 2 — Disable the heaviest effects first</h4>
+                    <ul>
+                        <li>Turn off <strong>shadows</strong> and <strong>water reflections</strong> — they're the two biggest VRAM/FPS hogs and the usual trigger for freezes in crowds.</li>
+                        <li>Keep lighting and normals; the scene still looks HD but uses far less memory.</li>
+                    </ul>
+                </div>
+                <div class="action-step">
+                    <h4>Step 3 — Periodic cache reset</h4>
+                    <p>If freezes return after weeks of play, the shader cache has fragmented. Repeat the cache delete from Section 2, Fix B. A 30-second rebuild beats a daily crash.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">🔋 Laptops: force the dedicated GPU</div>
+                    <p>Many laptops silently run RuneLite on the <em>integrated</em> GPU (Intel/AMD iGPU) with 128–512 MB shared memory — instant 117HD death. In Windows Graphics Settings → "High performance" for <code>RuneLite.exe</code>, and in the NVIDIA/AMD control panel set the discrete GPU as preferred. For on-the-go settings, our <a href="osrs-mobile-best-settings-2026.html" style="color:#8b6914;font-weight:bold;">best-settings guide</a> covers the mobile side of the same problem.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="tearing">
+                <h2>4. 🧩 Screen Tearing &amp; Stutter (VSync &amp; Renderers)</h2>
+                <p>Screen tearing — horizontal slices of the image misaligned, especially when the camera whips around in a raid — is a vsync/renderer mismatch, not a crash. It's annoying and can cost you a pixel-perfect tick, so fix it.</p>
+
+                <h3>⑦ The vsync decision</h3>
+                <ul>
+                    <li><strong>Enable vsync in 117HD</strong> if your monitor is 60 Hz and you see tearing. It caps FPS to the refresh rate and eliminates the tear.</li>
+                    <li><strong>Disable vsync</strong> if you have a 120/144 Hz panel and want higher FPS — but then use your GPU driver's "Fast Sync" / "Enhanced Sync" instead so you keep smoothness without the tear.</li>
+                    <li>Don't enable vsync in <em>both</em> 117HD and the GPU plugin — double vsync causes stutter, not smoothness.</li>
+                </ul>
+
+                <h3>⑧ Renderer mismatch causes stutter too</h3>
+                <div class="method-box">
+                    <h4>⚙️ Match the pipeline to the card</h4>
+                    <p>If you're on the <strong>Legacy</strong> renderer (Section 5) but your driver expects the new pipeline, you'll get micro-stutters on camera moves. Switch to Default for any GPU from the last ~6 years, and the tearing usually resolves with vsync on.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 "Stutter only in busy areas"</div>
+                    <p>That's VRAM thrashing, not vsync — jump back to Section 3 and cap the cache. Tearing is everywhere; stutter-only-when-crowded is a memory problem.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="legacy">
+                <h2>5. ⚖️ Legacy vs Default Renderer — Which in 2026</h2>
+                <p>117HD exposes a <strong>Renderer</strong> dropdown: typically <em>Default</em> (the modern OpenGL pipeline) and <em>Legacy</em> (the older path). Players confuse this with the GPU plugin's own toggle, but within 117HD it controls which internal draw path 117HD uses. Picking wrong is a top cause of "black screen on my old laptop" vs "why is my 4090 capped at 30 FPS".</p>
+
+                <h3>⑨ Decision table</h3>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Your GPU</th><th>Pick</th><th>Why</th></tr>
+                    <tr><td>NVIDIA GTX 10-series or newer / RTX</td><td><strong>Default</strong></td><td>Modern OpenGL, best FPS &amp; effects</td></tr>
+                    <tr><td>AMD RX 400-series or newer</td><td><strong>Default</strong></td><td>Full shader support</td></tr>
+                    <tr><td>Intel Arc / recent Iris Xe</td><td><strong>Default</strong></td><td>Supported on current drivers</td></tr>
+                    <tr><td>Older than ~2015 / weak iGPU only</td><td><strong>Legacy</strong> (or drop 117HD)</td><td>New pipeline may fail to init; Legacy is more forgiving</td></tr>
+                    <tr><td>macOS with known GL issues</td><td><strong>Legacy</strong> first, test Default</td><td>Apple's GL stack is finicky</td></tr>
+                </table>
+                </div>
+
+                <h3>⑩ How to switch safely</h3>
+                <ul>
+                    <li>Disable 117HD, restart RuneLite, then re-enable it with the <strong>Renderer</strong> set to your choice — changing it live can leave a half-built context.</li>
+                    <li>After switching to Default on a capable card, you should see <strong>higher and steadier FPS</strong> plus all lighting effects. If FPS drops or it blacks out, fall back to Legacy.</li>
+                    <li>Legacy trades some effect quality for stability — acceptable on ancient hardware where Default simply won't initialize.</li>
+                </ul>
+                <div class="tip-box">
+                    <div class="tip-title">⚠️ It's not the GPU plugin toggle</div>
+                    <p>Repeat after me: within 117HD, "Renderer = Default/Legacy" is <em>internal to 117HD</em>. The separate RuneLite <strong>GPU plugin</strong> should stay off while 117HD runs (Section 2, Fix A). Mixing the two mental models is why so many players can't get a stable HD client.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="driver">
+                <h2>6. 🔧 Driver Update Broke 117HD — Roll Back</h2>
+                <p>"It worked yesterday, then Windows/GeForce Experience updated my driver and now 117HD crashes." This is extremely common: a new driver revises the OpenGL behavior 117HD's shaders depend on, or introduces a regression specific to your GPU. The fix is to return to the last known-good driver.</p>
+
+                <h3>⑪ Roll back on Windows</h3>
+                <div class="action-step">
+                    <h4>Device Manager rollback</h4>
+                    <ul>
+                        <li>Win+X → <strong>Device Manager</strong> → Display adapters → right-click your GPU → <strong>Properties → Driver → Roll Back Driver</strong>.</li>
+                        <li>If the button is greyed out (no previous driver stored), download the prior version from NVIDIA/AMD/Intel's site and do a <strong>clean install</strong>.</li>
+                    </ul>
+                </div>
+                <div class="action-step">
+                    <h4>Clean install with DDU (nuclear option)</h4>
+                    <ul>
+                        <li>Download <strong>DDU</strong> and your target driver version first.</li>
+                        <li>Boot to Safe Mode, run DDU to wipe all GPU driver traces, reboot, then install the known-good driver only.</li>
+                        <li>Reopen RuneLite — the "graphics initialization failed" usually clears because the shader now compiles against a stable GL stack.</li>
+                    </ul>
+                </div>
+
+                <h3>⑫ Avoid the next break</h3>
+                <ul>
+                    <li>On Windows, pause <strong>automatic GPU driver updates</strong> (Settings → Windows Update → optional driver updates) so a silent push can't break 117HD mid-progress.</li>
+                    <li>Before any driver update, note the version that's stable. If the new one breaks 117HD, you now have an instant rollback target.</li>
+                    <li>Prefer <strong>WHQL / Studio / stable</strong> branches over "Game Ready Beta" or fresh-release drivers for a renderer as shader-sensitive as 117HD.</li>
+                </ul>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Linux/macOS note</div>
+                    <p>On Linux with Mesa, a <code>mesa</code> update can similarly break 117HD — pin or downgrade <code>mesa</code>/<code>libgl</code> to recover. On macOS, stick to the Legacy renderer (Section 5) and keep the OS reasonably current; 117HD's Mac support trails Windows by design.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="checklist">
+                <h2>7. 🚑 5-Minute Stability Checklist</h2>
+                <p>When 117HD misbehaves, run this in order. Most crashes resolve by Step 3.</p>
+                <div class="next-steps">
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 1:</strong> Disable the separate <strong>GPU plugin</strong> — 117HD must be the only 3D renderer. (§2 Fix A)
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 2:</strong> Delete the <code>117hd</code> shader/texture cache in <code>.runelite/</code> and relaunch. (§2 Fix B)
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 3:</strong> Set 117HD <strong>Renderer</strong> to Default (modern GPU) or Legacy (old GPU). (§5)
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 4:</strong> Cap texture cache + disable shadows/reflections if FPS collapses in crowds. (§3)
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 5:</strong> If it broke after an update, roll back the GPU driver to the last stable version. (§6)
+                    </div>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">📸 Capture the error before you fix</div>
+                    <p>Snap a screenshot or copy the exact error text ("Graphics initialization failed", the GL version string, your GPU model). If you later need the <a href="osrs-runelite-gpu-plugin-crash-fix-2026.html" style="color:#8b6914;font-weight:bold;">generic GPU-plugin guide</a> or a support thread, that detail gets you an answer in one reply instead of five.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 8: Symptom table -->
+            <section id="symptom-table">
+                <h2>8. 🗺️ Symptom → Fix Quick Reference</h2>
+                <p>Match what you see to the fix:</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>You See…</th><th>Most Likely Cause</th><th>Go To</th></tr>
+                    <tr><td>"Graphics initialization failed" / black screen</td><td>Shader compile or GPU-plugin conflict</td><td><a href="#init" style="color:#8b6914;font-weight:bold;">§2 Init Failed</a></td></tr>
+                    <tr><td>FPS drops to 5 in GE/raids</td><td>VRAM exhaustion / cache bloat</td><td><a href="#fps" style="color:#8b6914;font-weight:bold;">§3 FPS Crashes</a></td></tr>
+                    <tr><td>Tearing on camera moves</td><td>VSync off / renderer mismatch</td><td><a href="#tearing" style="color:#8b6914;font-weight:bold;">§4 Tearing</a></td></tr>
+                    <tr><td>Old laptop black-screens 117HD</td><td>Wrong renderer (use Legacy)</td><td><a href="#legacy" style="color:#8b6914;font-weight:bold;">§5 Legacy vs Default</a></td></tr>
+                    <tr><td>Broke right after a driver update</td><td>New driver GL regression</td><td><a href="#driver" style="color:#8b6914;font-weight:bold;">§6 Roll Back</a></td></tr>
+                </table>
+                </div>
+            </section>
+
+            <!-- SECTION 9: FAQ -->
+            <section id="faq">
+                <h2>9. ❓ FAQ — 117HD Crashes</h2>
+
+                <div class="faq-item">
+                    <h4>Will disabling 117HD delete my settings or my account?</h4>
+                    <p>No. Your account lives on Jagex's servers. 117HD settings are stored in the RuneLite <code>.runelite</code> config; toggling the plugin off and on keeps them. Only deleting the <code>117hd</code> cache folder (Section 2) resets visuals — and even that rebuilds automatically.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can I run 117HD and the GPU plugin together for "extra" quality?</h4>
+                    <p>No — and this is the #1 mistake. Both try to own the OpenGL 3D context; running both causes the crash or black screen described in §2. Keep 117HD on and the GPU plugin off. (The GPU plugin alone is a separate, lighter HD path covered in our <a href="osrs-runelite-gpu-plugin-crash-fix-2026.html" style="color:#8b6914;font-weight:bold;">GPU plugin crash fix</a>.)</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>My FPS is fine solo but craters in a 100-man mass — why?</h4>
+                    <p>VRAM. Big crowds load far more models, textures, and lighting samples, pushing 117HD past your card's memory. Cap the texture cache and drop shadows/reflections (§3) and the cliff softens. On a &lt;4 GB card, consider Legacy or the GPU plugin instead of 117HD for mass events.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>After a Windows update 117HD won't even open — driver or RuneLite?</h4>
+                    <p>Usually the driver. Windows Update often slips in a generic or newer GPU driver that breaks 117HD's shaders. Roll back to your known-good version (§6) and pause auto driver updates. If RuneLite itself updated, the 117HD plugin may need a matching update — check the plugin hub for a 117HD revision.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Is Legacy "worse" than Default, or just different?</h4>
+                    <p>Legacy is the older draw path: more forgiving on ancient GPUs but with fewer/older effects and often lower peak FPS on capable hardware. On any GPU from the last ~6 years, Default looks better and runs faster. Use Legacy only when Default fails to initialize (§5).</p>
+                </div>
+            </section>
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 What To Do After 117HD Is Stable</h3>
+                <p>Lock in the win so the next driver push or game update doesn't undo it:</p>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 1:</strong> Pause <a href="osrs-runelite-setup-guide-2026.html" style="color:#8b6914; font-weight:bold;">auto GPU-driver updates</a> so 117HD stays on a known-good stack
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 2:</strong> Bookmark the <a href="osrs-runelite-gpu-plugin-crash-fix-2026.html" style="color:#8b6914; font-weight:bold;">GPU plugin crash fix</a> in case you ever switch renderers
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 3:</strong> If you play on the go, apply the <a href="osrs-mobile-best-settings-2026.html" style="color:#8b6914; font-weight:bold;">best mobile settings</a> to avoid the same GPU pressure
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 4:</strong> Pair a stable client with the right <a href="osrs-best-in-slot-gear-guide-2026.html" style="color:#8b6914; font-weight:bold;">best-in-slot gear</a> for your boss content
+                    </div>
+                </div>
+                <a href="osrs-runelite-setup-guide-2026.html" class="support-btn paypal-btn" style="display:inline-block; text-decoration:none; margin-top:20px;">Next: Full RuneLite Setup Guide →</a>
+            </div>
+
+            <!-- RELATED GUIDES -->
+                    <div class="related-guides">
+      <h3>More RuneLite &amp; Client Guides</h3>
+      <div class="article-grid">
+        <a href="osrs-runelite-gpu-plugin-crash-fix-2026.html" class="article-card">
+          <h3>RuneLite GPU Plugin Crash Fix 2026</h3>
+          <p>The generic GPU-plugin path — use it when you run the official HD renderer instead of 117HD.</p>
+        </a>
+        <a href="osrs-runelite-setup-guide-2026.html" class="article-card">
+          <h3>RuneLite Setup Guide 2026</h3>
+          <p>Install, configure, and harden the client the right way before you touch HD renderers.</p>
+        </a>
+        <a href="osrs-mobile-best-settings-2026.html" class="article-card">
+          <h3>OSRS Mobile Best Settings 2026</h3>
+          <p>Same GPU-pressure logic on the go — keep FPS up without cooking your phone.</p>
+        </a>
+        <a href="osrs-mobile-crashing-black-screen-android-fix-2026.html" class="article-card">
+          <h3>OSRS Mobile Black Screen Crash Fix (Android) 2026</h3>
+          <p>When the mobile client black-screens, the clean-GPU-init steps mirror 117HD's fixes.</p>
+        </a>
+        <a href="osrs-best-in-slot-gear-guide-2026.html" class="article-card">
+          <h3>OSRS Best-in-Slot Gear Guide 2026</h3>
+          <p>A stable client is only half the fight — pair it with the right gear for your content.</p>
+        </a>
+      </div>
+</div><div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>Every guide and tool is free — this one stays free either way.</h3>
+            <p>No paywalls, no subscriptions. The only paid product is the printable PDF version:</p>
+            <p style="margin:6px 0 0 0;line-height:1.7">
+                📚 <strong>5 PDF Guides</strong> — offline, print-friendly<br>
+                ✅ <strong>Scams / DPS / Authenticator / Recovery / Sailing Nerf</strong><br>
+                🔄 <strong>Updated after every major game update</strong><br>
+                💾 <strong>Instant download, yours forever</strong>
+            </p>
+            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Instant download after purchase</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the PDF 5-Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+<!-- SUPPORT CARD -->
+    <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../levels/intermediate.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Intermediate Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🎨 RuneLite &amp; Client</h4><ul>
+                    <li><a href="osrs-runelite-setup-guide-2026.html">RuneLite Setup</a></li>
+                    <li><a href="osrs-runelite-gpu-plugin-crash-fix-2026.html">GPU Plugin Fix</a></li>
+                    <li><a href="osrs-mobile-best-settings-2026.html">Mobile Settings</a></li>
+                    <li><a href="osrs-mobile-crashing-black-screen-android-fix-2026.html">Android Black Screen</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+<!-- Copyright & Anti-Scraping Notice -->
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+<style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#3b2615!important}
+.guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+.guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+.guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+@media (max-width: 768px) {
+    .guide-content table { font-size: 0.85rem; }
+    .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+    .guide-content table tbody td { padding: 6px 10px; }
+    .guide-content h2 { font-size: 1.4em; }
+    .guide-content h3 { font-size: 1.15em; }
+}
+@media (max-width: 640px) {
+    .guide-content table { display: block; overflow-x: auto; }
+    .guide-content h2 { font-size: 1.25em; }
+    .guide-content h3 { font-size: 1.05em; }
+}
+</style>
+
+</body>
+</html>

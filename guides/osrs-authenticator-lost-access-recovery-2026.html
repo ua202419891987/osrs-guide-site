@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Authenticator Lost? Recover 2FA Access 2026 — No Backup Codes, No Email</title>
+    <meta name="description" content="Updated for July 2026. Lost your OSRS authenticator AND backup codes, switched phones with no cloud backup, or got locked out because the clock is wrong? This guide covers 2FA recovery — including the worst case where your email is gone too — plus how to enable Microsoft Authenticator cloud backup so it never happens again.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS authenticator lost 2026, Jagex 2FA backup codes gone, OSRS Microsoft Authenticator cloud backup, OSRS 2-step verification locked out, recover OSRS account no email no codes, authenticator clock wrong fix">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-authenticator-lost-access-recovery-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="intermediate" data-category="account">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS Guru</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../weekly-updates.html">Updates</a></li>
+                    <li><a href="../zh/index.html">Chinese</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="account-security-guide-2026.html">Account Security</a> / OSRS Authenticator Lost Access Recovery 2026</p>
+            <h1>OSRS Authenticator Lost? How to Recover 2FA Access in 2026 (Even With No Backup Codes)</h1>
+            <p class="subtitle">You got a new phone, the authenticator app didn't carry over, and the backup codes you were supposed to save are long gone. Or worse — your email is gone too. This guide walks through every lost-2FA scenario Jagex players actually hit, including the nightmare "no codes, no email" case, and shows you how to turn on cloud backup so this never happens again.</p>
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: Intermediate</div>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>Account Security Series</strong> · Part 3 of 3 · 13 min read · Updated July 30, 2026
+            </div>
+            <div class="article-meta" style="margin:14px 0 4px;font-size:.85rem;color:#3b2615;">
+                <span>📅 Published: July 30, 2026</span> &nbsp;·&nbsp; <span>✍️ By OSRS Guru Team</span> &nbsp;·&nbsp; <span>🔄 Updated: July 30, 2026</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#7A64B8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ 30-Second Diagnostic — Which Lockout Are You In?</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>New phone, no cloud backup, codes gone?</strong> You need account recovery or the backup-code reset path — see Section 2.</li>
+                    <li>📌 <strong>Authenticator app deleted, no backup saved?</strong> Same path: recover via codes or email verification.</li>
+                    <li>📌 <strong>"Invalid code" but you're typing it right?</strong> Your phone clock is wrong — fix time sync (Section 4).</li>
+                    <li>📌 <strong>Email also lost?</strong> This is the worst case — jump to Section 5 for the fallback flow.</li>
+                    <li>📌 <strong>Prevention:</strong> Enable Microsoft Authenticator cloud backup <em>now</em> so a phone swap is painless (Section 6).</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#scenarios">The 4 Ways Players Lose 2FA Access</a></li>
+                    <li><a href="#recover-codes">Recover When You Have No Backup Codes</a></li>
+                    <li><a href="#email-verify">No Codes? Use Email Verification Instead</a></li>
+                    <li><a href="#troubleshoot">2FA Troubleshooting: Clock, Sync &amp; "Invalid Code"</a></li>
+                    <li><a href="#email-lost">The Worst Case: Authenticator AND Email Both Gone</a></li>
+                    <li><a href="#cloud-backup">Turn On Microsoft Authenticator Cloud Backup (Do This Tonight)</a></li>
+                    <li><a href="#faq">Authenticator Recovery FAQs</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="scenarios">
+                <h2>1. 🔍 The 4 Ways Players Lose 2FA Access</h2>
+                <p>2FA is the best thing you can do for account safety — until the second factor is the thing you've lost. The <a href="osrs-account-hacked-prevention-2026.html" style="color:#9B84D4;font-weight:bold;">account hacked prevention guide</a> explains why you should enable it; this guide is what to do when enabling it comes back to bite you. Here are the four scenarios we'll fix.</p>
+
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Scenario</th><th>What Happened</th><th>Recoverable?</th></tr>
+                    <tr>
+                        <td><strong>1. New phone, no cloud backup</strong></td>
+                        <td>You switched devices; the authenticator didn't transfer and you never saved backup codes.</td>
+                        <td>Yes — via backup-code reset or email verification.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. App deleted, no backup</strong></td>
+                        <td>You uninstalled or wiped the phone; the codes and any local backup are gone.</td>
+                        <td>Yes — same paths as above.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Clock out of sync</strong></td>
+                        <td>The 6-digit code is correct but "invalid" because your phone time is off by minutes.</td>
+                        <td>Yes — fix time sync, no recovery needed.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Email also lost</strong></td>
+                        <td>Your recovery email is dead/closed and you have no codes.</td>
+                        <td>Harder — requires the fallback flow in Section 5.</td>
+                    </tr>
+                </table>
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 First, Check for Backup Codes</div>
+                    <p>Before any recovery, search every password manager, notes app, and paper notebook for the 10 backup codes Jagex gave you when you enabled 2SV. One unused code logs you in instantly and cancels the panic. Most "locked out" players actually have a code saved somewhere — they just forgot.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="recover-codes">
+                <h2>2. 🔑 Recover When You Have No Backup Codes</h2>
+                <p>If the codes are truly gone, you still have two normal routes: the in-account backup-code reset (if you can still reach the security page) and email verification. This is also where the <a href="osrs-account-recovery-after-hack-2026.html" style="color:#9B84D4;font-weight:bold;">post-hack recovery guide</a> overlaps — recovery is the same engine.</p>
+
+                <h3>② If You Can Still Reach Account Settings</h3>
+                <div class="action-step">
+                    <h4>Step 1</h4>
+                    <p>Sign in with your password. If 2SV blocks you but you have <em>one</em> working code, use it and immediately go to Account Settings → Security.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 2</h4>
+                    <p>Choose <strong>View backup codes</strong> or <strong>Regenerate backup codes</strong>. Regenerating invalidates old codes and gives you a fresh set — save these to your password manager <em>this time</em>.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 3</h4>
+                    <p>If you can't get past 2SV at all, use the "lost access" link on the login screen to start the recovery path below.</p>
+                </div>
+
+                <h3>② If You're Fully Locked Out</h3>
+                <p>On the Jagex login page, use the <strong>"Lost access to your authenticator?"</strong> option. This routes you into account recovery, where ownership is verified by creation-era evidence (old password, creation date, original email) rather than by the code you no longer have. It's the same engine described in the re-apply guide — gather your proof first, then submit once.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">⚠️ Don't Enable a New Authenticator Before Recovering</div>
+                    <p>Some players try to "just add a new authenticator" while locked out. You can't — 2SV management requires an existing factor. Recover access first through codes or recovery, <em>then</em> reconfigure the authenticator.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="email-verify">
+                <h2>3. ✉️ No Codes? Use Email Verification Instead</h2>
+                <p>Jagex accounts support email as a second factor. If your authenticator is gone but your registered email still works, email verification is your fastest bypass — often faster than hunting for backup codes.</p>
+
+                <div class="action-step">
+                    <h4>① On the 2SV prompt, pick "email"</h4>
+                    <p>When asked for your second factor, choose the email option instead of the authenticator. A code is sent to your registered address.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Enter the email code</h4>
+                    <p>Open the email, type the code, and you're in. Then go straight to Security settings.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Re-enroll the authenticator + save new backup codes</h4>
+                    <p>Remove the dead authenticator entry and add your new phone's app. Immediately save the fresh backup codes to your password manager.</p>
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Make Your Email Bulletproof Too</div>
+                    <p>Your recovery email is the skeleton key to 2SV. Give it a unique password and its own 2SV, and keep the inbox active. The <a href="account-security-guide-2026.html" style="color:#9B84D4;font-weight:bold;">full security checklist</a> covers email hardening step by step.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="troubleshoot">
+                <h2>4. 🛠️ 2FA Troubleshooting: Clock, Sync &amp; "Invalid Code"</h2>
+                <p>Sometimes you're not locked out at all — your code is just being rejected because of time drift. Authenticator codes are time-based (TOTP); if your phone clock is even a couple minutes off, the server rejects a perfectly typed code.</p>
+
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr>
+                    <tr>
+                        <td>Code rejected despite correct entry</td>
+                        <td>Phone clock drift</td>
+                        <td>Enable "Set time automatically" / "Auto date &amp; time" in phone settings.</td>
+                    </tr>
+                    <tr>
+                        <td>Code works on one device but not another</td>
+                        <td>Only the drifted device is wrong</td>
+                        <td>Resync the problem device's clock; don't change the Jagex side.</td>
+                    </tr>
+                    <tr>
+                        <td>Authenticator shows no Jagex entry</td>
+                        <td>Wrong app / uninstalled</td>
+                        <td>Recover via codes or email (Sections 2-3); then re-add.</td>
+                    </tr>
+                    <tr>
+                        <td>"Too many attempts" lockout</td>
+                        <td>Repeated wrong codes</td>
+                        <td>Wait a few minutes; fix the clock; then try once more.</td>
+                    </tr>
+                </table>
+                </div>
+
+                <h3>④ How to Resync Your Authenticator Clock</h3>
+                <div class="method-box">
+                    <h4>⏰ Google / Microsoft Authenticator</h4>
+                    <ul>
+                        <li><strong>Google Authenticator:</strong> tap the three-dot menu → <em>Settings</em> → <em>Time correction for codes</em> → <em>Sync now</em>.</li>
+                        <li><strong>Microsoft Authenticator:</strong> tap the three-line menu → <em>Settings</em> → <em>Time correction</em> → sync. (This is also where cloud backup lives — see Section 6.)</li>
+                        <li>On iPhone/Android, also toggle <em>Set Automatically</em> in system Date &amp; Time so drift can't return.</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">🔑 Try the Previous Code</div>
+                    <p>TOTP codes rotate every 30 seconds. If a code is about to expire when you submit, the server may reject it. Wait for the next code (or use the just-expired one if your app shows a grace period) and submit immediately.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="email-lost">
+                <h2>5. 🆘 The Worst Case: Authenticator AND Email Both Gone</h2>
+                <p>This is the scenario almost no guide covers, and it's the one that truly strands players. If your authenticator is dead <em>and</em> your recovery email is closed or hijacked, you have no second factor and no reset channel. Here's the fallback flow that still works.</p>
+
+                <h3>⑤ Step 1 — Use Any Email Ever Linked to the Account</h3>
+                <p>Jagex's recovery isn't limited to your <em>current</em> email. If an older address you controlled once received Jagex mail, reference it in recovery. Proving you owned that historical email strengthens your claim even if it's now inactive.</p>
+
+                <h3>⑤ Step 2 — Prove Ownership Through Creation-Era Evidence</h3>
+                <p>With no working factor, recovery falls back entirely to who-created-the-account proof: oldest password, creation year/country/ISP, original sign-up email, and any transaction records. The deeper your proof file, the better. (This mirrors the evidence checklist in the <a href="osrs-account-recovery-denied-reapply-2026.html" style="color:#9B84D4;font-weight:bold;">recovery-denied re-apply guide</a> — build that file first.)</p>
+
+                <h3>⑤ Step 3 — Recover the Email Itself if Possible</h3>
+                <p>If the recovery email is a Gmail/Outlook you simply lost access to (not deleted), use that provider's account-recovery to regain the inbox. A recovered inbox often unlocks the 2SV email path instantly — far easier than a full Jagex recovery.</p>
+
+                <h3>⑤ Step 4 — Submit One Strong Recovery, Then Wait</h3>
+                <p>Open the official recovery form, fill every field with your creation-era proof, and submit once. If denied, refine with any new evidence (an old welcome email, a bank statement) and re-apply after a 24-48h cooldown. Persistence with <em>better</em> evidence — not more attempts — is what wins.</p>
+
+                <div class="warning-box">
+                    <div class="tip-title">⚠️ Beware "Account Recovery Services"</div>
+                    <p>If you search for help here, you'll find sellers promising to "recover any account for a fee." Most are scams that harvest your details or break rules. Jagex recovery is free and account ownership is verified by Jagex alone. Never pay a third party, and never hand your password to anyone — see the <a href="osrs-account-security-anti-scam-guide-2026.html" style="color:#9B84D4;font-weight:bold;">anti-scam guide</a>.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="cloud-backup">
+                <h2>6. ☁️ Turn On Microsoft Authenticator Cloud Backup (Do This Tonight)</h2>
+                <p>The entire "lost my phone" nightmare is preventable. Microsoft Authenticator can encrypt your codes to your personal cloud account, so a device swap just means signing in to restore them. This is the single highest-leverage habit in this guide.</p>
+
+                <h3>⑥ Enable Cloud Backup — Step by Step</h3>
+                <div class="action-step">
+                    <h4>Step 1 — Open Microsoft Authenticator</h4>
+                    <p>Install or open the app on your current phone. Make sure your Jagex entry is present first.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 2 — Tap the menu (☰) → Settings</h4>
+                    <p>Scroll to the <strong>Backup</strong> section.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 3 — Turn on "Cloud backup" (iOS) / "Backup to [account]" (Android)</h4>
+                    <p>Sign in with your personal Microsoft account (or iCloud on iPhone). This encrypts and stores your codes.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 4 — On your new phone, sign in to restore</h4>
+                    <p>Install the app, sign in with the <em>same</em> cloud account, and your Jagex authenticator reappears. No recovery needed.</p>
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Cloud Backup Is Not a Backup-Code Substitute</div>
+                    <p>Cloud backup restores the app; backup codes are your paper parachute if the cloud account itself is unavailable. Do <em>both</em>: enable cloud backup AND save the 10 Jagex backup codes to your password manager. Redundancy is the point.</p>
+                </div>
+
+                <h3>⑥ Also: Save Backup Codes to a Password Manager</h3>
+                <p>After re-enrolling (or right after enabling 2SV originally), open Account Settings → Security → <strong>View backup codes</strong> and paste all 10 into your password manager's secure note. A password manager syncs across devices, so even a total phone loss leaves you with working codes. Pair this with the <a href="osrs-jagex-account-faq-2026.html" style="color:#9B84D4;font-weight:bold;">Jagex Account FAQ</a> for edge cases.</p>
+            </section>
+
+            <!-- SECTION 7: FAQ -->
+            <section id="faq">
+                <h2>7. 💡 Authenticator Recovery FAQs</h2>
+
+                <div class="faq-item">
+                    <h4>Can I recover my account without any backup codes or email access?</h4>
+                    <p>Yes, but it's the hardest path. You must prove original ownership through the recovery form using creation-era evidence — oldest password, creation date/country/ISP, original sign-up email, and transaction records. It's slower and evidence-dependent, but it's the official route when both factors are gone.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>My code is "invalid" even though I type it correctly — am I locked out?</h4>
+                    <p>Probably not. Nine times out of ten this is phone clock drift. Enable automatic time in your phone settings and use the authenticator app's "time correction / sync" option (Google: Settings → Time correction → Sync now). Then the same code will be accepted.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>I got a new phone and the authenticator didn't transfer. What now?</h4>
+                    <p>If you had cloud backup on, sign in to the same cloud account on the new phone and it restores. If you didn't, use a backup code or email verification to log in, then re-enroll the authenticator and turn on cloud backup going forward.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Is Microsoft Authenticator cloud backup safe?</h4>
+                    <p>Yes — the codes are encrypted and tied to your personal cloud account. It's dramatically safer than having no backup at all. Just make sure the cloud account itself is secured with a strong password and its own 2SV, so the backup can't be hijacked.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Should I remove 2SV because it's such a hassle?</h4>
+                    <p>No. 2SV is the single biggest reason hacked accounts get recovered instead of lost. The hassle is a few minutes of setup and one backup habit. Keep it on, enable cloud backup, and store backup codes — that's the whole fix.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How long does Jagex account recovery take when both factors are gone?</h4>
+                    <p>It varies from hours to several days depending on how strong your evidence is and current ticket volume. Submitting once with solid proof is faster than multiple weak attempts, which can trigger auto-filter cooldowns. Be patient and evidence-led.</p>
+                </div>
+            </section>
+
+            <!-- FINAL TIPS -->
+            <div class="next-steps">
+                <h3>🎯 Final Tips — Never Get Locked Out Again</h3>
+                <p>Two habits end 90% of lost-2FA pain: (1) turn on Microsoft Authenticator cloud backup, and (2) save your 10 Jagex backup codes in a password manager. Do both tonight. If you're already locked out, use a backup code or email verification first, and only fall back to full recovery when those fail.</p>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #E6A817;">
+                    <strong>→ Next:</strong> Harden everything with the <a href="account-security-guide-2026.html" style="color:#7A64B8; font-weight:bold;">Full OSRS Account Security Guide</a>
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #E6A817;">
+                    <strong>→ Denied recovery?</strong> See the <a href="osrs-account-recovery-denied-reapply-2026.html" style="color:#7A64B8; font-weight:bold;">Recovery Denied Re-Apply Guide</a>
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #E6A817;">
+                    <strong>→ Avoid scams:</strong> The <a href="osrs-account-security-anti-scam-guide-2026.html" style="color:#7A64B8; font-weight:bold;">Anti-Scam Guide</a>
+                </div>
+            </div>
+
+            <!-- RELATED GUIDES -->
+            <div class="related-guides">
+      <h3>More Account Security &amp; 2FA Guides</h3>
+      <div class="article-grid">
+        <a href="account-security-guide-2026.html" class="article-card">
+          <h3>OSRS Account Security Guide 2026 — Full Protection Checklist</h3>
+          <p>The complete security reference: 2SV, password managers, recovery planning, and recognizing scams.</p>
+        </a>
+        <a href="osrs-account-recovery-denied-reapply-2026.html" class="article-card">
+          <h3>OSRS Account Recovery Denied? Re-Apply &amp; Get Approved 2026</h3>
+          <p>The re-apply playbook for repeated denials: creation-era evidence, stopping auto-rejects, and the ticket template.</p>
+        </a>
+        <a href="osrs-account-recovery-after-hack-2026.html" class="article-card">
+          <h3>OSRS Account Recovery After a Hack 2026: Step-by-Step Reclaim</h3>
+          <p>The happy-path walkthrough for reclaiming a compromised account and appealing any post-hack action.</p>
+        </a>
+        <a href="osrs-account-security-anti-scam-guide-2026.html" class="article-card">
+          <h3>OSRS Account Security &amp; Anti-Scam Guide 2026</h3>
+          <p>Real-world scam scripts explained — and exactly how to shut them down before they cost you the account.</p>
+        </a>
+        <a href="osrs-jagex-account-faq-2026.html" class="article-card">
+          <h3>Jagex Account FAQ 2026 — Migration, Login &amp; 2SV Questions</h3>
+          <p>Answers to the most common Jagex Account questions, including lost access and 2SV edge cases.</p>
+        </a>
+      </div>
+</div>
+
+    <div class="support-card" style="margin:32px 0 0 0">
+        <div class="support-inner">
+            <span class="support-icon">🔓</span>
+            <div class="support-text">
+                <h3>Every guide and tool is free — this one stays free either way.</h3>
+                <p>No paywalls, no subscriptions. The only paid product is the printable PDF version:</p>
+                <p style="margin:6px 0 0 0;line-height:1.7">
+                    📚 <strong>5 PDF Guides</strong> — offline, print-friendly<br>
+                    ✅ <strong>Scams / DPS / Authenticator / Recovery / Sailing Nerf</strong><br>
+                    🔄 <strong>Updated after every major game update</strong><br>
+                    💾 <strong>Instant download, yours forever</strong>
+                </p>
+                <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Instant download after purchase</p>
+                <div class="support-amounts">
+                    <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the PDF 5-Pack</a>
+                    <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+                </div>
+                <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../levels/intermediate.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Intermediate Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRS Guru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🔐 Account Security</h4><ul>
+                    <li><a href="osrs-account-hacked-prevention-2026.html">Hacked Prevention</a></li>
+                    <li><a href="account-security-guide-2026.html">Security Checklist</a></li>
+                    <li><a href="osrs-account-recovery-denied-reapply-2026.html">Recovery Re-Apply</a></li>
+                    <li><a href="osrs-account-security-anti-scam-guide-2026.html">Anti-Scam Guide</a></li>
+                    <li><a href="osrs-jagex-account-faq-2026.html">Jagex Account FAQ</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+<style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .next-steps p,.guide-content .next-steps li{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .next-steps strong{color:#3b2615!important}
+.guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+.guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+.guide-content .related-guides .article-card:hover{background:#f0ecf5!important;border-color:#D4CDE0!important}
+.guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .support-card{background-color:#2e7d32!important;color:#fff!important}
+.guide-content .support-card p,.guide-content .support-card h3{color:#fff!important}
+@media (max-width: 768px) {
+    .guide-content table { font-size: 0.85rem; }
+    .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+    .guide-content table tbody td { padding: 6px 10px; }
+    .guide-content h2 { font-size: 1.4em; }
+    .guide-content h3 { font-size: 1.15em; }
+}
+@media (max-width: 640px) {
+    .guide-content table { display: block; overflow-x: auto; }
+    .guide-content h2 { font-size: 1.25em; }
+    .guide-content h3 { font-size: 1.05em; }
+}
+</style>
+
+</body>
+</html>
