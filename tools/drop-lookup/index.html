@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Drop Rate Lookup &amp; Dry Calculator — Am I Dry? (2026)</title>
+    <meta name="description" content="Free OSRS drop rate lookup and dry calculator. Search 35 popular boss and Slayer drop rates, then work out the exact chance you should still be dry after your kill count, the median kills needed, and how unlucky you really are.">
+    <meta name="keywords" content="OSRS dry calculator, OSRS drop rate calculator, OSRS drop rates, am I dry OSRS, OSRS probability calculator, OSRS kill count calculator">
+    <link rel="canonical" href="https://osrsguru.com/tools/drop-lookup/">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../shared/css/osrs-tool.css">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content .ot-wrap-wide,
+        .guide-content .dl-stat { color:#1a1a1a !important; }
+
+        .dl-filters { display:grid; grid-template-columns:2fr 1fr; gap:14px; margin-bottom:12px; }
+        .dl-count { font-size:.82rem; color:#7a6a52; margin:0 0 6px; }
+
+        .dl-table td.dl-item { font-weight:700; color:#3b2615; }
+        .dl-table td.dl-rate { white-space:nowrap; font-family:ui-monospace,Consolas,monospace; }
+        .dl-pick { border:1px solid #cbb89a; background:#fff; color:#4a3320; border-radius:6px;
+            padding:6px 11px; font-size:.8rem; font-weight:700; cursor:pointer; white-space:nowrap; }
+        .dl-pick:hover { background:#faf4e8; }
+        .dl-tr-active td { background:#faf4e8 !important; box-shadow:inset 3px 0 0 #d4af37; }
+        .dl-sel { width:17px; height:17px; }
+
+        .dl-selected {
+            background:#fdf8ef !important; border:1px solid #e6d9bd; border-radius:9px;
+            padding:11px 14px; margin:0 0 14px; font-size:.92rem; color:#3b2615;
+        }
+        .dl-selected b { color:#2a1a0a; }
+
+        .dl-stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin-top:6px; }
+        .dl-stat {
+            background:#fdfbf7 !important; border:1px solid #e0d5c0; border-radius:10px; padding:13px 15px;
+        }
+        .dl-stat .dl-k { display:block; font-size:.76rem; font-weight:700; color:#7a6a52;
+            text-transform:uppercase; letter-spacing:.4px; margin-bottom:6px; }
+        .dl-stat .dl-v { display:block; font-size:1.42rem; font-weight:800; color:#3b2615; line-height:1.15; }
+        .dl-stat .dl-s { display:block; font-size:.78rem; color:#5a4a35; margin-top:5px; line-height:1.45; }
+        .dl-stat.is-good .dl-v { color:#2e7d32; }
+        .dl-stat.is-gold { border-color:#d4af37; }
+        .dl-stat.is-gold .dl-v { color:#8a6d1b; }
+
+        .dl-bar { height:11px; background:#efe7d6; border-radius:6px; overflow:hidden; margin:12px 0 6px; }
+        .dl-bar i { display:block; height:100%; background:#8a6d1b; }
+        .dl-barlab { display:flex; justify-content:space-between; font-size:.76rem; color:#7a6a52; }
+
+        .dl-verdict { font-size:1rem; font-weight:700; color:#3b2615; margin:14px 0 4px; line-height:1.5; }
+        .dl-milestones { font-size:.88rem; color:#4a3320; line-height:1.7; margin:8px 0 0; }
+        .dl-milestones code { background:#fdf8ef; border:1px solid #e6d9bd; border-radius:4px;
+            padding:1px 6px; font-size:.85rem; color:#3b2615; }
+
+        .dl-noresult { text-align:center; color:#a0522d; padding:22px 14px; font-size:.92rem; }
+
+        @media (max-width: 640px) {
+            .dl-filters { grid-template-columns:1fr; }
+            .dl-stats { grid-template-columns:1fr; }
+            .dl-stat .dl-v { font-size:1.28rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">OSRSGuru</a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../../new-player.html">New Player</a></li>
+                    <li><a href="../../money-making.html">Money Making</a></li>
+                    <li><a href="../../boss-guides.html">Boss Guides</a></li>
+                    <li><a href="../../quests.html">Quests</a></li>
+                    <li><a href="../../tools/profit-finder/">Tools</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../tools/profit-finder/">Tools</a> / Drop Rate Lookup</p>
+            <h1>OSRS Drop Rate Lookup &amp; Dry Calculator</h1>
+            <p class="subtitle">Search 35 of the most-asked-about drop rates, then find out the real answer to <strong>"800 kills and nothing — am I dry?"</strong> Exact probability, median kills, and how unlucky you actually are. Free, works on mobile, no plugin needed.</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container ot-wrap-wide">
+
+            <div class="ot-tierbar">
+                <span class="ot-badge ot-badge-free">Free · dry calculator &amp; full drop list</span>
+                <span id="tier-badge"></span>
+            </div>
+
+            <div class="ot-note">
+                🎲 Every kill is an <strong>independent roll</strong>. The game does not owe you a drop, and going 3× the drop rate dry is normal for roughly 5% of players. This tool shows you exactly where you sit.
+            </div>
+
+            <div class="ot-card">
+                <h2>What This Tool Does</h2>
+                <p>The OSRS Drop Rate Lookup answers two questions that get asked on r/2007scape every single day: "what is the drop rate for this item?" and "I am X kills dry — is that normal, or is something wrong?" The first question needs a searchable table; the second needs actual probability maths. This tool does both in one page, and unlike a RuneLite plugin it works on a phone, on iOS, and on a work laptop where you cannot install anything.</p>
+                <p>The lookup half contains 35 of the most frequently searched drops in Old School RuneScape, covering the popular solo bosses (Zulrah, Vorkath, Cerberus, Kraken, Abyssal Sire, Alchemical Hydra), all four God Wars Dungeon generals, the Dagannoth Kings, high-demand Slayer drops such as the abyssal whip, black mask and zenyte shard, plus the Dragon Warhammer from Lizardman Shamans. Each row lists the source, the item, the published drop rate as a clean fraction, and an approximate Grand Exchange value band so you can see at a glance whether a grind is worth the time.</p>
+                <p>The dry calculator half is the part players actually come back for. Enter your kill count and the tool applies the binomial "no success" formula — the probability of still having nothing after <em>k</em> independent rolls is (1 − 1/rate) raised to the power of k. From that single number it derives everything else that matters: the percentage chance you should still be empty-handed, the median number of kills (the point where half of all players have the drop), how far past the average you currently are, and a plain-English verdict telling you whether your streak is unremarkable, genuinely unlucky, or the kind of thing worth screenshotting. It also shows the kill counts needed to reach a 50%, 90% and 99% chance, which is far more useful for planning a grind than the raw drop rate alone.</p>
+                <p>The lookup, the search, and the dry calculator are permanently free. Two extras — expected GP value per kill, and a side-by-side comparison of several drop targets — are part of OSRS Guru Premium.</p>
+            </div>
+
+            <!-- ===== LOOKUP ===== -->
+            <div class="ot-card">
+                <h3>🔎 Drop rate lookup</h3>
+                <div class="dl-filters">
+                    <div class="ot-field">
+                        <label for="dl-q">Search by boss, monster or item</label>
+                        <input type="search" id="dl-q" placeholder="e.g. zulrah, whip, visage, hydra">
+                    </div>
+                    <div class="ot-field">
+                        <label for="dl-cat">Category</label>
+                        <select id="dl-cat">
+                            <option value="all">All categories</option>
+                            <option value="Boss">Solo bosses</option>
+                            <option value="GWD">God Wars Dungeon</option>
+                            <option value="Slayer">Slayer monsters</option>
+                            <option value="Skilling">Skilling &amp; other</option>
+                        </select>
+                    </div>
+                </div>
+                <p class="dl-count" id="dl-count"></p>
+                <div class="ot-tablewrap">
+                    <table class="ot-table dl-table">
+                        <thead>
+                            <tr>
+                                <th style="width:34px;">Cmp</th>
+                                <th>Source</th>
+                                <th>Item</th>
+                                <th>Drop rate</th>
+                                <th>Approx. GE value</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="dl-tbody"></tbody>
+                    </table>
+                </div>
+                <p class="ot-hint">GE values are broad approximations for orientation only — Old School prices move constantly, so always check the live Grand Exchange before committing to a grind. Drop rates are the published per-kill rates; some bosses roll several unique slots per kill.</p>
+            </div>
+
+            <!-- ===== DRY CALCULATOR ===== -->
+            <div class="ot-card">
+                <h3>📉 Dry calculator <span class="ot-badge ot-badge-free">Free</span></h3>
+                <div class="dl-selected" id="dl-selected">No drop selected — pick one from the table above, or type a custom rate below.</div>
+                <div class="ot-row">
+                    <div class="ot-field">
+                        <label for="dl-kills">Kills / attempts so far</label>
+                        <input type="number" id="dl-kills" min="0" max="10000000" step="1" value="800" inputmode="numeric">
+                        <p class="ot-hint">How many kills you have done without the drop.</p>
+                    </div>
+                    <div class="ot-field">
+                        <label for="dl-rate">Custom rate — 1 in …</label>
+                        <input type="number" id="dl-rate" min="1" max="10000000" step="1" placeholder="e.g. 512" inputmode="numeric">
+                        <p class="ot-hint">Optional. Overrides the selected drop, so you can use any rate.</p>
+                    </div>
+                </div>
+                <button class="ot-btn ot-btn-primary ot-btn-block" id="dl-go">🎲 How dry am I?</button>
+
+                <div id="dl-out" style="display:none;">
+                    <div class="dl-bar"><i id="dl-barfill" style="width:0%"></i></div>
+                    <div class="dl-barlab"><span>0 kills</span><span id="dl-barmax">—</span></div>
+                    <p class="dl-verdict" id="dl-verdict"></p>
+                    <div class="dl-stats">
+                        <div class="dl-stat is-gold">
+                            <span class="dl-k">Chance you are still dry</span>
+                            <span class="dl-v" id="dl-p-dry">—</span>
+                            <span class="dl-s" id="dl-p-dry-sub">Probability of seeing nothing after this many kills.</span>
+                        </div>
+                        <div class="dl-stat is-good">
+                            <span class="dl-k">Chance you'd have it by now</span>
+                            <span class="dl-v" id="dl-p-got">—</span>
+                            <span class="dl-s">Share of players who already have the drop at your kill count.</span>
+                        </div>
+                        <div class="dl-stat">
+                            <span class="dl-k">Median kills</span>
+                            <span class="dl-v" id="dl-median">—</span>
+                            <span class="dl-s">Half of all players get it before this point, half after.</span>
+                        </div>
+                        <div class="dl-stat">
+                            <span class="dl-k">Unluckiest %</span>
+                            <span class="dl-v" id="dl-pct">—</span>
+                            <span class="dl-s" id="dl-pct-sub">Where your streak sits among everyone grinding this drop.</span>
+                        </div>
+                    </div>
+                    <p class="dl-milestones" id="dl-miles"></p>
+                    <p class="ot-hint" style="margin-top:12px;">Formula used: <code>P(still dry) = (1 − 1/rate)<sup>kills</sup></code>. Each kill is independent — previous dry kills never improve your odds on the next one.</p>
+                </div>
+            </div>
+
+            <!-- ===== PREMIUM: EXPECTED VALUE ===== -->
+            <div class="ot-card">
+                <h3>💰 Expected GP per kill <span class="ot-badge ot-badge-premium">Premium</span></h3>
+                <p class="ot-hint" style="margin:-4px 0 12px;">Turns a drop rate into an hourly-planning number: how much this unique is worth on an average kill.</p>
+                <div class="ot-locked" id="dl-ev-lock">
+                    <div class="ot-locked-body">
+                        <div class="dl-stats">
+                            <div class="dl-stat"><span class="dl-k">Expected GP / kill</span><span class="dl-v">•••,•••</span><span class="dl-s">Mid-band GE value divided by the drop rate.</span></div>
+                            <div class="dl-stat"><span class="dl-k">GP to median</span><span class="dl-v">••.•M</span><span class="dl-s">Total unique value earned by the median kill count.</span></div>
+                            <div class="dl-stat"><span class="dl-k">Value still owed</span><span class="dl-v">••.•M</span><span class="dl-s">Expected value your dry streak has not paid out yet.</span></div>
+                        </div>
+                    </div>
+                    <div class="ot-locked-overlay">
+                        <span>🔒 Expected value per kill is Premium</span>
+                        <button class="ot-btn ot-btn-go ot-btn-sm" id="dl-ev-btn">Unlock expected value</button>
+                    </div>
+                </div>
+                <div id="dl-ev-out" style="display:none;"></div>
+            </div>
+
+            <!-- ===== PREMIUM: COMPARE ===== -->
+            <div class="ot-card">
+                <h3>⚖️ Compare drop targets <span class="ot-badge ot-badge-premium">Premium</span></h3>
+                <p class="ot-hint" style="margin:-4px 0 12px;">Tick the <strong>Cmp</strong> boxes in the lookup table, then compare median kills, dry odds and GP per kill side by side. <span id="dl-cmp-count">0 selected.</span></p>
+                <div class="ot-locked" id="dl-cmp-lock">
+                    <div class="ot-locked-body">
+                        <div class="ot-tablewrap">
+                            <table class="ot-table">
+                                <thead><tr><th>Target</th><th>Rate</th><th>Median</th><th>P(dry)</th><th>GP / kill</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Zulrah — Tanzanite fang</td><td>1/512</td><td>355</td><td>••.•%</td><td>••,•••</td></tr>
+                                    <tr><td>Cerberus — Primordial crystal</td><td>1/512</td><td>355</td><td>••.•%</td><td>••,•••</td></tr>
+                                    <tr><td>Vorkath — Draconic visage</td><td>1/5000</td><td>3466</td><td>••.•%</td><td>•,•••</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="ot-locked-overlay">
+                        <span>🔒 Multi-target comparison is Premium</span>
+                        <button class="ot-btn ot-btn-go ot-btn-sm" id="dl-cmp-btn">Unlock comparison table</button>
+                    </div>
+                </div>
+                <div id="dl-cmp-out" style="display:none;"></div>
+            </div>
+
+            <!-- ===== CROSS LINKS ===== -->
+            <div class="ot-crosslinks">
+                <h3>🔗 Keep going — other free OSRS Guru tools</h3>
+                <ul>
+                    <li><a href="../bank-layout/">Bank Layout Library — 12 templates →</a></li>
+                    <li><a href="../profit-finder/">Profit Finder — best money maker for your account →</a></li>
+                    <li><a href="../gear-recommender/">Gear Recommender →</a></li>
+                    <li><a href="../dps-calculator/">DPS Calculator →</a></li>
+                    <li><a href="../gp-tracker/">GP / Session Tracker →</a></li>
+                    <li><a href="../clog-advisor/">Collection Log Advisor →</a></li>
+                </ul>
+                <h3 style="margin-top:16px;">📖 Related guides</h3>
+                <ul>
+                    <li><a href="../../guides/osrs-drop-rate-probability-guide-2026.html">Drop Rates &amp; Probability Explained →</a></li>
+                    <li><a href="../../guides/osrs-vorkath-guide-2026.html">Vorkath Guide (2026) →</a></li>
+                    <li><a href="../../guides/osrs-zulrah-guide-2026.html">Zulrah Guide (2026) →</a></li>
+                    <li><a href="../../guides/osrs-slayer-money-making-guide-2026.html">Slayer Money Making Guide →</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides and tools. No ads blocking content, no paywalls on the free tier.</p></div>
+                <div class="footer-col"><h4>Free Tools</h4><ul>
+                    <li><a href="../../tools/profit-finder/">Profit Finder</a></li>
+                    <li><a href="../../tools/gear-recommender/">Gear Recommender</a></li>
+                    <li><a href="../../tools/bank-layout/">Bank Layout Library</a></li>
+                    <li><a href="../../tools/drop-lookup/">Drop Rate Lookup</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular</h4><ul>
+                    <li><a href="../../money-making.html">Money Making</a></li>
+                    <li><a href="../../boss-guides.html">Boss Guides</a></li>
+                    <li><a href="../../new-player.html">New Player</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru. All rights reserved. &middot; Not affiliated with Jagex &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <script src="../shared/js/osrs-analytics.js"></script>
+    <script src="../shared/js/osrs-subscription.js"></script>
+    <script>
+    (function () {
+        'use strict';
+
+        var TOOL = 'drop-lookup';
+
+        function esc(s) {
+            return String(s == null ? '' : s)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        }
+
+        /* =================================================================
+           DROP DATA — published per-kill rates.
+           gp = [low, high] rough GE band; null = untradeable.
+           ================================================================= */
+        var DROPS = [
+            // ---------- Solo bosses ----------
+            { src: 'Zulrah',                    item: 'Tanzanite fang',        rate: 512,   cat: 'Boss',     gp: [18000000, 30000000] },
+            { src: 'Zulrah',                    item: 'Magic fang',            rate: 512,   cat: 'Boss',     gp: [15000000, 28000000] },
+            { src: 'Zulrah',                    item: 'Serpentine visage',     rate: 512,   cat: 'Boss',     gp: [5000000, 12000000] },
+            { src: 'Zulrah',                    item: 'Uncut onyx',            rate: 1024,  cat: 'Boss',     gp: [2000000, 4000000] },
+            { src: 'Zulrah',                    item: 'Tanzanite mutagen',     rate: 13106, cat: 'Boss',     gp: [30000000, 80000000] },
+            { src: 'Vorkath',                   item: 'Draconic visage',       rate: 5000,  cat: 'Boss',     gp: [2500000, 6000000] },
+            { src: 'Vorkath',                   item: 'Skeletal visage',       rate: 5000,  cat: 'Boss',     gp: [2000000, 5000000] },
+            { src: 'Vorkath',                   item: 'Dragonbone necklace',   rate: 1000,  cat: 'Boss',     gp: [300000, 900000] },
+            { src: 'Vorkath',                   item: 'Vorki (pet)',           rate: 3000,  cat: 'Boss',     gp: null },
+            { src: 'Cerberus',                  item: 'Primordial crystal',    rate: 512,   cat: 'Boss',     gp: [18000000, 32000000] },
+            { src: 'Cerberus',                  item: 'Pegasian crystal',      rate: 512,   cat: 'Boss',     gp: [4000000, 12000000] },
+            { src: 'Cerberus',                  item: 'Eternal crystal',       rate: 512,   cat: 'Boss',     gp: [3000000, 8000000] },
+            { src: 'Cerberus',                  item: 'Smouldering stone',     rate: 512,   cat: 'Boss',     gp: [2500000, 6000000] },
+            { src: 'Kraken',                    item: 'Kraken tentacle',       rate: 400,   cat: 'Boss',     gp: [700000, 1600000] },
+            { src: 'Abyssal Sire',              item: 'Abyssal dagger',        rate: 228,   cat: 'Boss',     gp: [1500000, 4000000] },
+            { src: 'Abyssal Sire',              item: 'Bludgeon piece (each)', rate: 258,   cat: 'Boss',     gp: [3000000, 9000000] },
+            { src: 'Alchemical Hydra',          item: "Hydra's claw",          rate: 1001,  cat: 'Boss',     gp: [60000000, 150000000] },
+            { src: 'Alchemical Hydra',          item: 'Hydra tail',            rate: 512,   cat: 'Boss',     gp: [500000, 2000000] },
+            { src: 'Alchemical Hydra',          item: 'Hydra leather',         rate: 512,   cat: 'Boss',     gp: [1500000, 4000000] },
+            { src: 'Dagannoth Rex',             item: 'Berserker ring',        rate: 128,   cat: 'Boss',     gp: [2500000, 6000000] },
+            { src: 'Dagannoth Supreme',         item: 'Archers ring',          rate: 128,   cat: 'Boss',     gp: [1500000, 5000000] },
+            { src: 'Thermonuclear smoke devil', item: 'Occult necklace',       rate: 350,   cat: 'Boss',     gp: [600000, 1500000] },
+
+            // ---------- God Wars Dungeon ----------
+            { src: 'General Graardor',          item: 'Bandos chestplate',     rate: 384,   cat: 'GWD',      gp: [12000000, 25000000] },
+            { src: 'General Graardor',          item: 'Bandos tassets',        rate: 384,   cat: 'GWD',      gp: [18000000, 32000000] },
+            { src: 'General Graardor',          item: 'Bandos hilt',           rate: 508,   cat: 'GWD',      gp: [6000000, 15000000] },
+            { src: "Kree'arra",                 item: 'Armadyl chestplate',    rate: 381,   cat: 'GWD',      gp: [22000000, 40000000] },
+            { src: 'Commander Zilyana',         item: 'Armadyl crossbow',      rate: 508,   cat: 'GWD',      gp: [25000000, 50000000] },
+            { src: "K'ril Tsutsaroth",          item: 'Staff of the dead',     rate: 508,   cat: 'GWD',      gp: [4000000, 12000000] },
+
+            // ---------- Slayer monsters ----------
+            { src: 'Abyssal demon',             item: 'Abyssal whip',          rate: 512,   cat: 'Slayer',   gp: [1200000, 3000000] },
+            { src: 'Cave horror',               item: 'Black mask',            rate: 512,   cat: 'Slayer',   gp: [1000000, 3000000] },
+            { src: 'Skeletal Wyvern',           item: 'Draconic visage',       rate: 10000, cat: 'Slayer',   gp: [2500000, 6000000] },
+            { src: 'Demonic gorilla',           item: 'Zenyte shard',          rate: 300,   cat: 'Slayer',   gp: [8000000, 20000000] },
+            { src: 'Lizardman shaman',          item: 'Dragon warhammer',      rate: 5000,  cat: 'Slayer',   gp: [35000000, 90000000] },
+
+            // ---------- Skilling & other ----------
+            { src: 'Woodcutting (per log)',     item: 'Bird nest',             rate: 256,   cat: 'Skilling', gp: [3000, 15000] },
+            { src: 'Herbiboar',                 item: 'Herbi (pet)',           rate: 6500,  cat: 'Skilling', gp: null }
+        ];
+
+        /* =================================================================
+           Formatting helpers
+           ================================================================= */
+        function fmtInt(n) { return Math.round(n).toLocaleString('en-US'); }
+
+        function fmtGp(n) {
+            if (n >= 1e9) return (n / 1e9).toFixed(n >= 1e10 ? 0 : 1) + 'B';
+            if (n >= 1e6) return (n / 1e6).toFixed(n >= 1e7 ? 0 : 1) + 'M';
+            if (n >= 1e3) return Math.round(n / 1e3) + 'K';
+            return fmtInt(n);
+        }
+
+        function fmtBand(gp) {
+            if (!gp) return 'Untradeable';
+            return fmtGp(gp[0]) + ' – ' + fmtGp(gp[1]);
+        }
+
+        function fmtPct(p) {
+            var v = p * 100;
+            if (v > 0 && v < 0.01) return '<0.01%';
+            if (v >= 99.99 && v < 100) return '>99.99%';
+            if (v >= 10) return v.toFixed(1) + '%';
+            return v.toFixed(2) + '%';
+        }
+
+        /* =================================================================
+           Core maths
+           ================================================================= */
+        function pDry(rate, kills) { return Math.pow(1 - 1 / rate, kills); }
+        function medianKills(rate) { return Math.log(0.5) / Math.log(1 - 1 / rate); }
+        function killsForChance(rate, target) { return Math.log(1 - target) / Math.log(1 - 1 / rate); }
+
+        /* =================================================================
+           State
+           ================================================================= */
+        var selected = null;
+        var compare = [];
+        var lastResult = null;
+
+        function keyOf(d) { return d.src + '|' + d.item; }
+
+        function activeRate() {
+            var custom = parseInt(document.getElementById('dl-rate').value, 10);
+            if (custom && custom >= 1) return custom;
+            return selected ? selected.rate : null;
+        }
+
+        /* =================================================================
+           Lookup table
+           ================================================================= */
+        function renderTable() {
+            var q = document.getElementById('dl-q').value.trim().toLowerCase();
+            var cat = document.getElementById('dl-cat').value;
+            var rows = DROPS.filter(function (d) {
+                if (cat !== 'all' && d.cat !== cat) return false;
+                if (!q) return true;
+                return (d.src + ' ' + d.item).toLowerCase().indexOf(q) > -1;
+            });
+
+            document.getElementById('dl-count').textContent =
+                rows.length + ' of ' + DROPS.length + ' drops shown';
+
+            var tb = document.getElementById('dl-tbody');
+            if (!rows.length) {
+                tb.innerHTML = '<tr><td colspan="6"><div class="dl-noresult">No drop matches "' + esc(q) +
+                    '". Try a shorter word (e.g. "hydra" instead of "hydra claw"), or enter the rate manually in the calculator below.</div></td></tr>';
+                return;
+            }
+
+            tb.innerHTML = rows.map(function (d) {
+                var k = keyOf(d);
+                var isSel = selected && keyOf(selected) === k;
+                var checked = compare.indexOf(k) > -1 ? ' checked' : '';
+                return '<tr class="' + (isSel ? 'dl-tr-active' : '') + '" data-k="' + esc(k) + '">' +
+                    '<td><input type="checkbox" class="dl-sel" data-k="' + esc(k) + '"' + checked + ' aria-label="Add to comparison"></td>' +
+                    '<td>' + esc(d.src) + '</td>' +
+                    '<td class="dl-item">' + esc(d.item) + '</td>' +
+                    '<td class="dl-rate">1 / ' + fmtInt(d.rate) + '</td>' +
+                    '<td>' + fmtBand(d.gp) + '</td>' +
+                    '<td><button type="button" class="dl-pick" data-k="' + esc(k) + '">Use</button></td>' +
+                    '</tr>';
+            }).join('');
+
+            Array.prototype.forEach.call(tb.querySelectorAll('.dl-pick'), function (b) {
+                b.addEventListener('click', function () { pick(b.getAttribute('data-k')); });
+            });
+            Array.prototype.forEach.call(tb.querySelectorAll('.dl-sel'), function (c) {
+                c.addEventListener('change', function () {
+                    var k = c.getAttribute('data-k');
+                    var i = compare.indexOf(k);
+                    if (c.checked && i === -1) compare.push(k);
+                    if (!c.checked && i > -1) compare.splice(i, 1);
+                    document.getElementById('dl-cmp-count').textContent = compare.length + ' selected.';
+                });
+            });
+        }
+
+        function findByKey(k) {
+            for (var i = 0; i < DROPS.length; i++) { if (keyOf(DROPS[i]) === k) return DROPS[i]; }
+            return null;
+        }
+
+        function pick(k) {
+            var d = findByKey(k);
+            if (!d) return;
+            selected = d;
+            document.getElementById('dl-rate').value = '';
+            document.getElementById('dl-selected').innerHTML =
+                'Selected: <b>' + esc(d.src) + ' → ' + esc(d.item) + '</b> · rate <b>1 / ' + fmtInt(d.rate) +
+                '</b> · approx. value <b>' + fmtBand(d.gp) + '</b>';
+            renderTable();
+            OSRSAnalytics.trackAction('select_drop', { source: d.src, item: d.item });
+            document.getElementById('dl-kills').focus();
+        }
+
+        /* =================================================================
+           Dry calculator (free)
+           ================================================================= */
+        function verdictFor(p) {
+            var pct = p * 100;
+            if (pct >= 50)  return 'Completely normal. More than half of all players are still dry at this point — you have not even reached the median yet.';
+            if (pct >= 25)  return 'Still normal. You are past the halfway mark, but one player in four goes at least this long. Keep going.';
+            if (pct >= 10)  return 'Mildly unlucky. Roughly 1 in ' + Math.round(1 / p) + ' players is this dry — annoying, but nothing unusual.';
+            if (pct >= 2)   return 'Genuinely unlucky. Only about ' + fmtPct(p) + ' of players get this far without the drop. It is still pure variance, not a bug.';
+            if (pct >= 0.5) return 'Very unlucky — around 1 in ' + fmtInt(1 / p) + ' players is this dry. Worth a screenshot for the clan chat.';
+            if (p > 1e-9)   return 'Brutally unlucky. Fewer than 1 in ' + fmtInt(1 / p) + ' players go this dry. Nothing is broken, but you have earned the right to complain.';
+            return 'Astronomically unlucky — the odds of a streak this long are effectively zero, so double-check your kill count or the rate you entered.';
+        }
+
+        function calculate() {
+            var rate = activeRate();
+            var kills = parseInt(document.getElementById('dl-kills').value, 10);
+
+            if (!rate || rate < 1) {
+                OSRSPremium.toast('Pick a drop from the table, or type a custom "1 in …" rate.');
+                return;
+            }
+            if (isNaN(kills) || kills < 0) {
+                OSRSPremium.toast('Enter how many kills you have done (0 or more).');
+                return;
+            }
+            if (kills > 10000000) kills = 10000000;
+
+            var p = pDry(rate, kills);
+            var med = medianKills(rate);
+            var k50 = killsForChance(rate, 0.5);
+            var k90 = killsForChance(rate, 0.9);
+            var k99 = killsForChance(rate, 0.99);
+
+            lastResult = { rate: rate, kills: kills, p: p, med: med };
+
+            document.getElementById('dl-out').style.display = 'block';
+            document.getElementById('dl-p-dry').textContent = fmtPct(p);
+            document.getElementById('dl-p-dry-sub').textContent =
+                'After ' + fmtInt(kills) + ' kills at 1/' + fmtInt(rate) + '.';
+            document.getElementById('dl-p-got').textContent = fmtPct(1 - p);
+            document.getElementById('dl-median').textContent = fmtInt(med);
+            document.getElementById('dl-pct').textContent = fmtPct(p);
+            document.getElementById('dl-pct-sub').textContent =
+                p >= 0.5
+                    ? 'You are in the luckier half — most players are still dry here.'
+                    : 'You are in the unluckiest ' + fmtPct(p) + ' of everyone grinding this drop.';
+
+            var ratio = kills / rate;
+            var barMax = Math.max(k99, kills);
+            document.getElementById('dl-barfill').style.width = Math.min(100, (kills / barMax) * 100).toFixed(1) + '%';
+            document.getElementById('dl-barmax').textContent = fmtInt(barMax) + ' kills (99% mark)';
+
+            document.getElementById('dl-verdict').textContent =
+                verdictFor(p) + ' You are at ' + ratio.toFixed(2) + '× the drop rate.';
+
+            document.getElementById('dl-miles').innerHTML =
+                '<strong>Milestones for 1/' + fmtInt(rate) + ':</strong><br>' +
+                '50% chance by <code>' + fmtInt(k50) + '</code> kills &nbsp;·&nbsp; ' +
+                '90% chance by <code>' + fmtInt(k90) + '</code> kills &nbsp;·&nbsp; ' +
+                '99% chance by <code>' + fmtInt(k99) + '</code> kills &nbsp;·&nbsp; ' +
+                'average (expected) kills <code>' + fmtInt(rate) + '</code>';
+
+            OSRSAnalytics.trackToolUsed({
+                source: selected ? selected.src : 'custom',
+                item: selected ? selected.item : 'custom',
+                rate: rate,
+                kills: kills
+            });
+
+            document.getElementById('dl-out').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        /* =================================================================
+           Premium: expected value
+           ================================================================= */
+        function runExpectedValue() {
+            if (!OSRSPremium.require(TOOL, 'expectedValue')) return;
+
+            var d = selected;
+            if (!d || !d.gp) {
+                OSRSPremium.toast('Select a tradeable drop from the table first.');
+                return;
+            }
+            var mid = (d.gp[0] + d.gp[1]) / 2;
+            var ev = mid / d.rate;
+            var med = medianKills(d.rate);
+            var kills = parseInt(document.getElementById('dl-kills').value, 10) || 0;
+
+            document.getElementById('dl-ev-lock').style.display = 'none';
+            var out = document.getElementById('dl-ev-out');
+            out.style.display = 'block';
+            out.innerHTML =
+                '<div class="dl-stats">' +
+                    '<div class="dl-stat is-good"><span class="dl-k">Expected GP / kill</span><span class="dl-v">' + fmtInt(ev) + '</span>' +
+                        '<span class="dl-s">' + esc(d.item) + ' only, mid-band value ' + fmtGp(mid) + ' ÷ ' + fmtInt(d.rate) + '.</span></div>' +
+                    '<div class="dl-stat"><span class="dl-k">Value by median kill</span><span class="dl-v">' + fmtGp(ev * med) + '</span>' +
+                        '<span class="dl-s">Expected unique value after ' + fmtInt(med) + ' kills.</span></div>' +
+                    '<div class="dl-stat is-gold"><span class="dl-k">Expected value so far</span><span class="dl-v">' + fmtGp(ev * kills) + '</span>' +
+                        '<span class="dl-s">What ' + fmtInt(kills) + ' kills "should" have paid out from this drop alone.</span></div>' +
+                '</div>' +
+                '<p class="ot-hint" style="margin-top:10px;">This counts the selected unique only — common drops, ammo and secondary uniques are not included.</p>';
+
+            OSRSAnalytics.trackAction('expected_value', { source: d.src, item: d.item });
+        }
+
+        /* =================================================================
+           Premium: compare targets
+           ================================================================= */
+        function runCompare() {
+            if (!OSRSPremium.require(TOOL, 'compareTargets')) return;
+
+            if (compare.length < 2) {
+                OSRSPremium.toast('Tick at least two "Cmp" boxes in the lookup table first.');
+                return;
+            }
+            var kills = parseInt(document.getElementById('dl-kills').value, 10) || 0;
+            var rows = compare.map(findByKey).filter(Boolean);
+
+            document.getElementById('dl-cmp-lock').style.display = 'none';
+            var out = document.getElementById('dl-cmp-out');
+            out.style.display = 'block';
+            out.innerHTML =
+                '<div class="ot-tablewrap"><table class="ot-table">' +
+                '<thead><tr><th>Target</th><th>Rate</th><th>Median kills</th><th>P(dry at ' + fmtInt(kills) + ')</th><th>GP / kill</th></tr></thead><tbody>' +
+                rows.map(function (d) {
+                    var ev = d.gp ? (d.gp[0] + d.gp[1]) / 2 / d.rate : null;
+                    return '<tr>' +
+                        '<td>' + esc(d.src) + ' — ' + esc(d.item) + '</td>' +
+                        '<td class="dl-rate">1 / ' + fmtInt(d.rate) + '</td>' +
+                        '<td>' + fmtInt(medianKills(d.rate)) + '</td>' +
+                        '<td>' + fmtPct(pDry(d.rate, kills)) + '</td>' +
+                        '<td>' + (ev === null ? 'Untradeable' : fmtInt(ev)) + '</td>' +
+                        '</tr>';
+                }).join('') +
+                '</tbody></table></div>' +
+                '<p class="ot-hint">Sorted in the order you ticked them. GP/kill uses the mid-point of the approximate GE band.</p>';
+
+            OSRSAnalytics.trackAction('compare_targets', { n: rows.length });
+        }
+
+        /* =================================================================
+           Boot
+           ================================================================= */
+        function boot() {
+            OSRSAnalytics.init(TOOL);
+            OSRSPremium.renderBadge('#tier-badge', TOOL);
+
+            renderTable();
+
+            document.getElementById('dl-q').addEventListener('input', renderTable);
+            document.getElementById('dl-cat').addEventListener('change', renderTable);
+            document.getElementById('dl-go').addEventListener('click', calculate);
+            document.getElementById('dl-kills').addEventListener('keydown', function (e) {
+                if (e.key === 'Enter') calculate();
+            });
+            document.getElementById('dl-rate').addEventListener('keydown', function (e) {
+                if (e.key === 'Enter') calculate();
+            });
+            document.getElementById('dl-ev-btn').addEventListener('click', runExpectedValue);
+            document.getElementById('dl-cmp-btn').addEventListener('click', runCompare);
+
+            OSRSPremium.onChange(function () {
+                OSRSPremium.renderBadge('#tier-badge', TOOL);
+            });
+
+            // Sensible default so the page is never empty on first load
+            pick('Zulrah|Tanzanite fang');
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', boot);
+        } else {
+            boot();
+        }
+    })();
+    </script>
+</body>
+</html>

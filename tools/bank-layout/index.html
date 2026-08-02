@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Bank Layout Library — 12 Proven Bank Organisation Templates (2026)</title>
+    <meta name="description" content="Free OSRS bank layout library. 12 proven bank tab templates for Ironman, PvM, Skiller, Slayer, Raids and new accounts — with what goes in each tab and why. Build your own layout and copy it to Discord in one click.">
+    <meta name="keywords" content="OSRS bank layout, OSRS bank organisation, OSRS bank tabs, best bank setup OSRS, OSRS ironman bank layout, OSRS bank tags layout">
+    <link rel="canonical" href="https://osrsguru.com/tools/bank-layout/">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../shared/css/osrs-tool.css">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content .ot-wrap-wide,
+        .guide-content .bl-preset,
+        .guide-content .bl-tabcard { color:#1a1a1a !important; }
+
+        /* ---- preset picker ---- */
+        .bl-presets { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:12px; margin:14px 0 4px; }
+        .bl-preset {
+            background:#fff !important; border:1px solid #e0d5c0; border-radius:10px;
+            padding:13px 14px; cursor:pointer; text-align:left; font:inherit; width:100%;
+            transition:border-color .15s ease, box-shadow .15s ease;
+        }
+        .bl-preset:hover { border-color:#4a3320; box-shadow:0 3px 10px rgba(59,38,21,.14); }
+        .bl-preset.is-active { border-color:#3b2615; box-shadow:0 0 0 2px rgba(59,38,21,.16); }
+        .bl-preset .bl-p-name { display:block; font-weight:800; color:#3b2615; font-size:.96rem; margin-bottom:5px; }
+        .bl-preset .bl-p-for { display:block; font-size:.79rem; color:#7a6a52; line-height:1.45; }
+
+        /* ---- tab strip (in-game style) ---- */
+        .bl-tabstrip { display:flex; flex-wrap:wrap; gap:6px; margin:4px 0 16px; }
+        .bl-tabchip {
+            color:#fff; font-size:.74rem; font-weight:700; letter-spacing:.2px;
+            padding:5px 11px; border-radius:6px 6px 0 0; border-bottom:3px solid #d4af37;
+        }
+
+        /* ---- layout grid ---- */
+        .bl-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:13px; }
+        .bl-tabcard {
+            background:#fdfbf7 !important; border:1px solid #e0d5c0; border-radius:10px;
+            overflow:hidden; display:flex; flex-direction:column;
+        }
+        .bl-tabcard .bl-head {
+            color:#fff; padding:8px 12px; font-weight:800; font-size:.87rem;
+            display:flex; align-items:center; gap:8px;
+        }
+        .bl-tabcard .bl-num {
+            background:rgba(212,175,55,.25); border:1px solid #d4af37; color:#fff;
+            border-radius:5px; padding:1px 7px; font-size:.72rem; flex:none;
+        }
+        .bl-tabcard .bl-body { padding:11px 12px 13px; }
+        .bl-chips { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:9px; }
+        .bl-chip {
+            background:#fff; border:1px solid #cbb89a; color:#4a3320;
+            border-radius:14px; padding:3px 9px; font-size:.76rem; font-weight:600;
+        }
+        .bl-why { font-size:.8rem; color:#5a4a35; line-height:1.5; border-top:1px dashed #e0d5c0; padding-top:8px; margin:0; }
+
+        /* ---- editor ---- */
+        .bl-editrow {
+            border:1px solid #e0d5c0; border-radius:10px; padding:12px 13px;
+            margin-bottom:11px; background:#fdfbf7;
+        }
+        .bl-editrow-top { display:flex; align-items:center; gap:8px; margin-bottom:9px; flex-wrap:wrap; }
+        .bl-editrow-top .bl-idx {
+            background:#3b2615; color:#fff; border-radius:5px; padding:3px 9px;
+            font-size:.74rem; font-weight:700; flex:none;
+        }
+        .bl-editrow-top .bl-ctrl { margin-left:auto; display:flex; gap:5px; }
+        .bl-mini {
+            border:1px solid #cbb89a; background:#fff; color:#4a3320; cursor:pointer;
+            border-radius:6px; width:32px; height:30px; font-size:.9rem; font-weight:700; line-height:1;
+        }
+        .bl-mini:hover { background:#faf4e8; }
+        .bl-mini:disabled { opacity:.4; cursor:not-allowed; }
+        .bl-editrow input[type="text"], .bl-editrow textarea {
+            width:100%; padding:9px 10px; border:1px solid #cbb89a; border-radius:7px;
+            font-size:.92rem; font-family:inherit; background:#fff; color:#1a1a1a;
+            box-sizing:border-box; margin-bottom:8px;
+        }
+        .bl-editrow textarea { resize:vertical; min-height:52px; }
+        .bl-editrow label { display:block; font-size:.78rem; font-weight:700; color:#4a3320; margin-bottom:4px; }
+        .bl-btnbar { display:flex; gap:9px; flex-wrap:wrap; margin-top:6px; }
+
+        /* ---- saved list ---- */
+        .bl-saved { display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+            border:1px solid #e0d5c0; border-radius:9px; padding:10px 13px; margin-bottom:9px; background:#fff; }
+        .bl-saved b { color:#3b2615; font-size:.94rem; }
+        .bl-saved .bl-s-meta { font-size:.78rem; color:#7a6a52; }
+        .bl-saved .bl-s-act { margin-left:auto; display:flex; gap:6px; flex-wrap:wrap; }
+
+        .bl-slots { font-size:.84rem; color:#7a6a52; margin:2px 0 12px; }
+        .bl-slots b { color:#3b2615; }
+
+        #bl-copybox { width:100%; min-height:170px; font-family:ui-monospace,Consolas,monospace;
+            font-size:.82rem; padding:11px; border:1px solid #cbb89a; border-radius:8px;
+            background:#fdfbf7; color:#1a1a1a; box-sizing:border-box; resize:vertical; }
+
+        @media (max-width: 640px) {
+            .bl-presets { grid-template-columns:1fr; }
+            .bl-grid { grid-template-columns:1fr; }
+            .bl-saved .bl-s-act { margin-left:0; width:100%; }
+            .bl-mini { width:38px; height:34px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">OSRSGuru</a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../../new-player.html">New Player</a></li>
+                    <li><a href="../../money-making.html">Money Making</a></li>
+                    <li><a href="../../boss-guides.html">Boss Guides</a></li>
+                    <li><a href="../../quests.html">Quests</a></li>
+                    <li><a href="../../tools/profit-finder/">Tools</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../tools/profit-finder/">Tools</a> / Bank Layout Library</p>
+            <h1>OSRS Bank Layout Library</h1>
+            <p class="subtitle">12 battle-tested bank tab templates for Ironman, PvM, Skiller, Slayer and Raids accounts — each one shows <strong>what goes in every tab and why</strong>. Edit any template, save your own, and copy it as plain text to share in Discord.</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container ot-wrap-wide">
+
+            <div class="ot-tierbar">
+                <span class="ot-badge ot-badge-free">Free · unlimited browsing</span>
+                <span id="tier-badge"></span>
+            </div>
+
+            <div class="ot-note">
+                💡 A bank layout is not decoration — it is <strong>seconds saved per trip</strong>. The templates below are built around the one rule that actually matters: <em>the stuff you grab every single trip lives closest to the tab you open first</em>.
+            </div>
+
+            <div class="ot-card">
+                <h2>What This Tool Does</h2>
+                <p>The OSRS Bank Layout Library is a free reference tool that turns the endless "how should I organise my bank?" question into 12 concrete, copy-able templates. Old School RuneScape gives every account a main bank tab plus nine numbered tabs, but the game offers no guidance at all on how to use them. Most players end up with one gigantic unsorted tab, then lose ten to fifteen seconds every single banking trip hunting for a stamina potion or the right teleport. Over a few hundred hours of Slayer or bossing, that adds up to entire wasted play sessions.</p>
+                <p>Each template in this library was built around a specific playstyle — Ironman all-rounder, boss rusher, Skiller chasing max cape, brand-new account, Raids preparation, Slayer grinder, AFK player, Grand Exchange merchant, quest cape runner, Group Ironman shared bank, Wilderness PKer, and endgame maxed main. For every tab you get three things: a short name you can copy straight into a RuneLite bank tag, the categories of items that belong there, and a plain-English explanation of <em>why</em> that grouping saves you time. The visual grid shows the whole layout at a glance so you can judge whether it fits how you actually play before committing to a re-sort.</p>
+                <p>You can also build your own layout from scratch or start from any template, rename sections, add or remove tabs, reorder them with the up and down buttons, and save the result to your browser. Nothing is uploaded anywhere — saved layouts live in your own browser's local storage. Finally, the one-click text export produces a clean plain-text checklist that is perfect for pasting into a clan Discord, a Reddit comment, or your own notes app while you re-sort in game. The whole library is free with no sign-up.</p>
+            </div>
+
+            <div class="ot-card">
+                <h3>📚 Pick a template</h3>
+                <p class="ot-hint" style="margin:-4px 0 6px;">Click any template to see the full tab-by-tab breakdown.</p>
+                <div class="bl-presets" id="bl-presets"></div>
+            </div>
+
+            <div class="ot-card" id="bl-view" style="display:none;">
+                <div class="ot-result-top" style="margin-bottom:10px;">
+                    <h3 id="bl-view-name">Layout</h3>
+                    <span class="ot-badge ot-badge-neutral" id="bl-view-cat">—</span>
+                </div>
+                <p class="ot-meta" id="bl-view-for"></p>
+                <p class="ot-reason" id="bl-view-summary"></p>
+                <div class="bl-tabstrip" id="bl-view-strip"></div>
+                <div class="bl-grid" id="bl-view-grid"></div>
+                <div class="bl-btnbar" style="margin-top:16px;">
+                    <button class="ot-btn ot-btn-primary ot-btn-sm" id="bl-copy">📋 Copy as text list</button>
+                    <button class="ot-btn ot-btn-ghost ot-btn-sm" id="bl-edit-this">✏️ Edit this layout</button>
+                </div>
+            </div>
+
+            <div class="ot-card">
+                <h3>🛠️ Build / edit your own layout</h3>
+                <p class="bl-slots" id="bl-slots">Saved layouts: <b>0</b> / 3</p>
+                <div class="ot-field" style="margin-bottom:12px;">
+                    <label for="bl-name">Layout name</label>
+                    <input type="text" id="bl-name" maxlength="60" placeholder="e.g. My Ironman Slayer bank">
+                </div>
+                <div id="bl-editor"></div>
+                <div class="bl-btnbar">
+                    <button class="ot-btn ot-btn-ghost ot-btn-sm" id="bl-add">+ Add section</button>
+                    <button class="ot-btn ot-btn-primary ot-btn-sm" id="bl-save">💾 Save layout</button>
+                    <button class="ot-btn ot-btn-ghost ot-btn-sm" id="bl-preview">👁️ Preview above</button>
+                    <button class="ot-btn ot-btn-ghost ot-btn-sm" id="bl-clear">🧹 Reset editor</button>
+                </div>
+            </div>
+
+            <div class="ot-card" id="bl-saved-card" style="display:none;">
+                <h3>💾 Your saved layouts</h3>
+                <div id="bl-saved-list"></div>
+            </div>
+
+            <div class="ot-card">
+                <h3>📋 Text export</h3>
+                <p class="ot-hint" style="margin:-4px 0 10px;">Plain text, Discord-friendly. Generated from whichever layout is shown above.</p>
+                <textarea id="bl-copybox" readonly placeholder="Pick a template above, then hit 'Copy as text list'."></textarea>
+            </div>
+
+            <!-- ===== PREMIUM (locked) ===== -->
+            <div class="ot-card">
+                <h3>🔒 Premium extras <span class="ot-badge ot-badge-premium">Premium</span></h3>
+                <p class="ot-hint" style="margin:-4px 0 12px;">Everything above stays free forever. These two are part of OSRS Guru Premium ($1.9/mo).</p>
+                <div class="ot-locked">
+                    <div class="ot-locked-body">
+                        <div class="bl-grid">
+                            <div class="bl-tabcard">
+                                <div class="bl-head" style="background:#3b2615;"><span class="bl-num">PNG</span> Export as image</div>
+                                <div class="bl-body">
+                                    <div class="bl-chips"><span class="bl-chip">1600×900 sheet</span><span class="bl-chip">Print friendly</span><span class="bl-chip">Second monitor</span></div>
+                                    <p class="bl-why">Renders your layout as a single image you can keep open on a second monitor while re-sorting in game.</p>
+                                </div>
+                            </div>
+                            <div class="bl-tabcard">
+                                <div class="bl-head" style="background:#4a3320;"><span class="bl-num">URL</span> Share preset link</div>
+                                <div class="bl-body">
+                                    <div class="bl-chips"><span class="bl-chip">One click</span><span class="bl-chip">No account</span><span class="bl-chip">Clan ready</span></div>
+                                    <p class="bl-why">Turns any saved layout into a shareable link so your clan can open the exact same template.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ot-locked-overlay">
+                        <span>🔒 Image export &amp; shareable links are Premium</span>
+                        <button class="ot-btn ot-btn-go ot-btn-sm" id="bl-unlock">See what Premium unlocks</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CROSS LINKS ===== -->
+            <div class="ot-crosslinks">
+                <h3>🔗 Keep going — other free OSRS Guru tools</h3>
+                <ul>
+                    <li><a href="../drop-lookup/">Drop Rate Lookup &amp; Dry Calculator →</a></li>
+                    <li><a href="../profit-finder/">Profit Finder — best money maker for your account →</a></li>
+                    <li><a href="../gear-recommender/">Gear Recommender →</a></li>
+                    <li><a href="../dps-calculator/">DPS Calculator →</a></li>
+                    <li><a href="../gp-tracker/">GP / Session Tracker →</a></li>
+                    <li><a href="../clog-advisor/">Collection Log Advisor →</a></li>
+                </ul>
+                <h3 style="margin-top:16px;">📖 Related guides</h3>
+                <ul>
+                    <li><a href="../../guides/osrs-bank-tags-layout-guide-2026.html">Bank Tags &amp; Layout Guide (2026) →</a></li>
+                    <li><a href="../../guides/osrs-bank-inventory-management-2026.html">Bank &amp; Inventory Management →</a></li>
+                    <li><a href="../../guides/osrs-bank-tags-beginners-guide-2026.html">Bank Tags for Beginners →</a></li>
+                    <li><a href="../../guides/osrs-boss-inventory-prep-guide-2026.html">Boss Inventory Prep Guide →</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides and tools. No ads blocking content, no paywalls on the free tier.</p></div>
+                <div class="footer-col"><h4>Free Tools</h4><ul>
+                    <li><a href="../../tools/profit-finder/">Profit Finder</a></li>
+                    <li><a href="../../tools/gear-recommender/">Gear Recommender</a></li>
+                    <li><a href="../../tools/bank-layout/">Bank Layout Library</a></li>
+                    <li><a href="../../tools/drop-lookup/">Drop Rate Lookup</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular</h4><ul>
+                    <li><a href="../../money-making.html">Money Making</a></li>
+                    <li><a href="../../boss-guides.html">Boss Guides</a></li>
+                    <li><a href="../../new-player.html">New Player</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru. All rights reserved. &middot; Not affiliated with Jagex &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <script src="../shared/js/osrs-analytics.js"></script>
+    <script src="../shared/js/osrs-subscription.js"></script>
+    <script>
+    (function () {
+        'use strict';
+
+        var TOOL = 'bank-layout';
+        var STORE = 'osrsguru_bank_layouts';
+        var PALETTE = ['#3b2615','#4a3320','#5c4326','#6d5230','#8a6d1b','#a8862c','#7a6a52','#5a4a35','#94743a','#2a1a0a'];
+
+        function esc(s) {
+            return String(s == null ? '' : s)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        }
+
+        /* =================================================================
+           PRESET LIBRARY (12 templates)
+           ================================================================= */
+        var PRESETS = [
+        {
+            id: 'ironman', name: 'Ironman All-Rounder', cat: 'Ironman',
+            aud: 'Standard / Hardcore Ironmen, ~1200+ total level',
+            summary: 'The workhorse layout. Because an Ironman touches every skill, the guiding rule is "one tab per activity loop", not "one tab per skill". Everything you need for a farm run, a Slayer task or a herb batch is in a single tab so you never bounce between three of them mid-trip.',
+            tabs: [
+                { name: 'Overflow / unsorted', items: 'New drops, random junk, anything you have not filed yet', why: 'Deliberately messy. Give yourself one dumping ground so the other nine tabs stay clean, then sort it once a week.' },
+                { name: 'Combat gear', items: 'Melee set, Ranged set, Magic set, prayer switches, spec weapons', why: 'All three styles in one tab means you can rebuild any setup without leaving the tab, which matters when a task forces a style swap.' },
+                { name: 'Slayer kit', items: 'Slayer helm, leaf-bladed gear, salve amulet, spiny helm, earmuffs, nose peg, ice coolers', why: 'Slayer is the single most repeated loop on an Ironman. Every task-gating item belongs together or you will forget the face mask again.' },
+                { name: 'Gathering tools', items: 'Axes, pickaxes, harpoon, butterfly net, rope, small fishing net, skilling outfits', why: 'Tools are grabbed in ones and twos on the way out the door. Keep them out of the material tabs so they never get buried under 40k ore.' },
+                { name: 'Herblore', items: 'Grimy herbs, clean herbs, secondaries, vials of water, finished potions', why: 'Herb → clean → potion is one continuous loop. Splitting grimy and clean across tabs doubles the clicks on every cleaning session.' },
+                { name: 'Food & prayer', items: 'Sharks, monkfish, karambwan, saradomin brews, bones, ashes, prayer potions', why: 'This is the "restock before a trip" tab. Bones live here too because banking bones and burying them is part of the same routine.' },
+                { name: 'Runes & teleports', items: 'All runes, rune pouch, glory, games necklace, ring of dueling, teleport tabs', why: 'Movement items are needed for literally every activity, so they get a permanent home you can find blindfolded.' },
+                { name: 'Quest & clue', items: 'Quest items, unfinished clue scrolls, clue reward items, diary items', why: 'Quest items are unsellable and easy to accidentally destroy. Isolating them makes "do I still need this?" a two-second check.' },
+                { name: 'Farming & construction', items: 'Seeds, saplings, compost, secateurs, planks, nails, bolts of cloth', why: 'Farm runs and POH upgrades are both timed, batched activities. One tab = one trip.' },
+                { name: 'Rares & keepsakes', items: 'Boss uniques, pet-adjacent items, untradeables, cosmetics', why: 'Anything you would be gutted to lose goes in the last tab, far from the bank-all button.' }
+            ]
+        },
+        {
+            id: 'pvm', name: 'PvM / Boss Rusher', cat: 'PvM',
+            aud: 'Mains with 90+ combat stats doing repeat boss trips',
+            summary: 'Built for speed of re-gear. One tab per combat style, one tab for the boss-specific oddities, and consumables kept separate so a restock never disturbs a gear tab.',
+            tabs: [
+                { name: 'Overflow', items: 'Unsorted loot, drops waiting to be sold', why: 'Loot arrives fast when you are doing 20 kills an hour. Dump first, sort later.' },
+                { name: 'Melee setup', items: 'Torva/Bandos/Torags, scythe, fang, whip, defenders, boots, gloves, rings', why: 'A full melee rebuild should be one tab and under ten clicks.' },
+                { name: 'Ranged setup', items: 'Masori/Armadyl/Karils, bows, blowpipe, ammo, quiver, ranged rings', why: 'Ammo lives with the bow, not in the rune tab — running out mid-kill is the most common avoidable wipe.' },
+                { name: 'Magic setup', items: 'Ancestral/Virtus/Ahrims, staves, tomes, occult, magic rings', why: 'Keeping tomes and charged staves beside the robes stops you leaving without a charged item.' },
+                { name: 'Spec & switches', items: 'DWH, BGS, Voidwaker, Elder maul, Dragon claws, defenders, prayer switches', why: 'Spec weapons are shared across every boss, so they get their own tab instead of being duplicated into three gear tabs.' },
+                { name: 'Consumables', items: 'Saradomin brews, super restores, combat potions, stamina, karambwan, sharks', why: 'The tab you open at the start of every single trip. It should never contain anything you do not drink.' },
+                { name: 'Boss-specific', items: 'Anti-dragon shield, dragonfire ward, keris, arclight, salve (ei), rope, crystals', why: 'These are the "one boss only" items that clutter gear tabs. Grouping them makes pre-trip checks reliable.' },
+                { name: 'Teleports', items: 'Teleport tabs, jewellery, rune pouch, ectophial, royal seed pod', why: 'Fast travel is trip overhead, not gear. Separate tab, zero thinking.' },
+                { name: 'Sell stack', items: 'Alchables, stackable drops, bulk supplies to offload', why: 'Everything here is destined for the Grand Exchange. When it fills up, you do one big sell run.' },
+                { name: 'Uniques & log', items: 'Purples, boss uniques, collection log chase items', why: 'Trophy tab. Also makes it obvious what you are still missing from a boss.' }
+            ]
+        },
+        {
+            id: 'skiller', name: 'Skiller / Max Cape Route', cat: 'Skilling',
+            aud: 'Accounts grinding 99s, skillers and max cape chasers',
+            summary: 'Organised by production chain rather than by skill. Raw material, intermediate and finished product sit together so a bulk session never needs two tabs.',
+            tabs: [
+                { name: 'Overflow', items: 'Random drops, unsorted resources', why: 'Bulk skilling generates a lot of low-value clutter. Contain it.' },
+                { name: 'Tools & outfits', items: 'Axes, pickaxes, hammers, chisels, needles, Graceful, Prospector, Angler, Lumberjack', why: 'XP-boosting outfits and tools are the first thing you equip every session and belong nowhere near materials.' },
+                { name: 'Farming', items: 'Herb seeds, tree seeds, allotment seeds, compost, secateurs, farming tabs', why: 'Farm runs are on a 80-minute timer. Everything for the run in one tab turns it into a 3-minute chore.' },
+                { name: 'Herblore', items: 'Grimy herbs, clean herbs, secondaries, vials, unfinished potions', why: 'Same reason as the Ironman layout — cleaning and mixing is one uninterrupted loop.' },
+                { name: 'Construction', items: 'Planks, nails, bolts of cloth, limestone bricks, marble blocks, saw, hammer', why: 'Construction is done in short expensive bursts. Missing one plank type wastes the whole trip.' },
+                { name: 'Smithing & crafting', items: 'Ores, bars, hides, thread, gems, moulds, glassblowing supplies', why: 'These skills share inputs (bars, gems). Grouping them prevents duplicate stacks in two tabs.' },
+                { name: 'Cooking & fishing', items: 'Raw fish, cooked fish, ingredients, cooking gauntlets, wine, pies', why: 'Raw and cooked side by side makes it obvious how much of a batch you still have to cook.' },
+                { name: 'Runecrafting & magic', items: 'Pure essence, pouches, talismans, tiaras, runes, alch materials', why: 'Essence stacks are huge and would swamp any shared tab.' },
+                { name: 'Agility / Thieving / Hunter', items: 'Marks of grace, stamina, rogue kit, box traps, bird snares, teasing sticks', why: 'The three "movement" skills share almost nothing with production skills, so they get a shared misc tab.' },
+                { name: 'XP boosts', items: 'Lamps, books of knowledge, stews, pies, dragon boosts, tomes', why: 'One-use boosts are easy to forget you own. A dedicated tab is a reminder every time you open the bank.' }
+            ]
+        },
+        {
+            id: 'beginner', name: 'New Player (First 100 Hours)', cat: 'New Player',
+            aud: 'Fresh accounts, returning players, sub-1000 total',
+            summary: 'Deliberately only seven sections. New accounts do not have enough items to justify ten tabs, and an over-engineered bank is abandoned within a week. Start here, split tabs later when one gets full.',
+            tabs: [
+                { name: 'Everything else', items: 'Anything that does not fit the tabs below', why: 'Your main tab. If something here gets used twice in a week, promote it to a proper tab.' },
+                { name: 'Gear I actually wear', items: 'Current armour, current weapon, shield, next upgrade', why: 'Only the set you use right now. Old rune gear you have outgrown goes in the sell tab, not here.' },
+                { name: 'Food & potions', items: 'Lobsters, trout, prayer potions, super attack/strength, antipoison', why: 'The single most common cause of a new-player death is banking without food. One obvious tab fixes that.' },
+                { name: 'Runes & teleports', items: 'Law/air/fire runes, teleport tabs, amulet of glory, games necklace', why: 'Glories and tabs are cheap and save enormous amounts of running. Keep them visible so you remember to use them.' },
+                { name: 'Quest items — never sell', items: 'Quest-locked items, unfinished quest pieces, diary rewards', why: 'The number one new-player regret is selling a quest item. Isolate them and the mistake becomes impossible.' },
+                { name: 'Skilling tools', items: 'Bronze/iron axe, pickaxe, tinderbox, fishing gear, hammer, chisel', why: 'Tools are tiny and constantly needed. Losing five minutes finding a tinderbox is a real new-player experience.' },
+                { name: 'Sell on the GE', items: 'Bones, hides, drops, outgrown gear, alchables', why: 'A queue for your next GE trip. When the tab is full, you make money — a built-in reminder to cash out.' }
+            ]
+        },
+        {
+            id: 'raids', name: 'Raids Prep (CoX / ToB / ToA)', cat: 'Raids',
+            aud: 'Accounts entering Chambers, Theatre or Tombs',
+            summary: 'One tab per raid, because each raid has a different kit and mixing them is how you enter ToB without a Blowpipe. Shared consumables sit in their own tab so a restock never breaks a kit.',
+            tabs: [
+                { name: 'Overflow', items: 'Post-raid loot, unsorted drops', why: 'Raid loot comes in bursts. Dump it and sort between raids, not during.' },
+                { name: 'CoX kit', items: 'Full melee/range/mage switches for Chambers, dinh\'s, salve, ring switches, kodai', why: 'Chambers rewards bringing all three styles. Having the exact CoX loadout pre-grouped removes the pre-raid scramble.' },
+                { name: 'ToB kit', items: 'Theatre-specific gear, scythe, sang staff, rigour/augury switches, thralls runes', why: 'ToB punishes a missing switch harder than any other content because you cannot restock mid-raid.' },
+                { name: 'ToA kit', items: 'Tombs gear, keris partisan, magus/ultor/venator rings, invocation-specific swaps', why: 'ToA loadouts change with your invocation level, so the tab doubles as a checklist when you raise raid level.' },
+                { name: 'Shared consumables', items: 'Saradomin brews, super restores, ranging/combat potions, stamina, karambwan, blood runes', why: 'All three raids drink the same things. One shared tab means one restock instead of three.' },
+                { name: 'Spec & thralls', items: 'BGS, DWH, Voidwaker, Elder maul, Claws, thrall runes, blood fury', why: 'Spec weapons rotate between raids and team roles. Keeping them central avoids duplicating expensive items.' },
+                { name: 'Raid uniques', items: 'Purples, dust, kits, ToA masori shards, jars', why: 'Trophy and log tab. Also stops you accidentally alching an untradeable-looking unique.' },
+                { name: 'Teleports & scouting', items: 'Xeric\'s talisman, Kourend tabs, Pharaoh\'s sceptre, house tabs', why: 'Getting to the raid is overhead. Never let it live in a gear tab.' }
+            ]
+        },
+        {
+            id: 'slayer', name: 'Slayer Grinder', cat: 'Slayer',
+            aud: 'Anyone doing long Slayer blocks, 70+ Slayer',
+            summary: 'Slayer is the most tab-hungry activity in the game because every task wants a different style and a different gimmick item. This layout is built so a task swap takes one tab click.',
+            tabs: [
+                { name: 'Overflow', items: 'Task drops waiting to be sorted or sold', why: 'Slayer drops are constant and mostly junk. One dump tab keeps the rest usable.' },
+                { name: 'Slayer essentials', items: 'Slayer helm (i), enchanted gem, nose peg, earmuffs, face mask, spiny helm, ice coolers, rock hammer, bag of salt', why: 'The task-gating items. If one of these is missing you literally cannot do the task, so they are never split up.' },
+                { name: 'Melee tasks', items: 'Melee gear, whip/fang, leaf-bladed battleaxe, salve amulet, dragon boots', why: 'Roughly half of all tasks are melee. Fastest tab to reach for a reason.' },
+                { name: 'Ranged tasks', items: 'Ranged gear, blowpipe, bow, ammo, dragon darts', why: 'Ammo lives with the ranged tab. Nothing kills momentum like arriving at a task with an empty quiver.' },
+                { name: 'Barrage tasks', items: 'Magic gear, ancient staff, ice barrage runes, rune pouch, occult, tome of water', why: 'Burst/barrage tasks are the highest XP per hour. Making them frictionless is where the hours are saved.' },
+                { name: 'Cannon & supplies', items: 'Dwarf cannon set, cannonballs, prayer potions, food, stamina', why: 'Cannon setup is a separate decision from gear. Keeping it apart makes "cannon or no cannon?" a one-glance call.' },
+                { name: 'Task loot to process', items: 'Alchables, herbs to clean, bones, hides, unnoted drops', why: 'A processing queue. Empty it on a rest day instead of interrupting a task streak.' },
+                { name: 'Slayer teleports', items: 'Slayer ring, Kourend tabs, Fairy rings staff, house tabs, Skull sceptre', why: 'Travel time is the biggest hidden cost of Slayer. A dedicated tab makes you actually use the shortcuts you own.' },
+                { name: 'Unlocks & rares', items: 'Imbue items, Slayer unlock notes, boss uniques from tasks', why: 'Rarely touched, so it goes last — but keeps your task-boss drops safe from bulk selling.' }
+            ]
+        },
+        {
+            id: 'afk', name: 'AFK / Low-Effort Account', cat: 'AFK',
+            aud: 'Second-monitor players, work-from-home grinders',
+            summary: 'Optimised for the "log in for 4 minutes, set up something that runs for 20" loop. Everything is grouped by how long the activity runs, not by skill.',
+            tabs: [
+                { name: 'Overflow', items: 'Anything unsorted', why: 'AFK play means you sort rarely. Accept it and give the mess a home.' },
+                { name: 'AFK combat', items: 'Guthan\'s set, cannon, ranged gear, ammo, Ava\'s device, slayer helm', why: 'Guthan-tanking and cannoning are the classic long-duration setups. One tab, one trip.' },
+                { name: 'AFK skilling', items: 'Blast furnace kit, ice gloves, coal bag, mining gear, wintertodt kit, cooking supplies', why: 'These are the "click once, watch a video" methods. Grouping them makes picking today\'s grind trivial.' },
+                { name: 'Long-trip supplies', items: 'Sharks, prayer potions, stamina, super combats, Saradomin brews', why: 'AFK trips are long, so you bring more consumables per trip than an active player. Big obvious tab.' },
+                { name: 'Birdhouse & farm runs', items: 'Logs, clockworks, hammer, chisel, seeds, compost, teleports', why: 'The two best low-effort passive activities in the game. Combined tab = a 4-minute round trip.' },
+                { name: 'Alch & processing', items: 'Alchables, nature runes, staff of fire, tanning/crafting materials', why: 'High alching is the AFK-est money maker. Keeping the runes with the alchables prevents wasted trips.' },
+                { name: 'Teleports', items: 'Tabs, glory, games necklace, ring of dueling, house tabs', why: 'Cuts setup time on every single session — the only part of an AFK loop that is not AFK.' }
+            ]
+        },
+        {
+            id: 'merchant', name: 'Merchant / Flipper', cat: 'Merchant',
+            aud: 'GE flippers and investors (main accounts only)',
+            summary: 'A merchant bank is an inventory ledger, not a gear locker. Tabs are organised by holding period so you can see your position at a glance.',
+            tabs: [
+                { name: 'Cash & buffer', items: 'Coins, platinum tokens, items about to be sold', why: 'Your working capital. Keeping it on the main tab means you always see your liquidity first.' },
+                { name: 'Active flips', items: 'Items currently bought and waiting to be resold this session', why: 'Short-hold stock. If something sits here for a week, it was a bad flip — the tab is a discipline tool.' },
+                { name: 'Long-term holds', items: 'Update-speculation items, seasonal items, discontinued-adjacent stock', why: 'Separating long holds from active flips stops you panic-selling an investment during a slow day.' },
+                { name: 'High alch stock', items: 'Alchables bought below alch value, nature runes, staff of fire', why: 'Alching is your floor when a flip goes wrong. Keeping the stock visible reminds you the exit exists.' },
+                { name: 'Processing inputs', items: 'Raw materials for margin crafting — hides, bars, herbs, essence', why: 'Buy raw, process, sell finished. Inputs and outputs in different tabs makes the margin obvious.' },
+                { name: 'Finished products', items: 'Crafted/processed goods ready to list', why: 'This tab is your sell queue. When it is full, you list everything in one GE session.' },
+                { name: 'Personal gear', items: 'Your actual combat gear, food, teleports', why: 'Small and last, because a merchant account uses gear maybe once a week.' }
+            ]
+        },
+        {
+            id: 'quest', name: 'Quest Cape Runner', cat: 'Questing',
+            aud: 'Players chasing quest cape or a big quest block',
+            summary: 'Quests fail on missing items, not on combat. This layout front-loads the two things that actually block you: quest items and teleports.',
+            tabs: [
+                { name: 'Overflow', items: 'Unsorted, quest rewards not yet filed', why: 'Quests spit out odd one-off items. Contain them here first.' },
+                { name: 'Current quest items', items: 'Everything needed for the quest you are on right now', why: 'The single most useful tab in this layout. Load it before you start, empty it when the quest is done.' },
+                { name: 'Teleports', items: 'Every tab, every jewellery charge, fairy ring staff, skull sceptre, ectophial', why: 'Quests send you across the whole map. This tab is intentionally oversized — it is where the time is won.' },
+                { name: 'Quest combat gear', items: 'Mid-tier armour, food, prayer potions, anti-dragon shield, ranged/mage backup', why: 'Quest bosses often force a style switch. Keep a modest all-styles kit rather than your expensive PvM gear.' },
+                { name: 'Stat boosts', items: 'Dragon boosts, stews, pies, brews, spicy stews, admiral pies', why: 'Boostable requirements are how you skip 5 levels of grinding. If you cannot see them, you will not use them.' },
+                { name: 'Food & potions', items: 'Sharks, monkfish, prayer potions, antipoison, antifire', why: 'Standard restock tab, kept separate so a quest kit swap never touches it.' },
+                { name: 'Quest rewards to keep', items: 'Quest-locked items, unlocks, keepsakes, diary items', why: 'Many quest rewards are needed again for later quests or diaries. Never sell tab.' }
+            ]
+        },
+        {
+            id: 'gim', name: 'Group Ironman Shared Bank', cat: 'Group Ironman',
+            aud: 'GIM groups of 2–5 sharing a group storage',
+            summary: 'The hardest bank to keep tidy because five people touch it. The fix is social, not technical: tabs are named by who takes from them, and there is an explicit "reserved" tab.',
+            tabs: [
+                { name: 'Deposit / unsorted', items: 'Anything anyone just dropped off', why: 'Never make teammates sort before depositing — they will stop depositing. Sort centrally instead.' },
+                { name: 'Group combat gear', items: 'Shared armour sets, weapons, switches available to anyone', why: 'Explicitly free-to-take. Removes the "can I use this?" Discord message.' },
+                { name: 'Group consumables', items: 'Food, potions, brews, restores, stamina', why: 'Highest-churn tab in a GIM bank. Keep it near the front and restock it as a group goal.' },
+                { name: 'Skilling materials', items: 'Ores, bars, logs, hides, essence, raw fish', why: 'Group skilling stock. Whoever is training that skill takes what they need.' },
+                { name: 'Herblore & farming', items: 'Herbs, secondaries, vials, seeds, compost', why: 'Usually one person specialises in Herblore for the group. Their working tab.' },
+                { name: 'Construction & crafting', items: 'Planks, nails, cloth, gems, moulds', why: 'Bulk, low-churn materials that would otherwise swamp the skilling tab.' },
+                { name: 'Group rares', items: 'Boss uniques, big-ticket drops, untradeables', why: 'Group treasury. Withdrawals from here should be a group decision.' },
+                { name: 'RESERVED — do not take', items: 'Items a specific member is saving for an upgrade', why: 'The tab that prevents 90% of GIM arguments. Put a name in the tag and the problem disappears.' }
+            ]
+        },
+        {
+            id: 'wildy', name: 'Wilderness / PKing', cat: 'PvP',
+            aud: 'PKers, Wilderness bossers, revenant hunters',
+            summary: 'Organised by risk level, not by item type. Before you go out you decide how much you are willing to lose, then you load exactly one tab.',
+            tabs: [
+                { name: 'Overflow', items: 'Loot, unsorted PvP drops', why: 'PvP loot is chaotic. One dump tab, sorted between trips.' },
+                { name: 'Low-risk kit', items: 'Sub-1M full setup, cheap weapon, food, one teleport', why: 'The kit you take when you expect to die. Pre-built so a death costs you 30 seconds, not 10 minutes.' },
+                { name: 'Mid-risk kit', items: '1–15M setup, better weapon, brews, escape items', why: 'Your standard trip. Keeping it separate stops you accidentally grabbing the expensive gloves.' },
+                { name: 'High-risk kit', items: 'Full expensive setup for deep Wilderness bossing', why: 'Explicitly walled off. Making it inconvenient to grab is a feature, not a bug.' },
+                { name: 'Escape & anti-PK', items: 'Teleport tabs, glory, Saradomin brews, spec weapon, dragon defender, bracelet of ethereum', why: 'Escape items are what turn a death into a survival. They deserve to be found in under a second.' },
+                { name: 'Rune pouches & runes', items: 'Rune pouches pre-filled, blood/death/law runes, teleport runes', why: 'Pre-filled pouches are the difference between rebanking in 20 seconds and 2 minutes.' },
+                { name: 'Wildy PvM gear', items: 'Revenant gear, wilderness boss setups, looting bag, ring of wealth (i)', why: 'Wilderness bossing needs different gear from PKing. Two activities, two tabs.' },
+                { name: 'Untradeables & loot', items: 'Ancient emblems, artefacts, PvP drops, untradeable rewards', why: 'Safe storage for the things you can never buy back.' }
+            ]
+        },
+        {
+            id: 'endgame', name: 'Endgame Maxed Main', cat: 'Endgame',
+            aud: 'Maxed / near-maxed mains with full BiS access',
+            summary: 'At endgame the problem flips: you own everything, so the bottleneck is finding a specific switch among 400 items. Tabs become search-narrowing tools rather than storage.',
+            tabs: [
+                { name: 'Overflow', items: 'Fresh drops, unsorted', why: 'Even at endgame you need a dump tab. Sort it during downtime.' },
+                { name: 'Melee BiS + switches', items: 'Torva, scythe, fang, tbow-adjacent melee switches, ultor, ferocious gloves', why: 'BiS and its switches together — at this level a "setup" always means the base plus three swaps.' },
+                { name: 'Ranged BiS + switches', items: 'Masori, tbow, blowpipe, zaryte crossbow, venator, ammo', why: 'Ammo and special bolts stay with the bow. Endgame ranged is entirely about bringing the right ammo.' },
+                { name: 'Magic BiS + switches', items: 'Ancestral, shadow, sang, tumeken\'s, magus, tomes', why: 'Charged items live here so you can check charges before every trip.' },
+                { name: 'Raid & boss kits', items: 'Pre-grouped loadouts for CoX, ToB, ToA, Nex, Inferno', why: 'Pre-built kits per encounter. The single biggest time saver an endgame bank can offer.' },
+                { name: 'Consumables', items: 'Brews, restores, potions, stamina, karambwan, thrall runes', why: 'One restock tab feeding every activity.' },
+                { name: 'Clues & cosmetics', items: 'Clue scrolls, third age, gilded, ornament kits, holiday items', why: 'Purely for fun, so it does not deserve prime tab position — but it does deserve to be findable.' },
+                { name: 'Collection log chase', items: 'Items needed for log slots, jars, pets-adjacent drops', why: 'Doubles as a to-do list for what content you should be running next.' },
+                { name: 'Investments', items: 'Cash stack, platinum tokens, held items, bonds', why: 'Endgame accounts hold serious wealth. Treat it as a position, not as clutter.' },
+                { name: 'Skilling leftovers', items: 'Remaining materials, farming seeds, herbs, construction supplies', why: 'Skilling matters less at endgame, so it goes last — but keeps the other tabs clean.' }
+            ]
+        }
+        ];
+
+        /* =================================================================
+           State + helpers
+           ================================================================= */
+        var current = null;          // currently displayed layout
+        var editing = null;          // editor working copy
+        var activePresetId = null;
+
+        function tabLabel(i) { return i === 0 ? 'Main' : 'Tab ' + i; }
+
+        function chipsHtml(itemsStr) {
+            var parts = String(itemsStr || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+            if (!parts.length) return '';
+            return '<div class="bl-chips">' + parts.map(function (p) {
+                return '<span class="bl-chip">' + esc(p) + '</span>';
+            }).join('') + '</div>';
+        }
+
+        function renderLayout(lay) {
+            current = lay;
+            document.getElementById('bl-view').style.display = 'block';
+            document.getElementById('bl-view-name').textContent = lay.name;
+            document.getElementById('bl-view-cat').textContent = lay.cat || 'Custom';
+            document.getElementById('bl-view-for').innerHTML = '<strong>Best for:</strong> ' + esc(lay.aud || 'Your own account');
+            document.getElementById('bl-view-summary').textContent = lay.summary || '';
+
+            document.getElementById('bl-view-strip').innerHTML = lay.tabs.map(function (t, i) {
+                return '<span class="bl-tabchip" style="background:' + PALETTE[i % PALETTE.length] + '">' + tabLabel(i) + '</span>';
+            }).join('');
+
+            document.getElementById('bl-view-grid').innerHTML = lay.tabs.map(function (t, i) {
+                return '<div class="bl-tabcard">' +
+                    '<div class="bl-head" style="background:' + PALETTE[i % PALETTE.length] + '">' +
+                        '<span class="bl-num">' + tabLabel(i) + '</span>' + esc(t.name) +
+                    '</div>' +
+                    '<div class="bl-body">' + chipsHtml(t.items) +
+                        (t.why ? '<p class="bl-why">' + esc(t.why) + '</p>' : '') +
+                    '</div></div>';
+            }).join('');
+
+            document.getElementById('bl-copybox').value = toText(lay);
+        }
+
+        function toText(lay) {
+            var out = [];
+            out.push('=== OSRS BANK LAYOUT: ' + lay.name + ' ===');
+            if (lay.aud) out.push('Best for: ' + lay.aud);
+            out.push('');
+            lay.tabs.forEach(function (t, i) {
+                out.push('[' + tabLabel(i) + '] ' + t.name);
+                if (t.items) out.push('   Contents: ' + t.items);
+                if (t.why) out.push('   Why: ' + t.why);
+                out.push('');
+            });
+            out.push('Source: https://osrsguru.com/tools/bank-layout/');
+            return out.join('\n');
+        }
+
+        function copyText(txt, okMsg) {
+            function fallback() {
+                var ta = document.createElement('textarea');
+                ta.value = txt;
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                try { document.execCommand('copy'); } catch (e) {}
+                document.body.removeChild(ta);
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(txt).catch(fallback);
+            } else {
+                fallback();
+            }
+            OSRSPremium.toast(okMsg || '📋 Copied to clipboard');
+        }
+
+        /* =================================================================
+           Presets UI
+           ================================================================= */
+        function renderPresets() {
+            document.getElementById('bl-presets').innerHTML = PRESETS.map(function (p) {
+                return '<button type="button" class="bl-preset" data-id="' + p.id + '">' +
+                    '<span class="bl-p-name">' + esc(p.name) + '</span>' +
+                    '<span class="bl-p-for">' + esc(p.aud) + '</span>' +
+                    '</button>';
+            }).join('');
+
+            Array.prototype.forEach.call(document.querySelectorAll('.bl-preset'), function (btn) {
+                btn.addEventListener('click', function () {
+                    var id = btn.getAttribute('data-id');
+                    var p = PRESETS.filter(function (x) { return x.id === id; })[0];
+                    if (!p) return;
+                    activePresetId = id;
+                    Array.prototype.forEach.call(document.querySelectorAll('.bl-preset'), function (b) {
+                        b.classList.toggle('is-active', b === btn);
+                    });
+                    renderLayout(p);
+                    OSRSAnalytics.trackToolUsed({ preset: id, tabs: p.tabs.length });
+                    document.getElementById('bl-view').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+        }
+
+        /* =================================================================
+           Storage
+           ================================================================= */
+        function loadSaved() {
+            try { return JSON.parse(localStorage.getItem(STORE) || '[]'); }
+            catch (e) { return []; }
+        }
+        function writeSaved(list) {
+            try { localStorage.setItem(STORE, JSON.stringify(list)); return true; }
+            catch (e) { OSRSPremium.toast('⚠️ Browser storage is full or blocked.'); return false; }
+        }
+        function maxSlots() {
+            var f = OSRSPremium.features(TOOL);
+            return (typeof f.maxPresets === 'number') ? f.maxPresets : 3;
+        }
+        function refreshSlots() {
+            var list = loadSaved();
+            document.getElementById('bl-slots').innerHTML =
+                'Saved layouts: <b>' + list.length + '</b> / ' + maxSlots() +
+                (OSRSPremium.isPremium() ? ' <span class="ot-badge ot-badge-premium">Premium</span>' : '');
+        }
+        function renderSaved() {
+            var list = loadSaved();
+            var card = document.getElementById('bl-saved-card');
+            var box = document.getElementById('bl-saved-list');
+            refreshSlots();
+            if (!list.length) { card.style.display = 'none'; box.innerHTML = ''; return; }
+            card.style.display = 'block';
+            box.innerHTML = list.map(function (l, i) {
+                return '<div class="bl-saved">' +
+                    '<b>' + esc(l.name) + '</b>' +
+                    '<span class="bl-s-meta">' + l.tabs.length + ' sections · saved ' + esc(l.saved || '') + '</span>' +
+                    '<span class="bl-s-act">' +
+                        '<button class="ot-btn ot-btn-ghost ot-btn-sm" data-act="view" data-i="' + i + '">View</button>' +
+                        '<button class="ot-btn ot-btn-ghost ot-btn-sm" data-act="edit" data-i="' + i + '">Edit</button>' +
+                        '<button class="ot-btn ot-btn-ghost ot-btn-sm" data-act="copy" data-i="' + i + '">Copy</button>' +
+                        '<button class="ot-btn ot-btn-ghost ot-btn-sm" data-act="del" data-i="' + i + '">Delete</button>' +
+                    '</span></div>';
+            }).join('');
+
+            Array.prototype.forEach.call(box.querySelectorAll('button[data-act]'), function (b) {
+                b.addEventListener('click', function () {
+                    var i = parseInt(b.getAttribute('data-i'), 10);
+                    var all = loadSaved();
+                    var item = all[i];
+                    if (!item) return;
+                    var act = b.getAttribute('data-act');
+                    if (act === 'view') {
+                        renderLayout(item);
+                        OSRSAnalytics.trackToolUsed({ preset: 'saved_custom', tabs: item.tabs.length });
+                        document.getElementById('bl-view').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else if (act === 'edit') {
+                        editing = JSON.parse(JSON.stringify(item));
+                        document.getElementById('bl-name').value = item.name;
+                        renderEditor();
+                        document.getElementById('bl-editor').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        OSRSAnalytics.trackAction('edit_saved');
+                    } else if (act === 'copy') {
+                        document.getElementById('bl-copybox').value = toText(item);
+                        copyText(toText(item), '📋 Layout copied — paste it in Discord');
+                        OSRSAnalytics.trackAction('copy_layout', { source: 'saved' });
+                    } else if (act === 'del') {
+                        if (!confirm('Delete "' + item.name + '"?')) return;
+                        all.splice(i, 1);
+                        writeSaved(all);
+                        renderSaved();
+                        OSRSAnalytics.trackAction('delete_layout');
+                    }
+                });
+            });
+        }
+
+        /* =================================================================
+           Editor
+           ================================================================= */
+        function blankLayout() {
+            return {
+                name: '', cat: 'Custom', aud: 'My account', summary: 'My own bank layout.',
+                tabs: [
+                    { name: 'Overflow / unsorted', items: 'New drops, junk', why: 'One dumping ground keeps every other tab clean.' },
+                    { name: 'Combat gear', items: 'Armour, weapons, switches', why: 'Rebuild any setup without leaving the tab.' },
+                    { name: 'Food & potions', items: 'Sharks, prayer potions, stamina', why: 'The tab you open before every trip.' }
+                ]
+            };
+        }
+
+        function renderEditor() {
+            if (!editing) editing = blankLayout();
+            var box = document.getElementById('bl-editor');
+            box.innerHTML = editing.tabs.map(function (t, i) {
+                return '<div class="bl-editrow">' +
+                    '<div class="bl-editrow-top">' +
+                        '<span class="bl-idx">' + tabLabel(i) + '</span>' +
+                        '<span class="bl-ctrl">' +
+                            '<button type="button" class="bl-mini" data-act="up" data-i="' + i + '" title="Move up"' + (i === 0 ? ' disabled' : '') + '>↑</button>' +
+                            '<button type="button" class="bl-mini" data-act="down" data-i="' + i + '" title="Move down"' + (i === editing.tabs.length - 1 ? ' disabled' : '') + '>↓</button>' +
+                            '<button type="button" class="bl-mini" data-act="del" data-i="' + i + '" title="Remove section">✕</button>' +
+                        '</span>' +
+                    '</div>' +
+                    '<label for="bl-n' + i + '">Section name</label>' +
+                    '<input type="text" id="bl-n' + i + '" data-f="name" data-i="' + i + '" maxlength="60" value="' + esc(t.name) + '">' +
+                    '<label for="bl-i' + i + '">Contents (comma separated)</label>' +
+                    '<input type="text" id="bl-i' + i + '" data-f="items" data-i="' + i + '" maxlength="220" value="' + esc(t.items) + '">' +
+                    '<label for="bl-w' + i + '">Why it is here (optional)</label>' +
+                    '<textarea id="bl-w' + i + '" data-f="why" data-i="' + i + '" maxlength="260">' + esc(t.why) + '</textarea>' +
+                    '</div>';
+            }).join('');
+
+            Array.prototype.forEach.call(box.querySelectorAll('[data-f]'), function (el) {
+                el.addEventListener('input', function () {
+                    var i = parseInt(el.getAttribute('data-i'), 10);
+                    editing.tabs[i][el.getAttribute('data-f')] = el.value;
+                });
+            });
+            Array.prototype.forEach.call(box.querySelectorAll('.bl-mini'), function (b) {
+                b.addEventListener('click', function () {
+                    var i = parseInt(b.getAttribute('data-i'), 10);
+                    var act = b.getAttribute('data-act');
+                    if (act === 'up' && i > 0) {
+                        var a = editing.tabs[i - 1]; editing.tabs[i - 1] = editing.tabs[i]; editing.tabs[i] = a;
+                    } else if (act === 'down' && i < editing.tabs.length - 1) {
+                        var c = editing.tabs[i + 1]; editing.tabs[i + 1] = editing.tabs[i]; editing.tabs[i] = c;
+                    } else if (act === 'del') {
+                        if (editing.tabs.length <= 1) { OSRSPremium.toast('A layout needs at least one section.'); return; }
+                        editing.tabs.splice(i, 1);
+                    }
+                    renderEditor();
+                    OSRSAnalytics.trackAction('edit_section', { op: act });
+                });
+            });
+        }
+
+        function currentEditingLayout() {
+            var nm = document.getElementById('bl-name').value.trim();
+            return {
+                name: nm || 'My bank layout',
+                cat: 'Custom',
+                aud: 'My account',
+                summary: 'Custom layout built with the OSRS Guru Bank Layout Library.',
+                tabs: editing.tabs.map(function (t) {
+                    return { name: t.name || 'Untitled section', items: t.items || '', why: t.why || '' };
+                })
+            };
+        }
+
+        /* =================================================================
+           Wire up
+           ================================================================= */
+        function boot() {
+            OSRSAnalytics.init(TOOL);
+            OSRSPremium.renderBadge('#tier-badge', TOOL);
+
+            renderPresets();
+            renderEditor();
+            renderSaved();
+
+            document.getElementById('bl-copy').addEventListener('click', function () {
+                if (!current) return;
+                var txt = toText(current);
+                document.getElementById('bl-copybox').value = txt;
+                copyText(txt, '📋 Layout copied — paste it in Discord');
+                OSRSAnalytics.trackAction('copy_layout', { preset: activePresetId || 'custom' });
+            });
+
+            document.getElementById('bl-edit-this').addEventListener('click', function () {
+                if (!current) return;
+                editing = JSON.parse(JSON.stringify(current));
+                document.getElementById('bl-name').value = current.name + ' (my version)';
+                renderEditor();
+                document.getElementById('bl-editor').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                OSRSAnalytics.trackAction('edit_start', { preset: activePresetId || 'custom' });
+            });
+
+            document.getElementById('bl-add').addEventListener('click', function () {
+                if (editing.tabs.length >= 10) {
+                    OSRSPremium.toast('OSRS banks have 10 tabs (Main + 9). That is the cap.');
+                    return;
+                }
+                editing.tabs.push({ name: 'New section', items: '', why: '' });
+                renderEditor();
+                OSRSAnalytics.trackAction('add_section');
+            });
+
+            document.getElementById('bl-preview').addEventListener('click', function () {
+                var lay = currentEditingLayout();
+                renderLayout(lay);
+                OSRSAnalytics.trackToolUsed({ preset: 'custom_preview', tabs: lay.tabs.length });
+                document.getElementById('bl-view').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+
+            document.getElementById('bl-clear').addEventListener('click', function () {
+                editing = blankLayout();
+                document.getElementById('bl-name').value = '';
+                renderEditor();
+            });
+
+            document.getElementById('bl-save').addEventListener('click', function () {
+                var lay = currentEditingLayout();
+                var list = loadSaved();
+                var cap = maxSlots();
+
+                // Overwrite if same name already exists
+                var existing = -1;
+                for (var i = 0; i < list.length; i++) {
+                    if (list[i].name === lay.name) { existing = i; break; }
+                }
+
+                if (existing === -1 && list.length >= cap) {
+                    OSRSAnalytics.trackPaywallHit('maxPresets', 'limit_reached');
+                    OSRSPremium.showPaywall({
+                        tool: TOOL,
+                        feature: 'sharePreset',
+                        title: 'Free save slots are full',
+                        body: 'The free plan stores <strong>' + cap + ' bank layouts</strong>. Premium raises it to 50 and adds image export plus shareable links — and unlocks every other premium tool on OSRS Guru.'
+                    });
+                    return;
+                }
+
+                lay.saved = new Date().toISOString().slice(0, 10);
+                if (existing > -1) list[existing] = lay; else list.push(lay);
+                if (!writeSaved(list)) return;
+                renderSaved();
+                OSRSPremium.toast('💾 Saved "' + lay.name + '"');
+                OSRSAnalytics.trackAction('save_layout', { sections: lay.tabs.length, slot_used: list.length });
+            });
+
+            document.getElementById('bl-unlock').addEventListener('click', function () {
+                // Locked premium features — both gated through the shared module
+                if (!OSRSPremium.require(TOOL, 'exportImage')) return;
+                if (!OSRSPremium.require(TOOL, 'sharePreset')) return;
+                OSRSPremium.toast('✅ Premium active — image export & share links are unlocked.');
+            });
+
+            OSRSPremium.onChange(function () {
+                OSRSPremium.renderBadge('#tier-badge', TOOL);
+                refreshSlots();
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', boot);
+        } else {
+            boot();
+        }
+    })();
+    </script>
+</body>
+</html>

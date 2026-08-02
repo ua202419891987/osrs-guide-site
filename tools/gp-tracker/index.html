@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Profit Calculator — Net GP/hr After Supply Costs (2026)</title>
+    <meta name="description" content="Free OSRS profit calculator that subtracts your supply cost. Live GE prices for potions, food, ammo and runes across 18 bosses and activities — see your real net GP per hour, not the inflated gross number.">
+    <meta name="keywords" content="OSRS profit calculator, OSRS supply cost, OSRS GP per hour net profit, OSRS supply cost calculator, OSRS net profit per hour, OSRS boss supply cost, OSRS gp tracker">
+    <link rel="canonical" href="https://osrsguru.com/tools/gp-tracker/">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://osrsguru.com/tools/gp-tracker/">
+    <meta property="og:title" content="OSRS Profit Calculator — Net GP/hr After Supply Costs">
+    <meta property="og:description" content="Live GE prices, 18 activity presets, real net GP per hour after potions, food, ammo and runes.">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../shared/css/osrs-tool.css">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        /* ---- tool-specific bits only; everything else comes from osrs-tool.css ---- */
+        .gpt-grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:14px 0; }
+        .gpt-stat { background:#fdfbf7; border:1px solid #e0d5c0; border-radius:9px; padding:12px 14px; }
+        .gpt-stat span { display:block; font-size:.78rem; color:#7a6a52; font-weight:700; text-transform:uppercase; letter-spacing:.3px; margin-bottom:4px; }
+        .gpt-stat b { font-size:1.18rem; color:#3b2615; font-weight:800; }
+        .gpt-bignum { background:#fdf8ef; border:1px solid #e6d9bd; border-radius:10px; padding:16px 18px; text-align:center; }
+        .gpt-bignum-label { display:block; font-size:.8rem; color:#7a6a52; font-weight:700; text-transform:uppercase; letter-spacing:.4px; margin-bottom:6px; }
+        .gpt-supply-tools { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:12px; }
+        .gpt-supply-tools select { flex:1 1 220px; min-width:0; padding:10px 12px; border:1px solid #cbb89a; border-radius:8px; background:#fdfbf7; color:#1a1a1a; font-size:.94rem; }
+        .ot-table td input.gpt-qty { width:88px; padding:6px 8px; border:1px solid #cbb89a; border-radius:6px; background:#fff; font-size:.88rem; color:#1a1a1a; }
+        .gpt-del, .gpt-hdel { background:none; border:none; color:#7a6a52; font-size:1.15rem; line-height:1; cursor:pointer; padding:2px 6px; font-weight:700; }
+        .gpt-del:hover, .gpt-hdel:hover { color:#3b2615; }
+        .gpt-chart { width:100%; min-width:520px; height:auto; display:block; }
+        .gpt-bar-pos { fill:#2e7d32; }
+        .gpt-bar-neg { fill:#c0392b; }
+        .gpt-chart-val { font-size:10px; fill:#4a3320; font-weight:700; }
+        .gpt-chart-lbl { font-size:10px; fill:#7a6a52; }
+        .gpt-locked-wrap { position:relative; min-height:170px; }
+        .gpt-btnrow { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+        .gpt-btnrow .ot-btn { flex:1 1 190px; }
+        .gpt-src { display:inline-block; font-size:.74rem; font-weight:700; color:#8a6d1b; background:#fff5db; padding:2px 9px; border-radius:12px; }
+        @media (max-width: 768px) {
+            .gpt-grid3 { grid-template-columns:1fr 1fr; }
+        }
+        @media (max-width: 640px) {
+            .gpt-grid3 { grid-template-columns:1fr; }
+            .gpt-supply-tools select { flex:1 1 100%; }
+            .gpt-btnrow .ot-btn { flex:1 1 100%; }
+            .gpt-bignum .ot-value { font-size:1.5rem !important; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">OSRSGuru</a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../../new-player.html">New Player</a></li>
+                    <li><a href="../../money-making.html">Money Making</a></li>
+                    <li><a href="../../boss-guides.html">Boss Guides</a></li>
+                    <li><a href="../../quest-guides.html">Quests</a></li>
+                    <li><a href="../../tools/profit-finder/">Tools</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../tools/profit-finder/">Tools</a> / GP &amp; Supply Cost Tracker</p>
+            <h1>OSRS Profit Calculator — Net GP/hr After Supplies</h1>
+            <p class="subtitle">Every other tool tells you what you <em>looted</em>. This one subtracts the potions, food, ammo, runes and death costs and tells you what you actually <strong>kept</strong>. Live Grand Exchange prices, 18 activity presets, every number editable.</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container ot-wrap-wide">
+
+            <div class="ot-tierbar">
+                <div id="tier-badge"></div>
+                <span class="ot-badge ot-badge-free">Supply cost &amp; live prices are free</span>
+            </div>
+
+            <div id="gpt-price-status" class="ot-note">Loading Grand Exchange prices…</div>
+
+            <!-- ============ SEO / value proposition ============ -->
+            <div class="ot-card">
+                <h2>What This Tool Does</h2>
+                <p>The OSRS Profit Calculator answers a question that almost every other Old School RuneScape tool quietly dodges: <strong>after you pay for supplies, how much GP did that hour actually earn you?</strong> Loot trackers, wiki money-making tables and most GP/hr calculators report <em>gross</em> revenue — the raw value of what dropped. They do not subtract the Super restores you drank, the Saradomin brews you burned through, the dragon arrows you never picked back up, the blowpipe scales that vanished, the Barrows teleport tablets, or the gear you lost to a death. On high-tier bosses those supplies routinely eat 20–45% of your gross loot, which means the number most players quote for their favourite boss is not the number that lands in their bank.</p>
+                <p>This tracker closes that gap. Pick one of 18 presets — Vorkath, Zulrah, Alchemical Hydra, Cerberus, the four God Wars bosses, Demonic gorillas, Grotesque Guardians, Vardorvis, Rune dragons, Barrows, Chambers of Xeric, a generic Slayer task, Wintertodt, Green dragons, or a blank custom sheet — then tell it how many kills you did and how long it took. It loads live Grand Exchange prices straight from the official OSRS Wiki price API, prices every single supply line at what you would actually pay to instant-buy it, and shows you the total bill, the cost per kill, and the cost per hour. Every consumption figure on the sheet is an editable input, because your setup is not the wiki's setup: swap a blowpipe for a bowfa, delete the rune rows if you use a Sanguinesti staff, or add whatever the preset missed.</p>
+                <p>The preset consumption rates are converted from the OSRS Wiki money-making guide tables and from verifiable in-game mechanics, and each activity tells you which of the two it came from. They are community averages, not laws of physics — a lucky Hydra trip and an unlucky one can differ by 200k in supplies alone. Adjust them, and the numbers become yours. Add your loot total from RuneLite's Loot Tracker and the premium net-profit panel gives you the figure that actually matters: net GP per hour, profit margin, and the break-even loot value every single kill has to beat before you earn a coin.</p>
+                <p class="ot-hint">Free forever: supply cost, live GE prices, cost per kill, cost per hour, 3 calculations per day. Premium ($1.90/month) unlocks net profit, session history with trend charts, CSV export and unlimited runs.</p>
+            </div>
+
+            <!-- ============ FREE: session cost calculator ============ -->
+            <div class="ot-card">
+                <h2>1 · Your session</h2>
+                <div class="ot-row-3">
+                    <div class="ot-field">
+                        <label for="gpt-activity">Activity</label>
+                        <select id="gpt-activity"></select>
+                    </div>
+                    <div class="ot-field">
+                        <label for="gpt-units" id="gpt-units-label">Kills completed</label>
+                        <input type="number" id="gpt-units" min="0" step="any" placeholder="e.g. 30">
+                        <p class="ot-hint">Leave blank to derive it from your time.</p>
+                    </div>
+                    <div class="ot-field">
+                        <label for="gpt-minutes">Minutes played</label>
+                        <input type="number" id="gpt-minutes" min="0" step="any" placeholder="e.g. 60">
+                        <p class="ot-hint">Leave blank to derive it from your kills.</p>
+                    </div>
+                </div>
+
+                <div class="ot-field" style="margin-bottom:14px;">
+                    <label for="gpt-extra">Extra costs this session (GP) — deaths, gear repairs, item charges</label>
+                    <input type="number" id="gpt-extra" min="0" step="any" placeholder="0">
+                    <p class="ot-hint">Death fees at bosses, Barrows / crystal / Void repair bills, Blade of Saeldor charges — anything that is not a GE-priced consumable.</p>
+                </div>
+
+                <p id="gpt-activity-note" class="ot-note"></p>
+                <p><a id="gpt-activity-guide" class="ot-link" href="../../guides/osrs-best-money-making-methods-2026.html">Read the money-making guide →</a></p>
+            </div>
+
+            <div class="ot-card">
+                <h2>2 · Supplies burned</h2>
+                <p class="ot-hint" style="margin-top:-4px;">Preset consumption rates are <strong>community averages</strong> — edit any number to match what you really used. A <span style="color:#8a6d1b;font-weight:700;">*</span> next to an item means that price came from the built-in fallback snapshot instead of the live API.</p>
+                <div class="ot-tablewrap">
+                    <table class="ot-table">
+                        <thead>
+                            <tr>
+                                <th>Supply</th>
+                                <th>GE price</th>
+                                <th id="gpt-perunit-head">Used per kill</th>
+                                <th>Total used</th>
+                                <th>Cost (GP)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="gpt-supply-body"></tbody>
+                    </table>
+                </div>
+                <div class="gpt-supply-tools">
+                    <select id="gpt-additem" aria-label="Add a supply item"></select>
+                    <button type="button" class="ot-btn ot-btn-ghost ot-btn-sm" id="gpt-reset-supplies">Reset to preset</button>
+                </div>
+                <button type="button" class="ot-btn ot-btn-primary ot-btn-block" id="gpt-calc" style="margin-top:16px;">💰 Calculate my supply cost</button>
+            </div>
+
+            <!-- ============ RESULTS ============ -->
+            <div id="gpt-results" style="display:none;">
+
+                <div class="ot-card">
+                    <h2>3 · What this session cost you</h2>
+                    <p id="gpt-run-meta" class="ot-meta"></p>
+                    <div class="gpt-grid3">
+                        <div class="gpt-stat"><span>Total supply cost</span><b id="gpt-total-cost">—</b></div>
+                        <div class="gpt-stat"><span id="gpt-cost-perunit-label">Cost per kill</span><b id="gpt-cost-perunit">—</b></div>
+                        <div class="gpt-stat"><span>Supply cost per hour</span><b id="gpt-cost-perhour">—</b></div>
+                    </div>
+                    <p id="gpt-biggest" class="ot-reason"></p>
+                </div>
+
+                <!-- ---- PREMIUM: net profit ---- -->
+                <div class="ot-card">
+                    <div class="ot-result-top">
+                        <h2 style="margin:0;">4 · True net profit <span class="ot-badge ot-badge-premium">Premium</span></h2>
+                    </div>
+                    <div class="ot-row">
+                        <div class="ot-field">
+                            <label for="gpt-revenue">Total loot value this session (GP)</label>
+                            <input type="number" id="gpt-revenue" min="0" step="any" placeholder="e.g. 1450000">
+                            <p class="ot-hint" id="gpt-loot-hint"></p>
+                            <p class="ot-hint"><a href="#" id="gpt-use-estimate" class="ot-link">Use the community average instead →</a></p>
+                        </div>
+                        <div class="ot-field">
+                            <label for="gpt-bigdrop">Value of one rare drop (GP, optional)</label>
+                            <input type="number" id="gpt-bigdrop" min="0" step="any" placeholder="e.g. 32000000">
+                            <p class="ot-hint">Tells you how many kills of supplies a single big drop pays for — the real break-even question at spoon-or-starve bosses.</p>
+                        </div>
+                    </div>
+
+                    <div id="gpt-net-lock" class="ot-locked gpt-locked-wrap">
+                        <div class="ot-locked-body" id="gpt-net-body"></div>
+                        <div class="ot-locked-overlay">
+                            <span>🔒 Net profit, net GP/hr and break-even are Premium</span>
+                            <button type="button" class="ot-btn ot-btn-go ot-btn-sm gpt-unlock" data-feature="netProfit">Unlock for $1.90/month</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ---- PREMIUM: history ---- -->
+                <div class="ot-card">
+                    <div class="ot-result-top">
+                        <h2 style="margin:0;">5 · Session history &amp; trend <span class="ot-badge ot-badge-premium">Premium</span></h2>
+                    </div>
+                    <p class="ot-hint" style="margin-top:6px;">Save each session and watch whether your net GP/hr is actually improving — or whether you just got lucky once.</p>
+
+                    <div id="gpt-history-lock" class="ot-locked gpt-locked-wrap">
+                        <div class="ot-locked-body">
+                            <p id="gpt-history-summary" class="ot-meta"></p>
+                            <div id="gpt-history-chart"></div>
+                            <div id="gpt-history-list"></div>
+                        </div>
+                        <div class="ot-locked-overlay">
+                            <span>🔒 Session history &amp; trend chart are Premium</span>
+                            <button type="button" class="ot-btn ot-btn-go ot-btn-sm gpt-unlock" data-feature="history">Unlock for $1.90/month</button>
+                        </div>
+                    </div>
+
+                    <div class="gpt-btnrow">
+                        <button type="button" class="ot-btn ot-btn-primary" id="gpt-save-session">💾 Save this session</button>
+                        <button type="button" class="ot-btn ot-btn-ghost" id="gpt-export">⬇ Export CSV</button>
+                        <button type="button" class="ot-btn ot-btn-ghost" id="gpt-clear-history">🗑 Clear history</button>
+                    </div>
+                </div>
+
+            </div><!-- /results -->
+
+            <!-- ============ DISCLAIMERS ============ -->
+            <div class="ot-note ot-warn">
+                <strong>Read this before you trust a number.</strong> Three assumptions in this tool can be wrong for you:
+                <br>· <strong>Supply consumption.</strong> Every preset quantity is a community average converted from the OSRS Wiki money-making guide or derived from published game mechanics. Your gear, prayer book, kill speed and how often you tank a hit will all move these numbers. Edit them.
+                <br>· <strong>Loot value.</strong> The tool never invents your revenue. The community ranges shown next to the loot field are deliberately wide sanity checks, not predictions — a single rare drop can swing a session by tens of millions. Paste your real RuneLite Loot Tracker total for an honest answer.
+                <br>· <strong>Prices.</strong> Live prices are instant-buy (<em>high</em>) values from the OSRS Wiki API. Thin-volume items can print odd instant-buy prices for a few minutes. If the API is unreachable the tool falls back to a built-in August 2026 snapshot and says so at the top of the page.
+            </div>
+
+            <div class="ot-note">
+                <strong>Why "net" is the only number worth quoting.</strong> Two players can both say "Vorkath is 1.4M/hr". The one killing it with a Dragon hunter crossbow, Extended super antifires and Divine ranging potions is paying several hundred thousand GP an hour for that rate. The one on a Dragon hunter lance with Super combats is paying far less. Same gross, very different bank. That difference is exactly what this page exists to expose.
+            </div>
+
+            <!-- ============ CROSSLINKS ============ -->
+            <div class="ot-crosslinks">
+                <h3>Keep going</h3>
+                <ul>
+                    <li><a href="../profit-finder/">Profit Finder — match a money maker to your account</a></li>
+                    <li><a href="../gear-recommender/">Gear Recommender — best setup for your budget</a></li>
+                    <li><a href="../dps-calculator/">DPS Calculator — kill things faster, burn fewer supplies</a></li>
+                    <li><a href="../bank-layout/">Bank Layout Planner — organise your supply tabs</a></li>
+                    <li><a href="../drop-lookup/">Drop Lookup — what a boss actually drops</a></li>
+                    <li><a href="../clog-advisor/">Collection Log Advisor — what to grind next</a></li>
+                    <li><a href="../../guides/osrs-vorkath-money-making-guide-2026.html">Vorkath money making guide</a></li>
+                    <li><a href="../../guides/osrs-zulrah-money-making-guide-2026.html">Zulrah money making guide</a></li>
+                    <li><a href="../../guides/osrs-boss-profit-comparison-2026.html">Boss profit comparison 2026</a></li>
+                    <li><a href="../../guides/osrs-best-money-making-methods-2026.html">Best money making methods 2026</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides and tools. No ads blocking content, no paywalls on the guides.</p></div>
+                <div class="footer-col"><h4>Free Tools</h4><ul>
+                    <li><a href="../../tools/profit-finder/">Profit Finder</a></li>
+                    <li><a href="../../tools/gear-recommender/">Gear Recommender</a></li>
+                    <li><a href="../../tools/gp-tracker/">GP &amp; Supply Cost Tracker</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular</h4><ul>
+                    <li><a href="../../money-making.html">Money Making</a></li>
+                    <li><a href="../../boss-guides.html">Boss Guides</a></li>
+                    <li><a href="../../new-player.html">New Player</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; Prices via the OSRS Wiki price API &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <script src="../shared/js/osrs-analytics.js"></script>
+    <script src="../shared/js/osrs-subscription.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/prices.js"></script>
+    <script src="js/gp-engine.js"></script>
+</body>
+</html>

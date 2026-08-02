@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Collection Log Advisor — What Boss Should I Grind Next? (2026)</title>
+    <meta name="description" content="Personalised OSRS collection log tracker and planner. Enter your combat level, gear tier and playtime — get a ranked answer to 'what boss should I grind next', with median kill counts, real drop rates and time-to-completion estimates.">
+    <meta name="keywords" content="OSRS collection log tracker, what boss should I grind next OSRS, OSRS collection log planner, OSRS drop rate calculator, OSRS clog advisor, OSRS collection log slots">
+    <link rel="canonical" href="https://osrsguru.com/tools/clog-advisor/">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../shared/css/osrs-tool.css">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content { color:#1a1a1a !important; }
+        .ca-top {
+            display:flex; justify-content:space-between; align-items:baseline;
+            gap:10px; flex-wrap:wrap; margin-bottom:4px;
+        }
+        .ca-rank {
+            display:inline-flex; align-items:center; justify-content:center;
+            width:26px; height:26px; border-radius:50%;
+            background:#3b2615; color:#fff; font-size:.8rem; font-weight:800; flex:none;
+        }
+        .ca-pick-head {
+            display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:10px;
+        }
+        .ca-pick-head h3 { margin:0 !important; font-size:1.22rem; }
+        .ca-stats {
+            display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:14px 0 4px;
+        }
+        .ca-stat {
+            background:#fdfbf7; border:1px solid #e0d5c0; border-radius:9px;
+            padding:10px 12px; text-align:center;
+        }
+        .ca-stat b { display:block; font-size:1.05rem; color:#3b2615; line-height:1.3; }
+        .ca-stat span { font-size:.74rem; color:#7a6a52; text-transform:uppercase; letter-spacing:.4px; }
+        .ca-stat.is-good b { color:#2e7d32; }
+        .ca-items { font-size:.86rem; color:#4a3320; line-height:1.7; margin:10px 0 0; }
+        .ca-items code {
+            background:#fdf8ef; border:1px solid #efe3c9; border-radius:5px;
+            padding:1px 6px; font-size:.82rem; color:#3b2615;
+        }
+        .ca-progress-grid {
+            display:grid; grid-template-columns:repeat(2,1fr); gap:10px 16px; margin-top:12px;
+        }
+        .ca-prog-row {
+            display:flex; align-items:center; justify-content:space-between; gap:10px;
+            border-bottom:1px dashed #ece2cf; padding:6px 0;
+        }
+        .ca-prog-row label { font-size:.85rem; color:#3b2615; font-weight:600; flex:1; }
+        .ca-prog-row input {
+            width:64px; padding:6px 8px; border:1px solid #cbb89a; border-radius:7px;
+            background:#fdfbf7; color:#1a1a1a; font-size:.9rem; text-align:center;
+        }
+        .ca-prog-row span { font-size:.8rem; color:#7a6a52; white-space:nowrap; }
+        details.ca-details { margin:16px 0; }
+        details.ca-details summary {
+            cursor:pointer; font-weight:700; color:#3b2615; padding:10px 12px;
+            background:#fdf8ef; border:1px solid #e6d9bd; border-radius:9px; list-style:none;
+        }
+        details.ca-details summary::-webkit-details-marker { display:none; }
+        details.ca-details summary:before { content:"▸ "; color:#d4af37; font-weight:900; }
+        details.ca-details[open] summary:before { content:"▾ "; }
+        .ca-faq h3 { font-size:1rem; color:#3b2615 !important; margin:16px 0 5px; }
+        .ca-faq p { font-size:.92rem; margin:0 0 6px; }
+        .ca-lock-btn { margin-top:4px; }
+        .ca-quota { font-size:.82rem; color:#7a6a52; margin-top:8px; text-align:center; }
+        @media (max-width:768px){
+            .ca-stats { grid-template-columns:repeat(2,1fr); }
+            .ca-progress-grid { grid-template-columns:1fr; }
+        }
+        @media (max-width:640px){
+            .ca-stats { grid-template-columns:repeat(2,1fr); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">OSRSGuru</a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../../new-player.html">New Player</a></li>
+                    <li><a href="../../money-making.html">Money Making</a></li>
+                    <li><a href="../../boss-guides.html">Boss Guides</a></li>
+                    <li><a href="../../quest-guides.html">Quests</a></li>
+                    <li><a href="../">Tools</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../">Tools</a> / Collection Log Advisor</p>
+            <h1>OSRS Collection Log Advisor</h1>
+            <p class="subtitle">Stop guessing what to grind. Tell the tool your combat level, gear tier and how long you actually play — it ranks every collection log source by <strong>new log slots per hour</strong>, using real drop rates and median kill counts, not vibes.</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container ot-wrap">
+
+            <div class="ot-tierbar">
+                <div id="tier-badge"></div>
+                <div style="font-size:.82rem;color:#7a6a52;">Runs entirely in your browser · no account, no clog upload</div>
+            </div>
+
+            <div class="ot-note">
+                🎯 Most collection log tools just show you a static checklist. This one answers the actual question: <strong>given who you are right now, which page is the best use of your next 10 hours?</strong>
+            </div>
+
+            <!-- ============ INPUTS ============ -->
+            <div class="ot-card">
+                <h3>🧭 Tell me about your account</h3>
+                <div class="ot-row-3">
+                    <div class="ot-field">
+                        <label for="i-combat">Combat level</label>
+                        <select id="i-combat">
+                            <option value="u70">Under 70</option>
+                            <option value="70-89">70 – 89</option>
+                            <option value="90-109" selected>90 – 109</option>
+                            <option value="110+">110 – 126</option>
+                        </select>
+                    </div>
+                    <div class="ot-field">
+                        <label for="i-slayer">Slayer level</label>
+                        <select id="i-slayer">
+                            <option value="u60">Under 60</option>
+                            <option value="60-74">60 – 74</option>
+                            <option value="75-84" selected>75 – 84</option>
+                            <option value="85-89">85 – 89</option>
+                            <option value="90-94">90 – 94</option>
+                            <option value="95+">95+</option>
+                        </select>
+                    </div>
+                    <div class="ot-field">
+                        <label for="i-gear">Gear tier</label>
+                        <select id="i-gear">
+                            <option value="low">Budget (Rune / Void / Trident)</option>
+                            <option value="mid" selected>Mid (Bandos / Blowpipe / Fang)</option>
+                            <option value="high">High-end (BiS-ish, full switches)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ot-row-3">
+                    <div class="ot-field">
+                        <label for="i-hours">Hours you play per day</label>
+                        <input type="number" id="i-hours" value="2" min="0.25" max="16" step="0.25">
+                        <div class="ot-hint">Be honest — this drives the completion forecast.</div>
+                    </div>
+                    <div class="ot-field">
+                        <label for="i-pref">What are you optimising for?</label>
+                        <select id="i-pref">
+                            <option value="slots" selected>Collection log slots per hour</option>
+                            <option value="gp">GP efficiency while I log-slot</option>
+                            <option value="rarity">Chasing the rare / prestige drops</option>
+                            <option value="ironman">Ironman essentials (gear I can't buy)</option>
+                        </select>
+                    </div>
+                    <div class="ot-field">
+                        <label for="i-hidelocked">Targets above my level</label>
+                        <select id="i-hidelocked">
+                            <option value="hide" selected>Hide them</option>
+                            <option value="show">Show them, flagged</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ot-check">
+                    <input type="checkbox" id="i-ironman">
+                    <label for="i-ironman">I'm an Ironman (weight drops I cannot buy off the GE)</label>
+                </div>
+
+                <details class="ca-details" id="progress-box">
+                    <summary>📋 Log progress (optional) — tell it what you already own</summary>
+                    <div class="ot-panel">
+                        <p style="font-size:.87rem;color:#4a3320;margin:0 0 4px;line-height:1.6;">
+                            Enter how many unique slots you already have on each page. Left at 0 the tool assumes a fresh log.
+                            When you enter a number we assume you got the <em>common</em> items first — that is what actually
+                            happens to almost everyone, and it keeps the remaining-time maths honest. Your numbers are saved
+                            in this browser only.
+                        </p>
+                        <div class="ca-progress-grid" id="progress-grid"></div>
+                        <button class="ot-btn ot-btn-ghost ot-btn-sm" id="btn-reset-progress" type="button" style="margin-top:12px;">Reset all to 0</button>
+                    </div>
+                </details>
+
+                <button class="ot-btn ot-btn-primary ot-btn-block" id="btn-run" type="button">🔎 What should I grind next?</button>
+                <div class="ca-quota" id="quota-line"></div>
+            </div>
+
+            <!-- ============ RESULTS ============ -->
+            <div id="results" style="display:none;">
+
+                <h2 style="color:#3b2615;margin:26px 0 2px;">Your #1 target right now</h2>
+                <p style="color:#7a6a52;margin:0 0 10px;font-size:.9rem;" id="result-sub"></p>
+
+                <div class="ot-result" id="top-pick"></div>
+
+                <!-- Premium: full ranking -->
+                <div class="ot-card" style="padding-bottom:16px;">
+                    <h3>📊 Full ranked list <span class="ot-badge ot-badge-premium">Premium</span></h3>
+                    <p style="font-size:.9rem;color:#4a4a4a;margin:0 0 10px;">Every source you can currently reach, ranked by the same maths — so you can plan a rotation instead of a single grind.</p>
+                    <div id="ranking-zone"></div>
+                </div>
+
+                <!-- Premium: completion forecast -->
+                <div class="ot-card">
+                    <h3>⏳ Completion forecast <span class="ot-badge ot-badge-premium">Premium</span></h3>
+                    <p style="font-size:.9rem;color:#4a4a4a;margin:0 0 10px;">Median vs 90th-percentile: the difference between "typical" and "how bad can dry actually get".</p>
+                    <div id="forecast-zone"></div>
+                </div>
+
+                <!-- Premium: export -->
+                <div class="ot-card">
+                    <h3>📤 Export your plan <span class="ot-badge ot-badge-premium">Premium</span></h3>
+                    <p style="font-size:.9rem;color:#4a4a4a;margin:0 0 12px;">Download the whole ranking as a CSV you can drop into a spreadsheet, a clan doc, or your own tracker. Generated in your browser — nothing is uploaded.</p>
+                    <button class="ot-btn ot-btn-ghost" id="btn-export" type="button">⬇ Download plan (.csv)</button>
+                </div>
+
+            </div>
+
+            <!-- ============ SEO / EXPLAINER ============ -->
+            <div class="ot-card">
+                <h2>How the Collection Log Advisor works</h2>
+                <p>The Old School RuneScape collection log has thousands of slots spread across hundreds of pages, and almost every existing tool treats it as a static checklist. A checklist tells you <em>what</em> is missing. It never tells you <em>what to do about it</em>. This advisor is built to answer the harder question that actually costs players time: given your current combat and Slayer levels, the gear you can realistically bring, and the number of hours you genuinely play each day, which collection log page is the best use of your next session?</p>
+                <p>Every recommendation comes out of the same three-step calculation. First, each remaining item is treated as an independent drop with probability <code>p = 1/rate</code> per kill, so the chance of having it after <code>k</code> kills is <code>1 − (1−p)^k</code>. Second, the tool computes the <strong>median kill count</strong> for a single item as <code>ln(0.5) / ln(1−p)</code> — the point where half of all players have it and half are still dry. Median is used instead of "expected" kills on purpose: the mean is dragged upwards by the unlucky tail, which is why the wiki's 1-in-512 feels so different from what people actually experience. Third, for a whole page it multiplies the per-item probabilities together and solves numerically for the kill count where the chance of having <em>everything</em> crosses 50%, and again where it crosses 90%.</p>
+                <p>Ranking is then done on <strong>expected new log slots per hour</strong>, calculated as the sum of <code>1 − (1−p)^kph</code> across every item you still need, where <code>kph</code> is your kills per hour after being scaled down for your gear tier. This is deliberately not a naive sum of drop rates: getting the same item twice in an hour still only lights up one slot, and the formula accounts for that. If you switch the preference dropdown, the same underlying numbers get re-weighted for GP efficiency, rare-drop chasing, or Ironman utility instead.</p>
+                <p>Level requirements are enforced rather than ignored. A source you cannot enter yet is either hidden or flagged with exactly how many Combat or Slayer levels you are short, because a recommendation you cannot act on is worse than no recommendation. Gear tier feeds directly into kills per hour, so a budget setup produces slower and more honest estimates than a maxed one instead of quoting you speedrunner rates.</p>
+                <p>Finally, a note on data integrity. Every drop rate built into this tool is one we are confident about. Sources where the per-item weighting could not be verified — Theatre of Blood, Tombs of Amascut, Barrows, Wintertodt, Tempoross, Zalcano and The Nightmare among them — were left out entirely rather than filled in with a plausible-looking guess. A planner that quietly invents numbers is worse than useless, because you would never know which line to distrust.</p>
+            </div>
+
+            <div class="ot-card ca-faq">
+                <h2>Common questions</h2>
+                <h3>Do I have to upload my collection log?</h3>
+                <p>No. There is no account, no plugin and no upload. If you want personalised remaining-slot maths, type your owned-slot counts into the optional progress panel and they stay in your browser's local storage.</p>
+                <h3>Why is the top pick sometimes a boss I already farm?</h3>
+                <p>Because slot rate rewards pages with several relatively common uniques. Dagannoth Kings, for example, has seven items around 1/128 — that is far more log progress per hour than a single 1/5000 chase, even if the chase is worth more GP.</p>
+                <h3>Is this against Jagex's rules?</h3>
+                <p>No. It is a web page that does arithmetic. It never touches the game client, reads memory, or automates anything, which puts it in the same category as any wiki calculator.</p>
+                <h3>What does "90% within X hours" mean?</h3>
+                <p>It is the point where nine out of ten players in your exact situation would have finished the page. The gap between that and the median number is the honest size of the dry-streak risk you are signing up for.</p>
+            </div>
+
+            <!-- ============ CROSSLINKS ============ -->
+            <div class="ot-crosslinks">
+                <h3>Other OSRS Guru tools</h3>
+                <ul>
+                    <li><a href="../">🧰 All tools &amp; pricing →</a></li>
+                    <li><a href="../profit-finder/">💰 Profit Finder — best money maker for your account</a></li>
+                    <li><a href="../gear-recommender/">🛡️ Gear Recommender — best setup for your budget</a></li>
+                    <li><a href="../dps-calculator/">⚔️ DPS Calculator — will this kill faster?</a></li>
+                    <li><a href="../drop-lookup/">🎲 Drop Rate Lookup — how dry am I really?</a></li>
+                    <li><a href="../bank-layout/">🏦 Bank Layout Library — stop losing your bank</a></li>
+                    <li><a href="../gp-tracker/">📈 GP / Supply Tracker — true net profit per trip</a></li>
+                </ul>
+            </div>
+
+            <div class="ot-crosslinks">
+                <h3>Guides that pair well with this tool</h3>
+                <ul>
+                    <li><a href="../../guides/osrs-drop-rate-probability-guide-2026.html">📐 OSRS Drop Rate &amp; Probability Explained</a></li>
+                    <li><a href="../../guides/osrs-boss-profit-tier-list-2026.html">🏆 Boss Profit Tier List</a></li>
+                    <li><a href="../../guides/osrs-vorkath-guide-2026.html">🐉 Vorkath Guide</a></li>
+                    <li><a href="../../guides/osrs-god-wars-dungeon-boss-guide-2026.html">⚔️ God Wars Dungeon Boss Guide</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides and tools. No ads blocking content, no forced sign-up.</p></div>
+                <div class="footer-col"><h4>Tools</h4><ul>
+                    <li><a href="../">All Tools &amp; Pricing</a></li>
+                    <li><a href="../profit-finder/">Profit Finder</a></li>
+                    <li><a href="../gear-recommender/">Gear Recommender</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular</h4><ul>
+                    <li><a href="../../money-making.html">Money Making</a></li>
+                    <li><a href="../../boss-guides.html">Boss Guides</a></li>
+                    <li><a href="../../new-player.html">New Player</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; Old School RuneScape is a trademark of Jagex Ltd &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <script src="../shared/js/osrs-analytics.js"></script>
+    <script src="../shared/js/osrs-subscription.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/clog-engine.js"></script>
+    <script>
+    (function () {
+        'use strict';
+        var TOOL = 'clog-advisor';
+        var PROGRESS_KEY = 'osrsguru_clog_progress';
+        var lastResult = null;
+
+        var E = window.ClogEngine;
+        var SOURCES = window.CLOG_SOURCES || [];
+
+        OSRSAnalytics.init(TOOL);
+
+        /* ---------- progress storage ---------- */
+        function loadProgress() {
+            try { return JSON.parse(localStorage.getItem(PROGRESS_KEY)) || {}; }
+            catch (e) { return {}; }
+        }
+        function saveProgress(p) {
+            try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(p)); } catch (e) {}
+        }
+        var progress = loadProgress();
+
+        /* ---------- build progress editor ---------- */
+        function buildProgressGrid() {
+            var grid = document.getElementById('progress-grid');
+            grid.innerHTML = SOURCES.map(function (s) {
+                var v = progress[s.id] || 0;
+                return '<div class="ca-prog-row">' +
+                    '<label for="p-' + s.id + '">' + esc(s.name) + '</label>' +
+                    '<input type="number" id="p-' + s.id + '" data-src="' + s.id + '" min="0" max="' + s.items.length + '" value="' + v + '">' +
+                    '<span>/ ' + s.items.length + '</span>' +
+                '</div>';
+            }).join('');
+            if (grid.dataset.wired) return;
+            grid.dataset.wired = '1';
+            grid.addEventListener('change', function (e) {
+                var el = e.target;
+                if (!el.dataset || !el.dataset.src) return;
+                var max = parseInt(el.getAttribute('max'), 10);
+                var n = Math.max(0, Math.min(max, parseInt(el.value, 10) || 0));
+                el.value = n;
+                progress[el.dataset.src] = n;
+                saveProgress(progress);
+            });
+        }
+
+        document.getElementById('btn-reset-progress').addEventListener('click', function () {
+            progress = {};
+            saveProgress(progress);
+            buildProgressGrid();
+            OSRSAnalytics.trackAction('reset_progress');
+        });
+
+        function esc(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        /* ---------- read the form ---------- */
+        function readOpts() {
+            return {
+                combatBand: document.getElementById('i-combat').value,
+                slayerBand: document.getElementById('i-slayer').value,
+                gear: document.getElementById('i-gear').value,
+                hoursPerDay: parseFloat(document.getElementById('i-hours').value) || 2,
+                preference: document.getElementById('i-pref').value,
+                ironman: document.getElementById('i-ironman').checked,
+                hideLocked: document.getElementById('i-hidelocked').value === 'hide',
+                progress: progress
+            };
+        }
+
+        /* ---------- badges ---------- */
+        function catBadge(cat) {
+            var map = { boss: 'Boss', slayer: 'Slayer', wilderness: 'Wilderness', raid: 'Raid' };
+            return '<span class="ot-badge ot-badge-neutral">' + (map[cat] || cat) + '</span>';
+        }
+        function statusBadge(r) {
+            if (r.needsLevelling) return '<span class="ot-badge ot-badge-neutral">Needs ' + esc(r.blockers.join(' + ')) + '</span>';
+            if (r.underGeared) return '<span class="ot-badge ot-badge-neutral">Below recommended gear</span>';
+            return '<span class="ot-badge ot-badge-ok">Available now</span>';
+        }
+        function confBadge(r) {
+            return r.conf === 'med'
+                ? '<span class="ot-badge ot-badge-neutral" title="Rates for this source are widely cited but we could not fully verify every weighting.">Rates: good, not verified</span>'
+                : '';
+        }
+
+        /* ---------- render the free top pick ---------- */
+        function renderTopPick(r, opts) {
+            var box = document.getElementById('top-pick');
+            if (!r) {
+                box.innerHTML = '<div class="ot-empty">Nothing left to recommend with those filters. Try showing targets above your level, or reset your log progress.</div>';
+                return;
+            }
+            var items = r.remaining.slice(0, 6).map(function (i) {
+                return '<code>' + esc(i.n) + ' 1/' + E.fmtNum(i.r) + '</code>';
+            }).join(' ');
+            var more = r.remaining.length > 6 ? ' <span style="color:#7a6a52;">+' + (r.remaining.length - 6) + ' more</span>' : '';
+
+            box.innerHTML =
+                '<div class="ca-pick-head">' +
+                    '<span class="ca-rank">1</span>' +
+                    '<h3>' + esc(r.name) + '</h3>' +
+                    catBadge(r.cat) + ' ' + statusBadge(r) + ' ' + confBadge(r) +
+                '</div>' +
+                '<div class="ca-stats">' +
+                    '<div class="ot-stat ca-stat"><b>' + r.slotsLeft + ' / ' + r.totalSlots + '</b><span>Slots left</span></div>' +
+                    '<div class="ot-stat ca-stat"><b>' + E.fmtNum(r.medianKills) + '</b><span>Median kills</span></div>' +
+                    '<div class="ot-stat ca-stat"><b>' + E.fmtHours(r.hoursMedian) + '</b><span>Median time</span></div>' +
+                    '<div class="ot-stat ca-stat is-good"><b>' + r.slotsPerHour.toFixed(3) + '</b><span>Slots / hour</span></div>' +
+                '</div>' +
+                '<div class="ot-meta"><strong>Your kill rate:</strong> ~' + r.kph.toFixed(1) + '/hr at ' + esc(E.GEAR_LABEL[opts.gear]) + ' gear' +
+                    ' &nbsp;|&nbsp; <strong>Approx.</strong> ' + E.fmtGp(r.gpHour) + ' GP/hr' +
+                    ' &nbsp;|&nbsp; <strong>Ironman value:</strong> ' + r.ironScore + '/10' +
+                    (r.reqNote ? ' &nbsp;|&nbsp; <strong>Note:</strong> ' + esc(r.reqNote) : '') + '</div>' +
+                '<div class="ot-reason">💡 ' + esc(r.reason) + '</div>' +
+                '<div class="ca-items"><strong>Still missing:</strong> ' + items + more + '</div>' +
+                (r.guide ? '<p style="margin:12px 0 0;"><a class="ot-link" href="' + r.guide + '">Read the full guide for ' + esc(r.name) + ' →</a></p>' : '');
+        }
+
+        /* ---------- locked wrapper ---------- */
+        function lockedWrap(innerHtml, featureKey, label) {
+            return '<div class="ot-locked">' +
+                '<div class="ot-locked-body">' + innerHtml + '</div>' +
+                '<div class="ot-locked-overlay">' +
+                    '<span>🔒 ' + esc(label) + '</span>' +
+                    '<button class="ot-btn ot-btn-go ot-btn-sm ca-lock-btn" type="button" data-feature="' + featureKey + '">Unlock with Premium — $1.9/mo</button>' +
+                '</div>' +
+            '</div>';
+        }
+
+        /* ---------- ranking table ---------- */
+        function rankingTableHtml(rows, limit) {
+            var body = rows.slice(0, limit).map(function (r, i) {
+                return '<tr>' +
+                    '<td>' + (i + 1) + '</td>' +
+                    '<td><strong>' + esc(r.name) + '</strong></td>' +
+                    '<td>' + r.slotsLeft + ' / ' + r.totalSlots + '</td>' +
+                    '<td>' + E.fmtNum(r.medianKills) + '</td>' +
+                    '<td>' + E.fmtHours(r.hoursMedian) + '</td>' +
+                    '<td style="color:#2e7d32;font-weight:700;">' + r.slotsPerHour.toFixed(3) + '</td>' +
+                    '<td>' + E.fmtGp(r.gpHour) + '</td>' +
+                    '<td>' + (r.needsLevelling ? esc('Needs ' + r.blockers.join(' + ')) : 'Ready') + '</td>' +
+                '</tr>';
+            }).join('');
+            return '<div class="ot-tablewrap"><table class="ot-table">' +
+                '<thead><tr><th>#</th><th>Target</th><th>Slots left</th><th>Median kills</th><th>Median time</th><th>Slots/hr</th><th>GP/hr</th><th>Status</th></tr></thead>' +
+                '<tbody>' + body + '</tbody></table></div>';
+        }
+
+        /* ---------- forecast table ---------- */
+        function forecastTableHtml(rows, opts) {
+            var body = rows.slice(0, 10).map(function (r) {
+                var d = new Date(Date.now() + r.daysMedian * 864e5);
+                var dateTxt = isFinite(r.daysMedian) && r.daysMedian < 3650
+                    ? d.toISOString().slice(0, 10) : 'beyond 10 years';
+                return '<tr>' +
+                    '<td><strong>' + esc(r.name) + '</strong></td>' +
+                    '<td>' + E.fmtHours(r.hoursMedian) + '</td>' +
+                    '<td>' + E.fmtHours(r.hoursP90) + '</td>' +
+                    '<td>' + E.fmtDays(r.daysMedian) + '</td>' +
+                    '<td>' + dateTxt + '</td>' +
+                '</tr>';
+            }).join('');
+            return '<div class="ot-tablewrap"><table class="ot-table">' +
+                '<thead><tr><th>Target</th><th>Median (50%)</th><th>90% finish within</th><th>At ' + opts.hoursPerDay + ' hrs/day</th><th>Projected date</th></tr></thead>' +
+                '<tbody>' + body + '</tbody></table></div>' +
+                '<p class="ot-hint" style="margin-top:8px;">Read it as: half of players in your situation finish by the median column, and nine in ten finish by the 90% column. The gap is the dry-streak risk.</p>';
+        }
+
+        /* ---------- wire the unlock buttons ---------- */
+        function wireLocks(scope) {
+            scope.querySelectorAll('[data-feature]').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    OSRSPremium.require(TOOL, btn.getAttribute('data-feature'));
+                });
+            });
+        }
+
+        /* ---------- main run ---------- */
+        function run() {
+            var gate = OSRSPremium.consume(TOOL);
+            if (!gate.allowed) return;
+
+            var opts = readOpts();
+            var result;
+            try {
+                result = E.recommend(opts);
+            } catch (err) {
+                OSRSAnalytics.trackError('recommend', err && err.message);
+                return;
+            }
+            lastResult = result;
+
+            OSRSAnalytics.trackToolUsed({
+                preference: opts.preference,
+                ironman: opts.ironman,
+                gear: opts.gear,
+                combat_band: opts.combatBand,
+                slots_left: result.totalSlotsLeft
+            });
+
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('result-sub').textContent =
+                result.rows.length + ' reachable sources analysed · ' + result.totalSlotsLeft +
+                ' log slots still open · optimising for ' +
+                document.getElementById('i-pref').selectedOptions[0].textContent.toLowerCase() + '.';
+
+            renderTopPick(result.topPick, opts);
+
+            /* --- full ranking (premium) --- */
+            var rankZone = document.getElementById('ranking-zone');
+            if (OSRSPremium.hasFeature(TOOL, 'fullRanking')) {
+                rankZone.innerHTML = rankingTableHtml(result.rows, 15);
+            } else {
+                rankZone.innerHTML = lockedWrap(
+                    rankingTableHtml(result.rows, 8),
+                    'fullRanking',
+                    'See the full Top 15, not just your #1'
+                );
+            }
+
+            /* --- forecast (premium) --- */
+            var fcZone = document.getElementById('forecast-zone');
+            if (OSRSPremium.hasFeature(TOOL, 'timeToComplete')) {
+                fcZone.innerHTML = forecastTableHtml(result.rows, opts);
+            } else {
+                fcZone.innerHTML = lockedWrap(
+                    forecastTableHtml(result.rows, opts),
+                    'timeToComplete',
+                    'See how long each page really takes (incl. 90% confidence)'
+                );
+            }
+
+            wireLocks(document.getElementById('results'));
+            renderQuota();
+            OSRSPremium.renderBadge('#tier-badge', TOOL);
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        /* ---------- export ---------- */
+        function exportPlan() {
+            if (!OSRSPremium.require(TOOL, 'plannerExport')) return;
+            if (!lastResult) {
+                OSRSPremium.toast('Run the advisor first, then export.');
+                return;
+            }
+            var csv = E.toCsv(lastResult);
+            var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = 'osrsguru-collection-log-plan.csv';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            setTimeout(function () { URL.revokeObjectURL(url); }, 1500);
+            OSRSAnalytics.trackAction('export_plan', { rows: lastResult.rows.length });
+        }
+
+        /* ---------- quota line ---------- */
+        function renderQuota() {
+            var q = OSRSPremium.quota(TOOL);
+            var el = document.getElementById('quota-line');
+            el.textContent = q.limit === Infinity
+                ? 'Premium — unlimited runs.'
+                : q.remaining + ' of ' + q.limit + ' free runs left today.';
+        }
+
+        /* ---------- init ---------- */
+        buildProgressGrid();
+        renderQuota();
+        OSRSPremium.renderBadge('#tier-badge', TOOL);
+        OSRSPremium.onChange(function () {
+            renderQuota();
+            OSRSPremium.renderBadge('#tier-badge', TOOL);
+        });
+        document.getElementById('btn-run').addEventListener('click', run);
+        document.getElementById('btn-export').addEventListener('click', exportPlan);
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Activated — OSRS Guru Tools</title>
+    <meta name="description" content="Your OSRS Guru Premium access is now active.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://osrsguru.com/tools/premium/success.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../shared/css/osrs-tool.css">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <style>
+        .ok-wrap { max-width:560px; margin:60px auto; text-align:center; padding:0 20px; }
+        .ok-badge { font-size:3.4rem; line-height:1; margin-bottom:10px; }
+        .ok-wrap h1 { color:#3b2615; font-size:1.8rem; margin:0 0 12px; }
+        .ok-wrap p { color:#4a4a4a; font-size:1rem; line-height:1.7; margin:0 0 10px; }
+        .ok-card { background:#fff; border:1px solid #e0d5c0; border-radius:14px; padding:24px; margin:24px 0; box-shadow:0 4px 18px rgba(0,0,0,.06); }
+        .ok-plan { font-size:1.3rem; font-weight:800; color:#3b2615; }
+        .ok-go {
+            display:inline-block; padding:13px 26px; border-radius:9px; background:#3b2615; color:#fff !important;
+            font-weight:700; text-decoration:none; font-size:1rem; margin-top:6px;
+        }
+        .ok-go:hover { background:#4a3320; }
+        .ok-hint { font-size:.82rem; color:#8a7a62; }
+    </style>
+</head>
+<body>
+    <main class="guide-content">
+        <div class="ok-wrap">
+            <div class="ok-badge">✅</div>
+            <h1>Premium Activated</h1>
+            <div class="ok-card">
+                <p style="margin:0 0 6px;">You now have full access to the advanced layer on every OSRS Guru tool.</p>
+                <p class="ok-plan" id="ok-plan-label">Loading your plan…</p>
+                <p class="ok-hint" id="ok-exp-label"></p>
+            </div>
+            <p>Your saved presets and progress are safe. Premium never expires the free tier — it just unlocks more.</p>
+            <a class="ok-go" href="../index.html">Go to the Tools Hub →</a>
+            <p class="ok-hint" style="margin-top:18px;">Need a hand? Email the site owner from the contact link in the footer.</p>
+        </div>
+    </main>
+
+    <script src="../shared/js/osrs-analytics.js"></script>
+    <script src="../shared/js/osrs-subscription.js"></script>
+    <script>
+    (function () {
+        'use strict';
+        OSRSAnalytics && OSRSAnalytics.init('premium-success');
+        // osrs-subscription.js 已在 init() 里自动处理 ?premium=ok 并激活
+        function refresh() {
+            if (window.OSRSPremium && OSRSPremium.isPremium()) {
+                var plan = OSRSPremium.getPlan ? OSRSPremium.getPlan() : 'month';
+                var labels = { month: '1 Month Access', quarter: '4 Months Access', year: '12 Months Access' };
+                document.getElementById('ok-plan-label').textContent = labels[plan] || 'Premium Access';
+                document.getElementById('ok-exp-label').textContent = OSRSPremium.daysRemaining() + ' days remaining';
+            } else {
+                document.getElementById('ok-plan-label').textContent = 'No active Premium yet';
+                document.getElementById('ok-exp-label').textContent = 'If you just paid on Payhip, use the banner at the bottom to activate, then go to the Tools Hub.';
+            }
+        }
+        refresh();
+        window.OSRSPremium && OSRSPremium.onChange && OSRSPremium.onChange(refresh);
+        // 若 URL 带 premium=ok 但 token 尚未写入（极少见），强制再触发一次
+        if (/[?&]premium=ok/.test(location.search) && (!window.OSRSPremium || !OSRSPremium.isPremium())) {
+            setTimeout(refresh, 600);
+        }
+    })();
+    </script>
+</body>
+</html>

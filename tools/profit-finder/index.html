@@ -9,6 +9,7 @@
     <link rel="canonical" href="https://osrsguru.com/tools/profit-finder/">
     <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../shared/css/osrs-tool.css">
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
     <script>
@@ -185,6 +186,25 @@
                 </div>
             </div>
 
+            <div class="ot-crosslinks">
+                <h3>🔗 More OSRS Guru tools</h3>
+                <ul>
+                    <li><a href="../gp-tracker/">GP / Supply Tracker — see your <em>net</em> profit after supplies →</a></li>
+                    <li><a href="../dps-calculator/">DPS Calculator — spec attacks &amp; multi-hit modelled →</a></li>
+                    <li><a href="../gear-recommender/">Gear Recommender →</a></li>
+                    <li><a href="../drop-lookup/">Drop Rate Lookup &amp; Dry Calculator →</a></li>
+                    <li><a href="../clog-advisor/">Collection Log Advisor — what to grind next →</a></li>
+                    <li><a href="../bank-layout/">Bank Layout Library →</a></li>
+                    <li><a href="../">All tools &amp; pricing →</a></li>
+                </ul>
+                <h3 style="margin-top:16px;">📖 Related guides</h3>
+                <ul>
+                    <li><a href="../../guides/osrs-best-money-making-methods-2026.html">Best Money Making Methods (2026) →</a></li>
+                    <li><a href="../../guides/osrs-afk-money-making-methods-2026.html">AFK Money Making Methods →</a></li>
+                    <li><a href="../../guides/mid-game-money-making-2026.html">Mid-Game Money Making →</a></li>
+                </ul>
+            </div>
+
         </div>
     </main>
 
@@ -206,7 +226,10 @@
         </div>
     </footer>
 
+    <script src="../shared/js/osrs-analytics.js"></script>
+    <script src="../shared/js/osrs-subscription.js"></script>
     <script>
+        if (window.OSRSAnalytics) OSRSAnalytics.init('profit-finder');
         const fmt = n => n.toLocaleString('en-US');
         const ranges = {
             '3-40': [3, 40], '40-70': [40, 70], '70-90': [70, 90], '90+': [90, 126]
@@ -286,6 +309,9 @@
                 const cap = document.getElementById('f-capital').value;
                 const style = document.getElementById('f-style').value;
                 const iron = document.getElementById('f-ironman').checked;
+                if (window.OSRSAnalytics) {
+                    OSRSAnalytics.trackToolUsed({ level: lvl, capital: cap, style: style, ironman: iron });
+                }
                 let pool = data.filter(m =>
                     levelOverlap(m, lvl) && matchStyle(m, style) && capitalOk(m, cap)
                 );

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Tools — Free Calculators &amp; Planners for Old School RuneScape (2026)</title>
+    <meta name="description" content="Every OSRS Guru tool in one place: profit finder, gear recommender, DPS calculator, drop rate lookup, bank layout library, GP tracker and collection log advisor. Free to use, with an optional Premium ($2.66/mo, $8.99/4mo or $23.99/yr) that unlocks every tool at once.">
+    <meta name="keywords" content="OSRS tools, OSRS calculators, OSRS DPS calculator, OSRS money making tool, OSRS collection log tracker, OSRS drop rate calculator, OSRS gear planner">
+    <link rel="canonical" href="https://osrsguru.com/tools/">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./shared/css/osrs-tool.css">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content { color:#1a1a1a !important; }
+        /* ---- tool grid ---- */
+        .hub-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:18px 0 8px; }
+        .hub-card {
+            background:#fff !important; border:1px solid #e0d5c0 !important; border-radius:12px;
+            padding:18px 18px 16px; display:flex; flex-direction:column;
+            box-shadow:0 2px 10px rgba(0,0,0,.06); transition:box-shadow .15s ease, transform .15s ease;
+        }
+        .hub-card:hover { box-shadow:0 6px 20px rgba(0,0,0,.10); transform:translateY(-2px); }
+        .hub-card.is-flagship { border-color:#d4af37 !important; box-shadow:0 2px 14px rgba(212,175,55,.22); }
+        .hub-ico { font-size:1.7rem; line-height:1; margin-bottom:8px; }
+        .hub-card h3 { margin:0 0 6px !important; font-size:1.05rem; color:#3b2615 !important; }
+        .hub-card p { font-size:.88rem; color:#4a4a4a !important; line-height:1.55; margin:0 0 12px; flex:1; }
+        .hub-tags { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px; }
+        .hub-go {
+            display:block; text-align:center; padding:10px 12px; border-radius:8px;
+            background:#3b2615; color:#fff !important; font-weight:700; font-size:.9rem;
+            text-decoration:none;
+        }
+        .hub-go:hover { background:#4a3320; }
+        .hub-flag { font-size:.74rem; color:#8a6d1b; font-weight:800; letter-spacing:.4px; }
+        /* ---- pricing ---- */
+        .price-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:18px 0; }
+        .price-box {
+            background:#fff !important; border:1px solid #e0d5c0 !important;
+            border-radius:12px; padding:20px 22px;
+        }
+        .price-box.is-premium { border:2px solid #2e7d32 !important; }
+        .price-box h3 { margin:0 0 4px !important; color:#3b2615 !important; font-size:1.1rem; }
+        .price-amt { font-size:2rem; font-weight:800; color:#3b2615; line-height:1.2; }
+        .price-amt small { font-size:.85rem; font-weight:600; color:#7a6a52; }
+        .price-box ul { list-style:none; padding:0; margin:12px 0 16px; }
+        .price-box li { font-size:.9rem; color:#2f2f2f; padding:5px 0 5px 22px; position:relative; line-height:1.5; }
+        .price-box li:before { content:"✓"; position:absolute; left:0; color:#2e7d32; font-weight:800; }
+        .price-box li.is-off { color:#8a7a62; }
+        .price-box li.is-off:before { content:"—"; color:#b5a68c; }
+        .matrix-tool-row td {
+            background:#f6efe2 !important; font-weight:800; color:#3b2615 !important;
+            text-transform:uppercase; letter-spacing:.4px; font-size:.78rem;
+        }
+        .yes { color:#2e7d32; font-weight:800; }
+        .no  { color:#9a8a72; font-weight:700; }
+        /* ---- faq ---- */
+        .faq-item { border-bottom:1px solid #efe8da; padding:14px 0; }
+        .faq-item:last-child { border-bottom:none; }
+        .faq-item h3 { margin:0 0 6px !important; font-size:1rem; color:#3b2615 !important; }
+        .faq-item p { margin:0; font-size:.92rem; color:#3a3a3a !important; line-height:1.65; }
+        @media (max-width:768px) {
+            .hub-grid { grid-template-columns:repeat(2,1fr); }
+            .price-cols { grid-template-columns:1fr; }
+        }
+        @media (max-width:640px) {
+            .hub-grid { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRSGuru</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../new-player.html">New Player</a></li>
+                    <li><a href="../money-making.html">Money Making</a></li>
+                    <li><a href="../boss-guides.html">Boss Guides</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="./">Tools</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / Tools</p>
+            <h1>OSRS Tools</h1>
+            <p class="subtitle">Seven calculators and planners built around the questions Old School RuneScape players actually ask — what should I train, what should I buy, what should I kill, and is it actually worth it. Every tool has a genuinely useful free tier. One optional subscription unlocks the premium layer across all of them.</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container ot-wrap-wide">
+
+            <div class="ot-tierbar">
+                <div id="tier-badge"></div>
+                <div style="font-size:.82rem;color:#7a6a52;">Your plan status · stored in this browser, no account needed</div>
+            </div>
+
+            <!-- ================= TOOL GRID ================= -->
+            <h2 style="color:#3b2615;margin:22px 0 2px;">All tools</h2>
+            <p style="color:#7a6a52;margin:0;font-size:.92rem;">Everything runs client-side in your browser. Nothing talks to the game.</p>
+
+            <div class="hub-grid">
+
+                <div class="hub-card">
+                    <div class="hub-ico">💰</div>
+                    <h3>Profit Finder</h3>
+                    <p>Answer three questions and get money making methods matched to your account, ranked by honest low-end GP/hr instead of inflated wiki averages.</p>
+                    <div class="hub-tags"><span class="ot-badge ot-badge-free">FREE</span></div>
+                    <a class="hub-go" href="./profit-finder/" data-tool="profit-finder">Open Profit Finder →</a>
+                </div>
+
+                <div class="hub-card">
+                    <div class="hub-ico">🛡️</div>
+                    <h3>Gear Recommender</h3>
+                    <p>Tell it your budget and combat style, get a full setup that actually fits your bank — plus the upgrade path that gives you the most DPS per GP spent.</p>
+                    <div class="hub-tags"><span class="ot-badge ot-badge-premium">FREEMIUM</span></div>
+                    <a class="hub-go" href="./gear-recommender/" data-tool="gear-recommender">Open Gear Recommender →</a>
+                </div>
+
+                <div class="hub-card">
+                    <div class="hub-ico">🏦</div>
+                    <h3>Bank Layout Library</h3>
+                    <p>Proven bank tab layouts for bossing, skilling and Ironman accounts. Save your own presets so a bank reorganise never eats an evening again.</p>
+                    <div class="hub-tags"><span class="ot-badge ot-badge-free">FREE</span></div>
+                    <a class="hub-go" href="./bank-layout/" data-tool="bank-layout">Open Bank Layout Library →</a>
+                </div>
+
+                <div class="hub-card">
+                    <div class="hub-ico">🎲</div>
+                    <h3>Drop Rate Lookup</h3>
+                    <p>How dry are you really? Enter a drop rate and your kill count to get the honest probability, plus expected GP value per kill on Premium.</p>
+                    <div class="hub-tags"><span class="ot-badge ot-badge-premium">FREEMIUM</span></div>
+                    <a class="hub-go" href="./drop-lookup/" data-tool="drop-lookup">Open Drop Rate Lookup →</a>
+                </div>
+
+                <div class="hub-card is-flagship">
+                    <div class="hub-ico">⚔️</div>
+                    <h3>DPS Calculator <span class="hub-flag">★ FLAGSHIP</span></h3>
+                    <p>Model your real damage output before you spend 200M on an upgrade. Special attacks, style comparisons and GP-per-damage on Premium.</p>
+                    <div class="hub-tags"><span class="ot-badge ot-badge-premium">FREEMIUM</span><span class="ot-badge ot-badge-neutral">★ Flagship</span></div>
+                    <a class="hub-go" href="./dps-calculator/" data-tool="dps-calculator">Open DPS Calculator →</a>
+                </div>
+
+                <div class="hub-card">
+                    <div class="hub-ico">📈</div>
+                    <h3>GP / Supply Tracker</h3>
+                    <p>Log a trip, subtract what the supplies actually cost at live GE prices, and find out whether that boss is really paying what people claim.</p>
+                    <div class="hub-tags"><span class="ot-badge ot-badge-premium">FREEMIUM</span></div>
+                    <a class="hub-go" href="./gp-tracker/" data-tool="gp-tracker">Open GP / Supply Tracker →</a>
+                </div>
+
+                <div class="hub-card">
+                    <div class="hub-ico">📕</div>
+                    <h3>Collection Log Advisor</h3>
+                    <p>"What should I grind next?" — answered with real drop rates, median kill counts and your actual playtime, ranked by new log slots per hour.</p>
+                    <div class="hub-tags"><span class="ot-badge ot-badge-premium">FREEMIUM</span><span class="ot-badge ot-badge-neutral">New</span></div>
+                    <a class="hub-go" href="./clog-advisor/" data-tool="clog-advisor">Open Collection Log Advisor →</a>
+                </div>
+
+            </div>
+
+            <!-- ================= PRICING ================= -->
+            <h2 style="color:#3b2615;margin:34px 0 2px;" id="pricing">Free vs Premium</h2>
+            <p style="color:#7a6a52;margin:0 0 4px;font-size:.92rem;">One Premium plan unlocks the advanced layer on all 7 tools — pick 1, 4 or 12 months, no auto-renew.</p>
+
+            <div class="price-cols">
+                <div class="price-box">
+                    <h3>Free</h3>
+                    <div class="price-amt">$0<small> / forever</small></div>
+                    <ul>
+                        <li>All 7 tools usable, no sign-up</li>
+                        <li>Profit Finder, Bank Layout and Drop Rate Lookup: unlimited runs</li>
+                        <li>DPS Calculator: 5 runs per day</li>
+                        <li>Gear Recommender, GP Tracker, Collection Log Advisor: 3 runs per day</li>
+                        <li>Every guide on the site stays free regardless</li>
+                        <li class="is-off">Advanced outputs stay locked</li>
+                        <li class="is-off">Ads shown</li>
+                    </ul>
+                    <a class="ot-btn ot-btn-ghost ot-btn-block" href="./profit-finder/" data-tool="profit-finder">Start with a free tool</a>
+                </div>
+
+                <div class="price-box is-premium">
+                    <h3>Premium <span class="ot-badge ot-badge-premium">Best value</span></h3>
+                    <div class="price-amt">$2.66<small> / month · or pay less upfront</small></div>
+                    <div style="margin:6px 0 14px;text-align:center;font-size:.86rem;color:#3b2615;line-height:1.7;">
+                        <div>1 Month — <strong>$2.66</strong></div>
+                        <div>4 Months — <strong>$8.99</strong> <span style="color:#2e7d32;font-weight:700;">save 16%</span></div>
+                        <div>12 Months — <strong>$23.99</strong> <span style="color:#2e7d32;font-weight:700;">save 25% &#128293;</span></div>
+                    </div>
+                    <ul>
+                        <li>Unlimited runs on every tool</li>
+                        <li>All advanced outputs unlocked across all 7 tools</li>
+                        <li>Exports: money-making plan, CSV session history, collection log plan</li>
+                        <li>Save unlimited gear builds, DPS setups and up to 50 bank presets</li>
+                        <li>Ad-free experience site-wide</li>
+                        <li>New premium tools included as they launch</li>
+                    </ul>
+                    <button class="ot-btn ot-btn-go ot-btn-block" id="btn-subscribe" type="button">Get Premium — choose your plan</button>
+                    <p class="ot-hint" style="text-align:center;margin-top:8px;">One-time payment via Payhip · no auto-renew · After paying, return here &amp; refresh to activate Premium.</p>
+                </div>
+            </div>
+
+            <!-- ================= FEATURE MATRIX ================= -->
+            <div class="ot-card">
+                <h2>Feature-by-feature comparison</h2>
+                <p style="font-size:.9rem;color:#4a4a4a;">This table mirrors the gating rules the tools actually run on, so what you see here is what you get.</p>
+                <div class="ot-tablewrap">
+                    <table class="ot-table">
+                        <thead>
+                            <tr><th>Feature</th><th>Free</th><th>Premium&nbsp;($2.66+/mo)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr class="matrix-tool-row"><td colspan="3">💰 Profit Finder</td></tr>
+                            <tr><td>Daily uses</td><td class="yes">Unlimited</td><td class="yes">Unlimited</td></tr>
+                            <tr><td>Goal Tracker</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>Export your money-making plan</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>Ad-free experience</td><td class="no">—</td><td class="yes">✓</td></tr>
+
+                            <tr class="matrix-tool-row"><td colspan="3">🛡️ Gear Recommender</td></tr>
+                            <tr><td>Daily uses</td><td class="no">3 / day</td><td class="yes">Unlimited</td></tr>
+                            <tr><td>Exact budget input</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>Gear upgrade paths</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>Save unlimited builds</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>Compare all combat styles side by side</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>Ad-free experience</td><td class="no">—</td><td class="yes">✓</td></tr>
+
+                            <tr class="matrix-tool-row"><td colspan="3">🏦 Bank Layout Library</td></tr>
+                            <tr><td>Daily uses</td><td class="yes">Unlimited</td><td class="yes">Unlimited</td></tr>
+                            <tr><td>Save presets</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+                            <tr><td>Maximum saved presets</td><td class="no">3</td><td class="yes">50</td></tr>
+                            <tr><td>Export bank layout as image</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>Share preset link</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>Ad-free experience</td><td class="no">—</td><td class="yes">✓</td></tr>
+
+                            <tr class="matrix-tool-row"><td colspan="3">🎲 Drop Rate Lookup</td></tr>
+                            <tr><td>Daily uses</td><td class="yes">Unlimited</td><td class="yes">Unlimited</td></tr>
+                            <tr><td>Dry calculator</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+                            <tr><td>Expected GP value per kill</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>Compare multiple drop sources</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>Ad-free experience</td><td class="no">—</td><td class="yes">✓</td></tr>
+
+                            <tr class="matrix-tool-row"><td colspan="3">⚔️ DPS Calculator ★</td></tr>
+                            <tr><td>Daily uses</td><td class="no">5 / day</td><td class="yes">Unlimited</td></tr>
+                            <tr><td>Basic DPS</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+                            <tr><td>Special attack &amp; multi-hit DPS modelling</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>Compare all combat styles side by side</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>GP-per-damage economy view</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>Save setups</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>Ad-free experience</td><td class="no">—</td><td class="yes">✓</td></tr>
+
+                            <tr class="matrix-tool-row"><td colspan="3">📈 GP / Supply Tracker</td></tr>
+                            <tr><td>Daily uses</td><td class="no">3 / day</td><td class="yes">Unlimited</td></tr>
+                            <tr><td>Session supply cost</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+                            <tr><td>Live GE prices</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+                            <tr><td>True net profit (revenue − supplies)</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>Session history &amp; trends</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>CSV export</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>Ad-free experience</td><td class="no">—</td><td class="yes">✓</td></tr>
+
+                            <tr class="matrix-tool-row"><td colspan="3">📕 Collection Log Advisor</td></tr>
+                            <tr><td>Daily uses</td><td class="no">3 / day</td><td class="yes">Unlimited</td></tr>
+                            <tr><td>Top pick recommendation</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+                            <tr><td>Full ranked list of what to grind next</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>Time-to-completion estimates</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>Export your collection log plan</td><td class="no">—</td><td class="yes">✓</td></tr>
+                            <tr><td>Ad-free experience</td><td class="no">—</td><td class="yes">✓</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="text-align:center;margin-top:16px;">
+                    <button class="ot-btn ot-btn-go" id="btn-subscribe-2" type="button">Unlock everything — choose your plan</button>
+                </div>
+            </div>
+
+            <!-- ================= WHY / SEO ================= -->
+            <div class="ot-card">
+                <h2>Why these seven tools exist</h2>
+                <p>Old School RuneScape is a game of long commitments. A Slayer grind is measured in days, a collection log page in weeks, and a gear upgrade in tens or hundreds of millions of GP. The cost of a bad decision is not a wasted click — it is a wasted month. Yet the information needed to make those decisions is scattered across wiki tables, five-year-old forum posts, and YouTube videos whose GP/hr numbers were true for a patch that no longer exists.</p>
+                <p>Each tool here targets one decision that players consistently get wrong. The Profit Finder exists because most money-making lists rank methods by best-case averages inflated by rare drops, which is useless if you want to know what a bad night looks like. The Gear Recommender exists because "best in slot" advice ignores that almost nobody has 2B to spend. The DPS Calculator exists because the honest answer to "is this weapon worth it" is a number, not an opinion. The Drop Rate Lookup exists because human intuition about probability is catastrophically bad and being 3x the drop rate dry is far more common than it feels. The GP and Supply Tracker exists because gross loot is not profit once you subtract Saradomin brews, Blood runes and death costs. The Bank Layout Library exists because an unusable bank quietly taxes every session you play. And the Collection Log Advisor exists because no tool anywhere would tell you which page to open next.</p>
+                <p>All of them run entirely in your browser. There is no account system, no launcher, no plugin and no server storing your data — your inputs, saved presets and log progress live in your own browser's local storage and never leave your machine. That design choice is why the free tier can be genuinely generous rather than a demo: serving a static page costs almost nothing, so the free version is not a trap, it is the product.</p>
+                <p>The Premium tier exists for a narrower reason. The features behind it — full rankings, exports, saved builds, session history, confidence intervals — are the ones people use when they are planning seriously rather than checking a single number. If that is you, $1.9 a month keeps the site running without ads dictating the content. If it is not you, the free tier is not going anywhere.</p>
+            </div>
+
+            <!-- ================= FAQ ================= -->
+            <div class="ot-card">
+                <h2>Frequently asked questions</h2>
+
+                <div class="faq-item">
+                    <h3>Do I need an account to use the tools?</h3>
+                    <p>No. There is no registration, no email and no login. Every tool works the moment the page loads, and anything you save — bank presets, gear builds, collection log progress — is written to your own browser's local storage.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Does one subscription cover all the tools?</h3>
+                    <p>Yes. Premium is a single site-wide plan. Subscribing from the DPS Calculator unlocks the Collection Log Advisor, the GP Tracker and everything else in the table above, plus any premium tool added later. There is no per-tool pricing and no higher tier.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How do I cancel?</h3>
+                    <p>Cancel directly in the PayPal or Stripe dashboard you subscribed through — the same place you manage every other subscription with that provider. There is no cancellation form here and nothing to email. Access continues until the end of the period you already paid for, then the account quietly reverts to the free tier with nothing lost.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can Ironman accounts use these tools?</h3>
+                    <p>Yes, and several are built with Ironman in mind. The Profit Finder hides merchanting and trade-only methods when you tick the Ironman box, the Gear Recommender can be pointed at obtainable-only upgrades, and the Collection Log Advisor has a dedicated "Ironman essentials" ranking mode that weights drops you cannot simply buy off the Grand Exchange.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Where does the data come from?</h3>
+                    <p>Drop rates, requirements and mechanics come from the OSRS Wiki and are cross-checked against community-tested rates before being added. GP figures are deliberately conservative low-end estimates rather than best-case averages. Where a rate or weighting could not be verified with confidence, the content is left out entirely rather than filled in with a guess — the Collection Log Advisor names the sources it has excluded for exactly this reason.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Does using these tools break Jagex's rules?</h3>
+                    <p>No. Every tool on this site is a web-based calculator or lookup. Nothing interacts with the game client, reads game memory, injects into or overlays the client, or automates any part of gameplay. You read a number on a web page and then play the game yourself — which is the same category as a wiki calculator or a spreadsheet, and is consistent with Jagex's third-party tool policy. There is no plugin, no download and no executable of any kind.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How accurate are the GP/hr numbers?</h3>
+                    <p>They are intentionally conservative. Most published GP/hr figures assume perfect efficiency and average out rare drops that you may never see, which makes them a poor basis for planning. The tools here quote a realistic floor instead, so a good session beats the estimate rather than disappointing you against it. Item values still move with the Grand Exchange, so treat any GP figure as a well-informed approximation, not a quote.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What happens to my saved data if I stop paying?</h3>
+                    <p>Nothing is deleted. Saved presets, builds and log progress live in your browser, not on a server, so they survive a cancellation. You simply return to the free limits — for example the Bank Layout Library keeps showing your presets but caps new saves at three again.</p>
+                </div>
+            </div>
+
+            <!-- ================= CROSSLINKS ================= -->
+            <div class="ot-crosslinks">
+                <h3>Popular guides to pair with the tools</h3>
+                <ul>
+                    <li><a href="../guides/osrs-best-money-making-methods-2026.html">💰 Best Money Making Methods 2026</a></li>
+                    <li><a href="../guides/osrs-boss-profit-tier-list-2026.html">🏆 Boss Profit Tier List 2026</a></li>
+                    <li><a href="../guides/osrs-drop-rate-probability-guide-2026.html">📐 Drop Rate &amp; Probability Explained</a></li>
+                    <li><a href="../guides/osrs-best-in-slot-gear-guide-2026.html">🛡️ Best in Slot Gear Guide</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides and tools. No ads blocking content, no forced sign-up.</p></div>
+                <div class="footer-col"><h4>Tools</h4><ul>
+                    <li><a href="./profit-finder/">Profit Finder</a></li>
+                    <li><a href="./gear-recommender/">Gear Recommender</a></li>
+                    <li><a href="./dps-calculator/">DPS Calculator</a></li>
+                    <li><a href="./clog-advisor/">Collection Log Advisor</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular</h4><ul>
+                    <li><a href="../money-making.html">Money Making</a></li>
+                    <li><a href="../boss-guides.html">Boss Guides</a></li>
+                    <li><a href="../new-player.html">New Player</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; Old School RuneScape is a trademark of Jagex Ltd &middot; <a href="../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <script src="./shared/js/osrs-analytics.js"></script>
+    <script src="./shared/js/osrs-subscription.js"></script>
+    <script>
+    (function () {
+        'use strict';
+        OSRSAnalytics.init('tools-hub');
+
+        /* 每个工具入口都记录点击，站长靠这个判断哪个工具受欢迎 */
+        document.querySelectorAll('[data-tool]').forEach(function (el) {
+            el.addEventListener('click', function () {
+                OSRSAnalytics.trackAction('open_tool', { target: el.getAttribute('data-tool') });
+            });
+        });
+
+        function openPaywall() {
+            OSRSPremium.showPaywall({ tool: 'dps-calculator', feature: 'adFree', title: 'OSRS Guru Premium' });
+        }
+        ['btn-subscribe', 'btn-subscribe-2'].forEach(function (id) {
+            var b = document.getElementById(id);
+            if (b) b.addEventListener('click', function () {
+                OSRSAnalytics.trackAction('pricing_cta', { placement: id });
+                openPaywall();
+            });
+        });
+
+        OSRSPremium.renderBadge('#tier-badge', 'dps-calculator');
+        OSRSPremium.onChange(function () {
+            OSRSPremium.renderBadge('#tier-badge', 'dps-calculator');
+        });
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS DPS Calculator — Special Attack &amp; Max Hit Modelling (2026)</title>
+    <meta name="description" content="OSRS DPS calculator that actually models special attacks, multi-hit weapons and poison damage. Get real max hit, hit chance, DPS and time-to-kill for Melee, Ranged and Magic — plus GP per damage so you know what your DPS costs.">
+    <meta name="keywords" content="OSRS DPS calculator, OSRS max hit calculator, OSRS special attack DPS, OSRS hit chance calculator, OSRS dragon warhammer spec calculator, OSRS scythe DPS, OSRS ranged DPS calculator, OSRS magic max hit">
+    <link rel="canonical" href="https://osrsguru.com/tools/dps-calculator/">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="OSRS DPS Calculator — Special Attack &amp; Max Hit Modelling">
+    <meta property="og:description" content="The only OSRS DPS calculator that models special attacks, multi-hit weapons and damage over time — and tells you how much GP each point of damage costs.">
+    <meta property="og:url" content="https://osrsguru.com/tools/dps-calculator/">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../shared/css/osrs-tool.css">
+    <link rel="stylesheet" href="css/dps.css">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">OSRSGuru</a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../../new-player.html">New Player</a></li>
+                    <li><a href="../../money-making.html">Money Making</a></li>
+                    <li><a href="../../boss-guides.html">Boss Guides</a></li>
+                    <li><a href="../../quest-guides.html">Quests</a></li>
+                    <li><a href="../../tools/profit-finder/">Tools</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../tools/profit-finder/">Tools</a> / DPS Calculator</p>
+            <h1>OSRS DPS Calculator</h1>
+            <p class="subtitle">Max hit, hit chance and DPS for Melee, Ranged and Magic — with the parts other calculators skip: <strong>special attacks, multi-hit weapons and poison damage</strong>, all folded into one honest effective DPS number.</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container ot-wrap-wide">
+
+            <div class="ot-tierbar">
+                <div id="tier-badge"></div>
+                <span class="ot-badge ot-badge-neutral">Formulas open-source in <code>js/dps-engine.js</code></span>
+            </div>
+
+            <div class="ot-note">
+                💡 Every calculator agrees on a plain whip swing. They stop agreeing the moment you throw a spec. This one simulates the <strong>whole kill</strong> — special attack energy, defence drain, multi-hit weapons and damage over time — so the number you see is the number you get in game.
+            </div>
+
+            <!-- ============================================================
+                 SEO + value explainer (also the honest "why we differ" pitch)
+                 ============================================================ -->
+            <div class="ot-card">
+                <h2>What This Tool Does</h2>
+                <p>The OSRS DPS Calculator turns your stats, gear bonuses and a target monster into four numbers that actually matter: your <strong>max hit</strong>, your <strong>hit chance</strong>, your <strong>damage per second</strong>, and your <strong>time to kill</strong>. It supports all three combat styles with their own separate formulas — Melee and Ranged use the effective-strength and equipment-bonus maths, while Magic uses the spell's base max hit plus your additive magic damage percentage. Prayers, potions, Void sets, attack stances, Slayer helmet (i), Salve amulet and Dragon hunter gear are all handled as proper multipliers rather than being bolted on at the end.</p>
+
+                <h3>Why our numbers differ from other calculators</h3>
+                <p>Four popular OSRS DPS calculators all share the same blind spot: they model a single, repeated, ordinary attack. Real combat is not that. You open a Bandos kill with a Dragon warhammer, land a 30% defence drain, and every swing for the rest of that kill is more accurate. You bring Dragon claws and land a four-hit cascade where the first successful accuracy roll decides the damage of the next three. You swing a Scythe of Vitur at a 5x5 boss and it hits three times, at 100%, 50% and 25% of your max. You run a Toxic blowpipe and venom quietly adds 6, 8, 10, 12 damage in the background every eighteen seconds. None of that shows up in a "hit chance times max hit over two" formula, which is why players keep saying their real kill times do not match the calculator.</p>
+                <p>This tool models those cases explicitly. It walks the kill forward tick by tick, spends special attack energy as it regenerates (10% per 30 seconds, or every 15 seconds with a Lightbearer), applies defence drains to the target so later attacks become more accurate, and adds poison or venom on top. The result is an <strong>effective DPS</strong> that includes your specs, not a paper DPS that pretends you never pressed the spec bar.</p>
+                <p>The second thing we add is money. A setup that wins on DPS can still be the wrong answer if it burns eight thousand GP per shot in ruby dragon bolts. The premium GP-per-damage panel converts ammunition, runes, potions and food into a single "GP per point of damage" figure and a supply cost per kill, so you can compare setups the way your bank account experiences them. As far as we know, no other OSRS DPS calculator does this.</p>
+                <p><strong>Honest limits.</strong> We do not model enchanted bolt procs, Twisted bow's magic-level scaling, raid-specific invocations, or player-versus-player mechanics. Where an item stat or special attack value is community-reported rather than something we can verify, the tool marks it with a small <span class="dps-check">verify</span> tag and you can type over it. Every input on this page is editable for exactly that reason.</p>
+            </div>
+
+            <!-- ============================================================
+                 STYLE TABS
+                 ============================================================ -->
+            <div class="dps-tabs" role="tablist" aria-label="Combat style">
+                <button class="dps-tab is-active" data-style="melee" type="button">⚔️ Melee</button>
+                <button class="dps-tab" data-style="ranged" type="button">🏹 Ranged</button>
+                <button class="dps-tab" data-style="magic" type="button">✨ Magic</button>
+            </div>
+
+            <!-- ============================================================
+                 1. YOUR STATS
+                 ============================================================ -->
+            <div class="ot-card">
+                <h3>1 · Your stats &amp; boosts</h3>
+
+                <div class="dps-grid-4" id="lv-melee">
+                    <div class="ot-field">
+                        <label for="f-att-lvl">Attack level</label>
+                        <input type="number" id="f-att-lvl" value="99" min="1" max="99">
+                    </div>
+                    <div class="ot-field">
+                        <label for="f-str-lvl">Strength level</label>
+                        <input type="number" id="f-str-lvl" value="99" min="1" max="99">
+                    </div>
+                    <div class="ot-field">
+                        <label for="f-melee-pot">Potion</label>
+                        <select id="f-melee-pot"></select>
+                    </div>
+                    <div class="ot-field">
+                        <label for="f-melee-pray">Prayer</label>
+                        <select id="f-melee-pray"></select>
+                    </div>
+                </div>
+
+                <div class="dps-grid-4" id="lv-ranged" style="display:none">
+                    <div class="ot-field">
+                        <label for="f-rng-lvl">Ranged level</label>
+                        <input type="number" id="f-rng-lvl" value="99" min="1" max="99">
+                    </div>
+                    <div class="ot-field">
+                        <label for="f-rng-pot">Potion</label>
+                        <select id="f-rng-pot"></select>
+                    </div>
+                    <div class="ot-field">
+                        <label for="f-rng-pray">Prayer</label>
+                        <select id="f-rng-pray"></select>
+                    </div>
+                    <div class="ot-field">
+                        <label for="f-rng-stance">Attack style</label>
+                        <select id="f-rng-stance"></select>
+                    </div>
+                </div>
+
+                <div class="dps-grid-4" id="lv-magic" style="display:none">
+                    <div class="ot-field">
+                        <label for="f-mag-lvl">Magic level</label>
+                        <input type="number" id="f-mag-lvl" value="99" min="1" max="99">
+                    </div>
+                    <div class="ot-field">
+                        <label for="f-mag-pot">Potion</label>
+                        <select id="f-mag-pot"></select>
+                    </div>
+                    <div class="ot-field">
+                        <label for="f-mag-pray">Prayer</label>
+                        <select id="f-mag-pray"></select>
+                    </div>
+                    <div class="ot-field">
+                        <label for="f-mag-stance">Attack style</label>
+                        <select id="f-mag-stance"></select>
+                    </div>
+                </div>
+
+                <div class="dps-grid-2">
+                    <div class="ot-field" id="wrap-melee-stance">
+                        <label for="f-melee-stance">Attack style (stance)</label>
+                        <select id="f-melee-stance"></select>
+                    </div>
+                    <div class="ot-field">
+                        <label for="f-void">Void Knight set</label>
+                        <select id="f-void"></select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================================
+                 2. WEAPON & GEAR
+                 ============================================================ -->
+            <div class="ot-card">
+                <h3>2 · Weapon &amp; gear bonuses</h3>
+
+                <div class="dps-grid-2">
+                    <div class="ot-field">
+                        <label for="f-weapon">Weapon</label>
+                        <select id="f-weapon"></select>
+                        <div class="ot-hint" id="weapon-hint">Picking a weapon fills the bonuses below. You can edit any of them.</div>
+                    </div>
+                    <div class="ot-field" id="wrap-ammo" style="display:none">
+                        <label for="f-ammo">Ammunition</label>
+                        <select id="f-ammo"></select>
+                        <div class="ot-hint">Ranged strength comes from the ammo, not the launcher.</div>
+                    </div>
+                    <div class="ot-field" id="wrap-spell" style="display:none">
+                        <label for="f-spell">Spell / powered staff</label>
+                        <select id="f-spell"></select>
+                    </div>
+                </div>
+
+                <div class="dps-grid-4">
+                    <div class="ot-field">
+                        <label for="f-att-bonus">Equipment attack bonus</label>
+                        <input type="number" id="f-att-bonus" value="82">
+                    </div>
+                    <div class="ot-field" id="wrap-strbonus">
+                        <label for="f-str-bonus">Equipment strength bonus</label>
+                        <input type="number" id="f-str-bonus" value="82">
+                    </div>
+                    <div class="ot-field" id="wrap-magdmg" style="display:none">
+                        <label for="f-mag-dmg">Magic damage %</label>
+                        <input type="number" id="f-mag-dmg" value="0" step="0.5">
+                        <div class="ot-hint">Occult 10, tormented 5, ancestral 6 …</div>
+                    </div>
+                    <div class="ot-field" id="wrap-spellmax" style="display:none">
+                        <label for="f-spell-max">Spell base max hit</label>
+                        <input type="number" id="f-spell-max" value="30">
+                    </div>
+                    <div class="ot-field">
+                        <label for="f-speed">Attack speed (ticks)</label>
+                        <input type="number" id="f-speed" value="4" min="1" max="12">
+                        <div class="ot-hint">1 tick = 0.6s. Rapid removes 1.</div>
+                    </div>
+                    <div class="ot-field">
+                        <label for="f-attack-type">Attack type</label>
+                        <select id="f-attack-type">
+                            <option value="stab">Stab</option>
+                            <option value="slash" selected>Slash</option>
+                            <option value="crush">Crush</option>
+                            <option value="ranged">Ranged</option>
+                            <option value="magic">Magic</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="ot-panel">
+                    <strong style="color:#3b2615;font-size:.9rem;">Multiplicative bonuses</strong>
+                    <div id="gear-bonus-list" style="margin-top:8px"></div>
+                    <div class="ot-check">
+                        <input type="checkbox" id="f-venom">
+                        <label for="f-venom">Target is venomed (6 → 20 damage every 18s)</label>
+                    </div>
+                    <div class="ot-check">
+                        <input type="checkbox" id="f-poison">
+                        <label for="f-poison">Target is poisoned (starts at 6, decays)</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================================
+                 3. TARGET
+                 ============================================================ -->
+            <div class="ot-card">
+                <h3>3 · Target</h3>
+                <div class="dps-grid-4">
+                    <div class="ot-field">
+                        <label for="f-monster">Monster preset</label>
+                        <select id="f-monster"></select>
+                    </div>
+                    <div class="ot-field">
+                        <label for="f-def-lvl">Target Defence level</label>
+                        <input type="number" id="f-def-lvl" value="250" min="0">
+                    </div>
+                    <div class="ot-field">
+                        <label for="f-def-bonus">Target defence bonus (this style)</label>
+                        <input type="number" id="f-def-bonus" value="90">
+                    </div>
+                    <div class="ot-field">
+                        <label for="f-hp">Target hitpoints</label>
+                        <input type="number" id="f-hp" value="255" min="1">
+                    </div>
+                </div>
+                <div class="dps-grid-2">
+                    <div class="ot-field">
+                        <label for="f-size">Target size (tiles across)</label>
+                        <select id="f-size">
+                            <option value="1">1 × 1</option>
+                            <option value="2">2 × 2</option>
+                            <option value="3" selected>3 × 3</option>
+                            <option value="5">5 × 5 or larger</option>
+                        </select>
+                        <div class="ot-hint">Drives Scythe of Vitur's hit count.</div>
+                    </div>
+                    <div class="ot-field">
+                        <label>&nbsp;</label>
+                        <div id="monster-note" class="ot-hint" style="margin-top:0"></div>
+                    </div>
+                </div>
+                <button class="ot-btn ot-btn-primary ot-btn-block" id="btn-calc" type="button">Calculate DPS</button>
+                <div class="ot-hint" id="quota-line" style="text-align:center;margin-top:9px"></div>
+            </div>
+
+            <!-- ============================================================
+                 FREE RESULTS
+                 ============================================================ -->
+            <div id="results" style="display:none">
+                <div class="ot-card">
+                    <h3>Base results <span class="ot-badge ot-badge-free">Free</span></h3>
+                    <div class="dps-headline">
+                        <div class="dps-stat is-hero">
+                            <span class="dps-stat-label">DPS</span>
+                            <span class="dps-stat-value" id="r-dps">–</span>
+                            <span class="dps-stat-sub" id="r-dps-sub"></span>
+                        </div>
+                        <div class="dps-stat">
+                            <span class="dps-stat-label">Max hit</span>
+                            <span class="dps-stat-value" id="r-max">–</span>
+                            <span class="dps-stat-sub" id="r-max-sub"></span>
+                        </div>
+                        <div class="dps-stat">
+                            <span class="dps-stat-label">Hit chance</span>
+                            <span class="dps-stat-value" id="r-acc">–</span>
+                            <span class="dps-stat-sub" id="r-acc-sub"></span>
+                        </div>
+                        <div class="dps-stat">
+                            <span class="dps-stat-label">Time to kill</span>
+                            <span class="dps-stat-value" id="r-ttk">–</span>
+                            <span class="dps-stat-sub" id="r-ttk-sub"></span>
+                        </div>
+                    </div>
+                    <details style="margin-top:14px">
+                        <summary style="cursor:pointer;font-weight:700;color:#3b2615;font-size:.92rem">Show the full working (every number, every step)</summary>
+                        <div class="dps-formula" id="r-formula"></div>
+                    </details>
+                </div>
+
+                <!-- ========================================================
+                     PREMIUM 1 — SPECIAL ATTACK LAB
+                     ======================================================== -->
+                <div class="ot-card">
+                    <div class="ot-tierbar">
+                        <h3 style="margin:0">Special attack lab <span class="ot-badge ot-badge-premium">Premium</span></h3>
+                        <span class="ot-hint" style="margin:0">The bit every other calculator leaves out</span>
+                    </div>
+                    <div class="dps-grid-2">
+                        <div class="ot-field">
+                            <label for="f-spec">Special attack weapon</label>
+                            <select id="f-spec"></select>
+                        </div>
+                        <div class="ot-field">
+                            <label for="f-lightbearer">Energy regeneration</label>
+                            <select id="f-lightbearer">
+                                <option value="0">Normal (10% / 30s)</option>
+                                <option value="1">Lightbearer (10% / 15s)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="ot-btn ot-btn-primary ot-btn-block" id="btn-spec" type="button">Run the spec simulation</button>
+
+                    <div id="spec-out" class="dps-lock-min" style="margin-top:16px">
+                        <div class="ot-locked">
+                            <div class="ot-locked-body">
+                                <div class="ot-tablewrap">
+                                    <table class="ot-table">
+                                        <thead><tr><th>Setup</th><th>Specs used</th><th>Spec dmg</th><th>Defence after</th><th>Effective DPS</th><th>Kill time</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>No specs</td><td>0</td><td>0</td><td>250</td><td>3.15</td><td>1m 21s</td></tr>
+                                            <tr><td>Dragon warhammer opener</td><td>2</td><td>62.4</td><td>206</td><td>3.63</td><td>1m 10s</td></tr>
+                                            <tr><td>Dragon claws</td><td>2</td><td>88.1</td><td>250</td><td>3.41</td><td>1m 15s</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="ot-locked-overlay">
+                                <span>🔒 See how many specs actually fit into this kill — and what they are worth</span>
+                                <button class="ot-btn ot-btn-go ot-btn-sm" id="btn-unlock-spec" type="button">Unlock for $1.9/mo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================
+                     PREMIUM 2 — MULTI-STYLE COMPARE
+                     ======================================================== -->
+                <div class="ot-card">
+                    <div class="ot-tierbar">
+                        <h3 style="margin:0">Side-by-side setup compare <span class="ot-badge ot-badge-premium">Premium</span></h3>
+                        <span class="ot-hint" style="margin:0">Same target, every weapon you own</span>
+                    </div>
+                    <p class="ot-hint" style="margin-top:0">Runs your current stats and target against a shelf of weapons in all three styles and ranks them by effective DPS.</p>
+                    <button class="ot-btn ot-btn-primary ot-btn-block" id="btn-compare" type="button">Compare all styles</button>
+                    <div id="compare-out" class="dps-lock-min" style="margin-top:16px">
+                        <div class="ot-locked">
+                            <div class="ot-locked-body">
+                                <div class="ot-tablewrap">
+                                    <table class="ot-table">
+                                        <thead><tr><th>#</th><th>Style</th><th>Weapon</th><th>Max hit</th><th>Accuracy</th><th>DPS</th><th>Kill time</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>1</td><td>Melee</td><td>Scythe of vitur</td><td>34</td><td>71.2%</td><td>3.15</td><td>1m 21s</td></tr>
+                                            <tr><td>2</td><td>Melee</td><td>Osmumten's fang</td><td>44</td><td>89.1%</td><td>2.98</td><td>1m 26s</td></tr>
+                                            <tr><td>3</td><td>Ranged</td><td>Armadyl crossbow</td><td>42</td><td>63.4%</td><td>2.20</td><td>1m 56s</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="ot-locked-overlay">
+                                <span>🔒 Stop guessing which style is faster on this boss</span>
+                                <button class="ot-btn ot-btn-go ot-btn-sm" id="btn-unlock-compare" type="button">Unlock for $1.9/mo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================
+                     PREMIUM 3 — GP PER DAMAGE
+                     ======================================================== -->
+                <div class="ot-card">
+                    <div class="ot-tierbar">
+                        <h3 style="margin:0">GP per damage <span class="ot-badge ot-badge-premium">Premium</span></h3>
+                        <span class="ot-hint" style="margin:0">Nobody else calculates this</span>
+                    </div>
+                    <p class="ot-hint" style="margin-top:0">Converts ammunition, runes, potions and food into one number: what a single point of damage costs you. Prices are editable estimates and are saved in your browser.</p>
+                    <div class="dps-grid-4">
+                        <div class="ot-field">
+                            <label for="f-ammo-gp">Ammo / rune cost per attack (GP)</label>
+                            <input type="number" id="f-ammo-gp" value="0" min="0">
+                        </div>
+                        <div class="ot-field">
+                            <label for="f-ammo-rec">Ammo recovered (%)</label>
+                            <input type="number" id="f-ammo-rec" value="80" min="0" max="100">
+                        </div>
+                        <div class="ot-field">
+                            <label for="f-supplies">Potions + food per hour (GP)</label>
+                            <input type="number" id="f-supplies" value="250000" min="0">
+                        </div>
+                        <div class="ot-field">
+                            <label for="f-flat-kill">Extra cost per kill (GP)</label>
+                            <input type="number" id="f-flat-kill" value="0" min="0">
+                        </div>
+                    </div>
+                    <button class="ot-btn ot-btn-primary ot-btn-block" id="btn-gp" type="button">Calculate GP per damage</button>
+                    <div id="gp-out" class="dps-lock-min" style="margin-top:16px">
+                        <div class="ot-locked">
+                            <div class="ot-locked-body">
+                                <div class="dps-headline">
+                                    <div class="dps-stat"><span class="dps-stat-label">GP / damage</span><span class="dps-stat-value">118</span></div>
+                                    <div class="dps-stat"><span class="dps-stat-label">Supply cost / kill</span><span class="dps-stat-value">88K</span></div>
+                                    <div class="dps-stat"><span class="dps-stat-label">Cost / hour</span><span class="dps-stat-value">2.38M</span></div>
+                                    <div class="dps-stat"><span class="dps-stat-label">Kills / hour</span><span class="dps-stat-value">27</span></div>
+                                </div>
+                            </div>
+                            <div class="ot-locked-overlay">
+                                <span>🔒 Find out whether your "best DPS" setup is quietly losing you money</span>
+                                <button class="ot-btn ot-btn-go ot-btn-sm" id="btn-unlock-gp" type="button">Unlock for $1.9/mo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================
+                     PREMIUM 4 — SAVED SETUPS
+                     ======================================================== -->
+                <div class="ot-card">
+                    <div class="ot-tierbar">
+                        <h3 style="margin:0">Saved setups <span class="ot-badge ot-badge-premium">Premium</span></h3>
+                    </div>
+                    <div class="dps-grid-2">
+                        <div class="ot-field">
+                            <label for="f-setup-name">Name this setup</label>
+                            <input type="text" id="f-setup-name" placeholder="e.g. Bandos scythe + DWH">
+                        </div>
+                        <div class="ot-field">
+                            <label>&nbsp;</label>
+                            <button class="ot-btn ot-btn-primary ot-btn-block" id="btn-save" type="button">Save current setup</button>
+                        </div>
+                    </div>
+                    <div id="setup-list"></div>
+                </div>
+            </div>
+
+            <!-- ============================================================
+                 DATA SOURCE / DISCLAIMER
+                 ============================================================ -->
+            <div class="ot-note ot-warn">
+                <strong>Data source &amp; disclaimer.</strong> Combat formulas follow the OSRS Wiki "Damage per second" pages and are written out in plain JavaScript with comments in
+                <code>tools/dps-calculator/js/dps-engine.js</code> — read it and check our working. Item stats, monster defence values and special attack multipliers live in
+                <code>js/data.js</code>; anything we could not verify with confidence is tagged <span class="dps-check">verify</span> and every field on this page is editable.
+                <strong>OSRS Wiki is the authority — if you spot a discrepancy, please tell us and we will fix it.</strong>
+                Not modelled: enchanted bolt procs, Twisted bow magic scaling, raid invocations, PvP, and monster-specific damage caps.
+            </div>
+
+            <!-- ============================================================
+                 CROSSLINKS
+                 ============================================================ -->
+            <div class="ot-crosslinks">
+                <h3>Keep going</h3>
+                <ul>
+                    <li><a href="../profit-finder/">Profit Finder — what should my account be doing for GP?</a></li>
+                    <li><a href="../gear-recommender/">Gear Recommender — best gear for my level</a></li>
+                    <li><a href="../bank-layout/">Bank Layout Planner</a></li>
+                    <li><a href="../drop-lookup/">Drop Rate Lookup</a></li>
+                    <li><a href="../gp-tracker/">GP / Hour Tracker</a></li>
+                    <li><a href="../clog-advisor/">Collection Log Advisor</a></li>
+                    <li><a href="../../guides/osrs-why-dps-lower-than-calculator-2026.html">Why is my real DPS lower than the calculator says?</a></li>
+                    <li><a href="../../guides/osrs-dps-calc-special-attack-set-bonus-2026.html">Special attacks &amp; set bonuses in DPS maths</a></li>
+                    <li><a href="../../guides/osrs-vorkath-guide-2026.html">Vorkath guide — gear, rotation, kill times</a></li>
+                    <li><a href="../../guides/osrs-zulrah-guide-2026.html">Zulrah guide — phases and switches</a></li>
+                    <li><a href="../../guides/osrs-nex-guide-2026.html">Nex guide — team roles and DPS checks</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides and tools. No ads blocking content, no paywalls on the basics.</p></div>
+                <div class="footer-col"><h4>Tools</h4><ul>
+                    <li><a href="../../tools/profit-finder/">Profit Finder</a></li>
+                    <li><a href="../../tools/gear-recommender/">Gear Recommender</a></li>
+                    <li><a href="../../tools/dps-calculator/">DPS Calculator</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular</h4><ul>
+                    <li><a href="../../money-making.html">Money Making</a></li>
+                    <li><a href="../../boss-guides.html">Boss Guides</a></li>
+                    <li><a href="../../new-player.html">New Player</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; Data referenced from the OSRS Wiki &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <script src="../shared/js/osrs-analytics.js"></script>
+    <script src="../shared/js/osrs-subscription.js"></script>
+    <script src="js/dps-engine.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

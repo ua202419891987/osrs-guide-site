@@ -9,6 +9,7 @@
     <link rel="canonical" href="https://osrsguru.com/tools/gear-recommender/">
     <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../shared/css/osrs-tool.css">
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
     <script>
@@ -153,6 +154,25 @@
                 </div>
             </div>
 
+            <div class="ot-crosslinks">
+                <h3>🔗 More OSRS Guru tools</h3>
+                <ul>
+                    <li><a href="../dps-calculator/">DPS Calculator — test your setup before you buy it →</a></li>
+                    <li><a href="../gp-tracker/">GP / Supply Tracker — net profit after supplies →</a></li>
+                    <li><a href="../profit-finder/">Profit Finder — best money maker for your account →</a></li>
+                    <li><a href="../drop-lookup/">Drop Rate Lookup &amp; Dry Calculator →</a></li>
+                    <li><a href="../clog-advisor/">Collection Log Advisor — what to grind next →</a></li>
+                    <li><a href="../bank-layout/">Bank Layout Library →</a></li>
+                    <li><a href="../">All tools &amp; pricing →</a></li>
+                </ul>
+                <h3 style="margin-top:16px;">📖 Related guides</h3>
+                <ul>
+                    <li><a href="../../guides/osrs-best-in-slot-gear-guide-2026.html">Best-in-Slot Gear Guide (2026) →</a></li>
+                    <li><a href="../../guides/osrs-boss-gear-checklist-2026.html">Boss Gear Checklist →</a></li>
+                    <li><a href="../../guides/combat-achievements-guide-2026.html">Combat Achievements Guide →</a></li>
+                </ul>
+            </div>
+
         </div>
     </main>
 
@@ -174,7 +194,10 @@
         </div>
     </footer>
 
+    <script src="../shared/js/osrs-analytics.js"></script>
+    <script src="../shared/js/osrs-subscription.js"></script>
     <script>
+        if (window.OSRSAnalytics) OSRSAnalytics.init('gear-recommender');
         const fmt = n => n.toLocaleString('en-US');
         const ORDER = ['head','cape','amulet','weapon','shield','body','legs','gloves','boots','ring'];
         const SLOT_LABEL = { head:'Head', cape:'Cape', amulet:'Amulet', weapon:'Weapon', shield:'Shield', body:'Body', legs:'Legs', gloves:'Gloves', boots:'Boots', ring:'Ring' };
@@ -301,6 +324,13 @@
                 const lvl = parseInt(document.getElementById('g-level').value) || 1;
                 const style = document.getElementById('g-style').value;
                 const iron = document.getElementById('g-ironman').checked;
+                if (window.OSRSPremium) {
+                    const gate = OSRSPremium.consume('gear-recommender');
+                    if (!gate.allowed) return;
+                }
+                if (window.OSRSAnalytics) {
+                    OSRSAnalytics.trackToolUsed({ level: lvl, style: style, ironman: iron });
+                }
                 const tiers = (DB.combat_styles && DB.combat_styles[style] && DB.combat_styles[style].tiers) || [];
                 if (!tiers.length) {
                     document.getElementById('gear-grid').innerHTML = '<div class="no-result">No gear data for that style yet.</div>';
