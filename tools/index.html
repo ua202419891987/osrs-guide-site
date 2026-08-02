@@ -57,6 +57,13 @@
         .price-box li:before { content:"✓"; position:absolute; left:0; color:#2e7d32; font-weight:800; }
         .price-box li.is-off { color:#8a7a62; }
         .price-box li.is-off:before { content:"—"; color:#b5a68c; }
+        /* ---- 3-tier plan buttons (跳转 Payhip) ---- */
+        .ot-plan-btns { display:flex; gap:8px; margin-top:4px; }
+        .ot-plan-btns .ot-btn { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; line-height:1.15; padding:11px 6px; }
+        .ot-plan-btns .ot-btn small { font-weight:600; font-size:.82rem; opacity:.92; }
+        .ot-btn-best { background:#1f5e22 !important; box-shadow:0 0 0 2px #d4af37 inset; }
+        .ot-btn-best:hover { background:#174d1b !important; }
+        .ot-best-tag { display:block; margin-top:3px; font-size:.68rem; font-weight:800; letter-spacing:.3px; color:#ffe9a8; }
         .matrix-tool-row td {
             background:#f6efe2 !important; font-weight:800; color:#3b2615 !important;
             text-transform:uppercase; letter-spacing:.4px; font-size:.78rem;
@@ -71,6 +78,7 @@
         @media (max-width:768px) {
             .hub-grid { grid-template-columns:repeat(2,1fr); }
             .price-cols { grid-template-columns:1fr; }
+            .ot-plan-btns { flex-direction:column; }
         }
         @media (max-width:640px) {
             .hub-grid { grid-template-columns:1fr; }
@@ -210,7 +218,11 @@
                         <li>Ad-free experience site-wide</li>
                         <li>New premium tools included as they launch</li>
                     </ul>
-                    <button class="ot-btn ot-btn-go ot-btn-block" id="btn-subscribe" type="button">Get Premium — choose your plan</button>
+                    <div class="ot-plan-btns">
+                        <a class="ot-btn ot-btn-go" href="https://payhip.com/order?link=mWJzl&pricing_plan=nLWRaRk4Ga" target="_blank" rel="noopener">1 Month<small> · $2.66</small></a>
+                        <a class="ot-btn ot-btn-go" href="https://payhip.com/order?link=mWJzl&pricing_plan=rdWQ8kKyGj" target="_blank" rel="noopener">4 Months<small> · $8.99</small></a>
+                        <a class="ot-btn ot-btn-go ot-btn-best" href="https://payhip.com/order?link=mWJzl&pricing_plan=Q7zqexm7zg" target="_blank" rel="noopener">12 Months<small> · $23.99</small><span class="ot-best-tag">save 25%</span></a>
+                    </div>
                     <p class="ot-hint" style="text-align:center;margin-top:8px;">One-time payment via Payhip · no auto-renew · After paying, return here &amp; refresh to activate Premium.</p>
                 </div>
             </div>
@@ -283,7 +295,11 @@
                     </table>
                 </div>
                 <div style="text-align:center;margin-top:16px;">
-                    <button class="ot-btn ot-btn-go" id="btn-subscribe-2" type="button">Unlock everything — choose your plan</button>
+                    <div class="ot-plan-btns">
+                        <a class="ot-btn ot-btn-go" href="https://payhip.com/order?link=mWJzl&pricing_plan=nLWRaRk4Ga" target="_blank" rel="noopener">1 Month<small> · $2.66</small></a>
+                        <a class="ot-btn ot-btn-go" href="https://payhip.com/order?link=mWJzl&pricing_plan=rdWQ8kKyGj" target="_blank" rel="noopener">4 Months<small> · $8.99</small></a>
+                        <a class="ot-btn ot-btn-go ot-btn-best" href="https://payhip.com/order?link=mWJzl&pricing_plan=Q7zqexm7zg" target="_blank" rel="noopener">12 Months<small> · $23.99</small><span class="ot-best-tag">save 25%</span></a>
+                    </div>
                 </div>
             </div>
 
@@ -389,16 +405,7 @@
             });
         });
 
-        function openPaywall() {
-            OSRSPremium.showPaywall({ tool: 'dps-calculator', feature: 'adFree', title: 'OSRS Guru Premium' });
-        }
-        ['btn-subscribe', 'btn-subscribe-2'].forEach(function (id) {
-            var b = document.getElementById(id);
-            if (b) b.addEventListener('click', function () {
-                OSRSAnalytics.trackAction('pricing_cta', { placement: id });
-                openPaywall();
-            });
-        });
+        /* Premium CTA 现在直接用 <a href> 跳转到 Payhip 的 3 个 pricing plan，无需 JS 拦截 */
 
         OSRSPremium.renderBadge('#tier-badge', 'dps-calculator');
         OSRSPremium.onChange(function () {
