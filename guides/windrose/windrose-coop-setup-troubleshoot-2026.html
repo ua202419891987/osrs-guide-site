@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windrose Co-op Setup &amp; Troubleshooting: From "Can't Connect" to Onboard | Windrose Guru</title>
+    <meta name="description" content="Complete Windrose co-op decision tree — tutorial gate, exact version matching, invite codes, UDP port 3478, NAT type and accelerator settings. Every failure point mapped from launch to sailing together.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Windrose co-op not working, Windrose invite code, Windrose port 3478, Windrose can't connect to friend, Windrose multiplayer setup">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/windrose/windrose-coop-setup-troubleshoot-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{color:#7a64b8!important}
+        .guide-content h3{color:#7a64b8!important}
+        .guide-content .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;color:#2d2a33;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0}
+        .guide-content .tip-box strong{color:#7a64b8}
+        .guide-content .warn-box{background:#fef9f5;border:1px solid #e8c8a0;color:#2d2a33;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0}
+        .guide-content .warn-box strong{color:#b84a3a}
+        .guide-content .action-step{background:#faf8fc;border:1px solid #e0d8f0;margin:1.2rem 0;padding:1.2rem 1.5rem;border-radius:8px}
+        .guide-content .action-step h4{color:#7a64b8;margin:0 0 .6rem 0}
+        .guide-content .method-box{background:#faf8fc;border:1px solid #e0d8f0;padding:1.4rem;margin:1.25rem 0;border-radius:8px}
+        .guide-content .method-box h4{color:#7a64b8;margin:0 0 .85rem 0}
+        .guide-content .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .guide-content .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .guide-content .toc{background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .guide-content .toc h3{color:#7a64b8!important}
+        .guide-content li{color:#2d2a33!important}
+        .guide-content p{color:#2d2a33!important}
+        .progress-widget{display:none!important}
+        table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+        table th{background:#f8f6fc;color:#7a64b8;padding:10px 14px;text-align:left;border:1px solid #e0d8f0;font-weight:700}
+        table td{padding:9px 14px;border:1px solid #eee;color:#333}
+        table tr:nth-child(even){background:#fafbfd}
+        .guide-content .quick-summary{background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px}
+        .guide-content .quick-summary h3{color:#7a64b8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700}
+        .guide-content .quick-summary ul{margin:0;padding-left:1.2rem;list-style:none;color:#2d2a33;font-size:.92rem;line-height:1.8}
+        .level-badge{display:inline-block;margin:.6rem 0 0;padding:.35rem 1rem;border-radius:20px;background:#f5f2f8;border:1px solid #9B84D4;color:#7a64b8;font-size:.85rem;font-weight:700;letter-spacing:.4px}
+        .guide-content .quick-summary li{color:#2d2a33!important}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Windrose <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section1">Prerequisites</a></li>
+                    <li><a href="#section2">Decision Tree</a></li>
+                    <li><a href="#section3">Ports &amp; NAT</a></li>
+                    <li><a href="#section4">Once Onboard</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../guides/windrose/index.html">Windrose</a> / Co-op Setup &amp; Troubleshooting</p>
+            <h1>Windrose Co-op Setup &amp; Troubleshooting: From "Can't Connect" to Onboard</h1>
+            <div class="cd-level-badge" style="display:inline-block;background:#f0ebfa;color:#5a4a8a;border:1px solid #7a64b8;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">Multiplayer &amp; Networking</div>
+            <span class="level-badge">⚓ Level: All Players</span>
+            <p class="subtitle">Windrose has no server browser, no quick-match and no in-game error codes worth reading. This is the complete decision tree — every gate between launching the game and standing on your friend's deck, in the order they actually break.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🎮</span> <strong>Windrose Guide</strong> · 10 min read · Updated August 2026
+            </div>
+            <div class="article-meta" style="margin-top:12px;font-size:.85rem;color:#7a64b8">
+                Published: <time datetime="2026-08-03">August 3, 2026</time>
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary">
+                <h3>⏱️ Quick Summary — 30-Second Read</h3>
+                <ul>
+                    <li>📌 <strong>Both players must finish the tutorial first</strong> (15–20 minutes). Co-op is hard-locked behind it, and this is the number one reason an invite code appears to "do nothing".</li>
+                    <li>📌 <strong>Build numbers must match exactly.</strong> Not "both updated" — the same build string. A single player on a beta or delayed-download build fails silently with no mismatch warning.</li>
+                    <li>📌 <strong>There is no server browser.</strong> Invite codes are the only join path. Codes are session-bound and die the moment the host returns to the main menu.</li>
+                    <li>📌 <strong>Network layer:</strong> allow UDP <strong>3478</strong> outbound (plus its neighbours 3479–3481) and get off strict/symmetric NAT. In mainland China, an accelerator with UDP forwarding is effectively mandatory.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#section1">Prerequisites — The Four Hard Gates</a></li>
+                    <li><a href="#section2">The Full Troubleshooting Decision Tree (Exclusive)</a></li>
+                    <li><a href="#section3">Ports, NAT and Accelerators</a></li>
+                    <li><a href="#section4">You Are In — Now Stop It Breaking</a></li>
+                    <li><a href="#section5">Symptom → Cause Reference Table</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ol>
+            </div>
+
+            <section id="section1">
+                <h2>1. Prerequisites — The Four Hard Gates</h2>
+                <p>Most "Windrose co-op is broken" threads are not network problems at all. They are players tripping over one of four requirements that the game never explains clearly. Clear all four before you touch a router setting.</p>
+                <div class="action-step">
+                    <h4>Gate 1 — Tutorial completion (both players)</h4>
+                    <p>Co-op does not unlock until the opening tutorial sequence is complete, which takes roughly 15–20 minutes per player. A player who has not finished it can hold a valid invite code and still be refused, usually with a generic failure rather than a clear message. If you plan a co-op night, have everyone clear the tutorial in advance rather than burning the first half hour of your session on it.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Gate 2 — Exact build match</h4>
+                    <p>Windrose is strict about version parity in Early Access. Patches land frequently and clients do not all download at the same moment. Both players must be on the identical build; being "on the latest" is not enough if one client has not finished updating. Verify the build string on the main menu before troubleshooting anything else.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Gate 3 — Invite code only</h4>
+                    <p>There is no server browser and no friends-list quick join. The host generates a session code and the joining player enters it manually. Codes are tied to the live session — if the host quits to the main menu, reloads a different save, or crashes, the old code is dead and a new one must be generated.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Gate 4 — Host stability</h4>
+                    <p>The host machine is the server. Its upload bandwidth, CPU and save integrity determine everyone's experience. Choose the host by connection quality, not by who owns the most progressed save. If the host's world has a history of corruption or long load times, resolve that first using our <a href="../../guides/windrose/windrose-save-loss-recovery-2026.html">save loss and recovery guide</a> — hosting an unstable world is how a whole group loses an evening.</p>
+                </div>
+                <div class="warn-box"><strong>Order matters.</strong> Do not start forwarding ports until gates 1–3 are confirmed. Roughly two thirds of failed connections in community reports resolve at the tutorial or version gate, and port changes made while chasing the wrong cause just add variables you will have to unwind later.</div>
+            </section>
+
+            <section id="section2">
+                <h2>2. The Full Troubleshooting Decision Tree (Exclusive)</h2>
+                <p>Work top to bottom and stop at the first branch that matches your symptom. This is the sequence that resolves the widest range of cases with the fewest changes — and it is the piece no competitor page provides, because they list settings rather than an order of operations.</p>
+                <div class="method-box">
+                    <h4>Branch A — The invite code is rejected as invalid</h4>
+                    <p>Cause is almost always a stale code or a typo in an ambiguous character. Have the host regenerate the code while the world is loaded and paste it through chat rather than reading it aloud — 0/O and 1/I cause a surprising share of failures. If a freshly pasted code still fails, the joining player has not cleared the tutorial (Gate 1).</p>
+                </div>
+                <div class="method-box">
+                    <h4>Branch B — Code accepted, then it hangs on "connecting"</h4>
+                    <p>This is the network layer. The handshake started and the peer-to-peer negotiation failed. Go to section 3: open UDP 3478, check NAT type, and if you are in mainland China enable your accelerator's UDP mode. A hang that times out after roughly 60–90 seconds is the classic NAT traversal failure signature.</p>
+                </div>
+                <div class="method-box">
+                    <h4>Branch C — Connects, then drops during the loading screen</h4>
+                    <p>Usually version mismatch (Gate 2) or a host-side world problem. If both builds match, have the host load the world alone first and confirm it reaches a playable state before inviting anyone. A world that loads slowly solo will frequently time out a joining client.</p>
+                </div>
+                <div class="method-box">
+                    <h4>Branch D — In the world but everything rubber-bands</h4>
+                    <p>You are connected; this is bandwidth or latency. Ask everyone else in the household to stop large downloads, and have the host close background streaming. Persistent desync also degrades naval gunnery badly — if your shots stop landing, cross-reference the <a href="../../guides/windrose/windrose-ship-cannon-hitreg-fix-2026.html">cannon hit registration guide</a>, because joining clients register measurably fewer hits than the host.</p>
+                </div>
+                <div class="method-box">
+                    <h4>Branch E — One specific friend can never join, everyone else can</h4>
+                    <p>The problem is on their end, and it is almost always strict or symmetric NAT from a carrier-grade NAT connection (common on mobile broadband and some campus networks). Options: have that player host instead, have them switch to a different network, or use a UDP-capable accelerator. No amount of host-side configuration fixes a symmetric NAT on the other end.</p>
+                </div>
+            </section>
+
+            <section id="section3">
+                <h2>3. Ports, NAT and Accelerators</h2>
+                <p>Windrose uses UDP <strong>3478</strong> for its session negotiation — the standard STUN/TURN port range. If your firewall or router blocks it, the code will be accepted and the connection will then quietly fail.</p>
+                <table>
+                    <tr><th>Item</th><th>Setting</th><th>Applies to</th><th>Why</th></tr>
+                    <tr><td>UDP 3478</td><td>Allow outbound + inbound</td><td>Host and clients</td><td>Primary session negotiation port</td></tr>
+                    <tr><td>UDP 3479–3481</td><td>Allow</td><td>Host</td><td>Fallback range when 3478 is congested</td></tr>
+                    <tr><td>Windows Firewall</td><td>Allow app on Private <em>and</em> Public</td><td>Both</td><td>Public profile blocks by default on many laptops</td></tr>
+                    <tr><td>NAT type</td><td>Open or Moderate</td><td>Both</td><td>Strict/symmetric NAT breaks peer traversal</td></tr>
+                    <tr><td>UPnP</td><td>Enable on router</td><td>Host</td><td>Avoids manual forwarding entirely when it works</td></tr>
+                    <tr><td>Accelerator (CN)</td><td>UDP forwarding enabled</td><td>Both</td><td>TCP-only acceleration will not carry the session</td></tr>
+                </table>
+                <p><strong>Mainland China players:</strong> a game accelerator is effectively required, and the critical detail is that it must forward UDP traffic. Many tools default to TCP acceleration, which is enough to reach the store and the login layer but will not carry the co-op session. Both host and joining player should run the same accelerator with the same node region where possible — mismatched routing regions add latency that can push the handshake past its timeout.</p>
+                <div class="tip-box"><strong>Fastest diagnostic:</strong> have the host mobile-tether their phone and try again. If it connects instantly over tethering, the problem is the home router's NAT or firewall, not the game. This two-minute test saves an hour of port forwarding on the wrong device — and it is the check almost nobody runs first.</div>
+            </section>
+
+            <section id="section4">
+                <h2>4. You Are In — Now Stop It Breaking</h2>
+                <p>Getting connected is half the job; staying connected through a three-hour session is the other half. Establish these habits from the first night.</p>
+                <p><strong>Always the same host.</strong> Co-op progress lives in the host's world file. Rotating hosts splits your group's progress across saves that can never be merged. Pick one host and stick to them for the whole playthrough.</p>
+                <p><strong>Back up the host world before each session.</strong> Copy the save folder somewhere safe. Multiplayer sessions increase write frequency and therefore corruption risk; a five-second copy is the cheapest insurance in the game.</p>
+                <p><strong>Agree on a disconnect protocol.</strong> If someone drops mid-fight, the remaining players should retreat rather than push. A disconnected player's body and inventory follow the normal death rules, so read the <a href="../../guides/windrose/windrose-death-loot-recovery-2026.html">death and loot recovery guide</a> before you find out the hard way what happens to a crewmate's gear when they time out during a boarding action.</p>
+                <p><strong>Regenerate codes deliberately.</strong> If someone needs to rejoin, the host should stay in-world and reissue the code. Quitting to the menu to "reset" the session kills the code for everyone still connected.</p>
+            </section>
+
+            <section id="section5">
+                <h2>5. Symptom → Cause Reference Table</h2>
+                <table>
+                    <tr><th>Symptom</th><th>Most likely cause</th><th>First action</th></tr>
+                    <tr><td>Code shows as invalid immediately</td><td>Stale code or tutorial not cleared</td><td>Regenerate code; verify tutorial</td></tr>
+                    <tr><td>Stuck on "connecting", times out</td><td>UDP 3478 blocked / strict NAT</td><td>Open port, test via phone tether</td></tr>
+                    <tr><td>Drops on loading screen</td><td>Version mismatch or slow host world</td><td>Compare build strings; host loads solo first</td></tr>
+                    <tr><td>Constant rubber-banding</td><td>Host upload saturated</td><td>Stop background downloads on host</td></tr>
+                    <tr><td>Only one friend cannot join</td><td>Carrier-grade / symmetric NAT their side</td><td>They host, or they use a UDP accelerator</td></tr>
+                    <tr><td>Everyone disconnects at once</td><td>Host crash or world corruption</td><td>Restore host backup before retrying</td></tr>
+                </table>
+            </section>
+
+            <section id="faq">
+                <h2>FAQ</h2>
+                <div class="faq-item"><h4>Q: Do both players really need to finish the tutorial?</h4><p>Yes. Co-op access is gated behind tutorial completion for every participant, and it takes 15–20 minutes each. This is the single most common cause of an invite code that appears to be broken.</p></div>
+                <div class="faq-item"><h4>Q: Is there a server browser or public matchmaking?</h4><p>No. Windrose currently supports invite codes only. There is no public listing, no quick-match, and no persistent lobby — the code is generated per session and expires when the host leaves the world.</p></div>
+                <div class="faq-item"><h4>Q: Which port does Windrose co-op use?</h4><p>UDP 3478 is the primary session port, with 3479–3481 acting as fallbacks. Allow the game through both the Private and Public Windows Firewall profiles; the Public profile is enabled by default on many laptops and silently blocks the handshake.</p></div>
+                <div class="faq-item"><h4>Q: Can players on different patch versions play together?</h4><p>No. The build must match exactly. Because there is no clear mismatch warning, this failure looks identical to a network problem — always compare build strings before changing router settings.</p></div>
+                <div class="faq-item"><h4>Q: Does progress carry over if a different person hosts next time?</h4><p>No. The world lives on the host machine. Switching hosts means starting from that person's separate save, and there is no merge function. Choose your host on connection quality on night one and keep them.</p></div>
+                <div class="faq-item"><h4>Q: Why does co-op work for two players but fail with a third?</h4><p>Usually the host's upload bandwidth or a NAT limitation on the third player's connection. Add players one at a time and note which addition breaks the session — that isolates whether it is a capacity issue or one specific connection.</p></div>
+            </section>
+
+            <div class="related-guides">
+                <h3>More Windrose Guides</h3>
+                <div class="article-grid">
+                    <a href="../../guides/windrose/windrose-save-loss-recovery-2026.html" class="article-card"><h3>Save Loss &amp; Recovery</h3><p>Back up, diagnose and restore a corrupted Windrose world before it costs you the run.</p></a>
+                    <a href="../../guides/windrose/windrose-ship-cannon-hitreg-fix-2026.html" class="article-card"><h3>Ship Cannon Hit Registration Fix</h3><p>Why half your cannonballs deal no damage, with measured patch data and a calibration drill.</p></a>
+                    <a href="../../guides/windrose/windrose-death-loot-recovery-2026.html" class="article-card"><h3>Death &amp; Loot Recovery</h3><p>What you drop on death, how long it persists, and how to recover it in co-op.</p></a>
+                    <a href="../../guides/windrose/windrose-newbie-progression-guide-2026.html" class="article-card"><h3>Newbie Progression Guide</h3><p>The efficient route from first raft to a combat-ready ship without wasted hours.</p></a>
+                </div>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0"> <div class="support-inner">     <span class="support-icon">🔓</span>     <div class="support-text">         <h3>Every guide is free — this one stays free either way.</h3>         <p>No paywalls, no subscriptions. But the <strong>Early Access Guide Pack</strong> gives you more:</p>         <p style="margin:6px 0 0 0;line-height:1.7">             📚 <strong>10 Beginner Guides</strong> — zero to mid-game in one pack<br>             ⭐ <strong>5 Premium Picks</strong> — our most popular expert deep-dives<br>             ⏰ <strong>3-Day Early Access</strong> — read new guides before everyone else<br>             🔄 <strong>3 New Guides Every Month</strong> — and each one fuels us to write faster         </p>         <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Your purchase includes instant access to everything above</p>         <div class="support-amounts">             <a href="https://www.paypal.com/paypalme/osrsguru/1.9" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Early Access Guide Pack 🔓</a>         </div>         <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>     </div> </div> </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>Windrose Guru</h4><p>Free Windrose guides updated weekly.</p></div>
+                <div class="footer-col"><h4>Guides</h4><ul>
+                    <li><a href="../../guides/windrose/windrose-save-loss-recovery-2026.html">Save Loss &amp; Recovery</a></li>
+                    <li><a href="../../guides/windrose/windrose-ship-cannon-hitreg-fix-2026.html">Cannon Hit Registration Fix</a></li>
+                    <li><a href="../../guides/windrose/windrose-death-loot-recovery-2026.html">Death &amp; Loot Recovery</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>More</h4><ul>
+                    <li><a href="../../index.html">OSRS Guru Home</a></li>
+                    <li><a href="../../guides/windrose/index.html">All Windrose Guides</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with the game developer &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #7a64b8;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Windrose is a trademark of its respective owner. Not affiliated with or endorsed by the developer.</p>
+    </div>
+
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content{color:#2d2a33!important}
+    .guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#2d2a33!important}
+    .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .faq-item,.guide-content .warn-box{background:#fff!important;border:1px solid #e0d8f0!important}
+    .guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+        .guide-content .quick-summary ul { padding-left: 0.5rem; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    </style>
+</body>
+</html>
