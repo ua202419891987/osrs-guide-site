@@ -219,9 +219,9 @@
                         <li>New premium tools included as they launch</li>
                     </ul>
                     <div class="ot-plan-btns">
-                        <a class="ot-btn ot-btn-go" href="https://payhip.com/order?link=mWJzl&pricing_plan=nLWRaRk4Ga" target="_blank" rel="noopener">1 Month<small> · $2.66</small></a>
-                        <a class="ot-btn ot-btn-go" href="https://payhip.com/order?link=mWJzl&pricing_plan=rdWQ8kKyGj" target="_blank" rel="noopener">4 Months<small> · $8.99</small></a>
-                        <a class="ot-btn ot-btn-go ot-btn-best" href="https://payhip.com/order?link=mWJzl&pricing_plan=Q7zqexm7zg" target="_blank" rel="noopener">12 Months<small> · $23.99</small><span class="ot-best-tag">save 25%</span></a>
+                        <a class="ot-btn ot-btn-go" data-plan="month" href="https://payhip.com/order?link=mWJzl&pricing_plan=nLWRaRk4Ga" target="_blank" rel="noopener">1 Month<small> · $2.66</small></a>
+                        <a class="ot-btn ot-btn-go" data-plan="quarter" href="https://payhip.com/order?link=mWJzl&pricing_plan=rdWQ8kKyGj" target="_blank" rel="noopener">4 Months<small> · $8.99</small></a>
+                        <a class="ot-btn ot-btn-go ot-btn-best" data-plan="year" href="https://payhip.com/order?link=mWJzl&pricing_plan=Q7zqexm7zg" target="_blank" rel="noopener">12 Months<small> · $23.99</small><span class="ot-best-tag">save 25%</span></a>
                     </div>
                     <p class="ot-hint" style="text-align:center;margin-top:8px;">One-time payment via Payhip · no auto-renew · After paying, return here &amp; refresh to activate Premium.</p>
                 </div>
@@ -296,9 +296,9 @@
                 </div>
                 <div style="text-align:center;margin-top:16px;">
                     <div class="ot-plan-btns">
-                        <a class="ot-btn ot-btn-go" href="https://payhip.com/order?link=mWJzl&pricing_plan=nLWRaRk4Ga" target="_blank" rel="noopener">1 Month<small> · $2.66</small></a>
-                        <a class="ot-btn ot-btn-go" href="https://payhip.com/order?link=mWJzl&pricing_plan=rdWQ8kKyGj" target="_blank" rel="noopener">4 Months<small> · $8.99</small></a>
-                        <a class="ot-btn ot-btn-go ot-btn-best" href="https://payhip.com/order?link=mWJzl&pricing_plan=Q7zqexm7zg" target="_blank" rel="noopener">12 Months<small> · $23.99</small><span class="ot-best-tag">save 25%</span></a>
+                        <a class="ot-btn ot-btn-go" data-plan="month" href="https://payhip.com/order?link=mWJzl&pricing_plan=nLWRaRk4Ga" target="_blank" rel="noopener">1 Month<small> · $2.66</small></a>
+                        <a class="ot-btn ot-btn-go" data-plan="quarter" href="https://payhip.com/order?link=mWJzl&pricing_plan=rdWQ8kKyGj" target="_blank" rel="noopener">4 Months<small> · $8.99</small></a>
+                        <a class="ot-btn ot-btn-go ot-btn-best" data-plan="year" href="https://payhip.com/order?link=mWJzl&pricing_plan=Q7zqexm7zg" target="_blank" rel="noopener">12 Months<small> · $23.99</small><span class="ot-best-tag">save 25%</span></a>
                     </div>
                 </div>
             </div>
@@ -405,7 +405,14 @@
             });
         });
 
-        /* Premium CTA 现在直接用 <a href> 跳转到 Payhip 的 3 个 pricing plan，无需 JS 拦截 */
+        /* Payhip 3 档 CTA：点击先存 PENDING_PLAN，osrs-subscription.js 回站时弹激活横幅 */
+        document.querySelectorAll('.ot-plan-btns a[data-plan]').forEach(function (a) {
+            a.addEventListener('click', function () {
+                try { localStorage.setItem('osrsguru_pending_plan', a.getAttribute('data-plan')); } catch (e) {}
+            });
+        });
+
+        /* Payhip 按钮走 <a href> 直跳 Payhip，激活由 osrs-subscription.js 的 PENDING_PLAN 横幅自动接管 */
 
         OSRSPremium.renderBadge('#tier-badge', 'dps-calculator');
         OSRSPremium.onChange(function () {
