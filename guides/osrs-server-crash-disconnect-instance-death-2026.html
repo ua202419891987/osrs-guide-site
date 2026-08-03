@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Server Crash, Disconnect &amp; Instance Death — Recover Lost Items &amp; Progress (2026)</title>
+    <meta name="description" content="Updated for 2026. Died to a server crash or random disconnect in OSRS? This Advanced guide explains instance-death mechanics, how to prove a non-user death, gravestone/Death's Office reclaim, and the exact Jagex support ticket path to recover lost items, charges, and progress.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS server crash death, OSRS disconnect instance death, OSRS lost items from disconnect, OSRS random disconnect death, OSRS instance death items lost, OSRS server crash refund, OSRS connection lost died, OSRS gravestone disconnect">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/osrs-server-crash-disconnect-instance-death-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="Advanced" data-category="fix">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../updates.html">Updates</a></li>
+                    <li><a href="../zh/index.html">Chinese</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!--ADSTERRA_TOP-->
+    <div class="ad-banner" style="text-align:center;margin:22px auto;padding:10px;border:1px dashed #d4af37;border-radius:8px;max-width:728px;min-height:90px;color:#1a1a1a;font-size:12px;box-sizing:border-box;">Adsterra ad slot — paste your Adsterra banner code here</div>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#fixes">Fix My OSRS</a> / Server Crash &amp; Disconnect Deaths</p>
+            <h1>OSRS Server Crash, Disconnect &amp; Instance Death — Recover Lost Items &amp; Progress (2026)</h1>
+            <p class="subtitle">You were mid-raid, the world froze, the connection dropped, and when you logged back your items were gone and your progress reset. Was it your fault, or the server's? This Advanced guide breaks down exactly how disconnect and instance deaths work in OSRS, how to prove the loss was not user error, how Death's Office and the gravestone system handle the reclaim, and the precise Jagex support path that actually recovers items when a server-side fault is involved.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🔌</span> <strong>Fix My OSRS</strong> — Death Recovery &middot; 13 min read &middot; Updated daily
+            </div>
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: Advanced (Crash Recovery)</div>
+            <p class="article-meta" style="color:#e8d5b7;font-size:.82rem;margin:.6rem 0 0;opacity:.85;">Published: July 30, 2026 &middot; Last verified: July 30, 2026</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#1a1a1a;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>A disconnect is treated as a normal death.</strong> OSRS does not "save" you just because you lost connection — the standard death rules apply.</li>
+                    <li>📌 <strong>Instance deaths still drop a gravestone.</strong> Even inside a boss room or raid, your unprotected items appear on a grave you can usually return to.</li>
+                    <li>📌 <strong>Proof is everything.</strong> Jagex only refunds items lost to a verified server fault, so timestamps, world number, and a screenshot decide your case.</li>
+                    <li>📌 <strong>Death's Office is your first stop.</strong> If the grave expired, reclaim from Death in Lumbridge before opening a ticket.</li>
+                    <li>📌 <strong>Wilderness deaths are almost never refunded.</strong> A DC inside the Wildy is treated as a normal PvP death — the items go to whoever was there.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#what-happens">What Happens When You Disconnect or the Server Crashes</a></li>
+                    <li><a href="#instance-mechanics">Instance Death Mechanics — Why "Safe" Content Can Still Lose Progress</a></li>
+                    <li><a href="#prove">How to Prove the Death Was Not Your Fault</a></li>
+                    <li><a href="#reclaim">Gravestone &amp; Death's Office — Reclaiming Lost Items</a></li>
+                    <li><a href="#ticket">The Jagex Support Ticket Path (and What Gets Refunded)</a></li>
+                    <li><a href="#scenarios">Common Scenarios: Raids, Wilderness, Slayer</a></li>
+                    <li><a href="#minimize">How to Minimize Risk From Future Disconnects</a></li>
+                    <li><a href="#faq">Frequently Asked Questions</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="what-happens">
+                <h2>1. 🔌 What Happens When You Disconnect or the Server Crashes</h2>
+                <p>The single most important fact about disconnects in Old School RuneScape is this: <strong>a lost connection does not make your character invincible.</strong> Your account keeps running on the server for a few seconds after the client loses contact. During that window your hitpoints keep ticking, your prayer keeps draining, and any monster you were fighting keeps attacking. If your HP hits zero in that window, you die &mdash; exactly as if you had closed the game on purpose.</p>
+                <p>This is why reading the <a href="osrs-death-mechanics-guide-2026.html">OSRS Death Mechanics Guide 2026</a> matters before anything else: the game draws no distinction between "I panicked and logged out" and "my Wi-Fi dropped." Both produce the same death event. The only thing that can separate a genuine server fault from user error is evidence, which we cover in Section 3.</p>
+                <p>There are three broad causes of a disconnect-death, and Jagex treats them very differently:</p>
+                <ul>
+                    <li><strong>Client-side loss</strong> (your internet, your PC, a crash to desktop). This is your responsibility, and the death is treated as normal.</li>
+                    <li><strong>World-side issue</strong> (the specific world you were on crashed, or you got the "World is full / unavailable" error). This is sometimes a server fault and may be refundable.</li>
+                    <li><strong>Game-wide outage</strong> (a mass disconnect, a rollback, a login server failure). These are publicly acknowledged by Jagex and are the easiest cases to win.</li>
+                </ul>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The 30-Second Rule of Thumb</div>
+                    <p>If <em>only you</em> disconnected, assume it is your problem. If <em>everyone in the world or on the game</em> disconnected at the same moment, it is almost certainly Jagex's problem and you have a strong recovery case. The middle ground &mdash; your single world went down &mdash; is where proof decides the outcome.</p>
+                </div>
+            </section>
+
+            <!--ADSTERRA_MID-->
+            <div class="ad-banner" style="text-align:center;margin:22px auto;padding:10px;border:1px dashed #d4af37;border-radius:8px;max-width:728px;min-height:90px;color:#1a1a1a;font-size:12px;box-sizing:border-box;">Adsterra ad slot — paste your Adsterra banner code here</div>
+
+            <!-- SECTION 2 -->
+            <section id="instance-mechanics">
+                <h2>2. 🏰 Instance Death Mechanics — Why "Safe" Content Can Still Lose Progress</h2>
+                <p>Players often assume that because a boss is in a private instance, a disconnect there is "safe." That assumption has cost thousands of bank values. The truth is more nuanced: <strong>an instance changes <em>who</em> can loot your grave, not <em>whether</em> you drop one.</strong></p>
+                <h3>Instanced boss rooms (Vorkath, Zulrah, GWD, Muspah, etc.)</h3>
+                <p>In a standard instanced boss fight, when you die your items drop to a gravestone at your death location <em>inside the instance</em>. Because the instance is private, no other player can reach your grave &mdash; which is good. You have the normal 15 to 60 minutes (depending on gravestone tier) to log back in and collect. The danger is not looting; it is the timer expiring while you are still fixing your connection.</p>
+                <h3>Raids and dedicated death systems</h3>
+                <p>Modern raids handle death through their own interfaces, and most are far kinder than open-world content:</p>
+                <ul>
+                    <li><strong>Chambers of Xeric</strong> &mdash; death drops a gravestone inside the raid; your team can even collect for you.</li>
+                    <li><strong>Theatre of Blood</strong> &mdash; you are moved to a spectator area and your items can be reclaimed from a chest inside the instance.</li>
+                    <li><strong>Tombs of Amascut</strong> &mdash; a dedicated death/reclaim interface returns your gear for a GP fee.</li>
+                    <li><strong>Gauntlet / Corrupted Gauntlet</strong> &mdash; deaths are completely safe; you keep everything.</li>
+                </ul>
+                <h3>The progress-loss trap</h3>
+                <p>Items are only half the story. A disconnect inside a raid can also wipe <strong>progress you cannot reclaim</strong>: a partially completed ToA path, a CoX raid that resets, a Tempoross or Wintertodt attempt that ends with no reward. Unlike a dropped item, there is often nothing at Death's Office for "lost progress" &mdash; recovery here depends entirely on Jagex goodwill and a verified server fault. This is why <a href="osrs-boss-instances-guide-avoid-issues-2026.html">our boss instances guide</a> recommends never starting a high-value raid on an unstable connection.</p>
+                <div class="warning-box" style="border-left:none;">
+                    <div class="warning-title">⚠️ Private Instance ≠ Safe Death</div>
+                    <p>A private instance only stops other players from taking your loot. It does <strong>not</strong> stop the gravestone timer. If you cannot reconnect within the timer window, your items still travel to Death's Office &mdash; and from there the reclaim fee applies.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="prove">
+                <h2>3. 🧾 How to Prove the Death Was Not Your Fault</h2>
+                <p>A Jagex recovery agent does not take your word for it. The difference between "refunded" and "denied" is almost always the quality of your evidence that a <em>server-side</em> fault caused the loss. Here is what actually moves a case forward.</p>
+                <h3>Timestamps with timezone</h3>
+                <p>Note the exact date, time, and your timezone. Jagex cross-references this against their own server logs. A precise timestamp lets them confirm whether a world crash or mass-disconnect event occurred at that moment. Vague "last night" claims are routinely closed.</p>
+                <h3>World number</h3>
+                <p>State the world you were on. If that world's logs show an abnormal shutdown, your claim is essentially proven. Without a world number, an agent cannot check the server record at all.</p>
+                <h3>The disconnection error message</h3>
+                <p>Different messages mean different things. "Connection lost" and "The world you tried to join is currently full" point to server-side issues. A clean client exit ("You have logged out") suggests you closed the game yourself. If you can describe or screenshot the exact message, include it.</p>
+                <h3>Corroborating signals</h3>
+                <ul>
+                    <li><strong>Other players reporting the same crash</strong> in the official Discord, Reddit, or the in-game chat on that world.</li>
+                    <li><strong>A Jagex @RuneScapeHelp or news post</strong> acknowledging an outage around your timestamp.</li>
+                    <li><strong>A screenshot or clip</strong> taken just before the crash showing your gear and location.</li>
+                    <li><strong>Your RSN and the activity</strong> (e.g., "CoX, 3rd chest, world 344, 21:14 GMT").</li>
+                </ul>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Pre-emptive Screenshot Habit</div>
+                    <p>The players who win disconnect-death appeals are the ones who <em>already</em> screenshot their inventory and charge counts before risky content. If you routinely photograph your loadout, a DC loss becomes a documented event rather than a he-said-she-said. The same habit is covered in <a href="osrs-charged-item-lost-on-death-fix-2026.html">our charged-item loss guide</a> for proving missing charges.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="reclaim">
+                <h2>4. 🏛️ Gravestone &amp; Death's Office — Reclaiming Lost Items</h2>
+                <p>Before you ever open a support ticket, do the free, instant recovery step: check Death's Office. Most "lost to a disconnect" items are sitting there waiting for a reclaim fee.</p>
+                <h3>Step 1: Return to your gravestone if you can</h3>
+                <p>If you reconnected within the timer, go straight back to where you died. The gravestone holds your unprotected items. Loot it before the timer expires and you lose nothing except the time you spent reconnecting.</p>
+                <h3>Step 2: Speak to Death</h3>
+                <p>If the grave expired, find <strong>Death</strong> at your respawn (Lumbridge, Falador, Edgeville, or your chosen respawn point). His interface lists every item and the total reclaim cost. The fee scales with the combined Grand Exchange value of the lost items, capped at a few million GP for most setups.</p>
+                <h3>Step 3: Pay from bank or inventory</h3>
+                <p>Death pulls the GP directly from your bank, so you do not need cash on hand. Make sure your bank balance covers the shown fee or you cannot reclaim.</p>
+                <h3>Step 4: Verify charges and stackables</h3>
+                <p>After reclaiming, confirm your charged gear still holds its charges and your stackables (ammo, runes, darts) are intact. A normal reclaim preserves both. If a charge count is wrong <em>and</em> you have proof of the prior count, that is a bug report, not a normal reclaim &mdash; escalate to a ticket.</p>
+                <h3>When Death's Office has nothing</h3>
+                <p>If your items are not at Death's Office and you never reclaimed them, one of three things happened: a raid-specific system already returned them, a Wilderness death handed them to another player, or the items were consumed by a verified bug. The first is good news; the second is not refundable; the third needs a ticket with proof (see Section 5).</p>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="ticket">
+                <h2>5. 🎫 The Jagex Support Ticket Path (and What Gets Refunded)</h2>
+                <p>Jagex will <strong>not</strong> refund items lost to ordinary disconnects, expired gravestones you simply did not reach, or Wilderness deaths. The support path exists for one narrow situation: <strong>a verified server-side fault that caused the loss.</strong></p>
+                <h3>Open the ticket through the official channel</h3>
+                <p>Use the Jagex Support site (support.runescape.com), not a forum post or a Tweet. Select the category that matches "item/account recovery" and write in clear, factual English. Polite, evidence-led tickets get faster and better outcomes than angry ones.</p>
+                <h3>What to include</h3>
+                <ol>
+                    <li><strong>RSN and registered email.</strong></li>
+                    <li><strong>Exact date, time, and timezone</strong> of the disconnect.</li>
+                    <li><strong>World number.</strong></li>
+                    <li><strong>The disconnection message</strong> you saw (or "none / client froze").</li>
+                    <li><strong>Item names and approximate values</strong> lost, plus any charge counts.</li>
+                    <li><strong>Activity and location</strong> (e.g., "CoX, world 478, died at 3rd chest").</li>
+                    <li><strong>Screenshots, clips, or witness RSNs</strong> that show the crash was server-side.</li>
+                </ol>
+                <h3>What you can realistically expect back</h3>
+                <ul>
+                    <li><strong>Likely refunded:</strong> items lost during a confirmed mass disconnect or world crash, especially if Jagex already acknowledged the incident.</li>
+                    <li><strong>Sometimes refunded:</strong> a single-world crash with a matching server log, if your timestamp and world line up.</li>
+                    <li><strong>Almost never refunded:</strong> Wilderness DC deaths, expired gravestones from slow reconnects, and "lost progress" inside raids with no server fault.</li>
+                </ul>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Set Expectations Honestly</div>
+                    <p>Most disconnect-death tickets are closed as "working as intended." That is not cruelty &mdash; it is because the death was a legitimate game event. Treat the ticket as your <em>appeal for a server fault</em>, not your refund for a bad connection. If you want to harden your account against future connection loss, our <a href="osrs-random-disconnect-world-unavailable-fix-2026.html">random disconnect fix guide</a> tackles the client-side causes first.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="scenarios">
+                <h2>6. 🗺️ Common Scenarios: Raids, Wilderness, Slayer</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>Where Items Go</th>
+                            <th>Recoverable?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Disconnect in a private boss instance</td>
+                            <td>Gravestone inside the instance, then Death's Office</td>
+                            <td>Yes, via reclaim fee (if not Wildy)</td>
+                        </tr>
+                        <tr>
+                            <td>Disconnect in CoX / ToB / ToA</td>
+                            <td>Raid-specific reclaim (chest / interface)</td>
+                            <td>Yes, usually free or cheap</td>
+                        </tr>
+                        <tr>
+                            <td>Disconnect in the Wilderness</td>
+                            <td>Drops to whoever is present / skull rules apply</td>
+                            <td>No &mdash; treated as PvP death</td>
+                        </tr>
+                        <tr>
+                            <td>Mass game-wide disconnect</td>
+                            <td>Gravestone + server logs show the fault</td>
+                            <td>Yes, via support ticket</td>
+                        </tr>
+                        <tr>
+                            <td>Single-world crash you were on</td>
+                            <td>Gravestone, then Death's Office</td>
+                            <td>Sometimes, if world logs confirm it</td>
+                        </tr>
+                        <tr>
+                            <td>Expired gravestone (slow reconnect)</td>
+                            <td>Death's Office, reclaim fee due</td>
+                            <td>Yes, pay the fee</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Wilderness is the exception that bites hardest</h3>
+                <p>If your connection drops inside the Wilderness, the game treats it exactly like any other PvP death. Your items drop under skull rules and go to whoever is standing there. Jagex does not reverse this. If you cannot guarantee a stable connection, keep your Wilderness trips cheap &mdash; our <a href="osrs-safe-boss-pked-recovery-2026.html">safe bossing &amp; PK recovery guide</a> covers how to limit the damage.</p>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="minimize">
+                <h2>7. 🛡️ How to Minimize Risk From Future Disconnects</h2>
+                <p>You cannot control Jagex's servers, but you can drastically cut your exposure with a few habits:</p>
+                <h3>Stabilize the client-side first</h3>
+                <p>Most "server crashes" players report are actually local: a flaky Wi-Fi, a sleep­ing laptop, or a background update. Work through the client-side fixes in our <a href="osrs-random-disconnect-world-unavailable-fix-2026.html">random disconnect guide</a> and the mobile-specific steps in our <a href="osrs-mobile-disconnect-background-fix-2026.html">mobile disconnect guide</a> before blaming the game.</p>
+                <h3>Bank high-value gear between attempts</h3>
+                <p>Do not AFK with a Twisted Bow or Scythe equipped while alt-tabbed. The longer an expensive setup is "live" on an unstable connection, the bigger the single-point loss.</p>
+                <h3>Use Protect Item in risky content</h3>
+                <p>Where PvM death is possible, Protect Item prayer keeps your most valuable slot. It will not save you from a Wilderness DC, but it is free insurance everywhere else.</p>
+                <h3>Prefer safe-death content for risky connections</h3>
+                <p>If your internet is shaky that day, run Gauntlet, quest, or train a skill with a safe death rather than attempting a 500K-per-attempt raid you might lose to a DC.</p>
+                <h3>Screenshot before you commit</h3>
+                <p>One screenshot of your loadout and charge counts turns a future dispute from "trust me" into "here is the proof." It is the cheapest insurance in the game.</p>
+            </section>
+
+            <!-- SECTION 8 FAQ -->
+            <section id="faq">
+                <h2>8. ❓ Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <h3>Does OSRS save me if I lose connection?</h3>
+                    <p>No. A disconnect is treated as a normal death. Your character keeps taking damage for a few seconds after the client loses contact, and standard death rules apply.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Will Jagex refund items I lost to a random disconnect?</h3>
+                    <p>Only if you can show a server-side fault caused it (a world crash or mass disconnect matching their logs). Ordinary client-side disconnects are working as intended and are not refunded.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>My gravestone expired because I was fixing my router. Can I get the items back?</h3>
+                    <p>Check Death's Office first &mdash; you can reclaim them there for a GP fee. If they are not at Death's Office, a ticket is your only option, but slow-reconnect cases are rarely refunded.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>I disconnected inside the Wilderness. Is that refundable?</h3>
+                    <p>Almost never. A Wilderness DC is treated as a normal PvP death, and your items go to whoever was present. Jagex does not reverse Wilderness losses.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do raids have safe deaths?</h3>
+                    <p>Most modern raids (CoX, ToB, ToA) use dedicated reclaim systems and are effectively safe for your items. The Gauntlet is fully safe. Progress inside the raid, however, is not reclaimed &mdash; only gear is.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What is the single best piece of evidence for a DC-death ticket?</h3>
+                    <p>A precise timestamp plus world number that matches a Jagex-acknowledged outage. If the whole game disconnected at your moment, your case is strong; if only you did, you need a screenshot or witness to prove a world-specific fault.</p>
+                </div>
+            </section>
+
+            <div class="related-guides">
+                <h3>Related Guides</h3>
+                <a href="osrs-death-mechanics-guide-2026.html" class="article-card">
+                    <h3>OSRS Death Mechanics Guide 2026</h3>
+                    <p>Complete breakdown of gravestones, Death's Office, reclaim fees, and item protection.</p>
+                </a>
+                <a href="osrs-charged-item-lost-on-death-fix-2026.html" class="article-card">
+                    <h3>Charged Item Lost on Death — Recovery Fix</h3>
+                    <p>How to reclaim charged gear, preserve charges, and prove missing charge counts.</p>
+                </a>
+                <a href="osrs-boss-instances-guide-avoid-issues-2026.html" class="article-card">
+                    <h3>OSRS Boss Instances Guide — Avoid Issues</h3>
+                    <p>How private instances handle death, loot, and reclaim so you stop assuming they are safe.</p>
+                </a>
+                <a href="osrs-random-disconnect-world-unavailable-fix-2026.html" class="article-card">
+                    <h3>Random Disconnect &amp; World Unavailable Fix</h3>
+                    <p>Fix the client-side causes of disconnects before they cost you a death.</p>
+                </a>
+                <a href="osrs-safe-boss-pked-recovery-2026.html" class="article-card">
+                    <h3>OSRS Safe Bossing &amp; PK Recovery 2026</h3>
+                    <p>Limit the damage from Wilderness and PvP deaths and recover what you can.</p>
+                </a>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🔓</span>
+                    <div class="support-text">
+                        <h3>Every guide and tool is free — this one stays free either way.</h3>
+                        <p>No paywalls, no subscriptions. The only paid product is the printable PDF version:</p>
+                        <p style="margin:6px 0 0 0;line-height:1.7">
+                            📚 <strong>5 PDF Guides</strong> — offline, print-friendly<br>
+                            ✅ <strong>Scams / DPS / Authenticator / Recovery / Sailing Nerf</strong><br>
+                            🔄 <strong>Updated after every major game update</strong><br>
+                            💾 <strong>Instant download, yours forever</strong>
+                        </p>
+                        <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Instant download after purchase</p>
+                        <div class="support-amounts">
+                            <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the PDF 5-Pack</a>
+                            <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+                        </div>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated daily. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ New Players (Stage 0)</h4><ul>
+                    <li><a href="osrs-interface-controls-beginner-guide-2026.html">Game Interface</a></li>
+                    <li><a href="osrs-combat-triangle-explained-2026.html">Combat Triangle</a></li>
+                    <li><a href="osrs-skills-overview-beginner-2026.html">Skills Overview</a></li>
+                    <li><a href="osrs-bank-inventory-management-2026.html">Bank &amp; Inventory</a></li>
+                    <li><a href="osrs-maps-travel-guide-2026.html">Maps &amp; Travel</a></li>
+                    <li><a href="osrs-questing-beginner-guide-2026.html">Questing Basics</a></li>
+                    <li><a href="osrs-combat-training-beginner-guide-2026.html">Combat Training</a></li>
+                    <li><a href="osrs-money-making-beginner-2026.html">Beginner Money Making</a></li>
+                    <li><a href="osrs-gear-beginner-guide-2026.html">Gear Guide</a></li>
+                    <li><a href="osrs-safe-spots-beginner-2026.html">Safe Spots</a></li>
+                    <li><a href="osrs-prayer-training-beginner-guide-2026.html">Prayer Training</a></li>
+                    <li><a href="osrs-f2p-to-p2p-membership-guide-2026.html">F2P to P2P Transition</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+    <!-- Copyright & Anti-Scraping Notice -->
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+    </div>
+
+    <script src="../js/features.js"></script>
+    <script src="../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content{color:#1a1a1a!important}
+    .guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+    .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+    .guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+    .guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#3b2615!important}
+    .guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+    .guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+    .guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    .guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    </style>
+</body>
+</html>
