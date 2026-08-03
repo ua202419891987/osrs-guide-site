@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windrose Building QoL Workarounds: Move Placed Items, Clean Up, Mods (2026) | Windrose Guru</title>
+    <meta name="description" content="Windrose won't let you move placed objects, has no trash can, and dropped items never despawn. Here are the working 2026 workarounds — dismantle-and-rebuild refund math, a no-trash-can cleanup system, sea dumping, mods worth installing, and a base maintenance routine that stops entity bloat lag.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Windrose move placed items, Windrose cannot move objects, Windrose trash can, Windrose delete items, Windrose building mods, Windrose base cleanup, Windrose dropped items despawn">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/windrose/windrose-building-qol-workaround-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{color:#7a64b8!important}
+        .guide-content h3{color:#7a64b8!important}
+        .guide-content .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;color:#2d2a33;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0}
+        .guide-content .tip-box strong{color:#7a64b8}
+        .guide-content .warn-box{background:#fef9f5;border:1px solid #e8c8a0;color:#2d2a33;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0}
+        .guide-content .warn-box strong{color:#b84a3a}
+        .guide-content .action-step{background:#faf8fc;border:1px solid #e0d8f0;margin:1.2rem 0;padding:1.2rem 1.5rem;border-radius:8px}
+        .guide-content .action-step h4{color:#7a64b8;margin:0 0 .6rem 0}
+        .guide-content .method-box{background:#faf8fc;border:1px solid #e0d8f0;padding:1.4rem;margin:1.25rem 0;border-radius:8px}
+        .guide-content .method-box h4{color:#7a64b8;margin:0 0 .85rem 0}
+        .guide-content .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .guide-content .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .guide-content .toc{background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .guide-content .toc h3{color:#7a64b8!important}
+        .guide-content li{color:#2d2a33!important}
+        .guide-content p{color:#2d2a33!important}
+        .progress-widget{display:none!important}
+        table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+        table th{background:#f8f6fc;color:#7a64b8;padding:10px 14px;text-align:left;border:1px solid #e0d8f0;font-weight:700}
+        table td{padding:9px 14px;border:1px solid #eee;color:#333}
+        table tr:nth-child(even){background:#fafbfd}
+        .guide-content .quick-summary{background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px}
+        .guide-content .quick-summary h3{color:#7a64b8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700}
+        .guide-content .quick-summary ul{margin:0;padding-left:1.2rem;list-style:none;color:#2d2a33;font-size:.92rem;line-height:1.8}
+        .guide-content .quick-summary li{color:#2d2a33!important}
+        .guide-content code{background:#f0ebfa;color:#5a4a8a;padding:2px 6px;border-radius:4px;font-size:.9em;word-break:break-all}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Windrose <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section1">The 3 Gaps</a></li>
+                    <li><a href="#section2">Moving Items</a></li>
+                    <li><a href="#section3">Cleanup</a></li>
+                    <li><a href="#section4">Mods</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../guides/windrose/index.html">Windrose</a> / Building QoL Workarounds</p>
+            <h1>Windrose Building QoL Workarounds: Move Placed Items, Clean Up, Mods</h1>
+            <div class="cd-level-badge" style="display:inline-block;background:#f0ebfa;color:#5a4a8a;border:1px solid #7a64b8;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">Base Building</div>
+            <p class="subtitle">You can't nudge a placed workbench. There is no trash can. And every item you drop stays on the ground forever, quietly bloating your base. Here's the full set of workarounds serious builders actually use — plus the maintenance routine that keeps a big base running clean.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🎮</span> <strong>Base Building</strong> · 9 min read · Updated August 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary">
+                <h3>⏱️ Quick Summary — 30-Second Read</h3>
+                <ul>
+                    <li>📌 <strong>No move tool exists.</strong> Relocating anything means dismantle + rebuild, and dismantling does not always refund 100% — plan placement with a dry run before you commit expensive stations.</li>
+                    <li>📌 <strong>No trash can exists either.</strong> The three working disposal routes are sea dumping, fuel burning, and vendor offloading — each suits a different junk type.</li>
+                    <li>📌 <strong>Dropped items never despawn.</strong> That is a performance issue, not just an eyesore: loose item entities persist in your save and are a leading cause of base-area frame drops.</li>
+                    <li>📌 <strong>The fix is a routine, not a trick.</strong> A 5-minute weekly sweep — dump, burn, consolidate, ground-scan — keeps a mega-base at the same FPS it had on day one.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#section1">The Three QoL Gaps and What They Actually Cost You</a></li>
+                    <li><a href="#section2">Moving Placed Items — Dismantle Math &amp; Safe Rebuild</a></li>
+                    <li><a href="#section3">Cleanup Without a Trash Can — Three Disposal Routes</a></li>
+                    <li><a href="#section4">Mods &amp; Settings Worth Installing</a></li>
+                    <li><a href="#section5">The Weekly Base Maintenance Routine</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ol>
+            </div>
+
+            <section id="section1">
+                <h2>1. The Three QoL Gaps and What They Actually Cost You</h2>
+                <p>Windrose's building system is generous in what it lets you construct and unusually strict in what it lets you undo. Three missing conveniences compound into the single biggest source of building frustration in Early Access, and understanding <em>why</em> each one hurts changes how you build.</p>
+                <table>
+                    <tr><th>The gap</th><th>Immediate annoyance</th><th>The real cost</th></tr>
+                    <tr><td>Placed objects can't be moved</td><td>A workbench 30 cm off ruins a room</td><td>Every misplacement is a resource loss, not a re-click</td></tr>
+                    <tr><td>No trash can / destroy option</td><td>Junk clogs chests</td><td>Storage pressure forces more chests, which adds more entities</td></tr>
+                    <tr><td>Dropped items never despawn</td><td>Ground litter looks messy</td><td>Persistent entities accumulate in the save and drag base-area FPS down</td></tr>
+                </table>
+                <p>The third one is the sleeper problem. In most survival games, dropping junk on the floor is free — a timer cleans it up. In Windrose it is a permanent commitment. Players who "temporarily" empty their bag onto the dock every trip end up, forty hours later, with a base area holding thousands of loose item entities and wondering why their frame rate collapsed only near home. This is also why base bloat and save health are linked: a heavier world file is slower to write and more vulnerable to interrupted saves, which is exactly the failure mode covered in our <a href="../../guides/windrose/windrose-save-loss-recovery-2026.html">Windrose save loss recovery guide</a>.</p>
+            </section>
+
+            <section id="section2">
+                <h2>2. Moving Placed Items — Dismantle Math &amp; Safe Rebuild</h2>
+                <p>There is no grab-and-reposition tool in the current build. Every "move" is really a dismantle followed by a fresh placement, so the only question that matters is how much you lose in the round trip. Treat every placement as semi-permanent and the frustration mostly disappears.</p>
+
+                <div class="method-box">
+                    <h4>Workaround A — The ghost dry run (free, do this always)</h4>
+                    <p>Before confirming any expensive station, enter placement mode and walk the full workflow with the translucent preview still active. Stand where you will actually stand, check that the interaction prompt doesn't fight a neighbouring object, and confirm doorways and chest lids still open. Ninety percent of "I need to move this" moments are caught here, at zero cost. The preview also reveals snap points you would otherwise never notice.</p>
+                </div>
+
+                <div class="method-box">
+                    <h4>Workaround B — Cheap proxy placement</h4>
+                    <p>When you're unsure about a layout, place the cheapest possible object as a stand-in — a basic wooden item, a torch, a crate — where the expensive station will eventually go. Live with the layout for one full play session. Cheap proxies cost trivial materials to remove, so you are effectively renting the decision instead of buying it.</p>
+                </div>
+
+                <div class="method-box">
+                    <h4>Workaround C — Dismantle in the right order</h4>
+                    <p>When you do commit to a rebuild, order matters. <strong>Empty every container first</strong> — dismantling a full chest risks scattering contents onto the ground, which, given rule three, means permanent litter. Then remove decorations, then furniture and stations, then structural pieces last. Removing a supporting wall or floor before what sits on it can cascade-collapse attached pieces, and cascade-destroyed items refund worse than deliberately dismantled ones.</p>
+                </div>
+
+                <div class="warn-box"><strong>Refund reality check:</strong> dismantle returns are not guaranteed to be full, and they are typically worse for structures destroyed by collapse or combat than for pieces you remove by hand. Assume you will lose a slice of the materials on every relocation and budget a buffer stack of your common building resources before any large remodel. If a rebuild would cost more than the annoyance is worth, the cheaper answer is often to build the improved version <em>next to</em> the old one and repurpose the original as storage.</div>
+
+                <div class="tip-box"><strong>Screenshot your layout before you touch it.</strong> Take three shots — overhead, doorway view, and the crafting corner — before starting a remodel. Rebuilding from memory is where people discover they've lost the snap alignment that made the old room work. A 5-second screenshot is the cheapest undo button in the game.</div>
+                <p>Because relocation is expensive, it pays to get the first layout close to right. If you're still planning your main base footprint, do the placement pass before you invest, and keep expansion room on at least two sides — cramped bases are the number one reason players end up needing to move stations at all. New players especially should lock in a sane layout early; the sequencing advice in our <a href="../../guides/windrose/windrose-newbie-progression-guide-2026.html">Windrose progression guide</a> covers which stations you actually need before you start pouring resources into permanent walls.</p>
+            </section>
+
+            <section id="section3">
+                <h2>3. Cleanup Without a Trash Can — Three Disposal Routes</h2>
+                <p>With no destroy button in the inventory UI, junk has to physically go somewhere. These are the three routes that work, ranked by how much of the value you keep.</p>
+
+                <div class="action-step">
+                    <h4>Route 1 — Vendor offloading (best value, do this first)</h4>
+                    <p>Anything a trader will take should never be thrown away. Batch your junk into a dedicated "sell" chest near the dock, and clear it on any trip that already passes a port. This converts clutter into currency and keeps zero entities on your floor. The rule of thumb: if it has a listed sale value at all, it goes in the sell chest, not the sea.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Route 2 — Fuel burning (best for organics)</h4>
+                    <p>Wood, plant matter, spoiled food and other burnables can be fed into fires, forges, and cooking stations as fuel. You are not just deleting them — you're extracting the last bit of use. Keep one always-lit fire near your storage row purely as a disposal point; it makes "burn the junk" a two-second action instead of a chore you postpone.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Route 3 — Sea dumping (last resort, but the only universal one)</h4>
+                    <p>For genuinely worthless items with no sale value and no burn use, sail out past your base and drop them in deep water. This is the community's de facto trash can. Two rules: go <strong>far enough from your base</strong> that the entities are outside your usual render area, and pick a consistent dump spot so you never accidentally build there later. Never dump directly off your own dock — that just relocates the lag by ten metres.</p>
+                </div>
+
+                <div class="warn-box"><strong>The one habit that ruins bases:</strong> emptying your inventory onto the ground "just for a second" while you sort. Because nothing despawns, every one of those temporary piles is permanent. Use an unlock-and-sort chest instead — an intake chest next to the dock that you empty at the start of each session. It costs one chest and saves thousands of loose entities over a playthrough.</div>
+
+                <div class="method-box">
+                    <h4>Storage architecture that prevents junk in the first place</h4>
+                    <p>Most clutter is a sorting failure, not a volume problem. Run four chest categories and the ground stays clean by default: <strong>Intake</strong> (everything from a trip lands here), <strong>Build</strong> (wood, stone, ore — the stuff you consume constantly), <strong>Sell</strong> (vendor-bound), and <strong>Burn</strong> (fuel-bound). Put Intake nearest the dock and Build nearest the crafting row so the two highest-traffic paths are the shortest. Sorting on arrival takes ninety seconds; sorting after ten trips takes twenty minutes and is why people give up and dump on the floor.</p>
+                </div>
+            </section>
+
+            <section id="section4">
+                <h2>4. Mods &amp; Settings Worth Installing</h2>
+                <p>Windrose is in Early Access and the modding scene is still young, so set expectations accordingly: there is no mature, officially supported mod API yet, and anything you install is community-maintained and can break with every patch. That said, a few categories are worth watching, and one is worth doing today.</p>
+                <table>
+                    <tr><th>Category</th><th>What it solves</th><th>Risk level</th></tr>
+                    <tr><td>Free-placement / snap-off tools</td><td>Fine positioning without rebuild</td><td>Medium — can create geometry the save doesn't expect</td></tr>
+                    <tr><td>Item destroy / trash utilities</td><td>Adds the missing delete function</td><td>Medium — verify it removes entities, not just hides them</td></tr>
+                    <tr><td>Ground-item cleanup scripts</td><td>Purges loose entities near base</td><td>High — can delete things you wanted; back up first</td></tr>
+                    <tr><td>Storage/sorting UI mods</td><td>Search and auto-deposit</td><td>Low — mostly cosmetic UI layer</td></tr>
+                    <tr><td>Admin/console commands (server)</td><td>Direct entity management</td><td>Low if you host, unavailable as a guest</td></tr>
+                </table>
+                <div class="warn-box"><strong>Non-negotiable rule before installing any building mod:</strong> take a manual save backup first. Building mods touch placement and entity data — the exact data that, when malformed, produces an unloadable world. The backup procedure takes five minutes and is documented step by step in our <a href="../../guides/windrose/windrose-save-loss-recovery-2026.html">save loss recovery guide</a>. Do not skip it because "it's just a UI mod."</div>
+                <p>Before reaching for mods at all, exhaust the vanilla settings. Lowering foliage and shadow quality, capping your frame rate, and reducing view distance around a dense base often recovers more performance than an entity-cleanup script would — and costs you nothing in stability or save integrity. If your base area specifically is where FPS dies while open ocean runs fine, that is the entity-density signature described in section 1, and cleanup will help more than any graphics setting.</p>
+                <div class="tip-box"><strong>Patch-day discipline:</strong> Early Access updates land often, and a mod compiled against the old build can crash your world on load. Before every update, disable building mods, load your world clean once, then re-enable them one at a time. This also tells you instantly which mod broke when something does go wrong. While you're waiting out a quiet patch cycle, our <a href="../../guides/windrose/windrose-content-drought-plan-2026.html">Windrose content drought plan</a> covers what long-term builders do between updates.</div>
+            </section>
+
+            <section id="section5">
+                <h2>5. The Weekly Base Maintenance Routine</h2>
+                <p>Every workaround above collapses into one habit. Run this five-minute pass at the end of each play session, or at minimum once per real-world week, and a fifty-hour base stays as responsive as a five-hour one.</p>
+                <div class="action-step">
+                    <h4>① Empty the intake chest (90 seconds)</h4>
+                    <p>Sort everything into Build, Sell, or Burn. Nothing stays in Intake overnight. This single step prevents the overflow that leads to floor dumping.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Burn the burn chest (20 seconds)</h4>
+                    <p>Feed it all into the disposal fire. Free, instant, no entities left behind.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Ground scan the base perimeter (60 seconds)</h4>
+                    <p>Walk a loop around your base with the camera angled down and pick up every loose item. Pay special attention to the dock, the crafting row, and any spot where you died or fought — combat drops are the most commonly forgotten litter. If a fight went badly and your bag is out there somewhere, work through the <a href="../../guides/windrose/windrose-death-loot-recovery-2026.html">Windrose death &amp; loot recovery guide</a> before it gets buried under new terrain.</p>
+                </div>
+                <div class="action-step">
+                    <h4>④ Consolidate partial stacks (60 seconds)</h4>
+                    <p>Merge half-full stacks across chests. Fewer occupied slots means fewer chests, and fewer chests means fewer entities and a smaller save file.</p>
+                </div>
+                <div class="action-step">
+                    <h4>⑤ Clean Save &amp; Quit (20 seconds)</h4>
+                    <p>End the session through the menu, never Alt+F4. A clean exit commits everything you just organised — and a session's worth of sorting lost to an unwritten save is the most demoralising way to learn this lesson.</p>
+                </div>
+                <div class="tip-box"><strong>Scale rule:</strong> if your base has grown past roughly a dozen chests and two crafting rows, split it. A main base plus a small forward outpost distributes entity load across two areas instead of stacking it all in one render bubble — and gives you a fallback if something goes wrong at home.</div>
+            </section>
+
+            <section id="faq">
+                <h2>FAQ</h2>
+                <div class="faq-item"><h4>Q: Is a move/reposition tool coming to Windrose?</h4><p>It is one of the most-requested Early Access features and appears frequently in community feedback threads, but nothing is confirmed on a public roadmap as of this writing. Build as if it will never arrive — if it ships, it's a bonus rather than a plan you were depending on.</p></div>
+                <div class="faq-item"><h4>Q: Do I get all my materials back when I dismantle?</h4><p>Not reliably. Hand-dismantling generally refunds better than collapse or combat destruction, but assume a partial return and keep a material buffer before any remodel. This is exactly why the cheap-proxy method in section 2 saves so much in practice.</p></div>
+                <div class="faq-item"><h4>Q: Do dropped items really never disappear?</h4><p>In the current build, loose items persist rather than despawning on a timer. That's convenient when you drop something valuable and terrible when you dump junk. Treat the ground as permanent storage you can't organise.</p></div>
+                <div class="faq-item"><h4>Q: Why does my FPS only tank near my base?</h4><p>Entity density. Placed structures, containers, and every loose ground item inside your render bubble all cost performance simultaneously. Open ocean is empty, so it runs fine. Run the section 5 routine, and if it persists, split the base across two locations.</p></div>
+                <div class="faq-item"><h4>Q: Can I dump items into water safely, or do they come back?</h4><p>Deep-water dumping is the community's standard trash solution. Go well away from your base so anything that does persist sits outside your normal render area, and always keep one consistent dump spot so you don't build near it later.</p></div>
+                <div class="faq-item"><h4>Q: Are building mods safe to use in co-op?</h4><p>Riskier than solo. Every participant generally needs matching mods, and mismatches produce desync or placement errors that can corrupt the host's world. Back up the host save first, and if you hit connection or sync problems afterwards, start with the co-op troubleshooting guide before blaming the mod.</p></div>
+            </section>
+
+            <div class="related-guides">
+                <h3>More Windrose Guides</h3>
+                <div class="article-grid">
+                    <a href="../../guides/windrose/windrose-save-loss-recovery-2026.html" class="article-card"><h3>Windrose Save Loss Recovery</h3><p>World vanished or progress rolled back? Full recovery order plus the auto-backup setup every builder needs.</p></a>
+                    <a href="../../guides/windrose/windrose-content-drought-plan-2026.html" class="article-card"><h3>Windrose Content Drought Plan</h3><p>What to build and chase between Early Access patches so the game keeps giving you goals.</p></a>
+                    <a href="../../guides/windrose/windrose-death-loot-recovery-2026.html" class="article-card"><h3>Windrose Death &amp; Loot Recovery</h3><p>Find your dropped bag, understand what's recoverable, and stop combat drops becoming permanent litter.</p></a>
+                    <a href="../../guides/windrose/windrose-newbie-progression-guide-2026.html" class="article-card"><h3>Windrose Progression Guide</h3><p>Which stations you actually need and when — get the layout right before you commit resources.</p></a>
+                </div>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">&#127807;</span>
+        <div class="support-text">
+            <h3>This Windrose guide stays free either way.</h3>
+            <p>If it saved you time, a $1 tip helps us keep writing more guides.</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn recommended">&#127807; Buy me a pack of gum — $1.00</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">No paywall, no subscription — just a thank-you if you can. &#129309;</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>Windrose Guru</h4><p>Free Windrose guides updated weekly.</p></div>
+                <div class="footer-col"><h4>Guides</h4><ul>
+                    <li><a href="../../guides/windrose/windrose-save-loss-recovery-2026.html">Save Loss Recovery</a></li>
+                    <li><a href="../../guides/windrose/windrose-content-drought-plan-2026.html">Content Drought Plan</a></li>
+                    <li><a href="../../guides/windrose/windrose-death-loot-recovery-2026.html">Death &amp; Loot Recovery</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>More</h4><ul>
+                    <li><a href="../../index.html">OSRS Guru Home</a></li>
+                    <li><a href="../../guides/windrose/index.html">All Windrose Guides</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with the game developer &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #7a64b8;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Windrose is a trademark of its respective owner. Not affiliated with or endorsed by the developer.</p>
+    </div>
+
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content{color:#2d2a33!important}
+    .guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#2d2a33!important}
+    .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .faq-item,.guide-content .warn-box{background:#fff!important;border:1px solid #e0d8f0!important}
+    .guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+        .guide-content .quick-summary ul { padding-left: 0.5rem; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    </style>
+</body>
+</html>

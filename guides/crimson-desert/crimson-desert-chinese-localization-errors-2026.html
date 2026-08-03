@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert Chinese Localization Errors: Mistranslation Cheat Sheet</title>
+    <meta name="description" content="Crimson Desert's Chinese localization mislabels dyes, recipes and UI tags. Full English &rarr; wrong Chinese &rarr; correct meaning cheat sheet, plus community patch advice (2026).">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Crimson Desert Chinese localization errors, Crimson Desert mistranslation list, Crimson Desert dye name wrong Chinese, Crimson Desert ATAG duplicate translation, Crimson Desert Chinese voice acting 2026">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-chinese-localization-errors-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{color:#7a64b8!important}
+        .guide-content h3{color:#7a64b8!important}
+        .guide-content .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;color:#2d2a33;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0}
+        .guide-content .tip-box strong{color:#7a64b8}
+        .guide-content .warn-box{background:#fef9f5;border:1px solid #e8c8a0;color:#2d2a33;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0}
+        .guide-content .warn-box strong{color:#b84a3a}
+        .guide-content .action-step{background:#faf8fc;border:1px solid #e0d8f0;margin:1.2rem 0;padding:1.2rem 1.5rem;border-radius:8px}
+        .guide-content .action-step h4{color:#7a64b8;margin:0 0 .6rem 0}
+        .guide-content .method-box{background:#faf8fc;border:1px solid #e0d8f0;padding:1.4rem;margin:1.25rem 0;border-radius:8px}
+        .guide-content .method-box h4{color:#7a64b8;margin:0 0 .85rem 0}
+        .guide-content .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .guide-content .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .guide-content .toc{background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .guide-content .toc h3{color:#7a64b8!important}
+        .guide-content li{color:#2d2a33!important}
+        .guide-content p{color:#2d2a33!important}
+        .progress-widget{display:none!important}
+        table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+        table th{background:#f8f6fc;color:#7a64b8;padding:10px 14px;text-align:left;border:1px solid #e0d8f0;font-weight:700}
+        table td{padding:9px 14px;border:1px solid #eee;color:#333}
+        table tr:nth-child(even){background:#fafbfd}
+        .guide-content .quick-summary{background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px}
+        .guide-content .quick-summary h3{color:#7a64b8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700}
+        .guide-content .quick-summary ul{margin:0;padding-left:1.2rem;list-style:none;color:#2d2a33;font-size:.92rem;line-height:1.8}
+        .guide-content .quick-summary li{color:#2d2a33!important}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Crimson Desert <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#dyes">Dye Names</a></li>
+                    <li><a href="#recipes">Recipes</a></li>
+                    <li><a href="#ui">UI &amp; Tags</a></li>
+                    <li><a href="#voice">Voice Acting</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../guides/crimson-desert/index.html">Crimson Desert</a> / Chinese Localization Errors</p>
+            <h1>Crimson Desert Chinese Localization Errors: Mistranslation Cheat Sheet</h1>
+            <div class="cd-level-badge" style="display:inline-block;background:#f0ebfa;color:#5a4a8a;border:1px solid #7a64b8;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">🌐 Localization &amp; Reference</div>
+            <p class="subtitle">If you play Crimson Desert in Simplified Chinese and keep buying the wrong dye, missing crafting materials, or wondering why two different items share the same name &mdash; you are not misreading anything. The Chinese localization has systematic naming errors, and this is the cross-reference table Pearl Abyss never shipped.</p>
+            <p style="font-style:italic;color:#5a4a8a;margin:.4rem 0 0;font-size:.95rem;">"I wasted four hours farming for a material that the Chinese UI had already renamed to something else."</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📖</span> <strong>Localization Reference</strong> · 8 min read · Updated August 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary">
+                <h3>⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul>
+                    <li>📌 <strong>Dye names are the worst offenders:</strong> orange and orange-red are used interchangeably, so the colour you buy is not the colour you get.</li>
+                    <li>📌 <strong>Recipe material names don't match inventory names</strong> &mdash; the same item appears under two different Chinese labels.</li>
+                    <li>📌 <strong>ATAG duplication:</strong> UI tags render the translated string twice, making tooltips unreadable in places.</li>
+                    <li>📌 <strong>Chinese voice acting is flat</strong> &mdash; switch voice to Korean or English with Chinese subtitles for better delivery.</li>
+                    <li>📌 <strong>Practical fix:</strong> play with English item names + Chinese subtitles, and use the cheat sheet below when following any guide.</li>
+                    <li>📌 <strong>Community patches exist</strong> but carry risk &mdash; section 7 covers what is safe and what is not.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#why">Why the Chinese Build Breaks Guides</a></li>
+                    <li><a href="#dyes">Dye &amp; Colour Name Errors</a></li>
+                    <li><a href="#recipes">Recipe &amp; Material Mismatches</a></li>
+                    <li><a href="#ui">UI, Tooltips &amp; ATAG Duplication</a></li>
+                    <li><a href="#voice">Chinese Voice Acting Problems</a></li>
+                    <li><a href="#workflow">The Bilingual Play Workflow</a></li>
+                    <li><a href="#patch">Community Translation Patches</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ol>
+            </div>
+
+            <section id="why">
+                <h2>1. Why the Chinese Build Breaks Guides</h2>
+                <p>The Simplified Chinese localization was clearly produced in parallel streams: item names, recipes, UI strings and subtitles were each handled separately and never reconciled against one glossary. The result isn't "bad Chinese" &mdash; the sentences read fine. The problem is <strong>inconsistency</strong>: one English source term ends up with two or three Chinese renderings depending on which screen you're on.</p>
+                <p>That matters, because almost every guide, wiki entry and video uses English item names. When your inventory calls the item something else and the crafting window calls it a third thing, you can't follow instructions at all. New players hit this hardest, which is why this pairs with our <a href="../../guides/crimson-desert/crimson-desert-beginner-no-guide-completion-2026.html">beginner completion guide</a>.</p>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Not a Bug You Can Fix in Settings</div>
+                    <p>There's no toggle for "consistent item names". The only reliable workaround is knowing which terms are wrong &mdash; which is what the tables below are for.</p>
+                </div>
+            </section>
+
+            <section id="dyes">
+                <h2>2. Dye &amp; Colour Name Errors</h2>
+                <p>Dyes fail most visibly, because you pay for a colour and receive a different one. <em>Orange</em> and <em>orange-red / vermilion</em> are collapsed into overlapping labels, and several "crimson" variants reuse the same characters.</p>
+                <table>
+                    <tr><th>English name</th><th>Wrong / confusing Chinese</th><th>What it actually is</th></tr>
+                    <tr><td>Orange Dye</td><td>橙红染料 (reads as "orange-red")</td><td>Plain orange &mdash; not the red-shifted tone</td></tr>
+                    <tr><td>Vermilion Dye</td><td>橙色染料 (reads as "orange")</td><td>Orange-red / vermilion &mdash; swapped with the above</td></tr>
+                    <tr><td>Crimson Dye</td><td>深红染料 (also used for Deep Red)</td><td>Crimson &mdash; distinct from Deep Red in-game</td></tr>
+                    <tr><td>Deep Red Dye</td><td>深红染料 (identical string)</td><td>A darker, less saturated red</td></tr>
+                    <tr><td>Sand Ochre</td><td>黄土色 (reads as "loess/earth yellow")</td><td>Pale desert ochre, much lighter than it sounds</td></tr>
+                    <tr><td>Ash Grey</td><td>灰烬色 (reads as "cinder colour")</td><td>Neutral grey, no warm tint</td></tr>
+                    <tr><td>Bone White</td><td>骨白 / 象牙白 (two labels, one item)</td><td>Same dye listed under two names in different vendors</td></tr>
+                </table>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Buy by Swatch, Not by Name</div>
+                    <p>Always preview the dye on your gear before confirming the purchase. The swatch is generated from the actual colour value, so it is the one part of the UI that cannot lie to you.</p>
+                </div>
+            </section>
+
+            <section id="recipes">
+                <h2>3. Recipe &amp; Material Mismatches</h2>
+                <p>The second systematic failure: a recipe lists a material under one Chinese name while your inventory and the vendor use another. Players routinely conclude they're missing an ingredient that's already in their bag.</p>
+                <table>
+                    <tr><th>English source term</th><th>Wrong Chinese in recipe UI</th><th>Correct meaning / where to find it</th></tr>
+                    <tr><td>Refined Leather</td><td>精制皮革 vs 加工皮革 (two strings)</td><td>One item &mdash; check inventory under both labels</td></tr>
+                    <tr><td>Coarse Thread</td><td>粗线 (also used for "Rough Cord")</td><td>Two separate items sharing one label &mdash; verify by icon</td></tr>
+                    <tr><td>Herb Extract</td><td>草药提取物 vs 药草精华</td><td>Same consumable base, listed inconsistently</td></tr>
+                    <tr><td>Iron Ingot</td><td>铁锭 (correct) vs 铁块 in some recipes</td><td>铁块 in a recipe usually means the ingot, not raw ore</td></tr>
+                    <tr><td>Cured Meat</td><td>腌肉 vs 熏肉 ("salted" vs "smoked")</td><td>One item; the cooking UI and vendor disagree</td></tr>
+                    <tr><td>Beast Sinew</td><td>兽筋 vs 野兽腱</td><td>Same drop, different label per source</td></tr>
+                    <tr><td>Fine Pigment</td><td>细颜料 (reads as "thin pigment")</td><td>High-grade pigment used in dye crafting</td></tr>
+                </table>
+                <p>This compounds fast &mdash; duplicated stacks under different labels eat warehouse slots. Our <a href="../../guides/crimson-desert/crimson-desert-storage-economy-guide-2026.html">storage and economy guide</a> covers auditing and consolidating them before they cost you money.</p>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Don't Sell "Duplicates"</div>
+                    <p>Two stacks with different Chinese names may be one item shown twice, or two genuinely different items. Compare icon and tooltip stats before selling either.</p>
+                </div>
+            </section>
+
+            <section id="ui">
+                <h2>4. UI, Tooltips &amp; ATAG Duplication</h2>
+                <p>Beyond naming, the Chinese build has a rendering defect: inline UI tags (the ATAG markup used for keybind icons and emphasis) get processed twice, so the translated fragment appears duplicated inside the tooltip.</p>
+                <div class="method-box">
+                    <h4>🧩 What ATAG Duplication Looks Like</h4>
+                    <ol>
+                        <li><strong>Doubled words in tooltips</strong> &mdash; the same characters repeat right after the tag, e.g. a keybind hint printed twice.</li>
+                        <li><strong>Overflowing tooltip boxes</strong> &mdash; duplicated text pushes real content out of frame, hiding stat lines.</li>
+                        <li><strong>Broken keybind prompts</strong> &mdash; a raw tag or placeholder shows instead of the button glyph.</li>
+                        <li><strong>Truncated quest objectives</strong> &mdash; the duplicate eats the character budget and the objective gets cut off.</li>
+                    </ol>
+                </div>
+                <div class="action-step">
+                    <h4>Workaround: English UI, Chinese subtitles</h4>
+                    <p>Set interface to English and subtitles to Chinese if your build allows split settings. You lose nothing narratively and every tooltip becomes readable and guide-compatible.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Workaround: widen the UI scale</h4>
+                    <p>A slightly larger UI scale gives the duplicated string room, stopping the overflow from hiding stat lines. It doesn't remove the duplicate but makes tooltips usable.</p>
+                </div>
+            </section>
+
+            <section id="voice">
+                <h2>5. Chinese Voice Acting Problems</h2>
+                <p>The Chinese dub draws consistent criticism for flat, read-aloud delivery &mdash; lines are accurate but performed without emotional range, and timing often mismatches the animation. Combat barks in particular land after the animation finishes.</p>
+                <table>
+                    <tr><th>Audio setup</th><th>Experience</th><th>Best for</th></tr>
+                    <tr><td>Chinese voice + Chinese subs</td><td>⚠️ Flat delivery, occasional lip-sync drift</td><td>Players who want zero reading effort</td></tr>
+                    <tr><td>Korean voice + Chinese subs</td><td>✅ Best performance match to animation</td><td>Most players &mdash; the recommended default</td></tr>
+                    <tr><td>English voice + Chinese subs</td><td>✅ Good delivery, easier name cross-reference</td><td>Guide followers who need English item names</td></tr>
+                    <tr><td>English voice + English subs</td><td>✅ Fully consistent with all guides</td><td>Anyone comfortable reading English</td></tr>
+                </table>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The Cross-Reference Trick</div>
+                    <p>English voice with Chinese subtitles gives you both sides of the glossary at once. When a proper noun sounds different from the subtitle, you've just found another mistranslation.</p>
+                </div>
+            </section>
+
+            <section id="workflow">
+                <h2>6. The Bilingual Play Workflow</h2>
+                <p>This setup removes almost all localization friction without patching anything:</p>
+                <div class="method-box">
+                    <h4>🛠️ Recommended Setup</h4>
+                    <ol>
+                        <li><strong>Interface: English.</strong> Item names, recipes and tooltips become guide-compatible and ATAG duplication largely disappears.</li>
+                        <li><strong>Subtitles: Chinese.</strong> You keep full story comprehension where it matters.</li>
+                        <li><strong>Voice: Korean or English.</strong> Better performance than the Chinese dub; English doubles as a name cross-reference.</li>
+                        <li><strong>Keep the cheat sheet open</strong> so you can translate terms from Chinese-language videos instantly.</li>
+                        <li><strong>Verify by icon.</strong> Icons and stat lines are language-independent &mdash; treat them as the source of truth.</li>
+                    </ol>
+                </div>
+                <p>Any patch can reset language settings to system default. If your interface flips back to Chinese after an update, that's the same config-reset behaviour documented in the <a href="../../guides/crimson-desert/crimson-desert-115-patch-issues-2026.html">1.15 patch issues guide</a> &mdash; re-apply settings before assuming something broke.</p>
+            </section>
+
+            <section id="patch">
+                <h2>7. Community Translation Patches</h2>
+                <p>Player-made corrective translation packs circulate for most Pearl Abyss titles. They typically ship a corrected string table fixing dye and material naming. Weigh this honestly before installing one.</p>
+                <div class="warn-box">
+                    <div class="tip-title">⚠️ Risk Checklist</div>
+                    <p>Modifying game files can trip integrity checks and may put your account at risk on online-connected features. Text-only string replacements are lowest-risk, but "low risk" isn't "no risk" &mdash; no fan patch is officially supported.</p>
+                </div>
+                <div class="action-step">
+                    <h4>① Prefer string-table-only packs</h4>
+                    <p>Avoid anything replacing textures, font binaries or executables. A legitimate translation fix only touches localization data.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Back up the original files</h4>
+                    <p>Copy the untouched localization files before overwriting so you have a clean baseline to restore.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Expect to reinstall after every patch</h4>
+                    <p>Updates overwrite localization data. If broken names return, your patch was replaced &mdash; nothing is corrupted.</p>
+                </div>
+                <div class="action-step">
+                    <h4>④ Report the errors upstream</h4>
+                    <p>Send the official feedback channel a screenshot and the exact string. Naming inconsistencies are cheap to fix once documented.</p>
+                </div>
+            </section>
+
+            <section id="faq">
+                <h2>8. FAQs</h2>
+                <div class="faq-item">
+                    <h4>Are these errors going to be fixed officially?</h4>
+                    <p>Localization glossary passes usually land in larger content patches rather than hotfixes. There is no announced date, so plan around the workaround rather than waiting.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>If I switch the interface to English, do I lose my Chinese save?</h4>
+                    <p>No. Language is a display setting only. Your save, progress and settings are untouched by the switch, and you can flip back at any time.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Why do two items have exactly the same Chinese name?</h4>
+                    <p>Because two distinct English source terms were mapped to one Chinese string. Distinguish them by icon, rarity colour and the stat block &mdash; never by name alone.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Does the ATAG duplication affect gameplay or just looks?</h4>
+                    <p>Indirectly, yes &mdash; truncated quest objectives and hidden stat lines mean you decide with missing information. That's why the English-UI workaround is worth doing.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I use a fan patch on console?</h4>
+                    <p>No. Console builds don't allow file replacement. Use the English-interface workaround, which works on every platform.</p>
+                </div>
+            </section>
+
+            <div class="next-steps">
+                <h3>🎯 More Crimson Desert Help</h3>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> No tutorial, no idea what to do next? Read the <a href="../../guides/crimson-desert/crimson-desert-beginner-no-guide-completion-2026.html" style="color:#7a64b8; font-weight:bold;">Beginner Completion Guide</a>
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Consolidate duplicate stacks with the <a href="../../guides/crimson-desert/crimson-desert-storage-economy-guide-2026.html" style="color:#7a64b8; font-weight:bold;">Storage &amp; Economy Guide</a>
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Settings reset after an update? See the <a href="../../guides/crimson-desert/crimson-desert-115-patch-issues-2026.html" style="color:#7a64b8; font-weight:bold;">1.15 Patch Issues Guide</a>
+                </div>
+            </div>
+
+            <div class="related-guides">
+                <h3>More Crimson Desert Guides</h3>
+                <div class="article-grid">
+                    <a href="../../guides/crimson-desert/crimson-desert-beginner-no-guide-completion-2026.html" class="article-card">
+                        <h3>Beginner Completion Guide</h3>
+                        <p>Finish the early game without an in-game tutorial.</p>
+                    </a>
+                    <a href="../../guides/crimson-desert/crimson-desert-storage-economy-guide-2026.html" class="article-card">
+                        <h3>Storage &amp; Economy Guide</h3>
+                        <p>Warehouse slots, duplicate stacks and money management.</p>
+                    </a>
+                    <a href="../../guides/crimson-desert/crimson-desert-115-patch-issues-2026.html" class="article-card">
+                        <h3>1.15 Patch Issues</h3>
+                        <p>HDR, DLSS and AMD driver crash matrix.</p>
+                    </a>
+                    <a href="../../guides/crimson-desert/crimson-desert-boss-mechanics-teaching-2026.html" class="article-card">
+                        <h3>Boss Mechanics Explained</h3>
+                        <p>Read boss tells the game never teaches you.</p>
+                    </a>
+                </div>
+
+                <div class="tool-callout" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+                    <p style="color:#7a64b8;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">📚 More Crimson Desert Guides</p>
+                    <p style="color:#2D2A33!important;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Stuck on another issue? Browse our full Crimson Desert guide library.</p>
+                    <a href="../../guides/crimson-desert/index.html" style="display:inline-block;padding:0.65rem 1.8rem;background:#9B84D4;color:#fff;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Browse Guides →</a>
+                </div>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">&#127807;</span>
+        <div class="support-text">
+            <h3>This Crimson Desert guide stays free either way.</h3>
+            <p>If it saved you time, a $1 tip helps us keep writing more guides.</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn recommended">&#127807; Buy me a pack of gum — $1.00</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">No paywall, no subscription — just a thank-you if you can. &#129309;</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>Crimson Desert Guru</h4><p>Free Crimson Desert guides updated weekly.</p></div>
+                <div class="footer-col"><h4>Guides</h4><ul>
+                    <li><a href="../../guides/crimson-desert/crimson-desert-beginner-no-guide-completion-2026.html">Beginner Completion</a></li>
+                    <li><a href="../../guides/crimson-desert/crimson-desert-storage-economy-guide-2026.html">Storage &amp; Economy</a></li>
+                    <li><a href="../../guides/crimson-desert/crimson-desert-115-patch-issues-2026.html">1.15 Patch Issues</a></li>
+                    <li><a href="../../guides/crimson-desert/crimson-desert-boss-mechanics-teaching-2026.html">Boss Mechanics</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>More</h4><ul>
+                    <li><a href="../../index.html">OSRS Guru Home</a></li>
+                    <li><a href="../../guides/crimson-desert/index.html">All CD Guides</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #7a64b8;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Crimson Desert is a trademark of Pearl Abyss. Not affiliated with or endorsed by Pearl Abyss.</p>
+    </div>
+
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content{color:#2d2a33!important}
+    .guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#2d2a33!important}
+    .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .faq-item,.guide-content .warn-box,.guide-content .next-steps{background:#fff!important;border:1px solid #e0d8f0!important}
+    .guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .action-step p,.guide-content .action-step li,.guide-content .warn-box p,.guide-content .warn-box li,.guide-content .next-steps p,.guide-content .next-steps li{color:#2d2a33!important}
+    .guide-content .faq-item h4,.guide-content .method-box h4,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warn-box strong,.guide-content .next-steps strong{color:#7a64b8!important}
+    .guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+    .guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    .guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+        .guide-content .quick-summary ul { padding-left: 0.5rem; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    </style>
+</body>
+</html>

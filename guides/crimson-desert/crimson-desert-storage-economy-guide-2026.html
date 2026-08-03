@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert Storage &amp; Economy Guide: Fix "Auto-Stored But Missing" (2026)</title>
+    <meta name="description" content="Loot says &quot;sent to storage&quot; but isn't there? A full Crimson Desert storage and economy workflow &mdash; item routing rules, warehouse bugs, gold bar and Kuku jar issues, and how to never lose loot again.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Crimson Desert storage guide, Crimson Desert auto stored but missing, Crimson Desert warehouse bug, Crimson Desert inventory management 2026, Crimson Desert economy guide, Crimson Desert gold bar bug">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-storage-economy-guide-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{color:#7a64b8!important}
+        .guide-content h3{color:#7a64b8!important}
+        .guide-content .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;color:#2d2a33;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0}
+        .guide-content .tip-box strong{color:#7a64b8}
+        .guide-content .warn-box{background:#fef9f5;border:1px solid #e8c8a0;color:#2d2a33;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0}
+        .guide-content .warn-box strong{color:#b84a3a}
+        .guide-content .action-step{background:#faf8fc;border:1px solid #e0d8f0;margin:1.2rem 0;padding:1.2rem 1.5rem;border-radius:8px}
+        .guide-content .action-step h4{color:#7a64b8;margin:0 0 .6rem 0}
+        .guide-content .method-box{background:#faf8fc;border:1px solid #e0d8f0;padding:1.4rem;margin:1.25rem 0;border-radius:8px}
+        .guide-content .method-box h4{color:#7a64b8;margin:0 0 .85rem 0}
+        .guide-content .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .guide-content .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .guide-content .toc{background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .guide-content .toc h3{color:#7a64b8!important}
+        .guide-content li{color:#2d2a33!important}
+        .guide-content p{color:#2d2a33!important}
+        .progress-widget{display:none!important}
+        table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+        table th{background:#f8f6fc;color:#7a64b8;padding:10px 14px;text-align:left;border:1px solid #e0d8f0;font-weight:700}
+        table td{padding:9px 14px;border:1px solid #eee;color:#333}
+        table tr:nth-child(even){background:#fafbfd}
+        .guide-content .quick-summary{background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px}
+        .guide-content .quick-summary h3{color:#7a64b8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700}
+        .guide-content .quick-summary ul{margin:0;padding-left:1.2rem;list-style:none;color:#2d2a33;font-size:.92rem;line-height:1.8}
+        .guide-content .quick-summary li{color:#2d2a33!important}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Crimson Desert <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#missing">Missing Loot</a></li>
+                    <li><a href="#flow">Item Flow</a></li>
+                    <li><a href="#bugs">Storage Bugs</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../guides/crimson-desert/index.html">Crimson Desert</a> / Storage &amp; Economy</p>
+            <h1>Crimson Desert Storage &amp; Economy Guide: Avoid the "Auto-Stored But Missing" Bug</h1>
+            <div class="cd-level-badge" style="display:inline-block;background:#f0ebfa;color:#5a4a8a;border:1px solid #7a64b8;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">💰 Economy &amp; Inventory</div>
+            <p class="subtitle">You loot a rare drop, the game flashes <em>"sent to storage"</em>, and twenty minutes later it is nowhere in the warehouse. Nothing is actually deleted &mdash; but Crimson Desert's storage layer routes items in ways the UI never explains. This guide is the routing map plus the bug-avoidance workflow.</p>
+            <p style="font-style:italic;color:#5a4a8a;margin:.4rem 0 0;font-size:.95rem;">"I spent an hour convinced the game ate my gold bars. They were in a category tab I didn't know existed."</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🎮</span> <strong>Storage &amp; Economy</strong> · 9 min read · Updated August 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary">
+                <h3>⏱️ Quick Summary — 30-Second Read</h3>
+                <ul>
+                    <li>📌 <strong>"Auto-stored but missing" is almost always a routing problem</strong>, not a deletion &mdash; the item went to a different tab, a different town's warehouse, or a quest-locked slot.</li>
+                    <li>📌 <strong>Check in this order:</strong> Storage → All / Uncategorised tab → the warehouse of the town you were <em>last docked at</em> → quest inventory → camp stash.</li>
+                    <li>📌 <strong>Personal-to-town transfer is one-item-at-a-time</strong> on several builds. Move value-dense stacks (gold bars, cores) first, not junk.</li>
+                    <li>📌 <strong>Gold bars and Kuku jars are the two worst offenders</strong> &mdash; both can display a stack count that does not match what the sell menu sees.</li>
+                    <li>📌 <strong>Never fast-travel or accept a quest with a full bag</strong>. Overflow is where genuine loss (not just misfiling) actually happens.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#missing">Why Loot "Disappears" &mdash; the Real Cause</a></li>
+                    <li><a href="#flow">The Item Management Flow (Our Core Method)</a></li>
+                    <li><a href="#recovery">5-Step Missing Item Recovery Checklist</a></li>
+                    <li><a href="#bugs">Known Storage Bugs &amp; How to Avoid Each</a></li>
+                    <li><a href="#economy">Economy: What to Store, Sell, and Never Hoard</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ol>
+            </div>
+
+            <section id="missing">
+                <h2>1. Why Loot "Disappears" &mdash; the Real Cause</h2>
+                <p>Crimson Desert does not use one inventory. It uses at least four containers that all report success with the same message: your <strong>carried bag</strong>, the <strong>town warehouse</strong> (per-settlement, not global), your <strong>personal storage</strong>, and <strong>camp/mount stash</strong> space. "Automatically stored" never tells you <em>which</em> one received the item.</p>
+                <p>On top of that, the storage UI sorts by rigid, hard-coded categories. Items with an ambiguous type flag &mdash; quest-adjacent materials, event rewards, conversion by-products &mdash; frequently land outside the tab you expect: present in the container, invisible in the filtered view you are staring at.</p>
+                <div class="warn-box">
+                    <strong>⚠️ The one case that is real loss</strong>
+                    <p>If your bag is full and the auto-store target is also full or unavailable (mid-cutscene, mid-quest lock, during a fast-travel load), some drops fall to the ground and despawn with the area. This is the only scenario where the item genuinely does not exist any more. Everything else is a filing problem &mdash; and section 3 will find it.</p>
+                </div>
+                <table>
+                    <tr><th>Symptom</th><th>Most likely container</th><th>Actually lost?</th></tr>
+                    <tr><td>"Sent to storage", not in warehouse</td><td>Different town's warehouse</td><td>No</td></tr>
+                    <tr><td>Visible in loot log, no tab shows it</td><td>Uncategorised / All tab</td><td>No</td></tr>
+                    <tr><td>Quest material vanished</td><td>Quest inventory (separate pane)</td><td>No</td></tr>
+                    <tr><td>Count dropped after fast travel with full bag</td><td>Ground despawn on overflow</td><td>Yes</td></tr>
+                    <tr><td>Stack shows 0 but item icon remains</td><td>UI desync &mdash; reload the zone</td><td>No</td></tr>
+                </table>
+            </section>
+
+            <section id="flow">
+                <h2>2. The Item Management Flow (Our Core Method)</h2>
+                <p>Competitor guides list warehouse coordinates and sell prices. Nobody publishes the actual <em>routing discipline</em> that prevents the problem. This is the flow we run, and it has cut our "where did that go" incidents to near zero.</p>
+                <div class="method-box">
+                    <h4>🔁 The Four-Gate Loot Routine</h4>
+                    <ol>
+                        <li><strong>Gate 1 &mdash; Cap your bag at 80%.</strong> Never leave a fight or a camp with a bag above roughly four-fifths full. The auto-store overflow path only misbehaves when you are at the ceiling. This single habit removes the only true-loss scenario.</li>
+                        <li><strong>Gate 2 &mdash; One home warehouse.</strong> Pick one settlement as your permanent base and deposit there every time, even if a closer town is available. Per-town warehouses are the number-one reason items feel "gone". Consistency beats convenience.</li>
+                        <li><strong>Gate 3 &mdash; Deposit value first.</strong> When you open storage, move gold bars, cores, and rare crafting materials <em>before</em> anything else. Transfer can silently degrade to one item per action, and you do not want to hit that wall with your best loot still in the bag.</li>
+                        <li><strong>Gate 4 &mdash; Verify with the All tab, not the category tab.</strong> After depositing, switch the filter to All / Uncategorised and confirm the count. Category tabs lie by omission; the unfiltered view does not.</li>
+                    </ol>
+                </div>
+                <div class="tip-box">
+                    <strong>💡 Why 80%, not 100%</strong>
+                    <p>Auto-store fires on pickup, and a pickup during a scripted sequence has nowhere to go if both bag and target are saturated. Headroom means the item always lands somewhere retrievable &mdash; a two-second habit that protects hours of farming.</p>
+                </div>
+                <p>Unsure which materials are even worth this ceremony? Our <a href="../../guides/crimson-desert/crimson-desert-beginner-no-guide-completion-2026.html">beginner completion guide</a> covers the early-game priority list that pairs with this flow.</p>
+            </section>
+
+            <section id="recovery">
+                <h2>3. 5-Step Missing Item Recovery Checklist</h2>
+                <p>Run these in order. Stop at the step that finds it &mdash; most cases resolve at step 1 or 2.</p>
+                <div class="action-step">
+                    <h4>① Switch the storage filter to All</h4>
+                    <p>Open storage and clear every category filter. Sort by "recently acquired" if the option exists. A large share of "missing" items are sitting in a tab whose name has nothing to do with the item's obvious type.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Check the warehouse of the town you were last in</h4>
+                    <p>Not the town you are in now &mdash; the one you were docked at when the loot dropped. Auto-store targets the most recently registered warehouse, which is rarely the one you walk into next.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Open the quest inventory pane separately</h4>
+                    <p>Quest-flagged items live in their own container and never appear in normal storage. If the item was tied to an active objective, it is here. If the quest itself is stuck, our <a href="../../guides/crimson-desert/crimson-desert-quest-softlock-fix-2026.html">quest softlock fix guide</a> covers how to release items trapped behind a broken objective flag.</p>
+                </div>
+                <div class="action-step">
+                    <h4>④ Force a container refresh</h4>
+                    <p>Close storage, move to a different zone or fast-travel once, then reopen. Stack counts that read 0 or icons that will not respond are usually a UI desync, and a zone reload rebuilds the container view from the save data.</p>
+                </div>
+                <div class="action-step">
+                    <h4>⑤ Check camp and mount stash</h4>
+                    <p>Camp storage and mount-carried goods are separate again. Items picked up while a camp was active can route there, especially bulk materials. This is the last realistic hiding place before you conclude the item overflowed.</p>
+                </div>
+                <div class="tip-box">
+                    <strong>💡 Playing in Chinese or another localisation?</strong>
+                    <p>Some category tab names are mistranslated, so the tab you skip because its name sounds irrelevant may be exactly the right one. Cross-check against our <a href="../../guides/crimson-desert/crimson-desert-chinese-localization-errors-2026.html">localisation error list</a> before you assume an item is gone &mdash; several "missing item" reports trace straight back to a bad label.</p>
+                </div>
+            </section>
+
+            <section id="bugs">
+                <h2>4. Known Storage Bugs &amp; How to Avoid Each</h2>
+                <p>Every entry below has a workaround. The point is not to catalogue the bug &mdash; it is to change the sequence of actions so you never trigger it.</p>
+                <table>
+                    <tr><th>Bug</th><th>What you see</th><th>Avoidance step</th></tr>
+                    <tr><td>Single-item transfer lock</td><td>Personal storage moves one unit per confirm instead of a stack</td><td>Deposit high-value items first; leave junk in the bag and sell it instead of transferring</td></tr>
+                    <tr><td>Gold bar count mismatch</td><td>Storage shows a stack, sell menu sees fewer or none</td><td>Withdraw the full stack to your bag, then sell from the bag &mdash; never sell directly from storage</td></tr>
+                    <tr><td>Kuku jar duplication/void</td><td>Jars vanish or fail to consume properly</td><td>Use jars from the bag only, one at a time, and never while a storage window is open in the background</td></tr>
+                    <tr><td>Category misfile</td><td>Item exists but no tab lists it</td><td>Always verify with the All filter after depositing</td></tr>
+                    <tr><td>Full-bag overflow</td><td>Drop never arrives anywhere</td><td>The 80% bag rule from section 2</td></tr>
+                    <tr><td>Post-cutscene desync</td><td>Bag or storage counts frozen</td><td>Zone change once before trusting any count</td></tr>
+                </table>
+                <div class="warn-box">
+                    <strong>⚠️ Do not sell straight out of storage</strong>
+                    <p>The gold bar mismatch bug lives specifically in the storage-to-vendor path. Withdrawing to your bag first costs you five seconds and removes the entire failure mode. Treat storage as cold archive only: things go in, things come out, nothing transacts from inside it.</p>
+                </div>
+            </section>
+
+            <section id="economy">
+                <h2>5. Economy: What to Store, Sell, and Never Hoard</h2>
+                <p>Bag capacity is deliberately tight, and the storage friction above makes hoarding expensive in real time. The correct posture is aggressive triage.</p>
+                <div class="method-box">
+                    <h4>💰 Triage Rules</h4>
+                    <ul>
+                        <li><strong>Always store:</strong> gold bars, upgrade cores, rare crafting materials, unique quest-adjacent items. These are irreplaceable or slow to re-farm.</li>
+                        <li><strong>Sell on sight:</strong> common pelts, low-tier ore, duplicate consumables past a stack of ten. The gold is worth more than the slot.</li>
+                        <li><strong>Never hoard:</strong> "might be useful later" trash mob drops. If it has no recipe attached and no vendor premium, it is dead weight blocking your 80% ceiling.</li>
+                        <li><strong>Keep in bag:</strong> a small healing stack, one repair item, and nothing else consumable. Everything else belongs in the warehouse.</li>
+                    </ul>
+                </div>
+                <p>The deeper point is that the economy punishes indecision. Every slot you leave occupied by a maybe-item is a slot that pushes you toward the full-bag overflow bug. Selling aggressively is not just a gold strategy &mdash; it is bug insurance.</p>
+            </section>
+
+            <section id="faq">
+                <h2>6. FAQs</h2>
+                <div class="faq-item">
+                    <h4>Is my item actually deleted when it says "auto-stored" and isn't there?</h4>
+                    <p>Almost never. In our testing the overwhelming majority of reports resolve at the All-filter check or the wrong-town warehouse check. Genuine loss requires a full bag plus an unavailable store target at the same moment.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is storage shared between towns?</h4>
+                    <p>Treat it as not shared. Even where a build appears to link warehouses, auto-store still targets the last registered settlement. Committing to one home warehouse is the reliable fix.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Why does transferring a stack move only one item?</h4>
+                    <p>It is a known transfer bug on the personal storage path. There is no toggle to fix it &mdash; the workaround is to prioritise: move the valuable items first, and dispose of bulk junk by selling rather than transferring.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Will a patch fix the gold bar and jar issues?</h4>
+                    <p>Pearl Abyss has been iterating on inventory handling across the 1.1x line. Until a specific fix lands, the bag-first sell rule neutralises the gold bar problem entirely, so there is no reason to wait.</p>
+                </div>
+            </section>
+
+            <div class="next-steps">
+                <h3>🎯 More Crimson Desert Help</h3>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Starting out? Read <a href="../../guides/crimson-desert/crimson-desert-beginner-no-guide-completion-2026.html" style="color:#7a64b8; font-weight:bold;">Beginner Completion Guide (No In-Game Tutorial)</a>
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Item stuck behind a broken objective? See <a href="../../guides/crimson-desert/crimson-desert-quest-softlock-fix-2026.html" style="color:#7a64b8; font-weight:bold;">Quest Softlock Fix Guide</a>
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #7a64b8;">
+                    <strong>→</strong> Confusing tab names? Check <a href="../../guides/crimson-desert/crimson-desert-chinese-localization-errors-2026.html" style="color:#7a64b8; font-weight:bold;">Localization Error List</a>
+                </div>
+            </div>
+
+            <div class="related-guides">
+                <h3>More Crimson Desert Guides</h3>
+                <div class="article-grid">
+                    <a href="../../guides/crimson-desert/crimson-desert-beginner-no-guide-completion-2026.html" class="article-card">
+                        <h3>Beginner Completion Guide</h3>
+                        <p>Finish the early game when the game teaches you nothing.</p>
+                    </a>
+                    <a href="../../guides/crimson-desert/crimson-desert-quest-softlock-fix-2026.html" class="article-card">
+                        <h3>Quest Softlock Fix</h3>
+                        <p>Unstick broken objectives and trapped items.</p>
+                    </a>
+                    <a href="../../guides/crimson-desert/crimson-desert-boss-mechanics-teaching-2026.html" class="article-card">
+                        <h3>Boss Mechanics Explained</h3>
+                        <p>Every unteached boss mechanic, decoded.</p>
+                    </a>
+                    <a href="../../guides/crimson-desert/crimson-desert-115-patch-issues-2026.html" class="article-card">
+                        <h3>1.15 Patch Issues</h3>
+                        <p>What the latest patch broke and how to work around it.</p>
+                    </a>
+                </div>
+
+                <div class="tool-callout" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+                    <p style="color:#7a64b8;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">📚 More Crimson Desert Guides</p>
+                    <p style="color:#2D2A33!important;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Stuck on another issue? Browse our full Crimson Desert guide library.</p>
+                    <a href="../../guides/crimson-desert/index.html" style="display:inline-block;padding:0.65rem 1.8rem;background:#9B84D4;color:#fff;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Browse Guides →</a>
+                </div>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">&#127807;</span>
+        <div class="support-text">
+            <h3>This Crimson Desert guide stays free either way.</h3>
+            <p>If it saved you time, a $1 tip helps us keep writing more guides.</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn recommended">&#127807; Buy me a pack of gum — $1.00</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">No paywall, no subscription — just a thank-you if you can. &#129309;</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>Crimson Desert Guru</h4><p>Free Crimson Desert guides updated weekly.</p></div>
+                <div class="footer-col"><h4>Guides</h4><ul>
+                    <li><a href="../../guides/crimson-desert/crimson-desert-beginner-no-guide-completion-2026.html">Beginner Completion Guide</a></li>
+                    <li><a href="../../guides/crimson-desert/crimson-desert-quest-softlock-fix-2026.html">Quest Softlock Fix</a></li>
+                    <li><a href="../../guides/crimson-desert/crimson-desert-boss-mechanics-teaching-2026.html">Boss Mechanics Explained</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>More</h4><ul>
+                    <li><a href="../../index.html">OSRS Guru Home</a></li>
+                    <li><a href="../../guides/crimson-desert/index.html">All Crimson Desert Guides</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #7a64b8;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Crimson Desert is a trademark of Pearl Abyss. Not affiliated with or endorsed by Pearl Abyss.</p>
+    </div>
+
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content{color:#2d2a33!important}
+    .guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#2d2a33!important}
+    .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .faq-item,.guide-content .warn-box,.guide-content .next-steps{background:#fff!important;border:1px solid #e0d8f0!important}
+    .guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .action-step p,.guide-content .action-step li,.guide-content .warn-box p,.guide-content .warn-box li,.guide-content .next-steps p,.guide-content .next-steps li{color:#2d2a33!important}
+    .guide-content .faq-item h4,.guide-content .method-box h4,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warn-box strong,.guide-content .next-steps strong{color:#7a64b8!important}
+    .guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+    .guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    .guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+        .guide-content .quick-summary ul { padding-left: 0.5rem; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    </style>
+</body>
+</html>

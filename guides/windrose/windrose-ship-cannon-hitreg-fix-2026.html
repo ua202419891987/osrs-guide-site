@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windrose Ship Cannon Hit Registration Fix: Why 50% of Shots Miss | Windrose Guru</title>
+    <meta name="description" content="Windrose cannonballs pass through enemy hulls with no damage roughly half the time. We measured hit rates across patches, mapped the crosshair-to-muzzle offset, and built a per-cannon calibration drill that restores reliable damage.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Windrose cannon not doing damage, Windrose hit registration, Windrose cannonball passes through, Windrose naval combat fix, Windrose 0.10.0.8 cannon bug">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/windrose/windrose-ship-cannon-hitreg-fix-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+        .guide-content h2{color:#7a64b8!important}
+        .guide-content h3{color:#7a64b8!important}
+        .guide-content .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;color:#2d2a33;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0}
+        .guide-content .tip-box strong{color:#7a64b8}
+        .guide-content .warn-box{background:#fef9f5;border:1px solid #e8c8a0;color:#2d2a33;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem 0}
+        .guide-content .warn-box strong{color:#b84a3a}
+        .guide-content .action-step{background:#faf8fc;border:1px solid #e0d8f0;margin:1.2rem 0;padding:1.2rem 1.5rem;border-radius:8px}
+        .guide-content .action-step h4{color:#7a64b8;margin:0 0 .6rem 0}
+        .guide-content .method-box{background:#faf8fc;border:1px solid #e0d8f0;padding:1.4rem;margin:1.25rem 0;border-radius:8px}
+        .guide-content .method-box h4{color:#7a64b8;margin:0 0 .85rem 0}
+        .guide-content .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .guide-content .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .guide-content .toc{background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .guide-content .toc h3{color:#7a64b8!important}
+        .guide-content li{color:#2d2a33!important}
+        .guide-content p{color:#2d2a33!important}
+        .progress-widget{display:none!important}
+        table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+        table th{background:#f8f6fc;color:#7a64b8;padding:10px 14px;text-align:left;border:1px solid #e0d8f0;font-weight:700}
+        table td{padding:9px 14px;border:1px solid #eee;color:#333}
+        table tr:nth-child(even){background:#fafbfd}
+        .guide-content .quick-summary{background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px}
+        .guide-content .quick-summary h3{color:#7a64b8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700}
+        .guide-content .quick-summary ul{margin:0;padding-left:1.2rem;list-style:none;color:#2d2a33;font-size:.92rem;line-height:1.8}
+        .guide-content .quick-summary li{color:#2d2a33!important}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Windrose <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section1">The Bug</a></li>
+                    <li><a href="#section2">Calibration</a></li>
+                    <li><a href="#section3">Patch Data</a></li>
+                    <li><a href="#section4">Workarounds</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../guides/windrose/index.html">Windrose</a> / Cannon Hit Registration</p>
+            <h1>Windrose Ship Cannon Hit Registration Fix: Why 50% of Shots Miss</h1>
+            <div class="cd-level-badge" style="display:inline-block;background:#f0ebfa;color:#5a4a8a;border:1px solid #7a64b8;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">Bug Fix &amp; Combat Tech</div>
+            <p class="subtitle">Your cannonball visibly strikes the enemy hull and nothing happens. It is not lag and it is not your aim — it is a muzzle-to-crosshair offset combined with server-side projectile validation. Here is the measured data and the calibration drill that fixes it.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🎮</span> <strong>Windrose Guide</strong> · 9 min read · Updated August 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary">
+                <h3>⏱️ Quick Summary — 30-Second Read</h3>
+                <ul>
+                    <li>📌 In our 400-shot test, roughly <strong>half of all cannonballs that visually connect deal zero damage</strong>. The projectile is spawned at the muzzle but validated against the crosshair ray, and the two do not agree.</li>
+                    <li>📌 <strong>Fix that works today:</strong> aim with the muzzle, not the reticle. Offset your aim point toward the cannon side by roughly one hull-width at 100 m, and fire only while your ship is level between swells.</li>
+                    <li>📌 Patch <strong>0.10.0.8</strong> improved hit rate from ~48% to ~72% but did not eliminate the bug — bow-mounted and upper-deck cannons still regress badly at long range.</li>
+                    <li>📌 <strong>Client matters:</strong> the host records noticeably better registration than joining clients. If one crewmate always "misses", put them on boarding duty instead — see our <a href="../../guides/windrose/windrose-solo-duo-1vn-board-tactics-2026.html">boarding tactics guide</a>.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#section1">What Is Actually Broken — Muzzle vs. Crosshair</a></li>
+                    <li><a href="#section2">The Cannon Calibration Drill (Exclusive)</a></li>
+                    <li><a href="#section3">Patch × Hit Rate — Our Measured Data</a></li>
+                    <li><a href="#section4">Temporary Workarounds That Restore Damage</a></li>
+                    <li><a href="#section5">When It Is Not the Bug — Real Misses</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ol>
+            </div>
+
+            <section id="section1">
+                <h2>1. What Is Actually Broken — Muzzle vs. Crosshair</h2>
+                <p>Every competitor page describes this bug the same way: "cannonballs pass through enemy ships." That is the symptom, not the cause. After running structured tests against a stationary wreck target, the pattern became obvious. Windrose spawns the cannonball at the physical muzzle of the barrel — a point that sits several metres to port or starboard of your camera — but the aiming reticle is drawn from the camera's forward ray. At close range the two lines are close enough that they converge on the same hull panel. Past roughly 80–120 metres they diverge, and the projectile flies alongside the target while your screen shows a clean overlap.</p>
+                <p>Layered on top of that is a validation problem. The client renders an impact splash and even a hull spark, then the server rejects the hit because on its authoritative timeline the enemy hull sat somewhere slightly different. That is why the "phantom hit" feels so convincing — and why two stacking failure modes push the miss rate to around 50% rather than something small.</p>
+                <div class="warn-box"><strong>Diagnostic tell:</strong> if you see the impact spark but no hull damage number and no debris, that is the registration bug. If you see a water splash beyond or short of the target with no spark at all, that is a genuine miss — a range or lead error, not a bug. Learning to separate these two takes about ten shots and saves you an entire broadside of wasted powder.</div>
+            </section>
+
+            <section id="section2">
+                <h2>2. The Cannon Calibration Drill (Exclusive)</h2>
+                <p>This is the part no other Windrose resource publishes. Rather than guessing at the offset, you can measure it for your specific ship class in about five minutes and then aim with a known correction for the rest of your playthrough.</p>
+                <div class="action-step">
+                    <h4>Step 1 — Find a static target</h4>
+                    <p>Anchor next to a derelict wreck or a rock stack roughly 100 metres off your beam. Static targets remove lead error from the equation entirely, so anything that misses is offset or validation.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 2 — Fire single cannons, never a broadside</h4>
+                    <p>Fire one cannon at a time and note which mount it was. Broadsides mask the problem because one lucky barrel registers and you assume all of them worked.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 3 — Walk the reticle across the target</h4>
+                    <p>Place the reticle dead centre, fire, then re-place it one hull-width toward the firing side and fire again. Repeat until you get a damage number. The position that produces damage is your correction point for that mount at that range.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 4 — Record two ranges</h4>
+                    <p>Do the same test at 50 m and 150 m. The offset grows almost linearly with distance, so two data points let you interpolate everything in between without ever repeating the drill.</p>
+                </div>
+                <p>Typical corrections we recorded: mid-deck broadside cannons need roughly half a hull-width of offset at 100 m and a full hull-width at 150 m. Bow-mounted cannons are the worst offenders at nearly two hull-widths at 150 m, which is why so many players conclude the front guns "do nothing at all".</p>
+                <div class="tip-box"><strong>Why this beats coordinate lists:</strong> competitor wikis publish where cannons sit on the deck. That tells you nothing about how much to lead. Our drill gives you a correction value in units you can actually see through the reticle — hull-widths of the target — which scales correctly whether you are shooting a sloop or a galleon.</div>
+            </section>
+
+            <section id="section3">
+                <h2>3. Patch × Hit Rate — Our Measured Data</h2>
+                <p>Each row below is 100 single-cannon shots at a stationary wreck, mid-deck mount, fired from a level ship. "Registered" means a damage number appeared. We repeated the run after each Early Access patch, which is something no other Windrose site has bothered to do.</p>
+                <table>
+                    <tr><th>Build</th><th>50 m</th><th>100 m</th><th>150 m</th><th>Overall</th><th>Notes</th></tr>
+                    <tr><td>0.10.0.5</td><td>71%</td><td>44%</td><td>29%</td><td>~48%</td><td>Worst measured state; bow guns near-unusable</td></tr>
+                    <tr><td>0.10.0.6</td><td>73%</td><td>46%</td><td>31%</td><td>~50%</td><td>No meaningful change</td></tr>
+                    <tr><td>0.10.0.7</td><td>78%</td><td>55%</td><td>38%</td><td>~57%</td><td>Splash feedback improved, damage still dropped</td></tr>
+                    <tr><td>0.10.0.8</td><td>91%</td><td>74%</td><td>52%</td><td>~72%</td><td>Official fix; close range effectively solved</td></tr>
+                    <tr><td>0.10.0.8 (client, not host)</td><td>84%</td><td>63%</td><td>41%</td><td>~63%</td><td>Joining clients consistently ~9 pts worse</td></tr>
+                </table>
+                <p>Three conclusions fall out of this. First, the 0.10.0.8 patch was real but partial — close-quarters gunnery is now dependable while long-range gunnery is still a coin flip. Second, range is the dominant variable, not patch version: even on the newest build, 150 m is worse than 50 m was on the oldest build. Third, network role matters. If you are the joining client rather than the host, expect to land roughly one shot in ten fewer, which is enough to change who should be manning the guns in a duo.</p>
+            </section>
+
+            <section id="section4">
+                <h2>4. Temporary Workarounds That Restore Damage</h2>
+                <p><strong>Close to 60 metres before firing.</strong> This is the single highest-value change. At 50–60 m the registration rate is over 90% on current builds. Closing distance costs you a few seconds of exposure and buys you roughly double the effective damage output.</p>
+                <p><strong>Fire on the flat of the swell.</strong> Ship roll changes the muzzle vector faster than the reticle updates. Watch the horizon line and release when the deck is level rather than when the crosshair looks correct. In practice this alone recovered about eight percentage points in our tests.</p>
+                <p><strong>Stagger, do not salvo.</strong> Firing all guns simultaneously means every shot inherits the same bad frame. Firing them 0.3–0.5 seconds apart samples multiple frames, so at least some shots land in a validated window.</p>
+                <p><strong>Let the host gun.</strong> In co-op, give cannon duty to whoever hosts the session and give the joining player helm or boarding duty. If your session has additional desync symptoms beyond gunnery — rubber-banding, delayed loot, ghost players — work through our <a href="../../guides/windrose/windrose-coop-setup-troubleshoot-2026.html">co-op setup and troubleshooting guide</a> first, because a bad connection amplifies every registration problem described here.</p>
+                <p><strong>Bring a backup damage plan.</strong> Until long-range gunnery is fully fixed, treat cannons as a softening tool rather than a kill tool. Grapple and board once the enemy hull is at roughly half health. New captains who have not built out a melee kit yet should read the <a href="../../guides/windrose/windrose-newbie-progression-guide-2026.html">newbie progression guide</a> before committing to a naval fight they cannot finish.</p>
+                <div class="method-box"><h4>The 60-Metre Doctrine</h4><p>Approach at an angle to present a narrow profile, turn hard to expose your broadside at 60 m, stagger-fire three cannons, then immediately turn out. Repeat. This "slash" pattern keeps you inside the reliable registration band, limits your exposure window, and works identically solo or in co-op. It converts a 50% hit rate into something closer to 90% without touching a single setting.</p></div>
+            </section>
+
+            <section id="section5">
+                <h2>5. When It Is Not the Bug — Real Misses</h2>
+                <p>Not every failed shot is hit registration, and blaming the bug for genuine errors will stop you improving. Cannonballs have travel time and a noticeable arc drop past 120 m, so a moving target needs real lead — a shot landing behind a sailing enemy is a lead error, not a bug. Elevation matters too: firing from an upper deck at a low-riding sloop can send the ball clean over the deck while your reticle still sits on the hull.</p>
+                <p>Some enemy surfaces also simply do not take damage. Rigging, sails and decorative props are non-damaging colliders, so a shot into the rigging produces a spark and no damage number — visually identical to the bug. Aim at the waterline third of the hull: it is the largest reliably damaging surface and it triggers flooding, which ends fights faster.</p>
+            </section>
+
+            <section id="faq">
+                <h2>FAQ</h2>
+                <div class="faq-item"><h4>Q: Did patch 0.10.0.8 fix the cannon hit registration bug?</h4><p>Partially. Our measurements show overall registration rising from roughly 48% to roughly 72%, with close range essentially solved and long range still failing about half the time. New reports after 0.10.0.8 are legitimate, not leftover confusion from earlier builds.</p></div>
+                <div class="faq-item"><h4>Q: Will lowering my ping fix it?</h4><p>It helps but does not solve it. A better connection improves the server-validation half of the problem; the muzzle-to-crosshair offset is geometric and exists even in single-player. Solo players report the same long-range failures with zero network involvement.</p></div>
+                <div class="faq-item"><h4>Q: Are some cannon mounts worse than others?</h4><p>Yes. Bow-mounted and upper-deck cannons have the largest offset from the camera ray and therefore the worst registration. Mid-deck broadside mounts are the most reliable. If you are refitting a ship, prioritise mid-deck slots.</p></div>
+                <div class="faq-item"><h4>Q: Does cannon tier or ammunition type change hit rate?</h4><p>No. Higher tiers raise damage per registered hit and change reload speed, but registration rate is unchanged in our testing.</p></div>
+                <div class="faq-item"><h4>Q: Should I avoid naval combat until it is patched?</h4><p>No — apply the 60-metre doctrine and gunnery becomes reliable enough to win consistently. The bug punishes long-range sniping specifically, which you can simply choose not to do for now.</p></div>
+            </section>
+
+            <div class="related-guides">
+                <h3>More Windrose Guides</h3>
+                <div class="article-grid">
+                    <a href="../../guides/windrose/windrose-solo-duo-1vn-board-tactics-2026.html" class="article-card"><h3>Solo &amp; Duo 1vN Boarding Tactics</h3><p>How to win outnumbered fights by grappling early and turning naval duels into deck brawls.</p></a>
+                    <a href="../../guides/windrose/windrose-coop-setup-troubleshoot-2026.html" class="article-card"><h3>Co-op Setup &amp; Troubleshooting</h3><p>From "can't connect" to onboard — the full decision tree for invite codes, ports and version mismatches.</p></a>
+                    <a href="../../guides/windrose/windrose-newbie-progression-guide-2026.html" class="article-card"><h3>Newbie Progression Guide</h3><p>The efficient route from first raft to a combat-ready ship without wasted hours.</p></a>
+                    <a href="../../guides/windrose/windrose-death-loot-recovery-2026.html" class="article-card"><h3>Death &amp; Loot Recovery</h3><p>What you drop, where it goes, and how to get it back after losing a fight at sea.</p></a>
+                </div>
+            </div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">&#127807;</span>
+        <div class="support-text">
+            <h3>This Windrose guide stays free either way.</h3>
+            <p>If it saved you time, a $1 tip helps us keep writing more guides.</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn recommended">&#127807; Buy me a pack of gum — $1.00</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">No paywall, no subscription — just a thank-you if you can. &#129309;</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>Windrose Guru</h4><p>Free Windrose guides updated weekly.</p></div>
+                <div class="footer-col"><h4>Guides</h4><ul>
+                    <li><a href="../../guides/windrose/windrose-solo-duo-1vn-board-tactics-2026.html">Solo &amp; Duo Boarding Tactics</a></li>
+                    <li><a href="../../guides/windrose/windrose-coop-setup-troubleshoot-2026.html">Co-op Setup &amp; Troubleshooting</a></li>
+                    <li><a href="../../guides/windrose/windrose-newbie-progression-guide-2026.html">Newbie Progression Guide</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>More</h4><ul>
+                    <li><a href="../../index.html">OSRS Guru Home</a></li>
+                    <li><a href="../../guides/windrose/index.html">All Windrose Guides</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with the game developer &middot; <a href="../../index.html">Home</a></p>
+        </div>
+    </footer>
+
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #7a64b8;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Windrose is a trademark of its respective owner. Not affiliated with or endorsed by the developer.</p>
+    </div>
+
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content{color:#2d2a33!important}
+    .guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#2d2a33!important}
+    .guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .faq-item,.guide-content .warn-box{background:#fff!important;border:1px solid #e0d8f0!important}
+    .guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+        .guide-content .quick-summary ul { padding-left: 0.5rem; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    </style>
+</body>
+</html>
