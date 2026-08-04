@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS DPS Calculator: Special Attacks &amp; Set Bonus Reality Check (2026)</title>
+    <meta name="description" content="Updated for 2026. Why OSRS DPS calculators overstate your real damage: they can't model special attacks, and set bonuses like Verzik's max hit and Duke's vents skew expectations by 10-30%. Learn the manual correction method the calculators don't tell you, before you over-invest in gear that won't pay off.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS DPS calculator special attack, OSRS set bonus overestimate, OSRS Verzik max hit, OSRS Duke vents, OSRS DPS correction, OSRS calculator overestimate, OSRS manual DPS estimate">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-dps-calc-special-attack-set-bonus-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="Advanced" data-category="pvm">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS Guru</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../skill-training.html">Skill Training</a></li>
+                    <li><a href="../money-making.html">Money Making</a></li>
+                    <li><a href="../boss-guides.html">Boss Guides</a></li>
+                    <li><a href="../gear-guides.html">Gear &amp; PvM</a></li>
+                    <li><a href="../beginner-guides.html">Beginners</a></li>
+                    <li><a href="../tools.html">Calculators</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+<!--ADSTERRA_TOP-->
+<div class="ad-banner" style="text-align:center;margin:22px auto;padding:10px;border:1px dashed #d4af37;border-radius:8px;max-width:728px;min-height:90px;color:#1a1a1a;font-size:12px;box-sizing:border-box;">Adsterra ad slot — paste your Adsterra banner code here</div>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../boss-guides.html">Boss Guides</a> / DPS Theory</p>
+            <h1>OSRS DPS Calculator: Special Attack &amp; Set Bonus Reality Check (2026)</h1>
+            <p class="subtitle">Most players treat the calculator's number as gospel. It isn't — and at the top end, the gap between "calculated DPS" and "damage you actually deal" is where people waste millions. This is the advanced correction manual: why special attacks and set bonuses break the model, where calculators lie (Verzik, Duke, CoX, ToA), and the manual math that gives you the real number. Pair it with our <a href="osrs-boss-profit-comparison-2026.html" style="color:#fff;text-decoration:underline;">boss profit comparison</a> to see what the gap costs you per hour.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🔬</span> <strong>Advanced PvM</strong> &middot; DPS Theory &amp; Correction &middot; 14 min read &middot; Updated July 30, 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#1a1a1a;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Calculators model sustained auto-attacks.</strong> They cannot fully model special attacks, so your true DPS with specs is often higher than shown — but your <em>without-spec</em> baseline is what they report.</li>
+                    <li>📌 <strong>Set bonuses get overestimated.</strong> Verzik's max-hit amplification, Duke's vents, and similar effects are easy to misenter and inflate expectations by 10-30%.</li>
+                    <li>📌 <strong>Per-boss quirks break the model.</strong> Phasing, damage caps, and scripted mechanics mean a flat DPS × HP rarely equals real kill time.</li>
+                    <li>📌 <strong>Manual correction = real DPS.</strong> Model specs as separate burst math and strip phantom set bonuses, then decide gear on the corrected number.</li>
+                    <li>📌 <strong>Trust the calculator for A/B gear swaps,</strong> not for absolute kill-time promises.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#model-limit">The Dirty Secret: Calculators Model Sustained, Not Fights</a></li>
+                    <li><a href="#spec-break">Why Special Attacks Break the Model</a></li>
+                    <li><a href="#set-bonus-lie">Set-Bonus Overestimation (Verzik, Duke &amp; Friends)</a></li>
+                    <li><a href="#boss-cases">Boss Cases Where the Calculator Lies</a></li>
+                    <li><a href="#manual-fix">The Manual Correction Method</a></li>
+                    <li><a href="#trust">When to Trust the Calculator, When Not</a></li>
+                    <li><a href="#sheet">Build Your Own Correction Sheet (Moat)</a></li>
+                    <li><a href="#faq">DPS Correction FAQs</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="model-limit">
+                <h2>1. 🧩 The Dirty Secret: Calculators Model Sustained, Not Fights</h2>
+                <p>Every public OSRS DPS calculator works the same way at its core: it computes your expected damage per hit from your offensive bonuses and the monster's defence, multiplies by your attack speed, and reports a steady-state DPS assuming you auto-attack forever with no interruptions. That is a clean, useful number — and a lie about your real fight in three specific ways. The first is that real fights are not uninterrupted; the second is that special attacks don't live in the auto-attack cycle; the third is that many "set bonuses" are situational and get entered as always-on. For a grounded <a href="osrs-boss-profit-comparison-2026.html" style="color:#8b6914;font-weight:bold;">profit comparison</a> you need the real number, not the clean one.</p>
+                <p>The calculator is not "wrong" — it answers a narrower question than players assume. It tells you "if you only auto-attack, here is your floor." Smart players use that floor as the baseline and then add spec bursts and subtract fight overhead by hand. The mistake is treating the floor as the ceiling, then buying gear to chase a kill-time the calculator implied but never guaranteed.</p>
+                <p>This guide is for players who already have the basics down (correct style, prayer, Salve — covered in our DPS-lower-than-calculator audit). Here we go one level deeper: the math the calculator can't do for you, and the math competitors' guides hand-wave.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The Core Rule</div>
+                    <p>A calculator's DPS is your <em>auto-attack floor</em>. Your real DPS = floor + spec burst − fight overhead. Never compare gear on the assumption that the calculator already included specs or perfect uptime.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2: SPEC BREAK -->
+            <section id="spec-break">
+                <h2>2. ⚔️ Why Special Attacks Break the Model</h2>
+                <p>A special attack is a discrete, high-damage event outside your normal attack cycle. Some calculators let you toggle "spec weapon" but almost none model the <em>rhythm</em> of specs — when you have the special energy, whether you're saving it, and how the spec interacts with the kill. So the reported number is silently either too low (specs ignored) or too high (specs assumed every cooldown with perfect energy).</p>
+
+                <h3>① Specs add burst, not steady DPS</h3>
+                <p>Take a Dragon warhammer spec that hits a flat ~30% of the target's current HP, or an Arclight that spikes damage on a demon. These don't raise your per-tick auto DPS; they delete a chunk instantaneously. If the calculator simply adds "spec DPS" as if it were another auto, it misrepresents both the timing and the value. The real benefit is shortening the fight early, which compounds because every remaining tick is against a lower HP total.</p>
+
+                <h3>② Spec energy gates the value</h3>
+                <p>You regain special energy slowly. You cannot spec every kill continuously. A calculator that bakes a permanent spec into DPS overstates what you sustain across a trip. The honest model: compute auto-attack DPS, then add spec damage as a separate one-time burst per kill, amortized over the kill length. That corrected figure is almost always lower than the calculator's "spec on" mode but far closer to reality.</p>
+
+                <h3>③ Some specs change the math mid-fight</h3>
+                <div class="action-step">
+                    <h4>Model the DWH drain separately</h4>
+                    <p>A Dragon warhammer or Bandos godsword spec that drains defence raises your <em>subsequent</em> auto-attack accuracy for the rest of the kill. That is a multiplier on your floor, not a flat add. The correct manual step: apply the defense drain, recompute your auto-attack DPS for the post-spec portion of the fight, and sum the two segments. Skipping this is why players under- or over-value a DWH by double digits of percent.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 3: SET BONUS LIE -->
+            <section id="set-bonus-lie">
+                <h2>3. 🎭 Set-Bonus Overestimation (Verzik, Duke &amp; Friends)</h2>
+                <p>"Set bonus" is where calculators and players drift furthest from truth. A set bonus is usually a conditional multiplier — it triggers in specific states, against specific targets, or above specific HP thresholds. Entering it as a flat always-on bonus inflates your expected DPS by exactly the share of the fight where the bonus doesn't apply.</p>
+
+                <h3>① Verzik's max-hit amplification</h3>
+                <p>In the Theatre of Blood, Verzik's vulnerability phase and the way her defences shift make raw "max hit vs defence" math misleading. Players plug her base defence in and assume a steady number, but her effective defence and your damage windows vary by phase. The calculator's single steady DPS silently averages phases that are nothing alike. The real kill is a sequence of very different DPS segments — and the average the calculator prints is an average of a fight that doesn't happen.</p>
+
+                <h3>② Duke's vents (Duke Sucellus)</h3>
+                <p>Duke's mechanic lets you damage him through the vents, but only under specific conditions, and his defence behaves differently across the fight. A calculator modeling "Duke at fixed defence, full DPS" overstates sustained damage because the windows where you actually free-hit are bounded. The bonus you imagine from "I can hit him through the vent" is real but intermittent — not the 100% uptime the flat number implies.</p>
+
+                <h3>③ Other phantom bonuses</h3>
+                <div class="action-step">
+                    <h4>Audit every "bonus" toggle you clicked</h4>
+                    <p>Go through the calculator's bonus checkboxes one by one and ask: "is this true for 100% of the fight, or only in a window?" Charged items losing charge, prayers you can't hold the whole fight, set effects that only proc on specific attacks — each one entered as always-on adds phantom DPS. Strip the conditional ones to a realistic uptime fraction (e.g. 60%) and your expectation drops to something the boss will actually show you. For gear that genuinely delivers, see our <a href="osrs-best-in-slot-gear-guide-2026.html" style="color:#8b6914;font-weight:bold;">best-in-slot reference</a>.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4: BOSS CASES -->
+            <section id="boss-cases">
+                <h2>4. 🏰 Boss Cases Where the Calculator Lies</h2>
+                <p>Different content breaks the model differently. Knowing which bosses reward manual correction saves you from bad gear buys.</p>
+
+                <h3>① Chamber of Xeric (CoX)</h3>
+                <p>Olm's defence changes with the room and the puzzle state; the calculator's single defence value can't capture that. DPS expectations swing by 15-25% between a "good" and "bad" Olm. Manual correction: use the lowest expected defence for planning, treat any higher number as upside.</p>
+
+                <h3>② Theatre of Blood (ToB)</h3>
+                <p>Beyond Verzik, the raid's DPS checks (e.g. the 3:30 or 5:30 timings) are about burst under pressure, not steady DPS. A calculator number that looks "fine" can fail a checkpoint because the checkpoint rewards spec burst and clean switches, not auto-attack floor. Model the checkpoint as burst math, not DPS×HP.</p>
+
+                <h3>③ Tombs of Amascut (ToA)</h3>
+                <div class="action-step">
+                    <h4>Invocation-scaled HP breaks flat math</h4>
+                    <p>ToA scales enemy HP and defence with invocation level, and several bosses have damage caps or phased defences. A flat DPS × HP estimate ignores the caps and the paths. The correction: compute per-phase, apply any damage cap as a hard ceiling on per-hit value, and sum phase times. The clean number will be optimistic whenever a cap binds.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5: MANUAL FIX -->
+            <section id="manual-fix">
+                <h2>5. 📐 The Manual Correction Method</h2>
+                <p>Here is the repeatable method to get from "calculator says" to "boss shows." Do it in a spreadsheet once per boss; reuse it forever.</p>
+
+                <h3>① Step 1 — Take the auto-attack floor</h3>
+                <p>Run the calculator with specs OFF and every conditional bonus set to its minimum (no charged effects, no phase-only multipliers). This is your honest baseline. It is almost always lower than the number you first screenshot.</p>
+
+                <h3>② Step 2 — Add spec burst as a separate term</h3>
+                <p>For each kill, estimate total spec damage (sum of your spec hits, including DWH defense-drain value) and divide by expected kill time in seconds, then by the number of attacks in that time. That gives spec DPS contribution. Add it to the floor. Example: 400 spec damage over a 60-second kill ≈ +6.7 DPS. Real, but modest — not the +30% the "spec on" toggle implies.</p>
+
+                <h3>③ Step 3 — Apply conditional bonuses at real uptime</h3>
+                <p>For each set bonus or prayer you can't hold 100% of the fight, multiply its DPS contribution by your realistic uptime fraction and add that. A bonus worth 5 DPS at 100% but held 70% of the time contributes 3.5.</p>
+
+                <h3>④ Step 4 — Subtract fight overhead</h3>
+                <div class="action-step">
+                    <h4>Every fight has dead time</h4>
+                    <p>Movement, switching, eating, and mechanic dodges are ticks you are not auto-attacking. Estimate overhead as 5-15% of time depending on the boss. Multiply your adjusted DPS by (1 − overhead). The result is your real expected DPS. Compare gear on <em>this</em> number and you'll stop overpaying for upgrades that only looked good on the clean one.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6: TRUST -->
+            <section id="trust">
+                <h2>6. 🤝 When to Trust the Calculator, When Not</h2>
+                <p>The calculator is a precision tool with a narrow domain. Use it where it's strong; reach for manual math where it's weak.</p>
+
+                <h3>① Trust it for A/B gear swaps</h3>
+                <p>Comparing two gear sets on the <em>same</em> inputs (same style, same bonuses modeled) is exactly what calculators are good at. The relative difference is reliable even if the absolute number is optimistic. Use it to rank upgrades.</p>
+
+                <h3>② Don't trust it for absolute kill time</h3>
+                <p>DPS × HP ÷ overhead ≠ real kill time whenever specs, set bonuses, phasing, or caps are involved. At raids and high-level bosses, treat the calculator's kill-time estimate as a best-case floor, not a promise.</p>
+
+                <h3>③ Verify against a real log</h3>
+                <div class="action-step">
+                    <h4>One real kill beats a hundred calculator runs</h4>
+                    <p>After the manual correction, do one timed kill and compare. If real DPS is 12 and your corrected estimate was 11.5, your model is sound. If real is 8, you missed overhead or a phantom bonus — tighten the sheet. This feedback loop is what separates players who buy the right gear from those who chase a number. The <a href="combat-achievements-guide-2026.html" style="color:#8b6914;font-weight:bold;">combat achievements guide</a> lists DPS-gated tasks where this precision directly earns rewards.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7: SHEET (MOAT) -->
+            <section id="sheet">
+                <h2>7. 🛠️ Build Your Own Correction Sheet (Our Moat)</h2>
+                <p>This is the part competitors skip because it's tedious — which is exactly why it's your edge. A personal correction sheet turns vague "the calculator lies" into a precise per-boss number you control.</p>
+
+                <h3>① Columns that matter</h3>
+                <p>Build a sheet with these columns per gear set: Auto Floor, +Spec, +Conditional@uptime, −Overhead, = Real DPS, Real Kill Time (HP ÷ Real DPS), GP/hr at that kill time. The last column is the only one that should drive purchases — and it often flips the "obvious" upgrade once overhead and phantom bonuses are removed.</p>
+
+                <h3>② Re-run it when you swap one variable</h3>
+                <p>The sheet's power is iterative. Considering a 200M upgrade? Change one column, see the real DPS delta, and compute the GP/hr improvement. If the upgrade costs more than it returns per hour, skip it — no matter how good it looks on the clean calculator. This is how advanced players avoid the gear-trap that bleeds bank accounts.</p>
+
+                <h3>③ Share it, then refine it</h3>
+                <div class="action-step">
+                    <h4>Your sheet is a living tool</h4>
+                    <p>After each raid or boss session, paste your real kill times back in and adjust overhead assumptions. Within a week the sheet predicts your kills within a few percent — more accurate than any public calculator for <em>your</em> play. That personal accuracy is the moat: a number tuned to your switches, your ping, and your habits that no generic tool can replicate.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 8: FAQ -->
+            <section id="faq">
+                <h2>8. ❓ DPS Correction FAQs</h2>
+
+                <div class="faq-item">
+                    <h4>Is the OSRS DPS calculator wrong?</h4>
+                    <p>No — it's narrow. It models sustained auto-attacks with the inputs you give it. It can't model spec rhythm, conditional set bonuses, or fight overhead. Use it for relative gear comparison; correct it by hand for absolute kill-time predictions.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Should I turn the "spec weapon" toggle on?</h4>
+                    <p>Only to see an upper bound. For planning, model specs separately as burst (Step 2 of the correction method). The toggle assumes perfect, permanent spec uptime, which you can't sustain across a trip.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Why does Verzik's number feel so off?</h4>
+                    <p>Her defence and your damage windows vary by phase, so a single steady DPS averages phases that don't exist. Model each phase separately and sum; the calculator's one average is optimistic.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Do set bonuses ever help as much as advertised?</h4>
+                    <p>Only the always-on ones. Conditional set bonuses (phase-only, charge-limited, proc-based) should be entered at realistic uptime, not 100%. That single correction often drops expectations by 10-30%.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How much overhead should I subtract?</h4>
+                    <p>5-15% depending on the boss. Stationary DPS checks ~5%; mobile, switch-heavy bosses (ToB, ToA paths) 10-15%. Verify against one real timed kill and adjust.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>My real DPS is way below even the corrected number — what now?</h4>
+                    <p>That's a mechanics or execution gap, not a model gap. Re-run the style/prayer/Salve audit and check your switches and ping. The model is only as good as the player feeding the fight.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Where do I apply this first?</h4>
+                    <p>At raids and high-invocation ToA where caps and phasing dominate. The <a href="osrs-ironman-boss-progression-2026.html" style="color:#8b6914;font-weight:bold;">ironman boss progression guide</a> shows which bosses to trial the sheet on as you scale content.</p>
+                </div>
+            </section>
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 Correct One Boss This Week</h3>
+                <p>Turn the clean number into your real number:</p>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 1:</strong> Take the auto-attack floor (specs &amp; conditional bonuses OFF)
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 2:</strong> Add spec burst as a separate per-kill term
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 3:</strong> Apply set bonuses at real uptime, subtract fight overhead
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 4:</strong> Time one real kill and tune the sheet
+                    </div>
+                Back: DPS Lower-Than-Calculator Audit →
+            </div>
+
+            <!-- RELATED GUIDES -->
+                    <div class="related-guides">
+      <h3>Deeper DPS &amp; Boss Theory</h3>
+      <div class="article-grid">
+        <a href="osrs-boss-profit-comparison-2026.html" class="article-card">
+          <h3>OSRS Boss Profit Comparison 2026</h3>
+          <p>Turn corrected DPS into GP/hr and see which bosses actually pay once overhead and specs are modeled honestly.</p>
+        </a>
+        <a href="osrs-best-in-slot-gear-guide-2026.html" class="article-card">
+          <h3>OSRS Best-in-Slot Gear Guide 2026</h3>
+          <p>The gear that genuinely delivers on its bonuses — rank upgrades on your corrected sheet, not the clean calculator.</p>
+        </a>
+        <a href="osrs-boss-gear-checklist-2026.html" class="article-card">
+          <h3>OSRS Boss Gear Checklist 2026</h3>
+          <p>Pre-load switches and charged items so the conditional bonuses you modeled actually fire in the fight.</p>
+        </a>
+        <a href="combat-achievements-guide-2026.html" class="article-card">
+          <h3>OSRS Combat Achievements Guide 2026</h3>
+          <p>DPS-gated tasks where precise, corrected numbers directly earn you rewards and unlocks.</p>
+        </a>
+        <a href="osrs-ironman-boss-progression-2026.html" class="article-card">
+          <h3>OSRS Ironman Boss Progression 2026</h3>
+          <p>Which bosses to trial your correction sheet on as you scale from mid to end-game content.</p>
+        </a>
+      </div>
+</div><div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>Every guide and tool is free — this one stays free either way.</h3>
+            <p>No paywalls, no subscriptions. The only paid product is the printable PDF version:</p>
+            <p style="margin:6px 0 0 0;line-height:1.7">
+                📚 <strong>5 PDF Guides</strong> — offline, print-friendly<br>
+                ✅ <strong>Scams / DPS / Authenticator / Recovery / Sailing Nerf</strong><br>
+                🔄 <strong>Updated after every major game update</strong><br>
+                💾 <strong>Instant download, yours forever</strong>
+            </p>
+            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.85">✅ Instant download after purchase</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the PDF 5-Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRS Guru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ New Players (Stage 0)</h4><ul>
+                    <li><a href="osrs-interface-controls-beginner-guide-2026.html">Game Interface</a></li>
+                    <li><a href="osrs-combat-triangle-explained-2026.html">Combat Triangle</a></li>
+                    <li><a href="osrs-skills-overview-beginner-2026.html">Skills Overview</a></li>
+                    <li><a href="osrs-bank-inventory-management-2026.html">Bank &amp; Inventory</a></li>
+                    <li><a href="osrs-maps-travel-guide-2026.html">Maps &amp; Travel</a></li>
+                    <li><a href="osrs-questing-beginner-guide-2026.html">Questing Basics</a></li>
+                    <li><a href="osrs-combat-training-beginner-2026.html">Combat Training</a></li>
+                    <li><a href="osrs-money-making-beginner-2026.html">Beginner Money Making</a></li>
+                    <li><a href="osrs-gear-beginner-guide-2026.html">Gear Guide</a></li>
+                    <li><a href="osrs-safe-spots-beginner-2026.html">Safe Spots</a></li>
+                    <li><a href="osrs-prayer-training-beginner-guide-2026.html">Prayer Training</a></li>
+                    <li><a href="osrs-f2p-to-p2p-membership-guide-2026.html">F2P to P2P Transition</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+<!-- Copyright & Anti-Scraping Notice -->
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+<style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#3b2615!important}
+.guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+.guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+.guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+@media (max-width: 768px) {
+    .guide-content table { font-size: 0.85rem; }
+    .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+    .guide-content table tbody td { padding: 6px 10px; }
+    .guide-content h2 { font-size: 1.4em; }
+    .guide-content h3 { font-size: 1.15em; }
+}
+@media (max-width: 640px) {
+    .guide-content table { display: block; overflow-x: auto; }
+    .guide-content h2 { font-size: 1.25em; }
+    .guide-content h3 { font-size: 1.05em; }
+}
+</style>
+
+</body>
+</html>
