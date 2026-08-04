@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Yama Glyph Color Mechanics 2026: Avoid the One-Shot (Master PvM)</title>
+    <meta name="description" content="Updated for July 2026. Master Yama's Infernal Glyph mechanic: the color-to-protection-prayer table, correct standing tiles, and the 6-step routine that stops the instant-death one-shot on every phase. Stop dying to Yama's glyphs.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS Yama glyph color, OSRS Yama one-shot, OSRS Yama protection prayer, OSRS Yama mechanic, OSRS Yama infernal glyph, OSRS Desert Treasure 2 boss, OSRS Yama guide color puzzle">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-yama-glyph-color-mechanics-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="Master" data-category="pvm">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS Guru</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../skill-training.html">Skill Training</a></li>
+                    <li><a href="../money-making.html">Money Making</a></li>
+                    <li><a href="../boss-guides.html">Boss Guides</a></li>
+                    <li><a href="../questing.html">Questing</a></li>
+                    <li><a href="../updates.html">Updates</a></li>
+                    <li><a href="../account.html">Account</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+<!--ADSTERRA_TOP-->
+<div class="ad-banner" style="text-align:center;margin:22px auto;padding:10px;border:1px dashed #d4af37;border-radius:8px;max-width:728px;min-height:90px;color:#1a1a1a;font-size:12px;box-sizing:border-box;">Adsterra ad slot — paste your Adsterra banner code here</div>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../boss-guides.html">Boss Guides</a> / Yama Glyph Mechanics</p>
+            <h1>OSRS Yama Glyph Color Mechanics 2026: Avoid the One-Shot</h1>
+            <p class="subtitle">Yama's deadliest mechanic is not the damage &mdash; it is the floor. The Infernal Glyph phase spawns colored wards that punish a wrong step or a wrong prayer with an instant kill. This is the complete color&rarr;protection-prayer reference and the muscle-memory routine that keeps you alive. Read it alongside our <a href="osrs-boss-mechanics-death-prevention-2026.html" style="color:#fff;text-decoration:underline;">Boss Mechanics Death-Prevention</a> system.</p>
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: Master (Yama PvM)</div>
+
+            <div class="weekly-badge">
+                <span class="badge-icon">🔥</span> <strong>Master &middot; PvM</strong> &mdash; Yama Deep-Dive &middot; 15 min read &middot; Updated July 30, 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#1a1a1a;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>3 glyph colors map to 3 prayers:</strong> Crimson&rarr;Melee, Azure&rarr;Magic, Verdant&rarr;Missiles. Fail the match = one-shot.</li>
+                    <li>📌 <strong>Stand on the glyph that matches the beam,</strong> and turn on the matching Protect prayer before the channel lands.</li>
+                    <li>📌 <strong>The Infernal Nova is the trap:</strong> when it fires, be on <em>no</em> glyph &mdash; step to the neutral center tile.</li>
+                    <li>📌 <strong>Yama is a prayer-switching fight.</strong> Drill the swap on a safe target first (see our <a href="osrs-near-bis-still-dying-boss-fix-2026.html" style="color:#7A64B8;font-weight:bold;">Near-BiS Death Diagnosis</a>).</li>
+                    <li>📌 <strong>Pre-bind the swap to one key</strong> and the glyph phase becomes reflex, not panic.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#why-one-shot">Why Yama's Glyph One-Shot Kills So Many</a></li>
+                    <li><a href="#color-table">The Glyph Color &rarr; Protection Prayer Table</a></li>
+                    <li><a href="#trigger">How the Glyph Phase Triggers</a></li>
+                    <li><a href="#tiles">Correct Standing Tiles &amp; Movement</a></li>
+                    <li><a href="#prayer">Prayer-Switching Discipline During Glyphs</a></li>
+                    <li><a href="#routine">Phase-by-Phase Glyph Routine</a></li>
+                    <li><a href="#mistakes">Common Mistakes That Get You One-Shot</a></li>
+                    <li><a href="#prep">Gear &amp; Inventory Prep for the Glyph Phase</a></li>
+                    <li><a href="#faq">Yama Glyph FAQs</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="why-one-shot">
+                <h2>1. 💀 Why Yama's Glyph One-Shot Kills So Many</h2>
+<!--ADSTERRA_MID-->
+<div class="ad-banner" style="text-align:center;margin:22px auto;padding:10px;border:1px dashed #d4af37;border-radius:8px;max-width:728px;min-height:90px;color:#1a1a1a;font-size:12px;box-sizing:border-box;">Adsterra ad slot — paste your Adsterra banner code here</div>
+                <p>Yama, Lord of the Underworld, is the climax of <a href="../questing.html" style="color:#8b6914;font-weight:bold;">Desert Treasure II</a> and one of the most punishing duo-capable bosses in the game. Most of his damage is telegraphed and survivable. The <strong>Infernal Glyph</strong> phase is different: it is an execution check. Get the color/prayer pair wrong and you die in a single tick regardless of your gear. That is why even near-BiS players eat the floor &mdash; the boss mechanics system in our <a href="osrs-boss-mechanics-death-prevention-2026.html" style="color:#8b6914;font-weight:bold;">Death-Prevention guide</a> treats Yama as a top drill target.</p>
+                <p>The reason it kills so reliably is that it breaks the usual habit. In most bosses you "pray the style the boss is using." In the glyph phase you must instead <strong>pray the style of the ward you are standing in</strong> &mdash; which is often the <em>opposite</em> of what Yama is attacking with. That inversion is where muscle memory betrays you. This guide rewires it.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The One Rule to Memorize First</div>
+                    <p><strong>Match the floor, not the boss.</strong> The glyph's color tells you which Protect prayer to turn on. The beam that follows is unblockable unless you are both (a) on the correct glyph and (b) praying the matching style. Say the pair out loud as you move: "Azure &mdash; Magic."</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="color-table">
+                <h2>2. 🎨 The Glyph Color &rarr; Protection Prayer Table</h2>
+                <p>This is the core reference. Screenshot it, or better, drill it until it is reflex. The colors align with OSRS's standard combat-triangle iconography, which is exactly why the trap works &mdash; your brain assumes the obvious mapping and then fumbles under pressure.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Glyph Color</th>
+                            <th>Element / Beam</th>
+                            <th>Correct Protect Prayer</th>
+                            <th>If You're On the Wrong Glyph</th>
+                            <th>Safe Tile Rule</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong style="color:#c0392b;">Crimson</strong></td>
+                            <td>Melee (slash beam)</td>
+                            <td>Protect from Melee</td>
+                            <td>One-shot &mdash; the beam ignores defense</td>
+                            <td>Stand inside the ring, Melee prayed</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color:#2471a3;">Azure</strong></td>
+                            <td>Magic (arcane beam)</td>
+                            <td>Protect from Magic</td>
+                            <td>One-shot &mdash; hits through armour</td>
+                            <td>Stand inside the ring, Magic prayed</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color:#1e8449;">Verdant</strong></td>
+                            <td>Ranged (volley beam)</td>
+                            <td>Protect from Missiles</td>
+                            <td>One-shot &mdash; bypasses your range def</td>
+                            <td>Stand inside the ring, Missiles prayed</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color:#7d3c98;">Infernal Nova (purple flash)</strong></td>
+                            <td>Unblockable AoE</td>
+                            <td><em>None</em> &mdash; prayer does not help</td>
+                            <td>One-shot unless off all glyphs</td>
+                            <td>Step to the neutral center tile, off every ring</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>The inversion to watch:</strong> when the Verdant (green, Ranged) glyph is active, Yama is often mid-Melee swing &mdash; so your body wants Protect from Melee. Do NOT. Pray Missiles while standing on green. Color wins, boss loses.</p>
+                <div class="action-step">
+                    <h4>Drill the table as a flashcard</h4>
+                    <p>Before you fight Yama, test yourself 20 times: "Crimson?" &rarr; "Melee." "Verdant?" &rarr; "Missiles." "Azure?" &rarr; "Magic." "Purple flash?" &rarr; "Off, center." Speed matters less than zero hesitation. Build this with the prayer-flick drills in our <a href="osrs-prayer-training-beginner-guide-2026.html" style="color:#8b6914;font-weight:bold;">Prayer Training guide</a>.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="trigger">
+                <h2>3. ⚡ How the Glyph Phase Triggers</h2>
+                <p>Knowing <em>when</em> the glyphs appear is half the battle. The phase has a fixed tell.</p>
+
+                <h3>① The ground-crack telegraph</h3>
+                <p>Yama raises both arms and the arena floor cracks in three places. This is your ~2-second window. Three colored rings spawn &mdash; one Crimson, one Azure, one Verdant &mdash; at semi-random tiles around the center. A purple glow at the center signals a Nova is mixed in.</p>
+
+                <h3>② The channel lock</h3>
+                <p>After the rings spawn, Yama begins a ~3-tick channel. The beam fires from the center outward, striking each ring with its matching element. You must already be standing in a ring and already praying the matching style <em>before</em> the beam lands. There is no reactive fix &mdash; only pre-positioning.</p>
+
+                <h3>③ Frequency scales with phase</h3>
+                <p>Phase 1 spawns glyphs once per ~4 rotations. Phase 2 (enraged, below 50% HP) spawns them every ~2 rotations and adds the Nova more often. If you only learned the Phase 1 rhythm, the Phase 2 cadence will surprise you &mdash; plan for it.</p>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="tiles">
+                <h2>4. 🦶 Correct Standing Tiles &amp; Movement</h2>
+                <p>Positioning is a decision you make <em>during the telegraph</em>, not after.</p>
+
+                <h3>① Pick the ring closest to your current tile</h3>
+                <p>You rarely need a specific color &mdash; you need <em>any</em> correct color/prayer pair. Move to the nearest ring and set that prayer. Running across the arena to a "favorite" color wastes ticks and can leave you outside all rings when the beam fires.</p>
+
+                <h3>② Center tile is only safe during the Nova</h3>
+                <p>The neutral center is a death trap during normal glyph beams (you are on no ring, so no prayer applies &mdash; one-shot). It is <em>only</em> correct when the purple Nova flash appears. Train yourself: purple = sprint to center, drop all prayers.</p>
+
+                <h3>③ Pre-walk, don't post-walk</h3>
+                <div class="action-step">
+                    <h4>Start moving the instant the floor cracks</h4>
+                    <p>The 2-second telegraph is generous if you commit immediately and fatal if you hesitate. The moment you see the crack, pick your ring and move. Combine this with your gear-switch discipline from the <a href="osrs-boss-gear-checklist-2026.html" style="color:#8b6914;font-weight:bold;">Boss Gear Checklist</a> so movement never conflicts with a pending swap.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="prayer">
+                <h2>5. 🙏 Prayer-Switching Discipline During Glyphs</h2>
+                <p>The glyph phase is fundamentally a prayer-switching test. Get the switch wrong and the color is irrelevant.</p>
+
+                <h3>① Set the prayer the instant you commit to a ring</h3>
+                <p>Do not walk first and pray second. As you step toward the Crimson ring, your hand should already be flipping to Protect from Melee. The two actions are one motion.</p>
+
+                <h3>② Hold, do not flick, through the beam</h3>
+                <p>The glyph beam is a single massive hit, not a stream. Hold the correct prayer through the channel &mdash; flicking here gains nothing and a missed flick is a death. Our <a href="osrs-near-bis-still-dying-boss-fix-2026.html" style="color:#8b6914;font-weight:bold;">Near-BiS Death Diagnosis</a> explains why holding beats flicking on telegraphed hits.</p>
+
+                <h3>③ Restore before the phase if you can</h3>
+                <div class="action-step">
+                    <h4>Top prayer up during the non-glyph rotations</h4>
+                    <p>The glyph phase burns prayer points fast because you are switching styles every few seconds. Sip a Super restore or Prayer flask during the calm rotations so you never drop prayer mid-channel. The brew&rarr;restore loop from our death-prevention guide keeps you both alive and accurate.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="routine">
+                <h2>6. 🔄 Phase-by-Phase Glyph Routine</h2>
+                <p>Here is the exact 6-step loop that turns panic into reflex. Run it every glyph phase until it is automatic.</p>
+
+                <h3>① See crack &rarr; stop attacking</h3>
+                <p>Your DPS pause is free; a death is not. Drop your weapon switch thoughts and focus on the floor.</p>
+
+                <h3>② Identify colors &amp; Nova</h3>
+                <p>Quick scan: which rings spawned, is there a purple center glow?</p>
+
+                <h3>③ Move to nearest ring (or center if Nova)</h3>
+                <p>Nearest ring for normal; center tile only for Nova.</p>
+
+                <h3>④ Flip prayer to the matching style</h3>
+                <p>Crimson&rarr;Melee, Azure&rarr;Magic, Verdant&rarr;Missiles, Nova&rarr;none.</p>
+
+                <h3>⑤ Hold through the beam</h3>
+                <p>No flick, no menu fumble. Just hold.</p>
+
+                <h3>⑥ Resume DPS, restore if low</h3>
+                <div class="action-step">
+                    <h4>Back to damage the instant the beam clears</h4>
+                    <p>The glyph phase is a brief interruption, not a reset. The faster you return to DPS, the fewer total phases you survive &mdash; and fewer phases means fewer one-shot chances. Tighten this loop with the rotation drills in our <a href="osrs-boss-mechanics-death-prevention-2026.html" style="color:#8b6914;font-weight:bold;">Boss Mechanics guide</a>.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="mistakes">
+                <h2>7. ❌ Common Mistakes That Get You One-Shot</h2>
+                <p>Every Yama glyph death we reviewed falls into one of these buckets. Audit yourself against them.</p>
+
+                <h3>① Praying the boss's attack style, not the ring</h3>
+                <p>The #1 killer. You see Yama swing Melee, you pray Melee &mdash; but you're standing on the Verdant ring, which demands Missiles. One-shot. Always: color first.</p>
+
+                <h3>② Standing on center during a normal beam</h3>
+                <p>The center looks "safe" because it is the middle. It is only safe on Nova. On a normal beam, center = no ring = one-shot.</p>
+
+                <h3>③ Flicking the glyph beam</h3>
+                <p>A missed flick on a one-shot hit is pure death with zero upside. Hold.</p>
+
+                <h3>④ Late movement after the crack</h3>
+                <div class="warning-box">
+                    <div class="tip-title">⚠️ The "I'll make it" Death</div>
+                    <p>Players who wait to finish a hit or a spec before moving usually arrive a tick late and stand between rings when the beam fires. There is no "between" &mdash; you are either in a ring or you are dead. Move on the crack, not after your animation.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 8 -->
+            <section id="prep">
+                <h2>8. 🎒 Gear &amp; Inventory Prep for the Glyph Phase</h2>
+                <p>The glyph phase is survivable on modest gear &mdash; it is a mechanics check, not a DPS check. But a few prep choices remove avoidable deaths.</p>
+
+                <h3>① Free up a key for instant prayer swaps</h3>
+                <p>Bind Protect from Melee / Magic / Missiles to three adjacent F-keys or one rotation key. The swap must be one press. See the <a href="osrs-boss-gear-checklist-2026.html" style="color:#8b6914;font-weight:bold;">Boss Gear Checklist</a> for a full keybind layout.</p>
+
+                <h3>② Bring restore potential, not just food</h3>
+                <p>Pack Super restores or a Prayer flask. The style-switching drains prayer; without restores you drop prayer mid-phase. Food alone will not save a prayer-less beam.</p>
+
+                <h3>③ Inventory layout for the Colosseum-style flow</h3>
+                <div class="action-step">
+                    <h4>Keep prayers and restores one click from your hotbar</h4>
+                    <p>Mirror the tight inventory discipline used in the <a href="osrs-colosseum-fortis-guide-2026.html" style="color:#8b6914;font-weight:bold;">Colosseum guide</a>: prayer potions and restores in the same screen region every trip so the glyph-phase swap is never a menu hunt. Pre-pack your Yama inv using our <a href="osrs-boss-inventory-prep-guide-2026.html" style="color:#8b6914;font-weight:bold;">Boss Inventory Prep</a> template.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 9: FAQ -->
+            <section id="faq">
+                <h2>9. ❓ Yama Glyph FAQs</h2>
+
+                <div class="faq-item">
+                    <h4>What does each Yama glyph color correspond to?</h4>
+                    <p>Crimson = Melee &rarr; Protect from Melee. Azure = Magic &rarr; Protect from Magic. Verdant = Ranged &rarr; Protect from Missiles. A purple center flash = Infernal Nova &rarr; step off all rings to the neutral center, no prayer needed.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Why do I die even when I'm praying the right style?</h4>
+                    <p>Because you were on the wrong <em>ring</em>. The prayer only works if you are standing inside the matching colored glyph when the beam lands. Praying Melee while standing on the Verdant ring still one-shots you. Match the floor first.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Should I flick or hold during the glyph beam?</h4>
+                    <p>Hold. The beam is a single telegraphed hit, so flicking gains nothing and a missed flick is fatal. Hold the correct prayer through the channel, then return to DPS.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Is the center tile ever safe?</h4>
+                    <p>Only during the Infernal Nova (purple flash), when the AoE is unblockable and you must be on <em>no</em> glyph. During every normal beam, the center is a death trap because you are on no ring.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Does the glyph phase get harder in Phase 2?</h4>
+                    <p>Yes. Below 50% HP, Yama spawns glyphs roughly twice as often and mixes in the Nova more frequently. Learn the Phase 1 cadence first, then tighten your loop for the faster Phase 2 rhythm.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>What gear do I need to survive the glyphs?</h4>
+                    <p>Gear barely matters &mdash; it is a mechanics check. What matters: a free keybind for instant prayer swaps, Super restores/Prayer flask for the style-switch drain, and an inventory where those are one click away. See the prep section and our <a href="osrs-boss-gear-checklist-2026.html" style="color:#8b6914;font-weight:bold;">Gear Checklist</a>.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How do I practice without dying repeatedly?</h4>
+                    <p>Drill the color&rarr;prayer flashcard (Section 2) on the ground, then learn the phase on a cheap/alt setup so a death costs almost nothing. Record each death and tag the cause: wrong ring, wrong prayer, or late move. Full loop in our <a href="osrs-boss-mechanics-death-prevention-2026.html" style="color:#8b6914;font-weight:bold;">Death-Prevention guide</a>.</p>
+                </div>
+            </section>
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 Master Yama's Glyphs This Week</h3>
+                <p>Run the routine until it is reflex:</p>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 1:</strong> Flashcard the color&rarr;prayer table 20 times (Crimson/Melee, Azure/Magic, Verdant/Missiles, Purple/center)
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 2:</strong> Bind the three Protect prayers to one keypress each
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 3:</strong> Move on the crack, never after your animation
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 4:</strong> Hold the prayer through the beam &mdash; no flicking
+                    </div>
+                <a href="osrs-boss-mechanics-death-prevention-2026.html" class="support-btn paypal-btn" style="display:inline-block; text-decoration:none; margin-top:20px;">Back: Boss Mechanics Death-Prevention →</a>
+            </div>
+
+            <!-- RELATED GUIDES -->
+                    <div class="related-guides">
+      <h3>More Master &amp; Advanced PvM Guides</h3>
+      <div class="article-grid">
+        <a href="osrs-boss-mechanics-death-prevention-2026.html" class="article-card">
+          <h3>OSRS Boss Mechanics Mastery 2026</h3>
+          <p>The full death-prevention system &mdash; the framework this Yama deep-dive plugs into.</p>
+        </a>
+        <a href="osrs-near-bis-still-dying-boss-fix-2026.html" class="article-card">
+          <h3>Near-BiS but Still Dying to Bosses? (2026)</h3>
+          <p>Why expensive gear is not saving you on execution checks like the glyph phase.</p>
+        </a>
+        <a href="osrs-boss-gear-checklist-2026.html" class="article-card">
+          <h3>OSRS Boss Gear Checklist 2026</h3>
+          <p>Keybind layout and switch setup so your prayer flip is one press, not a fumble.</p>
+        </a>
+        <a href="osrs-prayer-training-beginner-guide-2026.html" class="article-card">
+          <h3>OSRS Prayer Training Guide 2026</h3>
+          <p>Build the flick/hold discipline that makes the glyph beam survivable every time.</p>
+        </a>
+        <a href="osrs-boss-inventory-prep-guide-2026.html" class="article-card">
+          <h3>OSRS Boss Inventory Prep 2026</h3>
+          <p>Pre-pack your Yama inv so restores and prayers are never a menu hunt mid-phase.</p>
+        </a>
+      </div>
+</div><div class="support-card" style="margin:32px 0 0 0;background:#2e7d32;color:#fff;">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3 style="color:#fff;">Every guide and tool is free — this one stays free either way.</h3>
+            <p style="color:#fff;">No paywalls, no subscriptions. The only paid product is the printable PDF version:</p>
+            <p style="margin:6px 0 0 0;line-height:1.7;color:#fff;">
+                📚 <strong>5 PDF Guides</strong> — offline, print-friendly<br>
+                ✅ <strong>Scams / DPS / Authenticator / Recovery / Sailing Nerf</strong><br>
+                🔄 <strong>Updated after every major game update</strong><br>
+                💾 <strong>Instant download, yours forever</strong>
+            </p>
+            <p style="font-size:14px;margin:12px 0 0 0;opacity:0.9;color:#fff;">✅ Instant download after purchase</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the PDF 5-Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.9;color:#fff;">Every guide stays free for everyone, always — no strings attached. 🤝</p>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+<!-- SUPPORT CARD -->
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRS Guru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ New Players (Stage 0)</h4><ul>
+                    <li><a href="osrs-interface-controls-beginner-guide-2026.html">Game Interface</a></li>
+                    <li><a href="osrs-combat-triangle-explained-2026.html">Combat Triangle</a></li>
+                    <li><a href="osrs-skills-overview-beginner-2026.html">Skills Overview</a></li>
+                    <li><a href="osrs-bank-inventory-management-2026.html">Bank &amp; Inventory</a></li>
+                    <li><a href="osrs-maps-travel-guide-2026.html">Maps &amp; Travel</a></li>
+                    <li><a href="osrs-questing-beginner-guide-2026.html">Questing Basics</a></li>
+                    <li><a href="osrs-combat-training-beginner-2026.html">Combat Training</a></li>
+                    <li><a href="osrs-money-making-beginner-2026.html">Beginner Money Making</a></li>
+                    <li><a href="osrs-gear-beginner-guide-2026.html">Gear Guide</a></li>
+                    <li><a href="osrs-safe-spots-beginner-2026.html">Safe Spots</a></li>
+                    <li><a href="osrs-prayer-training-beginner-guide-2026.html">Prayer Training</a></li>
+                    <li><a href="osrs-f2p-to-p2p-membership-guide-2026.html">F2P to P2P Transition</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+<!-- Copyright & Anti-Scraping Notice -->
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+<style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#3b2615!important}
+.guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+.guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+.guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+@media (max-width: 768px) {
+    .guide-content table { font-size: 0.85rem; }
+    .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+    .guide-content table tbody td { padding: 6px 10px; }
+    .guide-content h2 { font-size: 1.4em; }
+    .guide-content h3 { font-size: 1.15em; }
+}
+@media (max-width: 640px) {
+    .guide-content table { display: block; overflow-x: auto; }
+    .guide-content h2 { font-size: 1.25em; }
+    .guide-content h3 { font-size: 1.05em; }
+}
+</style>
+
+</body>
+</html>
