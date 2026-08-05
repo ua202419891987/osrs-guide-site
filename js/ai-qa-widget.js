@@ -531,6 +531,9 @@
     { label: 'Osrs Yama Phase3 Prayer Pierce 2026', url: '/guides/osrs-yama-phase3-prayer-pierce-2026.html', stage: 'mid', kw: 'yama phase3 prayer pierce osrs' },
     { label: 'Osrs Youtube Shorts Guide 2026', url: '/guides/osrs-youtube-shorts-guide-2026.html', stage: 'mid', kw: 'youtube shorts osrs' },
     { label: 'Osrs Zulrah Guide 2026', url: '/guides/osrs-zulrah-guide-2026.html', stage: 'boss', kw: 'zulrah osrs' },
+    { label: 'OSRS Nerf Watch 2026 — Monthly Balance Changes & What to Do', url: '/guides/osrs-nerf-watch-2026.html', stage: 'mid', kw: 'nerf watch balance changes patch update buff monthly' },
+    { label: 'OSRS VPN Region-Lock Ban 2026 — Cross-Region Membership & Refund Guide', url: '/guides/osrs-vpn-region-cheap-membership-ban-2026.html', stage: 'mid', kw: 'vpn region membership ban cheap bond cross region login' },
+    { label: 'OSRS Mid-Game Quest Prerequisite Wall 2026 — Beat the +70 Skill Gates', url: '/guides/osrs-mid-game-quest-prerequisite-wall-2026.html', stage: 'mid', kw: 'mid game quest prerequisite wall requirements skill gate' },
   ];
 
   // ========== 本地文章匹配（CD/Windrose/OSRS 通用） ==========

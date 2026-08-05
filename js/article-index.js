@@ -1118,4 +1118,7 @@ const ARTICLE_INDEX=Object.freeze({
   "windrose-ship-cannon-hitreg-fix-2026": "guides/windrose/windrose-ship-cannon-hitreg-fix-2026.html",
   "windrose-solo-duo-1vn-board-tactics-2026": "guides/windrose/windrose-solo-duo-1vn-board-tactics-2026.html",
   "windrose-world-load-ue-crash-fix-2026": "guides/windrose/windrose-world-load-ue-crash-fix-2026.html",
+    "osrs-nerf-watch-2026":"guides/osrs-nerf-watch-2026.html",
+    "osrs-vpn-region-cheap-membership-ban-2026":"guides/osrs-vpn-region-cheap-membership-ban-2026.html",
+    "osrs-mid-game-quest-prerequisite-wall-2026":"guides/osrs-mid-game-quest-prerequisite-wall-2026.html",
 });
