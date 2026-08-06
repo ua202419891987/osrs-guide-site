@@ -1766,7 +1766,7 @@ footer{
    No modifications to these styles whatsoever.
    ============================================================ */
 
-.support-card{background:linear-gradient(135deg,#0f2a0f 0%,#1a3a1a 100%);border-radius:12px;padding:28px 24px;max-width:840px;margin:32px auto;border:1px solid rgba(76,175,80,.15);box-shadow:0 4px 20px rgba(0,0,0,.35);position:relative;overflow:hidden}
+.support-card{box-sizing:border-box;background:linear-gradient(135deg,#0f2a0f 0%,#1a3a1a 100%);border-radius:12px;padding:28px 24px;max-width:840px;margin:32px auto;border:1px solid rgba(76,175,80,.15);box-shadow:0 4px 20px rgba(0,0,0,.35);position:relative;overflow:hidden}
 .support-card::before{content:'';position:absolute;top:-20px;right:-20px;width:100px;height:100px;background:radial-gradient(circle,rgba(76,175,80,.06) 0%,transparent 70%);border-radius:50%}
 .support-inner{display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:relative}
 .support-leaf{font-size:2rem;flex-shrink:0}
@@ -1779,6 +1779,10 @@ footer{
 .guide-content .support-card h3{color:#e8f5e9!important;border:none!important;padding:0!important}
 .guide-content .support-card .support-text p{color:#ffffff!important}
 .guide-content .support-card .support-text h3{color:#e8f5e9!important}
+.guide-content .support-card ul,
+.guide-content .support-card ol,
+.guide-content .support-card li{color:#ffffff!important}
+.guide-content .support-card{color:#ffffff!important}
 .support-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;position:relative}
 .support-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:50px;font-size:.95rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all .3s;white-space:nowrap}
 .support-btn:hover{background:rgba(76,175,80,.3);border-color:rgba(76,175,80,.6);transform:translateY(-2px);color:#fff}
