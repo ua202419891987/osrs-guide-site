@@ -1766,7 +1766,7 @@ footer{
    No modifications to these styles whatsoever.
    ============================================================ */
 
-.support-card{background:linear-gradient(135deg,#0f2a0f 0%,#1a3a1a 100%);border-radius:12px;padding:28px 24px;margin:32px 0;border:1px solid rgba(76,175,80,.15);box-shadow:0 4px 20px rgba(0,0,0,.35);position:relative;overflow:hidden}
+.support-card{background:linear-gradient(135deg,#0f2a0f 0%,#1a3a1a 100%);border-radius:12px;padding:28px 24px;max-width:840px;margin:32px auto;border:1px solid rgba(76,175,80,.15);box-shadow:0 4px 20px rgba(0,0,0,.35);position:relative;overflow:hidden}
 .support-card::before{content:'';position:absolute;top:-20px;right:-20px;width:100px;height:100px;background:radial-gradient(circle,rgba(76,175,80,.06) 0%,transparent 70%);border-radius:50%}
 .support-inner{display:flex;align-items:center;gap:20px;flex-wrap:wrap;position:relative}
 .support-leaf{font-size:2rem;flex-shrink:0}
