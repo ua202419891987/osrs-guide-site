@@ -12,3 +12,11 @@ build/
 _*.py
 __*.py
 _frag*.html
+ 
+# Python bytecode 
+*.pyc 
+__pycache__/ 
+ 
+# Local workspace memory (do not commit) 
+.workbuddy/memory/ 
+.workbuddy/automations/ 
