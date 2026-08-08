@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Multi-Account 2FA Management 2026 — Authenticator Sync, Lockouts & No-Cloud Backup Fix</title>
+    <meta name="description" content="Updated for 2026. 7 best practices for managing 2-Step Verification across multiple OSRS / Jagex Accounts — separate authenticator entries, Microsoft Authenticator cloud sync, surviving a phone change with no backup, and batch-recovering security lockouts. Protect every alt before you lose one.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS multiple accounts 2FA management 2026, OSRS authenticator app cloud sync, Microsoft Authenticator OSRS backup, Jagex Account 2SV multiple accounts, OSRS security lockout recovery, lost phone 2FA OSRS">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-multi-account-2fa-management-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="Beginner" data-category="account">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS Guru</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../new-player.html">New Player</a></li>
+                    <li><a href="../skill-training.html">Skill Training</a></li>
+                    <li><a href="../money-making.html">Money Making</a></li>
+                    <li><a href="../boss-guides.html">Boss Guides</a></li>
+                    <li><a href="../quest-guides.html">Quest Guides</a></li>
+                    <li><a href="account-security-guide-2026.html">Account Security</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+<!--ADSTERRA_TOP-->
+<div class="ad-banner" style="text-align:center;margin:22px auto;padding:10px;border:1px dashed #d4af37;border-radius:8px;max-width:728px;min-height:90px;color:#1a1a1a;font-size:12px;box-sizing:border-box;">Adsterra ad slot — paste your Adsterra banner code here</div>
+
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="account-security-guide-2026.html">Account Security</a> / OSRS Multi-Account 2FA Management 2026</p>
+            <h1>OSRS Multi-Account 2FA Management 2026</h1>
+            <p class="subtitle">One OSRS account with 2-Step Verification is easy. Ten of them is a logistics problem that bites players the moment they change phones or hit a security lockout. This guide covers how to run authenticator-based 2FA across many Jagex Accounts, sync safely with Microsoft Authenticator, and recover fast when a device dies with no cloud backup.</p>
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: Beginner</div>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>Account Security Series</strong> · Part 3 of 3 · 11 min read · Updated July 2026
+            </div>
+        </div>
+    </section>
+
+<main class="guide-content">
+        <div class="container">
+                <div class="support-card" style="margin:8px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+            <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+            <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                <li><strong>Avoid Scams & Phishing (Stop Bank Drains)</strong></li>
+                <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+            </ul>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+    </div>
+
+<div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#7A64B8;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Every Jagex Account needs its own 2SV entry</strong> &mdash; one app, many codes, but each account is a separate token.</li>
+                    <li>📌 <strong>Label every entry clearly</strong> (e.g. "Main," "Zerker," "UIM") so you never type the wrong code at login.</li>
+                    <li>📌 <strong>Microsoft Authenticator (and similar) can cloud-sync</strong> your tokens &mdash; a lifesaver when you change phones.</li>
+                    <li>📌 <strong>Without a sync or backup codes, a dead phone = locked out of all accounts</strong> until you recover each one.</li>
+                    <li>📌 <strong>Batch lockouts are recoverable</strong> if you documented logins, emails, and transaction IDs per account.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#why-different">Why Multi-Account 2FA Is a Dif
+
+ferent Problem</a></li>
+                    <li><a href="#separate-entry">Each Account Needs Its Own Authenticator Entry</a></li>
+                    <li><a href="#cloud-sync">Cloud Backup: MS Authenticator &amp; Synced Apps</a></li>
+                    <li><a href="#new-phone">The "New Phone, No Backup" Nightmare</a></li>
+                    <li><a href="#lockouts">Security Lockouts: Batch-Handling Many Accounts</a></li>
+                    <li><a href="#playbook">The Multi-Account 2FA Playbook (Table)</a></li>
+                    <li><a href="#faq">Multi-Account 2FA FAQs</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="why-different">
+                <h2>1. 🔍 Why Multi-Account 2FA Is a Different Problem</h2>
+                <p>Most OSRS security advice assumes you have one account. But the average mid-to-high player runs several &mdash; a main, a few bosses/raids alts, an Ironman, maybe a stash account for GE flipping. Each one is a separate <strong>Jagex Account</strong> with its own login, its own email, and its own <strong>2-Step Verification (2SV)</strong>. As our <a href="account-security-guide-2026.html" style="color:#7A64B8;font-weight:bold;">full Account Security Guide</a> stresses, 2SV is the single best defense &mdash; but multiplying accounts multiplies the failure points.</p>
+
+                <p>The two moments that wreck multi-account players are predictable: <strong>(1) you buy a new phone</strong> and discover your authenticator app didn't carry the tokens over, and <strong>(2) a mass "security action" or lockout</strong> hits several accounts at once (often after a linked-account or rule-enforcement sweep). Both are survivable &mdash; if you set things up right beforehand. The prevention side is covered in our <a href="osrs-account-hacked-prevention-2026.html" style="color:#7A64B8;font-weight:bold;">Account Hacked Prevention Guide</a>, so here we focus purely on the operational management of many 2FA-protected accounts.</p>
+
+                <p>One more reality check: Jagex does not "see" your authenticator app. The 2SV secret lives in your app, not on a Jagex server you can re-download. So if the app's data is gone and you saved no backup codes, recovery is the <em>only</em> path back &mdash; which means your documentation habits matter as much as your authenticator choice. If you ever get locked out, the <a href="osrs-account-recovery-after-hack-2026.html" style="color:#7A64B8;font-weight:bold;">Account Recovery After a Hack guide</a> is your next read.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Treat 2FA Like a Key Ring, Not a Key</div>
+                    <p>One key opens one door. A key ring holds many &mdash; but if you lose the ring and have no copy, every door is locked. Your authenticator app is the ring; backup codes are the spare copies. Manage it that way and a phone loss becomes an annoyance, not a disaster.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="separate-entry">
+                <h2>2. 🔑 Each Account Needs Its Own Authenticator Entry</h2>
+                <p>The most common beginner mistake with multiple accounts is assuming "I'll just use the same code for everything." That's not how it works, and misunderstanding it causes login failures.</p>
+
+                <h3>② One Jagex Account = One 2SV Secret</h3>
+                <p>When you enable 2SV on a Jagex Account, Jagex generates a unique secret that you scan into your authenticator app. That produces a code that is valid <em>only</em> for that account. Your app can hold hundreds of these, but each is a distinct token &mdash; there is no "master code" that logs you into all of them.</p>
+
+                <h3>③ Label Everything Immediately</h3>
+                <p>The instant you add a token, rename it in the app: "Main," "Zerker 1," "UIM," "Flip acc." During a rushed login you do not want to scroll five identical "Jagex Account" entries guessing which is which. A wrong code just fails; worse, repeatedly wrong codes can trigger extra scrutiny. If you migrated from a legacy login, the <a href="osrs-jagex-account-migration-guide-2026.html" style="color:#7A64B8;font-weight:bold;">Jagex Account Migration Guide</a> explains how each character becomes its own account.</p>
+
+                <h3>④ Don't "Reuse" a Token Across Accounts</h3>
+                <div class="action-step">
+                    <h4>① Enable 2SV separately on each account</h4>
+                    <p>Log into each Jagex Account, go to Account Settings &rarr; Security, and set up 2SV one at a time. Scan each QR into its own app entry.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Save that account's backup codes</h4>
+                    <p>Every account emits its own set of one-time backup codes. Store them per-account, not in one mixed pile.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ Verify the label matches the login</h4>
+                    <p>Before closing the setup screen, do a test login to confirm the code from that exact entry works for that exact account.</p>
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">⚠️ A "Shared Code" Is a Red Flag</div>
+                    <p>If someone tells you to "use my authenticator code" or share a 2SV token, that's account sharing &mdash; against the rules and a fast route to a ban. Each account's 2SV stays with you alone. See <a href="osrs-jagex-account-faq-2026.html" style="color:#7A64B8;font-weight:bold;">the Jagex Account FAQ</a> for what's allowed and what isn't.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="cloud-sync">
+                <h2>3. ☁️ Cloud Backup: MS Authenticator &amp; Synced Apps</h2>
+                <p>The single biggest quality-of-life upgrade for multi-account players is using an authenticator that <strong>cloud-syncs</strong> its tokens. This is what saves you during a phone change.</p>
+
+                <h3>⑤ How Microsoft Authenticator Cloud Sync Works</h3>
+                <p>Microsoft Authenticator can back up your tokens to your personal Microsoft account (or, for some setups, an enterprise/encrypted cloud). When you sign into the app on a new phone with the same Microsoft ID, your saved tokens &mdash; including your many Jagex Account entries &mdash; reappear. For players juggling 5&ndash;20 accounts, this turns a multi-hour rebuild into a 2-minute sign-in.</p>
+
+                <h3>⑥ Other Synced Options</h3>
+                <ul>
+                    <li><strong>Google Authenticator</strong> &mdash; now supports cloud sync via your Google account; enable "Sync" in settings.</li>
+                    <li><strong>Authy</strong> &mdash; historically backed up to an encrypted account; convenient multi-device, though verify current policies.</li>
+                    <li><strong>Bitwarden Authenticator / password-manager TOTP</strong> &mdash; stores codes alongside your passwords if you already use a manager.</li>
+                </ul>
+
+                <h3>⑦ The Trade-Off: Convenience vs Attack Surface</h3>
+                <p>Cloud sync is fantastic for availability but slightly increases exposure &mdash; if your Microsoft/Google account is compromised, your tokens could be too. Mitigate by giving that sync account its <em>own</em> strong password and its own 2SV. The sync account becomes a high-value target, so protect it accordingly.</p>
+
+                <div class="method-box highlight">
+                    <h4>🛡️ Safe Sync Setup</h4>
+                    <ol>
+                        <li>Enable cloud sync in your authenticator app's settings.</li>
+                        <li>Sign the sync into a <strong>dedicated, secure</strong> Microsoft/Google account.</li>
+                        <li>Put <strong>2SV on that sync account</strong> too &mdash; it now guards all your OSRS codes.</li>
+                        <li>Still keep <strong>per-account backup codes</strong> offline as the ultimate fallback.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="new-phone">
+                <h2>4. 📱 The "New Phone, No Backup" Nightmare</h2>
+                <p>This is the scenario that generates the most panic posts: "I got a new phone, didn't sync, and now I can't log into any of my accounts." Here's exactly what happens and how to climb out.</p>
+
+                <h3>⑧ What Actually Happens</h3>
+                <p>If your authenticator app had no cloud sync and you didn't export/transfer it, the tokens live only on the old device. Once you log into a Jagex Account, 2SV still demands a code from that now-inaccessible app. Without backup codes, you cannot complete login &mdash; for <em>every</em> account that used that app.</p>
+
+                <h3>⑨ First Move: Find Your Backup Codes</h3>
+                <p>For each account, you (should have) saved one-time backup codes when enabling 2SV. One backup code logs you in once and is then consumed. After using one, immediately reconfigure 2SV on the new phone and generate a fresh backup-code set. If you never saved them, you're in recovery territory (next section).</p>
+
+                <h3>⑩ If the Old Phone Still Powers On</h3>
+                <div class="action-step">
+                    <h4>① Export / transfer in-app</h4>
+                    <p>Many authenticators have a "transfer accounts" feature that shows a QR on the old phone to scan with the new one. Use it before wiping the old device.</p>
+                </div>
+                <div class="action-step">
+                    <h4>② Sign into the cloud-sync account</h4>
+                    <p>If sync was on, just signing into the app on the new phone restores everything.</p>
+                </div>
+                <div class="action-step">
+                    <h4>③ As a last resort, disable/re-enable 2SV</h4>
+                    <p>Log in with a backup code, then turn 2SV off and on again to rebind the app &mdash; generating new backup codes each time.</p>
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">🔑 The 10-Minute Habit That Prevents This</div>
+                    <p>When you set up any account's 2SV, immediately copy its backup codes into a password manager or a printed sheet stored safely. Do it once, per account, and a dead phone becomes a minor inconvenience instead of a total lockout. Players who skip this are the ones who lose alts.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="lockouts">
+                <h2>5. 🔒 Security Lockouts: Batch-Handling Many Accounts</h2>
+                <p>Sometimes it's not a phone problem &mdash; Jagex applies a security action across several linked accounts at once (for example, after detecting shared/recovery abuse or a chain of linked bans). Now you must recover multiple accounts together.</p>
+
+                <h3>⑪ Why Lockouts Cluster</h3>
+                <p>Jagex links accounts that share signals (IP, payment method, email patterns, devices). A security flag on one can cascade to siblings. If you run many accounts, expect them to be treated as a group during any review &mdash; which is also why <a href="osrs-chain-ban-linked-accounts-2026.html" style="color:#7A64B8;font-weight:bold;">understanding linked-account bans</a> matters for multi-account players.</p>
+
+                <h3>⑫ Recover in Bulk, Document First</h3>
+                <div class="method-box">
+                    <h4>📋 Per-Account Record (keep this sheet)</h4>
+                    <ul>
+                        <li><strong>Login name</strong> and which character/role it is.</li>
+                        <li><strong>Recovery email</strong> you can access.</li>
+                        <li><strong>Original creation details</strong> and first membership source.</li>
+                        <li><strong>Transaction / payment IDs</strong> for that specific account.</li>
+                        <li><strong>Backup codes status</strong> (saved? where?).</li>
+                    </ul>
+                </div>
+
+                <h3>⑬ Opening Support Tickets for Many Accounts</h3>
+                <p>If you must recover several, be consistent and honest in each ticket &mdash; contradictory stories across accounts sink confidence. Provide the strongest per-account evidence (transaction IDs first). If a mass action was applied, a clear, consistent explanation of legitimate ownership helps far more than vague appeals. The <a href="osrs-account-recovery-after-hack-2026.html" style="color:#7A64B8;font-weight:bold;">recovery walkthrough</a> details the evidence Jagex weighs most.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">⚠️ Don't Create New Accounts to "Replace" Locked Ones</div>
+                    <p>Making fresh accounts to dodge a security action on your main group violates the rules and can extend the problem to the new ones via the same linkage signals. Recover the originals properly instead.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="playbook">
+                <h2>6. ✅ The Multi-Account 2FA Playbook (Table)</h2>
+                <p>Use this as your standing operating procedure. A prepared multi-account player recovers from any phone loss or lockout in minutes, not days.</p>
+
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Practice</th><th>Why It Matters</th><th>Do It&hellip;</th></tr>
+                    <tr>
+                        <td>Enable 2SV on <strong>every</strong> account</td>
+                        <td>One unprotected alt is the weak link a hijacker walks through</td>
+                        <td>Immediately, one account at a time</td>
+                    </tr>
+                    <tr>
+                        <td>Label each authenticator entry</td>
+                        <td>Prevents wrong-code logins and confusion at 2am</td>
+                        <td>At setup, before first login</td>
+                    </tr>
+                    <tr>
+                        <td>Turn on cloud sync (MS/Google Auth)</td>
+                        <td>Phone change restores all tokens in minutes</td>
+                        <td>Before you rely on the app</td>
+                    </tr>
+                    <tr>
+                        <td>Save per-account backup codes offline</td>
+                        <td>Ultimate fallback if sync fails or phone dies</td>
+                        <td>At 2SV setup, stored in password manager</td>
+                    </tr>
+                    <tr>
+                        <td>Keep a per-account record sheet</td>
+                        <td>Batch recovery needs login/email/txn proof fast</td>
+                        <td>Maintained continuously</td>
+                    </tr>
+                    <tr>
+                        <td>Secure the sync account itself</td>
+                        <td>It now guards all your OSRS codes</td>
+                        <td>Unique password + its own 2SV</td>
+                    </tr>
+                </table>
+                </div>
+
+                <div class="method-box highlight">
+                    <h4>🎯 The 5-Minute Weekly Check</h4>
+                    <ol>
+                        <li>Confirm your authenticator still opens and shows all entries.</li>
+                        <li>Verify your sync account is signed in and backing up.</li>
+                        <li>Spot-check that backup codes are where you think they are.</li>
+                        <li>Update the record sheet for any new account added that week.</li>
+                        <li>Never share a 2SV code or token with anyone &mdash; ever.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- SECTION 7: FAQ -->
+            <section id="faq">
+                <h2>7. 💡 Multi-Account 2FA FAQs</h2>
+
+                <div class="faq-item">
+                    <h4>Can I use one authenticator app for all my Jagex Accounts?</h4>
+                    <p>Yes &mdash; and you should. One app (Microsoft Authenticator, Google Authenticator, Authy, etc.) holds a separate token for each account. You just need a distinct entry per Jagex Account; the app itself is shared. Label each entry so you know which code belongs to which character.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Does Microsoft Authenticator cloud sync work for OSRS 2SV?</h4>
+                    <p>Yes. The tokens are standard TOTP secrets; MS Authenticator backs them up to your Microsoft account and restores them on a new phone when you sign in. Just enable sync in the app settings and protect that Microsoft account with its own strong password and 2SV &mdash; it now guards every OSRS code you own.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>I changed phones and have no backup codes. Am I locked out forever?</h4>
+                    <p>Not forever &mdash; but you'll recover each account individually. If the old phone still works, transfer/export the tokens in-app first. If not, use the Jagex Account recovery flow (or legacy recovery form) per account with your transaction IDs and creation details. It's slow with many accounts, which is exactly why backup codes matter.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Several of my accounts got locked at once. What do I do?</h4>
+                    <p>Treat it as a batch. Gather your per-account record sheet (logins, emails, payment IDs), then submit consistent, honest recovery for each. Contradictory stories across linked accounts lower confidence, so keep your explanations aligned. Avoid making replacement accounts &mdash; they'll likely get caught by the same linkage signals.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Is it safe to sync my authenticator to the cloud?</h4>
+                    <p>It's a calculated trade-off: huge availability gain (survive phone loss) for a small added risk (compromise of your sync account exposes tokens). Mitigate by giving the sync account a unique password and its own 2SV, and still keeping offline backup codes. For most multi-account players the convenience decisively wins.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Should my alts share the same recovery email?</h4>
+                    <p>It's convenient but risky &mdash; if that one email is compromised or locked, every linked account is exposed at once. A middle path: use one well-secured email domain you control with distinct addresses per account (e.g. osrs-main@, osrs-uim@), all behind one master inbox with its own 2SV. Never use a shared or disposable email you can't fully control.</p>
+                </div>
+            </section>
+
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 Build the Full Security Stack</h3>
+                <p>2FA is one layer &mdash; here's the rest of the system:</p>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #E6A817;">
+                        <strong>→ Step 1:</strong> Harden every account with the <a href="account-security-guide-2026.html" style="color:#7A64B8; font-weight:bold;">Full Account Security Guide</a>
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #E6A817;">
+                        <strong>→ Step 2:</strong> Stop the scams that trigger lockouts &mdash; <a href="osrs-account-hacked-prevention-2026.html" style="color:#7A64B8; font-weight:bold;">Account Hacked Prevention Guide</a>
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #E6A817;">
+                        <strong>→ Step 3:</strong> Recover anything already lost via the <a href="osrs-account-recovery-after-hack-2026.html" style="color:#7A84D4; font-weight:bold;">Account Recovery Guide</a>
+                    </div>
+                </div>
+                <a href="account-security-guide-2026.html" class="support-btn paypal-btn" style="display:inline-block; text-decoration:none; margin-top:20px;">Next: Full Account Security Guide →</a>
+            </div>
+
+            <!-- RELATED GUIDES -->
+                    <div class="related-guides">
+      <h3>More Account Security &amp; 2FA Guides</h3>
+      <div class="article-grid">
+        <a href="account-security-guide-2026.html" class="article-card">
+          <h3>OSRS Account Security Guide 2026 — Full Protection Checklist</h3>
+          <p>The complete security reference: 2SV, password managers, recovery planning, and recognizing every major scam type.</p>
+        </a>
+        <a href="osrs-account-hacked-prevention-2026.html" class="article-card">
+          <h3>OSRS Account Hacked Prevention Guide 2026</h3>
+          <p>Stop phishing, leaked passwords, and RuneLite malware before they ever cost you your bank &mdash; a beginner checklist.</p>
+        </a>
+        <a href="osrs-jagex-account-faq-2026.html" class="article-card">
+          <h3>Jagex Account FAQ 2026 — Migration, Login &amp; 2SV Questions</h3>
+          <p>Answers to the most common Jagex Account questions: migration, lost access, and managing your security settings.</p>
+        </a>
+        <a href="osrs-jagex-account-migration-guide-2026.html" class="article-card">
+          <h3>Jagex Account Migration Guide 2026</h3>
+          <p>How to move legacy RuneScape accounts into a Jagex Account and configure 2SV the right way from day one.</p>
+        </a>
+        <a href="osrs-account-recovery-after-hack-2026.html" class="article-card">
+          <h3>OSRS Account Recovery After a Hack 2026: Step-by-Step Reclaim</h3>
+          <p>If an account is already compromised, this walkthrough covers contacting Jagex, proving ownership, and appealing a ban.</p>
+        </a>
+      </div>
+</div>
+</div>
+<!-- SUPPORT CARD -->
+    <div class="level-back-link" style="text-align:center;margin:28px 0 8px;padding:14px;background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;">
+      <a href="../levels/beginner.html" style="color:#9B84D4;font-weight:700;text-decoration:none;font-size:.95rem;">← Back to Beginner Guides</a>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRS Guru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ New Players (Stage 0)</h4><ul>
+                    <li><a href="osrs-interface-controls-beginner-guide-2026.html">Game Interface</a></li>
+                    <li><a href="osrs-combat-triangle-explained-2026.html">Combat Triangle</a></li>
+                    <li><a href="osrs-skills-overview-beginner-2026.html">Skills Overview</a></li>
+                    <li><a href="osrs-bank-inventory-management-2026.html">Bank &amp; Inventory</a></li>
+                    <li><a href="osrs-maps-travel-guide-2026.html">Maps &amp; Travel</a></li>
+                    <li><a href="osrs-questing-beginner-guide-2026.html">Questing Basics</a></li>
+                    <li><a href="osrs-combat-training-beginner-2026.html">Combat Training</a></li>
+                    <li><a href="osrs-money-making-beginner-2026.html">Beginner Money Making</a></li>
+                    <li><a href="osrs-gear-beginner-guide-2026.html">Gear Guide</a></li>
+                    <li><a href="osrs-safe-spots-beginner-2026.html">Safe Spots</a></li>
+                    <li><a href="osrs-prayer-training-beginner-guide-2026.html">Prayer Training</a></li>
+                    <li><a href="osrs-f2p-to-p2p-membership-guide-2026.html">F2P to P2P Transition</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+<!-- Copyright & Anti-Scraping Notice -->
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+<style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#3b2615!important}
+.guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+.guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+.guide-content .related-guides .article-card:hover{background:#f0ecf5!important;border-color:#D4CDE0!important}
+.guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+@media (max-width: 768px) {
+    .guide-content table { font-size: 0.85rem; }
+    .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+    .guide-content table tbody td { padding: 6px 10px; }
+    .guide-content h2 { font-size: 1.4em; }
+    .guide-content h3 { font-size: 1.15em; }
+}
+@media (max-width: 640px) {
+    .guide-content table { display: block; overflow-x: auto; }
+    .guide-content h2 { font-size: 1.25em; }
+    .guide-content h3 { font-size: 1.05em; }
+}
+</style>
+
+</body>
+</html>
