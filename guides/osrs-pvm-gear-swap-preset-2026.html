@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS PvM Gear Swap & Preset Guide 2026 — F-Keys, Preset Plugin & Swap Rhythm</title>
+    <meta name="description" content="Learn fast PvM gear swapping in OSRS 2026: the F-key system, the RuneLite preset plugin, spec weapon / offhand / prayer / armor swaps, boss case studies (Yama, ToB, Nex), advanced macros, and tick-perfect rhythm. An intermediate guide to shaving seconds off every boss kill.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS gear swap, OSRS preset plugin, F-key swapping OSRS, RuneLite presets, PvM gear switch, swap rhythm OSRS, OSRS inventory setup, spec weapon swap OSRS">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/osrs-pvm-gear-swap-preset-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="Intermediate" data-category="bosses">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../weekly-updates.html">Updates</a></li>
+                    <li><a href="../chinese.html">中文</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../boss-guides.html">Boss Guides</a> / PvM Gear Swap &amp; Preset Guide 2026</p>
+            <p class="subtitle">The difference between a 2-minute boss kill and a 90-second one is rarely your weapon — it is your swaps. This guide covers the F-key system, the RuneLite preset plugin, the four families of swap (spec weapon, offhand, prayer, armor), boss case studies from Yama to Nex, and the rhythm that makes swaps feel automatic.</p>
+            <p class="article-meta" style="color:#e8d5b7;font-size:.82rem;margin:.6rem 0 0;opacity:.85;">Published: August 9, 2026 &middot; Last verified: August 9, 2026</p>
+        </div>
+    </section>
+
+<main class="guide-content">
+        <div class="container">
+
+                <div class="support-card" style="margin:8px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+            <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+            <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                <li><strong>Avoid Scams & Phishing (Stop Bank Drains)</strong></li>
+                <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+            </ul>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+    </div>
+
+            <h1>OSRS PvM Gear Swap &amp; Preset Guide 2026 — F-Keys, Preset Plugin &amp; Swap Rhythm</h1>
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: Intermediate</div>
+
+            <p class="intro">Gear swapping is the act of changing equipment mid-fight to get the best bonus for the exact action you are doing right now — a Strength amulet for a big hit, a magic amulet for a cast, prayer gear for a defensive phase, then back. A single boss kill can involve a dozen swaps. Done slowly, they waste ticks and cost you kills per hour. Done well, they are invisible. This intermediate guide assumes you already know the <a href="../guides/osrs-general-pvm-mechanics-2026.html">core PvM mechanics</a> and want the practical tooling — the F-key system, the preset plugin, and the rhythm that ties it together. If you are still picking your first setup, our <a href="../guides/osrs-2026-bis-update-overview-2026.html">2026 BIS update overview</a> explains which items are worth swapping into this year.</p>
+            <p>Swapping is not cheating and not a "pro only" skill. It is a habit, and like any habit it is built by repeating a small, correct motion until you stop thinking about it. By the end of this guide you will have a concrete setup you can copy into your client tonight, plus boss-specific examples you can steal for your next raid.</p>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#why-swap">Why Gear Swapping Wins Fights</a></li>
+                    <li><a href="#scenarios">The Four Swap Families (Spec / Offhand / Prayer / Armor)</a></li>
+                    <li><a href="#f-keys">The F-Key System Demystified</a></li>
+                    <li><a href="#preset-plugin">Preset Plugin Setup (RuneLite &amp; Official)</a></li>
+                    <li><a href="#building-swaps">Building Efficient Swaps</a></li>
+                    <li><a href="#rhythm">Swap Rhythm &amp; Tick Timing</a></li>
+                    <li><a href="#boss-cases">Boss Case Studies: Yama, ToB &amp; Nex</a></li>
+                    <li><a href="#mistakes">Common Swapping Mistakes</a></li>
+                    <li><a href="#advanced">Advanced Macros &amp; Keybinding</a></li>
+                    <li><a href="#faq">Frequently Asked Questions</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="why-swap">
+                <h2>1. Why Gear Swapping Wins Fights</h2>
+                <p>Every equipment slot contributes a bonus — Strength, Ranged Strength, Magic Damage, Prayer bonus, Defence, and various niche effects like lifesteal or spec damage. No single item is best at everything. The <strong>Berserker ring (i)</strong> boosts your melee Strength but gives no prayer bonus; the <strong>Ring of the Gods (i)</strong> gives a big prayer bonus but no offence. If you wear one the whole fight, you leave performance on the table. Gear swapping is simply the discipline of wearing the right item for the right moment instead of a permanent compromise.</p>
+
+                <h3>The "right tool, right moment" principle</h3>
+                <p>Swapping means wearing the offensive item during your damage window and the defensive or prayer item during the safe or tanking window. Example: at Vorkath you wear an <strong>Archer ring (i)</strong> while ranging, then swap to <strong>Ring of the Gods (i)</strong> during the fireball or acid phase when you are not dealing damage anyway. Same kills, far less prayer potion spent. The principle scales to every boss: identify the windows where your current gear is "wasted," and swap the wasted slots for something that helps.</p>
+
+                <div class="method-box highlight">
+                    <h4>⚡ What a Swap Actually Saves</h4>
+                    <ul>
+                        <li><strong>Prayer points</strong> — swap to prayer gear during downtime instead of drinking potions.</li>
+                        <li><strong>Kills per hour</strong> — offensive swaps raise DPS, shortening every kill.</li>
+                        <li><strong>Supplies cost</strong> — less food and prayer potion per trip means more profit.</li>
+                        <li><strong>Survivability</strong> — defensive swaps let you tank a hit you would otherwise eat at reduced gear.</li>
+                        <li><strong>Consistency</strong> — standardised swaps remove panic decisions under pressure.</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Swaps compound</div>
+                    <p>One swap saving two seconds seems nothing. Over a 100-kill trip, that is three-plus minutes — often the difference between one extra kill per hour and several. Swapping is a long-game profit multiplier, and it is the single biggest gap between an "okay" kc/h and a "great" one at the same gear level.</p>
+                </div>
+
+                <h3>Why swapping beats "just wearing BIS the whole time"</h3>
+                <p>Best-in-slot gear is designed to be a strong all-rounder, but it is never the best at every specific action. A Tormented bracelet beats an BIS offensive bracelet only for magic; an Inquisitor piece only for crush; a Soulreaper axe spec only matters on the hit it lands. Swapping lets you cherry-pick the best item per action. That is why two players with identical banks can have wildly different kill times — the faster one swaps, and the slower one leaves bonuses unused. Before you chase more BIS, learn to use the BIS you already own through swaps.</p>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="scenarios">
+                <h2>2. The Four Swap Families (Spec / Offhand / Prayer / Armor)</h2>
+                <p>Most swaps fall into four buckets. Learning to recognise them is faster than memorising per-boss setups, because every boss is just a combination of these four ideas. For the maths behind which swap wins, see our <a href="../guides/osrs-pvm-dps-optimization-2026.html">PvM DPS optimization guide</a>; for cheap versions of each piece, our <a href="../guides/osrs-budget-gear-2026.html">budget gear guide</a> lists swap pieces under a few million GP.</p>
+
+                <h3>① Spec weapon swaps</h3>
+                <p>This is the most common and highest-impact swap: you fight with your accurate, sustained weapon (e.g. Osmuten's fang, Bow of faerdhinen, Tumeken's shadow), then swap to a dedicated special-attack weapon for one or two spec hits. Classic examples: <strong>Dragon claws</strong> for a precise 4-hit finish, <strong>Bandos godsword</strong> for a freeze + damage on a fleeing target, <strong>Dark bow</strong> for big ranged specs, or a <strong>Soulreaper axe</strong> stack dump. The spec weapon is dead weight during normal attacks, so it lives in your inventory and only equips on the spec tick.</p>
+
+                <h3>② Offhand / shield swaps</h3>
+                <p>You range or mage with a two-handed weapon, then swap to a shield (or a defender) for a defensive window. <strong>Dragon defender</strong> gives a small offence boost over nothing and is a common "always on" offhand, but the real swap is into a <strong>book of darkness</strong> or <strong>ancient wyvern shield</strong> for a magic-defensive phase, or a <strong>DFS</strong> vs dragonfire. Offhand swaps also appear when you carry a <strong>lightbearer</strong> (faster spec regen) during DPS but swap to <strong>zaryte vambraces</strong> or a defender for a specific hit.</p>
+
+                <h3>③ Prayer gear swaps</h3>
+                <p>Items with a Prayer bonus reduce how fast your prayer drains. During any window where you are not attacking — a knockback, a pacify, a loot pickup, a forced dodge — swap from your offensive ring/amulet into <strong>Ring of the Gods (i)</strong>, <strong>Devout boots</strong>, or a <strong>mitre</strong> to bank prayer points. This is the swap that pays for itself in fewer prayer potions per trip. It is low-risk because you are not attacking in that window anyway.</p>
+
+                <h3>④ Armor / style swaps</h3>
+                <p>The biggest swaps: changing your whole attack style or defensives mid-fight. <strong>Zulrah</strong> forces melee→ranged→magic→ranged cycles; <strong>CoX</strong> wants melee for Vanguard and mage for Vespula; <strong>Yama</strong> rewards swapping to a dedicated setup for his enrage phase. Armor swaps are usually handled by full presets (Section 4) rather than single F-keys, but knowing which slot is the "anchor" (usually weapon + amulet) tells you what to keep and what to change.</p>
+
+                <div class="method-box">
+                    <h4>🎒 Quick Reference: What to Keep vs Swap</h4>
+                    <ul>
+                        <li><strong>Keep:</strong> your highest-damage weapon and the amulet that matches your style.</li>
+                        <li><strong>Swap often:</strong> ring (offence ↔ prayer), offhand (defender ↔ shield).</li>
+                        <li><strong>Swap rarely:</strong> boots, cape, full armor (use a preset for these).</li>
+                        <li><strong>Never swap mid-action:</strong> anything that would delay your next hit.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="f-keys">
+                <h2>3. The F-Key System Demystified</h2>
+                <p>RuneLite (and the official client with the right settings) lets you bind number keys to equipment slots, so you can swap a single item with one keypress instead of opening the worn interface and dragging. This is the backbone of fast swapping. Understanding the mapping is the first half of learning to swap without looking.</p>
+
+                <h3>How F-keys map to slots</h3>
+                <p>By default the function row maps to your worn equipment slots: <strong>F1</strong> = weapon, <strong>F2</strong> = shield, <strong>F3</strong> = amulet, <strong>F4</strong> = torso/body, <strong>F5</strong> = legs, <strong>F6</strong> = gloves, <strong>F7</strong> = boots, <strong>F8</strong> = ring, <strong>F9</strong> = cape, and so on depending on your layout. Pressing the key opens that slot's sub-menu; pressing it again (or a bound "swap" key) equips the highlighted item. Many players also enable <strong>"F-keys act as number keys"</strong> so the FN row mirrors the number row and frees the function keys for other binds.</p>
+
+                <div class="action-step">
+                    <h4>⌨️ Setting Up F-Key Swaps</h4>
+                    <ol>
+                        <li>Open <strong>Settings &rarr; Keyboard Shortcuts</strong> in RuneLite.</li>
+                        <li>Enable <strong>"F-keys act as number keys"</strong> if you prefer the FN row to mirror the number row.</li>
+                        <li>Place the two items you swap in the <em>same</em> slot (e.g. two rings) in your inventory adjacent to each other.</li>
+                        <li>Bind <strong>Alt + F-key</strong> (or a custom key) to "swap" that slot for one-tap equipping.</li>
+                        <li>Test by pressing the key — the item should equip without opening any menu.</li>
+                    </ol>
+                </div>
+
+                <h3>Why one-slot swaps beat full re-equips</h3>
+                <p>A full re-equip (take everything off, put new everything on) takes many ticks and is error-prone. A single-slot swap — ring for ring, amulet for amulet — is one keypress and resolves in one tick. Good swap setups change only the one or two slots that matter for the current action, which is why the four families above focus on ring, offhand, and amulet.</p>
+
+                <div class="warning-box" style="border-left:none;">
+                    <div class="warning-title">⚠️ Don't bind over game functions</div>
+                    <p>Some F-keys are used by the client (screenshot, logout). Remap only the slot keys you actually use, and avoid clashing with your prayer or inventory binds, or you will swap gear when you meant to swap prayer. A clean separation — number row for prayers, F-keys for gear — prevents the most embarrassing wipes.</p>
+                </div>
+
+                <!-- SVG 1: F-key / number-row binding layout -->
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 210" width="100%" role="img" aria-label="F-key and number-row binding layout for gear swaps" style="max-width:680px;margin:0 auto;display:block;">
+                        <rect x="10" y="14" width="660" height="40" rx="8" fill="#f5f2f8" stroke="#b9a7e0"/>
+                        <text x="24" y="39" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#5b3a8c">F-KEY ROW (gear slots)</text>
+                        <g font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#1a1a1a" text-anchor="middle">
+                            <rect x="24" y="64" width="92" height="34" rx="6" fill="#fff" stroke="#b9a7e0"/><text x="70" y="85">F1 Weapon</text>
+                            <rect x="128" y="64" width="92" height="34" rx="6" fill="#fff" stroke="#b9a7e0"/><text x="174" y="85">F2 Shield</text>
+                            <rect x="232" y="64" width="92" height="34" rx="6" fill="#fff" stroke="#b9a7e0"/><text x="278" y="85">F3 Amulet</text>
+                            <rect x="336" y="64" width="92" height="34" rx="6" fill="#fff" stroke="#b9a7e0"/><text x="382" y="85">F8 Ring</text>
+                            <rect x="440" y="64" width="92" height="34" rx="6" fill="#fff" stroke="#b9a7e0"/><text x="486" y="85">F7 Boots</text>
+                            <rect x="544" y="64" width="92" height="34" rx="6" fill="#fff" stroke="#b9a7e0"/><text x="590" y="85">F9 Cape</text>
+                        </g>
+                        <rect x="10" y="120" width="660" height="40" rx="8" fill="#eef6ee" stroke="#9ccc9c"/>
+                        <text x="24" y="145" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#2e7d32">NUMBER ROW (prayers — keep separate)</text>
+                        <g font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#1a1a1a" text-anchor="middle">
+                            <rect x="24" y="170" width="120" height="30" rx="6" fill="#fff" stroke="#9ccc9c"/><text x="84" y="190">1 Protect Melee</text>
+                            <rect x="156" y="170" width="128" height="30" rx="6" fill="#fff" stroke="#9ccc9c"/><text x="220" y="190">2 Protect Range</text>
+                            <rect x="296" y="170" width="128" height="30" rx="6" fill="#fff" stroke="#9ccc9c"/><text x="360" y="190">3 Protect Mage</text>
+                            <rect x="436" y="170" width="110" height="30" rx="6" fill="#fff" stroke="#9ccc9c"/><text x="491" y="190">4 Piety</text>
+                            <rect x="558" y="170" width="104" height="30" rx="6" fill="#fff" stroke="#9ccc9c"/><text x="610" y="190">5 Rigour</text>
+                        </g>
+                    </svg>
+                    <figcaption>Keep gear swaps on the F-key row and prayers on the number row so the two never collide.</figcaption>
+                </figure>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="preset-plugin">
+                <h2>4. Preset Plugin Setup (RuneLite &amp; Official)</h2>
+                <p>The <strong>Presets</strong> plugin is the single biggest quality-of-life upgrade for any swapper. It saves your full equipment + inventory + rune pouch as a named loadout and re-equips it from your bank in seconds. This is how you prepare for a fight, restock between trips, and switch entire builds (melee &rarr; ranged &rarr; magic) without manual dragging. The official client has a built-in preset system too, but RuneLite's version is faster to configure and supports notes and bank tagging.</p>
+
+                <h3>Saving your first preset (RuneLite)</h3>
+                <div class="method-box">
+                    <h4>📋 Preset Save Steps</h4>
+                    <ol>
+                        <li>Wear the exact gear and fill the exact inventory you want to save.</li>
+                        <li>Open the <strong>Presets</strong> panel (gear icon &rarr; Presets).</li>
+                        <li>Click <strong>Save</strong> and name it (e.g. "Vorkath Ranged", "ToA Melee").</li>
+                        <li>Tick <strong>"Withdraw from bank"</strong> so it pulls items directly when you open your bank.</li>
+                        <li>Optionally enable <strong>"Notes"</strong> to remind yourself of potion doses.</li>
+                    </ol>
+                </div>
+
+                <h3>Saving presets in the official client</h3>
+                <p>The official client's preset feature lives under the worn-equipment interface (the "worn" tab &rarr; presets icon). The workflow is the same — wear it, save it, then load it at a bank — but you lose RuneLite's keybinds and quick-load hotkeys. If you prefer the official client for any reason, the preset system still removes 90% of the manual dragging; you simply click the loadout instead of pressing a hotkey. Either way, the rule is identical: keep your swap pieces banked so presets can always complete.</p>
+
+                <h3>Loading a preset mid-session</h3>
+                <p>Stand at a bank, open the Presets panel, click your loadout — the plugin withdraws exactly what you need and equips it. For bosses where you swap <em>whole styles</em> (Zulrah, Muspah, CoX), presets are faster and safer than manual swaps. For in-fight micro-swaps (ring for ring), use F-keys instead. Mixing the two is the pro setup: presets for style changes between phases, F-keys for the in-phase ring and offhand swaps.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Two presets per boss</div>
+                    <p>Save a <strong>"banked"</strong> preset (full trip loadout) and a <strong>"combat"</strong> preset (just the fight gear). Loading the combat preset after banking saves a tick versus re-dragging. Serious raiders keep 5-10 presets and switch between them between rooms, not just between bosses.</p>
+                </div>
+
+                <h3>Presets vs the Grand Exchange</h3>
+                <p>Presets pull from your <strong>bank</strong>, not the GE. Keep spare swap pieces (extra rings, spare amulets, a second book) in your bank so presets can always complete. Running out of a swap item mid-trip is the most common beginner mistake — see <a href="../guides/osrs-budget-gear-2026.html">the budget gear guide</a> for which cheap spares are worth banking permanently.</p>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="building-swaps">
+                <h2>5. Building Efficient Swaps</h2>
+                <p>A swap is only worth it if the bonus you gain is bigger than the tick you spend. Here is how to decide what to swap and what to leave alone, and how to lay out your inventory so your hands never hunt for a piece.</p>
+
+                <h3>The high-value swap slots</h3>
+                <table>
+                    <tr><th>Slot</th><th>Offensive Swap</th><th>Defensive / Prayer Swap</th><th>Worth It?</th></tr>
+                    <tr><td>Ring</td><td>Berserker / Archer / Seers (i)</td><td>Ring of the Gods (i)</td><td>Usually yes</td></tr>
+                    <tr><td>Amulet</td><td>Amulet of Torture / Anguish / Occult</td><td>Amulet of Fury (tank)</td><td>Yes for DPS phases</td></tr>
+                    <tr><td>Offhand</td><td>Dragon defender / Lightbearer</td><td>Book of darkness / DFS</td><td>Yes for style/def</td></tr>
+                    <tr><td>Boots</td><td>Primordial / Pegasian / Eternal</td><td>Devout (prayer)</td><td>Sometimes</td></tr>
+                    <tr><td>Weapon</td><td>Fang / Bowfa / Shadow / SRA</td><td>Dragon claws (spec)</td><td>Yes for style/spec</td></tr>
+                    <tr><td>Cape</td><td>Infernal / Imbued God</td><td>Skillcape (prayer)</td><td>Rarely mid-fight</td></tr>
+                </table>
+
+                <h3>Build a "swap kit" in your inventory</h3>
+                <p>Keep your swap pieces in fixed inventory slots so your muscle memory never searches for them. A common layout: spec weapon in slot 1, ring swap in slot 2, amulet swap in slot 3, prayer gear in slots 4-5, offhand swap in slot 6. When the safe window opens, your fingers already know where everything is. Never let a swap piece drift into a random slot — that one second of searching is a missed swap and a wasted trip.</p>
+
+                <div class="method-box highlight">
+                    <h4>🎒 Example: Vorkath Ring Swap</h4>
+                    <p>Wear <strong>Archer ring (i)</strong> while ranging the boss. The moment Vorkath begins the fireball (a phase where your bolts do nothing), press your ring-swap key to equip <strong>Ring of the Gods (i)</strong>, gaining +8 prayer bonus for the duration. Swap back to Archer when the phase ends. Zero DPS lost, meaningful prayer saved. This is the template for every prayer swap: move only on ticks where you are not attacking.</p>
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Swap during forced downtime</div>
+                    <p>The best swaps happen when you <em>can't</em> attack anyway — knockback phases, prayer-required windows, loot collection. If you swap during your own damage window, you waste a hit. Time swaps to the boss's dead ticks, and let a DPS calculator tell you whether an offensive swap is even worth the inventory slot.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="rhythm">
+                <h2>6. Swap Rhythm &amp; Tick Timing</h2>
+                <p>Swapping is a timing skill, not just a binding skill. Because every action resolves on a 0.6-second tick (see the <a href="../guides/osrs-general-pvm-mechanics-2026.html">mechanics guide</a>), your swap must complete on a tick where you are not also trying to attack or move.</p>
+
+                <h3>The "dead tick" rule</h3>
+                <p>Identify ticks where you are otherwise idle — between attacks, during a boss animation, while a projectile is in flight. Slot your swap into one of those ticks. A swap that lands on the same tick as your next attack will delay the attack by a tick, costing DPS. Spreading them is the rhythm. Most players visualise it as "attack, attack, <em>swap</em>, attack" rather than "attack, swap, attack" — the swap rides the gap, never the hit.</p>
+
+                <h3>Building the rhythm</h3>
+                <div class="action-step">
+                    <h4>🥁 A Daily 5-Minute Drill</h4>
+                    <ul>
+                        <li>At a safe training dummy or a low-stakes boss, perform one swap per kill cycle.</li>
+                        <li>Count "equip &mdash; attack &mdash; equip &mdash; attack" out loud until it is even.</li>
+                        <li>Gradually add a second swap (ring + offhand) without breaking the attack cadence.</li>
+                        <li>Only add a third swap once the first two are automatic.</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box" style="border-left:none;">
+                    <div class="warning-title">⚠️ Over-swapping kills DPS</div>
+                    <p>If you swap three times in a window where one swap would do, you spent two ticks not attacking. More swaps is not automatically better — swap only when the bonus clearly exceeds the lost attack. Measure with a DPS calculator if unsure, and remember that a missed swap is cheaper than a swap that delays your hit.</p>
+                </div>
+
+                <!-- SVG 2: swap flow / dead-tick loop -->
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 200" width="100%" role="img" aria-label="Gear swap flow: damage window to safe window and back" style="max-width:680px;margin:0 auto;display:block;">
+                        <defs>
+                            <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L7,3 L0,6 Z" fill="#5b3a8c"/>
+                            </marker>
+                        </defs>
+                        <rect x="20" y="60" width="220" height="80" rx="10" fill="#eef6ee" stroke="#9ccc9c"/>
+                        <text x="130" y="92" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#2e7d32" text-anchor="middle">OFFENSIVE GEAR</text>
+                        <text x="130" y="114" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#1a1a1a" text-anchor="middle">Damage window (hit hard)</text>
+                        <line x1="240" y1="100" x2="300" y2="100" stroke="#5b3a8c" stroke-width="2.5" marker-end="url(#arrow)"/>
+                        <rect x="300" y="60" width="220" height="80" rx="10" fill="#f5f2f8" stroke="#b9a7e0"/>
+                        <text x="410" y="92" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#5b3a8c" text-anchor="middle">PRAYER / DEF GEAR</text>
+                        <text x="410" y="114" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#1a1a1a" text-anchor="middle">Safe window (bank prayer)</text>
+                        <line x1="520" y1="100" x2="580" y2="100" stroke="#5b3a8c" stroke-width="2.5" marker-end="url(#arrow)"/>
+                        <path d="M580,100 C620,100 620,170 540,170 L330,170" fill="none" stroke="#5b3a8c" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+                        <text x="600" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#5b3a8c" text-anchor="middle">swap back</text>
+                    </svg>
+                    <figcaption>The swap loop: deal damage in offensive gear, then swap to prayer/defensive gear during the safe window, and swap back before your next hit.</figcaption>
+                </figure>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="boss-cases">
+                <h2>7. Boss Case Studies: Yama, ToB &amp; Nex</h2>
+                <p>Theory is easier to copy when you see it on a real boss. Here are three very different swap demands — a sustained DPS race, a precision raid, and a group pulveriser — each showing which family from Section 2 does the work.</p>
+
+                <h3>① Yama — spec + prayer swaps in a DPS race</h3>
+                <p><strong>Yama</strong> is a sustained DPS check where every second off your kill time matters, and his enrage phases punish passive play. The winning swap plan is: hold <strong>Osmuten's fang</strong> (or your BIS stab weapon) for the body of the fight, swap to a <strong>spec weapon</strong> on the opening and enrage windows to spike damage, and during his forced downtime (the pillar / prayer phases) swap your ring into <strong>Ring of the Gods (i)</strong> to stretch prayer. Because the fight is long, prayer swaps alone save several prayer potions per hour. Start from our <a href="../guides/osrs-yama-gear-requirements-2026.html">Yama gear requirements guide</a> to know which swaps are even available at your level, then go deeper with the <a href="../guides/osrs-yama-deep-dive-2026.html">Yama deep dive</a> for the exact tick windows each swap should land on.</p>
+
+                <h3>② Theatre of Blood (ToB) — style + offhand swaps under pressure</h3>
+                <p>ToB is where swapping separates clean kills from wipes. Each room wants a different style, so full <strong>presets</strong> handle the big style changes (melee for Verzik P2, mage for Bloat, ranged for Nylocas), while <strong>offhand and ring swaps</strong> handle the micro-timing inside a room — e.g. swapping to a shield for a confidently-tanked hit, or to a book for a magic-heavy wave. In Hard Mode especially, one missed defensive swap is a team wipe, which is why our <a href="../guides/osrs-tob-hm-wipe-prevention-2026.html">ToB HM wipe-prevention guide</a> is built almost entirely around swap checklists. The lesson: at ToB, your swaps are a relay you run with three other people, so they must be rehearsed, not improvised.</p>
+
+                <h3>③ Nex — prayer gear + magic weapon swaps in a group</h3>
+                <p><strong>Nex</strong> is a group fight defined by prayer switches and phase-specific damage. The core swap is prayer bonus gear during her non-attack calls (swap ring and boots to prayer gear to survive the tank phases on fewer potions), plus a <strong>magic weapon swap</strong> when the raid calls for it — a perfect moment to appreciate what a staff like the <a href="../guides/osrs-sang-staff-bis-impact-2026.html">Sanguinesti staff</a> contributes to your BIS magic setup and when to bring it out. Nex also rewards <strong>spec weapon swaps</strong> on vulnerability windows: line up your Dragon claws or Bandos godsword spec with the team's damage spikes and you shave the kill dramatically. The group context means your swaps must sync to the caller, not your own rhythm.</p>
+
+                <div class="method-box">
+                    <h4>🎯 Pattern Across All Three</h4>
+                    <ul>
+                        <li><strong>Yama:</strong> spec + prayer swaps, solo rhythm.</li>
+                        <li><strong>ToB:</strong> preset style swaps + offhand/ring micro-swaps, team sync.</li>
+                        <li><strong>Nex:</strong> prayer gear + magic/spec swaps, caller-synced.</li>
+                        <li>Common thread: swap on the boss's dead ticks, never your own hit.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 8 -->
+            <section id="mistakes">
+                <h2>8. Common Swapping Mistakes</h2>
+                <p>Everyone makes these at first. Recognising them is half the fix, and most of them are timing or inventory problems rather than knowledge problems.</p>
+
+                <h3>Mistake 1 — Swapping during your damage window</h3>
+                <p>You interrupt your own attack to swap, losing a hit. Fix: swap on the boss's dead ticks, never yours. If you are unsure whether a tick is free, wait one extra attack — a delayed swap costs nothing, a delayed hit costs DPS.</p>
+
+                <h3>Mistake 2 — No spare swap items in the bank</h3>
+                <p>Your preset fails to load because the spare ring is on your alt or at the GE. Fix: keep a dedicated swap kit in your main bank and never lend it out. A second <strong>Ring of the Gods (i)</strong> and a spare amulet cost little and remove an entire class of failure.</p>
+
+                <h3>Mistake 3 — Binds that clash with prayers</h3>
+                <p>You meant to swap prayer but equipped a ring instead. Fix: keep prayer binds and gear-swap binds on clearly separate keys (e.g. number row for prayer, F-keys for gear). The layout in Section 3 is designed specifically to prevent this collision.</p>
+
+                <h3>Mistake 4 — Swapping too much</h3>
+                <p>Three swaps where one suffices. Fix: audit your swaps with a DPS calculator; drop any swap that saves less than it costs. A swap that costs a tick but adds 0.2% DPS is a net loss over a long fight.</p>
+
+                <h3>Mistake 5 — Drifting swap pieces in the inventory</h3>
+                <p>You put the ring swap in slot 2 on Monday and slot 7 on Tuesday, so your fingers fumble. Fix: lock your swap kit layout and never move pieces between trips. Consistency beats cleverness.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Record and review</div>
+                    <p>Record a few kills (the client supports clips) and watch your swap timing back. You will spot dead-tick violations you never felt in the moment. Reviewing footage is the fastest way to tighten rhythm, and it is free.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 9 -->
+            <section id="advanced">
+                <h2>9. Advanced Macros &amp; Keybinding</h2>
+                <p>Once single swaps are automatic, the next layer is chaining and ergonomics. This is where good keybinding separates comfortable 3-hour raids from cramped, error-prone ones. Note: only <em>client-supported</em> keybinds and scriptable single-actions are allowed — Jagex bans input automation that plays the game for you, so everything below is manual-friendly.</p>
+
+                <h3>Chorded swap keys</h3>
+                <p>Bind your most-used swaps to <strong>Alt/Shift + F-key</strong> chords so a full swap is one combined press, not a hunt across the keyboard. Example: <strong>Alt+F8</strong> = swap to prayer ring, <strong>Shift+F8</strong> = swap back to offence ring. Chording keeps your left hand on the movement cluster and your right hand on attacks, which matters in mobile and laptop play.</p>
+
+                <h3>Mouse side-buttons for specs</h3>
+                <p>Map your spec weapon swap and the "use special attack" click to mouse side-buttons (buttons 4/5). This lets you spec without lifting your hand from the mouse, which is the fastest way to land a claws or SRA dump on the exact tick. Combine it with a "last target" key so the spec always lands on the boss.</p>
+
+                <h3>Bank tags + preset hotkeys</h3>
+                <p>Use RuneLite's <strong>Bank Tags</strong> plugin to group swap pieces under a tag, then bind a hotkey that loads the matching preset the instant you open the bank. In raids this turns a 10-second re-equip into a 2-second one between rooms. Tag your swap kit as "swap" and your trip loadout as "trip" so you never mis-load.</p>
+
+                <h3>Mobile touch keybinding</h3>
+                <p>On the mobile client, dragging to swap is slow, so configure the on-screen action bar with your swap pieces and bind a dedicated hotkey tile for the ring and offhand. Our mobile PvM touch-optimization guide covers the exact layout that makes swapping viable on a phone — useful if you ever raid away from a keyboard. The principle is the same: one tap per swap, fixed positions, no searching.</p>
+
+                <div class="warning-box" style="border-left:none;">
+                    <div class="warning-title">⚠️ Stay inside the rules</div>
+                    <p>Single keypress binds and bank-tag macros are fine. Anything that auto-sequences a full kill, auto-swaps based on HP, or reacts without you pressing a key is botting and will get you banned. Keep your macros to "one input, one swap," and you are safe.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 10 FAQ -->
+            <section id="faq">
+                <h2>10. Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <h3>Do I need RuneLite to gear swap efficiently?</h3>
+                    <p>RuneLite makes it dramatically easier (F-keys + Presets plugin + bank tags), but the official client supports equipment-slot keybinds and has its own preset system too. You can swap without RuneLite; you will just set it up manually and lose the hotkey speed. Most serious swappers use RuneLite for the keybinds alone.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How many swaps should a beginner learn first?</h3>
+                    <p>One. Learn a single ring swap (offensive &rarr; prayer gear) at a boss with a clear safe phase, like Vorkath. Once that is automatic, add an amulet swap, then a weapon or style swap. Stacking swaps before the first is automatic causes errors and wasted trips.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Does swapping use a game tick?</h3>
+                    <p>Yes. Equipping an item is an action that occupies a tick. That is why timing matters — a swap on your attack tick delays the attack. Slot swaps into the boss's dead ticks to avoid the cost, and use the dead-tick rule from Section 6.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can presets withdraw from the Grand Exchange?</h3>
+                    <p>No. Presets withdraw from your <strong>bank</strong>. Keep spare swap pieces banked. If an item is only at the GE or on an alt, the preset will fail to fully load and you will enter the fight missing a swap piece.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What is the highest-impact swap for a new raider?</h3>
+                    <p>The spec weapon swap. A dedicated special-attack weapon (Dragon claws, Bandos godsword, Dark bow) on the right window often contributes more damage per trip than a small all-round gear upgrade, and it costs far less. Pair it with the prayer ring swap and you cover two of the four families immediately.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Should I swap on mobile, or is it too slow?</h3>
+                    <p>It is slower than keyboard, but viable if you set up the action bar with fixed swap positions and a hotkey tile (see Section 9). You will swap less often than on desktop, so prioritise the one or two swaps that clearly pay off — usually the prayer ring and the spec weapon.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do I know a swap is actually worth it?</h3>
+                    <p>Run both setups through a DPS calculator for the specific boss. If the swapped gear adds more DPS than you lose from the tick it costs (and from the inventory slot it occupies), keep it. If not, drop it. Our <a href="../guides/osrs-pvm-dps-optimization-2026.html">DPS optimization guide</a> walks through exactly this comparison.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Why does my support card / page text look wrong after editing?</h3>
+                    <p>That is usually a leftover inline <code>&lt;style&gt;</code> block that overrides site classes like <code>.support-card</code> with <code>!important</code>. The site CSS already styles those elements, so any override is redundant and can break the design. Delete override blocks and let the site stylesheet handle it — only add minimal theme styles for classes the site does not define.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I get banned for swap macros?</h3>
+                    <p>Only if the macro plays for you. One keypress = one swap is fine. Auto-sequencing kills, HP-triggered swaps, or any reaction without input is botting. Keep macros to single, manual inputs and you are within the rules.</p>
+                </div>
+            </section>
+
+            <div class="final-tips">
+                <h3>🎯 Final Tips — Swap Smarter, Not More</h3>
+                <ul>
+                    <li><strong>One swap at a time.</strong> Master a ring swap before adding anything else.</li>
+                    <li><strong>Bind slots, not menus.</strong> One keypress per swap beats any drag-and-drop.</li>
+                    <li><strong>Use Presets for whole-style changes.</strong> Zulrah / Muspah / CoX are preset fights, not micro-swap fights.</li>
+                    <li><strong>Swap on dead ticks.</strong> Never swap during your own attack window.</li>
+                    <li><strong>Keep a banked swap kit.</strong> Spare rings and amulets so presets always complete.</li>
+                    <li><strong>Audit with a calculator.</strong> Drop any swap that costs more ticks than it saves.</li>
+                </ul>
+            </div>
+
+            <div class="swap-callout">
+                <h3>⬆️ Build Your Swap Kit Tonight</h3>
+                <p>You now have the F-key and Preset setup, the four swap families, and the rhythm to use them. The last piece is knowing <em>what</em> to swap — pull the exact items from our <a href="../guides/osrs-budget-gear-2026.html" style="color:#5b3a8c;font-weight:700;">Budget Gear guide</a>, and revisit the <a href="../guides/osrs-general-pvm-mechanics-2026.html" style="color:#5b3a8c;font-weight:700;">General PvM Mechanics guide</a> to time swaps against prayer windows. Start with one swap, make it automatic, then expand.</p>
+            </div>
+
+            <div class="related-guides">
+                <h3>Related Guides</h3>
+                <a href="../guides/osrs-general-pvm-mechanics-2026.html" class="article-card">
+                    <h3>General PvM Mechanics 2026</h3>
+                    <p>Prayer switching, movement, dodging, damage reduction — the timing foundation for swaps.</p>
+                </a>
+                <a href="../guides/osrs-yama-gear-requirements-2026.html" class="article-card">
+                    <h3>Yama Gear Requirements 2026</h3>
+                    <p>Which swaps are even available at your level before you fight Yama.</p>
+                </a>
+                <a href="../guides/osrs-pvm-dps-optimization-2026.html" class="article-card">
+                    <h3>PvM DPS Optimization 2026</h3>
+                    <p>Prove which swap actually beats the tick it costs with a calculator.</p>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ Boss Guides</h4><ul>
+                    <li><a href="../boss-guides.html">All Bosses</a></li>
+                    <li><a href="../guides/osrs-yama-deep-dive-2026.html">Yama Deep Dive</a></li>
+                    <li><a href="../guides/osrs-tob-hm-wipe-prevention-2026.html">ToB HM Wipe Prevention</a></li>
+                    <li><a href="../guides/osrs-general-pvm-mechanics-2026.html">PvM Mechanics</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-budget-gear-2026.html">Budget Gear</a></li>
+                    <li><a href="../guides/osrs-2026-bis-update-overview-2026.html">2026 BIS Overview</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+    <!-- Copyright & Anti-Scraping Notice -->
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+    </div>
+
+    <script src="../js/features.js"></script>
+    <script src="../js/ai-qa-widget.js"></script>
+    <style>
+    .swap-callout{background:#f5f2f8;border:1px solid #b9a7e0;border-radius:10px;padding:1.3rem 1.6rem;margin:1.6rem auto}
+    .swap-callout h3{color:#5b3a8c;margin:0 0 .5rem;font-family:'Cinzel',serif;font-size:1.1rem;font-weight:700}
+    .swap-callout p{color:#1a1a1a;margin:0;line-height:1.75}
+    @media (max-width: 768px) {
+        .guide-content table { font-size: 0.85rem; }
+        .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+        .guide-content table tbody td { padding: 6px 10px; }
+        .guide-content h2 { font-size: 1.4em; }
+        .guide-content h3 { font-size: 1.15em; }
+    }
+    @media (max-width: 640px) {
+        .guide-content table { display: block; overflow-x: auto; }
+        .guide-content h2 { font-size: 1.25em; }
+        .guide-content h3 { font-size: 1.05em; }
+    }
+    </style>
+</body>
+</html>

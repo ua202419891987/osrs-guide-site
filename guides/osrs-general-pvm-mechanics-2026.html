@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS General PvM Mechanics 2026 — Prayer Switching, Movement, Dodging & Damage Reduction</title>
+    <meta name="description" content="Master the core OSRS PvM mechanics of 2026: the tick system, prayer switching, positioning and movement, dodging special attacks, aggro, damage reduction, DPS basics, potions and buffs. An intermediate guide that explains the why behind every boss fight.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS PvM mechanics, prayer switching OSRS, OSRS dodging, OSRS damage reduction, boss positioning OSRS, PvM fundamentals intermediate, OSRS tick system, OSRS aggro">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/osrs-general-pvm-mechanics-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="Intermediate" data-category="bosses">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../weekly-updates.html">Updates</a></li>
+                    <li><a href="../chinese.html">中文</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../boss-guides.html">Boss Guides</a> / General PvM Mechanics 2026</p>
+            <p class="subtitle">You already know how to click a boss. This guide is about the mechanics underneath every kill — why prayer switching works, how the game tick governs your actions, when to dodge, how aggro decides who dies first, and exactly how damage reduction is calculated. Read this before your next raid.</p>
+            <p class="article-meta" style="color:#e8d5b7;font-size:.82rem;margin:.6rem 0 0;opacity:.85;">Published: August 9, 2026 &middot; Last verified: August 9, 2026</p>
+        </div>
+    </section>
+
+<main class="guide-content">
+        <div class="container">
+
+                <div class="support-card" style="margin:8px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+            <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+            <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                <li><strong>Avoid Scams & Phishing (Stop Bank Drains)</strong></li>
+                <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+            </ul>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+    </div>
+
+            <h1>OSRS General PvM Mechanics 2026 — Prayer, Movement, Dodging & Damage Reduction</h1>
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: Intermediate</div>
+
+            <p class="intro">Most players think PvM is about gear. It is not. Gear decides how fast you kill a boss; mechanics decide whether you survive long enough to kill it at all. This guide breaks down the mechanics that sit under every single boss fight in Old School RuneScape: <strong>the tick system</strong>, <strong>prayer switching</strong>, <strong>movement and positioning</strong>, <strong>dodging special attacks</strong>, <strong>aggro</strong>, <strong>damage reduction</strong>, <strong>DPS basics</strong>, and <strong>potions and buffs</strong>. If you have finished the <a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a> and you are ready to move past "just camp Protect from Melee," this is your next step. Pair it with our <a href="../guides/osrs-budget-gear-2026.html">Budget Gear Guide</a> and you have the full picture of what actually wins fights.</p>
+            <p>The single most important idea in this entire guide: OSRS combat runs on a <strong>game tick</strong> of 0.6 seconds. Everything you do — a prayer swap, a step, a dodge, an attack — happens on ticks. Learn to think in ticks and every boss becomes predictable instead of chaotic. Once you internalise the tick, the other mechanics below are just applications of that one clock.</p>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#tick-system">The Tick System &amp; Why Timing Is Everything</a></li>
+                    <li><a href="#prayer-switching">Prayer Switching — The Foundation of Survival</a></li>
+                    <li><a href="#movement">Movement &amp; Positioning</a></li>
+                    <li><a href="#dodging">Dodging Special Attacks</a></li>
+                    <li><a href="#aggro">Aggro &amp; Hate — Who the Boss Hits First</a></li>
+                    <li><a href="#damage-reduction">Damage Reduction — How Defensive Stats Work</a></li>
+                    <li><a href="#dps-basics">DPS Basics — Why Kills Happen Faster</a></li>
+                    <li><a href="#potions-buffs">Potions &amp; Buffs — The Free Power Spike</a></li>
+                    <li><a href="#common-deaths">Common Death Causes &amp; How to Avoid Them</a></li>
+                    <li><a href="#transition">From Beginner to Intermediate — The Transition</a></li>
+                    <li><a href="#sample-fight">Putting It Together — A Sample Fight Breakdown</a></li>
+                    <li><a href="#faq">Frequently Asked Questions</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1: TICK SYSTEM -->
+            <section id="tick-system">
+                <h2>1. The Tick System &amp; Why Timing Is Everything</h2>
+                <p>Everything in OSRS resolves on a <strong>0.6-second game tick</strong>. The client sends your input; the server processes it on the next tick boundary. This is why "I clicked but it didn't register" usually means you clicked half a tick too late. The game does not read your mouse the instant you press it — it reads your <em>queued action</em> when the tick rolls over.</p>
+
+                <p>In one tick, the following things happen in a fixed order:</p>
+                <ul>
+                    <li>Your queued action (attack, move, prayer swap, eat) is processed.</li>
+                    <li>The boss's queued attack is resolved against your current state — including your <em>current</em> prayer and your <em>current</em> tile.</li>
+                    <li>Damage, hitsplats, and animations update on screen.</li>
+                    <li>The cycle repeats, forever, at 0.6-second intervals.</li>
+                </ul>
+
+                <svg viewBox="0 0 680 230" width="100%" role="img" aria-label="Diagram of the OSRS game tick loop">
+                    <rect x="0" y="0" width="680" height="230" rx="12" fill="#f5f2f8" stroke="#c4b5e5" stroke-width="1.5"/>
+                    <circle cx="340" cy="115" r="78" fill="none" stroke="#8b6914" stroke-width="3"/>
+                    <circle cx="340" cy="37" r="30" fill="#ffffff" stroke="#8b6914" stroke-width="2"/>
+                    <text x="340" y="34" text-anchor="middle" font-size="13" font-weight="700" fill="#3b2615">1 Input</text>
+                    <text x="340" y="50" text-anchor="middle" font-size="10" fill="#555">queued</text>
+                    <circle cx="418" cy="115" r="30" fill="#ffffff" stroke="#8b6914" stroke-width="2"/>
+                    <text x="418" y="112" text-anchor="middle" font-size="13" font-weight="700" fill="#3b2615">2 Server</text>
+                    <text x="418" y="128" text-anchor="middle" font-size="10" fill="#555">processes</text>
+                    <circle cx="340" cy="193" r="30" fill="#ffffff" stroke="#8b6914" stroke-width="2"/>
+                    <text x="340" y="190" text-anchor="middle" font-size="13" font-weight="700" fill="#3b2615">3 Hit</text>
+                    <text x="340" y="206" text-anchor="middle" font-size="10" fill="#555">resolves</text>
+                    <circle cx="262" cy="115" r="30" fill="#ffffff" stroke="#8b6914" stroke-width="2"/>
+                    <text x="262" y="112" text-anchor="middle" font-size="13" font-weight="700" fill="#3b2615">4 Update</text>
+                    <text x="262" y="128" text-anchor="middle" font-size="10" fill="#555">hitsplat</text>
+                    <path d="M 372 78 A 78 78 0 0 1 408 100" fill="none" stroke="#8b6914" stroke-width="2" marker-end="url(#none)"/>
+                    <text x="485" y="115" font-size="12" fill="#3b2615" font-weight="700">0.6s per loop</text>
+                </svg>
+
+                <p>Because the boss reads your state at resolution, a prayer you swap <strong>after</strong> the attack tick does not protect you. You must be swapped <strong>before</strong> the tick the hit lands. This single fact is the entire skill of prayer switching and dodging. A tank setup, a maxed account, and the best weapon in the game will not save you if your swap lands one tick late — the damage is already calculated.</p>
+
+                <div class="method-box highlight">
+                    <h4>⏱️ Building Tick Awareness</h4>
+                    <p>Turn on a metronome-style aid or simply count "one-Mississippi" between attacks at a slow boss. Once you can predict the next hit tick, you can pre-swap a tick early and never get caught. This single habit is what makes intermediate players look "lucky" to beginners. Practice it at a low-stakes boss first, then carry the rhythm into raids where the margin for error is zero.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2: PRAYER SWITCHING -->
+            <section id="prayer-switching">
+                <h2>2. Prayer Switching — The Foundation of Survival</h2>
+                <p>Protect prayers (Protect from Magic, Protect from Missiles, Protect from Melee) reduce the damage you take from the matching style by <strong>60%</strong> for regular hits, and they fully block the special attacks of many bosses when the prayer matches the attack style. The catch: if a boss switches attack styles, your prayer must switch too. A mismatched prayer gives you nothing — you eat full damage as if you had no prayer active at all.</p>
+
+                <h3>Why camping one prayer gets you killed</h3>
+                <p>New players learn to "camp" a single Protect prayer and forget about it. That works only against bosses with one attack style. The moment a boss alternates styles — say a melee boss that periodically launches a magic projectile — your camped Melee prayer does nothing against the magic hit, and you eat full damage. Intermediate PvM is the art of <strong>reading the tell</strong> and swapping before the hit lands.</p>
+
+                <div class="method-box highlight">
+                    <h4>🛡️ The Prayer-Swap Loop</h4>
+                    <ol>
+                        <li><strong>Watch the animation / chatbox.</strong> Most style switches have a visual or text cue a tick or two before the hit.</li>
+                        <li><strong>Swap on the correct tick.</strong> Right-click the prayer orb or use the F-key / bind to activate the matching Protect prayer.</li>
+                        <li><strong>Return to your offensive prayer</strong> (Piety, Rigour, Augury) when the special window closes to keep DPS up.</li>
+                        <li><strong>Repeat.</strong> A fight is just this loop, hundreds of times.</li>
+                    </ol>
+                </div>
+
+                <h3>Offensive prayers vs defensive prayers</h3>
+                <p>Piety, Rigour, and Augury boost your accuracy and damage but give <strong>zero</strong> damage reduction. Protect prayers reduce damage but do nothing for your DPS. You constantly toggle between them, which is exactly why prayer switching and gear swapping go hand in hand — see our <a href="../guides/osrs-pvm-gear-swap-preset-2026.html">Gear Swap &amp; Preset Guide</a> for the swapping half of the same skill. A clean gear swap lets you flip from a tank setup to a DPS setup in a single key press, which keeps both your prayer uptime and your kill speed high.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Flicking vs Swapping</div>
+                    <p><strong>Flicking</strong> means turning a prayer on for a single hit and off again to save points. <strong>Swapping</strong> means changing which prayer is active. Both conserve prayer, but flicking is an advanced technique best learned at solo content before you try it under raid pressure. Most deaths attributed to "ran out of prayer" are really deaths caused by never learning to flick or swap efficiently.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 3: MOVEMENT -->
+            <section id="movement">
+                <h2>3. Movement &amp; Positioning</h2>
+                <p>OSRS is a grid. The game world is a tile map, and every entity occupies tiles. Positioning controls three things: whether the boss can hit you at all (line of sight), whether you can be reached (safespotting), and how many area attacks catch you. Good positioning is free defence — it costs no prayer points and no food.</p>
+
+                <h3>Tiles, corners, and line of sight</h3>
+                <p>Ranged and magic attacks travel in straight lines. If a wall or pillar blocks the line between you and the boss, the attack cannot land. Players abuse this constantly at bosses like the Giant Mole or Chaos Elemental. Melee, by contrast, requires the boss to be <strong>adjacent</strong> (or within its attack range on a diagonal), so stepping away one tile stops melee entirely. Understanding which attacks are line-of-sight based lets you neutralise them with geometry instead of prayer.</p>
+
+                <h3>Safespotting</h3>
+                <p>A safespot is a tile from which you can attack the boss but it cannot attack you. Classic examples: standing behind a rock while ranging Obor, or using a single-tile gap at certain Slayer tasks. Safespotting removes the need for prayer entirely, which is why it is the safest way to learn a boss's attack patterns before you commit to taking hits.</p>
+
+                <svg viewBox="0 0 680 240" width="100%" role="img" aria-label="Diagram of player safespot positioning relative to boss and wall">
+                    <rect x="0" y="0" width="680" height="240" rx="12" fill="#f5f2f8" stroke="#c4b5e5" stroke-width="1.5"/>
+                    <g stroke="#c4b5e5" stroke-width="1">
+                        <line x1="120" y1="40" x2="120" y2="200"/><line x1="180" y1="40" x2="180" y2="200"/>
+                        <line x1="240" y1="40" x2="240" y2="200"/><line x1="300" y1="40" x2="300" y2="200"/>
+                        <line x1="360" y1="40" x2="360" y2="200"/><line x1="420" y1="40" x2="420" y2="200"/>
+                        <line x1="480" y1="40" x2="480" y2="200"/><line x1="120" y1="40" x2="480" y2="40"/>
+                        <line x1="120" y1="100" x2="480" y2="100"/><line x1="120" y1="160" x2="480" y2="160"/>
+                        <line x1="120" y1="200" x2="480" y2="200"/>
+                    </g>
+                    <rect x="300" y="40" width="60" height="60" fill="#7a5c2e" stroke="#3b2615" stroke-width="2"/>
+                    <text x="330" y="76" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">WALL</text>
+                    <rect x="180" y="100" width="60" height="60" fill="#2e7d32" stroke="#1b5e20" stroke-width="2"/>
+                    <text x="210" y="136" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">BOSS</text>
+                    <rect x="420" y="100" width="60" height="60" fill="#8b6914" stroke="#3b2615" stroke-width="2"/>
+                    <text x="450" y="136" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">YOU</text>
+                    <line x1="240" y1="130" x2="300" y2="130" stroke="#d32f2f" stroke-width="2" stroke-dasharray="5,4"/>
+                    <text x="600" y="115" font-size="11" fill="#3b2615">Line of sight</text>
+                    <text x="600" y="132" font-size="11" fill="#d32f2f">blocked by wall</text>
+                </svg>
+
+                <div class="action-step">
+                    <h4>🚶 Running vs Walking</h4>
+                    <p>With run energy active you move <strong>two tiles per tick</strong>; walking moves one. Under pressure — a closing AoE, a charging boss — you want run on. Manage your run energy with stamina potions on long trips so you are never caught walking when you needed to sprint. A single wasted step is the difference between dodging an AoE and eating it.</p>
+                </div>
+
+                <h3>Positioning for multi-target bosses</h3>
+                <p>Some bosses (and most raids) involve adds or splash damage. Stacking on one tile with allies means a single AoE hits everyone. Spreading out — one tile apart — means an AoE catches at most one or two players. This is a positioning rule that wins group content far more often than individual DPS does, and it is a core part of <a href="../guides/osrs-raid-group-finding-communication-2026.html">raid group communication</a>.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Pre-position, don't react</div>
+                    <p>Good players stand where they already want to be before the mechanic triggers. Decide your escape tile in advance so you are not pathing through the boss when the floor starts glowing. Reaction positioning is how you get clipped by a second hazard while fleeing the first.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4: DODGING -->
+            <section id="dodging">
+                <h2>4. Dodging Special Attacks</h2>
+                <p>Not every boss attack can be prayed against. Some special attacks must be <strong>physically dodged</strong> by not being on the tile when they land. These are the mechanics that separate "surviving" from "dying," and they are governed entirely by timing on the tick clock.</p>
+
+                <h3>Telegraphed AoEs</h3>
+                <p>Many AoE attacks show a warning — a red tile, a shadow, or a charging animation — one to three ticks before they resolve. The rule is simple: <strong>if the tile you stand on is marked, move off it.</strong> Because you move two tiles per tick while running, you usually have time to step to safety if you react the moment the telegraph appears.</p>
+
+                <div class="method-box">
+                    <h4>🎯 The Dodge Decision Tree</h4>
+                    <ul>
+                        <li><strong>Is it a Protect-prayable style hit?</strong> → Swap the matching prayer. No movement needed.</li>
+                        <li><strong>Is it an unblockable AoE on my tile?</strong> → Step off the marked tile.</li>
+                        <li><strong>Is it a "run to the edge" mechanic?</strong> → Move to the designated safe zone before the timer expires.</li>
+                        <li><strong>Is it a freeze / bind?</strong> → Free yourself (or pre-drink anti-freeze) and keep moving.</li>
+                    </ul>
+                </div>
+
+                <h3>Tick-perfect dodging</h3>
+                <p>The hardest dodges require you to step on the exact tick the attack resolves. Step too early and you walk back into it; step too late and you are already hit. Practice at a low-stakes boss first — the timing you build transfers directly to endgame raids and to <a href="../guides/osrs-tob-hm-wipe-prevention-2026.html">Theatre of Blood hard-mode wipe prevention</a>, where one missed dodge wipes the whole team.</p>
+
+                <div class="warning-box" style="border-left:none;">
+                    <div class="warning-title">⚠️ Don't panic-click</div>
+                    <p>Spamming movement keys wastes ticks and can walk you <em>into</em> a second hazard. One deliberate step beats five frantic ones. Count the telegraph ticks in your head until it becomes muscle memory.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5: AGGRO -->
+            <section id="aggro">
+                <h2>5. Aggro &amp; Hate — Who the Boss Hits First</h2>
+                <p>Aggro (short for "aggression," also called hate) is the system that decides which player a boss or its attacks target. In solo content aggro is simple — the boss hits you. In group content it is the difference between a clean kill and a wipe, because the boss will focus whoever is highest on its hate list.</p>
+
+                <h3>What builds hate</h3>
+                <p>Several actions push you up the hate list: dealing the most damage, healing allies, using provoke-style abilities in certain content, and being the only target in range. In many group bosses, the player dealing the highest DPS becomes the "tank" by default because the boss locks onto them. That is why a raid team usually assigns one person to hold aggro deliberately while the others pile on damage from a safer angle.</p>
+
+                <h3>Why aggro control matters</h3>
+                <p>If aggro flips to a squishy DPS player who is not expecting to be hit, that player eats mechanics meant for the tank and often dies. Controlling aggro — through assigned roles, positioning, and deliberate damage pacing — keeps hits on the player who is built to take them. This is a softer mechanic than prayer swapping, but it is just as lethal when ignored. Coordinated teams practice it explicitly, which is why our <a href="../guides/osrs-raid-group-finding-communication-2026.html">raid group finding &amp; communication guide</a> treats aggro assignment as a default callout before every pull.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Read the target reticle</div>
+                    <p>Most group content shows which player the boss is currently targeting. Glance at it between attacks. If the reticle jumps to you and you are not the tank, that is your cue to reposition, drop threat, or brace for an unexpected hit.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6: DAMAGE REDUCTION -->
+            <section id="damage-reduction">
+                <h2>6. Damage Reduction — How Defensive Stats Work</h2>
+                <p>Beyond prayer, several systems reduce incoming damage. Understanding them lets you choose gear and tactics that genuinely lower your death rate, not just your kill time. A full breakdown of cheap defensive setups lives in our <a href="../guides/osrs-budget-gear-2026.html">Budget Gear Guide</a>.</p>
+
+                <h3>Armour and defence</h3>
+                <p>Your <strong>Defence level</strong> and <strong>armour bonus</strong> raise your chance to roll a "0" (a miss) against the boss's accuracy. They do not reduce the size of a hit that lands — they reduce how often you get hit at all. High Defence means more hits are blocked entirely; it does not make landed hits smaller.</p>
+
+                <h3>Damage reduction from armour (flat)</h3>
+                <p>Certain gear grants explicit damage reduction — for example, the <strong>Justiciar armour set</strong> provides a percentage reduction to melee damage based on the set bonus, and the <strong>Elysian spirit shield</strong> gives a 70% chance to reduce incoming damage by 25% from any style. These stack with prayer, which is why tank setups combine Justiciar + Ely + Protect prayer for the lowest possible damage taken.</p>
+
+                <table>
+                    <tr><th>Source</th><th>Effect</th><th>Notes</th></tr>
+                    <tr><td>Protect Prayer (matched)</td><td>-60% damage</td><td>Must match attack style</td></tr>
+                    <tr><td>Deflect Curse (matched)</td><td>-50% + reflects some</td><td>Ancient Curses; costs more prayer</td></tr>
+                    <tr><td>Justiciar set bonus</td><td>Up to ~7.5% melee reduction</td><td>Scales with missing HP</td></tr>
+                    <tr><td>Elysian spirit shield</td><td>70% chance of -25% damage</td><td>Any style</td></tr>
+                    <tr><td>Non-combat DR (e.g. Guardian)</td><td>Flat % in specific content</td><td>Context-specific</td></tr>
+                </table>
+
+                <h3>Deflect curses vs Protect prayers</h3>
+                <p>If you have completed <em>The Temple at Senntisten</em>, you unlock Ancient Curses. <strong>Deflect</strong> curses reduce damage by 50% (slightly less than Protect's 60%) but also <strong>reflect</strong> a portion back at the attacker. For pure survival, Protect prayers are stronger; for damage races where reflected damage matters, Deflect can be better. Know which you are using.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Reduction is multiplicative</div>
+                    <p>Damage reductions multiply, not add. Protect (-60%) then Elysian (-25% on a roll) then Justiciar (-7.5%) stacks into a much smaller final hit than the sum suggests. That is why tank builds feel dramatically safer than the numbers imply.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7: DPS BASICS -->
+            <section id="dps-basics">
+                <h2>7. DPS Basics — Why Kills Happen Faster</h2>
+                <p>DPS (damage per second) is the other half of survival: the faster you kill the boss, the fewer mechanics you face and the less food and prayer you burn. DPS is not just "get a bigger weapon" — it is the product of three things: <strong>accuracy</strong> (do your hits land?), <strong>max hit</strong> (how big are they?), and <strong>attack speed</strong> (how often do you swing?).</p>
+
+                <h3>Accuracy vs max hit</h3>
+                <p>A hit that misses deals zero, no matter how big your max hit is. Boosting accuracy (via offensive prayers, salve amulet, spelling bonuses) ensures more of your swings connect. Once accuracy is high enough, youshift toward max hit (strength / ranged strength / magic damage buffs). The balance depends on the boss's Defence — against a high-Defence boss, accuracy matters more; against a low-Defence one, max hit wins.</p>
+
+                <h3>Attack speed and uptime</h3>
+                <p>Every weapon has an attack interval measured in ticks. A faster weapon hits more often, raising DPS even at the same max hit. Just as important is <strong>uptime</strong> — the fraction of time you are actually attacking versus dodging, running, or swapping. A player who pauses to panic-eat loses DPS and stretches the fight longer, which means more mechanics and more risk. Our <a href="../guides/osrs-pvm-dps-optimization-2026.html">DPS Optimization Guide</a> walks through the exact trade-offs for every common weapon.</p>
+
+                <div class="method-box">
+                    <h4>🎯 The DPS Loop</h4>
+                    <ol>
+                        <li><strong>Maximise accuracy</strong> so few hits miss.</li>
+                        <li><strong>Raise max hit</strong> with potions and prayers.</li>
+                        <li><strong>Keep uptime</strong> — attack on every available tick.</li>
+                        <li><strong>Shorten the fight</strong> so fewer mechanics resolve.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- SECTION 8: POTIONS & BUFFS -->
+            <section id="potions-buffs">
+                <h2>8. Potions &amp; Buffs — The Free Power Spike</h2>
+                <p>Potions are the cheapest DPS and survivability you will ever buy. A single overloaded stamina or prayer potion can be the margin between a death and a kill. Treat potions as part of your loadout, not an afterthought.</p>
+
+                <h3>The potions that matter most</h3>
+                <ul>
+                    <li><strong>Saradomin brew</strong> — heals and boosts Defence at the cost of Strength; the backbone of tanky trips.</li>
+                    <li><strong>Super restore / prayer potion</strong> — restores prayer points so your Protect prayers stay up. Run out and you are naked to every hit.</li>
+                    <li><strong>Stamina potion</strong> — keeps run energy high so you can always dodge and reposition.</li>
+                    <li><strong>Combat potions (Super attack / strength / ranging / magic)</strong> — directly raise your DPS numbers.</li>
+                    <li><strong>Overload / stamina combo</strong> — at high levels, the combined potion is the standard raiding buff.</li>
+                </ul>
+
+                <h3>Pre-potting and timing</h3>
+                <p>Drink your buffs <strong>before</strong> the fight starts so the first phase already benefits. Re-pot on a rhythm — when your boost is about to expire, not after it has already dropped. A dropped combat potion mid-fight is lost DPS you will never get back. For a concrete example of a potion plan built around a real boss, see the consumable section in our <a href="../guides/osrs-yama-gear-requirements-2026.html">Yama Gear Requirements Guide</a>, which lays out exactly which brews and restores a Yama trip burns through.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Food is your last line, not your first</div>
+                    <p>Good players eat on a schedule tied to hp thresholds, not when they are already at 5 HP. Pair food with brews so a single big hit never deletes you. Panic-eating at low HP is how a second hit turns a close call into a gravestone.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 9: COMMON DEATHS -->
+            <section id="common-deaths">
+                <h2>9. Common Death Causes &amp; How to Avoid Them</h2>
+                <p>Almost every PvM death is one of a small set of repeatable mistakes. Learn to name them and you can pre-empt them.</p>
+
+                <h3>The top killers</h3>
+                <ul>
+                    <li><strong>Late prayer swap</strong> — you swapped a tick after the hit resolved. Fix: pre-swap a tick early.</li>
+                    <li><strong>Wrong prayer</strong> — you were on Melee against a magic attack. Fix: read the tell, verify the style.</li>
+                    <li><strong>Standing in the AoE</strong> — you did not step off the marked tile. Fix: react to the telegraph instantly.</li>
+                    <li><strong>Empty prayer points</strong> — you ran out and could not protect. Fix: bring restores and flick.</li>
+                    <li><strong>Panic-eating at low HP</strong> — one big hit deletes you. Fix: eat on a threshold, pre-brew.</li>
+                    <li><strong>Bad positioning</strong> — you got clipped by a second hazard while fleeing the first. Fix: pre-position your escape tile.</li>
+                    <li><strong>Aggro flipping to a squishy</strong> — the boss swapped target unexpectedly. Fix: control threat, watch the reticle.</li>
+                </ul>
+
+                <div class="warning-box" style="border-left:none;">
+                    <div class="warning-title">⚠️ The death spiral</div>
+                    <p>Most real deaths are not one mistake but a chain: a late swap costs prayer, you panic-eat and drop DPS, the fight drags, you run out of food, and a normal hit becomes fatal. Break the chain at the first link — the prayer swap — and the rest rarely matters.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 10: TRANSITION -->
+            <section id="transition">
+                <h2>10. From Beginner to Intermediate — The Transition</h2>
+                <p>If you came from the <a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a>, you learned to camp one Protect prayer and click the boss. Intermediate PvM asks more: read tells, swap on tick, dodge unblockable attacks, and manage aggro. The jump feels huge, but it is built from the same clock you already understand.</p>
+
+                <h3>A staged path</h3>
+                <ol>
+                    <li><strong>Stage 1 — Clean swaps.</strong> Pick one boss, focus only on correct prayer swaps for ten kills. Nothing else matters yet.</li>
+                    <li><strong>Stage 2 — Add movement.</strong> Introduce positioning and one dodge per fight. Keep swaps clean.</li>
+                    <li><strong>Stage 3 — Manage resources.</strong> Flick prayer, time potions, eat on threshold. Survive longer, kill faster.</li>
+                    <li><strong>Stage 4 — Group content.</strong> Learn aggro and callouts; apply it in raids with a team.</li>
+                </ol>
+
+                <p>This path transfers directly to mobile play, where screen space is tighter and taps replace keys. Set up your layout first with the <a href="../guides/osrs-mobile-pvm-settings-touch-optimization-2026.html">Mobile PvM Touch Optimization Guide</a> so your prayer and run buttons are where your thumb already is — then drill the same four stages on the smaller screen.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Drill one mechanic at a time</div>
+                    <p>Don't try to learn prayer switching, dodging, and positioning all at once. Layered practice beats overwhelmed practice. A clean single-mechanic kill is worth more than a sloppy full attempt.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 11: SAMPLE FIGHT -->
+            <section id="sample-fight">
+                <h2>11. Putting It Together — A Sample Fight Breakdown</h2>
+                <p>Imagine a hypothetical boss with three phases. Here is how the mechanics combine over a single cycle:</p>
+
+                <h3>Phase A — Melee pressure</h3>
+                <p>The boss walks adjacent and attacks with melee. You stand inside melee range for DPS, camp <strong>Protect from Melee</strong>, and keep <strong>Piety</strong> off (it does nothing defensive). Your armour raises your miss chance; your prayer cuts landed hits by 60%.</p>
+
+                <h3>Phase B — Style switch</h3>
+                <p>The boss rears back — a tell. On the next tick it launches a magic projectile. You <strong>swap to Protect from Magic</strong> one tick before resolution, then return to Piety once the projectile lands. Miss the swap and you eat a full hit.</p>
+
+                <h3>Phase C — The AoE</h3>
+                <p>A red tile appears under you. This attack is <strong>not</strong> prayable. You <strong>step off</strong> the marked tile while running (two tiles per tick) and watch for a second marker. Your earlier positioning — standing near an open lane — makes the escape trivial.</p>
+
+                <h3>Phase D — Enrage</h3>
+                <p>Below 25% HP the boss speeds up. Your tick counting keeps you ahead of the faster attacks; your Elysian shield and armour bonus keep the bigger hits survivable. You finish the kill without a single emergency teleport.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 One loop, every boss</div>
+                    <p>Every boss in the game is some variation of this loop. Once the pattern is in your head, a new boss is just a new tell to learn, not a new skill to acquire.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 12: FAQ -->
+            <section id="faq">
+                <h2>12. Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <h3>Do I need 99 Prayer to survive boss fights?</h3>
+                    <p>No. The Protect prayers unlock at 43 (Melee), 40 (Missiles) and 43 (Magic). What matters is <em>switching</em> them correctly, not your Prayer level. Higher Prayer just means more points before you need potions.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is armour or prayer more important for not dying?</h3>
+                    <p>Prayer, by far. A matched Protect prayer cuts 60% of damage on every hit, while armour only changes how often you are hit. Invest in learning swaps before you buy tank gear.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I dodge every special attack?</h3>
+                    <p>No — some special attacks are prayable but not dodgeable, and some are dodgeable but not prayable. The decision tree in Section 4 tells you which response each attack needs. Reading the telegraph correctly is the skill.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Why do I sometimes swap prayer but still take damage?</h3>
+                    <p>You almost certainly swapped a tick too late — the boss's attack already resolved against your old prayer. Practice pre-swapping a tick early. A tick-perfect swap is the difference between a clean kill and a death.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What is aggro and why should I care in solo content?</h3>
+                    <p>In solo content aggro is automatic — the boss hits you. It matters most in groups, where the boss targets the highest-threat player. If that flips to a squishy DPS who is not built to take hits, they die. Controlling threat keeps hits on the tank.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do potions actually raise my DPS?</h3>
+                    <p>Combat potions raise your accuracy and max hit, so more of your swings connect and hit harder. Over a long fight those bigger, more frequent hits add up to a meaningfully shorter kill — which means fewer mechanics and less food burned.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>My Defence level is high but I still die a lot. Why?</h3>
+                    <p>Defence only changes how often you are hit, not how big landed hits are. If you are missing prayer swaps or standing in AoEs, high Defence will not save you. Fix the swap and the dodge first; gear second.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do I practice without dying repeatedly?</h3>
+                    <p>Use safespots to learn attack patterns risk-free, then drill one mechanic at a time at a low-stakes boss. Build tick awareness by counting hits out loud. Layer skills slowly — clean swaps, then movement, then dodges — instead of attempting everything at once.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Does damage reduction from prayer and gear stack?</h3>
+                    <p>Yes, and it is multiplicative, not additive. Protect prayer (-60%) combined with an Elysian shield roll (-25%) and a Justiciar bonus (-7.5%) produces a far smaller final hit than simply adding the percentages. That is why tank builds feel dramatically safer than the raw numbers suggest.</p>
+                </div>
+            </section>
+
+            <div class="final-tips">
+                <h3>🎯 Final Tips — Make Mechanics Your Habit</h3>
+                <ul>
+                    <li><strong>Think in ticks.</strong> Once combat feels like a rhythm instead of chaos, every boss gets easier.</li>
+                    <li><strong>Swap before the hit, not after.</strong> A one-tick-early prayer is free insurance.</li>
+                    <li><strong>Position on purpose.</strong> Stand where you want to be before the mechanic, not during it.</li>
+                    <li><strong>Control aggro in groups.</strong> Keep hits on the player built to take them.</li>
+                    <li><strong>Stack reductions.</strong> Prayer + shield + armour multiplies; a tank build feels far safer than the numbers suggest.</li>
+                    <li><strong>Drill one thing at a time.</strong> Clean prayer swaps → movement → dodges, in that order.</li>
+                </ul>
+            </div>
+
+
+            <div class="related-guides">
+                <h3>Related Guides</h3>
+                <a href="../guides/osrs-pvm-gear-swap-preset-2026.html" class="article-card">
+                    <h3>PvM Gear Swap &amp; Preset Guide 2026</h3>
+                    <p>F-keys, the preset plugin, and swap rhythm explained.</p>
+                </a>
+                <a href="../guides/osrs-pvm-dps-optimization-2026.html" class="article-card">
+                    <h3>PvM DPS Optimization 2026</h3>
+                    <p>Accuracy, max hit, uptime, and weapon trade-offs.</p>
+                </a>
+                <a href="../guides/osrs-budget-gear-2026.html" class="article-card">
+                    <h3>OSRS Budget Gear 2026</h3>
+                    <p>Cheap defensive and DPS setups for every boss tier.</p>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ Boss Guides</h4><ul>
+                    <li><a href="../boss-guides.html">All Bosses</a></li>
+                    <li><a href="../guides/osrs-general-pvm-mechanics-2026.html">General PvM Mechanics</a></li>
+                    <li><a href="../guides/osrs-pvm-gear-swap-preset-2026.html">Gear Swap &amp; Presets</a></li>
+                    <li><a href="../guides/osrs-budget-gear-2026.html">Budget Gear</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+    <!-- Copyright & Anti-Scraping Notice -->
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+    </div>
+
+    <script src="../js/features.js"></script>
+    <script src="../js/ai-qa-widget.js"></script>
+    <style>
+    .guide-content .method-box,.guide-content .final-tips{background:#f5f2f8;border:1px solid #c4b5e5;border-radius:10px;padding:1.2rem 1.5rem;margin:1.5rem auto}
+    .guide-content .method-box h4,.guide-content .final-tips h3{color:#3b2615;margin-top:0}
+    </style>
+</body>
+</html>
