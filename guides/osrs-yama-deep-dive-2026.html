@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Yama Deep Dive 2026 — Contracts, Gold Threshold, Prayer-Penetration One-Shot &amp; Drops | OSRS Guru</title>
+    <meta name="description" content="The complete 2026 Yama deep-dive: how the contract system works, the gold threshold you pay up front, the prayer-penetration one-shot mechanic, exact gear requirements, phase strategy, team roles, and drop rates for the Desert Treasure II boss.">
+    <meta name="keywords" content="OSRS Yama guide, Yama contract system, Yama gold threshold, Yama prayer penetration one-shot, Yama drops, Yama gear, Yama storm mechanic, Desert Treasure II boss, Yama deep dive 2026">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/osrs-yama-deep-dive-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="Advanced" data-category="pvm">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+<li><a href="../pvm-guides.html">PvM Guides</a></li>
+<li><a href="../mobile.html">Mobile</a></li>
+
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../updates.html">Updates</a></li>
+                    <li><a href="../zh/index.html">Chinese</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../boss-guides.html">Boss Guides</a> / OSRS Yama Deep Dive 2026</p>
+            <h1>OSRS Yama Deep Dive 2026 — Contracts, Gold Threshold &amp; the Prayer-Penetration One-Shot</h1>
+            <p class="subtitle">The complete 2026 breakdown of Yama, Lord of the Underworld: the contract economy, the upfront gold threshold, the prayer-penetrating strike that ignores your overhead, the storm phase, exact gear tiers, duo team roles, and the drop rates that make the risk worth it.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🔥</span> <strong>Stage 5.0</strong> — Part of the <strong>Boss Deep-Dive Series</strong> · 22 min read · Updated August 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: Advanced</div>
+            <p class="article-meta">Published: August 9, 2026</p>
+
+            <p class="intro">Yama, Lord of the Underworld, is the climax of <a href="../quest-guides.html">Desert Treasure II</a> and one of the most reward-driven bosses Jagex has ever shipped. Unlike a normal kill-and-loot encounter, Yama is built around a <strong>contract system</strong>: you agree to the terms of the fight before you enter, you pay a <strong>gold threshold</strong> up front, and the rewards scale with the risk you take on. That same system is what makes Yama both lucrative and unforgiving &mdash; because one specific attack, the <strong>prayer-penetration strike</strong>, ignores your Protect prayer entirely and deletes an unprepared player in a single hit. This deep-dive covers every system you need to understand before your first contract, from the gold you commit to the drops you walk away with. Pair it with our <a href="../guides/osrs-yama-glyph-color-mechanics-2026.html">Yama glyph color mechanics guide</a> if you still struggle with the floor phase, and keep our boss death-prevention guide open for the execution-check framework Yama is built to test.</p>
+
+            <div class="quick-summary">
+                <h3>⏱️ Quick Summary — 30-Second Read</h3>
+                <ul>
+                    <li>📌 <strong>Yama runs on contracts.</strong> You set the contract at the Dark Altar; higher tiers mean harder fights and better rewards.</li>
+                    <li>📌 <strong>There is a gold threshold.</strong> Each contract costs gold up front, gated so you cannot gamble the boss naked.</li>
+                    <li>📌 <strong>The prayer-penetration attack one-shots.</strong> Protection prayers do not save you &mdash; only stepping out of its area does.</li>
+                    <li>📌 <strong>Gear matters less than discipline.</strong> Near-BiS means nothing if you eat the penetration hit or misread a glyph.</li>
+                    <li>📌 <strong>Drops scale with contract tier.</strong> Better contracts raise your rare-loot chance and per-kill value.</li>
+                    <li>📌 <strong>The storm phase is a team test.</strong> Split roles, call mechanics out loud, and the enrage is survivable.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#what-is-yama">What Is Yama and Why the Contract System Matters</a></li>
+                    <li><a href="#contract-system">The Contract System Explained</a></li>
+                    <li><a href="#gold-threshold">The Gold Threshold — Upfront Cost &amp; Why It Exists</a></li>
+                    <li><a href="#prayer-penetration">The Prayer-Penetration One-Shot &amp; Storm Mechanic</a></li>
+                    <li><a href="#gear-requirements">Gear Requirements, Inventory &amp; Stat Tables</a></li>
+                    <li><a href="#drop-rates">Drop Rates &amp; Contract-Scaled Rewards</a></li>
+                    <li><a href="#strategy">Phase Strategy, Team Roles &amp; Step-by-Step Kills</a></li>
+                    <li><a href="#faq">Yama Deep-Dive FAQs</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="what-is-yama">
+                <h2>1. 🔥 What Is Yama and Why the Contract System Matters</h2>
+                <p>Yama sits at the end of the Desert Treasure II questline and is designed as a <strong>duo-capable</strong> boss, though confident solo players can take him on after the quest is complete. What separates Yama from nearly every other boss in the game is that you never just "show up and fight." Before a single hit lands, you and your partner (or you, solo) draft a <em>contract</em> that defines the rules of the encounter. This is not flavor &mdash; it is the core economic loop of the fight, and misunderstanding it is the fastest way to drain your bank.</p>
+
+                <p>The reason Jagex built Yama this way is to tie risk directly to reward. A low-tier contract is approachable but pays poorly. A high-tier contract asks for more upfront gold, hits harder, demands tighter play, and chains mechanics faster, but the loot per hour can be dramatically better. If you have only ever fought bosses where the entry is free, Yama's contract layer is the single biggest mindset shift you will make. Read our boss mechanics death-prevention guide first if execution checks are new to you, because Yama is full of them.</p>
+
+                <h3>① Where Yama lives and what you need first</h3>
+                <p>Yama's arena is reached through the underworld access unlocked at the end of Desert Treasure II. You cannot attempt the boss without having finished the quest, and you cannot draft a contract without being inside the antechamber that holds the Dark Altar. Practically, that means your first trip is a scouting run: walk the path, learn the bank-to-altar route, and confirm your run energy and teleport options before you ever seal a fight. The gold threshold is charged on sealing, not on arrival, so simply visiting costs nothing.</p>
+
+                <h3>② Solo versus duo: the real difference</h3>
+                <p>In a duo, the contract's damage and reward are split across two players. One player can cover the glyph phase while the other handles the penetration windows; if one of you dies, the other can often finish or at least bank the attempt. Solo removes that safety net entirely &mdash; every glyph, every penetration tell, and every storm tick is yours alone to read and react to. Most players learn the routine in duo first, then solo once the muscle memory is automatic. The contract you draft should reflect this: a duo can justify a higher tier than a solo player with identical gear, because the failure cost is shared.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Treat the Contract Like a Bet You Control</div>
+                    <p>You choose the stakes. A common beginner mistake is jumping to the highest contract for the drop chance, then wiping and losing the entry gold with nothing to show. Start one tier below what you think you can clear, learn the timings, then scale up. The contract is reversible <em>before</em> you seal it &mdash; not after. Write the tier and the gold cost down before you confirm so a misclick never costs you millions.</p>
+                </div>
+
+                <h3>③ Why the mindset matters more than the max hit</h3>
+                <p>Players arrive at Yama with maxed stats and near-BiS gear and still wipe, because the boss punishes hesitation, not under-leveling. The penetration strike, the glyph floor, and the storm phase are all "move on the tell" mechanics. The single most valuable skill at Yama is the habit of acting the instant a warning appears, before your brain finishes narrating it. Build that habit on cheap contracts where a death costs almost nothing, and the expensive contracts become a cleaner version of the same fight rather than a new one.</p>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="contract-system">
+                <h2>2. 📜 The Contract System Explained</h2>
+                <p>The contract is drafted at the <strong>Dark Altar</strong> near Yama's arena. Interacting with it opens a menu where you choose the parameters of the fight. While the exact options have shifted across updates, the framework is consistent: you pick a tier (often expressed as a difficulty or enrage level), and that tier sets the boss's damage, the mechanics intensity, and the reward multiplier. The diagram below shows the full lifecycle of a single contract from arrival to payout.</p>
+
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 300" width="100%" role="img" aria-label="Yama contract flow: Dark Altar, choose tier, seal and pay gold, fight, resolve, reward or reloss" style="max-width:680px;height:auto;display:block;margin:0 auto;">
+                        <rect x="10" y="110" width="110" height="80" rx="10" fill="#faf8f5" stroke="#3b2615" stroke-width="2"/>
+                        <text x="65" y="140" text-anchor="middle" fill="#3b2615" font-size="14" font-weight="700">Dark Altar</text>
+                        <text x="65" y="162" text-anchor="middle" fill="#3b2615" font-size="11">arrive</text>
+                        <line x1="120" y1="150" x2="170" y2="150" stroke="#3b2615" stroke-width="2" marker-end="url(#arw)"/>
+                        <rect x="170" y="110" width="110" height="80" rx="10" fill="#faf8f5" stroke="#3b2615" stroke-width="2"/>
+                        <text x="225" y="140" text-anchor="middle" fill="#3b2615" font-size="14" font-weight="700">Choose Tier</text>
+                        <text x="225" y="162" text-anchor="middle" fill="#3b2615" font-size="11">difficulty</text>
+                        <line x1="280" y1="150" x2="330" y2="150" stroke="#3b2615" stroke-width="2" marker-end="url(#arw)"/>
+                        <rect x="330" y="110" width="110" height="80" rx="10" fill="#faf8f5" stroke="#E6A817" stroke-width="3"/>
+                        <text x="385" y="140" text-anchor="middle" fill="#3b2615" font-size="14" font-weight="700">Seal</text>
+                        <text x="385" y="162" text-anchor="middle" fill="#3b2615" font-size="11">pay gold</text>
+                        <line x1="440" y1="150" x2="490" y2="150" stroke="#3b2615" stroke-width="2" marker-end="url(#arw)"/>
+                        <rect x="490" y="110" width="90" height="80" rx="10" fill="#faf8f5" stroke="#3b2615" stroke-width="2"/>
+                        <text x="535" y="140" text-anchor="middle" fill="#3b2615" font-size="14" font-weight="700">Fight</text>
+                        <text x="535" y="162" text-anchor="middle" fill="#3b2615" font-size="11">phases</text>
+                        <line x1="580" y1="150" x2="610" y2="150" stroke="#3b2615" stroke-width="2" marker-end="url(#arw)"/>
+                        <rect x="610" y="110" width="60" height="80" rx="10" fill="#faf8f5" stroke="#3b2615" stroke-width="2"/>
+                        <text x="640" y="140" text-anchor="middle" fill="#3b2615" font-size="13" font-weight="700">Win?</text>
+                        <line x1="640" y1="110" x2="640" y2="60" stroke="#3b2615" stroke-width="2" marker-end="url(#arw)"/>
+                        <text x="640" y="50" text-anchor="middle" fill="#3b2615" font-size="12" font-weight="700">Reward</text>
+                        <line x1="610" y1="190" x2="385" y2="230" stroke="#3b2615" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arw)"/>
+                        <text x="500" y="225" text-anchor="middle" fill="#3b2615" font-size="11">Wipe = gold lost</text>
+                        <defs>
+                            <marker id="arw" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L8,3 L0,6 Z" fill="#3b2615"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                    <figcaption>Figure 1 — The contract lifecycle. Gold is charged at Sealing and is gone whether you win or wipe.</figcaption>
+                </figure>
+
+                <h3>① How to start a contract</h3>
+                <p>Stand at the Dark Altar, open the contract interface, select your tier, confirm the gold cost, and seal it. Both players in a duo must be on the same contract &mdash; you cannot mix tiers. Once sealed, the gate opens and the fight begins. If a player disconnects before sealing, nothing is lost; the cost is only charged on a confirmed contract. This is the single most important moment of the run, because a misclick here is irreversible.</p>
+
+                <h3>② What a higher contract changes</h3>
+                <p>Each step up typically increases Yama's max hit, speeds up his attack patterns, adds or intensifies mechanics (such as the glyph phase covered in our glyph guide), and raises the reward multiplier. The penalty for failure also scales: you paid more gold to enter, so a wipe stings more. The table below compares the four commonly run tiers so you can see exactly what you are buying with your gold.</p>
+
+                <table>
+                    <tr><th>Contract Tier</th><th>Gold Threshold (illustrative)</th><th>Yama Max Hit</th><th>Reward Multiplier</th><th>Best For</th></tr>
+                    <tr><td>Budget</td><td>250,000 GP</td><td>~38</td><td>1.0x</td><td>Learning the routine, dry runs</td></tr>
+                    <tr><td>Standard</td><td>750,000 GP</td><td>~46</td><td>1.6x</td><td>Solo learners past the basics</td></tr>
+                    <tr><td>Elevated</td><td>2,000,000 GP</td><td>~55</td><td>2.4x</td><td>Coordinated duos, steady profit</td></tr>
+                    <tr><td>Unbound</td><td>5,500,000 GP</td><td>~68</td><td>3.5x</td><td>Proven teams only, peak GP/hr</td></tr>
+                </table>
+                <p style="font-size:.85rem;color:#3b2615;">Figures above are representative for planning, not a live drop-table quote. Always confirm current values with your clan before scaling up.</p>
+
+                <h3>③ When the contract ends</h3>
+                <p>A contract resolves on a kill or a full wipe. On a kill, the rewards are calculated against the tier you chose. On a wipe, the entry gold is spent and you walk back to the altar to draft again. There is no partial refund &mdash; this is why the gold threshold below matters so much for bankroll management. Treat every sealed contract as spent the moment you click confirm, and the emotional side of wipes gets much easier to handle.</p>
+
+                <div class="action-step">
+                    <h4>Drill the "seal check" into habit</h4>
+                    <p>Before you ever click confirm, say the tier and the gold cost out loud to your partner. Most expensive Yama mistakes are mis-clicks on the contract menu, not deaths inside the arena. Build the same deliberate pre-fight routine you use for <a href="../guides/osrs-boss-gear-checklist-2026.html">gear switches</a> &mdash; verify, then commit.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="gold-threshold">
+                <h2>3. 💰 The Gold Threshold — Upfront Cost &amp; Why It Exists</h2>
+                <p>Every contract carries a <strong>gold threshold</strong>: a fixed amount of gold you must pay when you seal it. This is not a deposit you get back &mdash; it is the price of admission, consumed on entry whether you win or lose. The threshold exists for two reasons, and both protect the wider game economy as much as they protect you.</p>
+
+                <h3>① It gates reckless entry</h3>
+                <p>By charging gold up front, the system stops players from endlessly attempting the boss with zero stakes. The threshold ensures that every contract has a real cost, which keeps the reward economy balanced. If entry were free, the rare drops would flood the Grand Exchange and crash in value, and the boss would stop being a money maker for everyone. The threshold is the brake on that spiral.</p>
+
+                <h3>② It defines your bankroll discipline</h3>
+                <p>Because the gold is spent regardless of outcome, you should only ever contract an amount you can afford to lose several times in a row. A good rule of thumb from experienced Yama teams: never seal a contract that costs more than ~10% of your liquid cash. That buffer absorbs a streak of wipes while you learn. Our <a href="../guides/osrs-bossing-money-making-2026.html">bossing money-making guide</a> covers how to build that buffer efficiently before you grind Yama, so the threshold never eats into your supplies.</p>
+
+                <h3>③ Higher tiers, higher thresholds</h3>
+                <p>The threshold scales with the contract tier. The jump is not always linear &mdash; top tiers can cost disproportionately more, which is the game's way of signaling "this is for proven teams only." Do the math on expected value: if a tier costs 5x the gold but only improves drop chance by 20%, the lower tier is almost always the smarter grind. The trap is chasing the headline multiplier without counting the attempts you will lose to a harder fight.</p>
+
+                <h3>④ Expected value, worked example</h3>
+                <p>Suppose Standard costs 750K and pays out an average of 1.2M per clear at a 70% clear rate. Your expected value per attempt is (0.70 &times; 1.2M) &minus; 750K = 840K &minus; 750K = +90K. Now suppose Unbound costs 5.5M, pays 3.0M average, but your clear rate drops to 35% because the fight is brutal. EV = (0.35 &times; 3.0M) &minus; 5.5M = 1.05M &minus; 5.5M = &minus;4.45M. The higher tier lost you money despite the bigger prize. This is why most teams profit one or two tiers below maximum, not at the top.</p>
+
+                <div class="warning-box">
+                    <div class="warning-title">⚠️ Never Contract What You Cannot Replace</div>
+                    <p>If paying the threshold means you cannot afford supplies for the fight itself, you have already lost. A Yama attempt with a half-empty inventory is a guaranteed wipe. Fund the supplies first, then the contract. The gold threshold is the toll, not the war chest &mdash; keep them separate in your head and in your bank.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="prayer-penetration">
+                <h2>4. ☠️ The Prayer-Penetration One-Shot &amp; Storm Mechanic</h2>
+                <p>This is the mechanic that earns Yama his reputation, and the one this deep-dive exists to hammer home. Yama has a special attack &mdash; often telegraphed by a distinct wind-up &mdash; that <strong>penetrates protection prayers</strong>. A normal boss hit is blocked or heavily reduced by the correct Protect prayer. This hit is not. If it lands on you while you are in its area, you die in one tick, full stop. Coupled with the storm phase described below, these are the two mechanics that end otherwise-perfect runs.</p>
+
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 360" width="100%" role="img" aria-label="Top-down Yama arena showing the prayer-penetration strike zone (marked danger circle) and the safe ring outside it" style="max-width:680px;height:auto;display:block;margin:0 auto;">
+                        <rect x="20" y="20" width="640" height="320" rx="12" fill="#faf8f5" stroke="#3b2615" stroke-width="2"/>
+                        <text x="340" y="45" text-anchor="middle" fill="#3b2615" font-size="14" font-weight="700">Yama Arena — Top Down</text>
+                        <circle cx="340" cy="200" r="120" fill="none" stroke="#E6A817" stroke-width="3" stroke-dasharray="8,6"/>
+                        <circle cx="340" cy="200" r="90" fill="#3b2615" opacity="0.10"/>
+                        <text x="340" y="196" text-anchor="middle" fill="#3b2615" font-size="13" font-weight="700">Strike Zone</text>
+                        <text x="340" y="214" text-anchor="middle" fill="#3b2615" font-size="11">penetration hit lands here</text>
+                        <circle cx="150" cy="120" r="16" fill="#faf8f5" stroke="#3b2615" stroke-width="2"/>
+                        <text x="150" y="125" text-anchor="middle" fill="#3b2615" font-size="14" font-weight="700">Y</text>
+                        <line x1="166" y1="128" x2="250" y2="170" stroke="#3b2615" stroke-width="2" marker-end="url(#arw2)"/>
+                        <text x="205" y="150" text-anchor="middle" fill="#3b2615" font-size="11">move out</text>
+                        <circle cx="560" cy="280" r="16" fill="#faf8f5" stroke="#3b2615" stroke-width="2"/>
+                        <text x="560" y="285" text-anchor="middle" fill="#3b2615" font-size="14" font-weight="700">P</text>
+                        <line x1="544" y1="272" x2="430" y2="225" stroke="#3b2615" stroke-width="2" marker-end="url(#arw2)"/>
+                        <text x="500" y="255" text-anchor="middle" fill="#3b2615" font-size="11">safe ring</text>
+                        <defs>
+                            <marker id="arw2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L8,3 L0,6 Z" fill="#3b2615"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                    <figcaption>Figure 2 — The penetration strike fills a marked zone. Step fully outside the dashed ring before it fires; prayer will not help you inside it.</figcaption>
+                </figure>
+
+                <h3>① Why prayer does not save you</h3>
+                <p>The penetration strike is coded to ignore the overhead prayer entirely. Players who have trained for hundreds of hours to "pray the right style" get punished precisely because their reflex is to pray harder. Against this attack, prayer is irrelevant &mdash; <strong>only positioning saves you.</strong> The moment you see the tell, your cursor should already be moving you out of the strike zone. Think of it as a floor mechanic, not a damage type: you dodge it with your feet, not your prayer book.</p>
+
+                <h3>② Reading the telegraph</h3>
+                <p>Like most one-shots, it has a wind-up. Yama adopts a specific stance (commonly a raised, glowing posture) and a ground indicator marks where the penetration beam or blast will land. The window between the tell and the hit is generous <em>if you commit immediately</em> and fatal if you finish an attack animation first. Move on the tell, not after your swing. The same discipline that saves you on the glyph phase (see our glyph guide) is what keeps you alive here.</p>
+
+                <h3>③ The safe response</h3>
+                <p>Step fully outside the marked area before the strike fires. Do not flick prayer &mdash; flicking here is pure waste and a missed flick is death with zero upside. Hold your DPS until you are safe, then re-engage. The same "move on the tell" discipline applies to the storm phase: when Yama summons the storm, the floor outside the safe ring is what keeps you alive, not your Protect prayer.</p>
+
+                <h3>④ The storm mechanic</h3>
+                <p>In higher contracts Yama periodically invokes a <strong>storm</strong>: a roaming area-of-effect that sweeps the arena and deals escalating damage to anyone caught inside, again ignoring protection prayers. The storm's safe lane is telegraphed by a gap in its arc. Your job is to read which side the gap opens on and rotate into it with your partner, never crossing through the storm body. The storm and the penetration strike are the two "positioning, not prayer" mechanics of the fight; everything else can be prayed.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Count the Penetration Attacks</div>
+                    <p>In higher contracts Yama chains penetration strikes in a pattern. Learn the cadence: after the first, expect the second on a fixed delay. Call it out in duo so both players are already moving. Survival is a team habit, not a solo reflex. The same counting habit applies to the storm sweeps &mdash; predict the next lane and you never get caught.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="gear-requirements">
+                <h2>5. 🎒 Gear Requirements, Inventory &amp; Stat Tables</h2>
+                <p>Yama is less gear-check than execution-check, but the right loadout removes avoidable deaths and shortens fights so you face fewer penetration and storm windows. The table below lays out three realistic setups &mdash; Budget, Mid, and Near-BiS &mdash; so you can see exactly what each step up buys you.</p>
+
+                <table>
+                    <tr><th>Slot / Need</th><th>Budget Setup</th><th>Mid Setup</th><th>Near-BiS Setup</th></tr>
+                    <tr><td>Melee Weapon</td><td>Abyssal Whip / Dragon Hunter Lance</td><td>Blade of Saeldor (charged)</td><td>Scythe of Vitur / Inquisitor's Mace</td></tr>
+                    <tr><td>Ranged Weapon</td><td>Blowpipe (dragon)</td><td>Bow of Faerdhinen</td><td>Twisted Bow</td></tr>
+                    <tr><td>Magic Weapon</td><td>Trident of the Seas</td><td>Sanguinesti Staff</td><td>Sanguinesti Staff (full) / Shadow</td></tr>
+                    <tr><td>Armor</td><td>Bandos / Karil mix</td><td>Torva / Ancestral mix</td><td>Torva + Inquisitor pieces</td></tr>
+                    <tr><td>Prayer</td><td>74+ (Rigour/Augury)</td><td>77+ (Piety/Rigour/Augury)</td><td>95+ (max overhead uptime)</td></tr>
+                    <tr><td>Spec Weapon</td><td>Dragon Dagger (p++)</td><td>Dragon Claws</td><td>Voidwaker / Scythe spec</td></tr>
+                </table>
+
+                <h3>① Core combat stats</h3>
+                <p>You want 90+ Attack, Strength, and Defence as a floor, with 99 strongly recommended for the DPS checks. Magic and Ranged matter for the phases that demand switches, so bring a full three-style setup rather than leaning on melee alone. Prayer should be 77+ for Rigour and Augury, and higher is better because the penetration and storm phases force you off your overheads, so you burn prayer faster than normal. Our dedicated <a href="../guides/osrs-yama-gear-requirements-2026.html">Yama gear requirements guide</a> breaks the BiS per slot down piece by piece if you want the exhaustive list.</p>
+
+                <h3>② Weapon and armor priorities</h3>
+                <p>A Scythe-class or Fang-class melee weapon is the standard DPS tool, backed by a Blowpipe or Bow of Faerdhinen for ranged phases and a Sanguinesti Staff or Trident for magic. Armor should be your best all-round defensive gear &mdash; Torva or Bandos-level &mdash; because Yama's chip damage adds up across a long fight. The Soulreaper Axe deserves a special mention: its stacking hit bonus rewards the patient, disciplined player who survives the penetration windows and keeps DPS flowing, which is exactly the Yama playstyle. See our <a href="../guides/osrs-soulreaper-axe-guide-2026.html">Soulreaper Axe guide</a> for the stacking routine. Build your switch kit using the layout in our boss gear checklist.</p>
+
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 300" width="100%" role="img" aria-label="Gear progression ladder from Budget to Mid to Near-BiS with relative DPS and survival contribution" style="max-width:680px;height:auto;display:block;margin:0 auto;">
+                        <text x="20" y="40" fill="#3b2615" font-size="14" font-weight="700">Gear Progression Ladder</text>
+                        <rect x="20" y="60" width="180" height="46" rx="8" fill="#faf8f5" stroke="#3b2615" stroke-width="2"/>
+                        <text x="110" y="89" text-anchor="middle" fill="#3b2615" font-size="13" font-weight="700">Budget</text>
+                        <rect x="20" y="120" width="340" height="46" rx="8" fill="#faf8f5" stroke="#3b2615" stroke-width="2"/>
+                        <text x="190" y="149" text-anchor="middle" fill="#3b2615" font-size="13" font-weight="700">Mid (recommended start)</text>
+                        <rect x="20" y="180" width="520" height="46" rx="8" fill="#faf8f5" stroke="#E6A817" stroke-width="3"/>
+                        <text x="280" y="209" text-anchor="middle" fill="#3b2615" font-size="13" font-weight="700">Near-BiS (margin for error)</text>
+                        <line x1="200" y1="106" x2="200" y2="120" stroke="#3b2615" stroke-width="2" marker-end="url(#arw3)"/>
+                        <line x1="360" y1="166" x2="360" y2="180" stroke="#3b2615" stroke-width="2" marker-end="url(#arw3)"/>
+                        <text x="560" y="250" text-anchor="middle" fill="#3b2615" font-size="11">Wider bar = more DPS + survivability</text>
+                        <defs>
+                            <marker id="arw3" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L8,3 L0,6 Z" fill="#3b2615"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                    <figcaption>Figure 3 — You do not need Near-BiS to start, but each step up widens your mistake margin against the penetration and storm windows.</figcaption>
+                </figure>
+
+                <h3>③ Inventory discipline</h3>
+                <p>Pack Saradomin Brews, Super Restores, Anglerfish, a Stamina potion, and the runes for any magic-phase needs. Keep prayers and restores one click from your hotbar so the style-switching during the penetration and storm windows is never a menu hunt. Pre-pack using our <a href="../guides/osrs-boss-inventory-prep-guide-2026.html">boss inventory prep template</a> so every trip is identical and you never leave a key slot empty under pressure.</p>
+
+                <div class="action-step">
+                    <h4>Free a key for instant movement, not just prayer</h4>
+                    <p>Most players bind their Protect prayers. For Yama, also bind a "drop everything and run" habit: the penetration tell should trigger movement before your brain finishes processing it. Drill it on a cheap setup where a death costs almost nothing, and the muscle memory will carry you into Unbound contracts later.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="drop-rates">
+                <h2>6. 🎁 Drop Rates &amp; Contract-Scaled Rewards</h2>
+                <p>Yama's loot is delivered through the contract system rather than a flat drop table. Each successful kill grants a reward calculated against your contract tier, and higher tiers improve both the volume and the rarity of what you receive. The table below shows how the same kill behaves across tiers so you can plan your grind.</p>
+
+                <table>
+                    <tr><th>Tier</th><th>Base Reward / Kill</th><th>Unique Drop Chance (illustrative)</th><th>Avg GP/hr at 70% Clear</th><th>Risk per Wipe</th></tr>
+                    <tr><td>Budget</td><td>~400K</td><td>1 in 250</td><td>~1.5M</td><td>250K</td></tr>
+                    <tr><td>Standard</td><td>~900K</td><td>1 in 180</td><td>~3.2M</td><td>750K</td></tr>
+                    <tr><td>Elevated</td><td>~2.1M</td><td>1 in 120</td><td>~6.8M</td><td>2.0M</td></tr>
+                    <tr><td>Unbound</td><td>~4.5M</td><td>1 in 80</td><td>~9.0M (if cleared)</td><td>5.5M</td></tr>
+                </table>
+                <p style="font-size:.85rem;color:#3b2615;">Chances and values are representative for planning. Variance is high &mdash; track your own kills to learn your real average.</p>
+
+                <h3>① Contract-scaled rewards</h3>
+                <p>The base reward per kill rises with tier. This is the mechanic that makes Yama profitable: a higher tier does not just add risk, it multiplies the per-kill payout. The trade-off is the gold threshold you paid to get there, so your net profit depends on clear rate as much as on tier.</p>
+
+                <h3>② Rare unique drops</h3>
+                <p>Yama also rolls for rare unique loot on a low per-kill chance that improves subtly with contract tier. These uniques are the real prize &mdash; they carry the bulk of Yama's GP/hr potential. Because the rates are low, expect variance: some sessions are dry, others print gold. Track your kills so you know your average, and do not judge a tier by a single lucky or unlucky streak. The phase-three prayer-pierce version of the fight (covered in our <a href="../guides/osrs-yama-phase3-prayer-pierce-2026.html">phase 3 prayer-pierce guide</a>) is where the best unique odds live, which is why skilled teams push there.</p>
+
+                <h3>③ Expected value math, revisited</h3>
+                <p>Profit per hour &asymp; (average reward per kill &times; kills per hour) &minus; (threshold &divide; attempts per hour). When you raise the tier, both the reward and the threshold rise &mdash; but your kills per hour usually fall because the fight is harder. The sweet spot is the tier where your <em>clear rate</em> stays high enough that the higher reward outpaces the higher threshold. Most teams find that one or two tiers below max is the true profit optimum, exactly as the gold-threshold section argued.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Log Your KC and Gold Spent</div>
+                    <p>A simple spreadsheet of contracts sealed, gold paid, kills, and loot value tells you your real GP/hr per tier. Guesswork is how players over-contract and go broke. Data is how they get rich at Yama, and it is the only way to know whether the unique dry streak is normal or a sign you should drop a tier.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="strategy">
+                <h2>7. 🧠 Phase Strategy, Team Roles &amp; Step-by-Step Kills</h2>
+                <p>With the systems understood, here is the fight at a high level. Exact phase orders can vary, but the principles hold across contracts. The step-by-step kills below use numbered <strong>①②③</strong> stages so you can build a reliable routine, and the team-roles block shows how a duo should split responsibility.</p>
+
+                <h3>① Opening — establish rhythm</h3>
+                <p>Begin with steady DPS and confirm your partner's positioning. Use the calm opening to top up prayer and locate Yama's tells. Do not burn specs yet; you want them for a phase where the penetration and storm windows are tight. In duo, the <strong>lead</strong> calls the first mechanic so both players sync their movement keys early.</p>
+
+                <h3>② Mid-fight — glyph, penetration, and storm discipline</h3>
+                <p>This is where most deaths happen. Respect the glyph color-to-prayer table from our glyph guide, treat every penetration wind-up as a move-or-die moment, and rotate out of the storm lane the instant it opens. In duo, call both mechanics so neither player is caught mid-animation. The <strong>support</strong> player should watch the floor while the lead watches Yama's posture, then swap focus on the next mechanic.</p>
+
+                <h3>③ Enrage — tighter windows</h3>
+                <p>Below half health, Yama speeds up and chains mechanics. Your margin for hesitation collapses. This is where the practice pays off: if the routine is reflex, the enrage phase is just a faster version of what you already do. If it is not, this is where you wipe. Spec weapons like Voidwaker or Dragon Claws are best held for this window, but never at the cost of eating a penetration hit.</p>
+
+                <h3>④ Kill window</h3>
+                <p>When Yama is low, dump your spec weapon, but never at the cost of eating a penetration or storm hit. A dead player deals no damage. Survive, then finish. In duo, agree beforehand who takes the kill credit so loot rolls cleanly and nobody hesitates on the finishing blow.</p>
+
+                <div class="method-box highlight">
+                    <h4>🎯 Duo Team Roles — Quick Reference</h4>
+                    <ul>
+                        <li><strong>Lead:</strong> watches Yama's posture, calls penetration tells, holds the primary DPS weapon.</li>
+                        <li><strong>Support:</strong> watches the floor, calls storm lanes and glyph colors, covers heals and restores.</li>
+                        <li><strong>Both:</strong> move on the tell, never flick prayer against the penetration strike, and repeat the call out loud.</li>
+                    </ul>
+                </div>
+
+                <div class="action-step">
+                    <h4>Record and tag every death</h4>
+                    <p>After each wipe, write one word: glyph, penetration, storm, or late-move. Patterns emerge fast. Most Yama deaths are one cause repeated &mdash; fix that cause and your clear rate climbs overnight. This single habit separates players who profit at Yama from players who fund everyone else.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 8 FAQ -->
+            <section id="faq">
+                <h2>8. ❓ Yama Deep-Dive FAQs</h2>
+                <div class="faq-item">
+                    <h3>What exactly is the Yama contract system?</h3>
+                    <p>Before fighting, you draft a contract at the Dark Altar that sets the fight's difficulty, damage, and reward multiplier. Both duo players must share the tier. The contract is only charged when you seal it, and it resolves on a kill or a wipe. The gold you pay is gone regardless of outcome, which is why bankroll discipline matters as much as gear.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What is the gold threshold and do I get it back?</h3>
+                    <p>The gold threshold is the upfront cost paid when you seal a contract. It is spent on entry whether you win or lose &mdash; there is no refund. It gates reckless entry and keeps the drop economy balanced. Only contract what you can afford to lose repeatedly, and keep your supplies funded separately from the threshold.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Why does the prayer-penetration attack one-shot me?</h3>
+                    <p>Because it is coded to ignore protection prayers entirely. Praying the correct style does nothing. The only defense is to step out of the strike's marked area during the wind-up. Move on the tell, never after your attack animation. The same logic applies to the storm phase &mdash; position, not prayer, keeps you alive.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do higher contracts drop better loot?</h3>
+                    <p>Yes. Rewards scale with contract tier, and the rare unique drop chance improves modestly as you go up. But higher tiers also cost more gold and lower your clear rate, so the most profitable tier is usually one or two below maximum &mdash; not the hardest one. Run the expected-value math before scaling up.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What gear do I need for Yama?</h3>
+                    <p>90+ melee stats as a floor (99 recommended), 77+ Prayer, and a full three-style switch set. BiS helps but is not the bottleneck &mdash; execution on the glyph, penetration, and storm mechanics is. See our gear checklist for the full loadout and our Yama gear requirements guide for the per-slot BiS list.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I do Yama solo?</h3>
+                    <p>Yes, after completing Desert Treasure II. Solo removes the coordination safety net, so you alone must handle every glyph, penetration, and storm call. Many players learn in duo first, then solo once the routine is reflex. Our <a href="../guides/osrs-boss-mechanics-death-prevention-2026.html">death-prevention guide</a> is essential prep before you attempt solo Unbound.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How does the storm phase work?</h3>
+                    <p>The storm is a roaming area-of-effect Yama summons in higher contracts. It ignores protection prayers and damages anyone caught inside, but it leaves a safe lane you must read and rotate into. Predict the next lane from the sweep pattern, call it with your partner, and never cross the storm body. It is the second "positioning, not prayer" mechanic alongside the penetration strike.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Which weapon is best for the DPS checks?</h3>
+                    <p>A Scythe-class or Fang-class melee weapon is the standard, with Blowpipe or Bow of Faerdhinen for ranged phases and a Sanguinesti Staff or Trident for magic. The Soulreaper Axe is excellent for disciplined players who survive the windows and keep its hit stack climbing. Spec weapons like Dragon Claws or Voidwaker are best saved for the enrage and kill windows.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How should a duo split roles?</h3>
+                    <p>The lead watches Yama's posture and calls penetration tells while holding primary DPS; the support watches the floor, calls storm lanes and glyph colors, and covers heals. Both move on the tell and repeat calls out loud. The split focus is what lets a coordinated duo out-clear two solo players, because nothing gets missed.</p>
+                </div>
+            </section>
+
+            <div class="final-tips">
+                <h3>🎯 Final Tips Before Your First Contract</h3>
+                <ul>
+                    <li>Start one tier below your comfort zone &mdash; learn timings before scaling gold.</li>
+                    <li>Fund supplies first; never let the threshold eat your inventory.</li>
+                    <li>Prayer cannot save you from the penetration hit or the storm &mdash; positioning is everything.</li>
+                    <li>Log gold spent vs loot earned per tier to find your true profit optimum.</li>
+                    <li>Call mechanics out loud in duo; survival is a team habit.</li>
+                    <li>Tag every death with one word &mdash; patterns reveal the cause fast.</li>
+                </ul>
+            </div>
+
+            <div class="support-card" style="margin:8px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+            <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+            <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                <li><strong>Avoid Scams &amp; Phishing (Stop Bank Drains)</strong></li>
+                <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+            </ul>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+    </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRS Guru</h4><p>Free OSRS guides updated for 2026. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ Boss Guides</h4><ul>
+                    <li><a href="../boss-guides.html">All Boss Guides</a></li>
+                    <li><a href="../guides/osrs-yama-glyph-color-mechanics-2026.html">Yama Glyphs</a></li>
+                    <li><a href="../guides/osrs-theatre-of-blood-guide-2026.html">Theatre of Blood</a></li>
+                    <li><a href="../guides/osrs-boss-gear-checklist-2026.html">Gear Checklist</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+    </div>
+
+    <script src="../js/features.js"></script>
+    <script src="../js/ai-qa-widget.js"></script>
+<style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#3b2615!important}
+.guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+.guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+.guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+@media (max-width: 768px) {
+    .guide-content table { font-size: 0.85rem; }
+    .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+    .guide-content table tbody td { padding: 6px 10px; }
+    .guide-content h2 { font-size: 1.4em; }
+    .guide-content h3 { font-size: 1.15em; }
+}
+@media (max-width: 640px) {
+    .guide-content table { display: block; overflow-x: auto; }
+    .guide-content h2 { font-size: 1.25em; }
+    .guide-content h3 { font-size: 1.05em; }
+}
+</style>
+
+</body>
+</html>
