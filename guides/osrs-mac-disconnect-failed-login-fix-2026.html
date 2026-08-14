@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Mac "Failed to Login" & Disconnect Fix 2026 — Apple Silicon & Jagex Launcher</title>
+    <meta name="description" content="Updated for July 2026. Mac OSRS players on Apple Silicon hit 'Failed to login', an unresponsive plugin, or random disconnects. 7 targeted fixes for Java paths, the Jagex Launcher, Keychain, macOS permissions, and network drops — get back in fast before you lose your wilderness stack.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS Mac failed to login 2026, OSRS Mac disconnect fix, Apple Silicon M1 M2 M3 OSRS, OSRS Jagex Launcher Mac Java, OSRS Mac plugin not responding, Old School RuneScape macOS troubleshooting, OSRS Mac unresponsive client">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<meta name="article:published_time" content="2026-07-30">
+<meta name="article:modified_time" content="2026-08-12">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-mac-disconnect-failed-login-fix-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="intermediate" data-category="account">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+<li><a href="../pvm-guides.html">PvM Guides</a></li>
+<li><a href="../mobile.html">Mobile</a></li>
+
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../weekly-updates.html">Updates</a></li>
+                    <li><a href="../zh/index.html">Chinese</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../guides/account-security-guide-2026.html">Account &amp; Client</a> / OSRS Mac Failed to Login &amp; Disconnect Fix</p>
+            <h1>OSRS Mac "Failed to Login" &amp; Random Disconnect Fix 2026 (Apple Silicon &amp; Jagex Launcher)</h1>
+            <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+            <p class="subtitle">If you play Old School RuneScape on a Mac — especially an Apple Silicon Mac (M1, M2, M3, or M4) — you may hit a "Failed to login" wall, watch the Jagex Launcher hang on a plugin that never loads, or get yanked offline mid-run with no warning. This guide breaks down every Mac-specific cause and gives you a clean, ordered fix flow.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>Stage 3 · Mac Client Troubleshooting</strong> — Updated July 2026 · 14 min read
+            </div>
+        </div>
+    </section>
+
+<main class="guide-content">
+    <div class="container">
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: 1+</div>
+
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#1a1a1a;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Verdict — 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Most Mac login failures are not your password.</strong> On Apple Silicon the Jagex Launcher can run the wrong CPU architecture under Rosetta, so it hangs before it ever reaches the login servers.</li>
+                    <li>📌 <strong>#1 Mac fix:</strong> confirm you're on a native arm64 build and remove the macOS quarantine flag with <code>xattr -dr com.apple.quarantine</code>.</li>
+                    <li>📌 <strong>"Failed to login" after a password reset?</strong> Clear the stale Jagex tokens in Keychain Access — macOS keeps the old session and replays it.</li>
+                    <li>📌 <strong>Random disconnects</strong> are usually macOS sleep/Wi-Fi power-save or IPv6/DNS, not Jagex. Switch DNS to 1.1.1.1 and disable sleep-on-lid-close.</li>
+                    <li>📌 <strong>Plugin "not responding"?</strong> Force-quit the stuck <code>java</code> process in Activity Monitor and wipe the launcher cache in <code>~/Library/Caches</code>.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#server-status">🔍 Is It Jagex or Your Mac? Check First</a></li>
+                    <li><a href="#java-arch">🍏 Apple Silicon &amp; Java — Architecture &amp; Java Path</a></li>
+                    <li><a href="#failed-login">🔑 "Failed to Login" — Mac-Specific Fixes</a></li>
+                    <li><a href="#plugin">🧩 Plugin "Not Responding" / Unresponsive Launcher</a></li>
+                    <li><a href="#disconnect">📡 Random Disconnects on macOS</a></li>
+                    <li><a href="#permissions">🔐 macOS Permissions &amp; Gatekeeper</a></li>
+                    <li><a href="#symptom-table">🗺️ Symptom → Fix Quick Reference</a></li>
+                    <li><a href="#faq">❓ FAQ — OSRS on Mac</a></li>
+                </ol>
+            </div>
+
+            <p>This guide is the Mac-only companion to our cross-platform troubleshooting. If the <a href="../guides/osrs-mobile-cant-login-fix-2026.html" style="color:#8b6914;font-weight:bold;">mobile login fix</a> didn't get you in, the problem is almost certainly something unique to macOS or Apple Silicon. The good news is that Mac login problems are unusually predictable: they cluster around three root causes that Windows and Linux players essentially never hit.</p>
+            <p>We'll separate those three root causes — CPU architecture, the Keychain token cache, and the macOS network/sleep behavior — so you don't waste time on generic fixes that don't apply. If you migrated recently, the <a href="../guides/osrs-jagex-account-migration-guide-2026.html" style="color:#8b6914;font-weight:bold;">Jagex migration guide</a> explains why your login path may have changed after a re-link. And when the game freezes rather than failing to log in, pair this page with the <a href="../guides/osrs-random-disconnect-world-unavailable-fix-2026.html" style="color:#8b6914;font-weight:bold;">world-unavailable disconnect guide</a>, and keep the <a href="../guides/account-security-guide-2026.html" style="color:#8b6914;font-weight:bold;">account security guide</a> open so a recovered session stays protected.</p>
+            <p>The single most important mindset shift: on a Mac, a "broken game" is almost always a "broken local client." Jagex's servers don't care what operating system you use once the handshake completes. So if your Mac specifically fails while your phone logs in fine, the fault is on the Mac side 99% of the time — and that's good news, because it means every fix lives in your hands, not in a support ticket queue.</p>
+
+            <!-- SECTION 1 -->
+            <section id="server-status">
+                <h2>1. 🔍 Is It Jagex or Your Mac? Check First</h2>
+                <p>Before you touch a single macOS setting, rule out the server side. The <a href="../guides/osrs-mobile-cant-login-fix-2026.html" style="color:#8b6914;font-weight:bold;">mobile login troubleshooting flow</a> applies to desktop too: if thousands of players across every platform can't log in at once, it's a Jagex outage, not your Mac. Confirm with <strong>@JagexSupport</strong> on X, the official status page, or a quick glance at r/2007scape. Outages are real and routine — a bot-ban wave, a datacenter failover, or a bad deploy can take login down for minutes or hours.</p>
+                <p>If the servers are green but your Mac still fails, the problem is local — and Macs have a few failure modes Windows and Linux players almost never see. The biggest one is <strong>CPU architecture</strong>. Apple's M-series chips are arm64; much of the old RuneScape tooling was built for Intel x86_64 and only runs through Rosetta 2 translation. When the Jagex Launcher or its bundled Java is the wrong flavor, it can hang silently instead of showing an error — which looks exactly like "the game is broken." We cover that in <a href="../guides/osrs-random-disconnect-world-unavailable-fix-2026.html" style="color:#8b6914;font-weight:bold;">our world-unavailable disconnect guide</a> for the networking half of the problem.</p>
+                <h3>Why a silent hang is the Mac signature</h3>
+                <p>On Windows, a broken Java install usually throws a visible error window. On macOS, a Java process that can't initialize its native display component simply blocks the UI thread and waits forever. You get a spinner, a beachball, or a frozen window with no message. That silence is the tell: it means the client reached a state it can't recover from locally, and the fix is to correct the environment (architecture, cache, tokens) rather than "retry the password." Treating a silent hang as a password problem is the #1 reason Mac players waste an hour before they fix the real thing.</p>
+                <div class="action-step">
+                    <h4>Step 1 — Three 30-second checks</h4>
+                    <ul>
+                        <li>Open the official Jagex status channel. Any "Login issues" banner? Wait it out — hammering login can rate-limit your account.</li>
+                        <li>Try logging into the <strong>OSRS website</strong> with the same account. If the website works but the Mac app doesn't, it's 100% client-side on your Mac.</li>
+                        <li>Check <strong>Activity Monitor</strong> (Cmd+Space → "Activity Monitor"). Is a <code>java</code> or "Jagex Launcher" process sitting at 0% CPU or pegged at 100% with no window? That's the hang we fix in Section 4.</li>
+                    </ul>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The 10-Minute Rule Still Applies</div>
+                    <p>If status confirms maintenance, just wait 10–15 minutes. "Fixing" a client that's fine won't help, and rapid retries during an outage get your IP temporarily throttled. Come back and start from Section 2 once the servers are healthy. A throttled IP can itself look like a "failed to login" even after the servers recover.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="java-arch">
+                <h2>2. 🍏 Apple Silicon &amp; Java — Architecture &amp; Java Path</h2>
+                <p>The Jagex Launcher on macOS depends on Java. On an Apple Silicon Mac the single most common "nothing happens" or "stuck on loading plugin" symptom comes from a <strong>Java architecture mismatch</strong>: an x86_64 (Intel) Java build running under Rosetta, talking to an arm64 launcher, or vice-versa. The mismatch doesn't crash loudly — it just freezes, because the native plugin component never initializes and the UI thread blocks waiting on it.</p>
+
+                <h3>② Check what Java your Mac is actually using</h3>
+                <p>Open Terminal (Cmd+Space → "Terminal") and run the three commands below. They tell you, in order, which Java builds exist, what architecture your shell reports, and what architecture your <em>default</em> Java binary actually is. The third command is the decisive one — it inspects the binary itself rather than trusting the reported shell.</p>
+                <div class="method-box">
+                    <h4>🖥️ Commands to identify your Java</h4>
+                    <ul>
+                        <li><code>/usr/libexec/java_home -V</code> — lists every installed Java and its architecture. Look for <strong>arm64</strong> vs <strong>x86_64</strong> in the output.</li>
+                        <li><code>uname -m</code> — should print <code>arm64</code> on M-series Macs. If you see <code>x86_64</code>, a terminal app is running under Rosetta.</li>
+                        <li><code>file "$(/usr/libexec/java_home)/bin/java"</code> — tells you definitively whether your default Java binary is arm64 or x86_64.</li>
+                    </ul>
+                </div>
+                <p>If your default Java is x86_64 and your Mac is Apple Silicon, uninstall the Intel Java and install the <strong>arm64 (aarch64) build of Eclipse Temurin / Adoptium</strong> (or Azul Zulu for macOS arm64). A native arm64 Java removes the Rosetta translation layer and fixes the silent hang for most M-series players. Don't just "update" the existing Intel Java — you need a different architecture build, not a newer version of the wrong one.</p>
+
+                <h3>③ Set an explicit JAVA_HOME (and stop Terminal from lying)</h3>
+                <p>Even with the right Java installed, some launchers pick up the wrong one via PATH. Pin it explicitly so the session can't drift to an Intel build:</p>
+                <div class="method-box">
+                    <h4>🔧 Export JAVA_HOME for the session</h4>
+                    <ul>
+                        <li><code>export JAVA_HOME=$(/usr/libexec/java_home -v 17)</code> — forces Java 17 (the version OSRS tooling expects).</li>
+                        <li>Launch the Jagex Launcher <em>from that same Terminal window</em> to inherit the variable: <code>open "/Applications/Jagex Launcher.app"</code>.</li>
+                        <li>To make it permanent, add the export line to <code>~/.zshrc</code> (the default shell on modern macOS).</li>
+                    </ul>
+                </div>
+                <p>Why bother with <code>JAVA_HOME</code> when the launcher "should" find Java itself? Because macOS can have three or four Java builds installed at once — leftovers from old Minecraft launchers, IDEs, and CI tools all pile up. The first one on PATH is not guaranteed to be the arm64 one, and a wrong arch there is exactly the silent-hang bug. Pinning it removes the ambiguity. If you ever see the launcher work from Terminal but fail from Launchpad, a missing <code>JAVA_HOME</code> in the login shell is the usual reason.</p>
+
+                <div class="warning-box" style="border-left:4px solid #b8860b;padding:12px 16px;background:#fff;border-radius:6px;margin:14px 0;">
+                    <div class="tip-title" style="color:#3b2615;">⚠️ Don't Mix Rosetta and Native</div>
+                    <p>If Terminal itself runs under Rosetta (check <code>uname -m</code>), every Java it launches will be the wrong arch. Right-click Terminal → Get Info → make sure <strong>"Open using Rosetta" is UNCHECKED</strong>. A native Terminal + native Java = no translation hang. This single checkbox is the most overlooked fix on M-series Macs.</p>
+                </div>
+
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 330" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="macOS Java architecture path: native arm64 versus Rosetta x86_64">
+                        <rect width="680" height="330" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">macOS Path: Native arm64 vs Rosetta x86_64</text>
+                        <rect x="30" y="55" width="290" height="40" fill="#8b6914" opacity="0.16" stroke="#8b6914" stroke-width="1.5"/>
+                        <text x="46" y="80" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">CORRECT — arm64 Java</text>
+                        <rect x="360" y="55" width="290" height="40" fill="#E6A817" opacity="0.16" stroke="#E6A817" stroke-width="1.5"/>
+                        <text x="376" y="80" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">WRONG — x86_64 Java</text>
+                        <rect x="30" y="110" width="290" height="34" fill="#fff" stroke="#8b6914" stroke-width="1"/>
+                        <text x="46" y="132" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">app runs arm64</text>
+                        <rect x="360" y="110" width="290" height="34" fill="#fff" stroke="#E6A817" stroke-width="1"/>
+                        <text x="376" y="132" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">app forces Rosetta 2</text>
+                        <rect x="30" y="160" width="290" height="34" fill="#fff" stroke="#8b6914" stroke-width="1"/>
+                        <text x="46" y="182" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">plugin component loads</text>
+                        <rect x="360" y="160" width="290" height="34" fill="#fff" stroke="#E6A817" stroke-width="1"/>
+                        <text x="376" y="182" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">translation stalls component</text>
+                        <rect x="30" y="210" width="290" height="34" fill="#8b6914" opacity="0.16" stroke="#8b6914" stroke-width="1"/>
+                        <text x="46" y="232" font-size="12" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">✅ Login screen appears</text>
+                        <rect x="360" y="210" width="290" height="34" fill="#E6A817" opacity="0.16" stroke="#E6A817" stroke-width="1"/>
+                        <text x="376" y="232" font-size="12" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">❌ Silent hang / beachball</text>
+                        <text x="20" y="290" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Fix: install arm64 Temurin/Zulu, uncheck "Open using Rosetta", set JAVA_HOME to -v 17.</text>
+                    </svg>
+                    <figcaption>An arm64 Java talks straight to the arm64 launcher. An x86_64 Java must be translated by Rosetta, and that translation is where the loader silently stalls.</figcaption>
+                </figure>
+
+                <h3>Native arm64 vs Rosetta — what actually changes</h3>
+                <p>Rosetta 2 is a translation layer, not an emulator, and it's excellent — for most apps you'd never notice. But the Jagex Launcher's plugin loader fetches a small native display component on first run, and that component must match the process architecture. When the Java process is x86_64 inside a Rosetta bubble but the launcher expects arm64, the loader waits on a component that never arrives. The table below summarizes the practical differences so you can recognize which camp you're in.</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>Aspect</th><th>Native arm64 Java</th><th>x86_64 Java under Rosetta</th></tr>
+                    <tr><td>CPU usage at launch</td><td>Normal, completes quickly</td><td>0% or pegged, never completes</td></tr>
+                    <tr><td>Plugin loader</td><td>Initializes native component</td><td>Waits on mismatched component</td></tr>
+                    <tr><td>Battery / heat</td><td>Cool, efficient</td><td>Warmer, translation overhead</td></tr>
+                    <tr><td>Fix</td><td>Already correct</td><td>Install arm64 build, unset Rosetta</td></tr>
+                </table>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="failed-login">
+                <h2>3. 🔑 "Failed to Login" — Mac-Specific Fixes</h2>
+                <p>When the launcher does open but rejects your credentials with "Failed to login", and you're sure the password is right, the cause is almost always one of these Mac-specific gremlins — not your account itself. After a password change or a macOS update, <a href="../guides/osrs-account-locked-suspicious-activity-2026.html" style="color:#8b6914;font-weight:bold;">account locks from suspicious activity</a> can also kick in, so rule that out if you've recently traveled or used a VPN.</p>
+
+                <h3>④ Clear stale Jagex tokens from Keychain</h3>
+                <p>macOS Keychain caches your Jagex/login tokens. After a reset or a failed update, the launcher keeps replaying the <em>old</em> token and the server rejects it — even though your new password is correct. The server sees a stale, invalid session and returns "Failed to login" rather than "wrong password," which is why it feels like the password isn't the issue (because it isn't). Fix:</p>
+                <ol>
+                    <li>Open <strong>Keychain Access</strong> (Cmd+Space → "Keychain Access").</li>
+                    <li>Search <code>Jagex</code> and <code>RuneScape</code>.</li>
+                    <li>Delete every matching entry (they regenerate on next successful login).</li>
+                    <li>Restart the Jagex Launcher and log in fresh.</li>
+                </ol>
+                <p>Don't skip the "delete every matching entry" step. Players often delete one and miss a second token, so the launcher replays the surviving stale one and the error returns. Clear all of them in one pass. This is also the fix when login works on your iPhone but not your Mac — the two clients store separate tokens, and only the Mac's are stale.</p>
+
+                <h3>⑤ Remove the quarantine flag</h3>
+                <p>macOS marks downloaded apps as "quarantined" and Gatekeeper blocks their network calls until you approve. If the launcher was downloaded with a browser that didn't prompt, it can sit quarantined and fail every login silently. The fix is a single Terminal command that strips the quarantine extended attribute:</p>
+                <div class="method-box">
+                    <h4>🧹 One-line un-quarantine</h4>
+                    <ul>
+                        <li><code>sudo xattr -dr com.apple.quarantine "/Applications/Jagex Launcher.app"</code></li>
+                        <li>Also clear it on the game client app if separate: <code>sudo xattr -dr com.apple.quarantine "/Applications/Old School RuneScape.app"</code></li>
+                        <li>Re-open the launcher; Gatekeeper will no longer intercept its connections.</li>
+                    </ul>
+                </div>
+                <p>Why does this matter for login specifically? Gatekeeper doesn't just block the app from launching — it can allow the app to open but block its outbound network handshake to the login servers, which produces a "Failed to login" that looks identical to a server-side reject. The quarantine flag is also re-stamped by some macOS updates, so if login breaks again after a system update, re-run this command before anything else.</p>
+
+                <h3>⑥ Account type still matters on Mac</h3>
+                <p>Just like on mobile, a Jagex account, a Steam-linked account, and a Google/Apple SSO account each need their own button. Typing your email + password for a Steam-linked character always returns "Failed to login" on macOS too. Mirror the login method you use on the website. If you migrated recently, see our <a href="../guides/osrs-jagex-account-migration-guide-2026.html" style="color:#8b6914;font-weight:bold;">Jagex account migration guide</a> for the re-link steps that often get skipped after an email or SSO change.</p>
+
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 360" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Failed to login diagnosis flow for macOS">
+                        <rect width="680" height="360" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">"Failed to Login" — macOS Diagnosis Flow</text>
+                        <rect x="240" y="45" width="200" height="40" fill="#8b6914" opacity="0.16" stroke="#8b6914" stroke-width="1.5"/>
+                        <text x="256" y="70" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Failed to login?</text>
+                        <line x1="340" y1="85" x2="340" y2="110" stroke="#3b2615" stroke-width="2"/>
+                        <rect x="40" y="115" width="200" height="40" fill="#fff" stroke="#8b6914" stroke-width="1"/>
+                        <text x="56" y="140" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Wrong login button?</text>
+                        <rect x="440" y="115" width="200" height="40" fill="#fff" stroke="#8b6914" stroke-width="1"/>
+                        <text x="456" y="140" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Tokens stale?</text>
+                        <line x1="140" y1="155" x2="140" y2="185" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="540" y1="155" x2="540" y2="185" stroke="#3b2615" stroke-width="2"/>
+                        <rect x="40" y="190" width="200" height="34" fill="#8b6914" opacity="0.16" stroke="#8b6914" stroke-width="1"/>
+                        <text x="56" y="212" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">→ Use correct SSO</text>
+                        <rect x="440" y="190" width="200" height="34" fill="#8b6914" opacity="0.16" stroke="#8b6914" stroke-width="1"/>
+                        <text x="456" y="212" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">→ Clear Keychain</text>
+                        <rect x="240" y="250" width="200" height="40" fill="#fff" stroke="#E6A817" stroke-width="1.5"/>
+                        <text x="256" y="275" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Quarantined?</text>
+                        <line x1="340" y1="290" x2="340" y2="315" stroke="#3b2615" stroke-width="2"/>
+                        <rect x="240" y="318" width="200" height="34" fill="#E6A817" opacity="0.16" stroke="#E6A817" stroke-width="1"/>
+                        <text x="256" y="340" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">→ xattr -dr quarantine</text>
+                    </svg>
+                    <figcaption>Walk the tree top-down: login method → Keychain tokens → quarantine flag. Most Mac "Failed to login" cases resolve at one of these three nodes.</figcaption>
+                </figure>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Clock Skew Breaks 2FA Too</div>
+                    <p>If you reach the 6-digit code step but it's "always wrong", your Mac clock may be off by more than 30 seconds. Go to <strong>System Settings → General → Date &amp; Time</strong> and enable "Set time and zone automatically". Authenticator codes are time-based; a skewed clock invalidates every one, and the error reads like a credential failure even though the password was fine.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="plugin">
+                <h2>4. 🧩 Plugin "Not Responding" / Unresponsive Launcher</h2>
+                <p>This is the classic Apple Silicon complaint: the launcher opens, the little loading plugin spins forever, and you see a frozen window, a beachball, or a process that never paints a login screen. Here's the recovery order — do it in this sequence, because each step builds on the last.</p>
+
+                <h3>⑦ Force-quit the stuck process</h3>
+                <ol>
+                    <li>Cmd+Option+Esc → select "Jagex Launcher" → Force Quit. Or open Activity Monitor and kill the <code>java</code> process directly.</li>
+                    <li>Don't just close the window — a hung java thread keeps the port locked and the next launch collides with it.</li>
+                </ol>
+                <p>The reason you must force-quit rather than close the window: a frozen Java thread often survives a window close and keeps holding the local port the launcher needs. The next launch then fails to bind that port and either hangs again or throws a cryptic "address already in use" error. Always confirm the <code>java</code> process is gone in Activity Monitor before relaunching.</p>
+
+                <h3>⑧ Wipe the corrupted cache</h3>
+                <p>A half-written cache from an interrupted update is the #1 cause of "plugin won't load". Clear it. Your character, bank, and progress live on Jagex's servers, not in these folders, so deleting them is safe — you'll simply re-download them on next launch:</p>
+                <div class="method-box">
+                    <h4>🗑️ Cache locations on macOS</h4>
+                    <ul>
+                        <li><code>~/Library/Caches/Jagex Launcher/</code> — delete this folder.</li>
+                        <li><code>~/Library/Application Support/Jagex Launcher/</code> — you can remove the <code>cache</code> subfolder here without losing your account.</li>
+                        <li><code>~/Library/Application Support/Old School RuneScape/</code> — the game's own cache; safe to clear if the client freezes after login.</li>
+                    </ul>
+                </div>
+                <p>Order matters: clear the launcher cache first, relaunch, and only if the hang persists move to the game cache. The launcher cache is smaller and more often the culprit; the game cache is larger and slower to rebuild, so save it for when the launcher cache alone doesn't fix things.</p>
+
+                <h3>⑨ Reinstall as a native arm64 app</h3>
+                <p>If the hang survives a cache wipe, the app binary itself may be the wrong architecture (an old Intel download, or a copy dragged from another Mac):</p>
+                <ul>
+                    <li>Drag the Jagex Launcher to Trash, then empty it.</li>
+                    <li>Re-download the <strong>macOS (Apple Silicon) installer</strong> directly from the official Jagex site — not a mirrored or old Intel copy.</li>
+                    <li>Install, un-quarantine (Section 3.5), and launch from a native (non-Rosetta) Terminal.</li>
+                </ul>
+                <div class="tip-box">
+                    <div class="tip-title">🔋 Why this fixes the "beachball of death"</div>
+                    <p>The plugin loader fetches a small native component on first run. On a mismatched architecture that component never initializes, so the UI thread blocks forever waiting on it. A clean arm64 reinstall drops in the correct component and the spinner finally completes. This is the same root cause as the Java-architecture mismatch in Section 2 — the binary and its native dependency finally agree on architecture.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="disconnect">
+                <h2>5. 📡 Random Disconnects on macOS</h2>
+                <p>Getting "You have been disconnected" mid-boss with a stable password is rarely the account — it's macOS quietly dropping your session. The <a href="../guides/osrs-mobile-disconnect-background-fix-2026.html" style="color:#8b6914;font-weight:bold;">mobile background-disconnect fix</a> shares the same root causes (sleep + network), but on a Mac the usual culprits are different and easier to pin down with a couple of Terminal tests.</p>
+
+                <h3>⑩ Sleep and Wi-Fi power saving</h3>
+                <ul>
+                    <li><strong>Lid close = instant drop.</strong> OSRS does not survive macOS sleep. Use <em>Clamshell mode</em> with an external display + power, or set "Prevent sleep" via <code>caffeinate -s</code> in Terminal while you play.</li>
+                    <li><strong>Wi-Fi "disconnect on sleep"</strong> in <strong>System Settings → Wi-Fi → Details → Wake for network access</strong> can flap your connection. Keep the Mac awake.</li>
+                    <li><strong>Low Power Mode</strong> (battery menu) can throttle the Wi-Fi radio under load. Disable it during long sessions.</li>
+                </ul>
+                <p>The lid-close drop is the most common "random" disconnect Mac players report, because it often happens after they step away for a minute thinking the game will idle. OSRS's connection times out the moment the OS suspends networking, and when you return and open the lid, you're already booted. <code>caffeinate -s</code> is the one-line insurance: it tells macOS to never sleep while that Terminal command runs.</p>
+
+                <h3>⑪ DNS, IPv6, and VPN</h3>
+                <div class="method-box">
+                    <h4>🌐 Network hardening for OSRS</h4>
+                    <ul>
+                        <li>Set DNS to <strong>1.1.1.1</strong> (Cloudflare) or <strong>8.8.8.8</strong> (Google) in System Settings → Wi-Fi → Details → DNS. macOS default resolvers occasionally black-hole the login handshake.</li>
+                        <li>If you're on IPv6-only or dual-stack, try disabling IPv6 temporarily to rule out a flaky v6 route to the game servers.</li>
+                        <li>Using a VPN? Many OSRS disconnects are VPN reconnections. See our <a href="../guides/osrs-vpn-login-blocked-fix-2026.html" style="color:#8b6914;font-weight:bold;">VPN login-blocked fix</a> — Jagex can also flag VPN IPs as suspicious and boot you.</li>
+                    </ul>
+                </div>
+                <p>DNS is the quiet hero here. The OSRS client resolves the login and game servers by name; if your ISP's resolver intermittently fails or rate-limits, you get mid-session drops that look like server issues but are entirely local. Public resolvers like 1.1.1.1 are fast and reliable, and switching is a two-minute change that fixes a surprising number of "random" disconnects.</p>
+
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 300" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="macOS disconnect diagnosis tree">
+                        <rect width="680" height="300" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Random Disconnect — macOS Diagnosis Tree</text>
+                        <rect x="240" y="45" width="200" height="38" fill="#8b6914" opacity="0.16" stroke="#8b6914" stroke-width="1.5"/>
+                        <text x="256" y="69" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Disconnected?</text>
+                        <line x1="340" y1="83" x2="340" y2="108" stroke="#3b2615" stroke-width="2"/>
+                        <rect x="40" y="112" width="190" height="36" fill="#fff" stroke="#8b6914" stroke-width="1"/>
+                        <text x="54" y="135" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">After lid close?</text>
+                        <rect x="450" y="112" width="190" height="36" fill="#fff" stroke="#8b6914" stroke-width="1"/>
+                        <text x="464" y="135" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Spikes on ping?</text>
+                        <line x1="135" y1="148" x2="135" y2="172" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="545" y1="148" x2="545" y2="172" stroke="#3b2615" stroke-width="2"/>
+                        <rect x="40" y="176" width="190" height="32" fill="#8b6914" opacity="0.16" stroke="#8b6914" stroke-width="1"/>
+                        <text x="54" y="197" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">→ caffeinate</text>
+                        <rect x="450" y="176" width="190" height="32" fill="#8b6914" opacity="0.16" stroke="#8b6914" stroke-width="1"/>
+                        <text x="464" y="197" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">→ DNS 1.1.1.1</text>
+                        <rect x="240" y="236" width="200" height="38" fill="#fff" stroke="#E6A817" stroke-width="1.5"/>
+                        <text x="256" y="260" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">VPN reconnect?</text>
+                        <line x1="340" y1="274" x2="340" y2="290" stroke="#3b2615" stroke-width="2"/>
+                    </svg>
+                    <figcaption>Most Mac disconnects trace to sleep (lid close) or DNS. Test with <code>ping -c 20 1.1.1.1</code> during a normal session to confirm.</figcaption>
+                </figure>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Quick test</div>
+                    <p>Open Terminal and <code>ping -c 20 1.1.1.1</code> while you'd normally disconnect. If you see spikes or timeouts exactly when OSRS drops, your network — not Jagex — is the problem. Our <a href="../guides/osrs-home-network-router-troubleshoot-2026.html" style="color:#8b6914;font-weight:bold;">home router troubleshooting guide</a> covers the router side (2.4GHz vs 5GHz, NAT timeout, and UPnP).</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="permissions">
+                <h2>6. 🔐 macOS Permissions &amp; Gatekeeper</h2>
+                <p>macOS privacy controls can silently break the launcher even after a clean install. If login fails with vague errors or the client launches but can't reach the network, walk this list — these are the settings that bite Mac players specifically, because they're unique to Apple's privacy model.</p>
+                <ul>
+                    <li><strong>Full Disk Access</strong> (System Settings → Privacy &amp; Security): grant it to the Jagex Launcher so it can read its own cache and write tokens. Not strictly required, but it resolves the weirdest "permission denied" hangs.</li>
+                    <li><strong>Network / Firewall</strong>: if you run the built-in firewall, ensure it isn't blocking outgoing connections from the launcher. Set it to "Allow incoming connections" for the app, or temporarily disable to test.</li>
+                    <li><strong>Screen Time → Content &amp; Privacy</strong>: a managed Mac (work/school) may block the launcher's network calls. Turn off Content Restrictions to test.</li>
+                    <li><strong>Gatekeeper</strong>: after any macOS update, re-run the <code>xattr -dr</code> un-quarantine command from Section 3.5 — updates can re-stamp the flag.</li>
+                </ul>
+                <p>These four settings are the ones that produce the most confusing failures, because they don't throw a clear "blocked" dialog — they let the app open, then quietly prevent it from doing its job. If you've done everything in Sections 2–5 and still can't log in, one of these privacy controls is almost certainly the last blocker. The firewall one is especially sneaky: macOS can allow the launcher to launch but silently drop its outbound login handshake, which again reads as "Failed to login."</p>
+                <div class="action-step">
+                    <h4>Final Mac checklist before contacting support</h4>
+                    <ul>
+                        <li>Native arm64 Java (Section 2) ✅</li>
+                        <li>Quarantine flag removed (Section 3.5) ✅</li>
+                        <li>Keychain Jagex tokens cleared (Section 3.4) ✅</li>
+                        <li>Cache wiped (Section 4.8) ✅</li>
+                        <li>DNS set to 1.1.1.1, Mac kept awake (Section 5) ✅</li>
+                        <li>Full Disk Access + firewall checked (Section 6) ✅</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 7: Symptom table -->
+            <section id="symptom-table">
+                <h2>7. 🗺️ Symptom → Fix Quick Reference</h2>
+                <p>Match what you see to the fix. If your symptom isn't here, walk Sections 2–6 in order — the checklist in Section 6 is the definitive pre-support sequence.</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <tr><th>You See…</th><th>Most Likely Cause</th><th>Go To</th></tr>
+                    <tr><td>Launcher hangs, beachball, "无响应"</td><td>Java/Rosetta architecture mismatch</td><td><a href="#java-arch" style="color:#8b6914;font-weight:bold;">§2 Java &amp; Arch</a></td></tr>
+                    <tr><td>"Failed to login" but password is right</td><td>Stale Keychain token / wrong account type</td><td><a href="#failed-login" style="color:#8b6914;font-weight:bold;">§3 Failed Login</a></td></tr>
+                    <tr><td>Plugin spins forever, never loads</td><td>Corrupted cache + wrong arch</td><td><a href="#plugin" style="color:#8b6914;font-weight:bold;">§4 Plugin Fix</a></td></tr>
+                    <tr><td>"You have been disconnected" mid-game</td><td>Sleep / Wi-Fi / DNS / VPN</td><td><a href="#disconnect" style="color:#8b6914;font-weight:bold;">§5 Disconnects</a></td></tr>
+                    <tr><td>Vague network error after update</td><td>Gatekeeper quarantine / permissions</td><td><a href="#permissions" style="color:#8b6914;font-weight:bold;">§6 Permissions</a></td></tr>
+                </table>
+                </div>
+                <p>The pattern across every Mac failure is the same: the client reaches a state it can't escape locally, and the fix is always environmental — architecture, tokens, cache, sleep, or permissions. None of these require a Jagex support ticket, and most are resolved in under ten minutes once you know which knob to turn.</p>
+            </section>
+
+            <!-- SECTION 8: FAQ -->
+            <section id="faq">
+                <h2>8. ❓ FAQ — OSRS on Mac</h2>
+
+                <div class="faq-item">
+                    <h4>Does OSRS run natively on Apple Silicon, or only through Rosetta?</h4>
+                    <p>The Jagex Launcher and the Old School RuneScape client both ship native arm64 builds, so an M1/M2/M3/M4 Mac should run them without Rosetta. The hang almost always comes from a leftover x86_64 Java or an old Intel installer lingering on the system. Follow Section 2 to confirm and fix the architecture. If <code>file "$(/usr/libexec/java_home)/bin/java"</code> reports x86_64, that's your culprit.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Why does "Failed to login" appear only on my Mac but not on my phone?</h4>
+                    <p>Because the two clients store separate login tokens. macOS Keychain may be replaying a dead session token from before a password reset, while your phone already re-authenticated. Clearing the Jagex entries from Keychain (Section 3.4) forces a clean login on the Mac. The phone and the Mac do not share a token store, so fixing one never fixes the other.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Is it safe to delete the Application Support / Caches folders?</h4>
+                    <p>Yes. Your character, bank, and levels live on Jagex's servers, not your Mac. Deleting <code>~/Library/Caches</code> and the launcher's support folder only removes local cached files; you'll simply re-download them on next launch and log back into the same account. You will not lose a single item. This is the safest and most effective fix for a frozen plugin.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>My Mac connects to Wi-Fi but OSRS still drops — what now?</h4>
+                    <p>Check DNS first (set to 1.1.1.1), then test with the Mac kept fully awake via <code>caffeinate</code>. If disconnects line up with VPN reconnects, the VPN is the cause. Our <a href="../guides/osrs-home-network-router-troubleshoot-2026.html" style="color:#8b6914;font-weight:bold;">router guide</a> and <a href="../guides/osrs-vpn-login-blocked-fix-2026.html" style="color:#8b6914;font-weight:bold;">VPN guide</a> cover the rest. A <code>ping -c 20 1.1.1.1</code> that shows timeouts at the exact moment you drop confirms it's the network, not Jagex.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Should I just use the Steam version on Mac instead?</h4>
+                    <p>If the standalone Jagex Launcher keeps misbehaving, the Steam client on macOS is a valid alternative — but remember a Steam-linked account must log in via the Steam button everywhere, including on Mac. The underlying architecture rules in Section 2 still apply to Steam's macOS build, and you'll still need the correct arm64 Java. Switching clients doesn't bypass the architecture or token fixes.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Why does the launcher work for weeks then suddenly hang after a macOS update?</h4>
+                    <p>macOS updates frequently re-stamp the Gatekeeper quarantine flag on installed apps and can reset privacy permissions like Full Disk Access. The launcher was fine until the update re-quarantined it and silently blocked its network handshake. Re-run <code>sudo xattr -dr com.apple.quarantine</code> and re-grant permissions after any major macOS update — that single step resolves the post-update hang in most cases.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can a VPN or corporate proxy cause "Failed to login" on Mac?</h4>
+                    <p>Yes. A VPN or proxy that intercepts TLS can break the login handshake, and Jagex may also flag shared VPN IPs as suspicious and boot you mid-session. If you're on a corporate or school network, try a direct connection first. Our <a href="../guides/osrs-vpn-login-blocked-fix-2026.html" style="color:#8b6914;font-weight:bold;">VPN login-blocked fix</a> walks through whitelisting and split-tunnel settings that keep OSRS stable while the VPN stays on.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How do I know if my Java is the wrong architecture?</h4>
+                    <p>Run <code>file "$(/usr/libexec/java_home)/bin/java"</code> in Terminal. If the output says <code>x86_64</code> on an Apple Silicon Mac, you have the wrong (Intel) Java and it's running under Rosetta — the classic silent-hang cause. The fix is to install an arm64 (aarch64) build of Eclipse Temurin or Azul Zulu and point <code>JAVA_HOME</code> at it, as shown in Section 2.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Will resetting my Mac or reinstalling macOS fix OSRS login?</h4>
+                    <p>It will, but it's drastic overkill. A full reset wipes the stale Keychain tokens, the wrong Java, and the quarantine flag all at once — which is exactly why it "fixes" the problem. But you can achieve the same result in ten minutes with Sections 2–6 (correct Java, clear Keychain, un-quarantine, wipe cache, fix permissions) without losing anything else. Reserve a reinstall for when nothing else works.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Do these fixes apply to the Old School RuneScape app from the App Store too?</h4>
+                    <p>The architecture, Keychain, and quarantine fixes apply to every macOS build of the client, including any App Store version. The App Store version manages its own updates, so the post-update re-quarantine issue is less common there — but the Java architecture mismatch and the stale-token "Failed to login" still apply, because those are about your system environment, not the delivery channel. Walk Sections 2–3 first regardless of where you got the app.</p>
+                </div>
+            </section>
+
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 What To Do After You're Back In</h3>
+                <p>Once you're logged in and stable on your Mac, lock it in:</p>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 1:</strong> Save your <a href="../guides/account-security-guide-2026.html" style="color:#8b6914; font-weight:bold;">2FA backup codes</a> so a lost device can't lock you out
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 2:</strong> Keep your Mac <a href="../guides/osrs-random-disconnect-world-unavailable-fix-2026.html" style="color:#8b6914; font-weight:bold;">disconnect-proof</a> with the sleep/DNS settings above
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 3:</strong> Review the <a href="../guides/osrs-jagex-account-migration-guide-2026.html" style="color:#8b6914; font-weight:bold;">Jagex account migration guide</a> so future updates don't reset your login
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 4:</strong> Bookmark our <a href="../guides/osrs-mobile-disconnect-background-fix-2026.html" style="color:#8b6914; font-weight:bold;">background disconnect fix</a> for the mobile half of the problem
+                    </div>
+                <p style="margin-top:14px;">Next: <a href="../guides/account-security-guide-2026.html" style="color:#8b6914;font-weight:700;">OSRS Account Security Guide →</a></p>
+            </div>
+
+            <!-- RELATED GUIDES -->
+                    <div class="related-guides">
+      <h3>More OSRS Account &amp; Client Guides</h3>
+      <div class="article-grid">
+        <a href="../guides/osrs-mobile-cant-login-fix-2026.html" class="article-card">
+          <h3>OSRS Mobile Can't Log In? Fix After the July 2026 PSA</h3>
+          <p>One unified login fix flow for every OSRS platform — same root causes, same recovery order.</p>
+        </a>
+        <a href="../guides/osrs-random-disconnect-world-unavailable-fix-2026.html" class="article-card">
+          <h3>OSRS Random Disconnect &amp; "World Unavailable" Fix 2026</h3>
+          <p>Why you get booted mid-session and how to stabilize your connection on any device.</p>
+        </a>
+        <a href="../guides/osrs-mobile-disconnect-background-fix-2026.html" class="article-card">
+          <h3>OSRS Mobile Background Disconnect Fix 2026</h3>
+          <p>The sleep-and-network fixes that also explain most Mac desktop drops.</p>
+        </a>
+        <a href="../guides/osrs-jagex-account-migration-guide-2026.html" class="article-card">
+          <h3>OSRS Jagex Account Migration Guide 2026</h3>
+          <p>Link and re-link your account the right way so updates stop resetting your login.</p>
+        </a>
+        <a href="../guides/account-security-guide-2026.html" class="article-card">
+          <h3>OSRS Account Security Guide 2026</h3>
+          <p>Set up 2FA, store backup codes, and avoid the phishing scams that spike during outages.</p>
+        </a>
+      </div>
+    </div>
+
+            <!-- SUPPORT CARD (verbatim Payhip green box, placed at end) -->
+    <div class="support-card" style="margin:8px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+            <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+            <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                <li><strong>Avoid Scams & Phishing (Stop Bank Drains)</strong></li>
+                <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+            </ul>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+    </div>
+
+            <p class="article-meta" style="color:#3b2615;font-size:.82rem;margin:1.5rem 0 0;opacity:.85;">Published: July 30, 2026 &middot; Last verified: August 12, 2026</p>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ Client &amp; Account (Account)</h4><ul>
+                    <li><a href="../guides/osrs-mobile-cant-login-fix-2026.html">Mobile Login Fix</a></li>
+                    <li><a href="../guides/osrs-random-disconnect-world-unavailable-fix-2026.html">Disconnect Fix</a></li>
+                    <li><a href="../guides/account-security-guide-2026.html">Account Security</a></li>
+                    <li><a href="../guides/osrs-jagex-account-migration-guide-2026.html">Jagex Migration</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+<!-- Copyright & Anti-Scraping Notice -->
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+
+</body>
+</html>
