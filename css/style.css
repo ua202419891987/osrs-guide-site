@@ -2627,6 +2627,31 @@ footer{
     justify-content:center;
   }
 
+/* ========== TOOL PROMO (导流 CTA — 站点新增，不覆盖任何已有类) ========== */
+.tool-promo{
+  background:#faf8f5;
+  border:1px solid #e0d5c0;
+  border-left:4px solid #d4af37;
+  border-radius:10px;
+  padding:20px 22px;
+  margin:28px 0;
+}
+.tool-promo h3{margin:0 0 6px;color:#3b2615;font-size:1.15rem;font-family:'Cinzel',serif;}
+.tool-promo > p{margin:0 0 16px;color:#4a4a4a;font-size:.92rem;line-height:1.6;}
+.tool-promo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;}
+.tool-promo-card{
+  display:flex;flex-direction:column;gap:4px;
+  background:#fff;border:1px solid #e0d5c0;border-radius:10px;
+  padding:14px 16px;text-decoration:none;color:inherit;
+  transition:box-shadow .15s ease,transform .15s ease,border-color .15s ease;
+}
+.tool-promo-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.08);transform:translateY(-2px);border-color:#d4af37;}
+.tp-ico{font-size:1.5rem;line-height:1;}
+.tp-name{font-weight:700;color:#3b2615;font-size:.98rem;}
+.tp-desc{font-size:.82rem;color:#5a5a5a;line-height:1.5;}
+.tp-go{margin-top:4px;font-size:.82rem;font-weight:700;color:#8b6914;}
+@media(max-width:640px){.tool-promo-grid{grid-template-columns:1fr;}}
+
   /* Images */
   .guide-content img,
   .guide-img img{
