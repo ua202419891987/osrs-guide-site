@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Home Network &amp; Router Troubleshooting — Fix Lag, DC &amp; Timeouts 2026</title>
+    <meta name="description" content="Updated for 2026. Deep home-network fix for OSRS lag, random disconnects, and login timeouts: router firewall/NAT, DNS timeouts, NIC driver drops, ISP throttling, QoS, port forwarding, and antivirus blocking — the router-level guide competitors never wrote.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS lag home network, OSRS random disconnect router, OSRS DNS timeout fix, OSRS ISP throttling, OSRS QoS port forwarding, OSRS antivirus blocking client, Old School RuneScape network troubleshoot 2026">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-home-network-router-troubleshoot-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="all" data-category="connectivity">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+<li><a href="../pvm-guides.html">PvM Guides</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../new-player.html">New Player</a></li>
+                    <li><a href="../fixes-hub.html">Fixes Hub</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../fixes-hub.html">Fixes Hub</a> / Home Network Troubleshoot 2026</p>
+            <h1>🌐 OSRS Home Network &amp; Router Troubleshooting — Fix Lag, DC &amp; Timeouts 2026</h1>
+            <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+            <p class="subtitle">Your ping is fine on speed tests but OSRS still stutters, randomly disconnects, or times out at login. Most "fix lag" articles tell you to switch DNS and stop there. This guide goes deeper — router firewalls, DNS timeouts, NIC driver drops, ISP throttling, QoS, port forwarding, and antivirus blockers — the router-level fixes that actually matter.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>Updated: 2026</strong> · Network Troubleshooting · 14 min read · Works on Windows, macOS, Linux &amp; Mobile
+            </div>
+        </div>
+    </section>
+
+<main class="guide-content">
+    <div class="container">
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: All Levels</div>
+
+            <p class="intro">When Old School RuneScape stutters, drops you mid-boss, or refuses to log in even though every other website loads fine, the problem is almost never Jagex. It is the plumbing between your device and their servers: your home router, your network card, your DNS resolver, your internet provider, and the security software sitting on top of all of it. OSRS is a tiny game in bandwidth terms — it needs only a few dozen kilobits per second — but it is brutally sensitive to latency and packet loss. A 500 Mbps fiber line with 2% packet loss will feel far worse than a rock-steady 20 Mbps DSL connection. This guide is built to walk you through every layer of that plumbing, in the order you should test it, so you can fix the real cause instead of guessing. If your issue is on the client or device side rather than the network, the <a href="../guides/osrs-common-bug-fix-guide-2026.html">OSRS common bug-fix hub</a> covers those errors directly.</p>
+            <p>The single biggest mistake players make is treating "lag" as one problem. It is not. A login timeout, a random disconnect, a high ping, and a stutter are four different symptoms with four different root causes, and they respond to completely different fixes. Switching your DNS will never lower your in-game ping. Buying a gaming router will never fix a buggy network-card driver. Disabling your antivirus will never fix ISP throttling. This guide separates those causes cleanly so you stop wasting time on fixes that cannot possibly work for your specific symptom. The diagram below shows the path every OSRS packet travels and the six points where it most commonly breaks.</p>
+
+            <figure class="guide-img">
+                <svg viewBox="0 0 680 300" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OSRS packet path from device to Jagex server with common failure points">
+                    <rect width="680" height="300" fill="#faf8f5"/>
+                    <text x="20" y="26" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Where Your OSRS Connection Breaks</text>
+                    <rect x="30" y="70" width="120" height="60" rx="8" fill="#8b6914" opacity="0.18" stroke="#8b6914" stroke-width="1.5"/>
+                    <text x="50" y="100" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif" font-weight="bold">Your Device</text>
+                    <text x="50" y="118" font-size="11" fill="#1a1a1a" font-family="Arial,sans-serif">NIC driver / AV</text>
+                    <rect x="200" y="70" width="120" height="60" rx="8" fill="#8b6914" opacity="0.18" stroke="#8b6914" stroke-width="1.5"/>
+                    <text x="215" y="100" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif" font-weight="bold">Home Router</text>
+                    <text x="210" y="118" font-size="11" fill="#1a1a1a" font-family="Arial,sans-serif">NAT / QoS / DNS</text>
+                    <rect x="370" y="70" width="120" height="60" rx="8" fill="#8b6914" opacity="0.18" stroke="#8b6914" stroke-width="1.5"/>
+                    <text x="388" y="100" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif" font-weight="bold">ISP / Modem</text>
+                    <text x="380" y="118" font-size="11" fill="#1a1a1a" font-family="Arial,sans-serif">Throttle / route</text>
+                    <rect x="540" y="70" width="120" height="60" rx="8" fill="#8b6914" opacity="0.18" stroke="#8b6914" stroke-width="1.5"/>
+                    <text x="558" y="100" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif" font-weight="bold">Jagex</text>
+                    <text x="560" y="118" font-size="11" fill="#1a1a1a" font-family="Arial,sans-serif">Game servers</text>
+                    <line x1="150" y1="100" x2="200" y2="100" stroke="#E6A817" stroke-width="3"/>
+                    <line x1="320" y1="100" x2="370" y2="100" stroke="#E6A817" stroke-width="3"/>
+                    <line x1="490" y1="100" x2="540" y2="100" stroke="#E6A817" stroke-width="3"/>
+                    <circle cx="150" cy="100" r="6" fill="#c0392b"/>
+                    <circle cx="320" cy="100" r="6" fill="#c0392b"/>
+                    <circle cx="490" cy="100" r="6" fill="#c0392b"/>
+                    <text x="30" y="175" font-size="12" fill="#c0392b" font-family="Arial,sans-serif">✗ NIC / AV / firewall</text>
+                    <text x="200" y="175" font-size="12" fill="#c0392b" font-family="Arial,sans-serif">✗ NAT / DNS / QoS</text>
+                    <text x="370" y="175" font-size="12" fill="#c0392b" font-family="Arial,sans-serif">✗ throttle / bad route</text>
+                    <text x="540" y="175" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">✓ rarely the cause</text>
+                    <text x="30" y="230" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Rule: test left to right. 90% of "lag" is fixed in the first three boxes.</text>
+                    <text x="30" y="255" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Reboot the router first (cheap test), then work outward: device → router → ISP.</text>
+                </svg>
+                <figcaption>Every OSRS packet crosses four zones. Most home-network problems live in the first three — your device, your router, and your ISP — not at Jagex.</figcaption>
+            </figure>
+
+            <div class="quick-verdict">
+                <h3>⚡ Quick Verdict — The 30-Second Read</h3>
+                <ul>
+                    <li>📌 <strong>Switch DNS to 1.1.1.1 / 8.8.8.8</strong> and flush it — DNS timeouts cause the "login timeout" screen, not in-game lag.</li>
+                    <li>📌 <strong>Update your NIC (network card) driver</strong> — outdated drivers cause intermittent 10–30s disconnects that look exactly like server lag.</li>
+                    <li>📌 <strong>Add OSRS/Jagex to your antivirus &amp; firewall allow-list</strong> — security suites silently drop the game's packets with no error.</li>
+                    <li>📌 <strong>Set QoS to prioritize your PC</strong> so a Netflix or cloud-backup stream does not spike your RuneScape ping.</li>
+                    <li>📌 <strong>Test for ISP throttling with a VPN</strong> before blaming Jagex — routing, not raw speed, is usually the issue.</li>
+                    <li>📌 <strong>Run Ethernet, not Wi-Fi</strong> for any serious PvM — Wi-Fi adds jitter and interference that kills you at boss.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#why">Why Your Home Network Breaks OSRS (Not Your PC)</a></li>
+                    <li><a href="#symptoms">Match Your Symptom to the Cause</a></li>
+                    <li><a href="#router">Router Firewall, NAT &amp; UPnP Settings</a></li>
+                    <li><a href="#dns">DNS Timeouts &amp; How to Fix Them</a></li>
+                    <li><a href="#nic">Network Card (NIC) Drivers &amp; Intermittent Drops</a></li>
+                    <li><a href="#isp">ISP Throttling, Routing &amp; Bufferbloat</a></li>
+                    <li><a href="#qos">QoS, Port Forwarding &amp; Traffic Priority</a></li>
+                    <li><a href="#av">Antivirus &amp; Security Suite Blocking the Client</a></li>
+                    <li><a href="#wifi">Wi-Fi Deep-Dive: 2.4 GHz vs 5 GHz vs Ethernet</a></li>
+                    <li><a href="#diag">10-Minute Network Diagnostic Checklist</a></li>
+                    <li><a href="#faq">Home Network FAQs</a></li>
+                    <li><a href="#final-tips">Final Tips</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="why">
+                <h2>1. 🔍 Why Your Home Network Breaks OSRS (Not Your PC)</h2>
+                <p>Before you touch a single setting, confirm the problem is actually your network. The fastest way is to answer three questions: Does the issue follow <strong>you</strong> across different worlds? Does it get worse when someone else in your home streams video or runs a big download? And does a simple reboot of your router temporarily fix it for an hour or two? If you answered yes to all three, you are looking at a home-network fault, not a Jagex server outage. Server-side problems do not care which world you pick, do not improve when your roommate stops streaming, and are not fixed by unplugging your router. The <a href="../guides/osrs-random-disconnect-world-unavailable-fix-2026.html">random disconnect &amp; "world unavailable" guide</a> explains how to tell a genuine Jagex-side incident from a local fault using the official status page.</p>
+                <p>The reason OSRS is so sensitive comes down to how the client talks to the server. It keeps one long-lived connection open and sends small, frequent updates about your position, inventory, and actions. If even a tiny fraction of those packets arrive late or out of order, the client has to wait, which you experience as a stutter, a "Connection lost" pop-up, or a teleport-back when the server rejects your input. Video streaming, by contrast, just buffers — a dropped packet merely skips a frame you never notice. That is why your Netflix can look perfect while OSRS is unplayable: the two workloads punish network problems in completely different ways. Speed-test numbers measure throughput, the thing OSRS cares about least; they say almost nothing about the jitter and packet loss that actually ruin your game.</p>
+                <p>Most competitor articles stop at "change your DNS to Google" and call it a day. That advice solves at most one of the six failure modes below, and it does nothing for the other five. The rest of this guide gives each cause its own dedicated fix, in the order you should test them, which is exactly the depth that separates a guide that actually fixes your disconnects from one that just ranks on page two of search results.</p>
+                <div class="method-box">
+                    <h4>🧩 The Six Network Failure Modes</h4>
+                    <ul>
+                        <li><strong>Router firewall / NAT</strong> — silently dropping or misrouting the game's long-lived connection.</li>
+                        <li><strong>DNS timeout</strong> — name resolution hangs, causing login timeouts and "error connecting" screens.</li>
+                        <li><strong>NIC driver bug</strong> — the network card drops the physical link for seconds at a time.</li>
+                        <li><strong>ISP throttling / bad routing</strong> — your provider deprioritizes or poorly routes game traffic.</li>
+                        <li><strong>QoS absence</strong> — other home traffic spikes your ping mid-boss or mid-PvP.</li>
+                        <li><strong>Antivirus / firewall</strong> — the security suite blocks or inspects the client's connections.</li>
+                    </ul>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Rule of Thumb</div>
+                    <p>If a router reboot fixes it for an hour, you have a <em>state</em> problem (a stale NAT table, a poisoned DNS cache, or a driver glitch) — not a hardware failure. Work the checklist top to bottom and do not buy a new router first. New hardware hides the symptom for a while but the underlying misconfiguration comes back.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="symptoms">
+                <h2>2. 🎯 Match Your Symptom to the Cause</h2>
+                <p>Before diving into settings, pin down your exact symptom. The table below maps each common OSRS complaint to its most likely root cause, so you can jump straight to the right section instead of applying fixes at random. This single step saves most players an hour of wasted effort.</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Symptom</th>
+                            <th>Most Likely Cause</th>
+                            <th>Jump To</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>"Login timeout" / "Error connecting to server" at launch</td>
+                            <td>DNS resolution failure or blocked port</td>
+                            <td><a href="#dns">DNS (§4)</a></td>
+                        </tr>
+                        <tr>
+                            <td>Disconnects for ~20–30s on a repeating cycle</td>
+                            <td>NIC driver bug or NIC power-saving</td>
+                            <td><a href="#nic">NIC (§5)</a></td>
+                        </tr>
+                        <tr>
+                            <td>Ping climbs to 200+ ms only 7–11 PM</td>
+                            <td>ISP throttling or peak-hour congestion</td>
+                            <td><a href="#isp">ISP (§6)</a></td>
+                        </tr>
+                        <tr>
+                            <td>Ping spikes only when someone else uses the net</td>
+                            <td>No QoS / bufferbloat on the router</td>
+                            <td><a href="#qos">QoS (§7)</a></td>
+                        </tr>
+                        <tr>
+                            <td>Disconnects with no error message at all</td>
+                            <td>Antivirus / firewall silently dropping packets</td>
+                            <td><a href="#av">Antivirus (§8)</a></td>
+                        </tr>
+                        <tr>
+                            <td>Random DC that a router reboot briefly fixes</td>
+                            <td>Stale NAT table / SPI firewall</td>
+                            <td><a href="#router">Router (§3)</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                <p>Notice that <em>none</em> of these symptoms point to Jagex first. When you see a pattern that follows your own home activity, trust the pattern. The exception is a world-specific outage, which the status page will confirm — if the status page is green and your disconnects follow your router reboot cycle, the fault is local.</p>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="router">
+                <h2>3. 🧱 Router Firewall, NAT &amp; UPnP Settings</h2>
+                <p>Your router's firewall is the first gate every OSRS packet passes through. A misconfigured NAT table or an overzealous SPI (Stateful Packet Inspection) firewall can drop the long-lived TCP connection the client keeps open, producing random "Connection lost" pop-ups that look identical to server lag. The good news is these are the easiest faults to test and fix.</p>
+
+                <h3>🔓 Put Your PC in the DMZ (Temporarily, for Testing)</h3>
+                <p>To confirm the router firewall is the cause, place your gaming PC in the router's <strong>DMZ</strong> (Demilitarized Zone) for a single test session. DMZ exposes your device directly to the internet, bypassing the firewall entirely:</p>
+                <div class="action-step">
+                    <h4>How to Test With DMZ</h4>
+                    <ul>
+                        <li>Log into your router (usually <strong>192.168.0.1</strong> or <strong>192.168.1.1</strong> in a browser — check the sticker on the device).</li>
+                        <li>Find <strong>DMZ</strong> under Firewall / Advanced and enter your PC's local IP address.</li>
+                        <li>Play OSRS for 30 minutes. If the disconnects stop, the firewall was the cause.</li>
+                        <li>Then remove DMZ and use a proper allow-list rule instead of leaving it exposed.</li>
+                    </ul>
+                </div>
+
+                <h3>🔁 Enable UPnP &amp; Check NAT Type</h3>
+                <p>OSRS uses standard HTTPS (port 443) and does not strictly require port forwarding, but a strict or "moderate" NAT can still interfere with certain world connections and with the Jagex Launcher's background update checks. Enable <strong>UPnP</strong> (Universal Plug and Play) so the client can negotiate a clean path:</p>
+                <div class="action-step">
+                    <h4>Router Tweaks</h4>
+                    <ul>
+                        <li>Enable <strong>UPnP</strong> in the router's advanced settings.</li>
+                        <li>Set <strong>SPI Firewall</strong> to a moderate level rather than "Maximum security."</li>
+                        <li>If your router has <strong>"Game Mode"</strong> or <strong>"Adaptive QoS"</strong>, turn it on (covered in §7).</li>
+                        <li>Reboot the router after changes to clear the stale NAT table.</li>
+                    </ul>
+                </div>
+
+                <h3>📦 MTU &amp; IPv6</h3>
+                <p>An MTU (Maximum Transmission Unit) mismatch causes large packets to fragment and drop — a classic but overlooked cause of mid-game stutters. If your ISP uses PPPoE (common on DSL and some fiber), try setting WAN MTU to <strong>1472–1492</strong> instead of the default 1500. Also test IPv6 both on and off: some ISPs have flaky IPv6 routes that OSRS falls foul of, and forcing IPv4-only can instantly stabilize a connection that was dropping every few minutes.</p>
+                <div class="tip-box">
+                    <div class="tip-title">⚠️ Never Leave DMZ On</div>
+                    <p>DMZ exposes your PC directly to the public internet with no firewall. Use it only as a diagnostic for one session. Once you have confirmed the firewall was the cause, remove DMZ and instead add a precise firewall allow-rule for the Jagex client (see §8). Leaving DMZ on is a genuine security risk.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="dns">
+                <h2>4. 🌐 DNS Timeouts &amp; How to Fix Them</h2>
+                <p>DNS (Domain Name System) translates a name like <em>oldschool.runescape.com</em> into the numeric IP address the client actually connects to. If your ISP's DNS server is slow or intermittently failing, you get the <strong>"Login timeout"</strong> or <strong>"Error connecting to server"</strong> screen even though your internet "works" for everything else — because every other site already resolved its address and cached it.</p>
+
+                <h3>🔧 Switch to a Fast Public DNS</h3>
+                <div class="action-step">
+                    <h4>Set DNS on Windows</h4>
+                    <ul>
+                        <li>Settings → Network &amp; Internet → your adapter → <strong>Edit DNS</strong>.</li>
+                        <li>Set <strong>Preferred: 1.1.1.1</strong> (Cloudflare) and <strong>Alternate: 8.8.8.8</strong> (Google).</li>
+                        <li>On macOS: System Settings → Network → Details → DNS → add <strong>1.1.1.1</strong>.</li>
+                        <li>On the router (best for every device at once): set WAN DNS to <strong>1.1.1.1 / 8.8.4.4</strong>.</li>
+                    </ul>
+                </div>
+
+                <h3>🧹 Flush the DNS Cache</h3>
+                <p>Changing the DNS server alone is not enough if the old, broken entry is still cached on your machine:</p>
+                <div class="action-step">
+                    <h4>Flush (Windows)</h4>
+                    <ul>
+                        <li>Open Command Prompt as administrator and run <code>ipconfig /flushdns</code>.</li>
+                        <li>Then <code>ipconfig /release</code> followed by <code>ipconfig /renew</code>.</li>
+                        <li>Restart the OSRS client and try logging in again.</li>
+                    </ul>
+                </div>
+                <div class="method-box">
+                    <h4>📊 DNS Providers Compared</h4>
+                    <table style="width:100%;border-collapse:collapse;">
+                        <thead>
+                            <tr><th>Provider</th><th>Primary</th><th>Secondary</th><th>Best For</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Cloudflare</td><td>1.1.1.1</td><td>1.0.0.1</td><td>Lowest latency, strong privacy</td></tr>
+                            <tr><td>Google</td><td>8.8.8.8</td><td>8.8.4.4</td><td>Reliability, widest compatibility</td></tr>
+                            <tr><td>Quad9</td><td>9.9.9.9</td><td>149.112.112.112</td><td>Security filtering of bad domains</td></tr>
+                            <tr><td>OpenDNS</td><td>208.67.222.222</td><td>208.67.220.220</td><td>Custom filtering rules</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Does DNS Affect In-Game Ping?</div>
+                    <p>No. DNS only affects the <em>initial</em> connection at login. It will not lower your in-game ping — that is routing and latency, covered in §6 and §7. If login timeouts are your only symptom, DNS was your fix and you can stop here. If you still lag after logging in, DNS was never the problem.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="nic">
+                <h2>5. 💻 Network Card (NIC) Drivers &amp; Intermittent Drops</h2>
+                <p>This is the most overlooked cause and the one almost no competitor mentions. An outdated or buggy network-card driver can drop the physical link for 5–30 seconds, during which OSRS shows "Connection lost" — even though your Wi-Fi bars stay full and your browser pages eventually reload. Because the drop is brief and silent, players blame Jagex for "server lag" when the fault is sitting in Device Manager.</p>
+
+                <h3>⬆️ Update the NIC Driver (Do Not Rely on Windows Update)</h3>
+                <div class="action-step">
+                    <h4>Windows — Proper Driver Update</h4>
+                    <ul>
+                        <li>Device Manager → Network adapters → right-click your Wi-Fi/Ethernet → <strong>Update driver</strong>.</li>
+                        <li>Choose <strong>"Browse my computer" → "Let me pick"</strong> and pick the newest dated driver, OR download the latest directly from your motherboard or laptop maker's site (Intel, Realtek, Killer, Broadcom).</li>
+                        <li>For <strong>Killer / Rivet</strong> NICs, install the vendor's <strong>Control Center</strong> and disable <strong>"Killer Prioritization Engine"</strong> — it is notorious for dropping game packets in favor of its own priorities.</li>
+                    </ul>
+                </div>
+
+                <h3>🔋 Disable Power-Saving on the NIC</h3>
+                <p>Windows loves to power down the network card to save battery, which severs the connection exactly when you are standing still afk at a bank:</p>
+                <div class="action-step">
+                    <h4>Stop the NIC From Sleeping</h4>
+                    <ul>
+                        <li>Device Manager → NIC → Properties → <strong>Power Management</strong> → uncheck <strong>"Allow the computer to turn off this device."</strong></li>
+                        <li>Advanced tab → set <strong>"Green Ethernet" / "Energy Efficient Ethernet"</strong> to <strong>Disabled</strong>.</li>
+                        <li>Set <strong>"Roaming Aggressiveness"</strong> (Wi-Fi) to the lowest value so it does not hop access points mid-session.</li>
+                    </ul>
+                </div>
+
+                <h3>🔌 Ethernet Beats Wi-Fi (Always)</h3>
+                <p>For any serious bossing or PvP, run a <strong>CAT6 Ethernet cable</strong>. Wi-Fi adds 5–20 ms of jitter and is vulnerable to microwave ovens, Bluetooth, and neighbor interference. If you must use Wi-Fi, connect to <strong>5 GHz</strong> (not 2.4 GHz) and sit close to the router. Mac users with recurring drops should also see the <a href="../guides/osrs-mac-disconnect-failed-login-fix-2026.html">macOS disconnect &amp; failed-login fix</a>, which covers the platform-specific network-stack quirks. The <a href="../guides/osrs-public-wifi-captive-portal-fix-2026.html">public Wi-Fi captive-portal guide</a> covers the extra layer of pain you hit when playing from a hotel, café, or airport network.</p>
+                <div class="tip-box">
+                    <div class="tip-title">⚠️ The 30-Second Drop Pattern</div>
+                    <p>If you disconnect for roughly 20–30 seconds on a repeating cycle, it is almost always a NIC driver or power-management issue, not Jagex. Updating the driver and disabling power-saving fixes it in five minutes and saves you from falsely reporting a "server lag" bug.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="isp">
+                <h2>6. 📡 ISP Throttling, Routing &amp; Bufferbloat</h2>
+                <p>Your internet provider may not block OSRS, but it can <strong>deprioritize</strong> or <strong>poorly route</strong> its traffic, especially during peak evening hours. The classic symptom: perfect speed-test numbers, but your OSRS world ping climbs past 200 ms between 7 and 11 PM while your roommate's YouTube stays smooth.</p>
+
+                <h3>🧪 The VPN Test</h3>
+                <div class="action-step">
+                    <h4>Detect Throttling in 5 Minutes</h4>
+                    <ul>
+                        <li>Note your normal OSRS world ping (shown top-right in game).</li>
+                        <li>Connect a reputable <strong>VPN</strong> and re-check the same world's ping.</li>
+                        <li>If the VPN ping is <strong>lower and more stable</strong>, your ISP is throttling or misrouting the direct path.</li>
+                    </ul>
+                </div>
+
+                <h3>🗺️ Routing, Not Speed</h3>
+                <p>OSRS servers sit in specific regions. A bad route can send your packets on a needless continental detour. Use a <strong>traceroute</strong> (<code>tracert oldschool.runescape.com</code> on Windows, <code>traceroute</code> on macOS/Linux) — if a single hop shows a huge latency jump, that is your ISP's backbone, not Jagex. A VPN that picks a better path, or in worst cases a different ISP, often resolves it. The <a href="../guides/osrs-china-accelerator-stuck-fix-2026.html">accelerator stuck guide</a> covers the same routing problem for players behind cross-border routing restrictions.</p>
+
+                <h3>📞 Talk to Your ISP (With Evidence)</h3>
+                <p>Before calling support, gather your traceroute, a few ping logs, and the times of day it worsens. Ask specifically about <strong>"bufferbloat"</strong> and <strong>"priority for real-time traffic."</strong> Some ISPs will enable a low-latency queue on request. If they will not, a business-tier plan or a fixed-wireless / fiber alternative often solves it. The chart below shows how much bufferbloat alone can add to your effective latency.</p>
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 300" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Latency comparison by connection type and QoS">
+                        <rect width="680" height="300" fill="#faf8f5"/>
+                        <text x="20" y="26" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Typical OSRS Ping by Connection Type (ms)</text>
+                        <line x1="80" y1="260" x2="650" y2="260" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="80" y1="40" x2="80" y2="260" stroke="#3b2615" stroke-width="2"/>
+                        <rect x="110" y="150" width="90" height="110" fill="#8b6914" opacity="0.35"/>
+                        <text x="120" y="280" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Wi-Fi 2.4GHz</text>
+                        <text x="125" y="140" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">~60ms</text>
+                        <rect x="230" y="120" width="90" height="140" fill="#8b6914" opacity="0.55"/>
+                        <text x="245" y="280" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Wi-Fi 5GHz</text>
+                        <text x="250" y="110" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">~35ms</text>
+                        <rect x="350" y="80" width="90" height="180" fill="#8b6914" opacity="0.75"/>
+                        <text x="370" y="280" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Ethernet</text>
+                        <text x="375" y="70" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">~20ms</text>
+                        <rect x="470" y="55" width="90" height="205" fill="#E6A817" opacity="0.85"/>
+                        <text x="485" y="280" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Ethernet+QoS</text>
+                        <text x="478" y="45" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">~15ms</text>
+                        <text x="20" y="240" font-size="11" fill="#1a1a1a" font-family="Arial,sans-serif">Lower is better. Values are typical home examples, not guarantees.</text>
+                    </svg>
+                    <figcaption>Ethernet plus QoS routinely beats even a clean 5 GHz Wi-Fi, because it removes both the radio jitter and the bufferbloat from other devices.</figcaption>
+                </figure>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Bufferbloat Is the Silent Killer</div>
+                    <p>Run a <strong>bufferbloat test</strong> (e.g., the waveform bufferbloat test site). If your latency spikes when you upload or download at the same time, that is bufferbloat — and QoS (next section) is your fix, not a new ISP. This single test explains more "random lag" than any other home-network factor.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="qos">
+                <h2>7. ⚙️ QoS, Port Forwarding &amp; Traffic Priority</h2>
+                <p>QoS (Quality of Service) tells your router to prioritize OSRS packets over a roommate's Netflix or a cloud backup. This is the single best fix for the complaint "my ping only spikes when someone else uses the internet." Without QoS, all traffic is equal and a big upload can stall your game packets behind it.</p>
+
+                <h3>🚦 Enable QoS / Adaptive QoS</h3>
+                <div class="action-step">
+                    <h4>Router QoS Setup</h4>
+                    <ul>
+                        <li>Router admin → <strong>QoS / Traffic Control</strong> → enable.</li>
+                        <li>Set mode to <strong>"Gaming"</strong> or <strong>"Adaptive"</strong> if available.</li>
+                        <li>Add your PC's IP (or MAC address) to the <strong>high-priority device</strong> list.</li>
+                        <li>Save and reboot the router.</li>
+                    </ul>
+                </div>
+
+                <h3>🔢 Port Forwarding (Optional but Helpful)</h3>
+                <p>OSRS does not require forwarding, but adding a static lease plus a forward removes edge-case NAT issues on strict or corporate routers:</p>
+                <div class="action-step">
+                    <h4>Port Forward for OSRS</h4>
+                    <ul>
+                        <li>Reserve a <strong>static LAN IP</strong> for your PC (DHCP reservation).</li>
+                        <li>Forward <strong>TCP 443</strong> (and optionally UDP 43594/43595 used by the client) to that IP.</li>
+                        <li>Protocol: <strong>Both / TCP+UDP</strong>; external and internal ports set the same.</li>
+                    </ul>
+                </div>
+
+                <h3>📶 Bandwidth Caps &amp; Scheduled Downloads</h3>
+                <p>Cap background devices. Set game consoles, phones, and cloud-sync apps to <strong>low priority</strong>, and schedule large downloads (Steam, backups) for off-peak hours. Even 5 Mbps of unscheduled upload — a silent cloud backup — can wreck your OSRS ping through bufferbloat. The "Clean Pipeline" checklist below is the end goal.</p>
+                <div class="method-box">
+                    <h4>🎯 The "Clean Pipeline" Checklist</h4>
+                    <ul>
+                        <li>QoS on, with your PC set to highest priority.</li>
+                        <li>Static IP reserved + port 443 forwarded.</li>
+                        <li>Background uploads capped or scheduled for off-peak.</li>
+                        <li>5 GHz Wi-Fi or Ethernet only during bossing.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 8 -->
+            <section id="av">
+                <h2>8. 🛡️ Antivirus &amp; Security Suite Blocking the Client</h2>
+                <p>Modern security suites — third-party antivirus, "internet security" bundles, and even Windows Defender's Controlled Folder Access — can flag the RuneScape client's network behavior and silently drop its packets. The result is disconnects with no error message and no warning, which players naturally blame on the server. This is the most misdiagnosed cause in the entire guide.</p>
+
+                <h3>➕ Add OSRS / Jagex to Allow-Lists</h3>
+                <div class="action-step">
+                    <h4>Whitelist the Client</h4>
+                    <ul>
+                        <li>Find the <strong>Jagex Launcher</strong> and <strong>Old School RuneScape</strong> executables (typically in <code>C:\Program Files\Jagex\</code>).</li>
+                        <li>In your antivirus → <strong>Exceptions / Exclusions</strong>, add both the <code>.exe</code> files <em>and</em> the install folder.</li>
+                        <li>In Windows Defender → <strong>Firewall &amp; network protection → Allow an app</strong> → ensure both Jagex entries are checked for Private <em>and</em> Public networks.</li>
+                        <li>Disable <strong>"Controlled Folder Access"</strong> temporarily to test, then re-enable after confirming.</li>
+                    </ul>
+                </div>
+
+                <h3>🧰 Third-Party Suites to Check</h3>
+                <p>Particularly aggressive ones: <strong>Norton 360</strong>, <strong>McAfee</strong>, <strong>Avast/AVG</strong> (their "Wi-Fi Inspector" and "Real Site" features intercept DNS and can break login), and <strong>Malwarebytes</strong> (web protection). Add exclusions or pause the web-shield feature while playing. If you cannot log in at all, the <a href="../guides/osrs-mobile-cant-login-fix-2026.html">can't-login fix guide</a> covers account-side causes too, so you can tell a network block from a lockout.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 One-Minute Isolation Test</div>
+                    <p>Temporarily disable your antivirus's real-time and web protection and launch OSRS. If the disconnects vanish, you found it — re-enable protection and add the proper exclusions rather than leaving it off. Running with AV disabled is not a fix; a clean exclusion is.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 9 -->
+            <section id="wifi">
+                <h2>9. 📶 Wi-Fi Deep-Dive: 2.4 GHz vs 5 GHz vs Ethernet</h2>
+                <p>If you play on Wi-Fi — on desktop, laptop, or the mobile app — the radio layer adds its own failure modes that have nothing to do with your ISP. Understanding the difference lets you stop blaming your provider for a problem that is three feet away from your router.</p>
+                <h3>2.4 GHz: range, but crowded</h3>
+                <p>The 2.4 GHz band travels farther and through walls better, but it is shared with microwaves, Bluetooth, baby monitors, and every neighbor's router. In a dense apartment, 2.4 GHz is a noise floor, and OSRS stutters become constant. Use it only if you have no choice and sit far from the router.</p>
+                <h3>5 GHz: fast and clean, short range</h3>
+                <p>The 5 GHz band is far less crowded and gives much lower jitter, but it loses range through walls quickly. For stable OSRS, connect to 5 GHz and stay within one room of the router. This alone fixes a large share of "mobile disconnects at home" complaints.</p>
+                <h3>Ethernet: the only real answer for PvM</h3>
+                <p>For high-stakes bossing or PvP, nothing beats a cable. A CAT6 run removes radio jitter entirely and is immune to neighbor interference. If running a cable is impossible, a powerline adapter or a dedicated 5 GHz mesh backhaul is the next best thing. The <a href="../guides/osrs-mobile-best-settings-2026.html">mobile best-settings guide</a> and the <a href="../guides/osrs-mobile-guide-2026.html">full mobile guide</a> cover the device-side signal tips that pair with this network advice, and the <a href="../guides/osrs-mobile-crashing-black-screen-android-fix-2026.html">Android crash guide</a> handles the device crashes that mimic network drops.</p>
+                <div class="warning-box">
+                    <div class="warning-title">⚠️ Don't Blame "Lag" for a Crash</div>
+                    <p>A network drop and an app crash look similar — both kick you out. But a crash freezes the screen and shows an error, while a network drop shows "Connection lost" and the world keeps running for a moment. If you see a freeze, the cause is the device, not your router — go to the client-side guides above instead of reconfiguring your network.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 10: DIAGNOSTIC -->
+            <section id="diag">
+                <h2>10. 🧪 10-Minute Network Diagnostic Checklist</h2>
+                <p>Work this top-to-bottom; each step isolates exactly one failure mode. Most players clear 90% of home-network OSRS issues in a single sitting using just this list. The flowchart below shows the decision path when you are not sure where to start.</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <thead>
+                        <tr><th>Step</th><th>Action</th><th>Fixes</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Reboot router + modem</td><td>Stale NAT / DNS state</td></tr>
+                        <tr><td>2</td><td>Flush DNS, set 1.1.1.1</td><td>Login timeouts</td></tr>
+                        <tr><td>3</td><td>Update NIC driver, disable power-save</td><td>30s cyclic drops</td></tr>
+                        <tr><td>4</td><td>AV / firewall allow-list for Jagex</td><td>Silent packet drops</td></tr>
+                        <tr><td>5</td><td>Enable QoS, prioritize PC</td><td>Ping spikes under load</td></tr>
+                        <tr><td>6</td><td>VPN test for throttling</td><td>Peak-hour high ping</td></tr>
+                        <tr><td>7</td><td>DMZ test (temporary)</td><td>Router firewall blocks</td></tr>
+                        <tr><td>8</td><td>Switch to Ethernet / 5 GHz</td><td>Wi-Fi jitter</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 360" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OSRS network disconnect diagnostic decision flowchart">
+                        <rect width="680" height="360" fill="#faf8f5"/>
+                        <text x="20" y="26" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Disconnect Diagnostic Flow</text>
+                        <rect x="240" y="40" width="200" height="44" rx="8" fill="#8b6914" opacity="0.2" stroke="#8b6914" stroke-width="1.5"/>
+                        <text x="255" y="67" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif">Can you log in at all?</text>
+                        <rect x="40" y="120" width="200" height="44" rx="8" fill="#E6A817" opacity="0.25" stroke="#E6A817" stroke-width="1.5"/>
+                        <text x="60" y="147" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif">No → DNS / port (§4)</text>
+                        <rect x="440" y="120" width="200" height="44" rx="8" fill="#E6A817" opacity="0.25" stroke="#E6A817" stroke-width="1.5"/>
+                        <text x="455" y="147" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif">Yes → keep going ↓</text>
+                        <rect x="240" y="190" width="200" height="44" rx="8" fill="#8b6914" opacity="0.2" stroke="#8b6914" stroke-width="1.5"/>
+                        <text x="255" y="217" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif">Drop on a 30s cycle?</text>
+                        <rect x="40" y="260" width="200" height="44" rx="8" fill="#E6A817" opacity="0.25" stroke="#E6A817" stroke-width="1.5"/>
+                        <text x="55" y="287" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif">Yes → NIC (§5)</text>
+                        <rect x="440" y="260" width="200" height="44" rx="8" fill="#E6A817" opacity="0.25" stroke="#E6A817" stroke-width="1.5"/>
+                        <text x="455" y="287" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif">No → QoS/ISP (§6,7)</text>
+                        <line x1="340" y1="84" x2="140" y2="120" stroke="#3b2615" stroke-width="1.5"/>
+                        <line x1="340" y1="84" x2="540" y2="120" stroke="#3b2615" stroke-width="1.5"/>
+                        <line x1="340" y1="164" x2="340" y2="190" stroke="#3b2615" stroke-width="1.5"/>
+                        <line x1="340" y1="234" x2="140" y2="260" stroke="#3b2615" stroke-width="1.5"/>
+                        <line x1="340" y1="234" x2="540" y2="260" stroke="#3b2615" stroke-width="1.5"/>
+                        <text x="20" y="340" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Still disconnecting after all 8 steps? The fault is outside your home — ISP backbone or Jagex-side. Run ping -t and read the log to support.</text>
+                    </svg>
+                    <figcaption>A simple yes/no path narrows your cause in under a minute: login failure points to DNS, a timed cycle points to the NIC, and load-dependent spikes point to QoS or your ISP.</figcaption>
+                </figure>
+                <h3>What If Nothing Above Works?</h3>
+                <p>If you have done all eight steps and still disconnect, the problem is likely <strong>outside your home</strong> — your ISP's backbone or a Jagex-side issue. Run a continuous ping (<code>ping oldschool.runescape.com -t</code>) and note exactly when the drops occur; that timestamped log is what your ISP support actually needs to act. Also check the OSRS status page for world-specific incidents before assuming it is your gear. The <a href="../guides/osrs-server-crash-disconnect-instance-death-2026.html">server crash &amp; instance-death guide</a> explains what happens when the fault really is at Jagex and how to avoid losing progress.</p>
+            </section>
+
+            <!-- SECTION 11: FAQ -->
+            <section id="faq">
+                <h2>11. ❓ Home Network FAQs</h2>
+
+                <div class="faq-item">
+                    <h3>Will changing DNS lower my in-game ping?</h3>
+                    <p>No. DNS only resolves the server address at login. It fixes <em>login timeouts</em> but not mid-game latency. For ping you need QoS, a better route (the VPN test), or Ethernet — covered in §6, §7, and §9.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>My disconnects last exactly ~20–30 seconds on a loop — what is that?</h3>
+                    <p>That is the classic NIC driver or power-management symptom, not Jagex. Update your network-card driver and disable "Allow the computer to turn off this device" in Device Manager. It usually resolves within minutes and saves you from a false "server lag" report.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Do I really need to forward ports for OSRS?</h3>
+                    <p>Not strictly — OSRS uses standard HTTPS (port 443) and works behind most NATs. Port forwarding is optional and only helps on strict or corporate routers. The bigger win is QoS plus a static IP so QoS can reliably target your PC.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Could my antivirus actually disconnect me with no warning?</h3>
+                    <p>Yes, very commonly. Web-shield and "real site" / DNS-protection features in Norton, McAfee, Avast, and Malwarebytes intercept the client's traffic and drop packets silently. Add Jagex exclusions and the disconnects typically stop within the same session.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How do I prove my ISP is throttling OSRS and not just bad Wi-Fi?</h3>
+                    <p>Run a VPN and compare the same world's ping. If the VPN is lower and steadier, your ISP is deprioritizing the direct route. A traceroute showing one hop with a huge latency jump is further proof. A bufferbloat test shows whether your own router is the bottleneck instead.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Is Wi-Fi ever good enough for bossing on OSRS?</h3>
+                    <p>On a clean 5 GHz signal close to the router, yes for casual play. But for high-stakes PvM or PvP, Ethernet removes the jitter and interference that cause deaths. If you crash only at home and not on mobile data, your Wi-Fi or router is the issue.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Why does my ping spike only when someone else downloads?</h3>
+                    <p>That is bufferbloat — your router lets the download monopolize the connection and your game packets queue behind it. Enable QoS and prioritize your PC, or schedule large downloads for off-peak hours. This is a router setting, not an ISP problem.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What is the single fastest fix I should try first?</h3>
+                    <p>Reboot your router and modem, then flush your DNS and set it to 1.1.1.1. That pair resolves the two most common faults — stale NAT state and login-timeout DNS — in about two minutes, before you touch any drivers or call your ISP.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Does a "gaming router" actually help OSRS?</h3>
+                    <p>Only if your current router lacks QoS or has broken NAT handling. A gaming router will not fix a buggy NIC driver or ISP throttling. The settings in this guide matter far more than the hardware badge. Try the free fixes first; buy hardware only if QoS is missing.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>My disconnects follow a router reboot but return after an hour — what now?</h3>
+                    <p>That is a state problem, not hardware. The NAT table or DNS cache is corrupting over time. Flush DNS, update the router firmware, and enable UPnP. If it persists, the router's firmware is faulty and a replacement (not necessarily "gaming") is warranted.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can a VPN make OSRS worse?</h3>
+                    <p>Yes, if you pick a distant or overloaded VPN server, the extra hop adds latency. Use the VPN only as a diagnostic: if a nearby, reputable VPN lowers your ping, your ISP is the cause. For daily play, fix the routing or consider a better ISP rather than routing every packet through a VPN.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>I play on mobile at home and keep disconnecting — is it the app or my network?</h3>
+                    <p>If it happens only on Wi-Fi and not on mobile data, your home network is the cause — work §9 (5 GHz, close to router) and §7 (QoS). If it happens on both, the app or account is the issue; see the mobile best-settings and can't-login guides linked above.</p>
+                </div>
+            </section>
+
+            <!-- FINAL TIPS -->
+            <section id="final-tips">
+                <h2>12. 🎯 Final Tips — Fix the Cause, Not the Symptom</h2>
+                <ul>
+                    <li><strong>Reboot first, always.</strong> A router/modem reboot clears stale NAT and DNS state that causes half of all "random lag" reports.</li>
+                    <li><strong>Flush DNS and use 1.1.1.1.</strong> This is the only fix for login timeouts; it does nothing for in-game ping, so don't expect it to.</li>
+                    <li><strong>Update your NIC driver.</strong> The 20–30s cyclic drop is a driver, not Jagex — five minutes here beats hours of "server lag" complaints.</li>
+                    <li><strong>Whitelist Jagex in your antivirus.</strong> Silent packet drops with no error are almost always a security suite, not the network.</li>
+                    <li><strong>Turn on QoS and prioritize your PC.</strong> Kills the "ping spikes only when someone else uses the net" problem via bufferbloat control.</li>
+                    <li><strong>Test throttling with a VPN.</strong> Before blaming Jagex for peak-hour lag, prove it is your ISP with a VPN comparison and a traceroute.</li>
+                    <li><strong>Use Ethernet for PvM.</strong> Wi-Fi jitter causes deaths no gear can prevent; a CAT6 cable is the cheapest "upgrade" you will ever buy.</li>
+                    <li><strong>Never leave DMZ on.</strong> It is a diagnostic only — replace it with a precise firewall allow-rule once you confirm the firewall was the cause.</li>
+                    <li><strong>Work the checklist in order.</strong> Symptom-matching (§2) gets you to the right section faster than applying fixes at random.</li>
+                    <li><strong>Log evidence before calling your ISP.</strong> A timestamped ping -t log and a traceroute turn "my game lags" into a fixable ticket.</li>
+                </ul>
+            </section>
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 Still Disconnecting After the Network Fixes?</h3>
+                <p>If your home network is now clean but OSRS still misbehaves, the fault is client- or device-side:</p>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                    <strong>→ Step 1:</strong> Run through the full <a href="../guides/osrs-common-bug-fix-guide-2026.html" style="color:#8b6914; font-weight:bold;">OSRS common bug-fix hub</a> for client errors beyond networking.
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914; margin-top:8px;">
+                    <strong>→ Step 2:</strong> On the app, apply the <a href="../guides/osrs-mobile-best-settings-2026.html" style="color:#8b6914; font-weight:bold;">mobile best-settings guide</a> and the <a href="../guides/osrs-mobile-guide-2026.html" style="color:#8b6914; font-weight:bold;">mobile guide</a> for signal stability.
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914; margin-top:8px;">
+                    <strong>→ Step 3:</strong> Locked out completely? Use the <a href="../guides/osrs-mobile-cant-login-fix-2026.html" style="color:#8b6914; font-weight:bold;">can't-login fix</a> before assuming a ban.
+                </div>
+            </div>
+
+            <!-- RELATED GUIDES -->
+            <div class="related-guides">
+                <h3>Related Fixes &amp; Connectivity Guides</h3>
+                <div class="article-grid">
+                    <a href="../guides/osrs-common-bug-fix-guide-2026.html" class="article-card">
+                        <h3>OSRS Common Bug Fix Guide 2026 — Client Errors Solved</h3>
+                        <p>The catch-all hub for OSRS client errors beyond networking: black screens, crashes, and login loops.</p>
+                    </a>
+                    <a href="../guides/osrs-mobile-best-settings-2026.html" class="article-card">
+                        <h3>OSRS Mobile Best Settings 2026 — Graphics, Battery &amp; Performance</h3>
+                        <p>Tune your phone's connection and graphics so Wi-Fi stutter does not cost you a kill.</p>
+                    </a>
+                    <a href="../guides/osrs-mobile-guide-2026.html" class="article-card">
+                        <h3>OSRS Mobile Guide 2026 — Setup, Settings &amp; Features</h3>
+                        <p>Full mobile setup including signal and data tips that complement this network guide.</p>
+                    </a>
+                    <a href="../guides/osrs-mobile-cant-login-fix-2026.html" class="article-card">
+                        <h3>OSRS Mobile Can't Login Fix 2026 — Jagex Account &amp; Lockouts</h3>
+                        <p>If disconnects leave you locked out, this guide gets you back in without losing the account.</p>
+                    </a>
+                    <a href="../guides/osrs-mobile-crashing-black-screen-android-fix-2026.html" class="article-card">
+                        <h3>OSRS Mobile Crashing &amp; Black Screen on Android — Fix Guide 2026</h3>
+                        <p>The device-side crash guide: cache, storage, GPU drivers, and battery optimization.</p>
+                    </a>
+                    <a href="../guides/osrs-mac-disconnect-failed-login-fix-2026.html" class="article-card">
+                        <h3>OSRS macOS Disconnect &amp; Failed Login Fix 2026</h3>
+                        <p>Platform-specific network-stack fixes for Mac players hitting login or drop issues.</p>
+                    </a>
+                    <a href="../guides/osrs-random-disconnect-world-unavailable-fix-2026.html" class="article-card">
+                        <h3>OSRS Random Disconnect &amp; "World Unavailable" Fix 2026</h3>
+                        <p>Tell a genuine Jagex-side incident from a local fault using the status page.</p>
+                    </a>
+                    <a href="../guides/osrs-public-wifi-captive-portal-fix-2026.html" class="article-card">
+                        <h3>OSRS Public Wi-Fi Captive Portal Fix 2026</h3>
+                        <p>Get OSRS past hotel, café, and airport log-in walls when traveling.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SUPPORT CARD (verbatim Payhip green box, placed at end) -->
+    <div class="support-card" style="margin:8px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+            <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+            <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                <li><strong>Avoid Scams & Phishing (Stop Bank Drains)</strong></li>
+                <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+            </ul>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+    </div>
+
+            <p class="article-meta" style="color:#3b2615;font-size:.82rem;margin:1.5rem 0 0;opacity:.85;">Published: July 30, 2026 &middot; Last verified: August 12, 2026</p>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRS Guru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ New Players (Stage 0)</h4><ul>
+                    <li><a href="../guides/osrs-interface-controls-beginner-guide-2026.html">Game Interface</a></li>
+                    <li><a href="../guides/osrs-combat-triangle-explained-2026.html">Combat Triangle</a></li>
+                    <li><a href="../guides/osrs-skills-overview-beginner-2026.html">Skills Overview</a></li>
+                    <li><a href="../guides/osrs-bank-inventory-management-2026.html">Bank &amp; Inventory</a></li>
+                    <li><a href="../guides/osrs-maps-travel-guide-2026.html">Maps &amp; Travel</a></li>
+                    <li><a href="../guides/osrs-questing-beginner-guide-2026.html">Questing Basics</a></li>
+                    <li><a href="../guides/osrs-combat-training-beginner-2026.html">Combat Training</a></li>
+                    <li><a href="../guides/osrs-money-making-beginner-2026.html">Beginner Money Making</a></li>
+                    <li><a href="../guides/osrs-gear-beginner-guide-2026.html">Gear Guide</a></li>
+                    <li><a href="../guides/osrs-safe-spots-beginner-2026.html">Safe Spots</a></li>
+                    <li><a href="../guides/osrs-prayer-training-beginner-guide-2026.html">Prayer Training</a></li>
+                    <li><a href="../guides/osrs-f2p-to-p2p-membership-guide-2026.html">F2P to P2P Transition</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRS Guru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+<!-- Copyright & Anti-Scraping Notice -->
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+    <script src="../js/features.js"></script>
+    <script src="../js/ai-qa-widget.js"></script>
+</body>
+</html>

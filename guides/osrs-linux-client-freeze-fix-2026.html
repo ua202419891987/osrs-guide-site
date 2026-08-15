@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Linux Client Freeze Fix 2026 — Mesa, OpenGL & Missing Dependencies</title>
+    <meta name="description" content="Updated for 2026. Old School RuneScape on Linux freezes at launch, hangs on a black screen, or won't start because of Mesa/OpenGL, missing 32-bit libraries, or a broken Wine/Proton setup. A beginner-friendly, distro-agnostic fix guide for Steam, Lutris, and the Jagex Launcher via Wine.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS Linux freeze 2026, OSRS Linux client won't start, Old School RuneScape Mesa OpenGL fix, OSRS missing 32-bit libraries Linux, OSRS Lutris Steam Proton Linux, OSRS Wine dependencies, OSRS Linux black screen freeze">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<meta name="article:published_time" content="2026-07-30">
+<meta name="article:modified_time" content="2026-08-12">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-linux-client-freeze-fix-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="Beginner" data-category="client">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+<li><a href="../pvm-guides.html">PvM Guides</a></li>
+<li><a href="../mobile.html">Mobile</a></li>
+
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../weekly-updates.html">Updates</a></li>
+                    <li><a href="../zh/index.html">Chinese</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../guides/osrs-common-bug-fix-guide-2026.html">Bugs &amp; Client</a> / OSRS Linux Client Freeze Fix</p>
+            <h1>OSRS Linux Client Freeze Fix 2026 — Mesa, OpenGL &amp; Missing Dependencies</h1>
+            <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+            <p class="subtitle">There is no official native Linux client for Old School RuneScape — yet Linux is one of the most stable ways to play it once it's set up right. The catch is that most "freezes" aren't bugs in the game; they're missing libraries, a misconfigured Mesa/OpenGL stack, or a broken Wine/Proton prefix. This beginner-friendly guide fixes all three, step by step, on any distro.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>Stage 0 · Linux Client Troubleshooting</strong> — Updated July 2026 · 16 min read
+            </div>
+        </div>
+    </section>
+
+<main class="guide-content">
+    <div class="container">
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: 1+</div>
+
+            <p class="intro">When Old School RuneScape freezes on a Linux machine, the freeze is almost never inside the game itself. OSRS is a Java client that Jagex builds for Windows, and on Linux it only runs because a translation layer — Wine, Proton, or a combination of both — sits between the game and your hardware. That translation layer is where freezes are born. If you already read our <a href="../guides/osrs-common-bug-fix-guide-2026.html">general OSRS bug-fix guide</a>, this page goes one level deeper on the Linux-only causes: the Mesa graphics stack, 32-bit libraries that Windows ships by default but Linux makes you install yourself, and the Wine/Proton prefix that holds your whole configuration together.</p>
+            <p>The three usual suspects, in order of how often they bite, are missing 32-bit libraries, a broken Mesa/OpenGL setup, and a misconfigured Wine or Proton prefix. We'll fix all three with copy-paste commands for Debian, Fedora, Arch, and openSUSE, and we'll show you how to tell in two minutes which one is actually killing your client. Once the client launches, network drops are the next gotcha — keep the <a href="../guides/osrs-home-network-router-troubleshoot-2026.html">router troubleshooting guide</a> and the <a href="../guides/osrs-mobile-cant-login-fix-2026.html">login flow guide</a> nearby so you can rule those out fast before you blame your GPU.</p>
+
+            <div class="quick-summary">
+                <h3>⏱️ Quick Verdict — 30-Second Read</h3>
+                <ul>
+                    <li>📌 <strong>90% of Linux freezes are missing 32-bit libraries</strong> — the client needs them even on a 64-bit system. Install <code>lib32</code> / <code>:i386</code> packages first.</li>
+                    <li>📌 <strong>Black screen / hang at launch?</strong> It's usually Mesa/OpenGL. Force software rendering with <code>LIBGL_ALWAYS_SOFTWARE=1</code> to confirm, then fix your GPU driver.</li>
+                    <li>📌 <strong>Steam:</strong> run OSRS through <strong>Proton</strong> (or Proton GE) with the right launch options; vanilla Wine alone often freezes.</li>
+                    <li>📌 <strong>Lutris:</strong> a clean Wine runner + esync + the right DLL overrides solves most launch hangs.</li>
+                    <li>📌 <strong>Jagex Launcher via Wine:</strong> needs Java + a working <code>winetricks</code> prefix with corefonts and the right .NET/VC++ libs.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#is-it-jagex">🔍 Is It Jagex or Your Box? Check First</a></li>
+                    <li><a href="#mesa">🎨 Mesa &amp; OpenGL — Why Linux Freezes</a></li>
+                    <li><a href="#deps">📦 Missing Dependencies &amp; 32-bit Libraries</a></li>
+                    <li><a href="#wine">🍷 Jagex Launcher via Wine (Java &amp; Prefix)</a></li>
+                    <li><a href="#steam">🎮 Steam + Proton Launch Setup</a></li>
+                    <li><a href="#lutris">🐧 Lutris Setup (Runner &amp; Esync)</a></li>
+                    <li><a href="#midgame">🧊 Freeze Mid-Game — GPU, VSync &amp; RAM</a></li>
+                    <li><a href="#symptom-table">🗺️ Symptom → Fix Quick Reference</a></li>
+                    <li><a href="#faq">❓ FAQ — OSRS on Linux</a></li>
+                    <li><a href="#final-tips">🎯 Final Tips</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="is-it-jagex">
+                <h2>1. 🔍 Is It Jagex or Your Box? Check First</h2>
+                <p>Before you touch Mesa, Wine, or a single package manager command, confirm the servers are actually up. Linux players hit the exact same Jagex outages as everyone else, and during a login-server hiccup the client can appear to "freeze" on the login screen while it is really just waiting on a dead server that never responds. Our <a href="../guides/osrs-common-bug-fix-guide-2026.html">general OSRS bug-fix guide</a> lays out the universal first-response steps — check the server status page, try a different world, restart the client — and the <a href="../guides/osrs-mobile-cant-login-fix-2026.html">mobile login flow guide</a> explains how to read server status the same way on desktop, because the root cause is identical regardless of platform.</p>
+                <p>Once you know the servers are healthy, the difference on Linux is that your freeze is almost always <strong>environmental</strong>. Because there is no native build, OSRS reaches your screen through one of three translation layers: <strong>Steam's Proton</strong>, <strong>Lutris + Wine</strong>, or a <strong>manual Wine prefix running the Jagex Launcher</strong>. Each layer has its own failure modes, and the good news is that they are well understood and fixable without deep Linux knowledge. You do not need to compile anything, edit kernel parameters, or understand graphics drivers at a low level — you need to install the right packages and set a few options.</p>
+                <div class="action-step">
+                    <h4>Step 1 — Identify your launch path</h4>
+                    <ul>
+                        <li><strong>Steam:</strong> you own OSRS on Steam and click Play. Proton handles the Windows-to-Linux translation for you.</li>
+                        <li><strong>Lutris:</strong> you installed an OSRS / Jagex Launcher script from Lutris and run it from there.</li>
+                        <li><strong>Manual Wine:</strong> you downloaded the Jagex Launcher <code>.exe</code> and ran it with <code>wine</code> yourself in a prefix you control.</li>
+                        <li><strong>Flatpak / Snap:</strong> note this — sandboxed runtimes hide system libraries and cause "missing dependency" freezes that native installs never show. They are the single most common reason a command copied from a forum "doesn't work" on your machine.</li>
+                    </ul>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The 2-Minute Sanity Check</div>
+                    <p>Open a terminal and run <code>glxinfo | grep "OpenGL renderer"</code> (install <code>mesa-utils</code> if the command is missing). If it prints <strong>"llvmpipe"</strong> or <strong>"Software Rasterizer"</strong>, you are already on software rendering — that alone causes stutter and can look exactly like a freeze, even before the client opens. Section 2 fixes it. If it prints your real GPU name, your graphics stack is at least partly working and your freeze is more likely a dependency or prefix problem.</p>
+                </div>
+                <p>The diagram below shows the chain your frames travel through on Linux. Every freeze in this guide happens at one of these layers — and once you know which layer is failing, the fix is mechanical.</p>
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 300" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OSRS on Linux translation layer stack">
+                        <rect width="680" height="300" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Where OSRS Freezes on Linux — The Stack</text>
+                        <rect x="60" y="48" width="560" height="38" fill="#8b6914" opacity="0.85"/>
+                        <text x="80" y="72" font-size="14" fill="#ffffff" font-family="Arial,sans-serif" font-weight="bold">① OSRS Java Client (.exe / Jagex Launcher)</text>
+                        <rect x="60" y="98" width="560" height="38" fill="#E6A817" opacity="0.85"/>
+                        <text x="80" y="122" font-size="14" fill="#1a1a1a" font-family="Arial,sans-serif" font-weight="bold">② Compatibility Layer — Wine / Proton  ⚠ prefix &amp; DLL hangs</text>
+                        <rect x="60" y="148" width="560" height="38" fill="#8b6914" opacity="0.6"/>
+                        <text x="80" y="172" font-size="14" fill="#ffffff" font-family="Arial,sans-serif" font-weight="bold">③ Graphics Stack — Mesa / OpenGL / Vulkan  ⚠ black screen</text>
+                        <rect x="60" y="198" width="560" height="32" fill="#8b6914" opacity="0.4"/>
+                        <text x="80" y="219" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif" font-weight="bold">④ Linux Kernel + 32-bit libraries</text>
+                        <rect x="60" y="242" width="560" height="32" fill="#1a1a1a"/>
+                        <text x="80" y="263" font-size="13" fill="#ffffff" font-family="Arial,sans-serif" font-weight="bold">⑤ GPU Hardware</text>
+                        <text x="630" y="122" font-size="12" fill="#3b2615" font-family="Arial,sans-serif" transform="rotate(90 630 122)">↑ frames / ↓ input</text>
+                    </svg>
+                    <figcaption>Every Linux freeze lives in layer ②, ③, or ④. Layer ① (the game) is rarely the cause. Identify the layer, then apply the matching section below.</figcaption>
+                </figure>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="mesa">
+                <h2>2. 🎨 Mesa &amp; OpenGL — Why Linux Freezes</h2>
+                <p>OSRS renders with OpenGL. On Linux, OpenGL is provided by <strong>Mesa</strong>, the open-source graphics stack that ships with every major distribution. When Mesa cannot initialize a hardware GL context — because the driver is missing, the GPU is blacklisted, or an environment variable is wrong — the client either hangs on a black screen or crashes to a frozen window. This is the single most common "freeze at launch" on Linux, and it explains why the same machine runs a native Linux game fine but chokes on OSRS: native games often use Vulkan or a different GL path, while Wine's GL translation is pickier about the driver state.</p>
+
+                <h3>② Confirm and force software rendering (diagnosis)</h3>
+                <p>Run the client once with software rendering to see whether the freeze disappears. If it does, your hardware GL path is broken and the rest of this section fixes it; if it does not, the problem is below the graphics layer and you should jump to Section 3.</p>
+                <div class="method-box">
+                    <h4>🧪 Test command</h4>
+                    <ul>
+                        <li><code>LIBGL_ALWAYS_SOFTWARE=1 wine "C://Program Files/Jagex Launcher/jlaunch.exe"</code> (adjust the path to your own prefix)</li>
+                        <li><strong>If it now launches (slowly):</strong> your hardware GL is broken → fix the driver below.</li>
+                        <li><strong>If it still freezes:</strong> it is not graphics — jump to Section 3 (dependencies) or Section 4 (Wine prefix).</li>
+                    </ul>
+                </div>
+                <p><code>LIBGL_ALWAYS_SOFTWARE=1</code> tells Mesa to draw with the CPU instead of the GPU. It is slow, but it proves the point: if the client opens under software rendering, the freeze was a GPU/driver issue, not a game bug.</p>
+
+                <h3>③ Fix the Mesa / GPU driver</h3>
+                <p>The table below maps your GPU to the packages that give Wine a working 32-bit GL context. Installing the 64-bit driver alone is not enough — Wine loads the 32-bit GL libraries even on a 64-bit OS, so the <code>lib32</code> companion package is mandatory.</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <thead>
+                        <tr><th>GPU / Driver</th><th>What to install</th><th>Verify it works</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Intel (integrated)</strong></td><td><code>mesa</code> + <code>libva-intel-driver</code> (or <code>intel-media-driver</code>)</td><td><code>glxinfo</code> shows an "Intel" renderer, not llvmpipe</td></tr>
+                        <tr><td><strong>AMD</strong></td><td><code>mesa</code> + <code>lib32-mesa</code> + <code>vulkan-radeon</code></td><td><code>radeon</code> / <code>amdgpu</code> renderer in glxinfo</td></tr>
+                        <tr><td><strong>NVIDIA</strong></td><td>Proprietary <code>nvidia</code> driver (recommended) or <code>nouveau</code> + <code>lib32-nvidia-utils</code></td><td><code>nvidia-smi</code> works; GL renderer = "NVIDIA"</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <div class="warning-box">
+                    <div class="warning-title">⚠️ The 32-bit GL Trap</div>
+                    <p>Even on a 64-bit system, Wine / Proton loads the <strong>32-bit</strong> GL libraries. If you installed only the 64-bit Mesa package, the client silently fails to get a GL context and freezes on a black screen with no error you can see. Always install the <code>lib32-mesa</code> (Arch), <code>libgl1-mesa-dri:i386</code> (Debian / Ubuntu), or <code>mesa-libGL.i686</code> (Fedora) companion package alongside the main driver.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 DRI_PRIME for hybrid laptops</div>
+                    <p>On a laptop with two GPUs (Intel + NVIDIA), Wine may pick the wrong one and freeze on a black screen. Launch with <code>DRI_PRIME=1</code> to force the discrete GPU, or use your distro's GPU switcher (e.g. <code>prime-run</code>). A mismatched PRIME setup is one of the most frequent causes of black-screen freezes that "work fine on Windows."</p>
+                </div>
+                <p>If you run an NVIDIA card, prefer the proprietary driver over <code>nouveau</code> for OSRS under Wine — nouveau's GL support is incomplete and is a known source of launch hangs. After installing the driver,reboot so the kernel module loads, then re-run <code>glxinfo | grep "OpenGL renderer"</code> to confirm the renderer now shows your real GPU.</p>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="deps">
+                <h2>3. 📦 Missing Dependencies &amp; 32-bit Libraries</h2>
+                <p>The number-one reason the client "won't start" on Linux is a missing shared library. Wine prints something like <code>error while loading shared libraries: libGL.so.1: cannot open shared object file</code> — but the OSRS launcher often swallows that into a silent freeze, so you never see the real error. The fix is to launch from a terminal so the message is visible, then install whatever library it names.</p>
+
+                <h3>④ Find the missing library</h3>
+                <ol>
+                    <li>Launch the client from a terminal (not by double-clicking an icon) so you see the error output.</li>
+                    <li>Note the last <code>.so</code> or <code>.dll</code> it failed on — that name tells you exactly what to install.</li>
+                    <li>Use your package manager to find and install it. The one-line installs below cover the four big families; run the line for your distro.</li>
+                </ol>
+                <div class="method-box">
+                    <h4>🛠️ Dependency install commands</h4>
+                    <ul>
+                        <li><strong>Debian / Ubuntu:</strong> <code>sudo dpkg --add-architecture i386 &amp;&amp; sudo apt update &amp;&amp; sudo apt install -y libgl1-mesa-dri:i386 libgl1:i386 libnss3:i386 libgtk-3-0:i386 libstdc++6:i386</code></li>
+                        <li><strong>Fedora:</strong> <code>sudo dnf install -y mesa-libGL.i686 mesa-dri-drivers.i686 nss.i686 gtk3.i686 libstdc++.i686</code></li>
+                        <li><strong>Arch / Manjaro:</strong> <code>sudo pacman -S lib32-mesa lib32-libglvnd lib32-nss lib32-gtk3 lib32-gcc-libs</code></li>
+                        <li><strong>openSUSE:</strong> <code>sudo zypper install Mesa-libGL1-32bit libnss3-32bit libgtk-3-0-32bit</code></li>
+                    </ul>
+                </div>
+                <p>The four packages above cover the libraries that break OSRS most often: the 32-bit GL driver (<code>libGL</code>), the NSS crypto library (<code>libnss3</code>, needed for the login handshake), GTK for the launcher window, and the 32-bit C++ runtime. If your distro uses a different name, search your package database for the <code>.i386</code> / <code>.i686</code> / <code>lib32</code> variant of the missing file — the 32-bit version is what Wine needs.</p>
+
+                <h3>⑤ Fonts and core Windows DLLs</h3>
+                <p>Even with GL fixed, the launcher can hang on a blank window because it cannot render fonts or load a required Windows component. Install them inside your prefix:</p>
+                <ul>
+                    <li><strong>Core fonts:</strong> <code>winetricks corefonts</code> (or install <code>lib32-fontconfig</code> plus a font package so text is not tofu boxes).</li>
+                    <li><strong>Visual C++ runtimes:</strong> many launchers need <code>winetricks vcrun2019</code> or <code>vcrun2022</code> to start at all.</li>
+                    <li><strong>.NET:</strong> if the launcher uses a .NET bootstrapper, <code>winetricks dotnet48</code> (set the prefix to Windows 10 first in <code>winecfg</code>).</li>
+                </ul>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Flatpak / Snap users — read this first</div>
+                    <p>Sandboxed Steam or Lutris cannot see your system's 32-bit libraries. If you installed them via Flatpak, either switch to the native (distro) package, or run <code>flatpak override --user --filesystem=host com.valvesoftware.Steam</code> and install the 32-bit libs inside the runtime. Most "missing dependency" mysteries on Linux are really Flatpak sandbox walls, not missing packages. The <a href="../guides/osrs-common-bug-fix-guide-2026.html">general bug-fix guide</a> covers the same dependency theme for other clients.</p>
+                </div>
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 250" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="32-bit dependency chain that OSRS needs on Linux">
+                        <rect width="680" height="250" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">The 32-bit Dependency Chain</text>
+                        <rect x="40" y="55" width="180" height="50" fill="#8b6914" opacity="0.85"/>
+                        <text x="56" y="85" font-size="13" fill="#ffffff" font-family="Arial,sans-serif" font-weight="bold">OSRS .exe</text>
+                        <text x="228" y="83" font-size="22" fill="#3b2615" font-family="Arial,sans-serif">→</text>
+                        <rect x="250" y="55" width="180" height="50" fill="#E6A817" opacity="0.9"/>
+                        <text x="262" y="85" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif" font-weight="bold">Wine / Proton</text>
+                        <text x="438" y="83" font-size="22" fill="#3b2615" font-family="Arial,sans-serif">→</text>
+                        <rect x="460" y="55" width="180" height="50" fill="#8b6914" opacity="0.7"/>
+                        <text x="472" y="85" font-size="12" fill="#ffffff" font-family="Arial,sans-serif" font-weight="bold">libGL.so.1 (32-bit)</text>
+                        <rect x="250" y="130" width="180" height="50" fill="#8b6914" opacity="0.5"/>
+                        <text x="262" y="160" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" font-weight="bold">libnss3:i386</text>
+                        <rect x="460" y="130" width="180" height="50" fill="#8b6914" opacity="0.5"/>
+                        <text x="472" y="160" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" font-weight="bold">libstdc++6:i386</text>
+                        <rect x="40" y="190" width="600" height="40" fill="#E6A817" opacity="0.18" stroke="#E6A817" stroke-width="1.5"/>
+                        <text x="56" y="215" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Missing any box = silent freeze. Install the :i386 / lib32 companion of each.</text>
+                    </svg>
+                    <figcaption>OSRS depends on a chain of 32-bit libraries. Break one link and the launcher freezes with no visible error. Install the 32-bit companions of GL, NSS, and the C++ runtime.</figcaption>
+                </figure>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="wine">
+                <h2>4. 🍷 Jagex Launcher via Wine (Java &amp; Prefix)</h2>
+                <p>If you run the Jagex Launcher directly through Wine, you need a correctly built prefix. The launcher depends on <strong>Java</strong> and a handful of Windows components; a broken or partially-built prefix is a classic freeze source, and it is also the setup most likely to survive a game update because you control every piece of it.</p>
+
+                <h3>⑥ Build a clean prefix</h3>
+                <div class="method-box">
+                    <h4>🧹 Fresh Wine prefix steps</h4>
+                    <ul>
+                        <li><code>export WINEPREFIX=~/.wine-osrs &amp;&amp; export WINEARCH=win64</code></li>
+                        <li><code>winecfg</code> → set Windows version to <strong>Windows 10</strong>.</li>
+                        <li><code>winetricks corefonts vcrun2019</code> in that same prefix.</li>
+                        <li>Install Java inside the prefix if the launcher needs it: download the Windows x64 JRE and run its installer under Wine.</li>
+                    </ul>
+                </div>
+                <p>Keeping OSRS in its own prefix (<code>~/.wine-osrs</code>) is the key habit. A dedicated prefix means a broken override in another app's prefix can never leak into your game, and a game update can never wipe your login state. If anything goes wrong, you delete one folder and rebuild — you do not reinstall your whole Wine environment.</p>
+
+                <h3>⑦ DLL overrides that stop hangs</h3>
+                <p>In <code>winecfg → Libraries</code>, add these overrides to prevent the launcher from deadlocking on built-in stubs:</p>
+                <ul>
+                    <li><code>msvcp140</code>, <code>vcruntime140</code> → <strong>native, builtin</strong></li>
+                    <li><code>winhttp</code> → <strong>native, builtin</strong> (fixes update / download hangs)</li>
+                    <li><code>riched20</code>, <code>riched32</code> → <strong>native, builtin</strong></li>
+                </ul>
+                <div class="action-step">
+                    <h4>Step — Launch and watch</h4>
+                    <ul>
+                        <li>Run <code>wine "C://Program Files/Jagex Launcher/JagexLauncher.exe"</code> from the terminal in that prefix.</li>
+                        <li>If it freezes, the last terminal line tells you which library or DLL failed — go back to Sections 2–3.</li>
+                        <li>Once the launcher opens, log in normally; the game client launches in the same prefix.</li>
+                    </ul>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">🔐 Account type still applies</div>
+                    <p>The login rules are the same on Linux as everywhere else — a Steam-linked or SSO account must use its own button. If you migrated and Wine sometimes skips the re-link after a prefix reset, our <a href="../guides/osrs-jagex-account-migration-guide-2026.html">Jagex account migration guide</a> walks the re-link step by step. And before any account change, set up <a href="../guides/account-security-guide-2026.html">2FA and backup codes</a> so a reinstalled prefix can never lock you out.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="steam">
+                <h2>5. 🎮 Steam + Proton Launch Setup</h2>
+                <p>Steam's Proton is the easiest path for most Linux players, because Steam manages the prefix, the runtime, and the DLL overrides for you. But the default configuration can still freeze, especially on GPUs where Vulkan is unstable. Here is a known-good setup that works across distros.</p>
+
+                <h3>⑧ Force a specific Proton version</h3>
+                <ul>
+                    <li>Right-click OSRS in Steam → <strong>Properties → Compatibility</strong> → tick "Force the use of a specific Steam Play compatibility tool".</li>
+                    <li>Pick <strong>Proton Experimental</strong> or <strong>Proton GE</strong> (install ProtonUp-Qt to get GE builds). Plain old Wine via Steam sometimes freezes where Proton does not, because Proton bundles esync / fsync and patched Wine builds.</li>
+                </ul>
+
+                <h3>⑨ Launch options that prevent freezes</h3>
+                <div class="method-box">
+                    <h4>⚙️ Recommended launch options</h4>
+                    <ul>
+                        <li><code>PROTON_USE_WINED3D=1 %command%</code> — forces WineD3D if Vulkan is unstable on your GPU.</li>
+                        <li><code>DXVK_DISABLE=1 %command%</code> — falls back to OpenGL if DXVK is the freeze source.</li>
+                        <li><code>WINEESYNC=1 %command%</code> — enables esync for smoother I/O (harmless if your kernel does not support it).</li>
+                        <li>Combine if needed: <code>PROTON_USE_WINED3D=1 WINEESYNC=1 %command%</code></li>
+                    </ul>
+                </div>
+                <p>If your freeze is a black screen at launch, <code>PROTON_USE_WINED3D=1</code> is the single option most likely to fix it, because it routes rendering through the OpenGL path that Mesa handles well instead of DXVK's Vulkan translation. If instead the client opens but stutters or hangs on the download, try <code>DXVK_DISABLE=1</code> first.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Verify the download isn't the freeze</div>
+                    <p>Sometimes what looks like a freeze is just the launcher slowly downloading the ~100 MB+ game cache over a throttled connection. Open Steam's download view; if bytes are moving, wait. If it is truly stuck at 0 bytes for minutes, the <code>winhttp</code> override from Section 4.7 usually fixes the dead download thread. A VPN reconnect can also interrupt the download — see our <a href="../guides/osrs-vpn-login-blocked-fix-2026.html">VPN login-blocked fix</a> if you tunnel your traffic.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="lutris">
+                <h2>6. 🐧 Lutris Setup (Runner &amp; Esync)</h2>
+                <p>Lutris gives you a guided OSRS / Jagex Launcher installer, but the auto-config occasionally ships a runner that hangs on certain kernels. Tune it and most launch hangs disappear.</p>
+
+                <h3>⑩ Runner and esync</h3>
+                <ol>
+                    <li>Open the OSRS game in Lutris → <strong>Configure → Runner options</strong>.</li>
+                    <li>Set <strong>Wine version</strong> to a known-good build (e.g. <code>lutris-GE-Proton</code> or <code>system</code> Wine 9+).</li>
+                    <li>Enable <strong>Esync</strong> and <strong>Fsync</strong> if your kernel supports them; disable both if you get crashes instead of freezes.</li>
+                    <li>Set <strong>Prefix architecture</strong> to 64-bit and point the working directory at the launcher executable.</li>
+                </ol>
+
+                <h3>⑪ DLL overrides in Lutris</h3>
+                <p>In <strong>Configure → Wine → DLL overrides</strong>, add the same set as Section 4.7 (<code>msvcp140</code>, <code>vcruntime140</code>, <code>winhttp</code>, <code>riched20/32</code>) as <code>native,builtin</code>. Lutris applies these per-game, so a system-wide Wine tweak will not help unless it is set here. This per-game scoping is exactly why a Lutris install can behave differently from your manual prefix even when both use the same Wine version.</p>
+                <div class="warning-box">
+                    <div class="warning-title">⚠️ Don't Mix Runners Mid-Prefix</div>
+                    <p>Switching the Lutris runner after the prefix is built can corrupt it — the new Wine version rewrites registry and DLL state, and the client may then freeze on every launch. If you change runners, delete the prefix (Lutris → "Wine prefix" → delete) and let it rebuild once. A clean rebuild beats fighting a half-migrated prefix every time.</p>
+                </div>
+                <p>When you are choosing between Steam, Lutris, and manual Wine, there is no single "best" — only what fits your workflow. Steam is least effort, Lutris gives the most GUI control, and manual Wine is the most debuggable. Pick one and keep its prefix clean; running two side by side with shared config is how people create the weirdest freezes.</p>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="midgame">
+                <h2>7. 🧊 Freeze Mid-Game — GPU, VSync &amp; RAM</h2>
+                <p>If the client launches fine but <strong>freezes 10–30 minutes in</strong>, the cause shifts from "won't start" to "runtime stability." This is a different problem family and needs a different fix.</p>
+
+                <h3>⑫ Graphics &amp; power tweaks</h3>
+                <ul>
+                    <li><strong>VSync:</strong> a mismatched vsync between OSRS and your compositor can cause micro-freezes every few seconds. Try toggling VSync in the in-game graphics settings, and disable your compositor's vsync (<code>picom --vsync-method none</code> or the KDE / GNOME equivalent) while playing.</li>
+                    <li><strong>Fullscreen vs windowed:</strong> many Linux compositors freeze Wine in true fullscreen. Use <strong>windowed / borderless</strong> mode inside OSRS instead.</li>
+                    <li><strong>GPU memory:</strong> on integrated graphics, OSRS sharing system RAM can stall when RAM pressure spikes. Close memory-heavy apps; 4 GB free is a good floor.</li>
+                </ul>
+
+                <h3>⑬ Network mid-session drops</h3>
+                <p>A freeze that recovers after a few seconds is often a network stall, not graphics. Point your DNS at <strong>1.1.1.1</strong> and rule out Wi-Fi power-save (our <a href="../guides/osrs-home-network-router-troubleshoot-2026.html">home router guide</a> covers this on the network side). A VPN reconnect will also boot you mid-session — the <a href="../guides/osrs-vpn-login-blocked-fix-2026.html">VPN login-blocked fix</a> explains how to keep the tunnel stable while playing.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The "swap of death"</div>
+                    <p>If your machine has little RAM and no swap, a memory spike can hard-freeze the whole desktop (not just OSRS). Add a 2–4 GB swap file — it converts a total freeze into a slow-but-recoverable stall you can escape with <code>Alt+SysRq</code> or by killing the process. On systemd: <code>sudo fallocate -l 4G /swapfile &amp;&amp; sudo mkswap /swapfile &amp;&amp; sudo swapon /swapfile</code>. Make it persistent by adding it to <code>/etc/fstab</code> if you want it after reboot.</p>
+                </div>
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 360" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OSRS Linux freeze diagnosis decision tree">
+                        <rect width="680" height="360" fill="#faf8f5"/>
+                        <text x="20" y="26" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Freeze Diagnosis — Where To Look</text>
+                        <rect x="250" y="40" width="180" height="40" fill="#1a1a1a"/>
+                        <text x="266" y="65" font-size="13" fill="#ffffff" font-family="Arial,sans-serif" font-weight="bold">Client freezes?</text>
+                        <line x1="340" y1="80" x2="120" y2="120" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="340" y1="80" x2="340" y2="120" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="340" y1="80" x2="560" y2="120" stroke="#3b2615" stroke-width="2"/>
+                        <rect x="30" y="120" width="180" height="50" fill="#8b6914" opacity="0.7"/>
+                        <text x="44" y="150" font-size="12" fill="#ffffff" font-family="Arial,sans-serif" font-weight="bold">Black screen @ launch</text>
+                        <rect x="250" y="120" width="180" height="50" fill="#E6A817" opacity="0.9"/>
+                        <text x="262" y="150" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" font-weight="bold">Silent, no window</text>
+                        <rect x="470" y="120" width="180" height="50" fill="#8b6914" opacity="0.5"/>
+                        <text x="484" y="150" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" font-weight="bold">Freezes 10+ min in</text>
+                        <text x="60" y="195" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">→ §2 Mesa / GL</text>
+                        <text x="280" y="195" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">→ §3 32-bit libs</text>
+                        <text x="500" y="195" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">→ §7 VSync / RAM</text>
+                        <line x1="120" y1="170" x2="120" y2="220" stroke="#3b2615" stroke-width="1.5" stroke-dasharray="4,3"/>
+                        <line x1="340" y1="170" x2="340" y2="220" stroke="#3b2615" stroke-width="1.5" stroke-dasharray="4,3"/>
+                        <line x1="560" y1="170" x2="560" y2="220" stroke="#3b2615" stroke-width="1.5" stroke-dasharray="4,3"/>
+                        <rect x="30" y="225" width="180" height="50" fill="#8b6914" opacity="0.3"/>
+                        <text x="44" y="255" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" font-weight="bold">Launcher opens,</text>
+                        <text x="44" y="270" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" font-weight="bold">game won't</text>
+                        <rect x="250" y="225" width="180" height="50" fill="#8b6914" opacity="0.3"/>
+                        <text x="262" y="255" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" font-weight="bold">Freeze under Steam</text>
+                        <rect x="470" y="225" width="180" height="50" fill="#8b6914" opacity="0.3"/>
+                        <text x="484" y="255" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" font-weight="bold">Freeze under Lutris</text>
+                        <text x="60" y="305" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">→ §4 Wine prefix</text>
+                        <text x="280" y="305" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">→ §5 Proton</text>
+                        <text x="500" y="305" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">→ §6 Lutris</text>
+                    </svg>
+                    <figcaption>Match your symptom to a layer, then open the section it points to. Most freezes resolve in one section once you read the symptom correctly.</figcaption>
+                </figure>
+            </section>
+
+            <!-- SECTION 8: Symptom table -->
+            <section id="symptom-table">
+                <h2>8. 🗺️ Symptom → Fix Quick Reference</h2>
+                <p>When you just want the answer, match what you see to the fix. This is the same information as the decision tree above, laid out as a table you can bookmark.</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <thead>
+                        <tr><th>You See…</th><th>Most Likely Cause</th><th>Go To</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Black screen / hang at launch</td><td>Mesa / OpenGL or 32-bit GL missing</td><td><a href="#mesa">§2 Mesa</a></td></tr>
+                        <tr><td>Silent freeze, no window</td><td>Missing 32-bit library (<code>.so</code>)</td><td><a href="#deps">§3 Dependencies</a></td></tr>
+                        <tr><td>Launcher opens, game won't</td><td>Broken Wine prefix / Java</td><td><a href="#wine">§4 Wine</a></td></tr>
+                        <tr><td>Freeze under Steam</td><td>Proton / Vulkan misconfig</td><td><a href="#steam">§5 Steam</a></td></tr>
+                        <tr><td>Freeze under Lutris</td><td>Runner / esync / DLL overrides</td><td><a href="#lutris">§6 Lutris</a></td></tr>
+                        <tr><td>Freezes 10+ min in</td><td>VSync / RAM / network</td><td><a href="#midgame">§7 Mid-Game</a></td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <p>The pattern is consistent: a freeze <em>at launch</em> is almost always graphics or libraries (Sections 2–3), a freeze <em>after the launcher opens</em> is the prefix (Section 4), and a freeze <em>mid-session</em> is runtime stability or network (Section 7). Knowing which third your symptom lives in cuts the debugging time from an afternoon to ten minutes.</p>
+            </section>
+
+            <!-- SECTION 9: FAQ -->
+            <section id="faq">
+                <h2>9. ❓ FAQ — OSRS on Linux</h2>
+
+                <div class="faq-item">
+                    <h4>Is there an official native Linux client for OSRS?</h4>
+                    <p>No. Jagex does not ship a native Linux build. Players run OSRS through Steam's Proton, Lutris + Wine, or a manual Wine prefix running the Jagex Launcher. All three work well once dependencies and the graphics stack are configured — which is exactly what this guide fixes. The <a href="../guides/osrs-common-bug-fix-guide-2026.html">general bug-fix guide</a> covers the Windows and mobile sides of the same problems.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Why does the client freeze only on Linux but work on Windows?</h4>
+                    <p>Because on Linux the game runs through a translation layer (Wine / Proton) and the open-source Mesa GL stack. Windows ships the required 32-bit libraries and a closed-source GPU driver by default; Linux makes you install the 32-bit Mesa companions and matching Vulkan / GL drivers yourself. Missing either one = a freeze that the same hardware never shows on Windows.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Do I need 32-bit libraries on a 64-bit system?</h4>
+                    <p>Yes — almost always. Wine and Proton load 32-bit Windows components even on 64-bit Linux, and they need the matching 32-bit system libraries (GL, NSS, GTK, stdc++). Skipping the <code>lib32</code> / <code>:i386</code> packages is the #1 cause of "won't start" freezes, which is why Section 3 leads with those exact install commands for every major distro.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Software rendering works but is slow — is that safe to keep?</h4>
+                    <p>It's safe but wasteful; your GPU sits idle while your CPU draws every frame, which also raises temperatures and can cause its own stutter. Use <code>LIBGL_ALWAYS_SOFTWARE=1</code> only as a diagnosis. Once you install the correct Mesa / Proton driver (Section 2), remove the variable so the client uses hardware GL and runs smoothly.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>My launcher downloads forever and then freezes — what gives?</h4>
+                    <p>That's the <code>winhttp</code> download thread deadlocking. Add the <code>winhttp → native,builtin</code> override (Section 4.7 / 6.11) and make sure <code>libnss3</code> (32-bit) is installed. The cache then downloads normally and the freeze disappears. If bytes are still moving in Steam's download view, just wait — a slow cache pull is not a freeze.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Steam, Lutris, or manual Wine — which should I use?</h4>
+                    <p>Steam is the least effort and the easiest to keep working; Lutris gives the most GUI control over the prefix and runner; manual Wine is the most debuggable when something weird breaks. There is no universal winner — pick one, keep its prefix clean, and avoid running two with shared config, since that is how the strangest freezes are born. New to the ecosystem? The <a href="../guides/osrs-new-player-guide-2026.html">new player guide</a> and the <a href="../guides/osrs-first-week-progression-guide-2026.html">first-week progression guide</a> assume a working client, so fix Linux first.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Will a game update break my Wine prefix?</h4>
+                    <p>Usually not, because Jagex updates the game files inside the prefix, not the prefix itself. The risk is when an update changes the launcher's dependencies (a new .NET or VC++ requirement). If a routine update suddenly freezes a client that worked yesterday, re-run the Section 4 overrides and the Section 3 font / runtime installs — don't rebuild from scratch unless the prefix is actually corrupted.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>I have an NVIDIA card — any special steps?</h4>
+                    <p>Prefer the proprietary <code>nvidia</code> driver over <code>nouveau</code> for OSRS under Wine; nouveau's GL support is incomplete and is a known source of launch hangs. Install <code>lib32-nvidia-utils</code> alongside it, reboot so the kernel module loads, and confirm with <code>nvidia-smi</code> and <code>glxinfo</code>. On a hybrid laptop, add <code>DRI_PRIME=1</code> so Wine uses the discrete GPU instead of the integrated one.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can I run the Jagex Launcher and the Steam client side by side?</h4>
+                    <p>Yes, but give each its own prefix — the Steam client uses Steam's managed Proton prefix, while the Jagex Launcher uses your manual or Lutris prefix. Do not point both at the same <code>WINEPREFIX</code>, or a setting one writes can break the other. Sharing the same Jagex account across both is fine; sharing the same prefix is not.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Nothing above worked — what now?</h4>
+                    <p>Launch from a terminal and read the last ten lines before the freeze; the missing library or DLL name is almost always the answer. Search your distro's package database for the 32-bit variant of that file, install it, and retry. If the error mentions Java, reinstall the Windows JRE inside the prefix. As a last resort, delete the prefix and rebuild it with the Section 4 steps — a clean prefix fixes more "impossible" freezes than any single package. If the client opens but you still can't log in, the <a href="../guides/osrs-mobile-cant-login-fix-2026.html">login flow guide</a> covers the account-side causes that are identical on every platform.</p>
+                </div>
+            </section>
+
+            <!-- FINAL TIPS -->
+            <section id="final-tips">
+                <h2>10. 🎯 Final Tips — Make Linux Your Most Stable Client</h2>
+                <ul>
+                    <li><strong>Install 32-bit libraries first.</strong> The <code>lib32</code> / <code>:i386</code> companions are the #1 freeze cause — do this before anything else.</li>
+                    <li><strong>Confirm the GL renderer.</strong> <code>glxinfo | grep "OpenGL renderer"</code> should show your real GPU, not llvmpipe. If it shows llvmpipe, fix Mesa before blaming the game.</li>
+                    <li><strong>Use Proton GE or Proton Experimental on Steam.</strong> Plain Wine via Steam freezes more often than Proton on unstable Vulkan setups.</li>
+                    <li><strong>Add the <code>winhttp</code> override.</strong> It stops the silent download deadlock that looks like a freeze but is really a stuck thread.</li>
+                    <li><strong>Keep one clean prefix per launch method.</strong> Don't share a prefix between the Jagex Launcher and Steam — separation prevents the weirdest hangs.</li>
+                    <li><strong>Play in windowed / borderless mode.</strong> True fullscreen under Wine triggers compositor freezes on many desktops.</li>
+                    <li><strong>Add swap if RAM is tight.</strong> A 2–4 GB swap file turns a hard desktop freeze into a recoverable stall.</li>
+                    <li><strong>Rule out the network.</strong> A freeze that recovers after a few seconds is usually DNS or Wi-Fi, not graphics — the <a href="../guides/osrs-home-network-router-troubleshoot-2026.html">router guide</a> fixes it.</li>
+                </ul>
+            </section>
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 What To Do After It Runs Smoothly</h3>
+                <p>Once OSRS is stable on Linux, keep it that way:</p>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                    <strong>→ Step 1:</strong> Save your <a href="../guides/account-security-guide-2026.html" style="color:#8b6914; font-weight:bold;">2FA backup codes</a> so a reinstalled prefix can't lock you out
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914; margin-top:8px;">
+                    <strong>→ Step 2:</strong> Keep the <a href="../guides/osrs-common-bug-fix-guide-2026.html" style="color:#8b6914; font-weight:bold;">general bug-fix guide</a> bookmarked for the next client update
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914; margin-top:8px;">
+                    <strong>→ Step 3:</strong> Harden your connection with the <a href="../guides/osrs-home-network-router-troubleshoot-2026.html" style="color:#8b6914; font-weight:bold;">router guide</a> so mid-game drops stop
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914; margin-top:8px;">
+                    <strong>→ Step 4:</strong> Review the <a href="../guides/osrs-jagex-account-migration-guide-2026.html" style="color:#8b6914; font-weight:bold;">Jagex migration guide</a> before any account changes
+                </div>
+                <p style="margin-top:16px;"><a href="../guides/osrs-common-bug-fix-guide-2026.html" style="display:inline-block;padding:0.6rem 1.4rem;background:#8b6914;color:#fff;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;">Next: OSRS General Bug-Fix Guide →</a></p>
+            </div>
+
+            <!-- RELATED GUIDES -->
+            <div class="related-guides">
+                <h3>More OSRS Client &amp; Account Guides</h3>
+                <div class="article-grid">
+                    <a href="../guides/osrs-common-bug-fix-guide-2026.html" class="article-card">
+                        <h3>OSRS General Bug-Fix Guide 2026</h3>
+                        <p>The universal first-response steps for client errors on every platform, including Linux.</p>
+                    </a>
+                    <a href="../guides/osrs-mobile-cant-login-fix-2026.html" class="article-card">
+                        <h3>OSRS Mobile Can't Log In? Fix After the July 2026 PSA</h3>
+                        <p>Same login root causes, explained for the mobile client — useful when testing cross-platform.</p>
+                    </a>
+                    <a href="../guides/osrs-home-network-router-troubleshoot-2026.html" class="article-card">
+                        <h3>OSRS Home Network &amp; Router Troubleshoot 2026</h3>
+                        <p>Fix the DNS and Wi-Fi drops that cause mid-game freezes even after your client is stable.</p>
+                    </a>
+                    <a href="../guides/osrs-jagex-account-migration-guide-2026.html" class="article-card">
+                        <h3>OSRS Jagex Account Migration Guide 2026</h3>
+                        <p>Link and re-link your account so a prefix reset or update doesn't break your login.</p>
+                    </a>
+                    <a href="../guides/account-security-guide-2026.html" class="article-card">
+                        <h3>OSRS Account Security Guide 2026</h3>
+                        <p>Set up 2FA and backup codes so a reinstalled Wine prefix can never lock you out.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SUPPORT CARD (verbatim Payhip green box, placed at end) -->
+    <div class="support-card" style="margin:8px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+            <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+            <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                <li><strong>Avoid Scams & Phishing (Stop Bank Drains)</strong></li>
+                <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+            </ul>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+    </div>
+
+            <p class="article-meta" style="color:#3b2615;font-size:.82rem;margin:1.5rem 0 0;opacity:.85;">Published: July 30, 2026 &middot; Last verified: August 12, 2026</p>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ Client &amp; Bugs</h4><ul>
+                    <li><a href="../guides/osrs-common-bug-fix-guide-2026.html">General Bug-Fix</a></li>
+                    <li><a href="../guides/osrs-mobile-cant-login-fix-2026.html">Mobile Login Fix</a></li>
+                    <li><a href="../guides/osrs-home-network-router-troubleshoot-2026.html">Network Fix</a></li>
+                    <li><a href="../guides/account-security-guide-2026.html">Account Security</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+    <!-- Copyright & Anti-Scraping Notice -->
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+    </div>
+
+    <script src="../js/features.js"></script>
+    <script src="../js/ai-qa-widget.js"></script>
+<style>
+.method-box{background:#f5f2f8;border:1.5px solid #c4b5e5;border-radius:var(--radius);padding:1.2rem 1.5rem;margin:1.2rem 0}
+.method-box h4{color:var(--lavender-dark);font-family:'Cinzel',serif;font-size:1rem;margin:0 0 .6rem;font-weight:700}
+</style>
+
+</body>
+</html>

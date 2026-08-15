@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Soulreaper Axe Rework 2026 — No More HP Drain, Delayed Decay, Melee-Friendly Impact</title>
+    <meta name="description" content="Updated for 2026. The Soulreaper Axe rework removed the life-point cost and delayed stack decay. This guide breaks down the new Soul Stack mechanic, DPS math, best content, the gear you need, and how the axe compares to the Scythe, Fang, Bludgeon and Inquisitor's mace.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS Soulreaper Axe rework 2026, OSRS Soulreaper Axe no HP drain, OSRS Soul Stack decay change, OSRS melee DPS axe, OSRS Soulreaper Axe best content, OSRS Soulreaper Axe vs Scythe, OSRS Soulreaper Axe loadout">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/osrs-soulreaper-axe-rework-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="intermediate" data-category="gear">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+<li><a href="../pvm-guides.html">PvM Guides</a></li>
+<li><a href="../mobile.html">Mobile</a></li>
+
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../updates.html">Updates</a></li>
+                    <li><a href="../zh/index.html">Chinese</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="guide-content">
+        <div class="container">
+            <h1>OSRS Soulreaper Axe Rework 2026 — No More HP Drain, Delayed Decay, Melee-Friendly Impact</h1>
+            <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: 1500+</div>
+            <p class="intro">For most of its life the Soulreaper Axe was a love-it-or-hate-it weapon: incredible burst damage, but every Soul Stack you built came with a sting. The 2026 rework changes that relationship completely. Jagex removed the life-point cost from stacking and pushed the Soul Stack decay timer much further out, turning a high-risk, punish-yourself weapon into a dependable melee option that newer and returning players can actually use. This guide explains exactly what changed, how the new stacks behave, how the damage math works, where the axe now shines, how it stacks up against the other big melee weapons, and how to build a loadout around it without draining your bank.</p>
+            <p>If you already own one, the rework is a straight buff. If you were holding off because the old mechanic felt unfair, this is the moment to reconsider. Pair it with the per-style breakdowns in our <a href="../guides/osrs-best-in-slot-gear-guide-2026.html">best-in-slot gear guide</a> and the spend-order logic in our <a href="../guides/osrs-gear-upgrade-priority-order-2026.html">gear upgrade priority guide</a> so you buy the right supporting pieces instead of wasting GP on the wrong slot.</p>
+
+            <div class="tip-box">
+                <div class="tip-title">💡 Quick Verdict</div>
+                <p>The rework did not change the axe's ceiling — it raised the floor. You still get the same up-to-+30% accuracy and damage at five stacks, but you no longer pay for it with your own hitpoints and the buff now survives the small gaps that real fights contain. That makes the Soulreaper Axe a genuinely competitive single-target melee weapon for anyone with 82 Attack and a real melee kit, not just for flawless maxed mains.</p>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#what-changed">What Changed in the 2026 Rework</a></li>
+                    <li><a href="#old-vs-new">Old Mechanic vs New Mechanic</a></li>
+                    <li><a href="#stacks">How the New Soul Stacks Work</a></li>
+                    <li><a href="#dps-math">Soul Stack DPS Math (Why Stacks Matter)</a></li>
+                    <li><a href="#best-content">Best Content for the Reworked Axe</a></li>
+                    <li><a href="#loadout">Loadout &amp; Gear Recommendations</a></li>
+                    <li><a href="#vs-others">Soulreaper Axe vs Other Melee Weapons</a></li>
+                    <li><a href="#buy-now">Should You Buy One Now?</a></li>
+                    <li><a href="#mistakes">Common Mistakes &amp; Mythbusting</a></li>
+                    <li><a href="#faq">Frequently Asked Questions</a></li>
+                    <li><a href="#final-tips">Final Tips</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="what-changed">
+                <h2>1. 🪓 What Changed in the 2026 Rework</h2>
+                <p>Two headline changes define the rework. Both target the parts of the weapon that players complained about most, and both push the axe toward a wider audience. If you only remember two things, remember these: the self-damage is gone, and the decay is patient.</p>
+                <h3>The HP cost is gone</h3>
+                <p>Previously, using the axe's special attack <em>Soul Devourer</em> to build a Soul Stack drained your life points each time a stack was gained. At high stacks that translated into a meaningful, sometimes dangerous chunk of HP leaving your bar — fine for a tank who planned around it, frustrating for everyone else. The 2026 rework removes that life-point cost entirely. You build stacks for free, which removes the single biggest reason casual melee players avoided the weapon.</p>
+                <p>The practical effect is larger than it sounds. In the old design, an aggressive opener that spammed the special to reach five stacks could cut your HP by a quarter before the boss even started hitting back. On a squishy-ish melee setup, or in content where you also needed to survive an early special, that opener was a trap. Now the same opener is pure upside: you arrive at max stacks quickly, at full health, and your prayer flicking and eat timing can focus entirely on the enemy instead of on your own weapon.</p>
+                <h3>Decay is delayed</h3>
+                <p>The Soul Stack buff always faded if you stopped attacking. Before the rework the decay was aggressive — a few seconds of downtime (a dodge, a walk-back, a heal) could wipe your stacks and force a full rebuild. The rework extends the decay window significantly, so brief movement and defensive actions no longer punish you as hard. The axe now holds its stacks through the kind of gaps that real fights actually contain.</p>
+                <p>This is the change that makes the weapon feel "melee-friendly" rather than "melee-punishing." In the old world, a single missed tick or a forced reposition could erase 30% of your damage for the rest of the phase. Now a small mistake costs you a sliver of uptime, not the whole buff. For players who are good but not robotic, that is the difference between the axe feeling unusable and feeling like a default pick.</p>
+                <h3>Why Jagex did it</h3>
+                <p>The design goal was clear: make the Soulreaper Axe a "melee-friendly" weapon rather than a niche skill-check. By deleting the self-damage and softening the decay, Jagex lowered the punishment for imperfect play. The axe keeps its identity — a stack-building powerhouse — but stops demanding flawless execution to be worth using. This also quietly widens its use cases, which matters for the section on best content below.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Read the Patch Notes Twice</div>
+                    <p>Decay timers and stack caps can be tuned again in future updates. Treat the exact numbers in this guide as the 2026 rework values; always cross-check the live patch notes before a high-stakes trip, especially if you are pushing an end-game boss where every percentage point of damage matters.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="old-vs-new">
+                <h2>2. ⚖️ Old Mechanic vs New Mechanic</h2>
+                <p>The table below summarizes the practical difference between the pre-rework and post-rework axe. The damage profile is roughly unchanged — what changed is the cost of getting there. Read the "Required combo uptime" and "Risk on long fights" rows carefully; those are the ones that actually change who can use the weapon.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Before Rework</th>
+                            <th>After Rework (2026)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Stack build cost</td>
+                            <td>Drained life points per stack</td>
+                            <td><strong>No life-point cost</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Decay window</td>
+                            <td>Short — lost stacks on small gaps</td>
+                            <td><strong>Long — survives movement/heals</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Required combo uptime</td>
+                            <td>Near-perfect, no mistakes</td>
+                            <td>Forgiving, mid-level friendly</td>
+                        </tr>
+                        <tr>
+                            <td>Best user profile</td>
+                            <td>Hardcore maxed melee mains</td>
+                            <td>Broad melee community</td>
+                        </tr>
+                        <tr>
+                            <td>Opener safety</td>
+                            <td>Risky — self-damage up front</td>
+                            <td>Safe — full HP at max stacks</td>
+                        </tr>
+                        <tr>
+                            <td>Risk on long fights</td>
+                            <td>High (self-damage pressure)</td>
+                            <td>Low</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>The takeaway: the ceiling is the same, but the floor is far higher. A player who fumbles the rotation loses much less now than they did before. That is exactly what "melee-friendly" means in practice. The damage you were promised at launch is fully intact — it is simply easier to keep the buff up long enough to use it, which is the entire point of a stack weapon.</p>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="stacks">
+                <h2>3. 📈 How the New Soul Stacks Work</h2>
+                <p>Understanding the stack math is what separates an axe user who deletes bosses from one who just looks cool swinging a big axe. Here is the cleaned-up picture after the rework.</p>
+                <h3>Building stacks</h3>
+                <p>Each successful hit with the special attack <em>Soul Devourer</em> adds one Soul Stack, up to the cap of five. Because the life-point cost is gone, you can now open a fight by spamming the special to reach max stacks without worrying about your own health bar. That alone changes your opener — you arrive at full stacks faster and safer, and you can do it even on a fight where you expect to take early damage.</p>
+                <h3>The decay timer</h3>
+                <p>Once you stop attacking, the delayed decay means your stacks linger for a comfortable window. In practical terms: you can walk out of a mechanic, eat a shark, or re-position, then resume attacking and still be near max stacks. You no longer "reset to zero" on every mistake. The chart below contrasts the old short decay with the new patient decay so you can visualize why small gaps stopped being fatal.</p>
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 320" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Soul Stack decay: old short timer versus new long timer">
+                        <rect width="680" height="320" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Soul Stack Uptime After You Stop Attacking</text>
+                        <line x1="70" y1="270" x2="650" y2="270" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="70" y1="40" x2="70" y2="270" stroke="#3b2615" stroke-width="2"/>
+                        <text x="20" y="160" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" transform="rotate(-90 20 160)">Stacks</text>
+                        <text x="330" y="300" font-size="13" fill="#3b2615" font-family="Arial,sans-serif">Time since last hit (seconds)</text>
+                        <path d="M70 60 L150 60 L210 270" fill="none" stroke="#8b6914" stroke-width="3"/>
+                        <circle cx="70" cy="60" r="5" fill="#8b6914"/>
+                        <circle cx="150" cy="60" r="5" fill="#8b6914"/>
+                        <circle cx="210" cy="270" r="5" fill="#8b6914"/>
+                        <text x="120" y="50" font-size="12" fill="#8b6914" font-family="Arial,sans-serif">OLD: gone by ~4s</text>
+                        <path d="M70 60 L150 60 L180 90 L260 90 L300 270" fill="none" stroke="#E6A817" stroke-width="3"/>
+                        <circle cx="70" cy="60" r="5" fill="#E6A817"/>
+                        <circle cx="150" cy="60" r="5" fill="#E6A817"/>
+                        <circle cx="180" cy="90" r="5" fill="#E6A817"/>
+                        <circle cx="260" cy="90" r="5" fill="#E6A817"/>
+                        <circle cx="300" cy="270" r="5" fill="#E6A817"/>
+                        <text x="330" y="80" font-size="12" fill="#E6A817" font-family="Arial,sans-serif">NEW: holds through a dodge + heal</text>
+                    </svg>
+                    <figcaption>Old decay wiped your stacks within a couple of seconds of downtime. The rework keeps them alive long enough to dodge a mechanic and eat without losing the buff.</figcaption>
+                </figure>
+                <h3>Damage scaling</h3>
+                <p>Each stack adds a flat damage and accuracy bonus to your standard attacks while the buff is active. The deeper your stack count, the bigger each hit. The rework did not nerf this scaling, so the upside you were promised originally is fully intact — it is simply easier to keep the buff up long enough to use it. The next section puts real numbers on that bonus.</p>
+                <div class="tip-box">
+                    <div class="tip-title">📋 Rotation Checklist</div>
+                    <p>1) Open with special attacks to build stacks quickly (no HP risk now).<br>2) Switch to standard attacks to convert stacks into damage.<br>3) Keep attacking through small gaps — decay is forgiving.<br>4) Re-build with a special if you truly lose the buff on a long phase change.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="dps-math">
+                <h2>4. 🧮 Soul Stack DPS Math (Why Stacks Matter)</h2>
+                <p>A stack weapon only matters if the stacks actually move your damage numbers. They do — and the relationship is linear and predictable, which is what makes the axe so satisfying to plan around. Each Soul Stack adds a fixed percentage to both your accuracy and your max hit, up to the five-stack cap.</p>
+                <h3>The per-stack bonus</h3>
+                <p>At the 2026 rework values, each stack grants roughly +6% accuracy and +6% damage, for a maximum of +30% at five stacks. That means a hit that would normally land for 40 can land for up to ~52 with a full stack, and your chance to hit at all climbs alongside it. Because the bonus is multiplicative with your existing strength bonus, the axe rewards a strong supporting kit more than a flat weapon does — which is exactly why the loadout section below tells you to spend on strength pieces first.</p>
+                <h3>Why "free" stacks change the math</h3>
+                <p>In the old design, the HP you spent building stacks was a hidden tax: you had to heal it back, which cost eats and prayer, which cost time, which reduced your effective DPS over a long fight. Removing that tax means the +30% is now "pure" — there is no offsetting cost to subtract. The chart below shows the damage-bonus curve climbing steadily with each stack, which is the shape you are optimizing around every fight.</p>
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 300" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Damage bonus versus number of Soul Stacks">
+                        <rect width="680" height="300" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Damage Bonus per Soul Stack (up to +30%)</text>
+                        <line x1="70" y1="250" x2="640" y2="250" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="70" y1="40" x2="70" y2="250" stroke="#3b2615" stroke-width="2"/>
+                        <text x="14" y="150" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" transform="rotate(-90 14 150)">Bonus</text>
+                        <text x="320" y="278" font-size="13" fill="#3b2615" font-family="Arial,sans-serif">Soul Stacks (0 → 5)</text>
+                        <rect x="90" y="232" width="90" height="18" fill="#8b6914" opacity="0.2"/>
+                        <rect x="190" y="205" width="90" height="45" fill="#8b6914" opacity="0.35"/>
+                        <rect x="290" y="178" width="90" height="72" fill="#8b6914" opacity="0.5"/>
+                        <rect x="390" y="151" width="90" height="99" fill="#8b6914" opacity="0.65"/>
+                        <rect x="490" y="124" width="90" height="126" fill="#8b6914" opacity="0.8"/>
+                        <path d="M90 232 L190 205 L290 178 L390 151 L490 124" fill="none" stroke="#E6A817" stroke-width="3"/>
+                        <circle cx="90" cy="232" r="4" fill="#E6A817"/>
+                        <circle cx="190" cy="205" r="4" fill="#E6A817"/>
+                        <circle cx="290" cy="178" r="4" fill="#E6A817"/>
+                        <circle cx="390" cy="151" r="4" fill="#E6A817"/>
+                        <circle cx="490" cy="124" r="4" fill="#E6A817"/>
+                        <text x="500" y="115" font-size="12" fill="#E6A817" font-family="Arial,sans-serif">+30% at 5</text>
+                    </svg>
+                    <figcaption>Each stack adds a flat slice of accuracy and damage. Your job in every fight is to keep that line as high as possible for as long as possible.</figcaption>
+                </figure>
+                <h3>Effective DPS in practice</h3>
+                <p>Effective DPS is not just your max hit times your attack speed. It is your average hit, times your hit chance, times your attacks per minute, times your buff uptime. The rework lifts two of those four factors at once: hit chance (via the accuracy bonus) and buff uptime (via the patient decay). On a long, gappy boss, the uptime gain alone can be worth more than the raw stack bonus, because you stop losing the buff on every mechanic. That is why the axe's best content is "messy" fights, not clean dummy-style targets.</p>
+                <div class="warning-box">
+                    <div class="warning-title">⚠️ Don't Over-Count the Bonus</div>
+                    <p>The +30% is a peak, not an average. If you only hold five stacks 60% of a fight, your real bonus is closer to +18%. The rework helps you hold stacks longer, but you still have to actually attack to keep them — the axe does not DPS for you while you sit in a safe spot.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="best-content">
+                <h2>5. 🎯 Best Content for the Reworked Axe</h2>
+                <p>Where does the axe actually pay off now? Three buckets of content benefit the most from "free" stacks and forgiving decay. The theme is consistent: the axe wins wherever you used to lose stacks.</p>
+                <h3>Long, multi-phase bosses</h3>
+                <p>Fights with movement-heavy phases — where you used to lose stacks constantly — are the biggest winners. The delayed decay keeps your damage bonus alive through walk-backs and mechanic dodges. Think bosses where you are not permanently stacked on the enemy: anything with a dip, a pillar run, or an orb collection is now axe-friendly in a way it never was. This is the single biggest reason to reconsider the weapon if you previously wrote it off for end-game PvM.</p>
+                <h3>Slayer tasks with big targets</h3>
+                <p>Larger monsters let the axe's hits land cleanly and let you stay in range to maintain stacks. For mid-level Slayer income, the rework makes the axe a realistic upgrade over a whip or abyssal tentacle on suitable tasks. If you are grinding Slayer for GP, the <a href="../guides/osrs-slayer-money-making-guide-2026.html">Slayer money making guide</a> ranks the task routes that feed into exactly this kind of big-target melee, and the axe now slots into more of them than before.</p>
+                <h3>Group PvM where you are not the primary tank</h3>
+                <p>In teams, not being the one eating all the hits means the old HP-drain mattered less to you anyway — but the removal still helps, and the forgiving decay keeps your DPS competitive while you dodge shared mechanics. See our <a href="../guides/osrs-boss-gear-checklist-2026.html">boss gear checklist</a> for the role-aware setups that make group trips smoother, and the <a href="../guides/osrs-pvm-gear-swap-preset-2026.html">PvM gear-swap preset guide</a> for swapping in and out of the axe without losing uptime.</p>
+                <p>For pure single-target speed-killing on a 1x1 dummy-style target, the axe was already strong and remains strong; the rework just widens the scenarios where it is the right call. You no longer have to ask "can I keep the stacks up here?" — the answer is almost always yes now.</p>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="loadout">
+                <h2>6. 🛡️ Loadout &amp; Gear Recommendations</h2>
+                <p>The axe is a weapon, not a full kit. To realize its potential you still need accuracy and strength around it. The good news: the rework means you do not need maxed BiS to make it work — you need a <em>balanced</em> melee setup that feeds the stack bonus.</p>
+                <h3>Strength and accuracy first</h3>
+                <p>Because stacks multiply your hit damage, every point of strength bonus matters more on this weapon than on a flat whip. Prioritize the Amulet of Torture (or an Anguish-style melee neck), Primordial Boots, and a strength-boosting ring such as the Ultor Ring or a Berserker Ring (i) if budget-bound. Our <a href="../guides/osrs-best-in-slot-gear-guide-2026.html">best-in-slot guide</a> lists the exact BiS per slot, and the <a href="../guides/osrs-gear-upgrade-route-2026.html">gear upgrade route</a> shows the cheapest path to a usable kit.</p>
+                <h3>Body and legs</h3>
+                <p>Bandos Chestplate and Tassets are the realistic mid-game target; full Torva is the endgame ceiling. The axe's rework does not change which armor is best — it changes how far down the budget ladder you can drop and still be effective. A Bandos + Torture + Primordial setup now performs respectably with the axe, and the <a href="../guides/osrs-budget-gear-2026.html">budget gear guide</a> covers the down-budget swaps that keep you relevant without a max bank.</p>
+                <h3>Prayer and posture</h3>
+                <p>Piety remains mandatory for melee DPS. Since you are no longer bleeding life points from the weapon itself, your prayer flicking and eat timing can focus purely on the boss — a genuine quality-of-life win. Augury and Rigour from the <a href="../guides/osrs-gear-upgrade-priority-order-2026.html">upgrade priority guide</a> are the ranged/magic equivalents if you run mixed teams, and they matter just as much for your survivability now that the axe is not quietly draining you.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Don't Over-Spend on the Axe Alone</div>
+                    <p>A billion-GP weapon in a 50M kit is wasted. Spend on the supporting strength pieces first, then the axe. The rework rewards a balanced melee setup more than a naked-axe flex, because the stack bonus is multiplied by your strength bonus — a weak kit has less for the axe to multiply.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="vs-others">
+                <h2>7. ⚔️ Soulreaper Axe vs Other Melee Weapons</h2>
+                <p>No weapon exists in a vacuum. The rework makes the Soulreaper Axe better, but "better" is always relative to what else is in your bank. The table below compares it to the other headline melee weapons on the dimensions that matter, and the chart after it shows illustrative single-target boss DPS so you can see where each one sits.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Weapon</th>
+                            <th>Best At</th>
+                            <th>Target Type</th>
+                            <th>Rework Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Soulreaper Axe</td>
+                            <td>Stacking single-target burst</td>
+                            <td>Large / multi-phase NPCs</td>
+                            <td><strong>Big buff</strong> (no HP cost, patient decay)</td>
+                        </tr>
+                        <tr>
+                            <td>Scythe of Vitur</td>
+                            <td>Multi-target &amp; huge NPCs</td>
+                            <td>3x3 / very large targets</td>
+                            <td>None — still the AoE king</td>
+                        </tr>
+                        <tr>
+                            <td>Osmuten's Fang</td>
+                            <td>Consistent single-target</td>
+                            <td>Any single target</td>
+                            <td>None — stable, no ramp needed</td>
+                        </tr>
+                        <tr>
+                            <td>Abyssal Bludgeon</td>
+                            <td>High-defense shredding</td>
+                            <td>High-definition single targets</td>
+                            <td>None — niche vs defense</td>
+                        </tr>
+                        <tr>
+                            <td>Inquisitor's Mace</td>
+                            <td>Max melee % setups</td>
+                            <td>Single target w/ full Inq</td>
+                            <td>None — set-bonus dependent</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>The key insight: the rework does not turn the axe into a Scythe replacement. The Scythe still wins wherever it can hit three tiles at once, and Osmuten's Fang remains the safe, no-ramp pick for content where you cannot reliably keep stacks. What the rework does is close the gap on single-target bosses, where the axe's stack bonus now outweighs the Fang's consistency for most players — and it does so without the self-damage tax that used to make the comparison unfair.</p>
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 340" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustrative single-target boss DPS by melee weapon">
+                        <rect width="680" height="340" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Illustrative Single-Target Boss DPS</text>
+                        <text x="20" y="46" font-size="11" fill="#8b6914" font-family="Arial,sans-serif">(relative, gappy multi-phase fight — rework values)</text>
+                        <line x1="160" y1="70" x2="160" y2="310" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="160" y1="310" x2="650" y2="310" stroke="#3b2615" stroke-width="2"/>
+                        <rect x="180" y="170" width="80" height="140" fill="#8b6914" opacity="0.75"/>
+                        <text x="195" y="328" font-size="11" fill="#3b2615" font-family="Arial,sans-serif">Fang</text>
+                        <rect x="290" y="120" width="80" height="190" fill="#8b6914" opacity="0.8"/>
+                        <text x="298" y="328" font-size="11" fill="#3b2615" font-family="Arial,sans-serif">Bludgeon</text>
+                        <rect x="400" y="90" width="80" height="220" fill="#E6A817" opacity="0.85"/>
+                        <text x="408" y="328" font-size="11" fill="#3b2615" font-family="Arial,sans-serif">Soulreaper</text>
+                        <rect x="510" y="70" width="80" height="240" fill="#8b6914" opacity="0.9"/>
+                        <text x="528" y="328" font-size="11" fill="#3b2615" font-family="Arial,sans-serif">Scythe*</text>
+                        <text x="170" y="300" font-size="11" fill="#3b2615" font-family="Arial,sans-serif">Low</text>
+                        <text x="120" y="90" font-size="11" fill="#3b2615" font-family="Arial,sans-serif">High</text>
+                        <text x="400" y="80" font-size="11" fill="#E6A817" font-family="Arial,sans-serif">w/ 5 stacks</text>
+                        <text x="500" y="60" font-size="10" fill="#8b6914" font-family="Arial,sans-serif">*Scythe lead grows on 3x3</text>
+                    </svg>
+                    <figcaption>On a single large target the reworked axe now out-DPSes the Fang and Bludgeon once stacks are up; the Scythe stays ahead on multi-tile hits. Numbers are illustrative, not exact.</figcaption>
+                </figure>
+                <p>Bottom line for the comparison: own the axe <em>and</em> the Fang, and switch based on the fight. The axe is now your default for big single-target and gappy bosses; the Fang is your safety pick for clean, short, or high-movement fights where you cannot keep stacks. The Scythe stays in the bag for anything with three hitboxes.</p>
+            </section>
+
+            <!-- SECTION 8 -->
+            <section id="buy-now">
+                <h2>8. 💰 Should You Buy One Now?</h2>
+                <p>The rework makes the axe more attractive, but "more attractive" is not the same as "buy today." Run the decision through three lenses, and be honest about which column you fall into.</p>
+                <h3>You should buy if…</h3>
+                <ul>
+                    <li>You already own solid melee support gear (Bandos/Torva, Torture, Primordial, Piety).</li>
+                    <li>You do content with large targets or multi-phase movement where stacks used to fall off.</li>
+                    <li>You want a melee weapon that no longer punishes imperfect play.</li>
+                    <li>You already own the Fang and want a stronger single-target option for big bosses.</li>
+                </ul>
+                <h3>Wait if…</h3>
+                <ul>
+                    <li>Your melee support gear is still budget-tier — finish that first per the <a href="../guides/osrs-gear-upgrade-priority-order-2026.html">upgrade priority guide</a>.</li>
+                    <li>You mainly do 1x1 speed content where a cheaper weapon already performs fine.</li>
+                    <li>You are saving for a mega-rare and the axe would block that goal.</li>
+                    <li>You cannot yet use Piety or lack the 82 Attack to wield it.</li>
+                </ul>
+                <h3>Budget reality</h3>
+                <p>The axe is a significant purchase, but the rework improves its value proposition because it is now usable across more of your account instead of sitting in the bank for "perfect" fights. Treat it as a versatile melee upgrade, not a specialist toy. If your bank is on the fence, the <a href="../guides/osrs-boss-profit-tier-list-2026.html">boss profit tier list</a> helps you see which content the axe unlocks that pays for itself fastest. And remember the loadout rule above: a complete mid-tier melee kit plus the axe beats a naked axe plus a half-built kit every time.</p>
+            </section>
+
+            <!-- SECTION 9 -->
+            <section id="mistakes">
+                <h2>9. 🚫 Common Mistakes &amp; Mythbusting</h2>
+                <p>A reworked weapon attracts bad advice. Here are the mistakes and myths we see most often, so you can skip them.</p>
+                <h3>Myth: "The rework made it hit harder"</h3>
+                <p>No. The per-stack damage scaling was preserved, not increased. The rework removed costs (HP drain, fast decay), it did not raise the ceiling. If you expected bigger max hits from the patch alone, you misread it — the gain is in uptime and safety, not in the raw bonus.</p>
+                <h3>Mistake: buying the axe before the support kit</h3>
+                <p>The most expensive error is pairing a top-tier axe with a bottom-tier kit. Because the stack bonus multiplies your strength, a weak kit has little for the axe to multiply. Build the supporting strength pieces first; the axe is the finishing touch, not the foundation.</p>
+                <h3>Mistake: forgetting to actually attack</h3>
+                <p>The patient decay helps, but it is not permanent. Players who swap to the axe and then play passively — camping in a safe spot, over-eating, not re-applying the special — see none of the benefit. The axe rewards aggressive, sustained attacking. Keep hitting, and re-build with a special if a long phase change drops your stacks.</p>
+                <h3>Mistake: using it where the Scythe wins</h3>
+                <p>The axe is a single-target weapon. On any fight where you can hit three tiles, the Scythe of Vitur out-DPSes it regardless of the rework. Do not bring the axe to a multi-target fight out of loyalty — bring the right tool, and keep the axe for the big single NPC.</p>
+                <div class="warning-box">
+                    <div class="warning-title">⚠️ Don't Assume the Numbers Are Final</div>
+                    <p>Stack caps and decay values have been tuned before and can be tuned again. The moment a high-value trip depends on the exact decay window, verify the live patch notes. This guide reflects the 2026 rework as documented; Jagex retains the right to adjust.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 10 FAQ -->
+            <section id="faq">
+                <h2>10. ❓ Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <h3>Does the Soulreaper Axe still drain my HP after the rework?</h3>
+                    <p>No. The 2026 rework removed the life-point cost from building Soul Stacks. You can stack the special attack freely without hurting your own health bar, which makes the old risky opener completely safe.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How long do Soul Stacks last now?</h3>
+                    <p>The decay window was extended well beyond the old short timer. Brief gaps for movement, eating, or mechanic dodges no longer wipe your stacks, so the buff survives the pauses that real fights contain. Treat it as "patient," not "permanent" — you still need to keep attacking.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is the axe better than a Scythe of Vitur now?</h3>
+                    <p>They serve different roles. The Scythe remains the multi-target and large-NPC king on 3x3 hits. The reworked Soulreaper Axe is now a far more forgiving single-target stack weapon — stronger in its niche, but not a straight Scythe replacement. Own both and switch by fight.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What gear do I need to make the axe worth it?</h3>
+                    <p>Accuracy and strength support: Torture or equivalent neck, Primordial Boots, a strength ring (Ultor or Berserker (i)), and Bandos/Torva body and legs. Piety is mandatory. See the loadout section and our <a href="../guides/osrs-best-in-slot-gear-guide-2026.html">best-in-slot guide</a> for exact slots.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Did the rework nerf the axe's damage?</h3>
+                    <p>No. The damage scaling of Soul Stacks was preserved. Only the costs — HP drain and fast decay — were changed, both in the player's favor. Your five-stack ceiling is the same as before.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can a low-level account use the reworked axe?</h3>
+                    <p>Not effectively. The axe requires 82 Attack to wield, and its value comes from multiplying a strong strength bonus — which a low-level kit does not have. Below a real melee setup, a whip or tentacle is the better pick. Build your support kit first.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is the Soulreaper Axe good for Slayer now?</h3>
+                    <p>Yes, more than before. On large Slayer targets where you can stay in range, the forgiving decay keeps your stacks up through the fight, lifting your DPS over a whip or tentacle. On small, mobile tasks it is less relevant. Pair it with the task routes in our <a href="../guides/osrs-slayer-money-making-guide-2026.html">Slayer money making guide</a>.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How many stacks should I aim to keep up?</h3>
+                    <p>Five is the goal, but do not panic at three or four. Because the bonus is linear, dropping from five to four costs you only ~6% of the bonus, not a collapse. The rework's patient decay means you will naturally sit at four-to-five through most fights instead of constantly rebuilding from zero.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Should I sell my Fang if I buy the axe?</h3>
+                    <p>No. They cover different fights. The Fang is your no-ramp safety pick for clean or high-movement single-target content; the axe is your big-boss burst pick. Keep both and switch by scenario — selling the Fang just removes a tool you will still need.</p>
+                </div>
+            </section>
+
+            <!-- FINAL TIPS -->
+            <section id="final-tips">
+                <h2>11. 🎯 Final Tips</h2>
+                <ul>
+                    <li><strong>Open with specials.</strong> No HP cost means you can stack up fast and safely at the start of every fight.</li>
+                    <li><strong>Stop fearing the gaps.</strong> The delayed decay means small mistakes no longer reset your damage — keep attacking and the buff returns.</li>
+                    <li><strong>Build support gear first.</strong> The axe amplifies strength bonus, so invest in Torture, Primordial, and a strength ring before the weapon itself.</li>
+                    <li><strong>Use it where it wins.</strong> Multi-phase and large-target content benefit most; don't force it into pure 1x1 speed runs or 3x3 fights.</li>
+                    <li><strong>Keep the Fang as backup.</strong> The axe is not a Scythe or Fang replacement — switch weapons by fight, don't marry one.</li>
+                    <li><strong>Re-check patch notes.</strong> Stack caps and decay values can be tuned again — verify before any high-value trip.</li>
+                    <li><strong>Attack, don't camp.</strong> The buff only pays while you hit; passive play wastes the entire rework.</li>
+                </ul>
+            </section>
+
+            <!-- RELATED GUIDES -->
+            <div class="related-guides">
+                <h3>Related Guides</h3>
+                <div class="article-grid">
+                    <a href="../guides/osrs-best-in-slot-gear-guide-2026.html" class="article-card">
+                        <h3>OSRS Best-in-Slot Gear Progression 2026</h3>
+                        <p>Melee, ranged, and magic BiS at every budget tier — the exact slots to pair with the axe.</p>
+                    </a>
+                    <a href="../guides/osrs-gear-upgrade-priority-order-2026.html" class="article-card">
+                        <h3>OSRS Gear Upgrade Priority Order 2026</h3>
+                        <p>What to buy first for maximum DPS per GP spent before you commit to the axe.</p>
+                    </a>
+                    <a href="../guides/osrs-boss-gear-checklist-2026.html" class="article-card">
+                        <h3>OSRS Boss Gear Checklist 2026</h3>
+                        <p>Role-aware setups for team and solo bosses where the reworked axe shines.</p>
+                    </a>
+                    <a href="../guides/osrs-gear-upgrade-route-2026.html" class="article-card">
+                        <h3>OSRS Gear Upgrade Route 2026</h3>
+                        <p>The cheapest path to a usable melee kit that feeds the Soul Stack bonus.</p>
+                    </a>
+                    <a href="../guides/osrs-budget-gear-2026.html" class="article-card">
+                        <h3>OSRS Budget Gear 2026</h3>
+                        <p>Down-budget swaps that keep the axe effective without a maxed bank.</p>
+                    </a>
+                    <a href="../guides/osrs-slayer-money-making-guide-2026.html" class="article-card">
+                        <h3>OSRS Slayer Money Making 2026</h3>
+                        <p>Task routes that feed big-target melee where the axe now outperforms a whip.</p>
+                    </a>
+                    <a href="../guides/osrs-boss-profit-tier-list-2026.html" class="article-card">
+                        <h3>OSRS Boss Profit Tier List 2026</h3>
+                        <p>Which content the axe unlocks pays for itself fastest.</p>
+                    </a>
+                    <a href="../guides/osrs-pvm-gear-swap-preset-2026.html" class="article-card">
+                        <h3>OSRS PvM Gear-Swap Presets 2026</h3>
+                        <p>Swap in and out of the axe without losing buff uptime mid-fight.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SUPPORT CARD (verbatim Payhip green box, placed at end) -->
+    <div class="support-card" style="margin:8px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+            <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+            <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                <li><strong>Avoid Scams & Phishing (Stop Bank Drains)</strong></li>
+                <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+            </ul>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+    </div>
+
+            <p class="article-meta" style="color:#3b2615;font-size:.82rem;margin:1.5rem 0 0;opacity:.85;">Published: August 9, 2026 &middot; Last verified: August 12, 2026</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated for 2026. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ Gear &amp; Equipment</h4><ul>
+                    <li><a href="../guides/osrs-best-in-slot-gear-guide-2026.html">Best-in-Slot Gear</a></li>
+                    <li><a href="../guides/osrs-gear-upgrade-priority-order-2026.html">Gear Upgrade Priority</a></li>
+                    <li><a href="../gear.html">Gear Hub</a></li>
+                    <li><a href="../boss-guides.html">Boss Guides</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+    <!-- Copyright & Anti-Scraping Notice -->
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+    </div>
+
+    <script src="../js/features.js"></script>
+    <script src="../js/ai-qa-widget.js"></script>
+</body>
+</html>
