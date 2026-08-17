@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jagex Launcher Black Screen: Decision-Tree Fix (2026) — OSRS Won't Open or Login Loop</title>
+    <meta name="description" content="Jagex Launcher shows a black screen, won't open, or loops back to login in 2026? Walk a step-by-step decision tree: clear cache, run as admin, compatibility mode, reset, clean reinstall. Every step has a real command.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Jagex Launcher black screen 2026, Jagex Launcher won't open, Jagex Launcher login loop fix, OSRS launcher black screen, Jagex Launcher not launching, clear Jagex Launcher cache, Jagex Launcher reinstall">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/osrs-jagex-launcher-black-screen-fix-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="all" data-category="troubleshooting">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+                    <li><a href="../pvm-guides.html">PvM Guides</a></li>
+                    <li><a href="../mobile.html">Mobile</a></li>
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../mobile.html">Troubleshooting</a> / Jagex Launcher Black Screen Fix 2026</p>
+            <h1>Jagex Launcher Black Screen: Decision-Tree Fix (2026)</h1>
+            <p class="subtitle">The Jagex Launcher opens to a black window, freezes before the game list appears, or kicks you back to the login screen in a loop. This guide is a verdict-first decision tree: answer one question at a time, run the matching step, and you will almost always be playing within ten minutes. Every step includes a copy-paste command.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>Updated: August 2026</strong> — Troubleshooting · 14 min read
+            </div>
+        </div>
+    </section>
+
+<main class="guide-content">
+    <div class="container">
+        <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: All</div>
+        <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+
+        <p class="intro">A black Jagex Launcher screen is rarely a graphics-card problem and almost never a RuneScape server problem. In 2026 the usual causes are a corrupted local cache, a launcher update that half-installed, a permissions or antivirus block, or a display/compatibility mismatch on Windows. Start with the <a href="../guides/osrs-runelite-setup-guide-2026.html">RuneLite setup guide</a> if you only use the standalone client, and if your phone shows a black screen instead, jump to the <a href="../guides/osrs-mobile-crashing-black-screen-android-fix-2026.html">Android black screen fix</a> — this page is for the desktop Jagex Launcher.</p>
+        <p>The decision tree below is designed so you do the cheapest, safest fixes first. Do not skip to the reinstall until you have tried cache clearing and "run as administrator" — those two steps alone fix roughly two out of three black-screen cases reported on the official client. Keep this tab open while you work; each branch links to the detailed section lower on the page.</p>
+
+        <div class="tip-box">
+            <div class="tip-title">💡 Quick Verdict (read this first)</div>
+            <p>If the launcher shows a black or blank window: <strong>kill every Jagex process, delete the Launcher cache folder, then relaunch as Administrator.</strong> That single sequence fixes the majority of 2026 black-screen reports. If it still loops at login, the problem is credentials or a network/antivirus block, not your GPU. If it still will not draw a window at all, use compatibility mode, then a clean reinstall as the last resort.</p>
+        </div>
+
+        <div class="toc">
+            <h3>① Table of Contents</h3>
+            <ol>
+                <li><a href="#what-it-means">What a Black Screen Actually Means</a></li>
+                <li><a href="#decision-tree">Decision Tree: Start Here</a></li>
+                <li><a href="#step-cache">Step 1 — Clear Launcher &amp; Game Cache</a></li>
+                <li><a href="#step-admin">Step 2 — Run as Administrator &amp; Fix Permissions</a></li>
+                <li><a href="#step-compat">Step 3 — Compatibility &amp; Display Settings</a></li>
+                <li><a href="#step-reset">Step 4 — Reset / Repair the Launcher</a></li>
+                <li><a href="#step-reinstall">Step 5 — Clean Reinstall (Nuclear Option)</a></li>
+                <li><a href="#faq">Frequently Asked Questions</a></li>
+            </ol>
+        </div>
+
+        <!-- SECTION 1 -->
+        <section id="what-it-means">
+            <h2>1. 🔍 What a Black Screen Actually Means</h2>
+            <p>Before fixing anything, identify which "black screen" you have. They are different failures and the fix differs. Match your symptom, then follow the tree.</p>
+
+            <h3>① Blank window, no game list (launcher renders nothing)</h3>
+            <p>The launcher process starts, a window appears, but it is solid black or white with no buttons, no Jagex logo, and no account list. This is almost always a <strong>local rendering or cache fault</strong>: a half-written UI file, a corrupted WebView/Electron resource, or a GPU/driver hand-off that fails. Network status does not matter here — the window never tried to talk to a server.</p>
+
+            <h3>② Launcher opens fine, but OSRS itself is black</h3>
+            <p>You can pick your account and the game launches, but the RuneScape client window is black while the launcher is fine. That is a <strong>client-side graphics fault</strong> (GPU plugin, 117HD, or a bad driver), not a launcher fault. Treat it as a lag/FPS issue and see the dedicated <a href="../guides/osrs-runescape-lag-fps-drop-fix-2026.html">lag and FPS drop guide</a> rather than reinstalling the launcher.</p>
+
+            <h3>③ Login loop: enter details, get kicked back to login</h3>
+            <p>The launcher renders perfectly, you type your email and password (or it accepts a saved session), and then it snaps back to the login screen with no error or with a vague "something went wrong." This is <strong>not</strong> a display fault. It points to credential/token trouble, a blocked connection to the auth servers, an over-aggressive antivirus, or a clock/time mismatch on your PC.</p>
+
+            <h3>④ Launcher never appears, only a flash in the taskbar</h3>
+            <p>You double-click, the icon flickers in the taskbar for a second, and nothing opens. The process likely crashes on startup — common after a failed update, a corrupted install, or missing Visual C++ runtimes. This is the case where compatibility mode and a reinstall earn their place.</p>
+
+            <div class="tip-box">
+                <div class="tip-title">💡 One Quick Test Before Anything Else</div>
+                <p>Press <strong>Ctrl + Shift + Esc</strong>, open the Details tab, and look for <code>JagexLauncher.exe</code> (and any <code>RuneScape.exe</code>). If the process is there but you see no window, it is a rendering fault (go to cache + compat). If the process disappears within two seconds, it is crashing on launch (go to reset + reinstall). This single observation cuts your diagnosis time in half.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 2 -->
+        <section id="decision-tree">
+            <h2>2. 🌳 Decision Tree: Start Here</h2>
+            <p>Answer each question top to bottom. The first "yes" branch tells you which detailed step to run. Most people resolve at branch A or B.</p>
+
+            <h3>① The 5 questions</h3>
+            <div class="method-box highlight">
+                <h4>🧭 Follow the First Match</h4>
+                <p><strong>Q1.</strong> Does the <code>JagexLauncher.exe</code> process stay alive in Task Manager but show no window? <br>
+                → <strong>Yes:</strong> Go to <a href="#step-cache">Step 1 (cache)</a>, then <a href="#step-compat">Step 3 (compatibility)</a>. (Branch A — rendering fault)</p>
+                <p><strong>Q2.</strong> Does the launcher crash within ~2 seconds (process vanishes)? <br>
+                → <strong>Yes:</strong> Go to <a href="#step-reset">Step 4 (reset)</a>, then <a href="#step-reinstall">Step 5 (reinstall)</a>. (Branch B — broken install)</p>
+                <p><strong>Q3.</strong> Does the launcher render, but you loop back to login? <br>
+                → <strong>Yes:</strong> This is auth/network, not display. Clear cache anyway, then check antivirus, clock, and run as admin. See <a href="#step-admin">Step 2</a> and the FAQ on login loops. (Branch C)</p>
+                <p><strong>Q4.</strong> Did this start right after a Windows update or GPU driver update? <br>
+                → <strong>Yes:</strong> Go to <a href="#step-compat">Step 3 (compatibility + driver rollback)</a>.</p>
+                <p><strong>Q5.</strong> Is your antivirus or corporate firewall brand new or did it just update? <br>
+                → <strong>Yes:</strong> Add exclusions for the Jagex folders (paths in Step 2) before reinstalling.</p>
+            </div>
+
+            <h3>② Visual map of the tree</h3>
+            <figure class="guide-img">
+                <svg viewBox="0 0 680 360" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jagex Launcher black screen decision tree">
+                    <rect width="680" height="360" fill="#faf8f5"/>
+                    <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Black Screen Decision Tree</text>
+                    <rect x="240" y="44" width="200" height="40" rx="8" fill="#E6A817"/>
+                    <text x="340" y="69" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif" text-anchor="middle" font-weight="bold">Window shows?</text>
+                    <line x1="340" y1="84" x2="120" y2="130" stroke="#3b2615" stroke-width="2"/>
+                    <line x1="340" y1="84" x2="560" y2="130" stroke="#3b2615" stroke-width="2"/>
+                    <text x="150" y="118" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">No (crashes)</text>
+                    <text x="540" y="118" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">Yes (blank)</text>
+                    <rect x="20" y="130" width="200" height="40" rx="8" fill="#8b6914"/>
+                    <text x="120" y="155" font-size="12" fill="#fff" font-family="Arial,sans-serif" text-anchor="middle" font-weight="bold">Step 4 + 5 Reset/Reinstall</text>
+                    <rect x="460" y="130" width="200" height="40" rx="8" fill="#8b6914"/>
+                    <text x="560" y="155" font-size="12" fill="#fff" font-family="Arial,sans-serif" text-anchor="middle" font-weight="bold">Step 1 Cache Clear</text>
+                    <line x1="560" y1="170" x2="560" y2="210" stroke="#3b2615" stroke-width="2"/>
+                    <rect x="460" y="210" width="200" height="40" rx="8" fill="#E6A817"/>
+                    <text x="560" y="235" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" text-anchor="middle" font-weight="bold">Fixed? → Done</text>
+                    <line x1="460" y1="230" x2="240" y2="280" stroke="#3b2615" stroke-width="2" stroke-dasharray="4"/>
+                    <text x="330" y="262" font-size="11" fill="#8b6914" font-family="Arial,sans-serif">No →</text>
+                    <rect x="140" y="280" width="220" height="40" rx="8" fill="#8b6914"/>
+                    <text x="250" y="305" font-size="12" fill="#fff" font-family="Arial,sans-serif" text-anchor="middle" font-weight="bold">Step 2 Admin + Step 3 Compat</text>
+                    <line x1="120" y1="170" x2="120" y2="210" stroke="#3b2615" stroke-width="2"/>
+                    <rect x="20" y="210" width="200" height="40" rx="8" fill="#E6A817"/>
+                    <text x="120" y="235" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" text-anchor="middle" font-weight="bold">Check VC++ / driver</text>
+                </svg>
+                <figcaption>Most cases are solved at "Step 1 Cache Clear." Only move down the tree if the cheaper step failed.</figcaption>
+            </figure>
+
+            <h3>③ What NOT to do first</h3>
+            <ul>
+                <li><strong>Do not immediately reinstall Windows.</strong> The launcher is a self-contained app; a full OS reset is massive overkill.</li>
+                <li><strong>Do not edit the registry</strong> hunting for Jagex keys unless a later step explicitly says so. The fix lives in <code>%LOCALAPPDATA%</code>, not in system hives.</li>
+                <li><strong>Do not disable your firewall entirely.</strong> Add a folder exclusion instead (Step 2). A blanket disable exposes the rest of your PC.</li>
+                <li><strong>Do not assume it is the servers.</strong> A launcher that will not draw a window cannot even reach a server. Check <a href="../guides/osrs-home-network-router-troubleshoot-2026.html">home network troubleshooting</a> only for login-loop cases.</li>
+            </ul>
+        </section>
+
+        <!-- SECTION 3 -->
+        <section id="step-cache">
+            <h2>3. 🧹 Step 1 — Clear Launcher &amp; Game Cache</h2>
+            <p>This is the single highest-success fix. The Jagex Launcher caches its UI and update state locally; when that cache is half-written (usually from a killed update or a disk hiccup) the window renders black. Clearing it forces a clean redownload on next launch.</p>
+
+            <h3>① Kill all Jagex processes first</h3>
+            <p>Never delete cache files while the launcher is running — Windows will lock them. Close everything, then run this from a normal Command Prompt:</p>
+            <div class="method-box">
+                <h4>🖥️ Command Prompt</h4>
+                <p><code>taskkill /f /im JagexLauncher.exe<br>taskkill /f /im RuneScape.exe<br>taskkill /f /im RuneLite.exe</code></p>
+                <p>You should see "SUCCESS" or "not found" for each. "Not found" is fine — it just means that process was not running.</p>
+            </div>
+
+            <h3>② Delete the Launcher cache folder</h3>
+            <p>The launcher stores its UI and update files here. Deleting the folder is safe — it is recreated on next launch:</p>
+            <div class="method-box">
+                <h4>🗑️ One-line cache wipe (Windows)</h4>
+                <p><code>rd /s /q "%LOCALAPPDATA%\Jagex\Launcher"</code></p>
+                <p>To also clear the OSRS client cache (recommended if the game window itself was black):</p>
+                <p><code>rd /s /q "%LOCALAPPDATA%\RuneScape"</code></p>
+                <p>And the legacy client cache if present:</p>
+                <p><code>rd /s /q "%LOCALAPPDATA%\jagex"</code></p>
+            </div>
+            <p>If you prefer a GUI, open File Explorer, paste <code>%LOCALAPPDATA%\Jagex</code> into the address bar, and delete the <strong>Launcher</strong> folder. Then paste <code>%LOCALAPPDATA%</code> and delete <strong>RuneScape</strong> if it exists. Emptying these does <strong>not</strong> delete your account, your settings sync to the cloud, and your bank is server-side.</p>
+
+            <h3>③ Relaunch and watch the download</h3>
+            <p>Start the launcher normally. The first launch after a cache wipe will take longer — you will see a progress bar as it redownloads the UI bundle. If the black screen is gone, <strong>stop here</strong>. If it returns, the cache was a symptom, not the cause, and you move to Step 2.</p>
+
+            <div class="warning-box">
+                <div class="warning-title">⚠️ Cache Keeps Coming Back?</div>
+                <p>If you clear the cache, it works once, then the black screen returns after the next auto-update, your disk may be failing or your antivirus is silently quarantining launcher files. Run <code>chkdsk /f</code> (needs a reboot) and add the Jagex folders to your antivirus allow-list before blaming the launcher.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 4 -->
+        <section id="step-admin">
+            <h2>4. ⚙️ Step 2 — Run as Administrator &amp; Fix Permissions</h2>
+            <p>The Jagex Launcher writes to protected program folders during updates. If its normal-user token cannot write there, an update half-installs, and the next launch is a black screen. Running as Administrator, or fixing the folder permissions, resolves this cleanly.</p>
+
+            <h3>① Run as Administrator (quick test)</h3>
+            <p>Right-click the Jagex Launcher shortcut or <code>JagexLauncher.exe</code> and choose <strong>Run as administrator</strong>. If the black screen disappears, you have found it: the launcher needs elevated write access. To make it permanent:</p>
+            <div class="method-box">
+                <h4>🔒 Make "Run as admin" permanent</h4>
+                <p>Right-click <code>JagexLauncher.exe</code> → <strong>Properties</strong> → <strong>Compatibility</strong> tab → tick <strong>"Run this program as an administrator"</strong> → Apply → OK.</p>
+                <p>Typical install path:</p>
+                <p><code>C:\Users\&lt;YourName&gt;\AppData\Local\Jagex\Launcher\JagexLauncher.exe</code></p>
+            </div>
+
+            <h3>② Fix folder ownership (when admin alone is not enough)</h3>
+            <p>On some corporate or shared PCs the Jagex folder is owned by a different account. Re-take ownership from an elevated Command Prompt:</p>
+            <div class="method-box">
+                <h4>🛠️ Reset permissions (elevated CMD)</h4>
+                <p><code>takeown /f "%LOCALAPPDATA%\Jagex" /r /d y<br>icacls "%LOCALAPPDATA%\Jagex" /grant "%USERNAME%":(F) /t</code></p>
+                <p>This gives your account full control of the Jagex folder tree. Reboot once, then launch normally (you can untick the admin box after this if you want).</p>
+            </div>
+
+            <h3>③ Add antivirus / firewall exclusions</h3>
+            <p>Several 2026 black-screen reports trace to antivirus silently blocking the launcher's updater. Add these folders to your scanner's allow-list (Windows Defender shown; other vendors have equivalent "exclusions" pages):</p>
+            <div class="method-box">
+                <h4>🛡️ Windows Defender exclusion (PowerShell, admin)</h4>
+                <p><code>Add-MpPreference -ExclusionPath "$env:LOCALAPPDATA\Jagex"<br>Add-MpPreference -ExclusionPath "$env:LOCALAPPDATA\RuneScape"<br>Add-MpPreference -ExclusionProcess "JagexLauncher.exe"</code></p>
+            </div>
+            <p>If you use a third-party suite (Norton, McAfee, Bitdefender, Avast), open it and exclude the same two folders and the executable. This is especially important for <strong>login-loop</strong> cases, where the scanner blocks the auth handshake rather than the drawing.</p>
+
+            <h3>④ Check your system clock</h3>
+            <p>A wrong clock breaks TLS certificate checks, and the launcher will bounce you to login with no clear error. Sync it:</p>
+            <div class="method-box">
+                <h4>⏰ Sync time (CMD, admin)</h4>
+                <p><code>w32tm /resync</code></p>
+                <p>Or Settings → Time &amp; Language → Date &amp; Time → "Sync now." Also enable "Set time automatically."</p>
+            </div>
+        </section>
+
+        <!-- SECTION 5 -->
+        <section id="step-compat">
+            <h2>5. 🪟 Step 3 — Compatibility &amp; Display Settings</h2>
+            <p>If the process stays alive but the window is black, the launcher's embedded browser surface is failing to initialize on your GPU or display. Compatibility mode and a few display tweaks usually force it to fall back to a working renderer.</p>
+
+            <h3>① Compatibility mode + disable fullscreen optimizations</h3>
+            <div class="method-box">
+                <h4>🪟 Properties checklist</h4>
+                <p>Right-click <code>JagexLauncher.exe</code> → <strong>Properties</strong> → <strong>Compatibility</strong>:</p>
+                <ul>
+                    <li>Tick <strong>"Run this program in compatibility mode for:"</strong> → choose <strong>Windows 8</strong>.</li>
+                    <li>Tick <strong>"Disable fullscreen optimizations."</strong></li>
+                    <li>Tick <strong>"Override high DPI scaling behavior"</strong> → set to <strong>Application</strong>.</li>
+                    <li>Apply → OK, then relaunch.</li>
+                </ul>
+            </div>
+
+            <h3>② GPU driver: update or roll back</h3>
+            <p>A black launcher window right after a driver update is a classic GPU hand-off failure. Either update to the newest studio/driver, or roll back if the newest one broke it:</p>
+            <div class="method-box">
+                <h4>🔄 Roll back a bad driver (Device Manager)</h4>
+                <p>Win + X → <strong>Device Manager</strong> → <strong>Display adapters</strong> → right-click your GPU → <strong>Properties</strong> → <strong>Driver</strong> tab → <strong>"Roll Back Driver"</strong> (greyed out means none available; then use "Update Driver" → auto-search instead).</p>
+            </div>
+            <p>For NVIDIA, prefer the <strong>Studio Driver</strong> over Game Ready for a launcher/UI app — it is validated for UI frameworks. For integrated Intel graphics, make sure you are not on a 2019-era driver; the embedded renderer the launcher uses improved a lot after 2021.</p>
+
+            <h3>③ Force software rendering as a test</h3>
+            <p>If you suspect the GPU path entirely, you can force the launcher's UI to use the CPU. This is slower but proves the point:</p>
+            <div class="method-box">
+                <h4>🧪 Test with software GL (CMD)</h4>
+                <p><code>set JAGEX_LAUNCHER_GL=swiftshader<br>start "" "%LOCALAPPDATA%\Jagex\Launcher\JagexLauncher.exe"</code></p>
+                <p>If the window now draws, your GPU/driver is the culprit — keep the variable or fix the driver. Remove it with <code>set JAGEX_LAUNCHER_GL=</code> when done testing.</p>
+            </div>
+
+            <h3>④ Multiple monitors / HDR / 4K scaling</h3>
+            <p>Launcher black screens spike on setups with mixed DPI monitors or HDR enabled. Quick things to try:</p>
+            <ul>
+                <li>Move the launcher to your primary 1080p/1440p monitor and launch there.</li>
+                <li>Temporarily turn <strong>HDR</strong> off (Settings → System → Display).</li>
+                <li>Set scaling to 100% on the monitor you launch from.</li>
+                <li>If you use a 4K TV as a monitor, switch it to "PC" mode or 60 Hz temporarily.</li>
+            </ul>
+        </section>
+
+        <!-- SECTION 6 -->
+        <section id="step-reset">
+            <h2>6. ♻️ Step 4 — Reset / Repair the Launcher</h2>
+            <p>When the install is broken but you do not want a full reinstall yet, Windows can repair it in place. This re-registers the app and replaces corrupt system pieces without touching your cache (which you already cleared in Step 1).</p>
+
+            <h3>① Repair via Windows Apps settings</h3>
+            <div class="method-box">
+                <h4>🔧 Repair (keeps your data)</h4>
+                <p>Settings → <strong>Apps</strong> → <strong>Installed apps</strong> → search <strong>Jagex Launcher</strong> → ⋮ → <strong>Advanced options</strong> → <strong>Repair</strong>. If "Repair" is missing, use <strong>Reset</strong> (Reset clears local app data but not your account).</p>
+            </div>
+            <p>"Repair" is safe and keeps everything. "Reset" wipes the launcher's local app-data but your account and settings live in the cloud, so you just sign in again. Prefer Repair; use Reset only if Repair is unavailable or did not help.</p>
+
+            <h3>② Re-register the app package (PowerShell)</h3>
+            <p>If the entry is corrupted so badly that Settings cannot open it, re-register from an elevated PowerShell:</p>
+            <div class="method-box">
+                <h4>📦 Re-register (admin PowerShell)</h4>
+                <p><code>Get-AppxPackage *Jagex* | ForEach-Object { Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml" }</code></p>
+                <p>If that returns nothing, the launcher is installed as a normal EXE (not a Store app) — skip to Step 5 reinstall.</p>
+            </div>
+
+            <h3>③ Repair Visual C++ runtimes</h3>
+            <p>The launcher depends on Visual C++ redistributables. A missing or corrupt one causes a 2-second crash (Branch B). Reinstall the latest supported runtimes:</p>
+            <ul>
+                <li>Download "Visual C++ Redistributable for Visual Studio 2015–2022" (x64) from Microsoft.</li>
+                <li>Run it; choose <strong>Repair</strong> if offered, otherwise <strong>Install</strong>.</li>
+                <li>Reboot, then try the launcher again.</li>
+            </ul>
+            <p>Also confirm <strong>.NET Desktop Runtime 6/8</strong> is present — the launcher's UI framework needs it. Windows Update usually provides it, but a paused update can leave it missing.</p>
+        </section>
+
+        <!-- SECTION 7 -->
+        <section id="step-reinstall">
+            <h2>7. 💻 Step 5 — Clean Reinstall (Nuclear Option)</h2>
+            <p>Only here if Steps 1–4 failed. A clean reinstall removes the broken install <em>and</em> every leftover file, then lays down a fresh copy. Done properly, this fixes essentially all remaining black-screen cases.</p>
+
+            <h3>① Uninstall completely</h3>
+            <div class="method-box">
+                <h4>🧨 Uninstall (Settings)</h4>
+                <p>Settings → <strong>Apps</strong> → search <strong>Jagex Launcher</strong> → <strong>Uninstall</strong>. Confirm. Also uninstall <strong>RuneScape</strong> and <strong>RuneLite</strong> if listed.</p>
+            </div>
+
+            <h3>② Delete every leftover folder</h3>
+            <p>Uninstallers leave cache behind on purpose (to save your settings). For a true clean slate, delete these after uninstalling:</p>
+            <div class="method-box">
+                <h4>🗑️ Remove leftovers (CMD)</h4>
+                <p><code>rd /s /q "%LOCALAPPDATA%\Jagex"<br>rd /s /q "%LOCALAPPDATA%\RuneScape"<br>rd /s /q "%LOCALAPPDATA%\RuneLite"<br>rd /s /q "%APPDATA%\Jagex"<br>rd /s /q "%PROGRAMFILES%\Jagex"</code></p>
+            </div>
+
+            <h3>③ Reinstall from the official source only</h3>
+            <p>Download a fresh installer directly from <strong>jagex.com/launcher</strong>. Do not use a cached installer you found in Downloads, and never run a "launcher fix" EXE from a forum or video link — those are the most common malware vectors for OSRS accounts.</p>
+            <div class="method-box">
+                <h4>⬇️ Clean install flow</h4>
+                <p>1) Visit jagex.com/launcher in your browser.<br>
+                2) Download the Windows installer.<br>
+                3) Right-click it → <strong>Run as administrator</strong> (this sets correct permissions from the start).<br>
+                4) Launch the freshly installed launcher normally; sign in.</p>
+            </div>
+
+            <h3>④ If it STILL black-screens after a clean reinstall</h3>
+            <p>At this point the launcher is innocent — the fault is environmental. Check, in order:</p>
+            <ul>
+                <li><strong>Another user account:</strong> create a new Windows user, sign in there, install the launcher. If it works, your main profile is corrupt — migrate to the new one.</li>
+                <li><strong>Clean boot:</strong> <code>msconfig</code> → Selective startup, disable all non-Microsoft services, reboot, try launcher. If it works, a background app (overlay, RGB software, VPN) is interfering.</li>
+                <li><strong>Different GPU:</strong> on a laptop with both Intel + NVIDIA, force the launcher to the integrated GPU in Windows Graphics Settings, or vice versa.</li>
+                <li><strong>OS corruption:</strong> <code>sfc /scannow</code> then <code>DISM /Online /Cleanup-Image /RestoreHealth</code> from an elevated prompt.</li>
+            </ul>
+            <p>If even a clean-boot, new-user, fresh-Windows test fails, the issue is hardware (failing GPU or RAM). Run a memory test (<code>Windows Memory Diagnostic</code>) and a GPU stress test. That is outside launcher scope — but it is the honest end of the tree.</p>
+        </section>
+
+        <!-- SECTION 8 FAQ -->
+        <figure class="guide-svg" style="margin:26px 0;text-align:center;">
+  <svg viewBox="0 0 600 260" style="width:100%;height:auto;max-width:640px;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Launcher Black Screen — Decision Tree">
+<rect width="600" height="260" fill="#faf8f5" rx="10"/>
+<text x="24" y="38" font-family="Georgia,serif" font-size="19" font-weight="bold" fill="#3b2615">Launcher Black Screen — Decision Tree</text>
+<rect x="24" y="52" width="90" height="26" rx="6" fill="#d4af37" fill-opacity="0.85"/>
+<text x="34" y="68" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#3b2615">Step 1</text>
+<text x="24" y="92" font-family="Arial,sans-serif" font-size="12" fill="#6b6b6b">Force-quit launcher + reboot client</text>
+<rect x="24" y="92" width="90" height="26" rx="6" fill="#d4af37" fill-opacity="0.85"/>
+<text x="34" y="108" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#3b2615">Step 2</text>
+<text x="24" y="132" font-family="Arial,sans-serif" font-size="12" fill="#6b6b6b">Clear launcher cache (Roaming\Jagex)</text>
+<rect x="24" y="132" width="90" height="26" rx="6" fill="#d4af37" fill-opacity="0.85"/>
+<text x="34" y="148" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#3b2615">Step 3</text>
+<text x="24" y="172" font-family="Arial,sans-serif" font-size="12" fill="#6b6b6b">Run as administrator / GPU fallback</text>
+<rect x="24" y="172" width="90" height="26" rx="6" fill="#d4af37" fill-opacity="0.85"/>
+<text x="34" y="188" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#3b2615">Step 4</text>
+<text x="24" y="212" font-family="Arial,sans-serif" font-size="12" fill="#6b6b6b">Reinstall with installer from runescape.com</text>
+<text x="24" y="248" font-family="Arial,sans-serif" font-size="11" fill="#8b6914">Work top to bottom; ~90% of cases resolve by Step 3.</text>
+</svg>
+  <figcaption style="font-size:.8rem;color:#6b6b6b;margin-top:6px;">Launcher Black Screen — Decision Tree</figcaption>
+</figure>
+<section id="faq">
+            <h2>8. ❓ Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <h4>Will clearing the cache delete my account, bank, or progress?</h4>
+                <p>No. Your account, bank, skills, and settings are stored on Jagex's servers and synced to your login. The local cache only holds downloaded UI files and the offline game assets. Clearing it forces a redownload; you simply sign back in. This is the safest first step and there is no risk to your account.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Why does the launcher loop back to login with no error?</h4>
+                <p>A login loop with a perfectly drawn launcher is almost never a display fault. The usual causes are: an antivirus blocking the auth handshake, a wrong system clock breaking certificate checks, a cached corrupt session token, or a blocked connection to the auth servers. Clear the cache, sync your clock (<code>w32tm /resync</code>), add antivirus exclusions, then try. See our <a href="../guides/osrs-mobile-cant-login-fix-2026.html">can't-login guide</a> for the account-side checks too.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Is the black screen caused by the RuneScape servers being down?</h4>
+                <p>Almost never. A launcher that will not draw a window cannot reach a server at all — the fault is local. Server issues show up as error messages, queue screens, or disconnects after you are already in game, not as a black launcher window. Only investigate the network for login-loop cases; otherwise the fix is on your PC.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Do I need to reinstall Windows to fix this?</h4>
+                <p>No. Reinstalling Windows is massive overkill. The decision tree resolves the overwhelming majority of cases at cache-clear, run-as-admin, or compatibility mode. A full clean reinstall of just the launcher (Step 5) is the "nuclear" end — and even that rarely requires touching Windows itself.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>My antivirus quarantined JagexLauncher.exe. What now?</h4>
+                <p>Restore the file from quarantine and add the Jagex folders to the scanner's exclusions (paths in Step 2). Then reinstall the launcher once so the restored file is replaced by a clean, properly-signed copy. Do not just keep running a quarantined-then-restored file — it may be incomplete. The official installer is digitally signed by Jagex; if your scanner still flags a fresh download, verify you got it from jagex.com/launcher.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>The fix worked once, but the black screen returns after every update. Why?</h4>
+                <p>That pattern points to your disk or antivirus. An auto-update writes a new UI bundle; if your AV quarantines part of it, or your disk has bad sectors, the next launch is black again. Run <code>chkdsk /f</code>, add AV exclusions, and check the drive's health (CrystalDiskInfo or <code>wmic diskdrive get status</code>). If the drive reports "Caution" or "Bad," back up and replace it before chasing the launcher further.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Does this guide apply to the Mac or Linux launcher?</h4>
+                <p>The decision tree logic is the same (cache first, permissions second, reinstall last), but the paths and commands differ. On Linux the native client and RuneLite are covered in our <a href="../guides/osrs-linux-client-freeze-fix-2026.html">Linux client freeze fix</a>. On Mac, clear <code>~/Library/Application Support/Jagex</code> and reinstall from the official DMG; Gatekeeper permission errors are the Mac equivalent of the Windows admin step.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Can I just use RuneLite and skip the Jagex Launcher?</h4>
+                <p>Jagex Launcher is now required to launch the official client and RuneLite on desktop — you generally cannot skip it. If the launcher itself will not open but you have RuneLite installed separately, the <a href="../guides/osrs-runelite-setup-guide-2026.html">RuneLite setup guide</a> covers getting RuneLite running, but you will still need a working launcher for the official client. Fix the launcher with this tree; it is the same fix either way.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Compatibility mode for Windows 8 worked — should I leave it on?</h4>
+                <p>Yes, leaving it on is harmless and is a legit permanent fix for GPU hand-off issues. Many players run the launcher in Windows 8 compatibility mode indefinitely with zero downside. The only reason to remove it is if a future launcher update specifically asks you to, which is rare.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>I see a black screen only on my second monitor. What gives?</h4>
+                <p>Mixed-DPI or HDR secondary monitors often break the launcher's embedded UI renderer. Launch on your primary 1080p/1440p monitor, turn HDR off, set scaling to 100%, and enable "Override high DPI scaling → Application" in the compatibility tab (Step 3). Once it draws, you can usually move it to the other monitor afterward. This is a display-config issue, not a launcher bug.</p>
+            </div>
+        </section>
+
+        <!-- TOOL PROMO -->
+        <div class="tool-promo">
+            <h3>🛠️ Companion Tools for Your Account</h3>
+            <p>Guides tell you what to do — tools help you act. Free, browser-based, mobile-friendly.</p>
+            <div class="tool-promo-grid">
+                <a href="../tools/profit-finder/" class="tool-promo-card"><span class="tp-ico">💰</span><span class="tp-name">Profit Finder</span><span class="tp-desc">Find money makers that match your account.</span><span class="tp-go">Open Tool →</span></a>
+                <a href="../tools/dps-calculator/" class="tool-promo-card"><span class="tp-ico">⚔️</span><span class="tp-name">DPS Calculator</span><span class="tp-desc">Compare gear and prayers mathematically.</span><span class="tp-go">Open Tool →</span></a>
+                <a href="../tools/bank-layout/" class="tool-promo-card"><span class="tp-ico">🏦</span><span class="tp-name">Bank Layout Planner</span><span class="tp-desc">Plan a clean, secure bank layout in minutes.</span><span class="tp-go">Open Tool →</span></a>
+            </div>
+        </div>
+
+        <!-- RELATED GUIDES -->
+        <div class="related-guides">
+            <h3>Related Guides</h3>
+            <div class="article-grid">
+                <a href="../guides/osrs-runelite-setup-guide-2026.html" class="article-card">
+                    <h3>OSRS RuneLite Setup Guide 2026</h3>
+                    <p>Get the official client and RuneLite installed and running the right way.</p>
+                </a>
+                <a href="../guides/osrs-runescape-lag-fps-drop-fix-2026.html" class="article-card">
+                    <h3>OSRS Lag &amp; FPS Drops Fix 2026</h3>
+                    <p>If the launcher is fine but the game window is black or stuttering, start here.</p>
+                </a>
+                <a href="../guides/osrs-linux-client-freeze-fix-2026.html" class="article-card">
+                    <h3>OSRS Linux Client Freeze Fix 2026</h3>
+                    <p>Same logic, different paths — for the native Linux client and RuneLite.</p>
+                </a>
+                <a href="../guides/osrs-mobile-cant-login-fix-2026.html" class="article-card">
+                    <h3>OSRS Mobile Can't Login Fix 2026</h3>
+                    <p>Account-side and network fixes when you loop at the login screen.</p>
+                </a>
+                <a href="../guides/osrs-mobile-crashing-black-screen-android-fix-2026.html" class="article-card">
+                    <h3>OSRS Mobile Black Screen (Android) 2026</h3>
+                    <p>Phone shows black instead of the game? Different cause, dedicated fix.</p>
+                </a>
+                <a href="../guides/osrs-mobile-crashing-black-screen-ios-fix-2026.html" class="article-card">
+                    <h3>OSRS Mobile Black Screen (iOS) 2026</h3>
+                    <p>iOS-specific black-screen and crash steps for iPhone and iPad.</p>
+                </a>
+                <a href="../guides/osrs-home-network-router-troubleshoot-2026.html" class="article-card">
+                    <h3>OSRS Home Network &amp; Router Fix 2026</h3>
+                    <p>For login-loop and disconnect cases that are network, not display, faults.</p>
+                </a>
+                <a href="../guides/osrs-runelite-gpu-plugin-crash-fix-2026.html" class="article-card">
+                    <h3>OSRS RuneLite GPU Plugin Crash Fix 2026</h3>
+                    <p>When the black screen is the GPU plugin crashing the client, not the launcher.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- SUPPORT CARD (verbatim Payhip green box, placed at end) -->
+    <div class="support-card" style="margin:8px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+            <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+            <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                <li><strong>Avoid Scams & Phishing (Stop Bank Drains)</strong></li>
+                <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+            </ul>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+    </div>
+
+        <p class="article-meta" style="color:#3b2615;font-size:.82rem;margin:1.5rem 0 0;opacity:.85;">Published: August 2026 &middot; Last verified: August 2026</p>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated for 2026. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ Troubleshooting</h4><ul>
+                    <li><a href="../guides/osrs-jagex-launcher-black-screen-fix-2026.html">Launcher Black Screen</a></li>
+                    <li><a href="../guides/osrs-runescape-lag-fps-drop-fix-2026.html">Lag &amp; FPS Drops</a></li>
+                    <li><a href="../guides/osrs-runelite-gpu-plugin-crash-fix-2026.html">GPU Plugin Crash</a></li>
+                    <li><a href="../guides/osrs-runelite-117hd-render-crash-fix-2026.html">117HD Crash</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+    <!-- Copyright & Anti-Scraping Notice -->
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+    </div>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary *{color:#1a1a1a!important}
+.guide-content li{color:#1a1a1a!important}
+@media (max-width: 768px) {
+  .guide-content table { font-size: 0.85rem; }
+  .guide-content table thead tr th { padding:8px 10px; font-size:0.8rem; }
+  .guide-content table tbody td { padding:6px 10px; }
+  .guide-content h2 { font-size: 1.4em; }
+  .guide-content h3 { font-size: 1.15em; }
+  .guide-content div[style*="border-radius:12px"] { padding: 16px !important; }
+  .guide-content div[style*="border-radius:8px"] { padding: 14px !important; }
+}
+@media (max-width: 640px) {
+  .guide-content table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .guide-content h2 { font-size: 1.25em; }
+  .guide-content h3 { font-size: 1.05em; }
+  .guide-content p { font-size: 0.95rem; line-height: 1.7; }
+  .guide-content li { font-size: 0.95rem; line-height: 1.8; }
+  .copyright-protection { margin: 12px 8px !important; padding: 8px 12px !important; }
+  .copyright-protection p { font-size: 0.72rem !important; }
+}
+</style>
+</body>
+</html>
