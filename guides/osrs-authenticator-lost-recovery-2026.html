@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Phone or Lost Authenticator? Full 2FA Migration &amp; Recovery (2026) — OSRS Guru</title>
+    <meta name="description" content="Got a new phone or lost your Authenticator? This 2026 guide covers proactive 2FA migration while you can still log in, backup codes, adding a second device, and the lost-device recovery flow for your Jagex account &mdash; without the panic of a full lockout.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS authenticator new phone, migrate OSRS 2FA to new phone, lost authenticator OSRS recovery, Jagex account 2FA backup codes, transfer Google Authenticator OSRS, OSRS two factor migration 2026, backup authenticator before switching phone">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/osrs-authenticator-lost-recovery-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-level="all" data-category="security">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#beginners">Beginners</a></li>
+                    <li><a href="../money-making.html">Money Making</a></li>
+                    <li><a href="../boss-guides.html">Boss Guides</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../weekly-updates.html">Updates</a></li>
+                    <li><a href="../index.html#chinese">中文攻略</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#security">Account Security</a> / Authenticator Migration &amp; Recovery 2026</p>
+            <h1>New Phone or Lost Authenticator? Full 2FA Migration &amp; Recovery (2026)</h1>
+            <p class="subtitle">Most "lost Authenticator" disasters are self-inflicted: people wipe their old phone, reinstall the app, or switch platforms without moving the code first. This guide is about doing it the calm way &mdash; migrating your Jagex two-factor authentication to a new device while you still have access, backing up your codes, and only if it is already too late, the recovery path back in.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>Updated: August 2026</strong> &mdash; Account Security &middot; 17 min read
+            </div>
+        </div>
+    </section>
+
+<main class="guide-content">
+    <div class="container">
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: All</div>
+            <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+            <p class="intro">If you can still log in, you are in the lucky group &mdash; migration is a 10-minute job, not a multi-day wait. Read our dedicated <a href="../guides/osrs-authenticator-lost-access-recovery-2026.html">Lost-Access Recovery guide</a> for the scenario where you are already locked out, and keep our <a href="../guides/osrs-account-hacked-prevention-2026.html">Account Hijack Prevention Guide</a> nearby so your freshly-migrated 2FA is actually protecting something.</p>
+
+            <div class="quick-verdict" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:820px;">
+                <h3 style="color:#3b2615;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Verdict &mdash; Migrate, Don't Gamble</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.85;">
+                    <li>📌 <strong>Migrate while you can still log in</strong> &mdash; it is instant and needs only your current code.</li>
+                    <li>📌 <strong>Back up the secret key or recovery codes</strong> before switching phones, not after.</li>
+                    <li>📌 <strong>Keep the old phone powered on</strong> until the new one generates a valid code &mdash; verify before you wipe.</li>
+                    <li>📌 <strong>Already locked out?</strong> That is a different flow &mdash; use account recovery, not guessing.</li>
+                </ul>
+            </div>
+
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#1a1a1a;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Migrate your 2FA while you still have a working code</strong> &mdash; it is instant and only needs your current authenticator.</li>
+                    <li>📌 <strong>Back up the secret key and recovery codes</strong> before you switch phones, not after the old one is wiped.</li>
+                    <li>📌 <strong>Keep the old phone on</strong> until the new phone generates a valid code &mdash; verify before you wipe or trade in.</li>
+                    <li>📌 <strong>Add a second device or backup method</strong> so losing one phone is an annoyance, not a lockout.</li>
+                    <li>📌 <strong>Already locked out?</strong> That is a separate recovery flow &mdash; use the official account recovery form, never guessing.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#why-migrate">Why Proactive Migration Beats Recovery</a></li>
+                    <li><a href="#backup-first">Back Up Before You Switch (Codes &amp; Secret Keys)</a></li>
+                    <li><a href="#migrate-steps">Step-by-Step: Move 2FA to a New Phone</a></li>
+                    <li><a href="#second-device">Add a Second Device / Backup Method</a></li>
+                    <li><a href="#lost-phone">Already Lost the Phone? The Recovery Flow</a></li>
+                    <li><a href="#mistakes">Common Migration Mistakes</a></li>
+                    <li><a href="#multi-account">Managing 2FA Across Multiple Accounts</a></li>
+                    <li><a href="#faq">Frequently Asked Questions</a></li>
+                </ol>
+            </div>
+
+            <section id="why-migrate">
+                <h2>1. 🔑 Why Proactive Migration Beats Recovery</h2>
+                <p>There are two completely different experiences around Authenticator problems, and which one you get is decided entirely by whether you still have a working code when you start. This guide is for the easy one. Know the difference so you do not accidentally create the hard one.</p>
+
+                <h3>① The two paths</h3>
+                <p><strong>Path A &mdash; You can still log in.</strong> You have the old phone, the app, or at least one valid code. Migration is a settings change that takes minutes, and you stay in control the whole time. <strong>Path B &mdash; You are locked out.</strong> The phone is gone, the app was uninstalled, and no backup exists. Now you must prove ownership to Jagex through account recovery, which is manual, queued, and can take days. Our <a href="../guides/osrs-authenticator-lost-access-recovery-2026.html">Lost-Access Recovery guide</a> is the full playbook for Path B &mdash; this article keeps you on Path A.</p>
+
+                <h3>② Why people fall into Path B by accident</h3>
+                <p>The classic mistake: you get a new phone, excitedly wipe and trade-in the old one, then try to log into OSRS and realize the Authenticator did not "just move" with your apps. Unlike most apps, the TOTP secret is stored locally in the authenticator app, not in your OS account &mdash; so a fresh install on a new phone shows an empty list. By the time you notice, the old phone is already erased. Doing the migration <em>before</em> you wipe is the entire game.</p>
+
+                <h3>③ The cost of waiting</h3>
+                <p>Beyond the wait, Path B carries risk: if your identity proof is weak (you cannot recall the original creation date or have no transaction ID), recovery can be denied, and denial sends you to our <a href="../guides/osrs-account-recovery-denied-reapply-2026.html">Recovery Denied &mdash; Reapply guide</a>. Proactive migration has none of that downside. It is strictly safer to spend ten minutes moving the code now than to gamble on a recovery ticket later.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Rule of thumb</div>
+                    <p>If you can generate a code <em>right now</em>, you are in migration territory &mdash; do it today, before the phone dies, gets lost, or gets wiped. Only once no working code exists anywhere do you switch to the recovery flow.</p>
+                </div>
+            </section>
+
+            <section id="backup-first">
+                <h2>2. 💾 Back Up Before You Switch (Codes &amp; Secret Keys)</h2>
+                <p>Backup is the step almost everyone skips and everyone regrets skipping. Do it the moment you know a phone change is coming &mdash; ideally days before, not the night before trade-in.</p>
+
+                <h3>① Save your Jagex recovery codes</h3>
+                <p>When you enable 2FA on a Jagex account, the system gives you a set of <strong>one-time backup/recovery codes</strong>. These are the emergency keys that let you log in without the app. Open <strong>Account Settings &rarr; Sign-in &amp; Security &rarr; Authenticator</strong>, find the recovery codes section, and either download or copy them. Store them in a password manager (not a notes file on the same phone you are about to lose) or print them and keep them somewhere safe. Each code works once, so a thief who finds them can still get in &mdash; treat them like spare keys.</p>
+
+                <h3>② Capture the TOTP secret key</h3>
+                <p>During 2FA setup, Jagex shows a QR code <em>and</em> often the underlying secret key (a string like <em>JBSWY3DPEHPK3PXP</em>). That secret is what the app turns into your 6-digit codes. If you saved it when you first set up 2FA, you can re-create the exact same code on any device by adding the secret manually. If you did not save it, you can usually reveal it again by temporarily disabling and re-enabling 2FA (you will need a current code to do that). Save the secret in your password manager alongside the recovery codes.</p>
+
+                <h3>③ Use your authenticator app's own transfer feature</h3>
+                <p>Modern authenticator apps have built-in migration that does the heavy lifting for you:
+                <ul>
+                    <li><strong>Google Authenticator:</strong> "Transfer accounts" &rarr; "Export accounts" on the old phone creates a QR; "Import accounts" on the new phone scans it. This moves the Jagex entry (and all others) in one go.</li>
+                    <li><strong>Authy:</strong> has optional encrypted cloud backup tied to your phone number / backup password &mdash; enable it and the codes follow you to a new device after you verify.</li>
+                    <li><strong>Microsoft Authenticator:</strong> offers cloud backup to your personal Microsoft account; sign in on the new phone to restore.</li>
+                    <li><strong>2FAS / Raivo / others:</strong> most support encrypted file export &mdash; save that file to cloud storage or a USB drive.</li>
+                </ul>
+                The app-level transfer is the smoothest path, but it only works if the old phone is still functional. That is why you back up the secret key too, as a belt-and-suspenders measure.</p>
+
+                <div class="warning-box">
+                    <div class="warning-title">⚠️ Never photograph the secret on a shared cloud</div>
+                    <p>A plaintext photo of your TOTP secret or recovery codes in a public photo album, a Discord DM, or an unencrypted email is a gift to anyone who sees it. Store secrets in an encrypted password manager or offline paper. If you must screenshot for transfer, delete it the moment migration is confirmed.</p>
+                </div>
+            </section>
+
+            <section id="migrate-steps">
+                <h2>3. 🔄 Step-by-Step: Move 2FA to a New Phone</h2>
+                <p>Here is the safe, verified order. The golden rule: <strong>do not wipe the old phone until the new one produces a valid code.</strong></p>
+
+                <h3>① Install the authenticator app on the new phone</h3>
+                <p>Put the same (or any TOTP-compatible) authenticator app on the new device. You do not need the identical app brand &mdash; TOTP is a standard, so Google Authenticator, Authy, Microsoft Authenticator, 2FAS, and many others all read the same secret. Install it but do not wipe the old phone yet.</p>
+
+                <h3>② Transfer the existing entry (easiest)</h3>
+                <p>Use the old phone's "Transfer / Export accounts" feature to push the Jagex entry to the new phone via the scan QR (see Section 2.3). After scanning, the new phone shows a 6-digit code for your Jagex account. This is the method most players should use &mdash; it preserves the exact same code and requires no change to your Jagex settings.</p>
+
+                <h3>③ Alternative: re-link through Jagex settings</h3>
+                <p>If transfer is not available (different ecosystems, app limitation), do it through the account instead:
+                <ol>
+                    <li>On a browser, log into <strong>jagex.com &rarr; Account Settings &rarr; Sign-in &amp; Security &rarr; Authenticator</strong>.</li>
+                    <li>Choose <strong>"Remove Authenticator"</strong> (you will need a current code from the old phone to confirm).</li>
+                    <li>Immediately choose <strong>"Add Authenticator"</strong> &mdash; Jagex shows a fresh QR and secret key.</li>
+                    <li>Scan that QR with the <em>new</em> phone's authenticator app. The new phone now generates the active code.</li>
+                    <li>Regenerate and save new recovery codes, since removing/re-adding invalidates the old ones.</li>
+                </ol>
+                This path briefly disables 2FA, so do it on a trusted network and re-enable within minutes &mdash; do not leave the account without 2FA overnight.</p>
+
+                <h3>④ Verify before you wipe</h3>
+                <p>On the new phone, confirm the generated code actually works: either log into the Jagex account and pass the prompt, or at minimum confirm the code is accepted by the login screen. Only after a successful login with the new phone should you factory-reset or trade in the old device. If the new code is rejected, you still have the old phone &mdash; troubleshoot (wrong account? clock skew? wrong secret?) before doing anything irreversible.</p>
+
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 320" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Safe 2FA migration flow to a new phone">
+                        <rect width="680" height="320" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Safe 2FA Migration &mdash; Old Phone Stays Until Verified</text>
+                        <rect x="20" y="55" width="150" height="44" rx="8" fill="#8b6914" opacity="0.14" stroke="#8b6914" stroke-width="1.5"/>
+                        <text x="34" y="82" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">1. Back up</text>
+                        <text x="34" y="96" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">codes + secret</text>
+                        <rect x="190" y="55" width="150" height="44" rx="8" fill="#8b6914" opacity="0.14" stroke="#8b6914" stroke-width="1.5"/>
+                        <text x="204" y="82" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">2. Install app</text>
+                        <text x="204" y="96" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">on new phone</text>
+                        <rect x="360" y="55" width="150" height="44" rx="8" fill="#8b6914" opacity="0.14" stroke="#8b6914" stroke-width="1.5"/>
+                        <text x="374" y="82" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">3. Transfer /</text>
+                        <text x="374" y="96" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">re-link 2FA</text>
+                        <rect x="530" y="55" width="150" height="44" rx="8" fill="#E6A817" opacity="0.20" stroke="#E6A817" stroke-width="2"/>
+                        <text x="544" y="82" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">4. Verify</text>
+                        <text x="544" y="96" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">new code works</text>
+                        <line x1="170" y1="77" x2="188" y2="77" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="340" y1="77" x2="358" y2="77" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="510" y1="77" x2="528" y2="77" stroke="#3b2615" stroke-width="2"/>
+                        <rect x="20" y="125" width="300" height="40" rx="8" fill="#8b6914" opacity="0.10" stroke="#8b6914" stroke-width="1.2"/>
+                        <text x="34" y="150" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Old phone stays ON until step 4 passes</text>
+                        <rect x="360" y="125" width="320" height="40" rx="8" fill="#8b6914" opacity="0.10" stroke="#8b6914" stroke-width="1.2"/>
+                        <text x="374" y="150" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Only THEN wipe / trade-in old phone</text>
+                        <rect x="20" y="190" width="640" height="48" rx="8" fill="#E6A817" opacity="0.14" stroke="#E6A817" stroke-width="2"/>
+                        <text x="36" y="214" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Fallback if transfer fails: remove + re-add via Jagex settings (needs current code)</text>
+                        <text x="36" y="230" font-size="11" fill="#1a1a1a" font-family="Arial,sans-serif">Re-add within minutes &mdash; do not leave the account without 2FA overnight.</text>
+                        <line x1="20" y1="265" x2="660" y2="265" stroke="#D4CDE0" stroke-width="1"/>
+                        <text x="20" y="288" font-size="11" fill="#8b6914" font-family="Arial,sans-serif">Result: same Jagex account, new phone holds the only working code. Instant, no recovery wait.</text>
+                    </svg>
+                    <figcaption>The migration flow keeps the old phone alive until the new code is verified. Never wipe first &mdash; that is what creates the lockout.</figcaption>
+                </figure>
+            </section>
+
+            <section id="second-device">
+                <h2>4. 📱 Add a Second Device / Backup Method</h2>
+                <p>The best protection against a future lost-phone panic is to never have a single point of failure. Add redundancy while you still have access.</p>
+
+                <h3>① Enroll the same secret on two devices</h3>
+                <p>When you (re)add the Authenticator via Jagex settings, the setup QR encodes the secret. Instead of scanning it with only one phone, scan it with <em>both</em> the old and new phones during setup &mdash; both will then generate the same valid code. You can also manually enter the secret key into a second app. Either way, two devices now produce working codes, so losing one is an annoyance, not a lockout.</p>
+
+                <h3>② Keep a backup device or tablet</h3>
+                <p>A spare phone, an old handset kept charged, or even a tablet with the authenticator app makes a perfect offline backup. It does not need a SIM or data plan &mdash; TOTP codes are computed locally from the secret and the clock, so a Wi-Fi-only tablet works fine. Store it somewhere safe and update it whenever you change 2FA.</p>
+
+                <h3>③ Consider an encrypted authenticator with cloud sync</h3>
+                <p>Apps like Authy (encrypted cloud backup) or Microsoft Authenticator (account-linked backup) let a verified new device pull your codes back automatically. The trade-off is a slightly larger attack surface (anyone who breaches your backup password gets the codes), so use a strong backup password and, where offered, a second factor on the backup itself. For most players the convenience outweighs the risk &mdash; just pair it with our <a href="../guides/osrs-account-hacked-prevention-2026.html">prevention habits</a> so the email that resets the backup is also locked down.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 The 3-place rule</div>
+                    <p>Keep your 2FA recoverable in at least three places: the primary phone, one backup device, and the saved secret key/recovery codes in a password manager. Losing any one of the three should never lock you out. This is the standard our <a href="../guides/osrs-multi-account-2fa-management-2026.html">Multi-Account 2FA Management Guide</a> recommends for players running several accounts.</p>
+                </div>
+            </section>
+
+            <figure class="guide-img">
+                <svg viewBox="0 0 680 280" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two devices generate the same valid authenticator code">
+                    <rect width="680" height="280" fill="#faf8f5"/>
+                    <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Redundancy: Two Devices, One Valid Code</text>
+                    <rect x="40" y="60" width="130" height="150" rx="10" fill="#8b6914" opacity="0.12" stroke="#8b6914" stroke-width="1.5"/>
+                    <text x="56" y="90" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Primary phone</text>
+                    <text x="58" y="160" font-size="22" fill="#E6A817" font-family="Arial,sans-serif" font-weight="bold">123 456</text>
+                    <text x="56" y="190" font-size="11" fill="#1a1a1a" font-family="Arial,sans-serif">generates code</text>
+                    <rect x="280" y="60" width="130" height="150" rx="10" fill="#8b6914" opacity="0.12" stroke="#8b6914" stroke-width="1.5"/>
+                    <text x="296" y="90" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Backup device</text>
+                    <text x="298" y="160" font-size="22" fill="#E6A817" font-family="Arial,sans-serif" font-weight="bold">123 456</text>
+                    <text x="296" y="190" font-size="11" fill="#1a1a1a" font-family="Arial,sans-serif">same code</text>
+                    <line x1="170" y1="135" x2="278" y2="135" stroke="#3b2615" stroke-width="2"/>
+                    <line x1="410" y1="135" x2="500" y2="135" stroke="#3b2615" stroke-width="2"/>
+                    <rect x="500" y="60" width="160" height="150" rx="10" fill="#E6A817" opacity="0.16" stroke="#E6A817" stroke-width="2"/>
+                    <text x="516" y="100" font-size="12" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Jagex login</text>
+                    <text x="516" y="125" font-size="11" fill="#1a1a1a" font-family="Arial,sans-serif">accepts either</text>
+                    <text x="516" y="150" font-size="11" fill="#1a1a1a" font-family="Arial,sans-serif">device's code</text>
+                    <text x="516" y="185" font-size="11" fill="#8b6914" font-family="Arial,sans-serif">Lose one =</text>
+                    <text x="516" y="200" font-size="11" fill="#8b6914" font-family="Arial,sans-serif">still log in</text>
+                </svg>
+                <figcaption>Enroll the same secret on a primary phone and a backup device. Either produces the valid code, so losing one is never a lockout.</figcaption>
+            </figure>
+
+            <section id="lost-phone">
+                <h2>5. 🚨 Already Lost the Phone? The Recovery Flow</h2>
+                <p>If you are reading this because the phone is already gone and no code exists anywhere, you have left Path A. Do not guess codes and do not panic &mdash; follow the recovery path. The full detail is in our <a href="../guides/osrs-authenticator-lost-access-recovery-2026.html">Lost-Access Recovery guide</a>; here is the compressed version so you know what to expect.</p>
+
+                <h3>① Use the official account recovery request</h3>
+                <p>Go to <strong>jagex.com/account-recovery</strong> and choose the option that you cannot access your Authenticator. Jagex will ask you to prove the account is yours through original details: the original creation date, original email, historical passwords you remember, and &mdash; most powerfully &mdash; any transaction/payment ID from membership, bonds, or Runecoins. Strong, accurate original details are what get approvals.</p>
+
+                <h3>② What happens after approval</h3>
+                <p>Once your identity is confirmed, Jagex strips the unauthorized or lost Authenticator from the account and returns access (usually with a temporary password). You then log in, set a fresh password, re-add <em>your</em> Authenticator on the new phone, and regenerate recovery codes. Critically, you now do the backup steps from Section 2 so you never repeat the lockout.</p>
+
+                <h3>③ Why this is slower than migration</h3>
+                <p>Recovery is a human-reviewed queue, not an instant setting. It can take from under a day (great proof) to over a week (thin or conflicting details), and a denial sends you to the reapply process. That wait is exactly what proactive migration avoids. If your ticket is denied, our <a href="../guides/osrs-account-recovery-denied-reapply-2026.html">Reapply guide</a> explains how to strengthen the next attempt instead of paying a recovery scammer.</p>
+
+                <div class="warning-box">
+                    <div class="warning-title">⚠️ Recovery scams target the desperate</div>
+                    <p>The moment you post about being locked out, strangers will offer to "recover it fast for a fee." Ignore them. Jagex does not sell priority recovery and no third party can touch their systems. Only the official form works. Report the DMs and keep your credentials to yourself.</p>
+                </div>
+            </section>
+
+            <section id="mistakes">
+                <h2>6. 🚫 Common Migration Mistakes</h2>
+                <p>These are the errors that turn a 10-minute job into a multi-day ordeal. Avoid every one.</p>
+
+                <h3>① Wiping the old phone first</h3>
+                <p>The number-one cause of avoidable lockouts. Factory-resetting or trading in the old phone before the new one is verified destroys your only working code. Always verify (Section 3.4) first.</p>
+
+                <h3>② Assuming 2FA "syncs" with your OS account</h3>
+                <p>Unless you explicitly use an app with cloud backup (Authy, Microsoft Authenticator backup, etc.), the TOTP secret lives only in the app on that device. A fresh install or a move to a different platform shows an empty list. Do not trust the OS cloud backup to carry your codes.</p>
+
+                <h3>③ Only saving recovery codes, never testing them</h3>
+                <p>Recovery codes are one-time use and easy to mis-copy. Before you depend on them, confirm at least one works (most login screens let you use a recovery code in place of the 6-digit code). If it fails, you have just discovered a problem while you still have the old phone &mdash; fix it then.</p>
+
+                <h3>④ Leaving 2FA off too long during re-link</h3>
+                <p>When you remove and re-add via Jagex settings, there is a window with no 2FA. Do it on a trusted network and finish within minutes. An account sitting without 2FA for hours is an open invitation &mdash; pair it with the <a href="../guides/osrs-bank-pin-window-guide-2026.html">Bank PIN 7-day delay</a> so a hijacker still cannot clean you out even in that gap.</p>
+
+                <h3>⑤ Storing secrets where a thief can find them</h3>
+                <p>Plaintext secrets in a note app synced to a compromised email, or a screenshot in a public album, defeats the purpose. Encrypted password manager or offline paper only. See our <a href="../guides/osrs-mobile-security-phishing-fake-app-2026.html">Mobile Security &amp; Fake-App Guide</a> for how thieves target phones specifically.</p>
+            </section>
+
+            <section id="multi-account">
+                <h2>7. 🧩 Managing 2FA Across Multiple Accounts</h2>
+                <p>Many OSRS players run two, three, or a dozen accounts. Each Jagex account has its own 2FA, and each needs its own backup plan &mdash; which is where things get messy if you wing it.</p>
+
+                <h3>① Label every entry clearly</h3>
+                <p>In your authenticator app, rename each Jagex entry with the account's login or a personal tag (e.g., "OSRS-main", "OSRS-iron"). A list of ten identical "Jagex" entries is how people migrate the wrong code and lock themselves out. Clear labels also make our <a href="../guides/osrs-multi-account-2fa-management-2026.html">Multi-Account 2FA Management Guide</a> tracking system actually usable.</p>
+
+                <h3>② Keep one master backup, not ten scattered ones</h3>
+                <p>Store all secrets and recovery codes in a single encrypted password manager, organized per account. When you switch phones, you migrate the whole vault once instead of hunting ten pieces of paper. The password manager itself should have its own 2FA &mdash; otherwise it becomes the new single point of failure.</p>
+
+                <h3>③ Migrate accounts in a batch, verify each</h3>
+                <p>When you get a new phone, move all accounts together using the app's transfer feature, then log into each Jagex account once to confirm the code works before wiping the old phone. Batch migration is faster, but verify per-account &mdash; one failed entry is easier to catch now than mid-grind next week.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 A locked main while the iron is fine?</div>
+                    <p>Because each account is independent, you can lose 2FA on one and keep the others. That is good (damage is contained) and bad (more surfaces to protect). Treat every account's 2FA as its own task, and use the management guide to keep a checklist so none slips through the cracks during a phone change.</p>
+                </div>
+            </section>
+
+            <section id="faq">
+                <h2>8. ❓ Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <h4>Can I just "log in once" on the new phone and the Authenticator moves by itself?</h4>
+                    <p>No. The 6-digit code is generated locally by the authenticator app from a secret stored on the device &mdash; it is not tied to your Jagex login or your phone's OS account. You must transfer the secret (app transfer feature) or re-link via Jagex settings. A fresh app install shows an empty list until you do.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>I still have the old phone but the app was uninstalled. Can I recover the code?</h4>
+                    <p>Reinstall the same authenticator app and, if it had cloud backup enabled (Authy, Microsoft Authenticator), sign in to restore. If there was no cloud backup, the local secret is likely gone with the uninstall &mdash; you will need to re-link via Jagex settings using any still-valid code, or fall back to recovery codes if you saved them.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Does switching from iPhone to Android (or vice versa) break 2FA?</h4>
+                    <p>Only if you rely on an app without cross-platform transfer. TOTP is standard, so you can move the secret between platforms using the app's export/import QR or by re-linking via Jagex settings. Google Authenticator's transfer QR works across iOS and Android; Authy and Microsoft Authenticator restore from their cloud backup on any platform.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>What if I already wiped the old phone and have no backup codes?</h4>
+                    <p>You are now in the recovery flow (Section 5). Submit the official account recovery request with your strongest original proof &mdash; especially any transaction/payment ID. Approval strips the lost Authenticator and returns access. This is slower than migration but reliable if your details are accurate. Full steps are in the <a href="../guides/osrs-authenticator-lost-access-recovery-2026.html">Lost-Access Recovery guide</a>.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Is it safe to have the same code on two phones at once?</h4>
+                    <p>Yes &mdash; that is the recommended backup method. Both devices compute the same valid code from the same secret, so either can log you in. The only risk is that both become points an attacker could target, so keep the backup device secure and its own access locked down.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How often should I refresh recovery codes?</h4>
+                    <p>Regenerate them whenever you change or re-link 2FA (old codes are invalidated), and at least once a year as routine hygiene. Test one after regenerating so you know the set is valid before you depend on it.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can Jagex support just tell me the code over the phone?</h4>
+                    <p>No. Jagex will never read out your 2FA code or bypass it by voice. The only paths are a valid code you generate, a recovery code you saved, or the account recovery process that strips the Authenticator after identity verification. Anyone claiming to "give you the code" is a scammer.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>My code is "always wrong" on the new phone after transfer. Why?</h4>
+                    <p>Almost always a clock skew: TOTP codes depend on the device time. Make sure the new phone has automatic date/time enabled and is synced to network time. Also confirm you transferred the correct Jagex entry (label them &mdash; see Section 7). If the code is still rejected after a time sync, re-link via Jagex settings using the old phone.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Should I disable 2FA to make switching phones easier?</h4>
+                    <p>Only as a deliberate, time-boxed step (remove then immediately re-add within minutes on a trusted network), never as a permanent state. An account without 2FA is far easier to hijack &mdash; combine any gap with the <a href="../guides/osrs-bank-pin-window-guide-2026.html">Bank PIN 7-day delay</a> so a hijacker still cannot drain you during the window.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Where do I learn to manage 2FA for several accounts at once?</h4>
+                    <p>Our <a href="../guides/osrs-multi-account-2fa-management-2026.html">Multi-Account 2FA Management Guide</a> covers labeling, batched migration, single-vault backups, and per-account verification checklists so a phone change never locks out your whole portfolio at once.</p>
+                </div>
+            </section>
+
+            <!-- TOOL PROMO -->
+            <div class="tool-promo">
+                <h3>🛠️ Companion Tools for Your Account</h3>
+                <p>Guides tell you what to do — tools help you act. Free, browser-based, mobile-friendly.</p>
+                <div class="tool-promo-grid">
+                    <a href="../tools/recovery-wizard/" class="tool-promo-card"><span class="tp-ico">🔐</span><span class="tp-name">Account Recovery Wizard</span><span class="tp-desc">Step-by-step recovery if you're locked out of your Jagex account.</span><span class="tp-go">Open Tool →</span></a>
+                    <a href="../tools/gp-tracker/" class="tool-promo-card"><span class="tp-ico">📈</span><span class="tp-name">GP / Supply Tracker</span><span class="tp-desc">Track your wealth and spot suspicious losses.</span><span class="tp-go">Open Tool →</span></a>
+                    <a href="../tools/drop-lookup/" class="tool-promo-card"><span class="tp-ico">🎲</span><span class="tp-name">Drop Rate Lookup</span><span class="tp-desc">Check real drop rates before you grind.</span><span class="tp-go">Open Tool →</span></a>
+                </div>
+            </div>
+
+            <!-- RELATED GUIDES -->
+            <div class="related-guides">
+                <h3>Related Account Security Guides</h3>
+                <div class="article-grid">
+                    <a href="../guides/osrs-authenticator-lost-access-recovery-2026.html" class="article-card">
+                        <h3>Authenticator Lost-Access Recovery 2026</h3>
+                        <p>The full playbook for when you are already locked out and cannot generate a code.</p>
+                    </a>
+                    <a href="../guides/osrs-account-hacked-prevention-2026.html" class="article-card">
+                        <h3>Account Hijack Prevention 2026</h3>
+                        <p>The before-it-happens checklist that makes a lost phone a non-event.</p>
+                    </a>
+                    <a href="../guides/osrs-multi-account-2fa-management-2026.html" class="article-card">
+                        <h3>Multi-Account 2FA Management 2026</h3>
+                        <p>Label, batch-migrate, and back up 2FA across every account you run.</p>
+                    </a>
+                    <a href="../guides/osrs-jagex-account-faq-2026.html" class="article-card">
+                        <h3>Jagex Account FAQ 2026</h3>
+                        <p>Common Jagex Account, login, and two-factor questions answered.</p>
+                    </a>
+                    <a href="../guides/osrs-account-security-guide-2026.html" class="article-card">
+                        <h3>OSRS Account Security Guide 2026</h3>
+                        <p>The complete security baseline: 2FA, email, PIN, and recovery readiness.</p>
+                    </a>
+                    <a href="../guides/osrs-mobile-security-phishing-fake-app-2026.html" class="article-card">
+                        <h3>Mobile Security &amp; Fake-App Guide 2026</h3>
+                        <p>How thieves target phones and authenticator apps &mdash; and how to block them.</p>
+                    </a>
+                    <a href="../guides/osrs-account-hacked-emergency-checklist-2026.html" class="article-card">
+                        <h3>Account Hacked? 1-Hour Checklist 2026</h3>
+                        <p>If a lost phone already led to a hijack, this is the minute-by-minute response.</p>
+                    </a>
+                    <a href="../guides/osrs-bank-pin-window-guide-2026.html" class="article-card">
+                        <h3>Bank PIN 7-Day Delay Window 2026</h3>
+                        <p>The anti-theft setting that protects your bank even during a 2FA gap.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SUPPORT CARD (verbatim Payhip green box, placed at end) -->
+    <div class="support-card" style="margin:8px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+            <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+            <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                <li><strong>Avoid Scams & Phishing (Stop Bank Drains)</strong></li>
+                <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+            </ul>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+    </div>
+
+            <p class="article-meta" style="color:#3b2615;font-size:.82rem;margin:1.5rem 0 0;opacity:.85;">Published: August 2026 &middot; Last verified: August 2026</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated for 2026. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🛡️ Account Security</h4><ul>
+                    <li><a href="../guides/osrs-authenticator-lost-access-recovery-2026.html">Lost-Access Recovery</a></li>
+                    <li><a href="../guides/osrs-account-hacked-prevention-2026.html">Hijack Prevention</a></li>
+                    <li><a href="../guides/osrs-multi-account-2fa-management-2026.html">Multi-Account 2FA</a></li>
+                    <li><a href="../guides/osrs-bank-pin-window-guide-2026.html">Bank PIN Delay</a></li>
+                    <li><a href="../guides/osrs-jagex-account-faq-2026.html">Jagex Account FAQ</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../money-making.html">Money Making</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+    </footer>
+
+    <!-- Copyright & Anti-Scraping Notice -->
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+    </div>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <script src="../js/features.js"></script>
+    <script src="../js/ai-qa-widget.js"></script>
+<style>.guide-content{color:#1a1a1a!important}.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+  .guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+  .guide-content .quick-summary *{color:#1a1a1a!important}
+  .guide-content li{color:#1a1a1a!important}
+
+ /* ===== Mobile Responsive Overrides (P0 Standard) ===== */
+ @media (max-width: 768px) {
+  .guide-content table { font-size: 0.85rem; }
+  .guide-content table thead tr th { padding:8px 10px; font-size:0.8rem; }
+  .guide-content table tbody td { padding:6px 10px; }
+  .guide-content h2 { font-size: 1.4em; }
+  .guide-content h3 { font-size: 1.15em; }
+  .guide-content div[style*="border-radius:12px"] { padding: 16px !important; }
+  .guide-content div[style*="border-radius:8px"] { padding: 14px !important; }
+ }
+
+ @media (max-width: 640px) {
+  .guide-content table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .guide-content h2 { font-size: 1.25em; }
+  .guide-content h3 { font-size: 1.05em; }
+  .guide-content p { font-size: 0.95rem; line-height: 1.7; }
+  .guide-content li { font-size: 0.95rem; line-height: 1.8; }
+  .copyright-protection { margin: 12px 8px !important; padding: 8px 12px !important; }
+  .copyright-protection p { font-size: 0.72rem !important; }
+ }
+
+</style>
+</body>
+</html>
