@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Lag &amp; FPS Drops: Root-Cause Fix Guide (2026) — GPU Plugin, 117HD, Memory, Network</title>
+    <meta name="description" content="OSRS lagging or dropping FPS in 2026? Find the real cause layer by layer: GPU plugin, 117HD, RAM pressure, network latency, and client vs server. A diagnostic table tells you exactly which fix to run.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS lag fix 2026, OSRS FPS drops, RuneLite low FPS, 117HD FPS drop, OSRS GPU plugin crash, OSRS stuttering fix, OSRS high ping, OSRS client vs server lag">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/osrs-runescape-lag-fps-drop-fix-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="all" data-category="troubleshooting">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+                    <li><a href="../pvm-guides.html">PvM Guides</a></li>
+                    <li><a href="../mobile.html">Mobile</a></li>
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../mobile.html">Troubleshooting</a> / OSRS Lag &amp; FPS Drops Fix 2026</p>
+            <h1>OSRS Lag &amp; FPS Drops: Root-Cause Fix Guide (2026)</h1>
+
+<div class="article-meta" style="margin-top:12px;color:#666;font-size:.9rem;line-height:1.6"><span>Updated August 19, 2026</span> &nbsp;|&nbsp; <span>15 min read</span> &nbsp;|&nbsp; <span>By Yanchun Wu</span></div><!-- meta-update-2026 -->
+
+            <p class="subtitle">Stuttering, frame drops, rubber-banding, or just a slideshow in busy areas? The fix depends entirely on which layer is failing. This guide walks you down the stack — GPU plugin, 117HD, memory, network, and the client-vs-server question — with a diagnostic table that points straight at the right fix.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>Updated: August 2026</strong> — Troubleshooting · 15 min read
+            </div>
+        </div>
+    </section>
+
+<main class="guide-content">
+    <div class="container">
+        <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: All</div>
+        <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+
+        <p class="intro">"Lag" is a lazy word that hides five different problems. Before you touch anything, decide whether your FPS is low (the game runs slowly but your inputs register) or your ping is high (the game runs smoothly but teleports you backward). The <a href="../guides/osrs-runelite-gpu-plugin-crash-fix-2026.html">GPU plugin crash fix</a> and the <a href="../guides/osrs-runelite-117hd-render-crash-fix-2026.html">117HD render crash guide</a> cover the two biggest FPS killers in detail; this page tells you which one is actually biting you.</p>
+        <p>If your phone is the device struggling, the same root-cause logic applies but the settings live in the app — start from the <a href="../guides/osrs-mobile-best-settings-2026.html">mobile best settings guide</a>. Desktop players on Linux should also see the <a href="../guides/osrs-linux-client-freeze-fix-2026.html">Linux client freeze fix</a> for platform-specific steps.</p>
+
+        <div class="tip-box">
+            <div class="tip-title">💡 Quick Verdict (read this first)</div>
+            <p>If FPS tanks only in crowded areas or with fancy lighting, it is the <strong>GPU plugin or 117HD</strong> — turn 117HD off, cap FPS, and lower the GPU plugin's rendering resolution. If FPS is low <em>everywhere</em> and your whole PC feels slow, it is <strong>RAM or CPU pressure</strong> — close browsers and background apps. If the game looks smooth but you rubber-band and teleport, it is <strong>network latency</strong>, not your PC. Match the symptom, run the matching layer below.</p>
+        </div>
+
+        <div class="toc">
+            <h3>① Table of Contents</h3>
+            <ol>
+                <li><a href="#types-of-lag">Types of Lag: FPS vs Latency</a></li>
+                <li><a href="#gpu-plugin">Layer 1 — GPU Plugin (First Suspect)</a></li>
+                <li><a href="#117hd">Layer 2 — 117HD (Biggest FPS Killer)</a></li>
+                <li><a href="#memory">Layer 3 — RAM &amp; Memory Pressure</a></li>
+                <li><a href="#network">Layer 4 — Network &amp; Latency</a></li>
+                <li><a href="#client-settings">Layer 5 — Client &amp; Hardware Settings</a></li>
+                <li><a href="#diagnostic-table">Diagnostic Table: Which Fix Do I Run?</a></li>
+                <li><a href="#faq">Frequently Asked Questions</a></li>
+            </ol>
+        </div>
+
+        <!-- SECTION 1 -->
+        <section id="types-of-lag">
+            <h2>1. 📉 Types of Lag: FPS vs Latency</h2>
+            <p>You cannot fix lag until you name it. There are two completely separate problems that players both call "lag," and they need opposite fixes.</p>
+
+            <h3>① Low FPS (frames per second)</h3>
+            <p>Your client is rendering fewer than ~30–50 frames per second. The world looks choppy, the camera drags, and clicks feel delayed because the picture is literally updating slowly. Crucially, <strong>your inputs still reach the server on time</strong> — you are just seeing an old picture. This is a <strong>local rendering/performance</strong> problem: GPU, 117HD, RAM, or CPU.</p>
+
+            <h3>② High latency / ping (network)</h3>
+            <p>Your FPS is fine (the game looks fluid), but every few seconds you teleport backward, attacks don't land when you click, or you "rubber-band." That is the server correcting your position because your packets arrived late or out of order. This is a <strong>network</strong> problem: Wi-Fi, ISP, VPN, or server load. Pouring money into a GPU will not fix it.</p>
+
+            <h3>③ How to tell them apart in 10 seconds</h3>
+            <div class="method-box highlight">
+                <h4>🧪 The 10-second test</h4>
+                <ul>
+                    <li>Open the RuneLite <strong>FPS</strong> overlay (enable in Settings → Display, or the <code>FPS</code> plugin). Watch the number.</li>
+                    <li><strong>FPS under ~25 and choppy picture</strong> → rendering problem (Layers 1–3).</li>
+                    <li><strong>FPS fine (50+) but you rubber-band</strong> → network problem (Layer 4).</li>
+                    <li><strong>Both at once</strong> → start with memory (Layer 3); a starved PC spikes both latency and FPS.</li>
+                </ul>
+            </div>
+
+            <h3>④ Client vs server lag (the part players miss)</h3>
+            <p>Sometimes the game is smooth but actions feel "behind." That can be <strong>server tick</strong> lag during mass events (Leagues, DMM, update days) where Jagex's hardware is busy — nothing you do locally helps except waiting it out or playing off-peak. The diagnostic table at the end helps you confirm it is server-side before you waste an hour tuning your PC.</p>
+
+            <div class="tip-box">
+                <div class="tip-title">💡 One number to memorize</div>
+                <p>RuneScape ticks at <strong>0.6 seconds (600 ms)</strong>. If your ping is under ~80 ms you will never feel it. If your ping is over ~200 ms you will notice rubber-banding. FPS below 30 feels bad; 50+ feels great. Keep those two thresholds in your head and every fix below makes sense.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 2 -->
+        <section id="gpu-plugin">
+            <h2>2. 🎨 Layer 1 — GPU Plugin (First Suspect)</h2>
+            <p>The RuneLite GPU plugin moves rendering from your CPU to your graphics card. When it works, FPS multiplies. When it misbehaves, it is the #1 cause of stutter and sudden FPS collapse on otherwise-capable machines.</p>
+
+            <h3>① Symptoms of a bad GPU plugin setup</h3>
+            <ul>
+                <li>FPS is great alone, then collapses in populated areas (GE, banks, raids).</li>
+                <li>Random freezes of 1–3 seconds, then a catch-up burst.</li>
+                <li>Client crashes with a <code>GL</code> or <code>OpenGL</code> error (see the dedicated <a href="../guides/osrs-runelite-gpu-plugin-crash-fix-2026.html">GPU plugin crash guide</a>).</li>
+                <li>FPS drops exactly when you enable HD or 117HD (Layer 2 builds on this plugin).</li>
+            </ul>
+
+            <h3>② The first four settings to change</h3>
+            <div class="method-box">
+                <h4>⚙️ GPU plugin settings (Configuration → GPU)</h4>
+                <ul>
+                    <li><strong>Anti-aliasing:</strong> set to <strong>Disabled</strong> or MSAA 0 first. AA is the single biggest FPS tax.</li>
+                    <li><strong>Render scaling / resolution scaling:</strong> if present, set to <strong>100%</strong> or lower it to 75% for a huge FPS gain at slight blur.</li>
+                    <li><strong>Shadows:</strong> off. Shadows are expensive and barely visible in OSRS.</li>
+                    <li><strong>V-Sync:</strong> off unless you get screen tearing; V-Sync caps FPS to your monitor and adds input lag.</li>
+                </ul>
+            </div>
+
+            <h3>③ FPS cap — counterintuitive but vital</h3>
+            <p>An uncapped FPS makes your GPU run at 100% forever, heats up, and thermal-throttles into worse performance than a sensible cap. Set a cap slightly above your monitor refresh:</p>
+            <div class="method-box">
+                <h4>🔢 Set an FPS cap</h4>
+                <p>In the GPU plugin (or the <code>FPS Control</code> plugin): set <strong>FPS Target</strong> to <strong>60</strong> (or 120/144 if you have a high-refresh monitor). This prevents the client from rendering 300+ FPS in an empty bank and cooking your GPU.</p>
+            </div>
+
+            <h3>④ When the GPU plugin is the actual culprit</h3>
+            <p>If FPS is still terrible with the GPU plugin on but fine with it off, the plugin is fighting your driver. Try, in order:</p>
+            <ol>
+                <li>Update your GPU driver (Step 3 of the launcher guide applies — same drivers).</li>
+                <li>In GPU plugin config, switch <strong>Rendering mode</strong> between <code>GLSL</code> and <code>OpenGL</code> (or the "modern" vs "legacy" toggle) — one works better per driver.</li>
+                <li>Disable <strong>Compute shaders</strong> if enabled.</li>
+                <li>Uninstall and reinstall the GPU plugin (RuneLite → Plugins → GPU → Uninstall, then reinstall).</li>
+            </ol>
+            <p>If it still crashes, that is a hard GPU-plugin fault — follow the <a href="../guides/osrs-runelite-gpu-plugin-crash-fix-2026.html">GPU plugin crash fix</a> rather than guessing here.</p>
+
+            <div class="warning-box">
+                <div class="warning-title">⚠️ Integrated Graphics Warning</div>
+                <p>If your laptop only has Intel integrated graphics (no discrete NVIDIA/AMD card), the GPU plugin can still help but the gains are smaller and 117HD may be unusable. Force the client to the discrete GPU in Windows Settings → System → Display → Graphics, choosing <code>RuneLite.exe</code> → "High performance." Running HD on integrated graphics is the most common "my FPS is 5" complaint.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 3 -->
+        <section id="117hd">
+            <h2>3. 🌟 Layer 2 — 117HD (Biggest FPS Killer)</h2>
+            <p>117HD is a gorgeous HD rework that turns OSRS into a lit, shadowed world. It is also the heaviest thing you can run on the client. For most mid-range PCs, 117HD is the difference between 60 FPS and 15 FPS.</p>
+
+            <h3>① What 117HD actually costs</h3>
+            <p>117HD adds dynamic lighting, shadows, reflections, and higher-resolution terrain. Each of those is a GPU operation per frame. On a GTX 1060-class card you might drop from ~120 FPS (legacy) to ~30 FPS (117HD maxed). That is expected, not a bug.</p>
+
+            <h3>② Tune 117HD before you disable it</h3>
+            <div class="method-box">
+                <h4>🌟 117HD settings (Configuration → 117HD)</h4>
+                <ul>
+                    <li><strong>Quality preset:</strong> try <strong>MEDIUM</strong> or <strong>LOW</strong> instead of HIGH/ULTRA.</li>
+                    <li><strong>Shadows:</strong> OFF. This alone can recover 20–30 FPS.</li>
+                    <li><strong>Shadow resolution:</strong> if you keep shadows, drop to 1024 or 512.</li>
+                    <li><strong>Anti-aliasing:</strong> OFF or 2x max.</li>
+                    <li><strong>Anisotropic filtering:</strong> 1x or 2x.</li>
+                    <li><strong>Reflection quality:</strong> LOW or OFF.</li>
+                    <li><strong>Water effects:</strong> reduce or disable.</li>
+                </ul>
+            </div>
+
+            <h3>③ When to just turn 117HD off</h3>
+            <p>If you raid, boss, or PvP, FPS matters more than looks. The honest call for many players: run <strong>legacy HD (the built-in GPU plugin lighting)</strong> or flat 2D for content, and enable 117HD only for screenshots or chill skilling. You do not need 117HD to play well — you need FPS to react in a raid.</p>
+
+            <h3>④ 117HD crashes specifically (not just slow)</h3>
+            <p>If 117HD makes the client <em>crash</em> (not merely slow), that is a render fault distinct from low FPS. Common causes: an outdated GPU driver, the plugin conflicting with another HD-style plugin, or a corrupted shader cache. The <a href="../guides/osrs-runelite-117hd-render-crash-fix-2026.html">117HD render crash guide</a> walks the exact recovery (clear the shader cache, update driver, isolate conflicting plugins).</p>
+
+            <figure class="guide-img">
+                <svg viewBox="0 0 680 300" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FPS cost of graphics settings from legacy to 117HD ultra">
+                    <rect width="680" height="300" fill="#faf8f5"/>
+                    <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Relative FPS by Graphics Setting</text>
+                    <text x="20" y="46" font-size="11" fill="#8b6914" font-family="Arial,sans-serif">(higher = smoother, same hardware)</text>
+                    <line x1="170" y1="70" x2="170" y2="270" stroke="#3b2615" stroke-width="2"/>
+                    <line x1="170" y1="270" x2="650" y2="270" stroke="#3b2615" stroke-width="2"/>
+                    <rect x="200" y="80" width="80" height="190" fill="#8b6914" opacity="0.85"/>
+                    <text x="216" y="288" font-size="11" fill="#3b2615" font-family="Arial,sans-serif">Legacy 2D</text>
+                    <rect x="310" y="120" width="80" height="150" fill="#8b6914" opacity="0.8"/>
+                    <text x="322" y="288" font-size="11" fill="#3b2615" font-family="Arial,sans-serif">GPU plugin</text>
+                    <rect x="420" y="160" width="80" height="110" fill="#E6A817" opacity="0.85"/>
+                    <text x="436" y="288" font-size="11" fill="#3b2615" font-family="Arial,sans-serif">117HD Low</text>
+                    <rect x="530" y="220" width="80" height="50" fill="#E6A817" opacity="0.6"/>
+                    <text x="540" y="288" font-size="11" fill="#3b2615" font-family="Arial,sans-serif">117HD Ultra</text>
+                    <text x="180" y="80" font-size="11" fill="#3b2615" font-family="Arial,sans-serif">High FPS</text>
+                    <text x="120" y="260" font-size="11" fill="#3b2615" font-family="Arial,sans-serif">Low FPS</text>
+                </svg>
+                <figcaption>Each step up the HD ladder costs FPS. 117HD Ultra is the heaviest; dropping to Low or off recovers the most frames.</figcaption>
+            </figure>
+        </section>
+
+        <!-- SECTION 4 -->
+        <section id="memory">
+            <h2>4. 💾 Layer 3 — RAM &amp; Memory Pressure</h2>
+            <p>If FPS is low <em>everywhere</em>, not just in pretty areas, your PC is likely memory- or CPU-starved. The client itself is light, but RuneLite + a browser + Discord + Spotify on an 8 GB laptop will page to disk and stutter hard.</p>
+
+            <h3>① Check if you are memory-starved</h3>
+            <div class="method-box">
+                <h4>📊 Check RAM (Windows)</h4>
+                <p><strong>Ctrl + Shift + Esc</strong> → Performance → Memory. If "In use" is near 90–100% of your total, you are starved. Also watch <strong>Disk</strong> — if it sits at 100% constantly, Windows is swapping RAM to disk (the classic "everything stutters" symptom).</p>
+            </div>
+
+            <h3>② Free memory before you play</h3>
+            <ul>
+                <li>Close Chrome/Edge tabs — a browser with 20 tabs eats 2–4 GB.</li>
+                <li>Quit Discord's hardware-accelerated GPU use if your GPU is already busy (Discord → Settings → Appearance → Hardware Acceleration off).</li>
+                <li>Exit Spotify's background helper, cloud-sync apps (OneDrive, Dropbox), and RGB/Fan control suites.</li>
+                <li>On 8 GB RAM, consider adding a stick — it is the cheapest real upgrade for OSRS multitaskers.</li>
+            </ul>
+
+            <h3>③ Give RuneLite more heap (advanced)</h3>
+            <p>RuneLite runs on Java with a fixed memory ceiling. If you run many plugins (screen markers, ground markers, loot tracker with huge logs), the default heap can thrash. Raise it:</p>
+            <div class="method-box">
+                <h4>🧠 Raise RuneLite memory (via RuneLite settings)</h4>
+                <p>RuneLite → <strong>Settings (bottom-left)</strong> (not in-game) → <strong>Max heap</strong> (or <code>-Xmx</code>) → set to <strong>1024 MB</strong> (1 GB) for heavy plugin users, up to <strong>2048 MB</strong> if you have 16 GB RAM. Do not exceed ~1/4 of your total RAM.</p>
+            </div>
+
+            <h3>④ CPU affinity &amp; power plan</h3>
+            <p>Laptops often throttle the CPU on "Balanced" or "Power saver" plans. Switch to <strong>High performance</strong>:</p>
+            <div class="method-box">
+                <h4>🔌 Power plan (CMD, or Settings)</h4>
+                <p>Settings → System → Power &amp; sleep → Additional power settings → <strong>High performance</strong>. On a laptop plugged in, this alone can stop the "drops every time the fan slows" pattern.</p>
+            </div>
+            <p>Also confirm your laptop is <strong>plugged in</strong>. On battery, Windows caps the CPU and GPU hard — OSRS will stutter by design to save power.</p>
+        </section>
+
+        <!-- SECTION 5 -->
+        <section id="network">
+            <h2>5. 🌐 Layer 4 — Network &amp; Latency</h2>
+            <p>If your FPS is fine but you rubber-band, teleport, or miss clicks, the problem is the wire between you and Jagex — not your GPU. Fix the network, not the graphics.</p>
+
+            <h3>① Measure your real ping</h3>
+            <div class="method-box">
+                <h4>📡 Ping the game servers (CMD)</h4>
+                <p><code>ping oldschool.runescape.com -t</code></p>
+                <p>Watch the <strong>time=</strong> values. Stable under ~80 ms = great. Spiking to 200–400 ms or showing "Request timed out" = your network, not the game. Press <strong>Ctrl + C</strong> to stop.</p>
+            </div>
+
+            <h3>② Wi-Fi is the usual suspect</h3>
+            <ul>
+                <li><strong>Plug in with Ethernet</strong> if you can. Wi-Fi adds jitter (varying delay) even at good speed — and jitter is what causes rubber-banding.</li>
+                <li>If you must use Wi-Fi, get within line-of-sight of the router, on 5 GHz, and off a congested channel.</li>
+                <li>Disable <strong>Wi-Fi power saving</strong> (Device Manager → your Wi-Fi adapter → Power Management → untick "Allow the computer to turn off this device").</li>
+            </ul>
+
+            <h3>③ VPN, proxy, and "gaming boosters"</h3>
+            <p>A VPN almost always <em>increases</em> OSRS ping because Jagex's servers are region-locked and a VPN routes you through another country. Turn the VPN off for OSRS unless you specifically need it for access. "Lag-reducing" boosters rarely help for a fixed server location and often make it worse.</p>
+
+            <h3>④ Router &amp; ISP fixes</h3>
+            <p>If ping spikes persist on Ethernet, the issue is your router or ISP. The dedicated <a href="../guides/osrs-home-network-router-troubleshoot-2026.html">home network &amp; router guide</a> covers port forwarding, QoS, DNS (try <code>1.1.1.1</code> or <code>8.8.8.8</code>), and double-NAT. Quick wins:</p>
+            <ol>
+                <li>Reboot the router (unplug 30s).</li>
+                <li>Set DNS to Cloudflare <code>1.1.1.1</code> / Google <code>8.8.8.8</code> in adapter settings.</li>
+                <li>Enable <strong>QoS</strong> and prioritize your PC, or at least deprioritize Netflix/Downloads during raids.</li>
+                <li>Test on a phone hotspot — if OSRS is smooth on cellular, your home internet is the culprit.</li>
+            </ol>
+
+            <h3>⑤ Is it actually the server?</h3>
+            <p>On update days, Leagues launches, and DMM openings, Jagex's servers get busy and <em>everyone</em> feels delay regardless of their PC. Signs it is server-side: your ping is fine but actions still lag, and friends in other regions report the same. Nothing local fixes this — play off-peak or accept it. The diagnostic table confirms it.</p>
+        </section>
+
+        <!-- SECTION 6 -->
+        <section id="client-settings">
+            <h2>6. 🔧 Layer 5 — Client &amp; Hardware Settings</h2>
+            <p>A few client-side toggles and hardware habits fix a surprising amount of "my game just feels bad" without touching plugins.</p>
+
+            <h3>① In-game client settings</h3>
+            <div class="method-box">
+                <h4>🕹️ Settings → Graphics / Display</h4>
+                <ul>
+                    <li><strong>Camera sensitivity:</strong> lower it if the view feels laggy to move.</li>
+                    <li><strong>Disable "Smoothing"</strong> if present — it costs FPS for little gain.</li>
+                    <li><strong>Fixed / Resizable:</strong> Resizable is fine; just do not run the client at 4K fullscreen on a weak GPU.</li>
+                    <li><strong>Ground decorations / entities:</strong> turning some off reduces draw load in crowded areas.</li>
+                </ul>
+            </div>
+
+            <h3>② Idle/uncapped FPS and the client's own cap</h3>
+            <p>RuneLite has an <strong>Idle</strong> FPS and an <strong>Max</strong> FPS. Set Max to your monitor refresh (60/120/144) and Idle to ~20–30 so the client sips power when the window is unfocused but runs full speed when you play.</p>
+
+            <h3>③ Overlays and plugin bloat</h3>
+            <p>Every plugin that draws on screen costs a little FPS, and a few costly ones add up:</p>
+            <ul>
+                <li><strong>Ground Items</strong> with huge highlight lists — trim them.</li>
+                <li><strong>Tile markers / object markers</strong> by the hundreds — consolidate.</li>
+                <li><strong>XP Tracker / loot tracker</strong> with enormous history — clear old logs.</li>
+                <li>Disable any plugin you do not actively use; "just in case" plugins are silent FPS tax.</li>
+            </ul>
+
+            <h3>④ Thermal throttling (the hidden one)</h3>
+            <p>If FPS starts fine and degrades over 10–20 minutes, your laptop is overheating and throttling. Clean the vents, lift the back with a stand, and consider a cooling pad. This is the desktop equivalent of the <a href="../guides/osrs-mobile-overheating-crash-fix-2026.html">mobile overheating problem</a> — same physics, smaller case.</p>
+
+            <div class="tip-box">
+                <div class="tip-title">💡 The "Process Lasso" trick (advanced)</div>
+                <p>On Windows, setting RuneLite's CPU priority to "High" and disabling CPU core parking can smooth tick timing on busy PCs. This is optional and not needed for most players — but if you have tried everything else and still get micro-stutters, it is worth a look. Never set it to "Realtime"; that can freeze your system.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 7 -->
+        <section id="diagnostic-table">
+            <h2>7. 🧪 Diagnostic Table: Which Fix Do I Run?</h2>
+            <p>Match your exact symptom row to the layer and the fix. This is the whole guide compressed into one table — bookmark it.</p>
+
+            <h3>① Symptom → fix matrix</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symptom</th>
+                        <th>Likely Layer</th>
+                        <th>First Fix to Run</th>
+                        <th>If That Fails</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>FPS fine, but rubber-banding / teleport</td>
+                        <td>Network (Layer 4)</td>
+                        <td>Plug in Ethernet, ping test, kill VPN</td>
+                        <td><a href="../guides/osrs-home-network-router-troubleshoot-2026.html">Router guide</a></td>
+                    </tr>
+                    <tr>
+                        <td>FPS great alone, collapses in GE/banks</td>
+                        <td>GPU plugin (Layer 1)</td>
+                        <td>Cap FPS, disable AA/shadows</td>
+                        <td><a href="../guides/osrs-runelite-gpu-plugin-crash-fix-2026.html">GPU crash fix</a></td>
+                    </tr>
+                    <tr>
+                        <td>FPS low only with 117HD on</td>
+                        <td>117HD (Layer 2)</td>
+                        <td>Drop 117HD to Low/Off</td>
+                        <td><a href="../guides/osrs-runelite-117hd-render-crash-fix-2026.html">117HD crash guide</a></td>
+                    </tr>
+                    <tr>
+                        <td>Low FPS everywhere, whole PC slow</td>
+                        <td>Memory/CPU (Layer 3)</td>
+                        <td>Close browser/Discord, plug in, High-perf plan</td>
+                        <td>Add RAM, raise RuneLite heap</td>
+                    </tr>
+                    <tr>
+                        <td>FPS degrades over 20 min of play</td>
+                        <td>Thermals (Layer 5)</td>
+                        <td>Clean vents, lift laptop, cooling pad</td>
+                        <td>Repaste / service laptop</td>
+                    </tr>
+                    <tr>
+                        <td>Smooth but actions delayed on update days</td>
+                        <td>Server (not you)</td>
+                        <td>Wait / play off-peak</td>
+                        <td>None — Jagex-side</td>
+                    </tr>
+                    <tr>
+                        <td>Client crashes with GL/OpenGL error</td>
+                        <td>GPU plugin/driver (Layer 1)</td>
+                        <td>Update driver, switch GLSL/OpenGL</td>
+                        <td><a href="../guides/osrs-runelite-gpu-plugin-crash-fix-2026.html">GPU crash fix</a></td>
+                    </tr>
+                    <tr>
+                        <td>Stutter only on battery</td>
+                        <td>Power (Layer 3/5)</td>
+                        <td>Plug in, set High performance</td>
+                        <td>Replace battery</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>② The 60-second triage flowchart</h3>
+            <figure class="guide-img">
+                <svg viewBox="0 0 680 320" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OSRS lag triage flowchart FPS vs ping">
+                    <rect width="680" height="320" fill="#faf8f5"/>
+                    <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">60-Second Lag Triage</text>
+                    <rect x="240" y="44" width="200" height="38" rx="8" fill="#E6A817"/>
+                    <text x="340" y="68" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif" text-anchor="middle" font-weight="bold">FPS under 30?</text>
+                    <line x1="340" y1="82" x2="140" y2="130" stroke="#3b2615" stroke-width="2"/>
+                    <line x1="340" y1="82" x2="540" y2="130" stroke="#3b2613" stroke-width="2"/>
+                    <text x="160" y="118" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">No</text>
+                    <text x="520" y="118" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">Yes</text>
+                    <rect x="40" y="130" width="200" height="40" rx="8" fill="#8b6914"/>
+                    <text x="140" y="155" font-size="12" fill="#fff" font-family="Arial,sans-serif" text-anchor="middle" font-weight="bold">Network Layer 4</text>
+                    <rect x="440" y="130" width="200" height="40" rx="8" fill="#8b6914"/>
+                    <text x="540" y="155" font-size="12" fill="#fff" font-family="Arial,sans-serif" text-anchor="middle" font-weight="bold">Rendering Layer 1-3</text>
+                    <line x1="140" y1="170" x2="140" y2="210" stroke="#3b2615" stroke-width="2"/>
+                    <line x1="540" y1="170" x2="540" y2="210" stroke="#3b2615" stroke-width="2"/>
+                    <rect x="40" y="210" width="200" height="40" rx="8" fill="#E6A817"/>
+                    <text x="140" y="235" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" text-anchor="middle" font-weight="bold">Ethernet / ping test</text>
+                    <rect x="440" y="210" width="200" height="40" rx="8" fill="#E6A817"/>
+                    <text x="540" y="235" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" text-anchor="middle" font-weight="bold">117HD off / FPS cap</text>
+                    <line x1="140" y1="250" x2="340" y2="290" stroke="#3b2615" stroke-width="2" stroke-dasharray="4"/>
+                    <line x1="540" y1="250" x2="340" y2="290" stroke="#3b2615" stroke-width="2" stroke-dasharray="4"/>
+                    <rect x="240" y="276" width="200" height="32" rx="8" fill="#3b2615"/>
+                    <text x="340" y="297" font-size="12" fill="#fff" font-family="Arial,sans-serif" text-anchor="middle" font-weight="bold">Fixed? Back to Gielinor</text>
+                </svg>
+                <figcaption>One question — FPS under 30? — splits every lag case into the network branch or the rendering branch. Everything else follows from that answer.</figcaption>
+            </figure>
+        </section>
+
+        <!-- SECTION 8 FAQ -->
+        <section id="faq">
+            <h2>8. ❓ Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <h4>My FPS is fine but I still rubber-band. What is wrong?</h4>
+                <p>Your problem is network latency, not rendering. FPS only describes how smoothly the picture draws; rubber-banding means your packets are arriving late. Plug into Ethernet, run <code>ping oldschool.runescape.com -t</code> to confirm spikes, and disable any VPN. The graphics settings will not change this — only the network fixes in Layer 4 will.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Is 117HD worth the FPS loss?</h4>
+                <p>For skilling, screenshots, and casual play, yes — it looks great. For bossing, raiding, or PvP where reaction time matters, no; the FPS you lose can cost you a death. Most experienced players run legacy/flat for content and 117HD for relaxing. You do not need it to play well.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Why does FPS drop only in the Grand Exchange or a raid?</h4>
+                <p>Those areas render hundreds of other players, their gear, and ground items at once. That is pure GPU/draw load, and it is exactly where the GPU plugin and 117HD hurt most. Cap your FPS, lower 117HD quality, and consider hiding other players' equipment (a client setting) in the busiest spots.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>I have a great GPU but still get 15 FPS. Why?</h4>
+                <p>Two common reasons: (1) the client is running on integrated graphics, not your discrete card — force it in Windows Graphics Settings; (2) your CPU or RAM is the bottleneck, not the GPU — OSRS is surprisingly CPU-heavy for pathfinding and plugin logic. Check Task Manager; if CPU or RAM is pinned while the GPU idles, upgrade those.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Does capping FPS make the game feel worse?</h4>
+                <p>No — capping to your monitor's refresh (60/120/144) prevents the client from rendering hundreds of needless FPS in empty areas, which stops GPU overheating and thermal throttling. You keep a smooth picture and gain stability. Uncapped FPS only helps if your monitor is above 144 Hz and you can actually sustain it.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Will more RAM actually help OSRS?</h4>
+                <p>If you have 8 GB and run a browser + Discord + RuneLite, yes — you are likely swapping to disk, which stutters everything. Going to 16 GB removes that. If you already have 16 GB+ and are not near full, more RAM will do nothing; the bottleneck is elsewhere (GPU or network).</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>My ping is great but the game still feels delayed on update days. Bug?</h4>
+                <p>Not a bug you can fix locally — that is server tick load during mass events. When thousands flood in at once (Leagues, DMM, fresh updates), Jagex's hardware lags for everyone regardless of their connection. Your ping test is honest; the server is just busy. Play off-peak or accept brief delays.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Should I use a "lag reducer" VPN or gaming booster?</h4>
+                <p>Almost never for OSRS. Jagex's servers are region-locked, so a VPN usually routes you through another country and raises ping. Gaming boosters rarely help for a fixed server location. The real wins are Ethernet over Wi-Fi, correct DNS (1.1.1.1 / 8.8.8.8), and QoS on your router — covered in the <a href="../guides/osrs-home-network-router-troubleshoot-2026.html">router guide</a>.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>Does this apply to the mobile client too?</h4>
+                <p>The root-cause logic is identical (FPS vs latency, HD settings, thermal throttling), but the controls are in the app and the hardware is a phone. Start from the <a href="../guides/osrs-mobile-best-settings-2026.html">mobile best settings guide</a> and the <a href="../guides/osrs-mobile-overheating-crash-fix-2026.html">overheating &amp; crash guide</a> for phone-specific steps like battery saver and cooling.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>I tried everything and FPS is still bad. Last resort?</h4>
+                <p>Confirm the client is on your discrete GPU, update the driver, cap FPS, drop 117HD to off, close background apps, and plug in. If it is still under 30 FPS in an empty area, your hardware is below the comfortable bar for HD — run legacy 2D. If even legacy 2D is slow, the CPU is the limit and no setting fixes that; it is upgrade time. Also see the <a href="../guides/osrs-linux-client-freeze-fix-2026.html">Linux freeze guide</a> if you are not on Windows.</p>
+            </div>
+        </section>
+
+        <!-- TOOL PROMO -->
+        <div class="tool-promo">
+            <h3>🛠️ Companion Tools for Your Account</h3>
+            <p>Guides tell you what to do — tools help you act. Free, browser-based, mobile-friendly.</p>
+            <div class="tool-promo-grid">
+                <a href="../tools/profit-finder/" class="tool-promo-card"><span class="tp-ico">💰</span><span class="tp-name">Profit Finder</span><span class="tp-desc">Find money makers that match your account.</span><span class="tp-go">Open Tool →</span></a>
+                <a href="../tools/dps-calculator/" class="tool-promo-card"><span class="tp-ico">⚔️</span><span class="tp-name">DPS Calculator</span><span class="tp-desc">Compare gear and prayers mathematically.</span><span class="tp-go">Open Tool →</span></a>
+                <a href="../tools/bank-layout/" class="tool-promo-card"><span class="tp-ico">🏦</span><span class="tp-name">Bank Layout Planner</span><span class="tp-desc">Plan a clean, secure bank layout in minutes.</span><span class="tp-go">Open Tool →</span></a>
+            </div>
+        </div>
+
+        <!-- RELATED GUIDES -->
+        <div class="related-guides">
+            <h3>Related Guides</h3>
+            <div class="article-grid">
+                <a href="../guides/osrs-runelite-gpu-plugin-crash-fix-2026.html" class="article-card">
+                    <h3>OSRS RuneLite GPU Plugin Crash Fix 2026</h3>
+                    <p>When the GPU plugin itself crashes the client, not just slows it.</p>
+                </a>
+                <a href="../guides/osrs-runelite-117hd-render-crash-fix-2026.html" class="article-card">
+                    <h3>OSRS 117HD Render Crash Fix 2026</h3>
+                    <p>Clear the shader cache and stop 117HD from killing the client.</p>
+                </a>
+                <a href="../guides/osrs-home-network-router-troubleshoot-2026.html" class="article-card">
+                    <h3>OSRS Home Network &amp; Router Fix 2026</h3>
+                    <p>Ethernet, DNS, QoS, and double-NAT fixes for rubber-banding.</p>
+                </a>
+                <a href="../guides/osrs-runelite-setup-guide-2026.html" class="article-card">
+                    <h3>OSRS RuneLite Setup Guide 2026</h3>
+                    <p>Install and configure the client with the right plugins from day one.</p>
+                </a>
+                <a href="../guides/osrs-mobile-best-settings-2026.html" class="article-card">
+                    <h3>OSRS Mobile Best Settings 2026</h3>
+                    <p>The same FPS-vs-latency logic, applied to the phone app.</p>
+                </a>
+                <a href="../guides/osrs-linux-client-freeze-fix-2026.html" class="article-card">
+                    <h3>OSRS Linux Client Freeze Fix 2026</h3>
+                    <p>Platform-specific steps for the native Linux client and RuneLite.</p>
+                </a>
+                <a href="../guides/osrs-jagex-launcher-black-screen-fix-2026.html" class="article-card">
+                    <h3>OSRS Launcher Black Screen Fix 2026</h3>
+                    <p>If the client will not even open, start with the launcher tree.</p>
+                </a>
+                <a href="../guides/osrs-mobile-overheating-crash-fix-2026.html" class="article-card">
+                    <h3>OSRS Mobile Overheating &amp; Crash 2026</h3>
+                    <p>Phone thermal throttling and mid-raid disconnect prevention.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- SUPPORT CARD (verbatim Payhip green box, placed at end) -->
+    <div class="support-card" style="margin:8px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+            <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+            <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                <li><strong>Avoid Scams & Phishing (Stop Bank Drains)</strong></li>
+                <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+            </ul>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+    </div>
+
+        <p class="article-meta" style="color:#3b2615;font-size:.82rem;margin:1.5rem 0 0;opacity:.85;">Published: August 2026 &middot; Last verified: August 2026</p>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated for 2026. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ Troubleshooting</h4><ul>
+                    <li><a href="../guides/osrs-runescape-lag-fps-drop-fix-2026.html">Lag &amp; FPS Drops</a></li>
+                    <li><a href="../guides/osrs-jagex-launcher-black-screen-fix-2026.html">Launcher Black Screen</a></li>
+                    <li><a href="../guides/osrs-runelite-gpu-plugin-crash-fix-2026.html">GPU Plugin Crash</a></li>
+                    <li><a href="../guides/osrs-runelite-117hd-render-crash-fix-2026.html">117HD Crash</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+
+    <!-- Copyright & Anti-Scraping Notice -->
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+    </div>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+    <style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary *{color:#1a1a1a!important}
+.guide-content li{color:#1a1a1a!important}
+@media (max-width: 768px) {
+  .guide-content table { font-size: 0.85rem; }
+  .guide-content table thead tr th { padding:8px 10px; font-size:0.8rem; }
+  .guide-content table tbody td { padding:6px 10px; }
+  .guide-content h2 { font-size: 1.4em; }
+  .guide-content h3 { font-size: 1.15em; }
+  .guide-content div[style*="border-radius:12px"] { padding: 16px !important; }
+  .guide-content div[style*="border-radius:8px"] { padding: 14px !important; }
+}
+@media (max-width: 640px) {
+  .guide-content table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .guide-content h2 { font-size: 1.25em; }
+  .guide-content h3 { font-size: 1.05em; }
+  .guide-content p { font-size: 0.95rem; line-height: 1.7; }
+  .guide-content li { font-size: 0.95rem; line-height: 1.8; }
+  .copyright-protection { margin: 12px 8px !important; padding: 8px 12px !important; }
+  .copyright-protection p { font-size: 0.72rem !important; }
+}
+</style>
+</body>
+</html>
