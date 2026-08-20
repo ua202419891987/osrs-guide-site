@@ -64,6 +64,16 @@
         .tool-about p { color:#1a1a1a !important; margin:0 0 12px; }
         .tool-about p:last-child { margin-bottom:0; }
         @media (max-width: 640px){ .tool-row{ grid-template-columns:1fr; } }
+        /* Account-aware recommender (B2/B3) — minimal rw- styling, no !important */
+        .rw-card { margin: 4px 0 0; }
+        .rw-title { color:#3b2615; font-size:1rem; font-weight:700; margin:16px 0 8px; }
+        .rw-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(140px,1fr)); gap:12px; }
+        .rw-field label, .rw-label { display:block; font-weight:700; color:#3b2615; margin-bottom:6px; font-size:.9rem; }
+        .rw-input { width:100%; padding:10px 12px; border:1px solid #cbb89a; border-radius:8px; font-size:1rem; background:#fdfbf7; color:#1a1a1a; box-sizing:border-box; }
+        .rw-hint { display:block; font-size:.78rem; color:#888; margin-top:4px; }
+        .rw-btn { margin-top:16px; width:100%; padding:13px; background:#9B84D4; color:#fff; border:none; border-radius:9px; font-size:1.02rem; font-weight:700; cursor:pointer; }
+        .rw-btn:hover { background:#8369c4; }
+        @media (max-width: 640px){ .rw-grid{ grid-template-columns:1fr 1fr; } }
     </style>
 </head>
 <body>
@@ -205,6 +215,16 @@
                 </ul>
             </div>
 
+            <!-- ===== ACCOUNT-AWARE RECOMMENDATIONS (B1–B4) ===== -->
+            <section id="rw-account-aware" class="tool-card" style="margin-top:32px;">
+                <h2 style="color:#3b2615;margin:0 0 8px;font-size:1.25rem;">🎯 Account-Aware Recommendations</h2>
+                <div class="intro-box" style="margin:0 0 16px;">
+                    Tell us about your account — combat level, key stats, starting capital and how you like to play. We score every method in our library against <strong>your</strong> profile and rank the best fits, not just the highest GP/hr.
+                </div>
+                <div id="rw-input"></div>
+                <div id="rw-results"></div>
+            </section>
+
         </div>
     </main>
 
@@ -228,6 +248,11 @@
 
     <script src="../shared/js/osrs-analytics.js"></script>
     <script src="../shared/js/osrs-subscription.js"></script>
+    <!-- Account-aware recommender (B1–B4). Load order matters. -->
+    <script src="js/account-input.js"></script>
+    <script src="js/recommender.js"></script>
+    <script src="js/results.js"></script>
+    <script src="js/main.js"></script>
     <script>
         if (window.OSRSAnalytics) OSRSAnalytics.init('profit-finder');
         const fmt = n => n.toLocaleString('en-US');
@@ -324,6 +349,35 @@
             });
         }
         init();
+    </script>
+    <!-- B5 fallback: trigger recommender + graceful failure messaging -->
+    <script>
+        (function () {
+            'use strict';
+            function rwFallback(msg) {
+                var el = document.getElementById('rw-results');
+                if (el && !el.innerHTML.trim()) {
+                    el.innerHTML = '<div class="no-result">' + (msg || 'Recommendations are temporarily unavailable. Please try again later.') + '</div>';
+                }
+            }
+            function start() {
+                if (window.PROFIT_RECOMMENDER && typeof window.PROFIT_RECOMMENDER.init === 'function') {
+                    try {
+                        window.PROFIT_RECOMMENDER.init();
+                    } catch (e) {
+                        console.error('[AccountAware] init error:', e);
+                        rwFallback('Could not start the recommender. If you opened this file directly, use the live site (osrsguru.com/tools/profit-finder/).');
+                    }
+                } else {
+                    rwFallback('The account-aware recommender module failed to load. Please refresh, or visit the live site.');
+                }
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', start);
+            } else {
+                start();
+            }
+        })();
     </script>
 </body>
 </html>
