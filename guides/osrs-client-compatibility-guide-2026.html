@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Compatibility 2026: 32-Bit, Drivers & System Requirements</title>
+    <meta name="description" content="OSRS client compatibility 2026: official client and RuneLite system requirements, the 32-bit CPU cutoff, GPU driver conflicts, and a Windows vs macOS vs Linux compatibility table. Fix black screens, launcher failures, and render crashes with real steps.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS client compatibility 2026, OSRS 32 bit not supported, OSRS system requirements, OSRS RuneLite requirements, OSRS GPU driver crash, OSRS official client requirements, OSRS Linux macOS Windows">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/osrs-client-compatibility-guide-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="all" data-category="technical">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+<li><a href="../pvm-guides.html">PvM Guides</a></li>
+<li><a href="../mobile.html">Mobile</a></li>
+
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../weekly-updates.html">Updates</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../weekly-updates.html">Technical</a> / Client Compatibility 2026</p>
+            <h1>🖥️ Client Compatibility 2026: 32-Bit, Drivers &amp; System Requirements</h1>
+
+<div class="article-meta" style="margin-top:12px;color:#666;font-size:.9rem;line-height:1.6"><span>Updated August 19, 2026</span> &nbsp;|&nbsp; <span>15 min read</span> &nbsp;|&nbsp; <span>By Yanchun Wu</span></div><!-- meta-update-2026 -->
+
+            <p class="subtitle">Before you blame your internet or your account, check whether your machine can even run Old School RuneScape in 2026. The official client, the Jagex Launcher, and RuneLite all have hard system requirements, a 64-bit CPU is now mandatory, and outdated GPU drivers cause the black screens and render crashes players mistake for server issues. This guide lays out the exact requirements, the 32-bit cutoff, driver conflict fixes, and a platform-by-platform compatibility table.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>Updated: August 2026</strong> — Client &amp; System Requirements · 15 min read
+            </div>
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: All</div>
+            <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+        </div>
+    </section>
+
+<main class="guide-content">
+    <div class="container">
+            <p class="intro">OSRS is light by modern game standards, but "light" is not "anything runs it." The move to the Jagex Launcher and the continued reliance on a 64-bit Java runtime means old 32-bit laptops and outdated GPU drivers are now the most common reasons the client will not launch or renders a black screen. If you hit a launcher black screen, start with the <a href="../guides/osrs-jagex-launcher-black-screen-fix-2026.html">Jagex Launcher black screen fix</a>; if RuneLite specifically crashes on render, the <a href="../guides/osrs-runelite-gpu-plugin-crash-fix-2026.html">RuneLite GPU plugin crash guide</a> and the <a href="../guides/osrs-runelite-117hd-render-crash-fix-2026.html">117HD render crash guide</a> are the targeted reads.</p>
+            <p>This guide is the compatibility reference: what the client needs, why 32-bit is dead, how to spot a driver conflict, and which OS build actually works. Keep it open while you check your own machine — most "my game is broken" tickets are answered by the table in Section 2.</p>
+
+            <div class="tip-box">
+                <div class="tip-title">💡 Quick Verdict</div>
+                <p>You need a 64-bit CPU and OS, at least 4 GB RAM (8 GB recommended), and a GPU with current drivers — on Windows that means a reasonably recent OpenGL-capable card with updated drivers; on macOS any supported Mac running a current macOS; on Linux a 64-bit distro with a working Mesa/OpenGL stack. The official client and RuneLite share the same floor. If your machine is 32-bit, no setting fixes it — you need a 64-bit OS or a new device. If you are 64-bit but still black-screen, it is almost always a GPU driver conflict (Section 4).</p>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#requirements">Official System Requirements (2026)</a></li>
+                    <li><a href="#platform-table">Windows vs macOS vs Linux Table</a></li>
+                    <li><a href="#32bit">The 32-Bit Cutoff — Why Old PCs Fail</a></li>
+                    <li><a href="#drivers">GPU Driver Conflicts &amp; Black Screens</a></li>
+                    <li><a href="#runelite">RuneLite Requirements &amp; Plugin Limits</a></li>
+                    <li><a href="#launcher">Jagex Launcher Compatibility</a></li>
+                    <li><a href="#check-your-pc">How to Check Your Own Machine</a></li>
+                    <li><a href="#faq">Frequently Asked Questions</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="requirements">
+                <h2>1. 📋 Official System Requirements (2026)</h2>
+                <p>Jagex does not publish a heavy spec sheet because OSRS is CPU-bound and 2D-rendered, but the practical floor for a smooth experience in 2026 is well understood. The client runs on the Java Virtual Machine, and the Jagex Launcher bundles a 64-bit runtime — which is the root of the 32-bit cutoff discussed in Section 3.</p>
+
+                <h3>① Minimum vs recommended (desktop)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Minimum (runs the game)</th>
+                            <th>Recommended (smooth + plugins)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CPU</td>
+                            <td>64-bit, 2 cores, ~2.0 GHz</td>
+                            <td>64-bit, 4+ cores, 3.0 GHz</td>
+                        </tr>
+                        <tr>
+                            <td>RAM</td>
+                            <td>4 GB</td>
+                            <td>8 GB</td>
+                        </tr>
+                        <tr>
+                            <td>GPU</td>
+                            <td>Any OpenGL 2.0+ capable</td>
+                            <td>Dedicated or modern integrated, drivers current</td>
+                        </tr>
+                        <tr>
+                            <td>Storage</td>
+                            <td>2 GB free (cache + client)</td>
+                            <td>5 GB free</td>
+                        </tr>
+                        <tr>
+                            <td>OS</td>
+                            <td>64-bit Windows 10 / macOS 11 / modern Linux</td>
+                            <td>Current Windows 11 / macOS / Linux</td>
+                        </tr>
+                        <tr>
+                            <td>Network</td>
+                            <td>Broadband, stable</td>
+                            <td>Broadband, low latency</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Note the two non-negotiables: <strong>64-bit CPU and 64-bit OS</strong>, and <strong>current GPU drivers</strong>. Everything else is about comfort, not capability. A 32-bit OS on a 64-bit chip still fails because the bundled runtime is 64-bit only.</p>
+
+                <h3>② What "runs the game" actually means</h3>
+                <p>The minimum column gets you into the game at low settings with the official client. It does <em>not</em> mean RuneLite with HD plugins, a populated world, and a second monitor will be smooth. RuneLite's 117HD and GPU plugins push the GPU far harder than the official client's flat renderer, so the recommended column is really the "RuneLite comfortable" column. If you are between the two, the official client will run; RuneLite HD may stutter. See Section 5 for the RuneLite-specific floor.</p>
+
+                <h3>③ Why requirements crept up</h3>
+                <p>Two shifts raised the bar. First, the Jagex Launcher replaced per-game installers and bundles a modern 64-bit Java runtime, dropping 32-bit support entirely. Second, continued anti-bot and content updates made the client more dependent on a stable runtime and on GPU features that old drivers do not implement correctly. The result: a machine that ran OSRS fine in 2019 may now black-screen because its drivers never updated and its OS is 32-bit. Both are fixable except the 32-bit OS case.</p>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="platform-table">
+                <h2>2. 🧭 Windows vs macOS vs Linux — Compatibility Table</h2>
+                <p>The three desktop platforms are not equal for OSRS. The official client and RuneLite both run on all three, but driver handling, launcher behavior, and plugin support differ. Use this table to set expectations before you troubleshoot.</p>
+
+                <h3>① Platform compatibility at a glance</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Windows</th>
+                            <th>macOS</th>
+                            <th>Linux</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Official client</td>
+                            <td>Yes (Launcher)</td>
+                            <td>Yes (Launcher)</td>
+                            <td>Yes (Launcher, AppImage)</td>
+                        </tr>
+                        <tr>
+                            <td>RuneLite</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>64-bit required</td>
+                            <td>Yes</td>
+                            <td>Yes (all modern Macs)</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>GPU driver source</td>
+                            <td>Vendor (NVIDIA/AMD/Intel)</td>
+                            <td>Apple (OS update)</td>
+                            <td>Mesa / vendor</td>
+                        </tr>
+                        <tr>
+                            <td>Common crash type</td>
+                            <td>Driver conflict, launcher black</td>
+                            <td>OS-version block, permissions</td>
+                            <td>Missing 32-bit libs, Mesa</td>
+                        </tr>
+                        <tr>
+                            <td>HD plugins (117HD)</td>
+                            <td>Full</td>
+                            <td>Full (Apple GPU)</td>
+                            <td>Full (Mesa)</td>
+                        </tr>
+                        <tr>
+                            <td>Easiest fix path</td>
+                            <td>Update GPU drivers</td>
+                            <td>Update macOS</td>
+                            <td>Install 64-bit deps</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>② Windows notes</h3>
+                <p>Windows is the most common and the most driver-fragile. NVIDIA, AMD, and Intel each ship their own drivers, and a Windows update can silently roll you back to a broken one. The black screen on launch is overwhelmingly a driver issue here, not a game bug. The <a href="../guides/osrs-runescape-lag-fps-drop-fix-2026.html">lag &amp; FPS guide</a> covers performance once you are in-game. If the launcher itself will not open, that is the launcher compatibility case in Section 6.</p>
+
+                <h3>③ macOS notes</h3>
+                <p>Modern Macs are all 64-bit, so the 32-bit cutoff does not affect them — but macOS version gates the launcher. An older macOS that Apple no longer signs can be refused by the launcher's security check, producing a launch failure that looks like corruption. The fix is a macOS update. Apple controls GPU drivers through macOS updates, so "update your drivers" on Mac means "update macOS." Permissions (Gatekeeper) can also block the launcher; right-click → Open bypasses the quarantine flag.</p>
+
+                <h3>④ Linux notes</h3>
+                <p>Linux is fully supported but the most setup-heavy. The launcher ships as an AppImage; you need FUSE and a 64-bit userspace. The classic Linux crash is a missing 32-bit library or a Mesa/OpenGL mismatch, which the official client reports as a render error. The <a href="../guides/osrs-linux-client-freeze-fix-2026.html">Linux client freeze fix</a> covers the dependency and Mesa steps. RuneLite on Linux is rock-solid once the OpenJDK and Mesa pieces are in place.</p>
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 300" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three platforms and their usual failure point">
+                        <rect width="680" height="300" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Where Each Platform Usually Breaks</text>
+                        <rect x="30" y="55" width="190" height="170" rx="10" fill="#fff" stroke="#8b6914" stroke-width="2"/>
+                        <text x="125" y="85" font-size="15" fill="#1a1a1a" font-family="Arial,sans-serif" text-anchor="middle">Windows</text>
+                        <text x="125" y="115" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" text-anchor="middle">Driver conflict</text>
+                        <text x="125" y="135" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" text-anchor="middle">Launcher black</text>
+                        <text x="125" y="155" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" text-anchor="middle">Fix: update GPU</text>
+                        <text x="125" y="185" font-size="12" fill="#E6A817" font-family="Arial,sans-serif" text-anchor="middle">~most common</text>
+                        <rect x="245" y="55" width="190" height="170" rx="10" fill="#fff" stroke="#8b6914" stroke-width="2"/>
+                        <text x="340" y="85" font-size="15" fill="#1a1a1a" font-family="Arial,sans-serif" text-anchor="middle">macOS</text>
+                        <text x="340" y="115" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" text-anchor="middle">OS version block</text>
+                        <text x="340" y="135" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" text-anchor="middle">Gatekeeper perm</text>
+                        <text x="340" y="155" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" text-anchor="middle">Fix: update macOS</text>
+                        <text x="340" y="185" font-size="12" fill="#E6A817" font-family="Arial,sans-serif" text-anchor="middle">all 64-bit</text>
+                        <rect x="460" y="55" width="190" height="170" rx="10" fill="#fff" stroke="#8b6914" stroke-width="2"/>
+                        <text x="555" y="85" font-size="15" fill="#1a1a1a" font-family="Arial,sans-serif" text-anchor="middle">Linux</text>
+                        <text x="555" y="115" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" text-anchor="middle">Missing 32-bit libs</text>
+                        <text x="555" y="135" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" text-anchor="middle">Mesa/OpenGL</text>
+                        <text x="555" y="155" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif" text-anchor="middle">Fix: install deps</text>
+                        <text x="555" y="185" font-size="12" fill="#E6A817" font-family="Arial,sans-serif" text-anchor="middle">most setup</text>
+                    </svg>
+                    <figcaption>Each platform fails differently. Match your OS to its usual failure point before chasing game-side fixes.</figcaption>
+                </figure>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="32bit">
+                <h2>3. 🚫 The 32-Bit Cutoff — Why Old PCs Fail</h2>
+                <p>This is the single most misunderstood compatibility wall. Players on older laptops see "client won't launch" and assume a broken download. In most cases the machine is 32-bit and the current client simply cannot run on it.</p>
+
+                <h3>① Why 32-bit is no longer supported</h3>
+                <p>The Jagex Launcher and the bundled Java runtime are 64-bit only. A 32-bit operating system cannot load a 64-bit binary, full stop — no setting, no compatibility mode, no "run as administrator" changes that. Even a 64-bit CPU running a 32-bit Windows install fails, because the OS layer is what loads the program. Jagex dropped 32-bit support to reduce maintenance and because the player base on 32-bit is now a rounding error. The same cutoff hit the OSRS Mobile engine (Android requires 64-bit too).</p>
+
+                <h3>② How to tell if you are 32-bit</h3>
+                <p>Quick checks:</p>
+                <ul>
+                    <li><strong>Windows:</strong> Settings → System → About → "System type." If it says "32-bit operating system, x64-based processor," your CPU is fine but your OS is 32-bit — you must reinstall a 64-bit Windows.</li>
+                    <li><strong>Windows (older):</strong> Right-click This PC → Properties → see "System type."</li>
+                    <li><strong>macOS:</strong> Every Mac since 2007 is 64-bit; if your Mac runs a recent macOS it is 64-bit. Very old Macs stuck on 32-bit-only macOS cannot run the current launcher.</li>
+                    <li><strong>Linux:</strong> Run <code>uname -m</code> in a terminal. "x86_64" or "aarch64" = 64-bit; "i386" or "i686" = 32-bit.</li>
+                </ul>
+                <p>If you are 32-bit, the only fixes are a 64-bit OS reinstall (if the CPU supports it) or a newer device. There is no client-side workaround, and anyone claiming a "32-bit patch" is mistaken or malicious.</p>
+
+                <h3>③ 32-bit CPU vs 32-bit OS — the important difference</h3>
+                <p>Many older laptops have a 64-bit CPU but shipped with 32-bit Windows. That machine <em>can</em> be saved with a clean 64-bit Windows install (back up your data first). A machine with a genuinely 32-bit CPU (rare post-2010) cannot run the current client at all and needs replacing. Check "System type" carefully — "x64-based processor" with "32-bit operating system" is the salvageable case.</p>
+                <div class="warning-box">
+                    <div class="warning-title">⚠️ Don't waste time on 32-bit "fixes"</div>
+                    <p>If your OS is 32-bit, no driver update, cache clear, or reinstall of OSRS will help. The binary will not load. Confirm the bitness first (Section 7) so you do not burn an hour on steps that cannot work. If you are 32-bit, the path is a 64-bit OS or a new machine — full stop.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="drivers">
+                <h2>4. 🎨 GPU Driver Conflicts &amp; Black Screens</h2>
+                <p>For 64-bit machines that still black-screen or render-crash, the GPU driver is the usual culprit. OSRS uses OpenGL, and a stale or buggy driver implements it incorrectly, producing a black screen, a white flash, or a client that closes on world entry.</p>
+
+                <h3>① Symptoms of a driver conflict</h3>
+                <ul>
+                    <li>Client opens but shows a <strong>black screen</strong> where the game should be.</li>
+                    <li>Game launches, then <strong>crashes on entering a busy world</strong> or on a graphical effect.</li>
+                    <li><strong>White flash</strong> immediately before the client closes.</li>
+                    <li>RuneLite <strong>GPU/117HD plugin crashes</strong> while the official client (flat) works.</li>
+                    <li>Crash appears after a Windows update that rolled back the driver.</li>
+                </ul>
+                <p>If the official client is fine but RuneLite HD crashes, that is a GPU-driver-plus-plugin conflict — see the RuneLite GPU and 117HD guides linked in the intro.</p>
+
+                <h3>② Fix on Windows (update or clean-install drivers)</h3>
+                <div class="method-box highlight">
+                    <h4>🪟 Windows driver repair</h4>
+                    <ol>
+                        <li><strong>Identify the GPU:</strong> Settings → System → Display → Advanced display → Display adapter properties. Note NVIDIA/AMD/Intel.</li>
+                        <li><strong>Update from the vendor:</strong> NVIDIA App / AMD Adrenalin / Intel Driver &amp; Support Assistant → check for updates. Avoid letting Windows Update pick the driver.</li>
+                        <li><strong>Clean install:</strong> In the vendor installer, choose "Custom" / "Clean install" to remove the old driver fully.</li>
+                        <li><strong>Reboot</strong> and launch OSRS. A black screen caused by a driver regression is usually gone.</li>
+                        <li><strong>If still broken:</strong> roll back to a known-good driver version from the vendor's archive.</li>
+                    </ol>
+                </div>
+
+                <h3>③ Fix on macOS and Linux</h3>
+                <ul>
+                    <li><strong>macOS:</strong> Update macOS (Apple → System Settings → General → Software Update). GPU drivers ship with the OS; there is no separate download.</li>
+                    <li><strong>Linux:</strong> Update Mesa (<code>sudo apt update &amp;&amp; sudo apt upgrade</code> on Debian/Ubuntu, or your distro's equivalent) and ensure <code>libgl1</code> / <code>mesa-utils</code> are present. The <a href="../guides/osrs-linux-client-freeze-fix-2026.html">Linux freeze fix</a> has the exact package list.</li>
+                </ul>
+                <p>On all platforms, also make sure the client is using the discrete GPU, not a power-saving integrated one, on laptops with switchable graphics (Windows: Graphics settings → add the client → High performance).</p>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="runelite">
+                <h2>5. 🔌 RuneLite Requirements &amp; Plugin Limits</h2>
+                <p>RuneLite is a third-party open-source client that meets the same OS floor as the official client, but its plugins — especially the GPU and 117HD renderers — raise the effective requirement. Understanding that split prevents the "official client works, RuneLite crashes" confusion.</p>
+
+                <h3>① Base RuneLite floor</h3>
+                <p>Plain RuneLite (no HD) runs on the same minimum as the official client: 64-bit OS, 4 GB RAM, any OpenGL GPU. It is lightweight. The moment you enable HD plugins, the GPU becomes the bottleneck, and the recommended column (8 GB RAM, current drivers, decent GPU) becomes the real requirement.</p>
+
+                <h3>② Plugin-specific caveats</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Plugin / Feature</th>
+                            <th>Extra Requirement</th>
+                            <th>Crash if missing</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GPU plugin</td>
+                            <td>Stable OpenGL 3.0+ driver</td>
+                            <td>Black screen / client close</td>
+                        </tr>
+                        <tr>
+                            <td>117HD</td>
+                            <td>Modern GPU, current drivers, 8 GB RAM</td>
+                            <td>Render crash in busy areas</td>
+                        </tr>
+                        <tr>
+                            <td>HD (RuneLite native)</td>
+                            <td>Vulkan or OpenGL 4.x</td>
+                            <td>Shader compile failure</td>
+                        </tr>
+                        <tr>
+                            <td>Many plugins at once</td>
+                            <td>More RAM headroom</td>
+                            <td>OutOfMemory close</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>If RuneLite itself launches but a specific plugin crashes it, disable plugins one at a time from the safe-mode launch (hold Shift while opening RuneLite) to isolate the offender. The <a href="../guides/osrs-runelite-setup-guide-2026.html">RuneLite setup guide</a> walks the safe-mode and plugin-management steps.</p>
+
+                <h3>③ RuneLite vs official client compatibility</h3>
+                <p>Both need 64-bit and current drivers. The practical difference is that RuneLite surfaces driver bugs more aggressively because its renderers are more demanding. If the official client runs but RuneLite HD does not, the machine meets the floor but not the HD ceiling — lower the plugin settings or update drivers rather than abandoning RuneLite. The dedicated <a href="../guides/osrs-runelite-gpu-plugin-crash-fix-2026.html">GPU plugin crash fix</a> and <a href="../guides/osrs-runelite-117hd-render-crash-fix-2026.html">117HD render crash fix</a> cover this precisely.</p>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="launcher">
+                <h2>6. 🚀 Jagex Launcher Compatibility</h2>
+                <p>The Jagex Launcher is the gatekeeper for the official client and replaces the old per-game installers. Its compatibility rules are stricter than the game's, and most "client won't open" reports are really launcher issues.</p>
+
+                <h3>① Launcher system needs</h3>
+                <ul>
+                    <li><strong>64-bit OS mandatory</strong> (same cutoff as Section 3).</li>
+                    <li><strong>Current OS build:</strong> Windows 10+, macOS 11+, modern 64-bit Linux.</li>
+                    <li><strong>Write access</strong> to its install folder (avoid Program Files permission traps; run once as admin if install fails).</li>
+                    <li><strong>Internet on first launch</strong> to fetch the bundled runtime and verify the account.</li>
+                </ul>
+
+                <h3>② Common launcher failures</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Failure</th>
+                            <th>Cause</th>
+                            <th>Fix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Launcher won't open (Windows)</td>
+                            <td>Missing Visual C++ runtime</td>
+                            <td>Install latest VC++ redistributable</td>
+                        </tr>
+                        <tr>
+                            <td>Black screen at launcher</td>
+                            <td>GPU/driver or 32-bit OS</td>
+                            <td>Update drivers; check 64-bit (Sections 3–4)</td>
+                        </tr>
+                        <tr>
+                            <td>macOS "cannot be opened"</td>
+                            <td>Gatekeeper quarantine</td>
+                            <td>Right-click → Open; or xattr -d com.apple.quarantine</td>
+                        </tr>
+                        <tr>
+                            <td>Linux launcher missing</td>
+                            <td>No FUSE for AppImage</td>
+                            <td>Install fuse2 / libfuse2</td>
+                        </tr>
+                        <tr>
+                            <td>Stuck "verifying"</td>
+                            <td>Network/DNS block</td>
+                            <td>Flush DNS, disable VPN, retry</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>The <a href="../guides/osrs-jagex-launcher-black-screen-fix-2026.html">Jagex Launcher black screen fix</a> is the deep dive for the black-screen-at-launcher case, which is usually a driver or 32-bit issue rather than a launcher bug.</p>
+
+                <h3>③ When the launcher is not the problem</h3>
+                <p>If the launcher opens and logs you in but the game client within it black-screens, you have moved past launcher compatibility into GPU-driver territory (Section 4). The launcher and the game client are separate processes; a working launcher does not guarantee a working render. Diagnose them independently.</p>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="check-your-pc">
+                <h2>7. 🔧 How to Check Your Own Machine</h2>
+                <p>Before contacting support or reinstalling anything, run this three-check diagnostic. It tells you in two minutes whether your problem is bitness, drivers, or something else.</p>
+
+                <h3>① Check 1 — Are you 64-bit?</h3>
+                <p>Windows: Settings → System → About → System type. macOS: Apple menu → About This Mac → Chip/Processor (anything post-2007 is 64-bit). Linux: terminal → <code>uname -m</code> (x86_64/aarch64 = 64-bit). If 32-bit, stop — you need a 64-bit OS or new device (Section 3).</p>
+
+                <h3>② Check 2 — Are drivers current?</h3>
+                <p>Windows: vendor app (NVIDIA/AMD/Intel) → check for update. macOS: Software Update. Linux: package manager upgrade + Mesa current. If a Windows update recently ran and the crash started then, roll the GPU driver back.</p>
+
+                <h3>③ Check 3 — Does the official client work without plugins?</h3>
+                <p>Launch the official client (not RuneLite). If it works, your floor is fine and the issue is plugin/driver with HD (Section 5). If the official client also black-screens, it is a driver or bitness issue (Sections 3–4). This single test splits the diagnosis in half.</p>
+                <div class="method-box highlight">
+                    <h4>🧪 60-second decision tree</h4>
+                    <ol>
+                        <li>32-bit OS? → need 64-bit OS / new device.</li>
+                        <li>64-bit but black screen? → update GPU drivers.</li>
+                        <li>Official client OK, RuneLite HD crashes? → lower plugin settings / update drivers.</li>
+                        <li>Launcher won't open? → VC++ (Win) / FUSE (Linux) / Gatekeeper (Mac).</li>
+                        <li>All checks pass but still broken? → server/outage or account; check status page.</li>
+                    </ol>
+                </div>
+                <p>If you land on a network or disconnect issue rather than a launch failure, the <a href="../guides/osrs-random-disconnect-world-unavailable-fix-2026.html">random disconnect fix</a> and the <a href="../guides/osrs-server-crash-disconnect-instance-death-2026.html">server crash / instance death guide</a> cover those cases.</p>
+            </section>
+
+            <!-- SECTION 8 FAQ -->
+            <figure class="guide-svg" style="margin:26px 0;text-align:center;">
+  <svg viewBox="0 0 600 260" style="width:100%;height:auto;max-width:640px;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Platform Requirements at a Glance">
+<rect width="600" height="260" fill="#faf8f5" rx="10"/>
+<text x="24" y="38" font-family="Georgia,serif" font-size="19" font-weight="bold" fill="#3b2615">Platform Requirements at a Glance</text>
+<rect x="24" y="52" width="200" height="26" rx="6" fill="#d4af37" fill-opacity="0.85"/>
+<text x="34" y="68" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#3b2615">Windows</text>
+<text x="24" y="92" font-family="Arial,sans-serif" font-size="12" fill="#6b6b6b">64-bit, DX11-capable GPU, 4GB RAM</text>
+<rect x="24" y="92" width="200" height="26" rx="6" fill="#d4af37" fill-opacity="0.85"/>
+<text x="34" y="108" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#3b2615">macOS</text>
+<text x="24" y="132" font-family="Arial,sans-serif" font-size="12" fill="#6b6b6b">Apple Silicon or Intel, macOS 11+</text>
+<rect x="24" y="132" width="200" height="26" rx="6" fill="#d4af37" fill-opacity="0.85"/>
+<text x="34" y="148" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="#3b2615">Linux</text>
+<text x="24" y="172" font-family="Arial,sans-serif" font-size="12" fill="#6b6b6b">OpenGL 3.3+, 64-bit, common distros</text>
+<text x="24" y="248" font-family="Arial,sans-serif" font-size="11" fill="#8b6914">32-bit devices and very old drivers are the main blockers.</text>
+</svg>
+  <figcaption style="font-size:.8rem;color:#6b6b6b;margin-top:6px;">Platform Requirements at a Glance</figcaption>
+</figure>
+<section id="faq">
+                <h2>8. ❓ Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <h3>Is OSRS really 64-bit only now?</h3>
+                    <p>Yes. The Jagex Launcher and its bundled Java runtime are 64-bit only, and the OSRS Mobile engine on Android also requires a 64-bit CPU. A 32-bit operating system cannot load the client regardless of settings. If your CPU is 64-bit but your OS is 32-bit, a 64-bit OS reinstall fixes it; a genuinely 32-bit CPU cannot run the current client at all.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>My client shows a black screen but my PC is 64-bit — why?</h3>
+                    <p>A black screen on a 64-bit machine is almost always a GPU driver conflict, not a bitness problem. OSRS renders with OpenGL, and a stale or rolled-back driver implements it incorrectly. Update (or clean-install) your GPU drivers from the vendor, reboot, and retry. This is the Windows-specific fix in Section 4.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What are the minimum system requirements for OSRS in 2026?</h3>
+                    <p>A 64-bit CPU and OS, 4 GB RAM, any OpenGL 2.0+ GPU with current drivers, and about 2 GB free storage. That runs the official client. For RuneLite with HD plugins, treat 8 GB RAM and a modern GPU with current drivers as the real minimum. The full table is in Section 1.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Does RuneLite need better specs than the official client?</h3>
+                    <p>Base RuneLite needs the same floor as the official client. The HD plugins (GPU, 117HD, native HD) raise the effective requirement because they push the GPU much harder than the flat official renderer. If the official client runs but RuneLite HD crashes, your machine meets the floor but not the HD ceiling — update drivers or lower plugin settings.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Why does the Jagex Launcher fail to open on Windows?</h3>
+                    <p>The most common cause is a missing Visual C++ redistributable, which the launcher needs. Install the latest VC++ runtime from Microsoft, reboot, and retry. A 32-bit OS or a rolled-back GPU driver also prevents the launcher from rendering — check bitness and drivers first. The launcher black-screen guide covers the rest.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Will OSRS run on macOS? Which version do I need?</h3>
+                    <p>Yes, on any modern Mac. All post-2007 Macs are 64-bit, so the 32-bit cutoff does not affect them. The practical gate is the macOS version the launcher accepts — an old, unsigned macOS can be refused. Update macOS to the current supported release; that also updates your GPU drivers, since Apple ships them with the OS.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How do I run OSRS on Linux?</h3>
+                    <p>Install the Jagex Launcher AppImage (you need FUSE/libfuse2) or use RuneLite via your package manager or the official jar. Ensure a 64-bit userspace, current Mesa (OpenGL), and OpenJDK 17+. The classic Linux crash is a missing 32-bit library or a Mesa mismatch — the Linux client freeze guide has the exact dependency list. RuneLite on Linux is very stable once those pieces are present.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>My GPU drivers are current but it still crashes on HD — what now?</h3>
+                    <p>Lower the plugin settings: drop 117HD to a lower preset, disable expensive effects, or switch to the flat GPU plugin instead of HD. Some integrated GPUs simply cannot sustain HD in busy worlds regardless of driver version. Also confirm the client is using the discrete GPU on switchable-laptops (Windows Graphics settings → High performance). If even the official client crashes, the GPU itself may be failing.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can I force a 32-bit client to work with compatibility mode?</h3>
+                    <p>No. Compatibility mode and "run as administrator" cannot make a 64-bit binary load on a 32-bit OS — the OS loader rejects the bitness before the program starts. There is no supported 32-bit client. The only options are a 64-bit OS install (if the CPU allows) or a newer device. Anyone offering a "32-bit patch" should be ignored.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How do I know if it is my machine or a Jagex server issue?</h3>
+                    <p>If the launcher fails, the black screen is local, or RuneLite HD crashes on your GPU, it is your machine (Sections 3–5). If every player disconnects at once, login itself fails everywhere, or the world list is empty, it is server side — check the official OSRS status page. The decision tree in Section 7 splits this in under a minute. Network-only drops (not launch failures) are covered by the disconnect guides.</p>
+                </div>
+            </section>
+
+            <!-- TOOL PROMO -->
+            <div class="tool-promo">
+                <h3>🛠️ Companion Tools for Your Account</h3>
+                <p>Guides tell you what to do — tools help you act. Free, browser-based, mobile-friendly.</p>
+                <div class="tool-promo-grid">
+                    <a href="../tools/profit-finder/" class="tool-promo-card"><span class="tp-ico">💰</span><span class="tp-name">Profit Finder</span><span class="tp-desc">Find money makers that match your account.</span><span class="tp-go">Open Tool →</span></a>
+                    <a href="../tools/dps-calculator/" class="tool-promo-card"><span class="tp-ico">⚔️</span><span class="tp-name">DPS Calculator</span><span class="tp-desc">Compare gear and prayers mathematically.</span><span class="tp-go">Open Tool →</span></a>
+                    <a href="../tools/bank-layout/" class="tool-promo-card"><span class="tp-ico">🏦</span><span class="tp-name">Bank Layout Planner</span><span class="tp-desc">Plan a clean, secure bank layout in minutes.</span><span class="tp-go">Open Tool →</span></a>
+                </div>
+            </div>
+
+            <!-- RELATED GUIDES -->
+            <div class="related-guides">
+                <h3>Related Client &amp; Compatibility Guides</h3>
+                <div class="article-grid">
+                    <a href="../guides/osrs-jagex-launcher-black-screen-fix-2026.html" class="article-card">
+                        <h3>Jagex Launcher Black Screen Fix 2026</h3>
+                        <p>When the launcher itself won't render — drivers, VC++, and 32-bit causes.</p>
+                    </a>
+                    <a href="../guides/osrs-runelite-gpu-plugin-crash-fix-2026.html" class="article-card">
+                        <h3>RuneLite GPU Plugin Crash Fix 2026</h3>
+                        <p>GPU plugin black screens and client closes, isolated and fixed.</p>
+                    </a>
+                    <a href="../guides/osrs-runelite-117hd-render-crash-fix-2026.html" class="article-card">
+                        <h3>RuneLite 117HD Render Crash Fix 2026</h3>
+                        <p>HD renderer shader and driver crashes in busy worlds.</p>
+                    </a>
+                    <a href="../guides/osrs-linux-client-freeze-fix-2026.html" class="article-card">
+                        <h3>Linux Client Freeze Fix 2026</h3>
+                        <p>Mesa, 32-bit libs, and AppImage dependencies on Linux.</p>
+                    </a>
+                    <a href="../guides/osrs-runelite-setup-guide-2026.html" class="article-card">
+                        <h3>RuneLite Setup Guide 2026</h3>
+                        <p>Safe mode, plugin management, and a clean first launch.</p>
+                    </a>
+                    <a href="../guides/osrs-runescape-lag-fps-drop-fix-2026.html" class="article-card">
+                        <h3>OSRS Lag &amp; FPS Drop Fix 2026</h3>
+                        <p>Once you are in-game, this is the performance-tuning guide.</p>
+                    </a>
+                    <a href="../guides/osrs-random-disconnect-world-unavailable-fix-2026.html" class="article-card">
+                        <h3>Random Disconnect / World Unavailable Fix</h3>
+                        <p>Network-side drops that are not launch or render failures.</p>
+                    </a>
+                    <a href="../guides/osrs-server-crash-disconnect-instance-death-2026.html" class="article-card">
+                        <h3>Server Crash / Instance Death Fix 2026</h3>
+                        <p>When the problem is the server, not your machine.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SUPPORT CARD (verbatim Payhip green box, placed at end) -->
+    <div class="support-card" style="margin:8px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+            <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+            <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                <li><strong>Avoid Scams & Phishing (Stop Bank Drains)</strong></li>
+                <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+            </ul>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+    </div>
+
+            <p class="article-meta" style="color:#3b2615;font-size:.82rem;margin:1.5rem 0 0;opacity:.85;">Published: August 2026 &middot; Last verified: August 2026</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated for 2026. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🖥️ Client &amp; Tech</h4><ul>
+                    <li><a href="../guides/osrs-jagex-launcher-black-screen-fix-2026.html">Launcher Black Screen</a></li>
+                    <li><a href="../guides/osrs-runelite-setup-guide-2026.html">RuneLite Setup</a></li>
+                    <li><a href="../guides/osrs-linux-client-freeze-fix-2026.html">Linux Freeze Fix</a></li>
+                    <li><a href="../guides/osrs-runescape-lag-fps-drop-fix-2026.html">Lag &amp; FPS Fix</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+
+    <!-- Copyright & Anti-Scraping Notice -->
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+    </div>
+
+    <script src="../js/features.js"></script>
+    <script src="../js/ai-qa-widget.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+<style>.guide-content{color:#1a1a1a!important}.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+  .guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+  .guide-content .quick-summary *{color:#1a1a1a!important}
+  .guide-content li{color:#1a1a1a!important}
+
+ /* ===== Mobile Responsive Overrides (P0 Standard) ===== */
+ @media (max-width: 768px) {
+  .guide-content table { font-size: 0.85rem; }
+  .guide-content table thead tr th { padding:8px 10px; font-size:0.8rem; }
+  .guide-content table tbody td { padding:6px 10px; }
+  .guide-content h2 { font-size: 1.4em; }
+  .guide-content h3 { font-size: 1.15em; }
+  .guide-content div[style*="border-radius:12px"] { padding: 16px !important; }
+  .guide-content div[style*="border-radius:8px"] { padding: 14px !important; }
+ }
+
+ @media (max-width: 640px) {
+  .guide-content table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .guide-content h2 { font-size: 1.25em; }
+  .guide-content h3 { font-size: 1.05em; }
+  .guide-content p { font-size: 0.95rem; line-height: 1.7; }
+  .guide-content li { font-size: 0.95rem; line-height: 1.8; }
+  .copyright-protection { margin: 12px 8px !important; padding: 8px 12px !important; }
+  .copyright-protection p { font-size: 0.72rem !important; }
+ }
+
+</style>
+</body>
+</html>
