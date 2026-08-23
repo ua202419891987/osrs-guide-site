@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Mobile iOS Optimization 2026 — Battery, Storage, SSO & Background | OSRS Guru</title>
+    <meta name="description" content="The 2026 OSRS Mobile iOS optimization guide: save battery, manage storage/cache, set up Jagex Account SSO with Face ID, and stop the app from disconnecting in the background on iPhone and iPad.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="osrs mobile ios optimization, osrs iphone battery, osrs ios storage, osrs jagex account face id, osrs mobile background disconnect ios">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/osrs-mobile-ios-optimization-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="all" data-category="mobile">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+<li><a href="../pvm-guides.html">PvM Guides</a></li>
+<li><a href="../mobile.html">Mobile</a></li>
+
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../weekly-updates.html">Updates</a></li>
+                    <li><a href="../zh/index.html">Chinese</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../mobile.html">Mobile</a> / iOS Optimization 2026</p>
+            <h1>OSRS Mobile iOS Optimization 2026 — Battery, Storage, SSO &amp; Background</h1>
+
+<div class="article-meta" style="margin-top:12px;color:#666;font-size:.9rem;line-height:1.6"><span>Updated August 19, 2026</span> &nbsp;|&nbsp; <span>15 min read</span> &nbsp;|&nbsp; <span>By Yanchun Wu</span></div><!-- meta-update-2026 -->
+
+            <p class="subtitle">The iPhone and iPad-only tuning manual for Old School RuneScape: stretch one charge into a full grind, stop "storage full" update failures, log in with one tap via Face ID, and keep your session alive when you switch apps.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📱</span> <strong>Mobile Series</strong> · iOS · 14 min read · Updated for 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: 1+</div>
+
+            <p class="intro">The OSRS Mobile client on iPhone and iPad is the same live game as the desktop version, but iOS wraps it in a very different set of rules. Apple's battery management, storage offloading, background app limits, and passkey-based login all behave differently from Android, and if you ignore them you get the classic mobile frustrations: a dead battery by lunch, a "storage full" error mid-update, a session that drops the moment you switch to your banking app, and a login screen that makes you type your Jagex password by thumb every single time. This guide is the iOS-only tuning manual — the companion to our general <a href="../guides/osrs-mobile-best-settings-2026.html">Best Mobile Settings</a> and the broader <a href="../guides/osrs-mobile-guide-2026.html">OSRS Mobile guide</a>. Everything below is built for iOS 13 and newer, and it assumes you already have the app installed (if not, start with <a href="../guides/osrs-play-osrs-on-phone-2026.html">How to Play OSRS on Your Phone</a>). The Android version of the same problems is covered separately, but the iOS specifics below are unique to Apple's platform.</p>
+            <p>The core idea is simple: you are not fighting the game, you are tuning the operating system around it. A few correct switches in Settings — plus a couple of in-game toggles — remove almost every iOS-specific annoyance, and they cost you nothing in gameplay. Below is the full checklist, ordered from the changes that save you the most pain to the ones that are nice-to-have.</p>
+
+            <div class="quick-verdict">
+                <h3>⚡ Quick Verdict — The 30-Second Read</h3>
+                <ul>
+                    <li>📌 Battery is solved by <strong>Medium graphics + dim screen + Low Power Mode</strong> for AFK — not by buying a bigger phone.</li>
+                    <li>📌 "Storage full" errors come from a bloated cache; <strong>Offload (not Delete)</strong> the app to reset it safely.</li>
+                    <li>📌 Set up a <strong>Jagex Account passkey</strong> so Face ID logs you in — no more thumb-typing your password.</li>
+                    <li>📌 Session drops happen because iOS suspends background apps; <strong>Guided Access or iPad Split View</strong> keeps OSRS alive.</li>
+                    <li>📌 Keep <strong>1–2 GB free</strong> and auto-offload disabled so updates never fail.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#why-ios">Why iOS Deserves Its Own Optimization Guide</a></li>
+                    <li><a href="#battery">Battery Optimization — Stretch One Charge</a></li>
+                    <li><a href="#storage">Storage Management — Cache, Offloads, Headroom</a></li>
+                    <li><a href="#sso">SSO &amp; Biometric Login (Face ID / Touch ID)</a></li>
+                    <li><a href="#background">Background Behavior — Stop Session Drops</a></li>
+                    <li><a href="#performance">iOS Performance Tweaks — Low Power, Game Mode</a></li>
+                    <li><a href="#issues">Common iOS Issues and Quick Fixes</a></li>
+                    <li><a href="#faq">Frequently Asked Questions</a></li>
+                    <li><a href="#final-tips">Final Tips</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="why-ios">
+                <h2>1. 🍎 Why iOS Deserves Its Own Optimization Guide</h2>
+                <p>Android and iOS run the same game, but they manage your hardware in opposite ways. On iOS, Apple controls the whole stack — chip, OS, and app rules — which means a few things matter a lot for OSRS that simply don't on Android. iOS aggressively suspends and terminates background apps to save battery. It auto-offloads unused apps when storage gets tight. It refuses to let any app "stay awake" forever. And it pushes passkeys and Face ID as the primary login path. None of those are bugs; they are design choices. But they collide directly with how people actually play OSRS — long AFK sessions, quick app switches to check a wiki or a Discord ping, and logging in several times a day.</p>
+                <p>This guide focuses only on the iOS-specific levers. For in-game graphics, interface, and gameplay toggles, read the platform-neutral <a href="../guides/osrs-mobile-best-settings-2026.html">Best Mobile Settings guide</a> — here we tune the iPhone and iPad around the game, not the game itself. The difference matters: the Best Settings guide tells you which in-game option to flip; this guide tells you which iOS system switch to flip so those in-game options actually stick and your phone survives a three-hour fishing trip.</p>
+                <p>The second reason iOS needs its own page is hardware diversity. iPhones range from the A9 chip in a 2015 iPhone 6S to the A17 Pro in the latest models. The same "Medium graphics" advice lands very differently on those two devices, so where it matters we call out the older-device caveats specifically. If you are on a device from the last four years, you can follow everything here at full confidence; if you are on an iPhone 6S/7/8-class device, the battery and performance sections are where you will feel the difference most.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 One Account, Many Devices</div>
+                    <p>Your OSRS settings, your Jagex Account, and your bank are all cloud-side. Optimizing iOS does not change how the game plays on your PC — it only makes the iPhone/iPad experience smoother. You can hop between them freely, and a passkey set up on your iPhone also works to log in from a Mac or iPad on the same Jagex Account.</p>
+                </div>
+                <p>Finally, iOS updates land on a fixed annual cadence and older devices get dropped. OSRS Mobile is compiled against recent iOS SDKs, so a phone stuck on a very old iOS eventually cannot install the latest app version. The performance section covers the safe update policy — stay current enough to run the app, but not so current that a day-one iOS bug ruins a raid night.</p>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="battery">
+                <h2>2. 🔋 Battery Optimization — Stretch One Charge Into a Full Grind</h2>
+                <p>Battery is the #1 complaint from iOS players. OSRS is not a heavy game, but screen-on time is what kills a phone, and a long herb run or a fishing session can easily run 60–90 minutes. Combine that with high brightness and iOS background activity, and a charge is gone. The fixes below are ordered from highest impact to lowest, and each one is a setting you change once and forget.</p>
+
+                <h3>Lower in-game brightness and control auto-lock</h3>
+                <p>Set the in-game brightness to Auto (or ~50%) under Display settings, then raise your iPhone's auto-lock to "Never" only while playing on a charger. In normal play, keep auto-lock short — iOS dims the screen fast, and a dim screen is the single biggest battery saver. Our <a href="../guides/osrs-mobile-battery-data-2026.html">Battery &amp; Data guide</a> has real-world numbers showing how much a brighter screen costs you; on a small iPhone, going from 100% brightness to 40% can add 25–40% more runtime for the same session.</p>
+
+                <h3>Drop graphics to Medium and shadows off</h3>
+                <p>On a 6-inch Retina screen, High graphics looks almost identical to Medium but burns far more GPU. Medium + dynamic shadows off is the sweet spot. A cool phone also avoids thermal throttling, which is what actually tanks your frame rate later in a session. The GPU on iPhones is extremely efficient at 2D-style rendering, so the visual cost of dropping to Medium is nearly invisible while the battery savings are real.</p>
+
+                <h3>Use Low Power Mode for AFK skilling</h3>
+                <div class="action-step">
+                    <h4>🎯 The AFK Skilling Combo</h4>
+                    <ol>
+                        <li>Enable <strong>Low Power Mode</strong> (Control Center or Settings → Battery) before long AFK sessions</li>
+                        <li>Cap in-game FPS at 30 instead of 50</li>
+                        <li>Dim brightness to ~40% and turn off sound</li>
+                        <li>Keep the phone out of direct sun and off a hot dashboard</li>
+                    </ol>
+                </div>
+                <p>Low Power Mode on iOS reduces background refresh and visual effects across the system, which helps OSRS hold a steady frame rate during woodcutting, fishing, or rune crafting marathons. The FPS cap is the silent hero here: rendering 50 frames per second versus 30 is a 40% cut in GPU work for a game where you are mostly watching a progress bar. For skilling you will not notice the lower frame rate at all.</p>
+
+                <h3>Carry a small power bank</h3>
+                <p>For commutes or travel, a 5,000–10,000 mAh power bank keeps you topped up without hunting for a wall outlet. OSRS draws modest current, so even a slim bank adds hours. Look for one that supports pass-through charging if you also want to keep a second device alive, and prefer a model with a short built-in cable so there is nothing to snag.</p>
+
+                <h3>Battery settings comparison</h3>
+                <p>The table below shows how the common setting combinations stack up. These are typical ranges on a recent iPhone during a mostly-AFK session; your exact minutes depend on device age and signal strength, but the ordering is consistent.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Setting combo</th>
+                            <th>Battery drain</th>
+                            <th>Smoothness</th>
+                            <th>Best for</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>High graphics, 100% bright, FPS 50</td>
+                            <td>Very high</td>
+                            <td>Best</td>
+                            <td>Short active boss trips only</td>
+                        </tr>
+                        <tr>
+                            <td>Medium graphics, 60% bright, FPS 50</td>
+                            <td>Moderate</td>
+                            <td>Great</td>
+                            <td>General play, short sessions</td>
+                        </tr>
+                        <tr>
+                            <td>Medium + shadows off, 40% bright, FPS 30</td>
+                            <td>Low</td>
+                            <td>Good</td>
+                            <td>Long skilling / commuting</td>
+                        </tr>
+                        <tr>
+                            <td>Above + Low Power Mode</td>
+                            <td>Lowest</td>
+                            <td>Adequate</td>
+                            <td>Multi-hour AFK grinds</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 320" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Estimated battery life by graphics and power setting on iOS">
+                        <rect width="680" height="320" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Estimated Runtime per Full Charge (typical iPhone, AFK session)</text>
+                        <line x1="70" y1="280" x2="650" y2="280" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="70" y1="40" x2="70" y2="280" stroke="#3b2615" stroke-width="2"/>
+                        <text x="14" y="160" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" transform="rotate(-90 14 160)">Minutes</text>
+                        <rect x="110" y="120" width="90" height="160" fill="#8b6914" opacity="0.45"/>
+                        <text x="125" y="300" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">High / 100%</text>
+                        <rect x="240" y="95" width="90" height="185" fill="#8b6914" opacity="0.6"/>
+                        <text x="258" y="300" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">Med / 60%</text>
+                        <rect x="370" y="70" width="90" height="210" fill="#E6A817" opacity="0.8"/>
+                        <text x="388" y="300" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">Med / 40% / 30fps</text>
+                        <rect x="500" y="45" width="90" height="235" fill="#E6A817"/>
+                        <text x="515" y="300" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">+ Low Power</text>
+                        <text x="110" y="112" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">~150m</text>
+                        <text x="240" y="87" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">~210m</text>
+                        <text x="370" y="62" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">~270m</text>
+                        <text x="500" y="37" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">~340m</text>
+                    </svg>
+                    <figcaption>Lower graphics, a dim screen, an FPS cap, and Low Power Mode roughly double real-world runtime versus max settings. Your numbers will vary by device.</figcaption>
+                </figure>
+
+                <div class="warning-box">
+                    <div class="warning-title">⚠️ Don't Play While Charging in a Case</div>
+                    <p>Charging + a thick case + screen-on generates heat. Heat throttles the chip and can cause the app to stutter or crash. If you must play on charge, remove the case or use a low-watt charger. A phone that is hot to the touch is a phone that is about to drop frames — and in a boss fight, dropped frames get you killed.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="storage">
+                <h2>3. 💾 Storage Management — Cache, Offloads, and Headroom</h2>
+                <p>iOS is notorious for "storage almost full" warnings, and OSRS Mobile keeps a local cache of game assets (maps, models, sounds) that can quietly grow to several hundred megabytes. When storage is tight, iOS does two annoying things: it auto-offloads apps you haven't opened lately, and it blocks app updates. Both can interrupt your OSRS play right when a new league or quest drops.</p>
+
+                <h3>Check what OSRS is actually using</h3>
+                <p>Go to <strong>Settings → General → iPhone Storage → Old School RuneScape</strong>. You'll see two numbers: the app size and the <em>Documents &amp; Data</em> (the cache). If that cache is large — say over 1 GB — you can clear it without losing your account. The cache is purely downloaded assets; your character lives on Jagex servers, so clearing it just forces a fresh, clean download the next time you launch.</p>
+
+                <h3>Clearing the cache safely</h3>
+                <div class="action-step">
+                    <h4>🧹 How to Clear OSRS Cache on iOS</h4>
+                    <ol>
+                        <li>Open OSRS Mobile and go to <strong>Settings → Data → Clear cache</strong> (the in-game option removes downloaded assets, not your account)</li>
+                        <li>Alternatively, offload the app: <strong>Settings → iPhone Storage → Old School RuneScape → Offload App</strong>. This deletes the app binary but keeps your documents and login; reinstalling rebuilds a clean cache</li>
+                        <li>Never choose "Delete App" unless you intend to remove everything and reinstall fresh</li>
+                    </ol>
+                </div>
+                <p>Offloading is the safest reset: it frees space and forces a clean cache download next launch, often fixing mysterious lag or missing-texture bugs. The difference between Offload and Delete matters — Offload preserves your local login tokens and documents, so when you reinstall from the App Store your account is still there; Delete removes everything and you re-authenticate from scratch (which is fine if you have a passkey, but unnecessary work).</p>
+
+                <h3>Stop iOS from auto-offloading OSRS</h3>
+                <p>iOS can offload unused apps automatically. To protect OSRS, open it at least weekly, or disable the feature under <strong>Settings → App Store → Offload Unused Apps → Off</strong>. If you rely on OSRS daily, this setting should be off. Auto-offload is great for apps you opened once and forgot, but for a game you play constantly it only causes surprise "where did my app go" moments.</p>
+
+                <h3>Keep headroom free</h3>
+                <p>Try to keep at least 1–2 GB free. iOS needs scratch space for updates and caches; under ~500 MB free, the app may fail to download new assets after a game update, leaving you stuck on a black screen until you free space. If you are on a 64 GB iPhone that is mostly full of photos and other games, consider offloading something you no longer play before a major OSRS content drop.</p>
+
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 280" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Recommended iPhone storage split for smooth OSRS updates">
+                        <rect width="680" height="280" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Storage Budget (per 64 GB iPhone)</text>
+                        <rect x="60" y="70" width="150" height="150" fill="#8b6914" opacity="0.5"/>
+                        <text x="80" y="150" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif">OSRS</text>
+                        <text x="80" y="170" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">~1.2 GB</text>
+                        <rect x="230" y="70" width="240" height="150" fill="#E6A817" opacity="0.7"/>
+                        <text x="300" y="150" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif">Photos / other apps</text>
+                        <rect x="490" y="70" width="130" height="150" fill="#8b6914" opacity="0.25" stroke="#8b6914" stroke-width="1.5" stroke-dasharray="5,4"/>
+                        <text x="505" y="150" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">Free</text>
+                        <text x="505" y="170" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">1–2 GB</text>
+                        <text x="60" y="250" font-size="13" fill="#3b2615" font-family="Arial,sans-serif">Keep the dashed "Free" slice &gt; 1 GB so updates never fail.</text>
+                    </svg>
+                    <figcaption>A simple storage budget: OSRS itself is small, but you must protect 1–2 GB of headroom for update scratch space.</figcaption>
+                </figure>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Wi-Fi for Updates</div>
+                    <p>Download OSRS app updates and asset caches on Wi-Fi, not cellular. A large update over 5G not only burns data but can stall if the connection drops, corrupting the cache. Set the App Store to "Wi-Fi Only" for automatic updates if you are on a tight data plan, then manually pull the OSRS update when you are on a solid connection.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="sso">
+                <h2>4. 🔐 SSO &amp; Biometric Login — Face ID / Touch ID With Your Jagex Account</h2>
+                <p>Modern OSRS uses a <strong>Jagex Account</strong> (email + password) rather than the old individual character logins. On iOS, the smoothest and safest way to sign in is a <strong>passkey</strong> bound to your device, which lets Face ID or Touch ID log you in instead of typing a password. This is the "SSO" experience most iOS players want, and it is also the most secure option available.</p>
+
+                <h3>Set up a passkey on iOS</h3>
+                <div class="action-step">
+                    <h4>🪪 Create a Jagex Account Passkey (iPhone/iPad)</h4>
+                    <ol>
+                        <li>Log in to your Jagex Account via the official site in Safari</li>
+                        <li>Go to <strong>Account Settings → Security → Passkeys</strong></li>
+                        <li>Choose "Add passkey" and confirm with Face ID / Touch ID when prompted</li>
+                        <li>In the OSRS app, the next login offers "Continue with passkey" — authenticate with biometrics</li>
+                    </ol>
+                </div>
+                <p>A passkey is phishing-resistant: there is no password to steal or mistype, and it stays on your secure enclave. It also survives app reinstalls because it is tied to your Jagex Account, not the local app. Even if someone gets your email, they cannot log in without your face or fingerprint, and they cannot phish a secret that never leaves your device. For a game where account theft means losing a bank worth millions, that protection is worth five minutes of setup.</p>
+
+                <h3>Using iCloud Keychain as a backup</h3>
+                <p>If you prefer, you can let iCloud Keychain store your Jagex password and autofill it. This is convenient but less secure than a passkey. Enable it under <strong>Settings → Passwords</strong> so iOS offers the credential on the login screen. Treat Keychain as the fallback, not the primary: a stored password can still be phished on a fake site, whereas a passkey cannot. Our mobile phishing and fake-app guide walks through spotting the clones that try to steal exactly that password.</p>
+
+                <h3>Why SSO matters for mobile</h3>
+                <p>Because mobile sessions can drop (see the next section), you may re-authenticate several times a day. Biometric login turns a 20-second password hunt into a one-tap Face ID confirm, and it protects you if your phone is lost — a thief can't pass Face ID, and you can revoke the passkey from any browser. On a small screen, typing a long random password is genuinely painful; a passkey removes that friction entirely, which is why it is the single highest-quality-of-life change in this whole guide.</p>
+
+                <div class="warning-box">
+                    <div class="warning-title">⚠️ Revoke on Loss</div>
+                    <p>If your iPhone is lost or stolen, immediately revoke its passkey from your Jagex Account security page on another device. A passkey is safe, but removing it closes the door completely. Also enable the Jagex Account authenticator on a second device beforehand so you can still log in to revoke the lost one — do not put all your recovery eggs in the same phone.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="background">
+                <h2>5. 🔄 Background Behavior — Stop the App From Dropping Your Session</h2>
+                <p>iOS does not let apps run forever in the background. When you switch to Messages, Safari, or your authenticator, OSRS gets suspended, and after a while iOS may fully terminate it. The game server also has its own idle timer. The result: you come back to a "World unavailable" or a disconnect, and sometimes a desynced bank view. Understanding the lifecycle is the key to minimizing it.</p>
+
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 300" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="iOS app lifecycle and how to keep OSRS alive">
+                        <rect width="680" height="300" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">iOS App Lifecycle — and How to Stay Alive</text>
+                        <rect x="40" y="70" width="120" height="50" fill="#8b6914" opacity="0.3" stroke="#8b6914" stroke-width="1.5"/>
+                        <text x="62" y="100" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif">Foreground</text>
+                        <rect x="190" y="70" width="120" height="50" fill="#E6A817" opacity="0.4" stroke="#E6A817" stroke-width="1.5"/>
+                        <text x="205" y="100" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif">Background</text>
+                        <rect x="340" y="70" width="120" height="50" fill="#E6A817" opacity="0.25" stroke="#E6A817" stroke-width="1.5" stroke-dasharray="5,4"/>
+                        <text x="350" y="100" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif">Suspended</text>
+                        <rect x="490" y="70" width="120" height="50" fill="#8b6914" opacity="0.15" stroke="#8b6914" stroke-width="1.5" stroke-dasharray="5,4"/>
+                        <text x="510" y="100" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif">Terminated</text>
+                        <line x1="160" y1="95" x2="190" y2="95" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="310" y1="95" x2="340" y2="95" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="460" y1="95" x2="490" y2="95" stroke="#3b2615" stroke-width="2"/>
+                        <text x="40" y="160" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Keep OSRS here ↓</text>
+                        <rect x="40" y="175" width="300" height="90" fill="#8b6914" opacity="0.1" stroke="#8b6914" stroke-width="1.5"/>
+                        <text x="55" y="200" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif">iPad Split View / Slide Over → stays Foreground</text>
+                        <text x="55" y="222" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif">Guided Access → locked Foreground</text>
+                        <text x="55" y="244" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif">Do Not Disturb → fewer interruptions</text>
+                        <text x="360" y="200" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Avoid:</text>
+                        <text x="360" y="222" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif">Switching to heavy apps</text>
+                        <text x="360" y="244" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif">Long idle before returning</text>
+                    </svg>
+                    <figcaption>An app you can still see is never suspended. Keep OSRS on screen (iPad) or lock the screen to it (Guided Access) to stay in the green Foreground state.</figcaption>
+                </figure>
+
+                <h3>Keep OSRS in the foreground as much as possible</h3>
+                <p>The most reliable fix is simply not backgrounding the app. On iPad, use Split View or Slide Over to keep OSRS visible beside a wiki or Discord window — a visible app is never suspended. On iPhone, accept that switching apps will eventually drop you, and plan your switches around safe AFK moments.</p>
+
+                <h3>Disable iOS background app refresh for other apps</h3>
+                <p>Under <strong>Settings → General → Background App Refresh</strong>, turn it off for heavy social apps. This frees RAM and CPU so iOS is less likely to evict OSRS when you switch back. Leave OSRS itself free to use what it needs. The more background work other apps are doing, the sooner iOS decides something has to go — and if OSRS is the one in the background at that moment, it is the one that gets terminated.</p>
+
+                <h3>Always reconfirm your bank after returning</h3>
+                <p>If you were mid-bank when the app suspended, your view can desync. Log out fully and back in, or world-hop, to force a clean reload. Our <a href="../guides/osrs-mobile-guide-2026.html">Mobile guide</a> covers the safe reconnect habit; the <a href="../guides/osrs-recover-items-lost-bug-update-rollback-2026.html">item recovery guide</a> explains what to do if items look missing after a desync (usually they aren't — just not loaded yet). Never "trade" or "drop" items to "test" a desync; force a reload first and confirm the real state.</p>
+
+                <h3>Use the in-game logout timer wisely</h3>
+                <p>OSRS logs you out after a period of inactivity. If you must background the app, do it during a safe AFK (fishing, woodcutting) rather than mid-combat, and re-open within a minute or two to avoid the idle logout. Combat content has no mercy for a disconnected player — you will stand still and take hits — so never background during a boss or a wilderness trip.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Guided Access for Long AFK</div>
+                    <p>For truly hands-off sessions (e.g., while cooking or at work), enable <strong>Guided Access</strong> (Settings → Accessibility → Guided Access). It locks the screen to OSRS so nothing background-evicts it and no notification pulls you out. Triple-click the side button to exit. This is the closest you can get to "the app stays open forever" on iOS, and it is the single best trick for overnight or work-shift skilling.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="performance">
+                <h2>6. ⚡ iOS Performance Tweaks — Low Power Mode, Game Mode &amp; More</h2>
+                <p>Beyond battery and storage, a few iOS-level switches change how smoothly OSRS runs. None of these are gameplay cheats — they are system settings that remove stutter and keep the foreground app prioritized.</p>
+
+                <h3>Game Mode (newer iOS)</h3>
+                <p>On supported iOS versions, the system's Game Mode reduces background activity and prioritizes the foreground game's frame rate and Bluetooth latency. OSRS usually benefits automatically when detected as a game; make sure Do Not Disturb or Focus isn't blocking it, and keep Bluetooth audio stable if you use headphones. Game Mode is invisible — you will not see a toggle flip — but you may notice fewer frame drops during busy bank screens and world hops.</p>
+
+                <h3>Reduce Motion and Transparency</h3>
+                <p>Under <strong>Settings → Accessibility → Motion → Reduce Motion</strong> and <strong>Display &amp; Text Size → Reduce Transparency</strong>, you cut system animations. This doesn't speed up OSRS directly, but it makes app switching and the login screen feel snappier and prevents UI stutter on older devices. On an iPhone 6S/7/8 especially, reducing transparency noticeably smooths the system-level animations around the app.</p>
+
+                <h3>Close RAM hogs before a boss</h3>
+                <p>Before serious PvM on mobile, swipe closed Safari tabs, Maps, and video apps. Free RAM means iOS is far less likely to terminate OSRS when a notification or a phone call arrives mid-fight. iOS manages memory aggressively; if RAM is tight and a call comes in, the backgrounded app (OSRS) is the first candidate for eviction. Closing the obvious hogs first protects your session.</p>
+
+                <h3>Keep iOS updated (but not day-one)</h3>
+                <p>OSRS Mobile is tuned against recent iOS releases. Staying one or two versions behind the very latest is fine, but don't fall years behind — old iOS builds eventually lose app-compatibility and can't install updates. A safe policy: wait a few days after a major iOS release, read whether anyone reports OSRS issues, then update. This avoids being the unlucky player who updated into a crash bug on launch day.</p>
+
+                <div class="method-box">
+                    <h4>📋 Pre-Boss iOS Checklist</h4>
+                    <ul>
+                        <li>Low Power Mode off for max FPS (battery be damned)</li>
+                        <li>Graphics Medium, shadows off, FPS 50</li>
+                        <li>Close Safari/Maps/video apps</li>
+                        <li>Enable Do Not Disturb so calls don't background you</li>
+                        <li>Confirm passkey login so re-entry is one tap</li>
+                        <li>Start the fight from a safe spot, never mid-combat backgrounding</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="issues">
+                <h2>7. 🛠️ Common iOS Issues and Quick Fixes</h2>
+                <p>Even optimized, iOS players hit a few repeat problems. This quick-reference table covers the most common symptoms, their likely cause, and the fix — bookmark it for the next time something goes wrong mid-session.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Symptom</th>
+                            <th>Likely Cause</th>
+                            <th>Fix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Black screen on launch</td>
+                            <td>Corrupt cache / full storage</td>
+                            <td>Offload &amp; reinstall, free 1 GB+</td>
+                        </tr>
+                        <tr>
+                            <td>Battery dead in ~90 min</td>
+                            <td>High brightness + High graphics</td>
+                            <td>Medium graphics, dim screen, Low Power Mode</td>
+                        </tr>
+                        <tr>
+                            <td>Drops session on app switch</td>
+                            <td>iOS suspended the app</td>
+                            <td>Use iPad Split View or Guided Access</td>
+                        </tr>
+                        <tr>
+                            <td>Must type password each time</td>
+                            <td>No passkey set</td>
+                            <td>Add a Jagex Account passkey (Face ID)</td>
+                        </tr>
+                        <tr>
+                            <td>"Storage full" on update</td>
+                            <td>Cache + offload conflict</td>
+                            <td>Clear cache, disable auto-offload</td>
+                        </tr>
+                        <tr>
+                            <td>Login loops / spinner</td>
+                            <td>Weak network or expired token</td>
+                            <td>Toggle Wi-Fi/cellular, re-add passkey</td>
+                        </tr>
+                        <tr>
+                            <td>Lag spikes during boss</td>
+                            <td>RAM pressure from other apps</td>
+                            <td>Close Safari/video, free RAM first</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>For deeper crashes and black-screen troubleshooting, see our dedicated <a href="../guides/osrs-mobile-crashing-black-screen-ios-fix-2026.html">iOS Crashing / Black Screen Fix</a>, and for login-specific loops the <a href="../guides/osrs-mobile-cant-login-fix-2026.html">can't-login fix guide</a>. If your issue is a dropped session specifically, the background section above is the place to start, not a reinstall.</p>
+            </section>
+
+            <!-- FAQ -->
+            <section id="faq">
+                <h2>8. ❓ Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <h3>Does OSRS Mobile work on my iPhone?</h3>
+                    <p>Yes, on iPhone 6S / iPad Air 2 or newer running iOS 13 or above. Older 32-bit iPhones (pre-iPhone 5S era) are not supported because iOS dropped 32-bit app support years ago. If your device is from the last eight years, you are fine; the only real differentiator is battery size and chip speed, which the optimization steps above address.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do I stop iOS from logging me out of OSRS?</h3>
+                    <p>You can't disable the server idle timer, but you can avoid app suspension by keeping OSRS foreground (iPad Split View) or using Guided Access, and by setting up a Face ID passkey so re-login is instant when it does happen. The trick is to stop iOS from suspending the app in the first place — a visible app is never suspended, which is why Split View and Guided Access are the real fixes, not faster typing.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Will clearing the cache delete my account or bank?</h3>
+                    <p>No. The cache is only downloaded game assets. Your account, bank, and settings live on Jagex servers. Clearing the cache just forces a clean re-download of maps and models. You will briefly see longer load times on the next launch while assets rebuild, but nothing you own is touched.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is a passkey safe on my iPhone?</h3>
+                    <p>Yes — passkeys are stored in the secure enclave and confirmed with Face ID/Touch ID. They are phishing-resistant and can be revoked remotely from your Jagex Account security page if the device is lost. Unlike a password, a passkey never leaves your device, so there is nothing for a phishing site to steal.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Why does my battery die so fast on OSRS?</h3>
+                    <p>Screen-on time, high brightness, and High graphics are the culprits. Drop to Medium graphics, dim the screen, and use Low Power Mode for AFK sessions. See the <a href="../guides/osrs-mobile-battery-data-2026.html">Battery &amp; Data guide</a> for exact numbers — the short version is that brightness and FPS are where the battery goes, not the network connection.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I play OSRS on iPad with a keyboard?</h3>
+                    <p>Yes — iPadOS supports Bluetooth keyboards and the app works with them, giving you a near-desktop feel for skilling and banking. Touch remains required for some gestures, but a keyboard helps a lot for typing and movement. A trackpad or mouse also works for camera control on recent iPadOS, which many players prefer for bossing.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What is the difference between Offload App and Delete App?</h3>
+                    <p>Offload removes the app binary but keeps your documents and login tokens, so reinstalling restores everything instantly. Delete removes everything, including local login, so you re-authenticate from scratch. For a cache reset, always Offload — Delete is only for a full clean slate when troubleshooting deeper issues.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Does Low Power Mode hurt my gameplay?</h3>
+                    <p>For skilling and most content, no — it only caps peak performance and background refresh, which OSRS rarely needs. During intense bossing you may want it off for maximum FPS, but for AFK grinds it extends battery life with no downside you will notice. The frame rate stays perfectly playable; it just will not spike as high under load.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Why does my session drop when I open my banking app?</h3>
+                    <p>Because iOS suspends OSRS the moment it leaves the foreground, and the game server's idle timer keeps running. By the time you return, the app may have been terminated and the server logged you out. Keep OSRS visible (Split View on iPad) or use Guided Access so it is never backgrounded in the first place.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Should I update iOS the day a new version comes out?</h3>
+                    <p>Not on day one. Wait a few days, check whether other OSRS players report issues, then update. OSRS is tuned against recent iOS, so you do need to stay reasonably current, but jumping in on hour one risks hitting a launch-day bug that no one has a fix for yet. A two- to three-day delay is the safe middle ground.</p>
+                </div>
+            </section>
+
+            <!-- FINAL TIPS -->
+            <section id="final-tips">
+                <h2>9. 🎯 Final Tips — iOS Optimization Recap</h2>
+                <ul>
+                    <li><strong>Graphics:</strong> Medium + shadows off is the battery/FPS sweet spot on every iPhone and iPad.</li>
+                    <li><strong>Brightness:</strong> Dim to ~40% and use an FPS cap of 30 for AFK — runtime roughly doubles versus max settings.</li>
+                    <li><strong>Storage:</strong> Offload (not delete) to reset a bloated cache; keep 1–2 GB free for updates.</li>
+                    <li><strong>Login:</strong> Add a Jagex Account passkey so Face ID logs you in — no more thumb-typing passwords.</li>
+                    <li><strong>Background:</strong> Use iPad Split View or Guided Access to stop iOS from killing your session.</li>
+                    <li><strong>AFK:</strong> Low Power Mode + 30 FPS + dim screen = all-day battery for skilling.</li>
+                    <li><strong>RAM:</strong> Close Safari/Maps/video before a boss so a call can't evict OSRS mid-fight.</li>
+                    <li><strong>Updates:</strong> Stay current but wait a few days after a major iOS release before upgrading.</li>
+                </ul>
+            </section>
+
+            <div class="next-steps">
+                <h3>🎯 Your iOS Optimization Action Order</h3>
+                <p>Run these once and your iPhone/iPad OSRS experience is fixed for good:</p>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                    <strong>→ Step 1:</strong> Set graphics to Medium, shadows off, FPS 30 for AFK — High for short boss trips
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914; margin-top:8px;">
+                    <strong>→ Step 2:</strong> Offload (not delete) to reset a bloated cache; keep 1–2 GB free for updates
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914; margin-top:8px;">
+                    <strong>→ Step 3:</strong> Add a Jagex Account passkey so Face ID logs you in instantly
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914; margin-top:8px;">
+                    <strong>→ Step 4:</strong> Enable Guided Access (or iPad Split View) to stop background session drops
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914; margin-top:8px;">
+                    <strong>→ Step 5:</strong> Disable auto-offload and review battery settings before your next long grind
+                </div>
+            </div>
+
+            <!-- TOOL PROMO -->
+            <div class="tool-promo">
+                <h3>🛠️ Companion Tools for Mobile OSRS</h3>
+                <p>Guides tell you what to do — tools help you act. Free, browser-based, mobile-friendly.</p>
+                <div class="tool-promo-grid">
+                    <a href="../tools/gear-recommender/" class="tool-promo-card"><span class="tp-ico">🛡️</span><span class="tp-name">Gear Recommender</span><span class="tp-desc">Find the best gear setup for your combat style.</span><span class="tp-go">Open Tool →</span></a>
+                    <a href="../tools/dps-calculator/" class="tool-promo-card"><span class="tp-ico">⚔️</span><span class="tp-name">DPS Calculator</span><span class="tp-desc">Compare weapons and hit accuracy before you train.</span><span class="tp-go">Open Tool →</span></a>
+                    <a href="../tools/profit-finder/" class="tool-promo-card"><span class="tp-ico">💰</span><span class="tp-name">Profit Finder</span><span class="tp-desc">Find the best GP/hr method for your stats right now.</span><span class="tp-go">Open Tool →</span></a>
+                </div>
+            </div>
+
+            <div class="related-guides">
+                <h3>Related Guides</h3>
+                <div class="article-grid">
+                    <a href="../guides/osrs-mobile-best-settings-2026.html" class="article-card">
+                        <h3>Best Mobile Settings 2026</h3>
+                        <p>The platform-neutral graphics, interface, and gameplay config.</p>
+                    </a>
+                    <a href="../guides/osrs-mobile-guide-2026.html" class="article-card">
+                        <h3>OSRS Mobile Guide 2026</h3>
+                        <p>The full mobile handbook for iOS and Android.</p>
+                    </a>
+                    <a href="../guides/osrs-mobile-battery-data-2026.html" class="article-card">
+                        <h3>Battery &amp; Data Guide 2026</h3>
+                        <p>Real-world battery numbers and data usage on mobile.</p>
+                    </a>
+                    <a href="../guides/osrs-play-osrs-on-phone-2026.html" class="article-card">
+                        <h3>How to Play OSRS on Your Phone</h3>
+                        <p>Install, requirements, and first launch for new players.</p>
+                    </a>
+                    <a href="../guides/osrs-mobile-controls-guide-2026.html" class="article-card">
+                        <h3>Mobile Controls Guide 2026</h3>
+                        <p>Touch layouts, menu entry swapper, and input tips.</p>
+                    </a>
+                    <a href="../guides/osrs-mobile-crashing-black-screen-ios-fix-2026.html" class="article-card">
+                        <h3>iOS Crashing / Black Screen Fix</h3>
+                        <p>Deep-dive recovery when the app won't launch.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SUPPORT CARD (verbatim Payhip green box, placed at end) -->
+    <div class="support-card" style="margin:8px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+            <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+            <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                <li><strong>Avoid Scams & Phishing (Stop Bank Drains)</strong></li>
+                <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+            </ul>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+    </div>
+
+            <p class="article-meta" style="color:#3b2615;font-size:.82rem;margin:1.5rem 0 0;opacity:.85;">Published: August 9, 2026 &middot; Last verified: August 12, 2026</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>📱 Mobile Guides</h4><ul>
+                    <li><a href="../guides/osrs-mobile-guide-2026.html">OSRS Mobile Guide</a></li>
+                    <li><a href="../guides/osrs-mobile-best-settings-2026.html">Best Mobile Settings</a></li>
+                    <li><a href="../guides/osrs-mobile-controls-guide-2026.html">Mobile Controls</a></li>
+                    <li><a href="../guides/osrs-mobile-battery-data-2026.html">Battery &amp; Data</a></li>
+                    <li><a href="../guides/osrs-play-osrs-on-phone-2026.html">Play on Phone</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../money-making.html">Money Making</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+
+    <!-- Copyright & Anti-Scraping Notice -->
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+    </div>
+
+    <script src="../js/features.js"></script>
+    <script src="../js/ai-qa-widget.js"></script>
+</body>
+</html>

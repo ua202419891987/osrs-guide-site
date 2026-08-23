@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Mobile Android Optimization 2026 — 32-bit, Cache, Performance & Storage | OSRS Guru</title>
+    <meta name="description" content="The 2026 OSRS Mobile Android optimization guide: 32-bit device limitations, cache clearing, performance tuning on OEM skins, storage management, network fixes, and Google/Jagex Account login for smoother play.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="osrs mobile android optimization, osrs 32-bit android, osrs android cache clear, osrs android performance, osrs android storage, osrs android battery optimization">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/osrs-mobile-android-optimization-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="all" data-category="mobile">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+<li><a href="../pvm-guides.html">PvM Guides</a></li>
+
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../weekly-updates.html">Updates</a></li>
+                    <li><a href="../guides/osrs-mobile-guide-2026.html">📱 Mobile</a></li>
+                    <li><a href="../zh/index.html">Chinese</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="guide-content">
+        <div class="container">
+            <h1>OSRS Mobile Android Optimization 2026 — 32-bit, Cache, Performance & Storage</h1>
+
+<div class="article-meta" style="margin-top:12px;color:#666;font-size:.9rem;line-height:1.6"><span>Updated August 19, 2026</span> &nbsp;|&nbsp; <span>15 min read</span> &nbsp;|&nbsp; <span>By Yanchun Wu</span></div><!-- meta-update-2026 -->
+
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: All Levels</div>
+
+            <p class="intro">Android is the most fragmented platform OSRS Mobile runs on — hundreds of manufacturers, dozens of Android versions, and chips from three major families. That freedom is great for choice but terrible for consistency: the same settings behave differently on a Samsung, a Google Pixel, a Xiaomi, and a budget 32-bit phone. This guide is the Android-only tuning manual. It picks up where our neutral <a href="../guides/osrs-mobile-best-settings-2026.html">Best Mobile Settings</a> and the hub <a href="../guides/osrs-mobile-guide-2026.html">OSRS Mobile guide</a> leave off, and it focuses on the levers that are unique to Android: the 32-bit device wall, aggressive cache and storage behavior, OEM battery killers, flaky mobile networks, and Google/Jagex account login. If you have not installed the app yet, start with <a href="../guides/osrs-play-osrs-on-phone-2026.html">How to Play OSRS on Your Phone</a>.</p>
+            <p>The goal is simple: make OSRS Mobile on Android launch faster, hold a connection when you tab away, stop crashing after updates, and drain less battery while you are AFK skilling. None of this requires rooting, sideloading risky APKs, or paying for "booster" apps. It is about undoing the manufacturer "helpfulness" that breaks games by default and matching the client to your specific hardware.</p>
+
+            <div class="quick-verdict">
+                <h3>⚡ Quick Verdict — The 30-Second Read</h3>
+                <ul>
+                    <li>📌 The official app is <strong>64-bit only</strong> — a 32-bit-only phone literally cannot run it, and no safe APK fixes that.</li>
+                    <li>📌 Set OSRS battery to <strong>Unrestricted</strong> and whitelist it per brand, or it dies the moment you open your authenticator.</li>
+                    <li>📌 <strong>Clear cache, never Clear data</strong> — cache is safe; data wipes your local login and forces a full re-setup.</li>
+                    <li>📌 Keep <strong>1–2 GB free</strong> internally; a full disk is the #1 cause of black screens after updates.</li>
+                    <li>📌 Add a <strong>Jagex Account passkey</strong> and use Google Autofill so you stop thumb-typing your password.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#why-android">Why Android Optimization Is Different</a></li>
+                    <li><a href="#32bit">The 32-bit Device Problem in 2026</a></li>
+                    <li><a href="#cache">Cache Clearing — When and How</a></li>
+                    <li><a href="#performance">Performance Tuning — OEM Skins &amp; Battery Killers</a></li>
+                    <li><a href="#storage">Storage Management — Free Space &amp; SD Cards</a></li>
+                    <li><a href="#network">Network &amp; Wi-Fi Optimization</a></li>
+                    <li><a href="#login">Google &amp; Jagex Account Login</a></li>
+                    <li><a href="#issues">Common Android Issues and Quick Fixes</a></li>
+                    <li><a href="#faq">Frequently Asked Questions</a></li>
+                    <li><a href="#final-tips">Final Tips</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="why-android">
+                <h2>1. 🤖 Why Android Optimization Is Different</h2>
+                <p>On iOS, Apple dictates the rules. One codebase, one set of limits, predictable behavior across every iPhone that supports the app. On Android, the manufacturer does the dictating — and they all "help" you save battery in ways that break games. Samsung's "Deep Sleeping apps", Xiaomi's "MIUI optimizer", OnePlus' "OxygenOS battery optimization", Huawei's "App launch" manager, and Google's own "Adaptive Battery" each silently throttle or kill background apps. OSRS, which wants a steady connection and occasional background time (to download cache, finish a world hop, or keep your session alive while you check a wiki page), runs straight into all of them. The second big difference is hardware: Android still ships 32-bit-only budget phones in many markets, and the OSRS app has moved on from them. So Android tuning is roughly 50% fighting the manufacturer's "helpfulness" and 50% matching settings to your chip.</p>
+                <p>This guide skips in-game toggles (covered in <a href="../guides/osrs-mobile-best-settings-2026.html">Best Mobile Settings</a>) and the RuneLite sideload path, and concentrates on the Android system around the game. If you want the platform-neutral graphics and interface config first, read that guide; if you want the full mobile handbook including iOS, the <a href="../guides/osrs-mobile-guide-2026.html">OSRS Mobile guide</a> is the hub.</p>
+                <h3>Three families of Android chip — and why it matters</h3>
+                <p>What you can get away with depends heavily on your system-on-chip. A 2024 flagship Snapdragon 8-series or Tensor needs almost no tuning — it has CPU and GPU headroom to spare. A 2020–2022 mid-range Dimensity or Exynos will run the game well but benefits from Game Booster performance mode during bossing. A 2018–2019 budget chip (or anything 32-bit) is where every trick in this guide earns its keep. Identify your chip in <strong>Settings → About phone → Processor</strong> before you start, because the sections below are ordered from "do this on every phone" to "only if you are struggling."</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Know Your Chip First</div>
+                    <p>Whether you have a Snapdragon, Dimensity, Exynos, or Tensor changes how aggressively you must tune. A recent flagship needs almost nothing; an older budget phone needs every trick below. Naming your chip also helps you read the per-manufacturer steps in Section 4, because the menus are named after the brand's skin, not the chip.</p>
+                </div>
+                <p>Finally, Android gives you more control than iOS ever will — you can move the cache to an SD card, uninstall bloatware, and grant per-app battery exemptions. That same freedom is why Android needs this guide: the defaults are tuned for a phone that sits in a pocket, not a phone running a persistent MMO client.</p>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="32bit">
+                <h2>2. 📛 The 32-bit Device Problem in 2026</h2>
+                <p>The official OSRS Mobile app is built for <strong>64-bit Android</strong>. Many entry-level and older Android phones — especially models sold through 2022–2023 in budget markets, and a surprising number of "kids' tablets" — are still <strong>32-bit only</strong> at the CPU/OS level. On those devices the Play Store may not even offer the app, or it installs but fails to launch with a cryptic native error. This is the single most common "why won't it run" question we get from Android players, and it is also the one with the fewest software fixes.</p>
+
+                <h3>How to check if your phone is 32-bit</h3>
+                <div class="action-step">
+                    <h4>🔍 Check Your Architecture</h4>
+                    <ol>
+                        <li>Open <strong>Settings → About phone → Android version</strong> and note the version number</li>
+                        <li>Install a free system-info app (e.g., "Device Info HW" or "CPU-Z") from the Play Store</li>
+                        <li>Look for the <strong>instruction set / ABI</strong>: if it lists only <code>armeabi-v7a</code> (and not <code>arm64-v8a</code>), your device is 32-bit only</li>
+                        <li>If the Play Store shows "Your device isn't compatible," 32-bit is the likely reason</li>
+                    </ol>
+                </div>
+                <p>Some phones report both ABIs but still ship a 32-bit <em>build</em> of Android — in that rare case the Play Store may still block the app because the installer targets 64-bit. When in doubt, the system-info app's "Android is 64-bit" field is the definitive answer.</p>
+
+                <h3>What to do on a 32-bit-only device</h3>
+                <p>If your phone is 32-bit only, the official app will not run, and most third-party RuneLite Android builds also require 64-bit. Your realistic options are: (a) play OSRS in a mobile browser via the official site's lightweight client where supported, (b) use a 64-bit device, or (c) keep the phone for everything else and accept that native OSRS Mobile isn't supported on it. Do not waste time sideloading random "OSRS 32-bit APK" files — they will fail the same architecture check or, worse, be credential-stealing malware.</p>
+
+                <h3>Buying advice for 2026</h3>
+                <p>If you are shopping for an OSRS phone, buy any 64-bit device from 2020 onward (Snapdragon 600-series or better, or equivalent MediaTek/Exynos/Tensor). Even a used flagship from 2021 runs OSRS beautifully and costs little second-hand. Avoid no-name "32-bit" ultra-budget phones if mobile OSRS matters to you; the few dollars saved buy a device that cannot run the one app you wanted.</p>
+
+                <div class="warning-box">
+                    <div class="warning-title">⚠️ Beware Fake "OSRS" APKs</div>
+                    <p>Searching for "OSRS 32-bit APK" surfaces modded clients that steal credentials. Only log in through the official Jagex app or a reputable, well-known RuneLite Android build from its official project page. Your Jagex Account is worth more than a sketchy download. If a site promises a "special 32-bit version," it is lying — no such official build exists.</p>
+                </div>
+
+                <p>The diagram below shows the decision you should run the moment the Play Store rejects the app. Notice that every software "fix" loops back to "get a 64-bit device" — that is the honest shape of the problem.</p>
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 300" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="32-bit versus 64-bit eligibility decision flow">
+                        <rect width="680" height="300" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Will OSRS Mobile Run On This Phone?</text>
+                        <rect x="40" y="50" width="220" height="60" fill="#8b6914" opacity="0.18" stroke="#8b6914" stroke-width="1.5" rx="8"/>
+                        <text x="58" y="76" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Play Store says</text>
+                        <text x="58" y="98" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">"not compatible"?</text>
+                        <rect x="320" y="50" width="150" height="60" fill="#8b6914" opacity="0.12" stroke="#8b6914" stroke-width="1.5" rx="8"/>
+                        <text x="338" y="76" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Check ABI:</text>
+                        <text x="338" y="98" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">arm64-v8a = 64-bit</text>
+                        <rect x="510" y="50" width="140" height="60" fill="#E6A817" opacity="0.18" stroke="#E6A817" stroke-width="1.5" rx="8"/>
+                        <text x="525" y="76" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">32-bit only</text>
+                        <text x="525" y="98" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">→ won't run</text>
+                        <line x1="260" y1="80" x2="318" y2="80" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="470" y1="80" x2="508" y2="80" stroke="#3b2615" stroke-width="2"/>
+                        <rect x="40" y="170" width="280" height="70" fill="#8b6914" opacity="0.10" stroke="#8b6914" stroke-width="1" rx="8"/>
+                        <text x="58" y="196" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">✅ 64-bit device</text>
+                        <text x="58" y="218" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Install official app, jump</text>
+                        <text x="58" y="234" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">to Section 3 (cache).</text>
+                        <rect x="360" y="170" width="280" height="70" fill="#E6A817" opacity="0.10" stroke="#E6A817" stroke-width="1" stroke-dasharray="5,4" rx="8"/>
+                        <text x="378" y="196" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">⛔ 32-bit only</text>
+                        <text x="378" y="218" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">No safe APK fixes it —</text>
+                        <text x="378" y="234" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">use browser or 64-bit device.</text>
+                    </svg>
+                    <figcaption>The architecture check is the gate. If your phone is 32-bit only, no software tweak makes the native app run.</figcaption>
+                </figure>
+
+                <h3>32-bit vs 64-bit at a glance</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>32-bit-only device</th>
+                            <th>64-bit device (required)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Play Store offers OSRS Mobile?</td>
+                            <td>No (or install fails)</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>RuneLite Android build</td>
+                            <td>No (needs 64-bit)</td>
+                            <td>Yes (third-party, unofficial)</td>
+                        </tr>
+                        <tr>
+                            <td>RAM ceiling</td>
+                            <td>~3–4 GB addressable</td>
+                            <td>Full RAM access</td>
+                        </tr>
+                        <tr>
+                            <td>Browser play works?</td>
+                            <td>Sometimes (lightweight client)</td>
+                            <td>Yes (and native app too)</td>
+                        </tr>
+                        <tr>
+                            <td>Recommended action</td>
+                            <td>Replace device or use desktop</td>
+                            <td>Tune using Sections 3–6</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="cache">
+                <h2>3. 🧹 Cache Clearing — When and How</h2>
+                <p>OSRS Mobile keeps a cache of game assets (maps, models, textures, sound) on your device. On Android this cache lives in the app's private storage and can grow to several gigabytes, and unlike iOS it is easy to clear the <em>wrong</em> thing (wiping your login instead of just assets). Here is the safe way, and why the distinction matters.</p>
+
+                <h3>Clear only the cache, not the data</h3>
+                <div class="action-step">
+                    <h4>🧺 Safe Cache Clear on Android</h4>
+                    <ol>
+                        <li>Open <strong>Settings → Apps → Old School RuneScape</strong></li>
+                        <li>Tap <strong>Storage</strong></li>
+                        <li>Tap <strong>Clear cache</strong> (NOT "Clear data" or "Clear storage")</li>
+                        <li>Reopen the app; assets re-download on next launch</li>
+                    </ol>
+                </div>
+                <p><strong>Clear cache</strong> removes downloaded maps/models only. <strong>Clear data / Clear storage</strong> wipes your local login, settings, and any saved layouts, and forces a full re-setup — avoid it unless you are troubleshooting a deeply corrupted install. Your account and bank are server-side, so even a data wipe won't lose progress, but it is an unnecessary reset that costs you ten minutes of re-logging and re-configuring.</p>
+
+                <h3>When to clear the cache</h3>
+                <ul>
+                    <li>After a major game update if textures look broken, NPCs render as blocks, or the app hangs on a black screen</li>
+                    <li>When "Storage full" warnings appear and OSRS is the largest app on the phone</li>
+                    <li>When the client crashes repeatedly on the same spot, world, or menu</li>
+                    <li>When the login screen itself looks visually corrupted or unstyled</li>
+                </ul>
+
+                <h3>Set the cache location (if your client exposes it)</h3>
+                <p>In the in-game settings, you can often choose where the cache is stored. If your phone has limited internal storage but a large SD card, pointing the cache at the SD card buys you room — though SD cards are slower, so keep the cache on internal storage if you can for faster loads. After a big update the client re-streams the cache; doing that from internal storage is dramatically smoother than from a cheap card.</p>
+
+                <div class="method-box">
+                    <h4>📋 Cache vs Data — The Difference That Saves You</h4>
+                    <ul>
+                        <li><strong>Cache</strong> = downloaded game files. Safe to clear anytime; regenerates automatically. Fixes most "broken after update" glitches.</li>
+                        <li><strong>Data / Storage</strong> = your local app state: login token, settings, keybind layouts. Clearing this logs you out and resets config.</li>
+                        <li><strong>Rule:</strong> when a guide says "clear the cache," it means the cache button specifically — never the data button.</li>
+                    </ul>
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Cache vs Data, Memorized</div>
+                    <p>Memorize the distinction: cache = safe to clear anytime; data = resets the app. When in doubt, clear cache only. If a problem survives a cache clear, <em>then</em> consider clearing data — but expect to re-log in.</p>
+                </div>
+                <p>A useful mental model: the cache is like a downloaded Netflix episode you can delete and re-fetch; the data is like your profile. You would never delete your profile to fix a buffering video. Treat OSRS the same way.</p>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="performance">
+                <h2>4. ⚡ Performance Tuning — OEM Skins &amp; Battery Killers</h2>
+                <p>This is the heart of Android optimization. Manufacturers throttle background apps to hit battery-claims and pass certification tests, and a persistent MMO client is exactly what their algorithms target. Fix these per-brand settings and OSRS stops dying when you tab away.</p>
+
+                <h3>Disable battery optimization for OSRS (stock Android / Pixel)</h3>
+                <div class="action-step">
+                    <h4>🔋 Stop the Killer (Stock Android / Pixel)</h4>
+                    <ol>
+                        <li><strong>Settings → Apps → Old School RuneScape → Battery</strong></li>
+                        <li>Set to <strong>Unrestricted</strong> (or "Don't optimize")</li>
+                        <li>Also open <strong>Settings → Battery → Adaptive preferences</strong> and make sure OSRS is not being "optimized" away</li>
+                        <li>Mark OSRS as a frequent app so Adaptive Battery learns to leave it alone</li>
+                    </ol>
+                </div>
+
+                <h3>Brand-specific steps</h3>
+                <div class="method-box">
+                    <h4>📱 Per-Manufacturer Fixes</h4>
+                    <ul>
+                        <li><strong>Samsung (One UI):</strong> Settings → Battery → Background usage limits → add OSRS to "Never auto sleeping apps"; enable "Allow background usage"</li>
+                        <li><strong>Xiaomi / Redmi / POCO (MIUI/HyperOS):</strong> Settings → Apps → Manage apps → OSRS → Battery saver → No restrictions; also disable "MIUI optimizer" / "Restrict background activity" for the app if present</li>
+                        <li><strong>OnePlus (OxygenOS):</strong> Settings → Battery → Battery optimization → OSRS → Don't optimize; enable "Allow background activity"</li>
+                        <li><strong>Huawei / Honor:</strong> Phone Manager → App launch → set OSRS to "Manage manually" and allow all background toggles</li>
+                        <li><strong>Google Pixel:</strong> Settings → Apps → OSRS → Battery → Unrestricted; the background disconnect guide covers the rest</li>
+                    </ul>
+                </div>
+                <p>These steps stop the OS from silently killing OSRS when you switch to a wiki, your authenticator, or a Discord call — the Android equivalent of the iOS background problem, except Android lets you actually fix it. If you still drop worlds on app switch, also see our <a href="../guides/osrs-mobile-disconnect-background-fix-2026.html">background disconnect fix</a> and the <a href="../guides/osrs-mobile-battery-data-2026.html">battery &amp; data guide</a> for the data-side causes.</p>
+
+                <h3>Force the performance / game mode</h3>
+                <p>Most brands have a <strong>Game Booster / Game Space / Performance mode</strong>. Add OSRS to it and pick "Performance" over "Balanced" or "Save power" while bossing or doing intense PvM. This raises the CPU/GPU ceiling and blocks notifications that would background the app. For long AFK skilling, switch back to a battery profile so you are not cooking the phone for eight hours.</p>
+
+                <h3>Kill RAM hogs and pre-installed bloat</h3>
+                <p>Budget Android phones ship with bloatware that runs in the background — cleaner apps, duplicate browsers, carrier "helpers." Disable or uninstall what you can (Settings → Apps → disable), and close heavy apps before a session. Free RAM directly improves OSRS frame stability and reduces the micro-stutters during crowded banks and big fights.</p>
+
+                <div class="warning-box">
+                    <div class="warning-title">⚠️ "Cleaner" Apps Make It Worse</div>
+                    <p>Third-party "RAM cleaner" and "battery saver" apps often kill OSRS themselves, on a timer, because they treat any game as disposable. Uninstall them; use the built-in brand tools described above instead. The only safe "cleaner" is you, manually clearing the OSRS cache once in a while.</p>
+                </div>
+
+                <p>The matrix below summarizes which brands kill background apps by default and what lever turns that off. If your brand is not listed, search its name plus "don't optimize background apps" — the menu is always there, just renamed.</p>
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 320" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OEM battery optimization impact matrix">
+                        <rect width="680" height="320" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">OEM Background-Kill Matrix (default behavior)</text>
+                        <rect x="40" y="50" width="200" height="60" fill="#8b6914" opacity="0.18" stroke="#8b6914" stroke-width="1.5" rx="6"/>
+                        <text x="56" y="74" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Samsung One UI</text>
+                        <text x="56" y="96" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Kills unless whitelisted</text>
+                        <rect x="260" y="50" width="200" height="60" fill="#8b6914" opacity="0.18" stroke="#8b6914" stroke-width="1.5" rx="6"/>
+                        <text x="276" y="74" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Xiaomi / HyperOS</text>
+                        <text x="276" y="96" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Aggressive by default</text>
+                        <rect x="480" y="50" width="160" height="60" fill="#8b6914" opacity="0.18" stroke="#8b6914" stroke-width="1.5" rx="6"/>
+                        <text x="496" y="74" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Pixel / Stock</text>
+                        <text x="496" y="96" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Mild (Adaptive Batt)</text>
+                        <rect x="40" y="130" width="600" height="50" fill="#E6A817" opacity="0.12" stroke="#E6A817" stroke-width="1" rx="6"/>
+                        <text x="56" y="160" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Fix for all: set OSRS battery to "Unrestricted" + add to never-sleeping whitelist</text>
+                        <rect x="40" y="200" width="290" height="70" fill="#8b6914" opacity="0.10" stroke="#8b6914" stroke-width="1" rx="6"/>
+                        <text x="56" y="226" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Game Booster ON</text>
+                        <text x="56" y="248" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Higher FPS, blocks</text>
+                        <text x="56" y="264" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">interruptions while bossing</text>
+                        <rect x="350" y="200" width="290" height="70" fill="#E6A817" opacity="0.10" stroke="#E6A817" stroke-width="1" stroke-dasharray="5,4" rx="6"/>
+                        <text x="366" y="226" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Power Saver ON</text>
+                        <text x="366" y="248" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Longer AFK battery,</text>
+                        <text x="366" y="264" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">lower FPS — use for skilling</text>
+                    </svg>
+                    <figcaption>Every major Android skin kills background apps by default. The fix is the same everywhere: exempt OSRS from battery optimization.</figcaption>
+                </figure>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="storage">
+                <h2>5. 💾 Storage Management — Free Space &amp; SD Cards</h2>
+                <p>Android's storage model is more flexible than iOS but also easier to fill. OSRS needs headroom for the app, the cache, and especially the large asset downloads that follow game updates — a single content drop can pull hundreds of megabytes, and that only lands if there is room.</p>
+
+                <h3>Keep internal storage healthy</h3>
+                <p>Aim to keep at least <strong>1–2 GB free</strong> on internal storage. When internal storage is near full, Android slows file writes and the OSRS cache download stalls, producing black screens and "world unavailable" loops after updates. Move photos, videos, and offline maps to an SD card or cloud to free space. A phone at 99% full is a phone that cannot update OSRS.</p>
+
+                <h3>SD card for the cache (with a tradeoff)</h3>
+                <p>If internal space is tight, point the OSRS cache at a fast SD card (UHS-I or better). Loads will be slightly slower than internal storage, but you avoid the full-storage crash. Avoid cheap "class 10 only" cards for the cache — they stutter during map streaming and can cause texture pop-in during boss fights.</p>
+
+                <h3>Move the app, not the data</h3>
+                <p>On devices that support "Move to SD card," you can shift the app binary to the SD card to save internal space, but keep the cache on the fastest available storage. Test load times; if they feel worse, move it back. The app binary itself is small — the cache is what eats gigabytes, so the cache location matters far more than the app location.</p>
+
+                <h3>Review "Files by Google" suggestions carefully</h3>
+                <p>Google's Files app helpfully suggests clearing app caches in bulk. That is fine for OSRS (it only clears the cache, not data), but never approve a "clear data" bulk action on OSRS or you'll reset the login. If you use a third-party cleaner, exclude OSRS from any "deep clean."</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Wi-Fi + Charger for Updates</div>
+                    <p>Big OSRS updates download hundreds of MB of cache. Do it on Wi-Fi with the phone charging and battery optimization temporarily off, so the download completes without the OS sleeping the app mid-transfer. A half-finished cache download is the classic cause of the post-update black screen.</p>
+                </div>
+
+                <p>The storage tiers below show where to spend your effort. Internal free space is the highest-leverage fix; SD-card quality is a distant second; "moving the app" is mostly cosmetic for space.</p>
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 260" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Android storage priority tiers for OSRS">
+                        <rect width="680" height="260" fill="#faf8f5"/>
+                        <text x="20" y="26" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Storage Priority for Smooth OSRS</text>
+                        <rect x="40" y="50" width="200" height="70" fill="#E6A817" opacity="0.20" stroke="#E6A817" stroke-width="1.5" rx="6"/>
+                        <text x="56" y="78" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">1. Free 1–2 GB</text>
+                        <text x="56" y="100" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">internal storage</text>
+                        <rect x="260" y="50" width="200" height="70" fill="#8b6914" opacity="0.16" stroke="#8b6914" stroke-width="1.5" rx="6"/>
+                        <text x="276" y="78" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">2. Fast SD card</text>
+                        <text x="276" y="100" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">UHS-I for cache</text>
+                        <rect x="480" y="50" width="160" height="70" fill="#8b6914" opacity="0.10" stroke="#8b6914" stroke-width="1.5" rx="6"/>
+                        <text x="496" y="78" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">3. Move app</text>
+                        <text x="496" y="100" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">cosmetic only</text>
+                        <rect x="40" y="150" width="600" height="60" fill="#8b6914" opacity="0.08" stroke="#8b6914" stroke-width="1" stroke-dasharray="5,4" rx="6"/>
+                        <text x="56" y="178" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif">Rule: a phone at 99% full cannot finish a cache download → black screen after update. Free space first.</text>
+                        <text x="56" y="200" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Cheap Class-10-only cards stutter during map streaming — avoid for the cache.</text>
+                    </svg>
+                    <figcaption>Internal free space is the highest-leverage storage fix. An SD card helps only once internal room is protected.</figcaption>
+                </figure>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="network">
+                <h2>6. 📶 Network &amp; Wi-Fi Optimization</h2>
+                <p>Even a perfectly tuned phone drops worlds if the network underneath it is unstable. Android gives you a few levers that directly affect OSRS connection quality — and a couple of traps that look helpful but hurt.</p>
+
+                <h3>Use Wi-Fi for updates, mobile data for play</h3>
+                <p>Cache downloads should always happen on Wi-Fi (size + cost). For actual play, a solid mobile-data connection is often <em>more</em> stable than flaky public Wi-Fi, because Wi-Fi at a café or airport shares bandwidth and re-auths constantly. If you play on Wi-Fi at home, prefer the 5 GHz band over 2.4 GHz for lower latency and less interference from microwaves and Bluetooth.</p>
+
+                <h3>Turn off "Wi-Fi to mobile data handoff" surprises</h3>
+                <p>Some brands aggressively switch you between Wi-Fi and data when one dips, and that switch is exactly when OSRS loses its socket. In developer options or the connection settings, disable "Switch to mobile data" / "Adaptive connectivity" so the phone sticks to one transport. A brief lag spike beats a full disconnect-and-relogin.</p>
+
+                <h3>Private DNS for cleaner routing</h3>
+                <p>Setting a private DNS (e.g., the well-known <code>dns.google</code> or <code>1dot1dot1dot1.cloudflare</code>) can reduce resolve timeouts and improve consistency on iffy mobile networks. It is optional and reversible in <strong>Settings → Network &amp; internet → Private DNS</strong>. If a particular network breaks with it on, switch back to "Automatic."</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 VPN Caution</div>
+                    <p>A VPN can stabilize a bad route but also adds latency and can trip Jagex's risk systems if the IP jumps countries. If you use one, keep it on a consistent region and never flip servers mid-session. Most players are better off without a gaming VPN on mobile OSRS.</p>
+                </div>
+                <p>If you still disconnect on app switch after all of the above, the cause is almost always the background-kill settings from Section 4, not the network — re-check the battery exemption first.</p>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="login">
+                <h2>7. 🔑 Google &amp; Jagex Account Login</h2>
+                <p>OSRS uses a <strong>Jagex Account</strong> (email + password). On Android you can streamline login with Google Autofill and a passkey, and you can buy membership through Google Play. A few Android-specific notes that save you thumb-typing and protect the account.</p>
+
+                <h3>Use Google Autofill for the password</h3>
+                <p>Android's Autofill with Google (or your password manager) can fill your Jagex password on the login screen, sparing thumb-typing on a small keyboard. Enable it under <strong>Settings → Passwords &amp; accounts → Autofill</strong>. For better security, add a <strong>passkey</strong> to your Jagex Account and authenticate with your device screen lock instead — no password to type and nothing to phishing.</p>
+
+                <h3>Passkeys on Android</h3>
+                <p>A Jagex Account passkey bound to your Android device lets biometric/fingerprint or screen-lock login. Set it up on the official site, then the app offers passkey sign-in. It survives app reinstalls because it lives in your Jagex Account, not local storage — so clearing the app's data (Section 3) will not remove it. This is the single biggest login-quality upgrade for mobile.</p>
+
+                <h3>Membership through Google Play</h3>
+                <p>You can subscribe or buy bonds via Google Play. Billing is handled by Google, and the membership unlocks members content on every platform — including the desktop client. Just remember the subscription renews through Google Play, not the Jagex website, and refunds go through Google's play. Our <a href="../guides/osrs-mobile-membership-guide-2026.html">Mobile Membership guide</a> walks through billing fixes if a purchase doesn't apply.</p>
+
+                <div class="warning-box">
+                    <div class="warning-title">⚠️ Revoke on Device Loss</div>
+                    <p>If your Android is lost or sold, revoke its passkey and change your Jagex password from another device immediately. A screen-lock passkey is safe day-to-day, but revoking it closes the door completely so a finder cannot authenticate with the fingerprint they happen to have.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 8 -->
+            <section id="issues">
+                <h2>8. 🛠️ Common Android Issues and Quick Fixes</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Symptom</th>
+                            <th>Likely Cause</th>
+                            <th>Fix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>"Device not compatible"</td>
+                            <td>32-bit-only phone</td>
+                            <td>Use a 64-bit device; avoid fake APKs</td>
+                        </tr>
+                        <tr>
+                            <td>App kills on app switch</td>
+                            <td>Battery optimization / OEM skin</td>
+                            <td>Unrestricted battery + brand whitelist</td>
+                        </tr>
+                        <tr>
+                            <td>Black screen after update</td>
+                            <td>Corrupt/full cache</td>
+                            <td>Clear cache (not data), free 1 GB+</td>
+                        </tr>
+                        <tr>
+                            <td>Lag / low FPS in fights</td>
+                            <td>Power-saver profile</td>
+                            <td>Game Booster → Performance mode</td>
+                        </tr>
+                        <tr>
+                            <td>Storage full repeatedly</td>
+                            <td>Cache on small internal storage</td>
+                            <td>Move cache to SD; clear old cache</td>
+                        </tr>
+                        <tr>
+                            <td>Drops world on Wi-Fi</td>
+                            <td>Auto handoff to mobile data</td>
+                            <td>Disable adaptive connectivity (Section 6)</td>
+                        </tr>
+                        <tr>
+                            <td>Login loop after reinstall</td>
+                            <td>Old passkey conflict</td>
+                            <td>Revoke + re-add passkey on Jagex site</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>For a deeper, step-by-step Android crash/black-screen walkthrough, see our dedicated <a href="../guides/osrs-mobile-crashing-black-screen-android-fix-2026.html">Android Crashing / Black Screen Fix</a>. Many of those steps overlap with the tuning above, and the <a href="../guides/osrs-mobile-controls-guide-2026.html">Mobile Controls guide</a> covers touch-layout tweaks that also reduce accidental disconnects.</p>
+            </section>
+
+            <!-- SECTION 9 FAQ -->
+            <section id="faq">
+                <h2>9. ❓ Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <h3>My phone says OSRS isn't compatible — why?</h3>
+                    <p>Most likely your device is 32-bit only, while the app requires 64-bit Android. Check the ABI in a system-info app; if only <code>armeabi-v7a</code> is listed, you need a 64-bit phone to run the native app. No safe APK bypasses this — the architecture gate is enforced by the installer itself.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Will clearing the cache log me out?</h3>
+                    <p>No. "Clear cache" removes only downloaded assets. "Clear data / Clear storage" would reset the app and force re-login — avoid that unless troubleshooting a corrupted install. Your account lives on Jagex servers either way, so progress is never lost.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Why does OSRS close when I switch apps?</h3>
+                    <p>Android manufacturers aggressively kill background apps for battery. Set OSRS to "Unrestricted" battery and add it to your brand's never-sleeping whitelist (Samsung, Xiaomi, OnePlus, etc.). The steps are in the Performance section above. If it still drops, check the network handoff setting in Section 6.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is a 32-bit phone worth keeping for OSRS?</h3>
+                    <p>Not for native mobile play — the official app won't run. If mobile OSRS matters, a used 64-bit phone from 2020+ is cheap and runs the game well. Otherwise use the phone for other tasks and play OSRS on desktop or in the browser client.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Should I move OSRS to my SD card?</h3>
+                    <p>You can move the app binary to save internal space, and point the cache at a fast SD card if internal storage is tight. Expect slightly slower loads from the card. Keep at least 1–2 GB free internally regardless — that matters more than where the app lives.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I use RuneLite on Android?</h3>
+                    <p>A third-party RuneLite Android build can be sideloaded on 64-bit Android devices, but it is unofficial and risky. The official app's built-in features (Menu Entry Swapper, Item Identification, Bank Compact) cover most needs, and our <a href="../guides/osrs-mobile-best-settings-2026.html">Best Mobile Settings</a> explains them. iOS cannot sideload it at all.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do I need a gaming phone or cooler for OSRS?</h3>
+                    <p>No. OSRS is light compared to modern 3D games; even a mid-range 2020 phone handles it. A cooler helps only if you boss for hours in a hot climate. Spend effort on the battery-exemption and storage steps instead — they give far more stability than hardware.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Why do I get a black screen right after a big update?</h3>
+                    <p>Usually a half-downloaded or corrupt cache on a nearly full disk. Free 1–2 GB internally, clear the cache (not data), and re-launch on Wi-Fi while charging. The download then completes and the black screen clears. This is the single most common post-update complaint on Android.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Should I use a VPN while playing on mobile?</h3>
+                    <p>Usually not. A VPN can stabilize a bad route but adds latency and can trip Jagex's risk systems if your IP jumps regions. Keep it on one consistent region if you must, and never switch servers mid-session. Most players are better off without one.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What's the one setting every Android OSRS player should change?</h3>
+                    <p>Set OSRS battery usage to "Unrestricted" and whitelist it from your brand's background-kill list. That single change stops the app from dying when you check a wiki or your authenticator — the problem that generates the most "OSRS keeps closing" reports. Everything else in this guide is tuning on top.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Does passkey login survive clearing the app's data?</h3>
+                    <p>Yes. The passkey lives in your Jagex Account, not in the app's local storage, so clearing cache or data will not remove it. After a data wipe you simply sign in with the passkey again — no re-enrollment needed. That is exactly why passkeys are the recommended mobile login method.</p>
+                </div>
+            </section>
+
+            <!-- FINAL TIPS -->
+            <section id="final-tips">
+                <h2>10. 🎯 Final Tips — Android Optimization Recap</h2>
+                <div class="next-steps">
+                    <h3>🎯 Your Android Optimization Checklist</h3>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ 32-bit:</strong> Confirm your phone is 64-bit; 32-bit-only devices can't run the official app — and no APK fixes that.
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914; margin-top:8px;">
+                        <strong>→ Battery:</strong> Set OSRS to Unrestricted and whitelist it per brand; use Game Booster Performance mode for bossing, Power Saver for AFK skilling.
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914; margin-top:8px;">
+                        <strong>→ Cache:</strong> Clear cache (not data) to fix black screens; keep 1–2 GB free internally so updates can finish.
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914; margin-top:8px;">
+                        <strong>→ Storage:</strong> Move cache to a fast SD card only if internal space is tight; avoid cheap Class-10-only cards.
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914; margin-top:8px;">
+                        <strong>→ Network:</strong> Disable adaptive Wi-Fi/data handoff; consider private DNS on flaky mobile networks.
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914; margin-top:8px;">
+                        <strong>→ Login:</strong> Add a Jagex Account passkey and use Google Autofill to skip thumb-typing passwords.
+                    </div>
+                </div>
+                <p style="margin-top:12px">None of this costs money or risks your account. It is about undoing the manufacturer defaults that assume your phone should sleep, and telling Android that OSRS is the one app you actually want awake. Do the battery exemption first — it fixes the majority of "OSRS keeps closing" complaints on its own — then work down the list.</p>
+            </section>
+
+            <!-- TOOL PROMO -->
+            <div class="tool-promo">
+                <h3>🛠️ Companion Tools for Mobile OSRS</h3>
+                <p>Guides tell you what to do — tools help you act. Free, browser-based, mobile-friendly.</p>
+                <div class="tool-promo-grid">
+                    <a href="../tools/gear-recommender/" class="tool-promo-card"><span class="tp-ico">🛡️</span><span class="tp-name">Gear Recommender</span><span class="tp-desc">Find the best gear setup for your combat style.</span><span class="tp-go">Open Tool →</span></a>
+                    <a href="../tools/dps-calculator/" class="tool-promo-card"><span class="tp-ico">⚔️</span><span class="tp-name">DPS Calculator</span><span class="tp-desc">Compare weapons and hit accuracy before you train.</span><span class="tp-go">Open Tool →</span></a>
+                    <a href="../tools/profit-finder/" class="tool-promo-card"><span class="tp-ico">💰</span><span class="tp-name">Profit Finder</span><span class="tp-desc">Find the best GP/hr method for your stats right now.</span><span class="tp-go">Open Tool →</span></a>
+                </div>
+            </div>
+
+            <!-- RELATED GUIDES -->
+            <div class="related-guides" style="margin-top:24px">
+                <h3>Related Guides</h3>
+                <div class="article-grid">
+                    <a href="../guides/osrs-mobile-best-settings-2026.html" class="article-card">
+                        <h3>Best Mobile Settings 2026</h3>
+                        <p>The platform-neutral graphics, interface, and gameplay config.</p>
+                    </a>
+                    <a href="../guides/osrs-mobile-guide-2026.html" class="article-card">
+                        <h3>OSRS Mobile Guide 2026</h3>
+                        <p>The full mobile handbook for iOS and Android.</p>
+                    </a>
+                    <a href="../guides/osrs-mobile-crashing-black-screen-android-fix-2026.html" class="article-card">
+                        <h3>Android Crash / Black Screen Fix</h3>
+                        <p>Deep-dive troubleshooting for Android devices.</p>
+                    </a>
+                    <a href="../guides/osrs-mobile-membership-guide-2026.html" class="article-card">
+                        <h3>Mobile Membership Guide</h3>
+                        <p>Buy membership via Google Play and fix billing.</p>
+                    </a>
+                    <a href="../guides/osrs-mobile-controls-guide-2026.html" class="article-card">
+                        <h3>Mobile Controls Guide</h3>
+                        <p>Touch layouts and input tweaks that reduce misclicks.</p>
+                    </a>
+                    <a href="../guides/osrs-play-osrs-on-phone-2026.html" class="article-card">
+                        <h3>How to Play OSRS on Your Phone</h3>
+                        <p>Install, log in, and get playing on Android or iOS.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SUPPORT CARD (verbatim Payhip green box, placed at end) -->
+    <div class="support-card" style="margin:8px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+            <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+            <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                <li><strong>Avoid Scams & Phishing (Stop Bank Drains)</strong></li>
+                <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+            </ul>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+    </div>
+
+            <p class="article-meta" style="color:#3b2615;font-size:.82rem;margin:1.5rem 0 0;opacity:.85;">Published: August 9, 2026 &middot; Last verified: August 12, 2026</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ Mobile Guides</h4><ul>
+                    <li><a href="../guides/osrs-mobile-guide-2026.html">OSRS Mobile Guide</a></li>
+                    <li><a href="../guides/osrs-mobile-best-settings-2026.html">Best Mobile Settings</a></li>
+                    <li><a href="../guides/osrs-mobile-controls-guide-2026.html">Mobile Controls</a></li>
+                    <li><a href="../guides/osrs-mobile-battery-data-2026.html">Battery &amp; Data</a></li>
+                    <li><a href="../guides/osrs-play-osrs-on-phone-2026.html">Play on Phone</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../money-making.html">Money Making</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+
+    <!-- Copyright & Anti-Scraping Notice -->
+    <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+        <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+    </div>
+
+    <script src="../js/features.js"></script>
+    <script src="../js/ai-qa-widget.js"></script>
+</body>
+</html>

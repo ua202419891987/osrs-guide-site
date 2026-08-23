@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS PvM DPS Optimization Guide 2026 — Gear, Prayer, Potions, Attack Style & Calculations</title>
+    <meta name="description" content="Updated for 2026. A practical OSRS PvM DPS optimization guide: weapon & gear choice, prayer boosts, potions, attack styles, monster weaknesses, and how to read a DPS calculator to kill bosses faster.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS DPS optimization, OSRS max hit, OSRS accuracy, OSRS attack style, OSRS prayer DPS, OSRS potions, OSRS monster weakness, OSRS DPS calculator, OSRS effective level">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+    <link rel="canonical" href="https://osrsguru.com/guides/osrs-pvm-dps-optimization-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-S1BGC91MYV');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="intermediate" data-category="bosses">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+<li><a href="../pvm-guides.html">PvM Guides</a></li>
+<li><a href="../mobile.html">Mobile</a></li>
+
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../weekly-updates.html">Updates</a></li>
+                    <li><a href="../zh/index.html">Chinese</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../boss-guides.html">Boss Guides</a> / PvM DPS Optimization</p>
+            <h1>OSRS PvM DPS Optimization Guide 2026</h1>
+
+<div class="article-meta" style="margin-top:12px;color:#666;font-size:.9rem;line-height:1.6"><span>Updated August 19, 2026</span> &nbsp;|&nbsp; <span>15 min read</span> &nbsp;|&nbsp; <span>By Yanchun Wu</span></div><!-- meta-update-2026 -->
+
+            <p class="subtitle">Every boss kill is a race: can you drop its health before your supplies run out? This guide breaks DPS into the five levers you actually control — gear, prayer, potions, attack style, and monster weakness — and shows you how to turn them into real, measurable kills per hour.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">⚔️</span> <strong>PvM Optimization</strong> · <span style="color:#d4af37;font-weight:700;">90+ Combat</span> · 19 min read · Updated for 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: 90+ Combat</div>
+
+            <p class="intro">DPS — damage per second — is the heartbeat of Player vs Monster content. Higher DPS means faster kills, more loot per hour, fewer supplies burned, and a lower chance of dying to an enrage timer or a mistake. The good news: DPS is not mysterious. It is the product of a handful of numbers you can read, compare, and improve without guessing. This guide is written for players who already know how to fight a boss and now want to kill it faster — by tightening the setup, not just the mechanics.</p>
+            <p>If you are still learning how a boss actually works, stop here and read our <a href="../guides/osrs-pvm-beginner-guide-2026.html">PvM beginner guide</a> first. No amount of DPS saves you from standing in the wrong tile or forgetting to eat. We walk through the underlying math in plain English, then show how gear, prayers, potions, attack style, and weaknesses each move the needle. When you are ready to turn theory into a loadout, our <a href="../guides/osrs-boss-gear-checklist-2026.html">boss gear checklist</a> ranks every slot by DPS return so you know exactly what to buy next.</p>
+
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#1a1a1a;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary — 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>DPS = Max Hit &times; Hit Chance &times; Attack Speed.</strong> Improve any one and you kill faster.</li>
+                    <li>📌 <strong>Your weapon is ~60-70% of DPS.</strong> Upgrade it before armor.</li>
+                    <li>📌 <strong>Piety / Rigour / Augury add ~15-20% DPS</strong> for one prayer point per 18s.</li>
+                    <li>📌 <strong>Super combat &amp; style pots</strong> stack on top of prayers — free damage.</li>
+                    <li>📌 <strong>Weakness &amp; Slayer tasks</strong> can double your damage via salve, black mask, and void.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#dps-basics">The Three Numbers Behind Every DPS</a></li>
+                    <li><a href="#weapon-gear">Weapon &amp; Gear Choice — Where DPS Lives</a></li>
+                    <li><a href="#attack-style">Attack Style &amp; Equipment Bonuses</a></li>
+                    <li><a href="#prayer">Prayer Optimization for DPS</a></li>
+                    <li><a href="#potions">Potions &amp; Consumables That Boost Damage</a></li>
+                    <li><a href="#weakness">Exploiting Monster Weaknesses &amp; Slayer Tasks</a></li>
+                    <li><a href="#calculator">Reading a DPS Calculator (With Example)</a></li>
+                    <li><a href="#combat-triangle">Combat Triangle, Damage Types &amp; Matchups</a></li>
+                    <li><a href="#special-attacks">Special Attacks &amp; DPS Spikes</a></li>
+                    <li><a href="#mistakes">Common DPS Mistakes &amp; A Worked Comparison</a></li>
+                    <li><a href="#faq">Frequently Asked Questions</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="dps-basics">
+                <h2>1. 🧮 The Three Numbers Behind Every DPS</h2>
+                <p>Before touching gear, understand what DPS actually is. Your damage output is driven by three independent factors that multiply together, which is why improving any single one already makes you kill faster.</p>
+                <ul>
+                    <li><strong>Max Hit</strong> — the highest damage a single attack can roll. Driven by your Strength / Ranged / Magic level plus your equipment's strength bonus.</li>
+                    <li><strong>Accuracy (Hit Chance)</strong> — the probability each swing connects. Driven by your Attack / Ranged / Magic level plus your equipment's attack bonus, versus the monster's defence.</li>
+                    <li><strong>Attack Speed</strong> — how many attacks you land per minute. Each weapon has a fixed speed (measured in game ticks; a "fast" weapon like a whip attacks every 4 ticks, a "slow" one like a crossbow every 5).</li>
+                </ul>
+                <p>Your <em>average</em> damage per hit is roughly <strong>(Max Hit &divide; 2) &times; Hit Chance</strong>, and DPS multiplies that result by your attacks-per-second. The practical lesson that surprises new PvMers: a weapon that hits slightly harder but far more often usually beats one with a bigger max hit and slow speed. That is exactly why the Abyssal whip dominated melee for years — its 4-tick speed let it land more hits per minute than slower, harder-hitting alternatives, and the cumulative damage won.</p>
+
+                <h3>Effective Level — the number calculators actually use</h3>
+                <p>Your "effective level" is your base combat stat plus bonuses from prayers and potions, plus a hidden +8 from the <strong>Accurate</strong> (ranged/magic) or <strong>Aggressive</strong> (melee) style. The DPS calculator uses your effective level, not your raw level, so always pot and pray <em>before</em> you measure a setup. A player who forgets this will compare two builds as if they were unbuffed, miss the real gap, and buy the wrong upgrade.</p>
+
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 260" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="DPS equals max hit times hit chance times attack speed">
+                        <rect width="680" height="260" fill="#faf8f5"/>
+                        <text x="20" y="30" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">How DPS Is Built</text>
+                        <rect x="40" y="70" width="170" height="70" fill="#E6A817" opacity="0.18" stroke="#E6A817" stroke-width="1.5"/>
+                        <text x="60" y="100" font-size="14" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Max Hit</text>
+                        <text x="60" y="122" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">strength bonus</text>
+                        <text x="222" y="110" font-size="26" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">×</text>
+                        <rect x="255" y="70" width="170" height="70" fill="#E6A817" opacity="0.18" stroke="#E6A817" stroke-width="1.5"/>
+                        <text x="268" y="100" font-size="14" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Hit Chance</text>
+                        <text x="268" y="122" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">accuracy vs defence</text>
+                        <text x="437" y="110" font-size="26" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">×</text>
+                        <rect x="470" y="70" width="170" height="70" fill="#E6A817" opacity="0.18" stroke="#E6A817" stroke-width="1.5"/>
+                        <text x="486" y="100" font-size="14" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Attack Speed</text>
+                        <text x="486" y="122" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">ticks per hit</text>
+                        <text x="340" y="190" font-size="24" fill="#8b6914" font-family="Arial,sans-serif" font-weight="bold">= DPS</text>
+                        <text x="120" y="240" font-size="13" fill="#1a1a1a" font-family="Arial,sans-serif">Improve any one box and the result at the bottom goes up.</text>
+                    </svg>
+                    <figcaption>DPS is the product of three factors. Because they multiply, a balanced upgrade to all three beats a huge boost to just one.</figcaption>
+                </figure>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 DPS &ne; Max Hit</div>
+                    <p>Players obsess over max hit, but a 2-point higher max hit at 70% accuracy can be worse than a 1-point lower max hit at 95% accuracy. Always think in average damage, not best-case rolls. Against a high-defence boss, the accuracy box matters more than the max-hit box — and the calculator will tell you which one your target needs.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="weapon-gear">
+                <h2>2. ⚔️ Weapon &amp; Gear Choice — Where DPS Lives</h2>
+                <p>If you change one thing to raise DPS, change your weapon. Across every combat style, the weapon slot contributes roughly 60-70% of your total damage potential. Armor is mostly survivability plus a small accuracy or strength bonus. Spend your GP on the weapon and a few key switch items before you chase full BiS armor.</p>
+
+                <h3>Melee Weapons</h3>
+                <p>For general bossing, <strong>Osmumten's Fang</strong> is the best all-rounder because it ignores part of the target's defence, staying accurate at Tombs of Amascut and Theatre of Blood where other melee weapons whiff. The <strong>Scythe of Vitur</strong> wins on multi-target and very high-HP bosses via its 4-hit special that scales with the enemy's remaining health. The <strong>Inquisitor's mace</strong> is king against crush-weak targets when paired with the full Inquisitor's armor set. A whip is fine for learning but is outclassed the moment you can afford a Fang. For a focused raid setup, the <a href="../guides/osrs-theatre-of-blood-guide-2026.html">Theatre of Blood guide</a> explains exactly where Fang vs Scythe matters most.</p>
+
+                <h3>Ranged Weapons</h3>
+                <p>The <strong>Twisted Bow</strong> scales with the target's Magic level, shredding high-Magic bosses like Nex, Zulrah, and the Galvek-style content where a normal bow would struggle. The <strong>Bow of Faerdhinen (Bowfa)</strong> with full Crystal armor is the best consistent ranged DPS for most content and is dramatically cheaper than a TBow. The <strong>Dragon Crossbow</strong> with dragon bolts stays a strong budget pick, especially at Vorkath with the Salve amulet and dragon ruby (e) specials. The crossbow also benefits from a bane weapon matchup against dragons, which we cover in the weakness section below.</p>
+
+                <h3>Magic Weapons</h3>
+                <p><strong>Tumeken's Shadow</strong> is magic BiS, boosting DPS through a large flat magic damage bonus that compounds with every other damage multiplier. The <strong>Sanguinesti Staff</strong> is next best and heals you on hit, which extends trips. The <strong>Trident of the Swamp</strong> is the budget workhorse for early bosses. Magic DPS also leans heavily on the <strong>Occult necklace</strong> (+10% magic damage) and the <strong>Imbued god cape</strong> — both cheap, high-value upgrades that punch far above their price.</p>
+
+                <h3>Armor Is Secondary — buy in this order</h3>
+                <p>Once your weapon is solid, armor mainly adds a small strength or accuracy bonus plus survivability. A Fang with Barrows armor out-DPSes a Whip with Torva. Spend GP on the weapon and key switch items (necklace, ring, boots) before chasing full BiS armor. The budget-aware path through this is laid out in our <a href="../guides/osrs-first-week-progression-guide-2026.html">first-week progression guide</a> if you are still climbing toward the gear discussed here.</p>
+
+                <div class="method-box">
+                    <div class="tip-title">🎯 Upgrade Order for DPS</div>
+                    <ol>
+                        <li><strong>Weapon</strong> (biggest single jump).</li>
+                        <li><strong>Necklace + Ring</strong> (Occult/Anguish, Tormented/Berserker (i)).</li>
+                        <li><strong>Boots + Gloves</strong> (Primordial/Pegasian/Eternal, Zaryte/Barrows).</li>
+                        <li><strong>Body + Legs</strong> (Torva/Masori/Ancestral last).</li>
+                    </ol>
+                </div>
+
+                <h3>Relative DPS by weapon tier</h3>
+                <p>The chart below shows illustrative relative DPS for a representative mid-to-late-game setup in each style. The numbers are normalized so the budget option sits at 100; they show the <em>shape</em> of the upgrade curve, not exact in-game values, which vary by target. Notice how each style's best-in-slot nearly doubles the budget weapon — that is the weapon slot doing the heavy lifting.</p>
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 320" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Relative DPS by weapon tier across combat styles">
+                        <rect width="680" height="320" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Relative DPS by Weapon Tier (budget = 100)</text>
+                        <line x1="120" y1="50" x2="120" y2="280" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="120" y1="280" x2="650" y2="280" stroke="#3b2615" stroke-width="2"/>
+                        <rect x="150" y="180" width="70" height="100" fill="#8b6914" opacity="0.6"/>
+                        <text x="160" y="300" font-size="11" fill="#3b2615" font-family="Arial,sans-serif">Whip (100)</text>
+                        <rect x="240" y="150" width="70" height="130" fill="#8b6914" opacity="0.75"/>
+                        <text x="250" y="300" font-size="11" fill="#3b2615" font-family="Arial,sans-serif">Fang (135)</text>
+                        <rect x="330" y="110" width="70" height="170" fill="#E6A817" opacity="0.8"/>
+                        <text x="340" y="300" font-size="11" fill="#3b2615" font-family="Arial,sans-serif">Scythe (175)</text>
+                        <rect x="420" y="190" width="70" height="90" fill="#8b6914" opacity="0.6"/>
+                        <text x="425" y="300" font-size="11" fill="#3b2615" font-family="Arial,sans-serif">DBow (95)</text>
+                        <rect x="510" y="140" width="70" height="140" fill="#8b6914" opacity="0.75"/>
+                        <text x="515" y="300" font-size="11" fill="#3b2615" font-family="Arial,sans-serif">Bowfa (150)</text>
+                        <rect x="590" y="90" width="70" height="190" fill="#E6A817" opacity="0.8"/>
+                        <text x="595" y="300" font-size="11" fill="#3b2615" font-family="Arial,sans-serif">TBow (195)</text>
+                        <text x="150" y="265" font-size="11" fill="#3b2615" font-family="Arial,sans-serif" transform="rotate(-90 150 265)">DPS</text>
+                    </svg>
+                    <figcaption>Each style's best-in-slot roughly doubles the budget weapon. The weapon slot — not armor — is where DPS is won or lost.</figcaption>
+                </figure>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="attack-style">
+                <h2>3. 🎯 Attack Style &amp; Equipment Bonuses</h2>
+                <p>The attack style you train under changes both your effective level and your damage type. Forgetting to set it is the most common silent DPS loss in the game.</p>
+
+                <h3>Melee Styles</h3>
+                <p>Choose <strong>Aggressive</strong> for the +8 effective Strength level (more max hit) when you are not concerned about Defence XP. Choose <strong>Controlled</strong> only if you actively want to train Defence alongside Attack and Strength; it spreads XP and gives no damage bonus, so it lowers DPS. <strong>Accurate</strong> boosts Attack (accuracy) but not Strength, so it is rarely best for pure DPS. For crush-weak bosses, the <strong>Inquisitor's armor set</strong> adds a flat +2.5% melee damage and accuracy when the full set is worn — a niche but real boost that stacks with the mace.</p>
+
+                <h3>Ranged &amp; Magic Styles</h3>
+                <p>For ranged, the <strong>Accurate</strong> style gives +8 effective Ranged. For magic, use the <strong>Accurate</strong> style as well for +8 effective Magic. These hidden bonuses are free DPS — never leave them on "Longrange" or "Defensive" during a boss fight unless you specifically need the Defence boost to survive a particular attack. If you do need the Defence, consider a prayer-gear swap rather than permanently losing the style bonus.</p>
+
+                <h3>Strength &amp; Damage Bonuses</h3>
+                <p>Melee strength bonus (from weapons, amulets like the <strong>Amulet of Torture</strong>, and rings) directly raises max hit. Ranged and magic use a <strong>flat damage % bonus</strong> instead (Occult +10%, Tormented +10%, Ancestral +3% per piece). These stack additively, so building a magic setup around damage bonuses is exactly how Tumeken's Shadow becomes absurd — the flat Shadow bonus multiplies on top of all your percentage bonuses. The <a href="../guides/osrs-boss-gear-checklist-2026.html">boss gear checklist</a> lists the exact best-in-slot for each style so you can see how the bonuses add up.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Check Your Style Bar</div>
+                    <p>Before every boss trip, open the combat tab and confirm the style is set for DPS, not for training a stat you do not need. Forgetting to switch from Controlled to Aggressive silently costs you max hit on every single attack for the entire trip — and most players never notice the difference until they run the calculator.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="prayer">
+                <h2>4. 🛡️ Prayer Optimization for DPS</h2>
+                <p>The three "ultimate" prayers are the cheapest DPS you will ever buy: one prayer point every 18 seconds for a large, always-on boost that no gear swap can match per GP.</p>
+
+                <h3>Piety, Rigour, Augury</h3>
+                <ul>
+                    <li><strong>Piety</strong> (melee): +20% Strength, +15% Attack, +25% Defence.</li>
+                    <li><strong>Rigour</strong> (ranged): +20% Ranged, +23% Defence, +25% Ranged Strength (accuracy).</li>
+                    <li><strong>Augury</strong> (magic): +20% Magic, +25% Defence, +25% Magic accuracy.</li>
+                </ul>
+                <p>Each costs 1 prayer point per 18 seconds and requires 70, 74, and 77 Prayer respectively. The DPS gain is roughly 15-20% depending on your other bonuses — the single highest percentage boost available outside gear. If you do not have these prayers unlocked, they should be a top training priority, ahead of almost any armor purchase. The prayer training path is covered in our <a href="../guides/osrs-new-player-guide-2026.html">new player guide</a> for those still climbing the account.</p>
+
+                <h3>Lower-Tier Options</h3>
+                <p>Until you unlock the ultimates, <strong>Chivalry</strong>, <strong>Eagle Eye</strong>, and <strong>Mystic Might</strong> give smaller but meaningful boosts at lower Prayer requirements — still far better than fighting with no attack prayer at all. Even these are a double-digit percentage improvement over baseline, so never skip an attack prayer just because you lack the ultimate.</p>
+
+                <h3>Prayer Bonus Gear</h3>
+                <p>Because the ultimates drain prayer, extending your prayer points keeps them active longer. A <strong>Holy Wrench</strong> (free, ammo slot) adds +2-4 prayer per dose; <strong>Proselyte armor</strong> (+16) and a <strong>Ring of the Gods (i)</strong> (+8) stretch trips. For pure DPS you usually want DPS gear, but on long trips a prayer-gear swap between kills can save bank runs. See the prayer section of our <a href="../guides/osrs-boss-gear-checklist-2026.html">gear checklist</a> for the exact swap pieces.</p>
+
+                <div class="warning-box">
+                    <div class="warning-title">⚠️ Don't Forget to Re-Activate</div>
+                    <p>Many deaths happen because a player's Piety ran out during a phase transition and they kept fighting at base stats. Watch your prayer orb and re-click before it drops — losing the boost mid-fight can halve your DPS exactly when you need it most, and a longer fight means more damage taken and more supplies burned.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="potions">
+                <h2>5. 🧪 Potions &amp; Consumables That Boost Damage</h2>
+                <p>Potions are temporary stat boosts that raise your effective level, and they stack with prayers for compounding DPS. A common mistake is treating potions and prayers as either-or; they add together, so prepared players hit dramatically harder than base.</p>
+
+                <h3>Super Combat / Super Sets</h3>
+                <p>A <strong>Super Combat potion</strong> boosts Attack, Strength, and Defence by +5/+15/+5 (or +8/+8/+8 at the super-set equivalent). For ranged, a <strong>Ranging potion</strong> gives +4-13 Ranged; for magic, a <strong>Magical potion</strong> (or the <strong>Imbued heart</strong> for +1-8 Magic, or <strong>Super magic</strong>) raises Magic. These boosts raise both max hit and accuracy, so they improve DPS on every attack for the boost's duration. The exact bonus scales with your base level, so higher-level accounts gain more from the same potion.</p>
+
+                <h3>Overloads (Raids Only)</h3>
+                <p>In Chambers of Xeric and Tombs of Amascut, <strong>Overload</strong> (and its + variants) combine all combat and defence boosts into one dose, re-applying every 15 seconds for 5 minutes — the strongest consistent buff in the game. Theatre of Blood instead uses <strong>Super combat</strong> plus <strong>Divine bastion / Ranging</strong> and <strong>Divine magic</strong> potions, which is why ToB trip prep is so potion-heavy. Our <a href="../guides/osrs-boss-inventory-prep-guide-2026.html">boss inventory prep guide</a> walks through exactly how many of each to bring.</p>
+
+                <h3>Imbued Heart &amp; Smoke Battlestaff</h3>
+                <p>The <strong>Imbued heart</strong> gives a temporary +1 to +8 Magic boost on a 3-minute cooldown — free magic DPS with no inventory cost and no potion dose spent. Similarly, the <strong>Smoke battlestaff</strong> and its kin add a small accuracy edge. These "set and forget" boosts quietly raise your average and are especially valuable in content where inventory space is tight.</p>
+
+                <h3>Pre-Pot Before Entering</h3>
+                <p>Drink your combat potion <em>before</em> stepping into the boss room so the boost is active on the first hit and you save an inventory slot — a small habit that adds damage to every kill across a whole trip. Combining pre-pot, prayer, and style bonus is what separates a clean fast kill from a drawn-out, supply-heavy one.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Potions Stack With Prayers</div>
+                    <p>A Super combat potion and Piety do not cancel each other — they add together. Effective melee Strength from base 99 + Super combat (+15) + Piety (+20%) + Aggressive style (+8) is dramatically higher than base, which is why prepared players hit so much harder than players who skip the buff routine.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="weakness">
+                <h2>6. 🎯 Exploiting Monster Weaknesses &amp; Slayer Tasks</h2>
+                <p>Some of the largest DPS gains come not from gear but from fighting the right target the right way — and they are nearly free.</p>
+
+                <h3>Monster Weakness</h3>
+                <p>Many bosses are weak to a specific style: <strong>K'ril Tsutsaroth</strong> to slash, <strong>Kraken</strong> to crush, <strong>Zulrah</strong> switches per phase (so you swap styles). Hitting the weakness grants an accuracy and damage edge and is required for certain weapon effects. Always check the boss's weakness on the <a href="../boss-guides.html">boss hub</a> before a trip, and bring the matching style rather than your "best" weapon if the matchup favors it.</p>
+
+                <h3>Salve Amulet &amp; Black Mask (Slayer)</h3>
+                <p>On a <strong>Slayer task</strong>, the <strong>Black mask (i)</strong> gives +15% melee damage and accuracy, and the <strong>Salve amulet (ei)</strong> gives +20% ranged/magic to undead (Vorkath, most Revenants). These are among the biggest single-item DPS boosts in the game and cost almost nothing — on a Slayer task the Salve alone can beat a weapon upgrade that costs hundreds of millions. If the boss is also a Slayer monster, getting on task first is almost always worth it.</p>
+
+                <h3>Void Knight Gear</h3>
+                <p><strong>Elite Void</strong> grants +10% damage and accuracy to all styles for lower defence. On low-threat bosses where you can survive in it (Vorkath, many Slayer bosses), it is a superb budget DPS set. Use it where you will not get hit hard; swap to defensive BiS the moment survival matters more than the last bit of damage.</p>
+
+                <h3>Bane Weapons</h3>
+                <p><strong>Silverlight / Darklight</strong> (demonbane) and similar bane weapons deal massively increased damage to their target type. Against demons like K'ril or Skotizo, a demonbane weapon can out-DPS gear many times its price — match the bane weapon to the monster type whenever possible. The same logic applies to keris against kalphites and the leaf-bladed weapons against certain monsters.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Assign Yourself the Slayer Task</div>
+                    <p>If a boss is also a Slayer monster (e.g., Vorkath via the dragon task, Cerberus via the Cerberus task), get on the task first. The Black mask / Salve bonus plus the task usually doubles your effective DPS and your profit per hour, making the task assignment the highest-DPS-per-GP decision you will make all trip.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="calculator">
+                <h2>7. 📊 Reading a DPS Calculator (With Example)</h2>
+                <p>The community OSRS DPS Calculator lets you plug in your stats, gear, prayers, potions, and target, then returns expected DPS and time-to-kill. Here is how to use it well so it informs real purchases instead of misleading you.</p>
+
+                <h3>What to Enter</h3>
+                <ul>
+                    <li><strong>Attacker:</strong> your levels, gear in each slot, active prayer, and potion boosts.</li>
+                    <li><strong>Defender:</strong> the boss name (the calculator knows its defence, weakness, and HP).</li>
+                    <li><strong>Options:</strong> attack style, whether you are on a Slayer task, and any special effects (Salve, bane).</li>
+                </ul>
+
+                <h3>Worked Example</h3>
+                <p>Suppose you fight <strong>Vorkath</strong> with a Dragon Crossbow, Ruby (e) bolts, Elite Void, Salve (ei), Archer ring (i), and Rigour + Ranging potion. The calculator might return ~7.5 DPS. Swap to Masori and a Twisted Bow and DPS jumps to ~12-14 — roughly 80% more damage — and time-to-kill drops from ~90 to ~50 seconds. That is the power of measuring instead of guessing, and it shows why the TBow is worth the bank for Vorkath specifically.</p>
+
+                <h3>Using the Result</h3>
+                <p>Compare two setups side by side. If Setup B costs 200M more but only adds 4% DPS, it is not worth it yet; if it adds 30%, it probably is. Calculators turn "which upgrade?" from folklore into a number. They also reveal when a boss's defence is so high that accuracy, not max hit, is your real bottleneck — then prioritize attack bonus over strength bonus, and consider a weapon that ignores defence like the Fang.</p>
+
+                <div class="method-box">
+                    <div class="tip-title">🎯 Calculator Habit</div>
+                    <p>Before any big gear purchase, model your current setup vs the upgrade in the calculator. Only buy when the DPS gain is large enough to matter for the content you actually farm. Chasing a 2% number for 300M GP is how players waste bank — let the calculator keep you honest.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 8 -->
+            <section id="combat-triangle">
+                <h2>8. 🔺 Combat Triangle, Damage Types &amp; Matchups</h2>
+                <p>OSRS uses a classic combat triangle: melee beats ranged, ranged beats magic, magic beats melee. Each style has a passive accuracy advantage over the one it beats. But in PvM, the triangle matters less than the boss's specific weaknesses and defence stats — a magic-weak boss is usually better killed with magic regardless of the triangle.</p>
+
+                <h3>When the triangle actually matters</h3>
+                <p>The triangle shows up most in player-versus-player and in fights where the boss has no strong style weakness but does have a style it resists. If a boss is equally weak to two styles, the triangle can tip you toward one. More often, though, you choose style based on which best-in-slot weapon you own and which the boss is weakest to — then you lean on the prayer and potion bonuses from the earlier sections to max that style.</p>
+
+                <h3>Damage types beyond the style</h3>
+                <p>Some content cares about damage <em>type</em> rather than style: slash vs crush vs stab for melee, or standard vs demonbane/undeadbane effects. Bringing the right type can be the difference between hitting and whiffing. The boss hub and the <a href="../guides/osrs-boss-gear-checklist-2026.html">gear checklist</a> note the preferred type for each major boss, and the <a href="../guides/osrs-pvm-beginner-guide-2026.html">PvM beginner guide</a> explains how to read a monster's defence breakdown before you commit to a setup.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 Don't fight the triangle against a weakness</div>
+                    <p>If a boss is crush-weak, use crush even if the triangle would prefer another style. The weakness bonus almost always outweighs the triangle's passive edge. The calculator confirms this every time — model both and trust the number.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 9 -->
+            <section id="special-attacks">
+                <h2>9. ⚡ Special Attacks &amp; DPS Spikes</h2>
+                <p>Special attacks are burst-DPS tools that don't show up in a steady-state calculator but dramatically affect real kills-per-hour because they compress damage into a short window.</p>
+
+                <h3>Melee specials</h3>
+                <p>The <strong>Scythe of Vitur</strong> special hits up to 4 times, scaling with remaining HP — devastating on high-HP bosses and at the end of a kill. The <strong>Bandos godsword</strong> special raises your target's hit chance against itself by lowering its defence, a team utility that raises the whole group's DPS. The <strong>Dragon claws</strong> special is a burst tool for finishing low-HP targets. Each has a place depending on whether you need sustained or burst damage.</p>
+
+                <h3>Ranged &amp; magic specials</h3>
+                <p>Dragon bolts (e) like ruby and diamond provide random special procs that add burst damage on a crossbow — a key reason the Dragon Crossbow stays relevant at Vorkath. The <strong>Zaryte crossbow</strong> and <strong>Webweaver bow</strong> offer their own specials for specific content. For magic, the <strong>Sanguinesti Staff</strong> has a cheaper special that heals, useful for sustainability rather than pure burst.</p>
+
+                <h3>Using specs without hurting DPS</h3>
+                <p>Because special attacks consume adrenaline-equivalent (here, special energy), use them when they add more value than the normal hits you skip. On a boss with a low-HP finish, a claws or scythe spec ends the kill faster and saves ticks. On a long single-target burn, save spec for when the boss is vulnerable. The key is to never waste spec on a target that will die from normal hits in the same window anyway.</p>
+
+                <div class="method-box">
+                    <div class="tip-title">🎯 Spec Timing Cheat Sheet</div>
+                    <ol>
+                        <li><strong>High-HP / multi-target:</strong> Scythe spec early and often.</li>
+                        <li><strong>Low-HP finish:</strong> Claws or a burst bolt to end the kill in fewer ticks.</li>
+                        <li><strong>Sustain need:</strong> Sanguinesti spec to heal instead of eating.</li>
+                        <li><strong>Group content:</strong> Bandos godsword to lower defence for the whole team.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- SECTION 10 -->
+            <section id="mistakes">
+                <h2>10. 🛠️ Common DPS Mistakes &amp; A Worked Comparison</h2>
+                <p>Most players lose more DPS to habits than to missing gear. Here are the recurring mistakes, plus a table that shows how they stack up on a representative boss.</p>
+
+                <h3>The five most common DPS leaks</h3>
+                <ul>
+                    <li><strong>Wrong attack style</strong> — leaving Controlled or Defensive on costs max hit or accuracy every hit.</li>
+                    <li><strong>Prayer dropping mid-fight</strong> — losing Piety/Rigour/Augury halves your percentage boost at the worst moment.</li>
+                    <li><strong>No potion or pre-pot</strong> — skipping the Super combat leaves 15+ Strength on the table permanently.</li>
+                    <li><strong>Fighting off-task</strong> — missing the Salve/Black mask bonus on a Slayer boss throws away a free 15-20%.</li>
+                    <li><strong>Wrong style for the weakness</strong> — hitting a crush-weak boss with stab wastes the weakness multiplier.</li>
+                </ul>
+
+                <h3>Worked comparison: same player, different discipline</h3>
+                <p>The table below models the same 90+ Combat account at Vorkath with progressively better DPS discipline. Rows stack — each fix adds on top of the previous one — to show how habits compound into real kills-per-hour.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Setup</th>
+                            <th>Style Set?</th>
+                            <th>Prayer?</th>
+                            <th>On Task?</th>
+                            <th>Est. DPS</th>
+                            <th>Kills/Hr</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Base (no buffs, wrong style)</td>
+                            <td>No</td>
+                            <td>No</td>
+                            <td>No</td>
+                            <td>~4.5</td>
+                            <td>~22</td>
+                        </tr>
+                        <tr>
+                            <td>+ Correct Aggressive style</td>
+                            <td>Yes</td>
+                            <td>No</td>
+                            <td>No</td>
+                            <td>~5.3</td>
+                            <td>~26</td>
+                        </tr>
+                        <tr>
+                            <td>+ Rigour &amp; Ranging potion</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>No</td>
+                            <td>~6.6</td>
+                            <td>~32</td>
+                        </tr>
+                        <tr>
+                            <td>+ Salve (ei) on dragon task</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>~8.1</td>
+                            <td>~40</td>
+                        </tr>
+                        <tr>
+                            <td>+ TBow swap (BiS ranged)</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>~13.5</td>
+                            <td>~66</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>The lesson is clear: the first three rows — all free or near-free discipline — take you from 22 to 40 kills per hour, an 80% jump with no gear change. The BiS weapon then adds the rest. Players who skip the discipline and blame their gear are optimizing the expensive 20% while leaving the free 80% on the table.</p>
+
+                <div class="warning-box">
+                    <div class="warning-title">⚠️ Don't Over-Fixate on Max Hit</div>
+                    <p>A bigger max hit number feels good but, as the table shows, the percentage boosts from style, prayer, potion, and task add up faster than almost any single weapon upgrade. Fix the free stuff first, then let the calculator tell you which weapon is actually worth the bank.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 11 FAQ -->
+            <section id="faq">
+                <h2>11. ❓ Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <h3>What is the single biggest DPS upgrade for most players?</h3>
+                    <p>Your weapon. A Fang, Bowfa, or Sanguinesti staff each contribute more to DPS than a full armor upgrade. Once the weapon is strong, the Occult/Anguish necklace and the matching (i) ring are the next best, cheapest gains. But before spending, confirm with a calculator — sometimes the necklace is a bigger jump than the weapon for your specific target.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do Piety / Rigour / Augury really matter that much?</h3>
+                    <p>Yes. Each adds roughly 15-20% DPS for one prayer point per 18 seconds — the highest percentage boost outside gear, and the cheapest per GP you will ever get. If locked, prioritize Prayer and the required quests immediately; no armor purchase compares to unlocking these.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is max hit or accuracy more important?</h3>
+                    <p>It depends on the target. Against a low-defence boss, raising max hit wins. Against a high-defence boss (ToB, high-invocation ToA), accuracy is often the bottleneck, so attack bonus and hit chance matter more than a bigger max hit. A DPS calculator shows which one your target needs — don't guess.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Should I use Void or BiS armor for DPS?</h3>
+                    <p>Use Elite Void when the boss's hits are weak enough that you can survive in it — the +10% bonus frequently beats expensive armor on low-threat targets like Vorkath. Switch to defensive BiS when survival matters more than the last bit of DPS. The trade is pure DPS versus survivability, so it changes per boss and per invocation.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Why does my real DPS feel lower than the calculator?</h3>
+                    <p>Calculators assume perfect uptime — every attack lands on schedule and prayers stay active. In real fights you lose ticks to movement, flicking, and mistakes. Treat calculator numbers as a ceiling, then close the gap by tightening movement and keeping prayers up. The gap is usually 10-20% for newer players.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Does the combat triangle override a boss's weakness?</h3>
+                    <p>No. If a boss is weak to a style, use that style even if the triangle would prefer another. The weakness multiplier almost always outweighs the triangle's passive accuracy edge. The calculator confirms this every time you model both options side by side.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Are special attacks worth using for DPS?</h3>
+                    <p>Yes, when timed well. The Scythe spec adds huge burst on high-HP bosses; claws end low-HP targets in fewer ticks; dragon bolt procs add burst at Vorkath. Use specs when they add more value than the normal hits you skip — don't waste them on a target that dies in the same window anyway.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How much does being on a Slayer task actually add?</h3>
+                    <p>For Slayer bosses, the Black mask (i) and Salve (ei) bonuses are worth roughly 15-20% damage and accuracy — often more than a weapon upgrade that costs hundreds of millions. Assigning the task first is the highest-DPS-per-GP decision you make all trip, which is why the weakness section stresses it.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>I'm below 90 Combat. Can I still optimize DPS?</h3>
+                    <p>Absolutely — the discipline upgrades (style, prayer, potion, task) apply at every level and don't require end-game gear. Lower-level players get the same percentage boosts, so fixing your habits gives the same relative lift. The <a href="../guides/osrs-new-player-guide-2026.html">new player guide</a> and <a href="../guides/osrs-first-week-progression-guide-2026.html">first-week progression guide</a> show the path to the stats discussed here.</p>
+                </div>
+            </section>
+
+            <div class="final-tips">
+                <h3>✅ Final Tips — Your DPS Optimization Checklist</h3>
+                <ul>
+                    <li><strong>Upgrade your weapon first</strong> — it is the majority of your DPS.</li>
+                    <li><strong>Unlock Piety / Rigour / Augury</strong> and keep them active every fight.</li>
+                    <li><strong>Pot before entering</strong> and re-pot on long trips; overloads in raids.</li>
+                    <li><strong>Set the Aggressive / Accurate style</strong> for DPS, never Controlled or Defensive.</li>
+                    <li><strong>Use Salve, Black mask, Void, and bane weapons</strong> whenever the target qualifies.</li>
+                    <li><strong>Model upgrades in a DPS calculator</strong> before spending hundreds of millions.</li>
+                    <li><strong>Stack the free discipline</strong> — style + prayer + potion + task beats any single gear buy.</li>
+                </ul>
+            </div>
+
+            <div class="next-steps">
+                <h3>🎯 What To Do Next</h3>
+                <p>You know the five DPS levers. Now put them into a real setup:</p>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                    <strong>→ Step 1:</strong> Build the right kit with the <a href="../guides/osrs-boss-gear-checklist-2026.html" style="color:#8b6914; font-weight:bold;">boss gear checklist</a>
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914; margin-top:8px;">
+                    <strong>→ Step 2:</strong> Prep consumes using the <a href="../guides/osrs-boss-inventory-prep-guide-2026.html" style="color:#8b6914; font-weight:bold;">boss inventory prep guide</a>
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914; margin-top:8px;">
+                    <strong>→ Step 3:</strong> Learn boss weaknesses from the <a href="../boss-guides.html" style="color:#8b6914; font-weight:bold;">boss guides hub</a>
+                </div>
+                <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914; margin-top:8px;">
+                    <strong>→ Step 4:</strong> Refresh mechanics with the <a href="../guides/osrs-pvm-beginner-guide-2026.html" style="color:#8b6914; font-weight:bold;">PvM beginner guide</a> before pushing DPS
+                </div>
+                <p style="margin-top:16px;"><a href="../boss-guides.html" style="color:#8b6914; font-weight:bold; text-decoration:none;">Browse All Boss Guides →</a></p>
+            </div>
+
+            <!-- TOOL PROMO -->
+            <div class="tool-promo">
+                <h3>🛠️ Companion Tools for PvM DPS</h3>
+                <p>Guides tell you what to do — tools help you act. Free, browser-based, mobile-friendly.</p>
+                <div class="tool-promo-grid">
+                    <a href="../tools/dps-calculator/" class="tool-promo-card"><span class="tp-ico">⚔️</span><span class="tp-name">DPS Calculator</span><span class="tp-desc">Compare weapons, gear and prayers to find your true DPS.</span><span class="tp-go">Open Tool →</span></a>
+                    <a href="../tools/gear-recommender/" class="tool-promo-card"><span class="tp-ico">🛡️</span><span class="tp-name">Gear Recommender</span><span class="tp-desc">Find the best gear setup for your combat style.</span><span class="tp-go">Open Tool →</span></a>
+                    <a href="../tools/profit-finder/" class="tool-promo-card"><span class="tp-ico">💰</span><span class="tp-name">Profit Finder</span><span class="tp-desc">Find the best GP/hr method for your stats right now.</span><span class="tp-go">Open Tool →</span></a>
+                </div>
+            </div>
+
+            <!-- RELATED GUIDES -->
+            <div class="related-guides">
+                <h3>More PvM &amp; Boss Guides</h3>
+                <div class="article-grid">
+                    <a href="../guides/osrs-pvm-beginner-guide-2026.html" class="article-card">
+                        <h3>OSRS PvM Beginner Guide 2026</h3>
+                        <p>Learn boss mechanics and survival before you optimize DPS — no damage saves a bad tile.</p>
+                    </a>
+                    <a href="../guides/osrs-boss-gear-checklist-2026.html" class="article-card">
+                        <h3>OSRS Boss Gear Checklist 2026</h3>
+                        <p>Every slot ranked by DPS return, so you know exactly what to buy next.</p>
+                    </a>
+                    <a href="../guides/osrs-boss-inventory-prep-guide-2026.html" class="article-card">
+                        <h3>OSRS Boss Inventory Prep 2026</h3>
+                        <p>Exactly which potions and food to bring so your buffs never lapse mid-fight.</p>
+                    </a>
+                    <a href="../guides/osrs-theatre-of-blood-guide-2026.html" class="article-card">
+                        <h3>OSRS Theatre of Blood 2026</h3>
+                        <p>Where Fang vs Scythe matters and how DPS wins the raid.</p>
+                    </a>
+                    <a href="../guides/osrs-new-player-guide-2026.html" class="article-card">
+                        <h3>OSRS New Player Guide 2026</h3>
+                        <p>The path to 70+ Prayer and the ultimates that unlock your biggest DPS boost.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SUPPORT CARD (verbatim Payhip green box, placed at end) -->
+    <div class="support-card" style="margin:8px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+            <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+            <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                <li><strong>Avoid Scams & Phishing (Stop Bank Drains)</strong></li>
+                <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+            </ul>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+    </div>
+
+            <p class="article-meta" style="color:#3b2615;font-size:.82rem;margin:1.5rem 0 0;opacity:.85;">Published: August 9, 2026 &middot; Last verified: August 12, 2026</p>
+            <div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+                <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ Boss Guides</h4><ul>
+                    <li><a href="../guides/osrs-boss-gear-checklist-2026.html">Boss Gear Checklist</a></li>
+                    <li><a href="../guides/osrs-pvm-beginner-guide-2026.html">PvM Beginner Guide</a></li>
+                    <li><a href="../guides/osrs-boss-inventory-prep-guide-2026.html">Inventory Prep</a></li>
+                    <li><a href="../boss-guides.html">All Boss Guides</a></li>
+                    <li><a href="../guides/osrs-theatre-of-blood-guide-2026.html">Theatre of Blood</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+
+    <script src="../js/features.js"></script>
+    <script src="../js/ai-qa-widget.js"></script>
+</body>
+</html>
