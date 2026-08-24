@@ -20,4 +20,13 @@
     <loc>https://osrsguru.com/sitemap-blog.xml</loc>
     <lastmod>2026-07-03</lastmod>
   </sitemap>
+
+  <sitemap>
+    <loc>https://osrsguru.com/sitemap-zh.xml</loc>
+    <lastmod>2026-08-24</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://osrsguru.com/sitemap-pt.xml</loc>
+    <lastmod>2026-08-24</lastmod>
+  </sitemap>
 </sitemapindex>
