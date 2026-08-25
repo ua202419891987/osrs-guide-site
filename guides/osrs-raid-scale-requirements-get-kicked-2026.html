@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Raid Scale &amp; Requirements: Stop Getting Kicked From Teams (2026)</title>
+    <meta name="description" content="Updated for 2026. The complete OSRS raid-team survival guide: CoX player-scale and CM requirements, ToB mandatory voice + role splits, ToA invocation and low-split math, the real LFG门槛, and the 7-step checklist that keeps you in the raid instead of on the kick list.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS raid scale requirements, OSRS CoX player scale, OSRS ToB mandatory voice, OSRS ToA low split, OSRS raid LFG门槛, OSRS get kicked from raid, OSRS Chambers of Xeric team size, OSRS Theatre of Blood roles, OSRS Tombs of Amascut invocation, OSRS raid discord find team">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-raid-scale-requirements-get-kicked-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+</head>
+<body data-level="Advanced" data-category="raids">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRSGuru</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../new-player.html">New Player</a></li>
+                    <li><a href="../skill-training.html">Skill Training</a></li>
+                    <li><a href="../money-making.html">Money Making</a></li>
+                    <li><a href="../boss-guides.html">Boss Guides</a></li>
+<li><a href="../pvm-guides.html">PvM Guides</a></li>
+<li><a href="../mobile.html">Mobile</a></li>
+
+                    <li><a href="../pvm-guides.html">Raids</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../pvm-guides.html">Raids</a> / Raid Scale &amp; Team Survival</p>
+            <h1>OSRS Raid Scale &amp; Requirements: Stop Getting Kicked From Teams (2026)</h1>
+            <p class="subtitle">You cleared the bosses. You met the gear checks. Then you got removed from the team before the raid even started. This guide explains exactly why — CoX scale math, ToB's mandatory voice rule, ToA's split reality — and gives you the checklist that keeps you in the raid. Pair it with our <a href="../guides/osrs-raid-entry-requirements-2026.html" style="color:#fff;text-decoration:underline;">Raid Entry Requirements</a> page if you are still unsure whether your account is even raid-ready.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">🛡️</span> <strong>Advanced PvM</strong> — Raid Team Survival &middot; 13 min read &middot; Updated July 30, 2026
+            </div>
+        </div>
+    </section>
+
+<main class="guide-content">
+        <div class="container">
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: 1500+</div>
+
+<div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#1a1a1a;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Most kicks are scale/role mismatches, not skill.</strong> CoX teams size to the loot split; ToB needs 4 roles + voice; ToA splits by points, not effort.</li>
+                    <li>📌 <strong>CoX scales 1–100+.</strong> Small teams = bigger individual split but harsher gear checks; read the scale before you apply.</li>
+                    <li>📌 <strong>ToB is voice-only.</strong> No mic = no invite on 99% of teams. Roles (tank / maiden / bloat / nylo / verzik) are assigned before you load in.</li>
+                    <li>📌 <strong>ToA splits by raid points.</strong> A low-invocation runner earns a thin share — that is the "low split" complaint, and it is by design.</li>
+                    <li>📌 <strong>The LFG门槛 is a gear+KC wall.</strong> Clan guesting and a clean ToB/CoX learner run beat spamming world 385 every time.</li>
+                </ul>
+            </div>
+
+            <p class="intro">Getting removed from a raid team is the single most common frustration for players crossing from solo bossing into group content. You did the prep, you brought the supplies, you showed up on time — and yet the host removed you before the first room loaded. The instinct is to blame "toxic LFG" or "random bad luck," but almost every kick follows a predictable, mechanical logic that has nothing to do with whether you are a good player. Raid leaders are optimising for one outcome: a clean, fast, split-worthy clear with the lowest possible chance of a wipe. If your presence makes that outcome less likely — because of scale, voice, role, or invocation mismatch — you are out, regardless of how close your stats look on paper. This guide breaks down the three raids individually, shows you the exact mismatch that gets each one wrong, and hands you a reusable checklist so the next application you send is one you actually survive.</p>
+            <p>The fastest way to internalise this is to stop thinking of raids as "bosses you do with friends" and start thinking of them as <strong>contracts</strong>. Every raid has an unspoken contract: a scale, a voice rule, a role split, or an invocation level that the team agreed on before you clicked apply. When you honour the contract, you sail in. When you silently violate it — even by accident — you get kicked. The pages linked throughout this guide (<a href="../guides/osrs-raid-entry-requirements-2026.html">Raid Entry Requirements</a>, <a href="../guides/osrs-boss-gear-checklist-2026.html">Boss Gear Checklist</a>) tell you the hard stat and KC gates; this page tells you the softer, human contract that decides whether you keep your slot.</p>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#why-kicked">Why You Keep Getting Kicked</a></li>
+                    <li><a href="#cox-scale">CoX: Scale, Team Size &amp; CM Reality</a></li>
+                    <li><a href="#tob-voice">ToB: Mandatory Voice &amp; Role Splits</a></li>
+                    <li><a href="#toa-split">ToA: Invocation &amp; The Low-Split Math</a></li>
+                    <li><a href="#raid-compare">CoX vs ToB vs ToA: Side-by-Side</a></li>
+                    <li><a href="#find-teams">Where to Actually Find Teams (LFG门槛)</a></li>
+                    <li><a href="#no-kick-checklist">The 7-Step "Don't Get Kicked" Checklist</a></li>
+                    <li><a href="#faq">Raid Team FAQs</a></li>
+                    <li><a href="#final-tips">Final Tips</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="why-kicked">
+                <h2>1. 🚪 Why You Keep Getting Kicked</h2>
+                <p>Getting removed from a raid team stings, but it is almost never personal. Raid leaders optimise for one thing: a clean, fast, split-worthy clear. If your presence threatens that, you are out — regardless of how "close" your stats are. The pattern repeats so consistently that you can predict your own kick before it happens once you learn to read the signs.</p>
+                <p>There are four repeatable reasons players get kicked, and they map cleanly onto the three raids. Learn to spot which one applies to you and the fix becomes obvious instead of mysterious.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The Four Kicks</div>
+                    <p><strong>① Scale mismatch</strong> — you applied to a 5-man CoX but the leader wanted a 3-man for a fatter split. <strong>② No voice</strong> — ToB teams will not carry a silent runner. <strong>③ Wrong role/KC</strong> — you claimed verzik but have 0 ToB KC. <strong>④ Low invocation</strong> — you joined a 300+ ToA but only toggle 50, gutting the team's points. Our <a href="../guides/osrs-raid-entry-requirements-2026.html" style="color:#8b6914;font-weight:bold;">Raid Entry Requirements</a> page lists the exact thresholds so you apply to the right team the first time.</p>
+                </div>
+                <p>The fix is not "get better gear" — it is understanding each raid's unspoken contract before you click apply. Most players treat the apply button like a lottery ticket: spam it everywhere, hope someone accepts. That approach guarantees you land in teams where you violate the contract, and those are exactly the teams that remove you. A slower, intentional application process — read the listing, match the stated numbers, confirm voice — cuts your kick rate dramatically without a single new upgrade to your account.</p>
+                <p>One more framing that helps: a kick is <em>feedback</em>, not an insult. When a host removes you, they are telling you precisely which part of the contract you broke. Write it down. "Kicked from 3-man CoX, had only 75 range." Next time you see a 3-man CoX listing, you now know to check your range level against the stated gear before applying. Players who treat every kick as data climb out of the kick cycle in a week; players who treat it as drama stay stuck for months.</p>
+                <p>If you want the full stat and quest gates before you even think about applying, read <a href="../guides/osrs-raid-entry-requirements-2026.html">Raid Entry Requirements</a> first. The rest of this guide assumes your account can technically enter the raid and focuses purely on the team-dynamics reasons you lose the slot anyway.</p>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="cox-scale">
+                <h2>2. 🏛️ CoX: Scale, Team Size &amp; CM Reality</h2>
+                <p>Chambers of Xeric is the most flexible raid in the game, and that flexibility is exactly why players misread it. CoX has <strong>no fixed team size</strong> — it scales from a solo speedrun to 100-player mass worlds. The leader picks a scale, and the scale dictates the loot split and the gear expectation. Misjudge the scale and you are either carried (annoying the team) or a liability (getting kicked).</p>
+
+                <h3>① How CoX scale actually works</h3>
+                <p>The raid's difficulty (and therefore its point value and purple rate) scales with <strong>team size and the personal bests of the raiders</strong>. A 2–3 man team faces a proportionally harder fight but splits the loose end and unique loot between fewer people. A 20-man mass is trivially easy but your individual share is thin. When a leader says "scaling a 4," they mean four people sharing the reward pool. The word "scaling" is doing real work there: it is the team's statement of how the loot will be divided, and it is the first thing you must check before applying.</p>
+                <p>The trap is that players hear "CoX team, need 1" and assume any scale is fine. It is not. A host advertising "scaling a 3" has already done the loot math for three people. If you show up and it becomes four, every other member's share just shrank. They will almost always remove the fourth rather than re-scale, because re-scaling changes Olm's HP, the puzzle difficulty, and the entire point economy of the run. So the scale in the listing is not a suggestion — it is the run's foundation.</p>
+
+                <h3>② Team-size tiers and what each expects</h3>
+                <div class="action-step">
+                    <h4>Pick the tier that matches your gear, not your ego</h4>
+                    <p>Use this as a rule of thumb when applying. The split per person falls as the team grows, and the gear expectation rises as the team shrinks:</p>
+                    <table>
+                        <thead>
+                            <tr><th>Team size</th><th>Split per person</th><th>Gear expectation</th><th>Best for</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1–2 man</td><td>Very high</td><td>Near-BiS, practiced</td><td>Speed / profit chasers</td></tr>
+                            <tr><td>3–5 man</td><td>High</td><td>Strong PvM gear</td><td>Most LFG teams</td></tr>
+                            <tr><td>6–10 man</td><td>Medium</td><td>Entry raid gear OK</td><td>Learners / clans</td></tr>
+                            <tr><td>15–100 man</td><td>Low</td><td>Anything goes</td><td>Mass worlds, fun</td></tr>
+                        </tbody>
+                    </table>
+                    <p>If you apply to a 3-man with budget gear, you will likely be replaced before Olm — not because you are bad, but because the split math no longer works for the other two. This is the single most common CoX kick, and it is entirely avoidable: only apply to small-scale teams when your gear genuinely matches the tier.</p>
+                </div>
+
+                <p>The chart below makes the trade-off concrete. Notice that smaller teams raise your individual payout, but the unspoken cost is that every slot must pull its weight mechanically. A dead slot in a 20-man mass is absorbed; a dead slot in a 3-man is a wipe.</p>
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 320" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CoX team size versus GP per person bar chart">
+                        <rect width="680" height="320" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">CoX: Team Size vs GP Per Person</text>
+                        <line x1="60" y1="280" x2="650" y2="280" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="60" y1="40" x2="60" y2="280" stroke="#3b2615" stroke-width="2"/>
+                        <text x="14" y="160" font-size="12" fill="#3b2615" font-family="Arial,sans-serif" transform="rotate(-90 14 160)">GP / person</text>
+                        <rect x="110" y="100" width="80" height="180" fill="#8b6914" opacity="0.8"/>
+                        <text x="120" y="300" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">2-man</text>
+                        <text x="122" y="92" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">High</text>
+                        <rect x="250" y="160" width="80" height="120" fill="#8b6914" opacity="0.8"/>
+                        <text x="262" y="300" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">5-man</text>
+                        <text x="262" y="152" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">Med</text>
+                        <rect x="390" y="210" width="80" height="70" fill="#8b6914" opacity="0.8"/>
+                        <text x="400" y="300" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">10-man</text>
+                        <text x="398" y="202" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">Low</text>
+                        <rect x="530" y="245" width="80" height="35" fill="#8b6914" opacity="0.8"/>
+                        <text x="538" y="300" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">20-man</text>
+                        <text x="536" y="237" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">Thin</text>
+                        <text x="250" y="60" font-size="12" fill="#E6A817" font-family="Arial,sans-serif" font-weight="bold">Fewer players = fatter individual split</text>
+                    </svg>
+                    <figcaption>Smaller CoX teams split the loot pool between fewer people. The trade-off is harsher gear and mechanical expectations per slot — the main reason small-scale applicants get kicked.</figcaption>
+                </figure>
+
+                <h3>③ Challenge Mode (CM) is a different contract</h3>
+                <p>CoX Challenge Mode requires the whole team to have a recorded CM completion and tight, pre-drilled paths. Showing up to a CM with only normal-mode KC is an instant kick. CM is not "normal mode but harder" — it is a different run with different puzzles, and a player who has never seen the CM path is a guaranteed wipe. Read the <a href="../guides/osrs-chambers-of-xeric-loot-profit-guide.html" style="color:#8b6914;font-weight:bold;">CoX loot &amp; profit guide</a> to see which scales actually pay before you commit, and never apply to a CM listing unless your CM cape or CM KC is right there in your profile.</p>
+                <p>The unifying lesson for CoX: the scale number in the listing is a promise about loot and difficulty. Honour it exactly. Apply only to the scale your gear supports, confirm CM status explicitly, and you will stop being the person removed before Olm.</p>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="tob-voice">
+                <h2>3. 🩸 ToB: Mandatory Voice &amp; Role Splits</h2>
+                <p>Theatre of Blood is where most "I got kicked for no reason" stories are born — because the reason is almost always voice or roles. ToB is a <strong>coordinated, role-locked raid</strong>, and 99% of teams run it on Discord voice. Unlike CoX, where you can quietly contribute DPS, ToB punishes silence immediately because every room depends on live callouts.</p>
+
+                <h3>① No mic = no invite (usually)</h3>
+                <p>ToB demands callouts: "bloat down," "nylocas left," "verzik purple," "tank swapped." A silent player forces three other people to guess, and guesswork wipes the raid. If a listing says "VC required" and you have no mic, do not apply — you will be removed on sight. This is the brutal but fair LFG门槛 of ToB. The hosts are not being difficult; they are protecting a four-hour investment (learner runs aside) from a single point of failure. Buy a £10 headset, or accept that open ToB LFG is closed to you until you do.</p>
+                <p>There is a small exception: some learner clans run "type-only" ToB where callouts happen in Discord text chat. That is a legitimate on-ramp, but it is explicitly labelled as such. If the listing says voice and you plan to type, that is a contract violation and a kick.</p>
+
+                <h3>② The five roles and why claiming the wrong one gets you kicked</h3>
+                <div class="action-step">
+                    <h4>Know your role before you load in</h4>
+                    <p>ToB splits into clear jobs. Claiming verzik with no KC is the fastest way to a kick, because verzik is the room that ends runs:</p>
+                    <ul>
+                        <li><strong>Maiden</strong> — clears crabs, manages reds, calls nylos.</li>
+                        <li><strong>Bloat</strong> — times the down, tanks the slam.</li>
+                        <li><strong>Nylocas</strong> — wave clear, often the hardest DPS check.</li>
+                        <li><strong>Verzik P1/P2</strong> — the DPS and movement phase.</li>
+                        <li><strong>Verzik P3 / tank</strong> — the endgame, reserved for experienced runners.</li>
+                    </ul>
+                    <p>Be honest about your KC. A learner who says "I can do maiden and bloat, first ToB" gets invited far more often than a liar who claims verzik. See the <a href="../guides/osrs-theatre-of-blood-guide-2026.html" style="color:#8b6914;font-weight:bold;">Theatre of Blood guide</a> for a full role breakdown and the exact mechanics each room demands.</p>
+                </div>
+
+                <p>The room order below is fixed, and each room hands a callout to the next. The moment one player cannot communicate their room's status, the chain breaks. That is why voice is non-negotiable on real teams.</p>
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 300" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ToB room order and role handoff flow">
+                        <rect width="680" height="300" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">ToB Room Order &amp; Voice Handoff</text>
+                        <rect x="20" y="120" width="92" height="56" fill="#8b6914" opacity="0.8"/>
+                        <text x="30" y="144" font-size="12" fill="#ffffff" font-family="Arial,sans-serif" font-weight="bold">Maiden</text>
+                        <text x="30" y="162" font-size="10" fill="#ffffff" font-family="Arial,sans-serif">crab call</text>
+                        <rect x="140" y="120" width="92" height="56" fill="#8b6914" opacity="0.8"/>
+                        <text x="150" y="144" font-size="12" fill="#ffffff" font-family="Arial,sans-serif" font-weight="bold">Bloat</text>
+                        <text x="150" y="162" font-size="10" fill="#ffffff" font-family="Arial,sans-serif">down call</text>
+                        <rect x="260" y="120" width="92" height="56" fill="#8b6914" opacity="0.8"/>
+                        <text x="270" y="144" font-size="12" fill="#ffffff" font-family="Arial,sans-serif" font-weight="bold">Nylocas</text>
+                        <text x="270" y="162" font-size="10" fill="#ffffff" font-family="Arial,sans-serif">wave call</text>
+                        <rect x="380" y="120" width="92" height="56" fill="#8b6914" opacity="0.8"/>
+                        <text x="390" y="144" font-size="12" fill="#ffffff" font-family="Arial,sans-serif" font-weight="bold">Sotetseg</text>
+                        <text x="390" y="162" font-size="10" fill="#ffffff" font-family="Arial,sans-serif">maze call</text>
+                        <rect x="500" y="120" width="92" height="56" fill="#8b6914" opacity="0.8"/>
+                        <text x="510" y="144" font-size="12" fill="#ffffff" font-family="Arial,sans-serif" font-weight="bold">Xarpus</text>
+                        <text x="510" y="162" font-size="10" fill="#ffffff" font-family="Arial,sans-serif">blind call</text>
+                        <rect x="610" y="120" width="56" height="56" fill="#E6A817" opacity="0.85"/>
+                        <text x="618" y="144" font-size="11" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Verzik</text>
+                        <text x="618" y="162" font-size="9" fill="#3b2615" font-family="Arial,sans-serif">endgame</text>
+                        <line x1="112" y1="148" x2="138" y2="148" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="232" y1="148" x2="258" y2="148" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="352" y1="148" x2="378" y2="148" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="472" y1="148" x2="498" y2="148" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="592" y1="148" x2="608" y2="148" stroke="#3b2615" stroke-width="2"/>
+                        <text x="20" y="210" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">Each room's callout hands off to the next. A silent runner breaks the chain — which is why VC is mandatory.</text>
+                        <text x="20" y="235" font-size="12" fill="#E6A817" font-family="Arial,sans-serif" font-weight="bold">Verzik is reserved for high-KC runners; claiming it with 0 KC = instant kick.</text>
+                    </svg>
+                    <figcaption>ToB's fixed room order depends on a live voice handoff between roles. Verzik (gold) is the endgame room and is never given to a first-timer.</figcaption>
+                </figure>
+
+                <h3>③ Learner runs exist — use them</h3>
+                <p>Many clans host "learner ToB" with reduced expectations and a teacher on voice. That is the correct on-ramp, not a 5-man speed team. Join a learner run, get your first 2–3 KC honestly, then apply to real teams. The learners who survive are the ones who spent a few runs listening to callouts before they ever claimed a hard room. Patience here pays off: a clean learner KC is worth more than ten kicked "experienced" applications.</p>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="toa-split">
+                <h2>4. ⚱️ ToA: Invocation &amp; The Low-Split Math</h2>
+                <p>Tombs of Amascut invented a new player complaint: "the split was too low." That is not a bug — it is the invocation system working as designed. Understanding the math is the difference between raging at your team and understanding you simply joined the wrong lobby.</p>
+
+                <h3>① Invocation sets the raid's point total</h3>
+                <p>ToA difficulty is chosen by toggling <strong>invocations</strong> (300 = baseline, 500 = max, with the raid level shown as e.g. "ToA 450"). The total raid points are shared among the team at the end. A 4-man 450-invocation raid has a fixed point pool — and everyone is <em>expected</em> to contribute similar invocation levels. The pool is not per-person effort; it is a single team total divided equally. That single design choice explains almost every "low split" argument in the game.</p>
+
+                <h3>② Why your split feels small</h3>
+                <div class="action-step">
+                    <h4>The "low split" is usually a mismatch, not theft</h4>
+                    <p>If you join a 500-invocation ToA but only toggle 150, the raid's final points are dragged down by your low contribution — yet you still take an equal share of the (smaller) pool. Teams hate this, and many will kick low-invocation applicants from high-invocation lobbies. Conversely, if you toggle 500 but the team averages 300, your split looks "thin" because the pool was small. Match your invocation to the lobby's stated level. The diagram below shows how the shared pool grows with the team's average invocation — and how one low toggle flattens it for everyone.</p>
+                </div>
+
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 300" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ToA average invocation versus shared point pool line chart">
+                        <rect width="680" height="300" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">ToA: Avg Invocation vs Shared Point Pool</text>
+                        <line x1="60" y1="250" x2="650" y2="250" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="60" y1="40" x2="60" y2="250" stroke="#3b2615" stroke-width="2"/>
+                        <text x="14" y="150" font-size="12" fill="#3b2615" font-family="Arial,sans-serif" transform="rotate(-90 14 150)">Point pool</text>
+                        <text x="330" y="275" font-size="12" fill="#3b2615" font-family="Arial,sans-serif">Avg invocation (300 → 500)</text>
+                        <path d="M90 230 L200 180 L310 135 L420 95 L530 60 L620 50" fill="none" stroke="#E6A817" stroke-width="3"/>
+                        <circle cx="90" cy="230" r="5" fill="#E6A817"/>
+                        <circle cx="200" cy="180" r="5" fill="#E6A817"/>
+                        <circle cx="310" cy="135" r="5" fill="#E6A817"/>
+                        <circle cx="420" cy="95" r="5" fill="#E6A817"/>
+                        <circle cx="530" cy="60" r="5" fill="#E6A817"/>
+                        <circle cx="620" cy="50" r="5" fill="#E6A817"/>
+                        <text x="330" y="200" font-size="12" fill="#8b6914" font-family="Arial,sans-serif" font-weight="bold">One low toggle flattens the curve for everyone</text>
+                    </svg>
+                    <figcaption>The shared point pool rises with the team's average invocation. A single player toggling far below the lobby drags the whole pool down — and earns the kick.</figcaption>
+                </figure>
+
+                <h3>③ Soloing vs teaming</h3>
+                <p>If splits frustrate you, <a href="../guides/osrs-toa-solo-beginner-guide-2026.html" style="color:#8b6914;font-weight:bold;">solo ToA</a> removes the argument entirely — every point is yours. It demands tighter mechanics, but it ends the "why is my split low" debate for good. For many players, a few solo 300s teach the mechanics faster than a dozen teamed 500s where they were carried and confused. Once you understand the raid solo, you return to teams with the invocation discipline that keeps you off the kick list.</p>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="raid-compare">
+                <h2>5. ⚖️ CoX vs ToB vs ToA: Side-by-Side</h2>
+                <p>Players who only know one raid often misapply its rules to another and get kicked. The three raids share the word "raid" but operate on completely different contracts. The comparison table below is the cheat-sheet you should screenshot before applying to anything.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>CoX</th>
+                            <th>ToB</th>
+                            <th>ToA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Team size</td>
+                            <td>1–100+ (host picks scale)</td>
+                            <td>Usually 4 (fixed)</td>
+                            <td>1–8 (lobby states level)</td>
+                        </tr>
+                        <tr>
+                            <td>Voice rule</td>
+                            <td>Often optional</td>
+                            <td>Mandatory on 99% of teams</td>
+                            <td>Recommended, less critical</td>
+                        </tr>
+                        <tr>
+                            <td>Split logic</td>
+                            <td>Per-person by scale</td>
+                            <td>Equal, role-based</td>
+                            <td>Equal, by total points</td>
+                        </tr>
+                        <tr>
+                            <td>Main kick trigger</td>
+                            <td>Scale/gear mismatch</td>
+                            <td>No mic or wrong role</td>
+                            <td>Low invocation vs lobby</td>
+                        </tr>
+                        <tr>
+                            <td>Learner on-ramp</td>
+                            <td>6–10 man clan teams</td>
+                            <td>Clan learner runs</td>
+                            <td>Solo 300 then low teams</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>The single most useful row is "Main kick trigger." If you get kicked from CoX, it is almost always scale or gear. From ToB, voice or role. From ToA, invocation. Diagnose which raid you were in, and the reason writes itself. Cross-reference the hard gates in <a href="../guides/osrs-raid-entry-requirements-2026.html">Raid Entry Requirements</a> and the gear checks in <a href="../guides/osrs-boss-gear-checklist-2026.html">Boss Gear Checklist</a> to confirm you meet the mechanical bar before you blame the team.</p>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="find-teams">
+                <h2>6. 🔎 Where to Actually Find Teams (LFG门槛)</h2>
+                <p>The "wild" LFG (world 385 ToB, bus worlds, the in-game friends-chat spam) is the harshest environment and the worst place to learn. Get your teams from better sources and the kick rate drops overnight.</p>
+
+                <h3>① Clan guesting beats world 385</h3>
+                <p>A clan with a raiding branch will guest you, teach you, and tolerate learner KC that open LFG never would. This single change ends most "I can't get into raids" problems. Our <a href="../guides/osrs-best-clans-discord-guide-2026.html" style="color:#8b6914;font-weight:bold;">best clans &amp; Discord guide</a> shows how to pick one that actually raids rather than one that just has a Discord logo. A real raiding clan runs scheduled teams, has teachers, and tracks your KC — exactly the structure that keeps you in the raid instead of on the kick list.</p>
+
+                <h3>② Discord LFG with stated requirements</h3>
+                <p>Good LFG posts state scale, KC, gear, and voice rule up front: "ToA 450, 4-man, 150+ KC ea, VC." That transparency protects you — if you do not meet it, don't apply, and you will not get kicked. The listings that say only "toa need 3" with no detail are the ones that will boot you the moment something feels off, because they never set a contract in the first place. Prefer the verbose, specific posts every time.</p>
+
+                <h3>③ Build your own team once you have KC</h3>
+                <p>The moment you have ~5 ToB KC or a clean CoX PB, <em>you</em> become the host. Hosting flips the power dynamic: you set the scale, you pick the voices, and you never get kicked again. This is the real endgame of raid survival. Post your own LFG with explicit numbers, screen applicants, and run the raid your way. Most players who escape the kick list permanently do it by becoming hosts, not by getting better at begging for invites.</p>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="no-kick-checklist">
+                <h2>7. ✅ The 7-Step "Don't Get Kicked" Checklist</h2>
+                <p>Run this before every raid application. Miss one and you are a kick risk. This is the operational version of everything above, compressed into a pre-apply routine you can complete in two minutes.</p>
+
+                <div class="action-step">
+                    <h4>Pre-apply checklist</h4>
+                    <ol>
+                        <li><strong>Read the scale.</strong> CoX team size and ToA invocation must match the lobby's stated numbers.</li>
+                        <li><strong>Confirm voice.</strong> If "VC required," have a working mic — no exceptions.</li>
+                        <li><strong>Claim only known roles.</strong> State your real KC for each role honestly.</li>
+                        <li><strong>Meet the gear check.</strong> Cross-reference <a href="../guides/osrs-boss-gear-checklist-2026.html" style="color:#8b6914;font-weight:bold;">the boss gear checklist</a> before applying.</li>
+                        <li><strong>Match invocation.</strong> ToA: toggle within ~50 of the lobby's level.</li>
+                        <li><strong>Have supplies.</strong> Bring your own food, pots, and (runes/spec weapons) — leeches get kicked.</li>
+                        <li><strong>Show KC proof if asked.</strong> A screenshot of your rank beats a typed "trust me."</li>
+                    </ol>
+                </div>
+
+                <p>Two of these deserve extra emphasis because they are the ones players skip. Step 1 (read the scale) is where CoX kicks happen — people apply without checking the number. Step 5 (match invocation) is where ToA kicks happen — people join a 500 lobby toggling 150. Both are pure attention errors, not skill errors, which means both are 100% preventable by a 10-second read of the listing.</p>
+
+                <div class="tip-box">
+                    <div class="tip-title">💡 When in doubt, guest a clan</div>
+                    <p>Ninety percent of raid-kick pain disappears the moment you stop relying on open LFG and join a raiding clan. You learn faster, die cheaper, and stop begging for invites. The <a href="../guides/osrs-best-clans-discord-guide-2026.html" style="color:#8b6914;font-weight:bold;">clans guide</a> walks you through picking one that actually runs teams.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 8: FAQ -->
+            <section id="faq">
+                <h2>8. ❓ Raid Team FAQs</h2>
+
+                <div class="faq-item">
+                    <h4>What team size is best for CoX if I want profit?</h4>
+                    <p>For pure GP/share, smaller is better: 2–3 man scales give each person a fat slice of the loot pool. But they demand near-BiS gear and clean Olm mechanics. If your gear is entry-level, a 6–10 man clan team pays less per run but lets you actually clear. Match scale to gear — applying to a 3-man with budget gear is the most common CoX kick.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can I do ToB without voice?</h4>
+                    <p>Technically the game allows it, but practically almost no LFG team will take you. ToB needs live callouts to survive the nylocas wave and verzik. Get a mic, or stick to learner clans where a teacher carries the calls. Silent ToB is a wipe waiting to happen.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Why was my ToA split so low even though I did my job?</h4>
+                    <p>Because ToA splits by total raid points, not by effort. If the lobby's average invocation was lower than yours (or you toggled low in a high-inv lobby), the shared pool was small and your equal share looks thin. Match your invocation to the stated raid level next time, or solo it.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>How much KC do I need before applying to real teams?</h4>
+                    <p>Roughly: CoX ~50 PBs before small-scale, ToB ~5–10 learner KC before a real 4-man, ToA ~10 completions before a 400+ lobby. But the bigger gate is role honesty — claim what you have done, not what you hope to do. A learner who is honest about KC gets invited more than a liar with inflated stats.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Is hosting a raid hard?</h4>
+                    <p>Less hard than it feels. Once you have modest KC, post your own LFG: state scale, KC, gear, voice rule. You control who joins, set the pace, and never get kicked. Hosting is how most players escape the kick list permanently, and it teaches you the contract from the other side.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>World 385 ToB keeps kicking me — what do I do?</h4>
+                    <p>Leave world 385. Open ToB LFG is the most toxic, highest-bar environment in the game and the worst place to learn. Join a clan learner run or a Discord LFG with stated requirements instead. See our <a href="../guides/osrs-best-clans-discord-guide-2026.html" style="color:#8b6914;font-weight:bold;">clans guide</a> for how to find a raiding clan that guests learners.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Do I need max gear to not get kicked?</h4>
+                    <p>No — you need <em>appropriate</em> gear for the scale. A 10-man ToB welcomes entry raid gear; a 2-man CoX expects near-BiS. The kick happens when your gear mismatches the scale you applied to, not when it is "low" in absolute terms. Read the listing's gear line and match it.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>What is the difference between CoX scale and ToA invocation?</h4>
+                    <p>CoX scale is the team size the host chose, which sets how the loot pool splits and how hard the raid is. ToA invocation is a difficulty toggle (300–500) that sets the size of the shared point pool. Both are "the number in the listing you must respect," but CoX's number is about people and ToA's is about modifiers. Violating either gets you kicked for the same reason: you changed the contract after applying.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can I bring a friend who is under-leveled to a raid team?</h4>
+                    <p>Only if the listing's numbers include them. Bringing an under-geared friend to a 3-man CoX or a 500 ToA without telling the host is a fast way for both of you to be removed. Either find a learner team that explicitly welcomes two, or be upfront in your application. Surprise +1s are one of the most common silent kicks.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Why do I keep getting kicked right before the raid starts but never during it?</h4>
+                    <p>Because the host audits the team in the last 60 seconds: they check gear, KC, CM status, and voice one final time. If something does not match the listing, they remove you before wasting the run. This is actually good news — it means your in-raid performance was never the issue. Fix the pre-raid mismatch (scale, voice, role, invocation) and you will load in.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Should I lie about my KC to get into a team?</h4>
+                    <p>Never. ToB and ToA lobbies almost always ask for KC proof (a rank screenshot or a quick profile check) before or during the run, and a lie collapses the moment you fumble the mechanics you claimed to know. A honest learner who says "first ToB, maiden/bloat only" gets invited far more than a liar who claims verzik. Honesty is also the fastest way to actually learn the raid.</p>
+                </div>
+            </section>
+
+            <!-- FINAL TIPS -->
+            <section id="final-tips">
+                <h2>9. 🎯 Final Tips — Stay In The Raid, Not On The Kick List</h2>
+                <ul>
+                    <li><strong>Read the scale before you apply.</strong> CoX team size and ToA invocation are promises about loot and difficulty — honour them exactly.</li>
+                    <li><strong>Confirm voice for ToB.</strong> No mic means no invite on 99% of teams; get a headset or join a learner clan.</li>
+                    <li><strong>Claim only roles you have KC for.</strong> Honesty gets you invited; lying gets you kicked mid-run.</li>
+                    <li><strong>Match your invocation to the lobby.</strong> A low toggle in a high-inv ToA drags the whole pool down and earns the boot.</li>
+                    <li><strong>Use clan guesting over world 385.</strong> It ends most "I can't get into raids" problems overnight.</li>
+                    <li><strong>Host your own team once you have KC.</strong> You set the scale, pick the voices, and never get kicked again.</li>
+                    <li><strong>Bring your own supplies.</strong> Leeches who show up empty get removed on sight.</li>
+                    <li><strong>Treat every kick as data.</strong> Write down why you were removed and fix that specific mismatch next time.</li>
+                </ul>
+            </section>
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 Get Into Your Next Raid</h3>
+                <p>Stop guessing and start applying to the right teams:</p>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 1:</strong> Check <a href="../guides/osrs-raid-entry-requirements-2026.html" style="color:#8b6914; font-weight:bold;">Raid Entry Requirements</a> to confirm your account is raid-ready
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 2:</strong> Match your CoX scale / ToA invocation to the lobby before applying
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 3:</strong> Guest a raiding clan from the <a href="../guides/osrs-best-clans-discord-guide-2026.html" style="color:#8b6914; font-weight:bold;">Clans &amp; Discord guide</a> and run learner ToB
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 4:</strong> Once you have KC, host your own team and never get kicked again
+                    </div>
+            </div>
+
+            <!-- TOOL PROMO -->
+            <div class="tool-promo">
+                <h3>🛠️ Companion Tools for Raiding</h3>
+                <p>Guides tell you what to do — tools help you act. Free, browser-based, mobile-friendly.</p>
+                <div class="tool-promo-grid">
+                    <a href="../tools/dps-calculator/" class="tool-promo-card"><span class="tp-ico">⚔️</span><span class="tp-name">DPS Calculator</span><span class="tp-desc">Compare weapons and hit accuracy before you train.</span><span class="tp-go">Open Tool →</span></a>
+                    <a href="../tools/gear-recommender/" class="tool-promo-card"><span class="tp-ico">🛡️</span><span class="tp-name">Gear Recommender</span><span class="tp-desc">Find the best gear setup for your combat style.</span><span class="tp-go">Open Tool →</span></a>
+                    <a href="../tools/drop-lookup/" class="tool-promo-card"><span class="tp-ico">🎲</span><span class="tp-name">Drop Rate Lookup</span><span class="tp-desc">Check real drop rates before you grind.</span><span class="tp-go">Open Tool →</span></a>
+                </div>
+            </div>
+
+            <!-- RELATED GUIDES -->
+                    <div class="related-guides">
+      <h3>More Raid &amp; PvM Team Guides</h3>
+      <div class="article-grid">
+        <a href="../guides/osrs-raid-entry-requirements-2026.html" class="article-card">
+          <h3>OSRS Raid Entry Requirements 2026</h3>
+          <p>The exact stats, quests, and KC gates for CoX, ToB, and ToA — apply to the right team the first time.</p>
+        </a>
+        <a href="../guides/osrs-chambers-of-xeric-loot-profit-guide.html" class="article-card">
+          <h3>OSRS Chambers of Xeric Loot &amp; Profit Guide</h3>
+          <p>Which CoX scales actually pay, and how the loot split changes with team size.</p>
+        </a>
+        <a href="../guides/osrs-theatre-of-blood-guide-2026.html" class="article-card">
+          <h3>OSRS Theatre of Blood Guide 2026</h3>
+          <p>Full ToB role breakdown, voice callouts, and the learner-run path off world 385.</p>
+        </a>
+        <a href="../guides/osrs-toa-solo-beginner-guide-2026.html" class="article-card">
+          <h3>OSRS ToA Solo Beginner Guide 2026</h3>
+          <p>End the low-split argument: every point is yours when you solo Tombs of Amascut.</p>
+        </a>
+        <a href="../guides/osrs-best-clans-discord-guide-2026.html" class="article-card">
+          <h3>OSRS Best Clans &amp; Discord Guide 2026</h3>
+          <p>How to pick a raiding clan that guests learners and ends your LFG kick streak.</p>
+        </a>
+      </div>
+</div>
+
+            <!-- SUPPORT CARD (verbatim Payhip green box, placed at end) -->
+    <div class="support-card" style="margin:8px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+            <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+            <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                <li><strong>Avoid Scams & Phishing (Stop Bank Drains)</strong></li>
+                <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+            </ul>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+    </div>
+
+            <p class="article-meta" style="color:#3b2615;font-size:.82rem;margin:1.5rem 0 0;opacity:.85;">Published: July 30, 2026 &middot; Last verified: August 12, 2026</p>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ New Players (Stage 0)</h4><ul>
+                    <li><a href="../guides/osrs-interface-controls-beginner-guide-2026.html">Game Interface</a></li>
+                    <li><a href="../guides/osrs-combat-triangle-explained-2026.html">Combat Triangle</a></li>
+                    <li><a href="../guides/osrs-skills-overview-beginner-2026.html">Skills Overview</a></li>
+                    <li><a href="../guides/osrs-bank-inventory-management-2026.html">Bank &amp; Inventory</a></li>
+                    <li><a href="../guides/osrs-maps-travel-guide-2026.html">Maps &amp; Travel</a></li>
+                    <li><a href="../guides/osrs-questing-beginner-guide-2026.html">Questing Basics</a></li>
+                    <li><a href="../guides/osrs-combat-training-beginner-2026.html">Combat Training</a></li>
+                    <li><a href="../guides/osrs-money-making-beginner-2026.html">Beginner Money Making</a></li>
+                    <li><a href="../guides/osrs-gear-beginner-guide-2026.html">Gear Guide</a></li>
+                    <li><a href="../guides/osrs-safe-spots-beginner-2026.html">Safe Spots</a></li>
+                    <li><a href="../guides/osrs-prayer-training-beginner-guide-2026.html">Prayer Training</a></li>
+                    <li><a href="../guides/osrs-f2p-to-p2p-membership-guide-2026.html">F2P to P2P Transition</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+
+<!-- Copyright & Anti-Scraping Notice -->
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+
+</body>
+</html>
