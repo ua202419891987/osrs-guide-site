@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Public WiFi Login Failure 2026: Captive Portal, Blocked Ports &amp; VPN Fixes</title>
+    <meta name="description" content="Updated for 2026. Can't log in to OSRS on hotel, school, or airport WiFi? 7 targeted fixes for the captive-portal spinner, blocked game ports (443/43594/43595), and VPN-triggered login lockouts — plus the phone-hotspot escape hatch. Get back in within 5 minutes.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS public wifi login failed 2026, OSRS captive portal can't connect, OSRS hotel airport wifi blocked, OSRS blocked ports 43594, OSRS VPN login blocked, Old School RuneScape public network fix, OSRS login spinner public wifi">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<meta name="article:published_time" content="2026-07-30">
+<meta name="article:modified_time" content="2026-08-12">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-public-wifi-captive-portal-fix-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+</head>
+<body data-level="all" data-category="connection">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRS <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../boss-guides.html">Bosses</a></li>
+<li><a href="../pvm-guides.html">PvM Guides</a></li>
+
+                    <li><a href="../money-making.html">Money</a></li>
+                    <li><a href="../quest-guides.html">Quests</a></li>
+                    <li><a href="../skill-training.html">Skills</a></li>
+                    <li><a href="../weekly-updates.html">Updates</a></li>
+                    <li><a href="../zh/index.html">Chinese</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../guides/osrs-mobile-guide-2026.html">OSRS Connection</a> / Public WiFi &amp; Captive Portal Login Fix</p>
+            <h1>OSRS Public WiFi Login Failure 2026: Captive Portal, Blocked Ports &amp; VPN Fixes</h1>
+            <p class="subtitle">You're on hotel, airport, school, or café WiFi, you tap "Play", and Old School RuneScape just spins forever — or kicks you back to the login screen with "Failed to log in". It's not your account and it's not Jagex. It's the network. This guide covers the three public-network traps that break OSRS login, in the exact order you should fight them.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📡</span> <strong>Stage 2 · Connection Troubleshooting</strong> — Updated August 12, 2026 · 13 min read
+            </div>
+        </div>
+    </section>
+
+<main class="guide-content">
+    <div class="container">
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🛡️ Level: 3+</div>
+
+            <p class="intro">When you can load <a href="../guides/osrs-mobile-guide-2026.html">osrs.com</a> in a browser but the game client won't log in, you've hit a <em>network</em> wall, not an account problem. Public and shared networks — hotels, airports, dorms, libraries, cafés, cruise ships, conference centers — add layers between you and Jagex that a normal home connection doesn't have. There are exactly three traps, and they stack: a captive portal that silently holds your traffic, a firewall that blocks the game ports, and a VPN or proxy that makes Jagex think you logged in from a brand-new country. This guide walks each one top to bottom, gives you copy-paste tests you can run in under a minute, and ends with a 5-minute rescue flow you can run from a hotel bed.</p>
+            <p>The single most useful habit on public WiFi is to <strong>prove the network is the problem before you touch your account settings</strong>. The fastest proof is to switch to cellular data (or your phone hotspot) and try once. If login works instantly on data but fails on the WiFi, you've confirmed the WiFi is the culprit — and you can stop worrying about your account being hacked, locked, or banned. From there, work the three traps in order. This article is the public-network companion to our <a href="../guides/osrs-vpn-login-blocked-fix-2026.html">VPN login-blocked fix</a> and the broader <a href="../guides/osrs-home-network-router-troubleshoot-2026.html">home router troubleshooting guide</a>.</p>
+
+            <div class="quick-summary">
+                <h3>⏱️ Quick Verdict — 30-Second Read</h3>
+                <ul>
+                    <li>📌 <strong>Most "spinner of death" cases are a captive portal</strong> — the network is holding you on an "accept our terms" page you never saw. Open a browser first.</li>
+                    <li>📌 <strong>OSRS needs more than port 443</strong> — it also uses TCP 43594/43595. Many firewalls block these, so the client connects to the web but never to the game world.</li>
+                    <li>📌 <strong>A VPN can trip Jagex's risk system</strong> and force a 2FA re-check or temporary lock. Disable it or use a known-good region before logging in.</li>
+                    <li>📌 <strong>Your phone's hotspot is the 5-minute escape hatch</strong> — tether once to confirm it's the network, not your account (full steps in our <a href="../guides/osrs-mobile-cant-login-fix-2026.html">mobile login fix</a>).</li>
+                    <li>📌 <strong>Don't spam login</strong> — repeated failures on a flagged IP can rate-limit you for 10–15 minutes.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#why">🔍 Why Public WiFi Breaks OSRS Login (3 Traps)</a></li>
+                    <li><a href="#compare">⚖️ Three Traps Side by Side</a></li>
+                    <li><a href="#captive">🚪 Captive Portal: The Endless-Spinner Trap</a></li>
+                    <li><a href="#ports">🔌 Blocked Ports: OSRS Needs More Than 443</a></li>
+                    <li><a href="#vpn">🛡️ VPN-Triggered Login Failure</a></li>
+                    <li><a href="#hotspot">📱 Phone Hotspot: Your Reliable Backup</a></li>
+                    <li><a href="#rescue">🚑 5-Minute Rescue Flow (Do This in Order)</a></li>
+                    <li><a href="#symptom-table">🗺️ Symptom → Fix Quick Reference</a></li>
+                    <li><a href="#faq">❓ FAQ — Public WiFi &amp; OSRS</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="why">
+                <h2>1. 🔍 Why Public WiFi Breaks OSRS Login (3 Traps)</h2>
+                <p>When you can load osrs.com in a browser but the game client won't log in, you've hit a <em>network</em> wall, not an account problem. Public and shared networks add layers between you and Jagex that a normal home connection doesn't have. There are exactly three traps, and they stack:</p>
+                <div class="method-box highlight">
+                    <h4>🎯 The Three Public-Network Traps</h4>
+                    <ul>
+                        <li><strong>Captive portal</strong> — a redirect page that must be accepted before any real traffic flows. Until you accept it, the game client is silently blocked.</li>
+                        <li><strong>Port filtering</strong> — the firewall allows web browsing (port 443) but blocks the game ports OSRS actually uses to reach a world.</li>
+                        <li><strong>VPN / proxy flagging</strong> — routing through a VPN or the network's own proxy makes Jagex see a "new" location and forces extra verification or a soft lock.</li>
+                    </ul>
+                </div>
+                <p>A useful mental model is to think of your connection as a relay race with three checkpoints. The request leaves your laptop or phone, passes through the venue's gateway (where the captive portal lives), crosses the venue's firewall (where ports are filtered), and only then reaches Jagex. If your VPN is on, there's a fourth hop — the VPN server — that changes the "return address" Jagex sees. Each checkpoint can stop the game client while still letting a normal webpage through, because a webpage and a game world are not the same kind of traffic.</p>
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 300" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Where a public WiFi connection breaks between your device and Jagex">
+                        <rect width="680" height="300" fill="#faf8f5"/>
+                        <text x="20" y="28" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Your Path to a Game World (and Where It Breaks)</text>
+                        <rect x="40" y="70" width="120" height="60" rx="8" fill="#8b6914" opacity="0.18" stroke="#8b6914" stroke-width="1.5"/>
+                        <text x="60" y="98" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Your Device</text>
+                        <text x="60" y="116" font-size="11" fill="#1a1a1a" font-family="Arial,sans-serif">laptop / phone</text>
+                        <rect x="200" y="70" width="120" height="60" rx="8" fill="#E6A817" opacity="0.18" stroke="#E6A817" stroke-width="1.5"/>
+                        <text x="214" y="98" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Captive Portal</text>
+                        <text x="214" y="116" font-size="11" fill="#1a1a1a" font-family="Arial,sans-serif">accept terms?</text>
+                        <rect x="360" y="70" width="120" height="60" rx="8" fill="#E6A817" opacity="0.18" stroke="#E6A817" stroke-width="1.5"/>
+                        <text x="372" y="98" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Firewall</text>
+                        <text x="372" y="116" font-size="11" fill="#1a1a1a" font-family="Arial,sans-serif">ports 43594?</text>
+                        <rect x="520" y="70" width="120" height="60" rx="8" fill="#8b6914" opacity="0.18" stroke="#8b6914" stroke-width="1.5"/>
+                        <text x="540" y="98" font-size="13" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">Jagex</text>
+                        <text x="540" y="116" font-size="11" fill="#1a1a1a" font-family="Arial,sans-serif">game world</text>
+                        <line x1="160" y1="100" x2="198" y2="100" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="320" y1="100" x2="358" y2="100" stroke="#3b2615" stroke-width="2"/>
+                        <line x1="480" y1="100" x2="518" y2="100" stroke="#3b2615" stroke-width="2"/>
+                        <text x="200" y="170" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">▲ Trap 1: portal not accepted → client hangs</text>
+                        <text x="200" y="192" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">▲ Trap 2: 43594/43595 blocked → Play fails</text>
+                        <text x="200" y="214" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">▲ Trap 3: VPN hop → "new country" 2FA lock</text>
+                        <text x="20" y="262" font-size="12" fill="#3b2615" font-family="Arial,sans-serif" font-style="italic">Websites (port 443) sail past all three. Only the game client gets stopped.</text>
+                    </svg>
+                    <figcaption>The game client must clear the portal, the port filter, and the location check. A webpage only needs the first. That gap is why "the site loads but the game doesn't."</figcaption>
+                </figure>
+                <p>One quick way to confirm it's the network: switch to cellular data (or your phone hotspot) and try once. If login works instantly on data but fails on the WiFi, you've proven the WiFi is the culprit — and you can stop worrying about your account being hacked or banned. From there, work the three traps top to bottom. This article is the public-network companion to our <a href="../guides/osrs-vpn-login-blocked-fix-2026.html">VPN login-blocked fix</a> and the broader <a href="../guides/osrs-home-network-router-troubleshoot-2026.html">home router troubleshooting guide</a>.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Rule of thumb</div>
+                    <p>If a <em>normal website</em> also fails to load on this WiFi until you "sign in" or "accept terms", it's a captive portal. If websites work fine but only the game fails, it's almost certainly blocked ports. If everything worked yesterday from home but fails on this trip, suspect the VPN/proxy first.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2: COMPARISON -->
+            <section id="compare">
+                <h2>2. ⚖️ Three Traps Side by Side</h2>
+                <p>Before the step-by-step fixes, here is the whole problem on one table. Use it to triangulate which trap you're actually in — most players waste time fighting the wrong one. The columns are the three traps; the rows are the questions that separate them.</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Trait</th>
+                            <th>Captive Portal</th>
+                            <th>Blocked Ports</th>
+                            <th>VPN / Proxy Flag</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Who runs it</strong></td>
+                            <td>Venue (hotel, school, café)</td>
+                            <td>Venue firewall</td>
+                            <td>You / network proxy</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Does a website load?</strong></td>
+                            <td>No — until you accept</td>
+                            <td>Yes, normally</td>
+                            <td>Yes, normally</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Does the game client log in?</strong></td>
+                            <td>No — hangs on spinner</td>
+                            <td>No — Play fails / drops</td>
+                            <td>Sometimes — 2FA loop</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tell-tale sign</strong></td>
+                            <td>"Accept terms" page appears</td>
+                            <td><code>telnet 43594</code> times out</td>
+                            <td>2FA asked again / new-location email</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Typical fix time</strong></td>
+                            <td>Under 1 minute</td>
+                            <td>1–2 min (or hotspot)</td>
+                            <td>1–2 min (switch region)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Risk to your account</strong></td>
+                            <td>Phishing clone portal</td>
+                            <td>None (purely network)</td>
+                            <td>Soft lock / 2FA re-check</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                <p>If two columns could fit, start with the captive portal — it's the cheapest to rule out (open a browser) and the most common cause of the "endless spinner." Only move down the list once you've accepted the portal and the game still won't connect.</p>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="captive">
+                <h2>3. 🚪 Captive Portal: The Endless-Spinner Trap</h2>
+                <p>A captive portal is the "Welcome to Hotel WiFi — click to accept" page. The trick is that the login <em>page</em> often loads, but the network holds all other traffic hostage until you acknowledge it. The OSRS client doesn't have a browser to "click accept", so it just hangs on "Connecting" or "Loading" forever. You never see the block because the client shows a spinner, not a web page. On some networks the portal is invisible until you try a raw HTTP request — HTTPS sites may even appear to work while the game is silently dropped.</p>
+
+                <h3>How to break out of a captive portal (desktop &amp; mobile)</h3>
+                <div class="action-step">
+                    <h4>Step 1 — Trigger the portal page on purpose</h4>
+                    <ul>
+                        <li>Open <strong>any browser</strong> (Chrome, Safari, Edge) and go to a non-HTTPS site like <code>http://neverssl.com</code> or <code>http://example.com</code>.</li>
+                        <li>The network will redirect you to its captive portal. Accept terms, enter the room code, or log in with your booking surname.</li>
+                        <li>Once the browser shows a normal page, the portal has "released" your device.</li>
+                    </ul>
+                </div>
+                <div class="action-step">
+                    <h4>Step 2 — Re-launch OSRS</h4>
+                    <ul>
+                        <li>Completely close the client (don't just minimize). On mobile, force-stop the app; on desktop, exit fully.</li>
+                        <li>Reopen and tap Play. The spinner should now clear within a few seconds.</li>
+                    </ul>
+                </div>
+                <div class="action-step">
+                    <h4>Step 3 — If there's no portal but it still fails</h4>
+                    <ul>
+                        <li>Some networks "register" by MAC address. Try forgetting and re-joining the WiFi, which forces a fresh DHCP + portal handshake.</li>
+                        <li>On Android/iOS, toggle "Private MAC / Randomize MAC" off temporarily so the portal recognizes your device consistently across sessions.</li>
+                    </ul>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">⚠️ "I accepted it but OSRS still spins"</div>
+                    <p>The portal may release <em>browsers</em> but still throttle or block game ports for a few minutes while it "provisions" your session. Wait 60 seconds after accepting, then retry. Also confirm you're not on a separate "guest" SSID that has no game access — ask the front desk which network actually allows gaming/streaming.</p>
+                </div>
+                <div class="warning-box">
+                    <div class="warning-title">🚨 Spot the phishing clone</div>
+                    <p>A fake captive portal is one of the oldest public-WiFi scams. Only enter your <em>OSRS</em> or <em>bank</em> credentials into the official Jagex client or launcher — never into a browser popup that pretends to be a login page. If a "WiFi portal" asks for your RuneScape password, it's a phishing page. Our <a href="../guides/osrs-account-security-anti-scam-guide-2026.html">anti-scam guide</a> breaks down the exact tells, and the <a href="../guides/osrs-avoid-scams-phishing-bank-drained-2026.html">phishing prevention guide</a> shows how to lock your account down before you travel.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="ports">
+                <h2>4. 🔌 Blocked Ports: OSRS Needs More Than 443</h2>
+                <p>This is the trap most players and even some IT desks miss. OSRS loads fine in a browser because web traffic uses port 443 (HTTPS). But the <em>game client</em> connects to the live game world over different TCP ports. If the firewall allows 443 but blocks those, you get the classic symptom: websites work, the OSRS login <em>screen</em> appears, but hitting Play does nothing or drops you straight back.</p>
+
+                <h3>Which ports OSRS uses</h3>
+                <div style="overflow-x:auto">
+                <table>
+                    <thead>
+                        <tr><th>Port</th><th>Protocol</th><th>Purpose</th><th>Usually Blocked On</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>443</strong></td><td>TCP</td><td>Website, launcher, login handshakes</td><td>Rarely</td></tr>
+                        <tr><td><strong>43594</strong></td><td>TCP</td><td>Primary game-world connection</td><td>Hotels, schools, corporate guest</td></tr>
+                        <tr><td><strong>43595</strong></td><td>TCP</td><td>Secondary / world-select traffic</td><td>Strict firewalls, some VPNs</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <figure class="guide-img">
+                    <svg viewBox="0 0 680 260" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Web port 443 open but game ports 43594 and 43595 blocked on public WiFi">
+                        <rect width="680" height="260" fill="#faf8f5"/>
+                        <text x="20" y="26" font-size="17" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">One Network, Two Fates</text>
+                        <rect x="40" y="55" width="270" height="70" rx="8" fill="#8b6914" opacity="0.18" stroke="#8b6914" stroke-width="1.5"/>
+                        <text x="58" y="82" font-size="14" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">WEB TRAFFIC — port 443</text>
+                        <text x="58" y="104" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">✓ open everywhere → browser works</text>
+                        <rect x="370" y="55" width="270" height="70" rx="8" fill="#E6A817" opacity="0.18" stroke="#E6A817" stroke-width="1.5"/>
+                        <text x="388" y="82" font-size="14" fill="#3b2615" font-family="Arial,sans-serif" font-weight="bold">GAME TRAFFIC — 43594/43595</text>
+                        <text x="388" y="104" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">✗ filtered → client stuck</text>
+                        <line x1="40" y1="160" x2="640" y2="160" stroke="#3b2615" stroke-width="2"/>
+                        <text x="40" y="190" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">Public WiFi firewalls love to keep 443 (so guests can browse) but drop the game</text>
+                        <text x="40" y="210" font-size="12" fill="#1a1a1a" font-family="Arial,sans-serif">ports so "gaming" doesn't saturate their pipe. Your client pays the price.</text>
+                        <text x="40" y="240" font-size="12" fill="#3b2615" font-family="Arial,sans-serif" font-style="italic">Fix: ask for the "gaming" SSID, or tether your phone (carriers don't block these).</text>
+                    </svg>
+                    <figcaption>Web browsing and the OSRS client are two different kinds of traffic. A firewall can pass one and block the other — which is exactly why "the site loads but the game doesn't."</figcaption>
+                </figure>
+
+                <h3>How to test if a port is blocked</h3>
+                <div class="action-step">
+                    <h4>Desktop quick test</h4>
+                    <ul>
+                        <li>Open a Command Prompt / Terminal and run <code>telnet world1.runescape.com 43594</code> (Windows may need "Telnet Client" enabled; macOS/Linux have it built in).</li>
+                        <li>If the screen goes <strong>blank/black</strong>, the port is open. If you get "Could not open connection" or a timeout, the port is blocked.</li>
+                        <li>No telnet? Use an online "open port check" tool aimed at <code>world1.runescape.com:43594</code> from the same network.</li>
+                    </ul>
+                </div>
+                <div class="action-step">
+                    <h4>What to do when a port is blocked</h4>
+                    <ul>
+                        <li><strong>You usually can't change the firewall</strong> on hotel/school WiFi — it's managed by the venue. Don't try to "port forward" on their network; you don't have admin rights.</li>
+                        <li>Ask the front desk / IT whether there's a <strong>"gaming" or "unrestricted" SSID</strong> — many hotels keep one network open for exactly this.</li>
+                        <li>If you're on your <em>own</em> travel router or hotspot, open 43594/43595 in its firewall settings (see our <a href="../guides/osrs-home-network-router-troubleshoot-2026.html">router troubleshooting guide</a>).</li>
+                        <li>Otherwise, fall back to your phone hotspot (Section 6) — cellular carriers almost never block these ports.</li>
+                    </ul>
+                </div>
+                <div class="warning-box">
+                    <div class="warning-title">🚨 Don't "fix" this with a random proxy</div>
+                    <p>Free web proxies that claim to "unblock ports" route your login through a third party you don't control. That's how account credentials and 2FA codes get intercepted. If you need to tunnel, use a <em>trusted</em> VPN you control (Section 5) — never a mystery proxy.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="vpn">
+                <h2>5. 🛡️ VPN-Triggered Login Failure</h2>
+                <p>A VPN is the right tool when a network blocks ports — but it creates its own problem. Jagex tracks the rough location and IP reputation of every account. When you suddenly log in from a VPN exit node in another country, or from an IP that other banned bots have abused, the risk engine may force a 2FA re-check, throw "Invalid credentials", or soft-lock the account pending verification.</p>
+
+                <h3>Symptoms specific to VPN logins</h3>
+                <ul>
+                    <li>You're asked for your <strong>Authenticator code twice</strong> or it's "suddenly wrong".</li>
+                    <li>Login says <strong>"too many attempts"</strong> even though you typed it correctly once.</li>
+                    <li>You get an email from Jagex about a <strong>new login location</strong> you didn't expect.</li>
+                    <li>The client connects, then drops you at the character screen with a generic error.</li>
+                </ul>
+
+                <h3>How to use a VPN without locking yourself out</h3>
+                <div class="action-step">
+                    <h4>Step 1 — Pick a stable, reputable region</h4>
+                    <p>Connect to a server in your <strong>home country</strong>, not the cheapest or random one. A consistent region keeps Jagex's risk scoring calm. Avoid free VPNs with heavily abused shared IPs — they're the ones most often auto-flagged.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 2 — Split-tunnel the game (if your VPN supports it)</h4>
+                    <p>Many VPN clients let you <strong>exclude</strong> the OSRS client / Jagex Launcher from the tunnel. That way your browser stays protected but the game connects from your real IP — the best of both worlds on a port-blocking network.</p>
+                </div>
+                <div class="action-step">
+                    <h4>Step 3 — If you're already locked, power-cycle the VPN</h4>
+                    <ul>
+                        <li>Disconnect the VPN entirely and try a plain login (if the network allows ports).</li>
+                        <li>If plain login works, the VPN IP was the problem — switch to a different server or region and retry.</li>
+                        <li>Still failing? Confirm your 2FA app clock is synced (an off-by-minutes clock makes codes invalid) and keep your backup codes handy.</li>
+                    </ul>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 The "two countries in 5 minutes" red flag</div>
+                    <p>Jagex's system especially dislikes seeing one account appear from two distant countries within minutes. If you must use a VPN, connect <em>before</em> you launch the client and stay on one exit node for the whole session. Our dedicated <a href="../guides/osrs-vpn-login-blocked-fix-2026.html">VPN login-blocked guide</a> goes deeper on recovery after a lock, and the <a href="../guides/osrs-authenticator-lost-access-recovery-2026.html">authenticator recovery guide</a> covers what to do if you're stuck without a code.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="hotspot">
+                <h2>6. 📱 Phone Hotspot: Your Reliable Backup</h2>
+                <p>When the venue WiFi fights you, your phone's cellular hotspot is the fastest way to confirm the problem and usually the fastest way to just play. Cellular networks almost never block 43594/43595, and they give you a clean, consistent IP that Jagex trusts more than a crowded hotel firewall. On Android 12+ and iOS 15+, you can also run OSRS Mobile directly over cellular and skip the laptop entirely.</p>
+
+                <h3>Get online in under a minute</h3>
+                <ul>
+                    <li><strong>iPhone:</strong> Settings → Personal Hotspot → Allow Others to Join. Connect your laptop/tablet to the "<em>YourName</em>'s iPhone" WiFi.</li>
+                    <li><strong>Android:</strong> Settings → Network &amp; internet → Hotspot &amp; tethering → Wi-Fi hotspot. Toggle it on and use the shown password.</li>
+                    <li>Launch OSRS on the tethered device. If it logs in instantly, you've <strong>proven</strong> the hotel/school WiFi was the blocker.</li>
+                </ul>
+
+                <h3>Keep the data bill sane</h3>
+                <div class="method-box">
+                    <h4>📊 OSRS is lighter than you think</h4>
+                    <p>Old School RuneScape streams very little data — a long play session rarely exceeds a few hundred MB, far less than a single video call. Turn off OSRS <em>HD</em> YouTube streams and you can raid for hours on a normal plan. If you're worried, set a hotspot data limit in your phone settings before you start. The <a href="../guides/osrs-mobile-disconnect-background-fix-2026.html">background-disconnect fix</a> also stops the client from dropping while your screen sleeps, so tethering stays stable.</p>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">🔋 Pro move for travelers</div>
+                    <p>Keep one device (your phone) on the venue WiFi for browsing and tether only the game client. Or, better, run OSRS Mobile directly on the phone over cellular and skip the laptop entirely. If you hit a mobile-specific snag, our <a href="../guides/osrs-mobile-cant-login-fix-2026.html">mobile can't-log-in fix</a> and the <a href="../guides/osrs-android-32-bit-deprecation-fix-2026.html">32-bit deprecation fix</a> cover the 2026 client requirements.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="rescue">
+                <h2>7. 🚑 5-Minute Rescue Flow (Do This in Order)</h2>
+                <p>When you're standing in a hotel room with a dead spinner, don't guess — run this ordered checklist. Each step takes under a minute and tells you exactly where the break is.</p>
+                <div class="next-steps">
+                    <div style="padding:12px 16px;background:var(--bg-warm);border-radius:8px;border-left:4px solid var(--gold);">
+                        <strong>→ Step 1:</strong> Open a browser, visit <code>http://neverssl.com</code>. If a "accept terms" page appears, accept it. (Captive portal)
+                    </div>
+                    <div style="padding:12px 16px;background:var(--bg-warm);border-radius:8px;border-left:4px solid var(--gold);margin-top:8px;">
+                        <strong>→ Step 2:</strong> With the portal accepted, try OSRS. Works? Done. Still spins? Go to Step 3. (Port check)
+                    </div>
+                    <div style="padding:12px 16px;background:var(--bg-warm);border-radius:8px;border-left:4px solid var(--gold);margin-top:8px;">
+                        <strong>→ Step 3:</strong> Test <code>telnet world1.runescape.com 43594</code>. Blank screen = port open (problem is elsewhere). Timeout = port blocked.
+                    </div>
+                    <div style="padding:12px 16px;background:var(--bg-warm);border-radius:8px;border-left:4px solid var(--gold);margin-top:8px;">
+                        <strong>→ Step 4:</strong> If using a VPN, disconnect it and retry. If that works, your VPN IP was flagged — switch region or split-tunnel.
+                    </div>
+                    <div style="padding:12px 16px;background:var(--bg-warm);border-radius:8px;border-left:4px solid var(--gold);margin-top:8px;">
+                        <strong>→ Step 5:</strong> Tether your phone hotspot and log in. If this works, the venue network is the wall — play on hotspot or ask for the "gaming" SSID.
+                    </div>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">⏳ The 10-minute patience rule</div>
+                    <p>If you've failed login 5+ times, stop for 10–15 minutes. Jagex rate-limits repeated failures per IP, and a flagged-hotel-IP hammered by many guests can temporarily block even valid logins. Step away, then resume at Step 1. A <a href="../guides/osrs-account-locked-suspicious-activity-2026.html">suspicious-activity lock</a> is different from a rate limit — if you get an actual lock email, follow that guide instead of retrying.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 8: Symptom table -->
+            <section id="symptom-table">
+                <h2>8. 🗺️ Symptom → Fix Quick Reference</h2>
+                <p>Match what you see to the fix:</p>
+                <div style="overflow-x:auto">
+                <table>
+                    <thead>
+                        <tr><th>You See…</th><th>Most Likely Cause</th><th>Go To</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Spinner forever, no error</td><td>Captive portal not accepted</td><td><a href="#captive">§3 Captive Portal</a></td></tr>
+                        <tr><td>Login screen loads, Play fails</td><td>Blocked game ports (43594/43595)</td><td><a href="#ports">§4 Blocked Ports</a></td></tr>
+                        <tr><td>"Invalid credentials" / 2FA loop on VPN</td><td>VPN exit IP flagged</td><td><a href="#vpn">§5 VPN Failure</a></td></tr>
+                        <tr><td>Works on data, fails on WiFi</td><td>Network firewall (portal or ports)</td><td><a href="#rescue">§7 Rescue Flow</a></td></tr>
+                        <tr><td>"Too many attempts" after retries</td><td>Rate-limited shared IP</td><td>Wait 10–15 min, then <a href="#rescue">§7</a></td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <p>If none of these match — for example the client opens but immediately crashes, or you get a "joining world" error that has nothing to do with networks — the cause is probably local (client/cache), not the WiFi. The <a href="../guides/osrs-mobile-cant-login-fix-2026.html">mobile login fix</a> and the <a href="../guides/osrs-home-network-router-troubleshoot-2026.html">router guide</a> cover those paths.</p>
+            </section>
+
+            <!-- SECTION 9: FAQ -->
+            <section id="faq">
+                <h2>9. ❓ FAQ — Public WiFi &amp; OSRS</h2>
+
+                <div class="faq-item">
+                    <h4>Is it safe to play OSRS on public WiFi at all?</h4>
+                    <p>Yes, with one rule: the OSRS login is encrypted and Jagex never sends your password in the clear. The real risk on public WiFi is the <em>captive portal phishing</em> clone or a fake "OSRS login" page — always confirm you're on the official client/launcher, not a browser popup. A VPN adds a layer of safety on untrusted networks; just follow the VPN steps in §5 to avoid a lockout. Our <a href="../guides/osrs-account-security-guide-2026.html">account security guide</a> lists the exact habits that keep you safe on the road.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Why does the OSRS website load but the game won't connect?</h4>
+                    <p>Because they use different ports. The website is port 443 (almost never blocked); the game world is 43594/43595, which strict hotel/school firewalls commonly filter. Your browser works, the client hangs — that mismatch is the textbook sign of port blocking (§4).</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>My VPN fixed the connection but now Jagex wants 2FA again — normal?</h4>
+                    <p>Yes. A new IP region triggers a fresh verification. Enter your current Authenticator code (synced clock!) or a one-time backup code. If you're repeatedly forced to verify, your VPN is hopping regions — pin it to one stable server (§5, Step 1). If you've lost the device entirely, the <a href="../guides/osrs-authenticator-lost-access-recovery-2026.html">authenticator recovery guide</a> walks the rebuild.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Will using my phone hotspot get me banned for "sharing accounts"?</h4>
+                    <p>No. Tethering your own device to your own phone is normal and won't trigger a ban. Bans come from real policy violations (botting, RWT, account sharing with strangers), not from which IP you play on. The only caveat: if your carrier NATs many users behind one IP, that shared IP can occasionally be rate-limited — hence the patience rule in §7.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>The hotel says "gaming is allowed" but OSRS still won't load — what now?</h4>
+                    <p>Ask specifically whether 43594/43595 TCP are open, not just "is gaming allowed" (they may only unblock Xbox/PlayStation ports). If they can't or won't open them, your only reliable options are your phone hotspot or a trusted VPN with split-tunneling. For a deeper dive on opening ports on gear you control, see the <a href="../guides/osrs-home-network-router-troubleshoot-2026.html">router guide</a>.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>What exactly is a captive portal and why doesn't the client see it?</h4>
+                    <p>A captive portal is a web redirect the network injects before it lets you online. Browsers handle redirects automatically and show the "accept" page; the OSRS client has no browser engine, so it just waits for traffic that never arrives and shows a spinner. Triggering the portal in a browser (Step 1 of the rescue flow) is the only way the client benefits from your "accept" click.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>I don't have telnet — how else can I test the ports?</h4>
+                    <p>Use any online "open port checker" aimed at <code>world1.runescape.com:43594</code> from the same WiFi, or try a PowerShell test: <code>Test-NetConnection world1.runescape.com -Port 43594</code> on Windows. A "succeeded / open" result means the port is fine and your problem is the VPN or the portal, not the firewall.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Can I just use a free web proxy to get around the block?</h4>
+                    <p>Strongly discouraged. Free proxies route your login through a stranger's server, which is how passwords and 2FA codes get stolen. If you need to tunnel past a port block, use a VPN you trust and control (§5), or simply tether your phone. Never hand your RuneScape credentials to an unknown proxy.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Does OSRS Mobile behave differently on public WiFi than the desktop client?</h4>
+                    <p>The network rules are identical — same ports, same portal behavior — but mobile adds two wrinkles: background-disconnect (the OSRS app can drop when the screen sleeps, covered in the <a href="../guides/osrs-mobile-disconnect-background-fix-2026.html">background-disconnect fix</a>) and the 32-bit client deprecation that blocks older Android phones (see the <a href="../guides/osrs-android-32-bit-deprecation-fix-2026.html">32-bit fix</a>). Otherwise, the captive-portal and port steps above work the same on phone or laptop.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>What if it works on WiFi at home but never on public WiFi?</h4>
+                    <p>That's the expected signature of a venue firewall or portal, not your account or the game. Home routers almost always allow 43594/43595 by default; public networks usually don't. Skip straight to the rescue flow (§7) whenever you travel, and keep the <a href="../guides/osrs-mobile-guide-2026.html">full mobile guide</a> bookmarked for play-anywhere settings.</p>
+                </div>
+            </section>
+
+            <!-- NEXT STEPS -->
+            <div class="next-steps">
+                <h3>🎯 What To Do After You're Back In</h3>
+                <p>Once you're logged in on the road, make sure a flaky network never costs you a death or a dropped clue:</p>
+                <div style="padding:12px 16px;background:var(--bg-warm);border-radius:8px;border-left:4px solid var(--gold);">
+                    <strong>→ Step 1:</strong> Save your <a href="../guides/osrs-account-security-guide-2026.html">2FA backup codes</a> offline so a VPN lockout can't strand you
+                </div>
+                <div style="padding:12px 16px;background:var(--bg-warm);border-radius:8px;border-left:4px solid var(--gold);margin-top:8px;">
+                    <strong>→ Step 2:</strong> Read the full <a href="../guides/osrs-mobile-guide-2026.html">OSRS Mobile Guide</a> for play-anywhere settings
+                </div>
+                <div style="padding:12px 16px;background:var(--bg-warm);border-radius:8px;border-left:4px solid var(--gold);margin-top:8px;">
+                    <strong>→ Step 3:</strong> Fix mobile <a href="../guides/osrs-mobile-disconnect-background-fix-2026.html">background disconnects</a> so tethering doesn't drop you
+                </div>
+                <div style="padding:12px 16px;background:var(--bg-warm);border-radius:8px;border-left:4px solid var(--gold);margin-top:8px;">
+                    <strong>→ Step 4:</strong> If it was a VPN issue, bookmark the <a href="../guides/osrs-vpn-login-blocked-fix-2026.html">VPN login-blocked fix</a> for next trip
+                </div>
+                <p style="margin-top:18px;"><a href="../guides/osrs-mobile-guide-2026.html" style="color:var(--lavender-dark);font-weight:700;text-decoration:none;">Next: Full OSRS Mobile Guide →</a></p>
+            </div>
+
+            <!-- TOOL PROMO -->
+            <div class="tool-promo">
+                <h3>🛠️ Companion Tools for OSRS Networking</h3>
+                <p>Guides tell you what to do — tools help you act. Free, browser-based, mobile-friendly.</p>
+                <div class="tool-promo-grid">
+                    <a href="../tools/gear-recommender/" class="tool-promo-card"><span class="tp-ico">🛡️</span><span class="tp-name">Gear Recommender</span><span class="tp-desc">Find the best gear setup for your combat style.</span><span class="tp-go">Open Tool →</span></a>
+                    <a href="../tools/dps-calculator/" class="tool-promo-card"><span class="tp-ico">⚔️</span><span class="tp-name">DPS Calculator</span><span class="tp-desc">Compare weapons and hit accuracy before you train.</span><span class="tp-go">Open Tool →</span></a>
+                    <a href="../tools/profit-finder/" class="tool-promo-card"><span class="tp-ico">💰</span><span class="tp-name">Profit Finder</span><span class="tp-desc">Find the best GP/hr method for your stats right now.</span><span class="tp-go">Open Tool →</span></a>
+                </div>
+            </div>
+
+            <!-- RELATED GUIDES -->
+            <div class="related-guides">
+                <h3>More OSRS Connection &amp; Account Guides</h3>
+                <div class="article-grid">
+                    <a href="../guides/osrs-mobile-cant-login-fix-2026.html" class="article-card">
+                        <h3>OSRS Mobile Can't Log In? Fix After the July 2026 PSA</h3>
+                        <p>The unified login fix flow for mobile — account type, 2FA, cached tokens, and clean reinstall.</p>
+                    </a>
+                    <a href="../guides/osrs-vpn-login-blocked-fix-2026.html" class="article-card">
+                        <h3>OSRS VPN Login Blocked — Fix &amp; Prevention 2026</h3>
+                        <p>Why a VPN trips Jagex's risk system and exactly how to recover a VPN-triggered lockout.</p>
+                    </a>
+                    <a href="../guides/osrs-home-network-router-troubleshoot-2026.html" class="article-card">
+                        <h3>OSRS Home Network &amp; Router Troubleshooting 2026</h3>
+                        <p>Open the right ports on gear you control and kill lag, disconnects, and launch failures.</p>
+                    </a>
+                    <a href="../guides/osrs-mobile-disconnect-background-fix-2026.html" class="article-card">
+                        <h3>OSRS Mobile Disconnects in Background — Fix 2026</h3>
+                        <p>Stop the client from dropping when your screen sleeps so tethering stays stable.</p>
+                    </a>
+                    <a href="../guides/osrs-account-security-guide-2026.html" class="article-card">
+                        <h3>OSRS Account Security Guide 2026</h3>
+                        <p>Set up 2FA, store backup codes, and dodge the phishing scams that spike on public networks.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SUPPORT CARD (verbatim Payhip green box, placed at end) -->
+    <div class="support-card" style="margin:8px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+            <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+            <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                <li><strong>Avoid Scams & Phishing (Stop Bank Drains)</strong></li>
+                <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+            </ul>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+    </div>
+
+            <p class="article-meta" style="color:#3b2615;font-size:.82rem;margin:1.5rem 0 0;opacity:.85;">Published: July 30, 2026 &middot; Last verified: August 12, 2026</p>
+    </div>
+</main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>📡 Connection &amp; Network</h4><ul>
+                    <li><a href="../guides/osrs-mobile-guide-2026.html">OSRS Mobile Guide</a></li>
+                    <li><a href="../guides/osrs-vpn-login-blocked-fix-2026.html">VPN Login Fix</a></li>
+                    <li><a href="../guides/osrs-home-network-router-troubleshoot-2026.html">Router Troubleshooting</a></li>
+                    <li><a href="../guides/osrs-mobile-disconnect-background-fix-2026.html">Background Disconnect</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+
+<!-- Copyright & Anti-Scraping Notice -->
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+
+</body>
+</html>
