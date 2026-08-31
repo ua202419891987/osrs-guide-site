@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS RuneLite FPS Optimization Guide 2026 — Sustain High Frame Rates (Beyond the GPU Plugin)</title>
+    <meta name="description" content="The 2026 OSRS RuneLite FPS guide: sustain high frame rates with JVM arguments, RAM allocation, window sizing, overlay cleanup, GPU vsync/AA tuning, and a hardware upgrade checklist.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS RuneLite FPS, RuneLite frame rate, OSRS performance 2026, RuneLite JVM arguments, RuneLite memory allocation, OSRS client optimization, GPU plugin settings, vsync OSRS">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-runelite-fps-optimization-guide-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="intermediate" data-category="client">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRSGuru</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../skill-training.html">Skill Training</a></li>
+                    <li><a href="../money-making.html">Money Making</a></li>
+                    <li><a href="../boss-guides.html">Boss Guides</a></li>
+<li><a href="../pvm-guides.html">PvM Guides</a></li>
+<li><a href="../mobile.html">Mobile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#beginners">Stage 0</a> / OSRS RuneLite FPS Optimization Guide 2026</p>
+            <h1>OSRS RuneLite FPS Optimization Guide 2026 — Sustain High Frame Rates</h1>
+<span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+            <div class="article-meta" style="margin-top:12px;color:#666;font-size:.9rem;line-height:1.6"><span>Updated August 29, 2026</span> &nbsp;|&nbsp; <span>15 min read</span> &nbsp;|&nbsp; <span>By Yanchun Wu</span></div><!-- meta-update-2026 -->
+
+            <p class="subtitle">Stop staring at a stuttering client. This guide shows how to keep Old School RuneScape running smoothly in 2026 — well past the GPU plugin alone.</p>
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🔧 Level: Beginner</div>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>Stage 0.11</strong> — Part of the <strong>Complete Beginner Series</strong> · 15 min read · Updated August 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="support-card" style="margin:8px 0 0 0">
+            <div class="support-inner">
+                <span class="support-icon">🔓</span>
+                <div class="support-text">
+                    <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+                    <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+                    <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                        <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                        <li><strong>Avoid Scams & Phishing (Stop Bank Drains)</strong></li>
+                        <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                        <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                        <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+                    </ul>
+                    <div class="support-amounts">
+                        <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                        <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+                    </div>
+                    <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+            <h3 style="color:#1a1a1a;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+            <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
+                <li>📌 <strong>FPS is input latency</strong> — every dropped frame adds visible delay that hurts bossing and tick-perfect skilling.</li>
+                <li>📌 <strong>The GPU plugin is only one layer</strong> — memory, JVM flags, overlays, and window size matter just as much for sustained smoothness.</li>
+                <li>📌 <strong>Cap, don't chase</strong> — a stable 50–60 fps beats a stuttering 120 fps that dips into single digits during big scenes.</li>
+                <li>📌 <strong>Disable decorative overlays</strong> — tile markers, ground markers, and XP counters quietly eat hundreds of frames per minute.</li>
+                <li>📌 <strong>Upgrade the right part</strong> — OSRS is single-threaded on the CPU; RAM and GPU upgrades help far less than a faster processor.</li>
+            </ul>
+        </div>
+
+        <div class="toc">
+            <h3>① Table of Contents</h3>
+            <ol>
+                <li><a href="#sec1">Why FPS Actually Matters in OSRS</a></li>
+                <li><a href="#sec2">GPU Plugin Settings — VSync, Anti-Aliasing & Performance Mode</a></li>
+                <li><a href="#sec3">Memory &amp; Allocation Tuning (RAM for the Client)</a></li>
+                <li><a href="#sec4">Turning Off Heavy Overlays &amp; Decorative Plugins</a></li>
+                <li><a href="#sec5">JVM Launch Arguments &amp; Hardware Acceleration</a></li>
+                <li><a href="#sec6">Hardware Upgrade Checklist — When It Is Worth It</a></li>
+                <li><a href="#faq">FPS Optimization FAQs</a></li>
+            </ol>
+        </div>
+
+        <section id="sec1">
+            <h2>1. Why FPS Actually Matters in OSRS</h2>
+            <p>Old School RuneScape runs on a fixed game tick of 600 milliseconds, which means the server only processes your actions four times per second. On paper, that makes frame rate sound irrelevant — after all, the game logic does not speed up when you render more frames. In practice, however, frame rate is one of the most important performance factors for player skill, and it is tightly connected to the experience of the entire game. A low or unstable frame rate does not change how often the server listens to you, but it changes how quickly you see what the server already decided, and that gap is where mistakes happen.</p>
+            <p>When your client drops below a smooth frame rate, the visual feedback you receive lags behind the game state. If you are fighting a boss and the screen stutters the moment a deadly attack telegraph appears, you may click your prayer switch a fraction of a second late even though your reaction was correct. Because the client only shows you the world as fast as it can render it, a low frame rate literally hides information from you until it is too late. This is the single most common reason players feel they are "unlucky" at content they are actually mechanically capable of clearing.</p>
+            <p>Frame rate also affects the feeling of motion and the precision of your camera control. With a high and stable frame rate, dragging the camera or moving the mouse to click a specific tile feels natural and immediate. With a low frame rate, the camera jumps in chunks, your clicks land on the wrong tile, and you waste food or waste time re-clicking. For skilling activities that require rapid clicking, such as fletching or dropping items in a tick-manipulation method, the difference between a smooth and a stuttering client can be the difference between a clean session and a frustrating one.</p>
+            <div class="method-box highlight">
+                <h4>🎯 What "Good FPS" Means for Different Content</h4>
+                <ul>
+                    <li><strong>Skilling &amp; casual play:</strong> a steady 50 fps is comfortable and removes most visible hitching.</li>
+                    <li><strong>Bossing &amp; high-level PvM:</strong> 50–60 fps with low frame-time variance matters more than a high average that dips.</li>
+                    <li><strong>Large crowds (Leagues, Deadman, popular worlds):</strong> expect lower peaks; prioritize stability over maximum fps.</li>
+                    <li><strong>Ticket-perfect methods:</strong> low and consistent latency is better than a high but jittery frame rate.</li>
+                </ul>
+            </div>
+            <p>Many players confuse two separate problems. The first problem is a GPU crash or black screen, where the client fails entirely and must be recovered. That is a different issue and is covered in our dedicated troubleshooting article. The second problem, and the one this guide focuses on, is sustained low or unstable frame rate where the client runs but feels sluggish, stutters during busy scenes, and never reaches the smooth experience you want. You can have a client that never crashes but still feels terrible to play, and fixing that is what we are here to do.</p>
+            <div class="tip-box">
+                <div class="tip-title">💡 Measure Before You Tune</div>
+                <p>Open the RuneLite <strong>FPS</strong> plugin (or use the in-game <strong>Shift + F</strong> debug overlay) and watch your frame rate during the exact content you care about. Note the average and the worst dip. You cannot improve what you have not measured, and tuning blindly often makes stutter worse.</p>
+            </div>
+            <p>The rest of this guide works through every layer that influences frame rate: the GPU plugin, memory allocation, decorative overlays, the Java virtual machine that runs RuneLite itself, and finally the physical hardware. Work through them in order, because the cheapest fixes (settings and overlays) solve most problems, and the expensive fixes (hardware) should be your last resort rather than your first instinct.</p>
+        </section>
+
+        <section id="sec2">
+            <h2>2. GPU Plugin Settings — VSync, Anti-Aliasing &amp; Performance Mode</h2>
+            <p>The RuneLite GPU plugin offloads rendering from your CPU to your graphics card, and for most players it is the single biggest frame rate improvement available. But simply enabling it is not enough. The plugin has a cluster of settings that directly control how many frames you produce and how stable they are. Getting these right is the foundation of everything else in this guide.</p>
+            <h3>2.1 Vertical Sync (VSync)</h3>
+            <p>VSync synchronizes the client's frame output to your monitor's refresh rate. On a standard 60 Hz monitor, enabling VSync caps the client at 60 fps and removes the "screen tearing" effect where two partial frames are shown at once. For OSRS this is usually the right choice because the game rarely benefits from frame rates far above your monitor's refresh rate, and uncapped rendering wastes GPU power that could otherwise keep frame times low during busy scenes.</p>
+            <p>There is a trade-off. VSync can add a small amount of input latency because the client waits for the monitor's refresh boundary before showing a frame. For OSRS, where the server tick is the real limiter, that tiny latency is almost always worth the stability and battery-life savings. If you play on a high-refresh monitor (120 Hz or 144 Hz), you may prefer to leave VSync off and use the plugin's frame cap instead, but for the majority of players a simple "enable VSync, cap at 60" setup is the smoothest.</p>
+            <h3>2.2 Anti-Aliasing (AA)</h3>
+            <p>Anti-aliasing smooths the jagged edges of models and text, making the game look cleaner. The GPU plugin offers several AA modes, including FXAA and SMAA. These look nice but cost frames, and on OSRS the visual gain is modest because the art style is already pixelated and low-poly. If your frame rate is your priority, run AA on <strong>Off</strong> or on the lightest mode. Reserve higher AA for when you already have comfortable headroom and simply want the game to look a little softer.</p>
+            <h3>2.3 Performance &amp; "Advanced" GPU Options</h3>
+            <p>Modern builds of the GPU plugin expose performance toggles that many players never open. The most useful are the options to remove decorative rendering that you do not need: disable ground textures if you do not care about them, disable the removal of fog only when you specifically want the classic look, and consider the "increased performance" path where available. Each of these reduces the number of draw calls the GPU must process every frame.</p>
+            <table>
+                <tr><th>Setting</th><th>Recommended</th><th>Why</th></tr>
+                <tr><td>VSync</td><td>On (60 Hz) / Off + cap (high refresh)</td><td>Stability and no tearing; avoids wasted GPU work</td></tr>
+                <tr><td>Anti-Aliasing</td><td>Off or FXAA (light)</td><td>AA has low visual payoff and costs frames</td></tr>
+                <tr><td>Ground Textures</td><td>Off if not needed</td><td>Fewer texture fetches per frame</td></tr>
+                <tr><td>Frame Cap</td><td>Match monitor refresh</td><td>Prevents the client from rendering needless frames</td></tr>
+                <tr><td>Compute Shaders (if available)</td><td>On for capable GPUs</td><td>Offloads scene work more efficiently</td></tr>
+            </table>
+            <div class="tip-box">
+                <div class="tip-title">💡 Do Not Confuse This With Crash Fixing</div>
+                <p>If your GPU plugin crashes or shows a black screen rather than simply running slowly, the fix is different: driver updates, a clean re-install, or disabling incompatible advanced options. Our separate guide on <a href="osrs-runelite-gpu-fps-drop-fix-2026.html" style="color:#8b6914;font-weight:bold;">RuneLite GPU FPS drop and crash fixes</a> handles that failure mode. This article assumes your plugin works and you want it faster.</p>
+            </div>
+            <p>Finally, remember that the GPU plugin still depends on the CPU for game logic. Even a perfect GPU setup will stutter if your processor is overloaded by overlays or starved of memory. The sections below remove those bottlenecks so the GPU plugin can do its job.</p>
+        </section>
+
+        <section id="sec3">
+            <h2>3. Memory &amp; Allocation Tuning (RAM for the Client)</h2>
+            <p>RuneLite is a Java application, and like all Java applications it runs inside the Java Virtual Machine, which manages a block of system RAM called the heap. When the heap is too small, the JVM pauses the game to reclaim memory (a "garbage collection" pause), and those pauses show up as stutters and frame drops. When the heap is far too large for your system, the JVM can interfere with the rest of your operating system and cause swapping to disk, which is catastrophic for frame rate. Tuning the allocation is one of the highest-leverage changes you can make.</p>
+            <h3>3.1 How Much RAM to Give RuneLite</h3>
+            <p>A good starting point for most modern systems is to allocate between 512 MB and 1024 MB of heap to RuneLite. Players who run many plugins, large tile-marking profiles, or the 117 HD plugin will want the higher end. The key principle is "enough, but not excessive." Allocating 4 GB to a client that only needs 700 MB does not make it faster; it only pressures the rest of your PC and can trigger slow full-collection cycles.</p>
+            <h3>3.2 Setting the Allocation</h3>
+            <p>You set the heap size with the JVM flag <code>-Xmx</code> (maximum heap) and optionally <code>-Xms</code> (starting heap). For example, <code>-Xmx1024m</code> sets the maximum to 1024 megabytes. In the RuneLite launcher, you can add these under the client's JVM arguments or via the dedicated memory setting, depending on your version. Setting both <code>-Xms</code> and <code>-Xmx</code> to the same value prevents the JVM from repeatedly resizing the heap, which removes a class of minor stutters.</p>
+            <h3>3.3 Why Allocation Affects FPS</h3>
+            <p>Every time RuneLite loads a new area, swaps a large sprite set, or processes a big scenario like a world event, it allocates temporary objects. If the heap is near full, the garbage collector runs more often and more aggressively, pausing the render thread. Those pauses are exactly the "random hitch every few seconds" that players describe. A correctly sized heap lets the collector run rarely and briefly, keeping frame times flat.</p>
+            <table>
+                <tr><th>Your Setup</th><th>Suggested -Xmx</th><th>Notes</th></tr>
+                <tr><td>Light plugins, small profiles</td><td>512m</td><td>Enough for a clean, minimal client</td></tr>
+                <tr><td>Typical multi-plugin setup</td><td>768m–1024m</td><td>The comfortable middle ground</td></tr>
+                <tr><td>117 HD / many overlays</td><td>1024m–1536m</td><td>HD and big profiles need headroom</td></tr>
+                <tr><td>Low-RAM laptop (&lt; 8 GB total)</td><td>384m–512m</td><td>Leave room for the OS itself</td></tr>
+            </table>
+            <div class="method-box highlight">
+                <h4>🎯 Quick Allocation Checklist</h4>
+                <ul>
+                    <li>Open Task Manager and confirm you have at least 4 GB free after the OS loads.</li>
+                    <li>Set <code>-Xmx</code> to a value your system can spare without disk swapping.</li>
+                    <li>Match <code>-Xms</code> to <code>-Xmx</code> to avoid heap resizing stutter.</li>
+                    <li>Test in a busy area; if stutter returns after minutes, raise the cap slightly.</li>
+                    <li>Watch for "GC" spikes in diagnostics rather than only watching the fps number.</li>
+                </ul>
+            </div>
+            <div class="tip-box">
+                <div class="tip-title">💡 Signs Your Allocation Is Wrong</div>
+                <p>If frame rate is fine for a few minutes then degrades into periodic freezes, allocation is the usual culprit. If the whole PC becomes sluggish and the disk light stays on, you allocated too much and the system is swapping. Adjust toward the middle of the table above.</p>
+            </div>
+            <p>Memory tuning is invisible — there is no on-screen "FPS from RAM" meter — but it is the difference between a client that feels consistently smooth and one that randomly hitches. Treat it as mandatory, not optional, especially if you run a plugin-heavy setup while also streaming or running other software.</p>
+        </section>
+
+        <section id="sec4">
+            <h2>4. Turning Off Heavy Overlays &amp; Decorative Plugins</h2>
+            <p>RuneLite's plugin ecosystem is its greatest strength and, ironically, its most common cause of poor frame rate. Every overlay that draws on your screen, every tile marker, every ground marker, and every animated counter costs CPU and GPU time on top of the base game. None of these are "the GPU plugin," yet they all compete for the same frame budget. This is the section that most players skip, and it is usually where the easiest gains hide.</p>
+            <h3>4.1 The Biggest Offenders</h3>
+            <p>Some plugins are gorgeous but expensive. The 117 HD plugin is the most famous: it transforms the game's lighting and is stunning, but it is genuinely demanding and will drop frame rates on modest hardware. Ground markers and tile markers, when you have hundreds of them across many profiles, add draw calls every frame. XP trackers and loot trackers that update every tick force the client to redraw UI constantly. Even the "entity hider" plugin, when configured to reprocess the entire scene, can add cost.</p>
+            <h3>4.2 A Practical Cleanup Strategy</h3>
+            <p>You do not need to delete plugins; you need to disable the ones you are not actively using. Go through your enabled plugins and ask, for each one, whether it changes your gameplay right now. If a marker plugin exists for a boss you are not currently doing, turn it off until you need it. If you have three different info panels open, keep one. The goal is to reduce the per-frame workload, not to strip the client bare.</p>
+            <table>
+                <tr><th>Plugin / Overlay</th><th>Cost</th><th>What to Do</th></tr>
+                <tr><td>117 HD</td><td>High</td><td>Disable if fps matters more than looks</td></tr>
+                <tr><td>Ground / Tile Markers (many)</td><td>Medium</td><td>Keep only active profiles</td></tr>
+                <tr><td>XP Tracker (animated)</td><td>Low–Medium</td><td>Use a static panel instead</td></tr>
+                <tr><td>Loot Tracker (live)</td><td>Low</td><td>Refresh less often</td></tr>
+                <tr><td>Entity Hider (aggressive)</td><td>Medium</td><td>Limit scope to what you hide</td></tr>
+                <tr><td>Screen Markers</td><td>Low</td><td>Fine to keep if few</td></tr>
+            </table>
+            <div class="method-box highlight">
+                <h4>🎯 The 5-Minute Overlay Audit</h4>
+                <ul>
+                    <li>Open the plugin list and sort by enabled.</li>
+                    <li>Disable anything you have not used this week.</li>
+                    <li>Collapse info panels you only glance at.</li>
+                    <li>Turn off decorative overlays during boss attempts.</li>
+                    <li>Re-measure fps; most players gain 10–30 fps here alone.</li>
+                </ul>
+            </div>
+            <div class="tip-box">
+                <div class="tip-title">💡 Decorative vs Functional</div>
+                <p>"Decorative" means an overlay exists for aesthetics or convenience but is not required to play correctly — colored tiles, themed panels, and animated bars. Keep functional overlays (prayer timers, boss timers, tile indicators you actually click) and cut the rest. This is exactly the distinction that separates a sustained-fps guide from a crash-fix guide.</p>
+            </div>
+            <p>Players are often surprised by how much frame rate returns after an overlay cleanup. Because these plugins run on the same thread that prepares each frame, removing them does not just lower CPU usage — it lowers the variability of your frame times, which is what makes the game feel smooth rather than merely fast. If you want a stable number, start here before touching hardware.</p>
+        </section>
+
+        <section id="sec5">
+            <h2>5. JVM Launch Arguments &amp; Hardware Acceleration</h2>
+            <p>Underneath RuneLite sits the Java Virtual Machine, and the flags you pass to it shape how the client uses your CPU, memory, and even your graphics stack. Most players never touch these, yet a handful of well-chosen arguments can smooth frame times and reduce stutter on both old and new hardware. This section is intermediate-level by design: change one thing at a time and test.</p>
+            <h3>5.1 Choosing the Right Java Runtime</h3>
+            <p>RuneLite ships with its own bundled runtime, which is usually the safest choice. However, some players gain stability by using a recent OpenJDK build, particularly on newer operating systems where the bundled runtime lags behind drivers. The rule is simple: if your current setup is stable, do not switch; if you see odd stutter with no other cause, a current runtime is worth trying.</p>
+            <h3>5.2 Garbage Collection Arguments</h3>
+            <p>The default collector can produce occasional longer pauses. Many players add a modern collector such as G1GC with a target pause time, which spreads collection work into small, frequent, barely-visible slices. A common pattern is <code>-XX:+UseG1GC</code> together with a maximum pause goal. The effect is fewer "hitch every few seconds" moments and a flatter frame-time graph.</p>
+            <h3>5.3 Hardware Acceleration of the UI</h3>
+            <p>Beyond the GPU plugin's game rendering, the operating system can accelerate the client's window compositing. On Windows, ensuring hardware acceleration is enabled in your display settings lets the OS hand the client's window to the GPU instead of drawing it on the CPU. Disabling "fullscreen optimization" or running the client in true fullscreen (rather than a borderless window) can also reduce compositing overhead and shave input latency.</p>
+            <h3>5.4 Other Useful Flags</h3>
+            <p>A few flags help specific situations. Setting a larger thread stack (<code>-Xss</code>) can prevent rare crashes in plugin-heavy setups. Enabling large-page support where the OS allows it can slightly lower memory-access latency. Disabling the JVM's own biased-locking optimizations is sometimes recommended for very old CPUs. None of these are magic; each is a small lever, and you should measure after each change.</p>
+            <table>
+                <tr><th>Argument</th><th>Purpose</th><th>When to Use</th></tr>
+                <tr><td>-Xmx / -Xms</td><td>Heap size</td><td>Always, sized to your system</td></tr>
+                <tr><td>-XX:+UseG1GC</td><td>Even GC pauses</td><td>Default for modern setups</td></tr>
+                <tr><td>-XX:MaxGCPauseMillis</td><td>GC pause target</td><td>Tune for smoother frames</td></tr>
+                <tr><td>-Xss</td><td>Thread stack</td><td>Many plugins enabled</td></tr>
+            </table>
+            <div class="tip-box">
+                <div class="tip-title">💡 Change One Flag at a Time</div>
+                <p>It is tempting to paste a "best JVM args" block from a forum. Resist it. Apply one argument, test in the busiest area you play, and only keep it if the frame-time graph improves. A wrong flag can make stutter worse or prevent the client from launching at all.</p>
+            </div>
+            <p>Hardware acceleration is the bridge between this section and the next. Once the JVM and the OS are cooperating with your GPU, the remaining ceiling is the physical hardware itself. That is where the final section helps you decide whether an upgrade is actually worth your money.</p>
+        </section>
+
+        <section id="sec6">
+            <h2>6. Hardware Upgrade Checklist — When It Is Worth It</h2>
+            <p>Before spending money, internalize one fact: Old School RuneScape is lightly threaded and leans heavily on single-core CPU performance for game logic, while the GPU plugin handles rendering. That means the component that helps most is almost always the processor, not the graphics card. Upgrading the wrong part is the most common waste of money in OSRS performance.</p>
+            <h3>6.1 CPU — The Real Bottleneck</h3>
+            <p>Because the client's logic runs on one or two threads, a processor with high single-core speed delivers the biggest, most consistent improvement. If you are on an older laptop or a budget desktop, moving to a modern CPU with strong per-core performance can lift both your average frame rate and, more importantly, your worst-case dips. This is the upgrade that makes bossing feel responsive.</p>
+            <h3>6.2 RAM — Enough, Then Stop</h3>
+            <p>OSRS does not need 32 GB of RAM. What it needs is enough free RAM that the system never swaps to disk. If you have 8 GB and run a browser with many tabs plus RuneLite plus voice chat, you may be swapping without realizing it, and that destroys frame rate. Moving to 16 GB is the sensible floor for a multitasking player. Beyond 16 GB, extra RAM does almost nothing for OSRS specifically.</p>
+            <h3>6.3 GPU — Only If You Use HD</h3>
+            <p>If you run the 117 HD plugin or push high resolutions and refresh rates, a better graphics card helps. If you play the standard GPU plugin at 1080p, even a modest dedicated GPU or a recent integrated GPU is sufficient, and a flagship card will not raise your frame rate meaningfully because the CPU is the limiter. Spend GPU money only when the visual plugins demand it.</p>
+            <h3>6.4 Storage, Monitor, and Thermals</h3>
+            <p>An SSD does not raise fps, but it removes the long load stutters when the client streams assets, so it improves perceived smoothness. A high-refresh monitor only helps if your frame rate actually reaches that refresh rate, which loops back to the CPU. Finally, thermals matter: a laptop that overheats will throttle its CPU and silently cut frame rate. A cooling pad or a clean fan can recover lost performance for free.</p>
+            <table>
+                <tr><th>Component</th><th>Upgrade If…</th><th>Expected Gain</th></tr>
+                <tr><td>CPU</td><td>Old / low single-core speed</td><td>High — raises floor and ceiling</td></tr>
+                <tr><td>RAM</td><td>&lt; 16 GB and multitasking</td><td>Medium — stops swapping stutter</td></tr>
+                <tr><td>GPU</td><td>Running HD at high res</td><td>Low–Medium — only for visuals</td></tr>
+                <tr><td>SSD</td><td>Still on a hard drive</td><td>Low — smoother asset loads</td></tr>
+                <tr><td>Cooling</td><td>Laptop thermal throttling</td><td>Medium — restores lost fps</td></tr>
+            </table>
+            <div class="method-box highlight">
+                <h4>🎯 Decision Flow Before You Buy</h4>
+                <ul>
+                    <li>Did you tune the GPU plugin, allocation, and overlays first? If not, do that — it is free.</li>
+                    <li>Is your frame rate low even in empty areas? That points to CPU.</li>
+                    <li>Is it low only during HD or big scenes? That points to GPU or RAM.</li>
+                    <li>Is the whole PC sluggish? Check RAM and disk swapping first.</li>
+                    <li>Only then buy the single part that matches your bottleneck.</li>
+                </ul>
+            </div>
+            <div class="tip-box">
+                <div class="tip-title">💡 The Cheapest Upgrade Is Free</div>
+                <p>Nine times out of ten, the player asking "what should I buy" has not done the overlay audit or the allocation tuning. Those two steps cost nothing and frequently deliver the same perceived improvement as a hardware purchase. Buy hardware only after the software ceiling is truly hit.</p>
+            </div>
+            <p>When you do upgrade, target the CPU and make sure the rest of the system is not swapping. A fast processor paired with too little RAM will still stutter, while a balanced 16 GB system with a modern CPU will run OSRS beautifully for years. Treat hardware as the final 10% of the solution, not the first thing you reach for.</p>
+            <p>Bringing it together, the path to a smooth 2026 client is layered: enable and tune the GPU plugin, size your memory correctly, strip decorative overlays, set sensible JVM flags and hardware acceleration, and only then consider hardware. Players who follow this order almost always reach a stable, comfortable frame rate without opening their wallet — and when they do spend, they spend on the right part.</p>
+        </section>
+
+        <section id="faq">
+            <h2>7. FPS Optimization FAQs</h2>
+            <div class="faq-item">
+                <h4>Is the GPU plugin enough to fix low FPS on its own?</h4>
+                <p>No. The GPU plugin offloads rendering to your graphics card, which is a huge win, but frame rate is also limited by memory allocation, decorative overlays, JVM behavior, and CPU power. If your client stutters even with the GPU plugin on, the bottleneck is almost certainly elsewhere — usually overlays or a too-small heap. Treat the GPU plugin as the foundation, not the whole solution.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Should I turn VSync on or off?</h4>
+                <p>For a standard 60 Hz monitor, turn VSync on. It caps the client at your refresh rate, removes screen tearing, and stops the GPU from wasting power rendering frames you cannot see. On a high-refresh monitor you may prefer VSync off with a manual frame cap set to your refresh rate. Either way, the goal is a stable cap, not an uncapped number that dips wildly.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How much RAM should I allocate to RuneLite?</h4>
+                <p>For most players, 512 MB to 1024 MB is the sweet spot. Light setups can use 512 MB; plugin-heavy or HD setups want 1024 MB or a bit more. Avoid allocating several gigabytes on a system with limited RAM, because that can cause disk swapping and worse stutter. Match your starting and maximum heap to avoid resizing hitches.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Why does my FPS drop only during big fights or crowds?</h4>
+                <p>Busy scenes draw many more entities, sprites, and overlays per frame, which floods both the CPU and GPU. Decorative overlays (tile markers, entity hiders, live trackers) multiply that cost. The fix is to disable non-essential overlays during intense content and to ensure your heap is large enough that the garbage collector is not pausing mid-fight. Hardware helps too, but cleanup is cheaper.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Will a better graphics card make OSRS run faster?</h4>
+                <p>Only if you use demanding visual plugins like 117 HD or play at high resolution and refresh rates. For standard GPU-plugin play at 1080p, the CPU is the limiter, and a flagship GPU will not raise your frame rate. Spend on the processor first; consider the GPU only when your visuals actually demand it.</p>
+            </div>
+            <div class="faq-item">
+                <h4>My client works but feels sluggish — is that the same as a GPU crash?</h4>
+                <p>No, and this is an important distinction. A crash or black screen is a failure that needs driver and reinstall steps, which our separate GPU troubleshooting guide covers. A sluggish but running client is a sustained-performance problem addressed by the tuning in this article. If the client never crashes, you are in the right place and should work through the settings and overlay sections first.</p>
+            </div>
+        </section>
+
+        <div class="next-steps">
+            <h3>🎯 What To Do After Optimizing Your FPS</h3>
+            <p>You have tuned the client for smooth frame rates. The next smart moves are to keep the GPU plugin healthy and to put those frames to use in content that rewards precise, low-latency play.</p>
+            <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                <strong>→ Step 1:</strong> <a href="osrs-runelite-gpu-fps-drop-fix-2026.html" style="color:#8b6914; font-weight:bold;">RuneLite GPU FPS Drop &amp; Crash Fix Guide</a> — If the plugin ever misbehaves or crashes after an update, this is the recovery playbook.
+            </div>
+            <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                <strong>→ Step 2:</strong> <a href="osrs-new-player-boss-survival-guide-2026.html" style="color:#8b6914; font-weight:bold;">New Player Boss Survival Guide</a> — Put your smoother client to work with boss mechanics that reward clean, low-latency reactions.
+            </div>
+            <a href="osrs-combat-training-beginner-2026.html" class="support-btn paypal-btn" style="display:inline-block; text-decoration:none; margin-top:20px;">Next: Combat Training Basics for Beginners →</a>
+        </div>
+
+        <div class="related-guides">
+      <h3>More Client &amp; Performance Guides</h3>
+      <div class="article-grid">
+        <a href="osrs-runelite-gpu-fps-drop-fix-2026.html" class="article-card">
+          <h3>RuneLite GPU FPS Drop &amp; Crash Fix</h3>
+          <p>Recover from black screens, crashes, and sudden FPS collapses after GPU plugin or driver updates.</p>
+        </a>
+        <a href="osrs-new-player-boss-survival-guide-2026.html" class="article-card">
+          <h3>New Player Boss Survival Guide</h3>
+          <p>Survive your first boss fights with mechanics, prayer switches, and gear that match a smooth client.</p>
+        </a>
+      </div>    
+<div class="tool-callout" style="background:#2a1a0a;border:1px solid #d4af37;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+    <p style="color:#1a1a1a;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">🔧 Try Our OSRS Gear Recommender Tool</p>
+    <p style="color:#1a1a1a;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Not sure what gear to use? Enter your combat level and budget — get personalized weapon &amp; armor recommendations for <strong>melee, ranged, and magic</strong> in seconds.</p>
+    <a href="/tools/gear-recommender/" style="display:inline-block;padding:0.65rem 1.8rem;background:#d4af37;color:#1a0f0a;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Find Your Best Gear Setup →</a>
+</div>
+</div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ New Players (Stage 0)</h4><ul>
+                    <li><a href="osrs-interface-controls-beginner-guide-2026.html">Game Interface</a></li>
+                    <li><a href="osrs-combat-triangle-explained-2026.html">Combat Triangle</a></li>
+                    <li><a href="osrs-skills-overview-beginner-2026.html">Skills Overview</a></li>
+                    <li><a href="osrs-bank-inventory-management-2026.html">Bank &amp; Inventory</a></li>
+                    <li><a href="osrs-maps-travel-guide-2026.html">Maps &amp; Travel</a></li>
+                    <li><a href="osrs-questing-beginner-guide-2026.html">Questing Basics</a></li>
+                    <li><a href="osrs-combat-training-beginner-2026.html">Combat Training</a></li>
+                    <li><a href="osrs-money-making-beginner-2026.html">Beginner Money Making</a></li>
+                    <li><a href="osrs-gear-beginner-guide-2026.html">Gear Guide</a></li>
+                    <li><a href="osrs-safe-spots-beginner-2026.html">Safe Spots</a></li>
+                    <li><a href="osrs-prayer-training-beginner-guide-2026.html">Prayer Training</a></li>
+                    <li><a href="osrs-f2p-to-p2p-membership-guide-2026.html">F2P to P2P Transition</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+    <script src="../js/features.js"></script>
+    <script src="../js/ai-qa-widget.js"></script>
+
+<style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#3b2615!important}
+.guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+.guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+.guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+@media (max-width: 768px) {
+    .guide-content table { font-size: 0.85rem; }
+    .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+    .guide-content table tbody td { padding: 6px 10px; }
+    .guide-content h2 { font-size: 1.4em; }
+    .guide-content h3 { font-size: 1.15em; }
+}
+@media (max-width: 640px) {
+    .guide-content table { display: block; overflow-x: auto; }
+    .guide-content h2 { font-size: 1.25em; }
+    .guide-content h3 { font-size: 1.05em; }
+}
+</style>
+</body>
+</html>
