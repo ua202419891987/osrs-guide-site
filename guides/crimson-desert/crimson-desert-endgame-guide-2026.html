@@ -15,80 +15,80 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
     <style>
-        /* ── 浅色主题 — 匹配 Violet Sunrise 全局CSS ── */
-        .guide-content h2{font-size:1.85rem !important}
-        .guide-content h3{font-size:1.35rem !important}
-        .guide-content h3 strong{font-size:1.35rem}
-        .guide-content p{font-size:1.08rem !important;line-height:1.85 !important}
-        .guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+ /* ── 浅色主题 — 匹配 Violet Sunrise 全局CSS ── */
+ .guide-content h2{font-size:1.85rem !important}
+ .guide-content h3{font-size:1.35rem !important}
+ .guide-content h3 strong{font-size:1.35rem}
+ .guide-content p{font-size:1.08rem !important;line-height:1.85 !important}
+ .guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
 
-        /* 自定义提示/警告框 — 浅色底，四边完整边框 */
-        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
-        .tip-box strong{color:#7a64b8;font-size:1.06rem}
-        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
-        .warn-box strong{color:#b84a3a;font-size:1.06rem}
+ /* 义提示/警告框 — 浅色底，四边 整边框 */
+ .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+ .tip-box strong{color:#7a64b8;font-size:1.06rem}
+ .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+ .warn-box strong{color:#b84a3a;font-size:1.06rem}
 
-        /* 行动步骤 — 浅色风格，标题×1.4 */
-        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}
-        .action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#2d2a33;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
-        .action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
-        .action-step p{color:#2d2a33;font-size:1.08rem;line-height:1.75}
+ /* 行动步骤 — 浅色风格，标题×1.4 */
+ .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}
+ .action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#2d2a33;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+ .action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+ .action-step p{color:#2d2a33;font-size:1.08rem;line-height:1.75}
 
-        /* 方法盒子 — 浅色，标题×1.4 */
-        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}
-        .method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
-        .method-box p{color:#2d2a33;font-size:1.06rem;line-height:1.75}
+ /* Method盒子 — 浅色，标题×1.4 */
+ .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}
+ .method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+ .method-box p{color:#2d2a33;font-size:1.06rem;line-height:1.75}
 
-        /* FAQ */
-        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
-        .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
-        .faq-item p{color:#2d2a33;font-size:1.03rem;line-height:1.7}
+ /* FAQ */
+ .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+ .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+ .faq-item p{color:#2d2a33;font-size:1.03rem;line-height:1.7}
 
-        /* TOC — 四边完整边框，去掉单侧装饰 */
-        .toc{background:#fff;border:1px solid #e0d8f0 !important;border-left:1px solid #e0d8f0 !important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
-        .toc h3{color:#7a64b8 !important;font-size:1.1rem !important;margin-bottom:12px}
-        .guide-hero .subtitle{font-size:1.15rem !important;max-width:700px;margin:0 auto 1.2rem}
-        .guide-hero .breadcrumb{font-size:.95rem !important}
-        .guide-hero .weekly-badge{font-size:1rem !important}
+ /* TOC — 四边 整边框，去掉单侧装饰 */
+ .toc{background:#fff;border:1px solid #e0d8f0 !important;border-left:1px solid #e0d8f0 !important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+ .toc h3{color:#7a64b8 !important;font-size:1.1rem !important;margin-bottom:12px}
+ .guide-hero .subtitle{font-size:1.15rem !important;max-width:700px;margin:0 auto 1.2rem}
+ .guide-hero .breadcrumb{font-size:.95rem !important}
+ .guide-hero .weekly-badge{font-size:1rem !important}
 
-        /* 图片说明 */
-        .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}
+ /* 图片 */
+ .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}
 
-        /* li 文字颜色提升可读性 */
-        .guide-content li{color:#2d2a33 !important}
+ /* li 文字颜色Boost 读性 */
+ .guide-content li{color:#2d2a33 !important}
 
-        /* 隐藏 OSRS 进度条 — Crimson Desert 页面不需要 */
-        .progress-widget{display:none !important}
+ /* 隐藏 OSRS 进度条 — Crimson Desert 页面 need */
+ .progress-widget{display:none !important}
 
-        /* 传奇装备卡片 */
-        .legendary-card{background:linear-gradient(135deg,#faf8fc 0%,#f0ebfa 100%);border:2px solid #7a64b8;border-radius:8px;padding:1.5rem;margin:1.5rem 0;position:relative}
-        .legendary-card::before{content:"★ LEGENDARY";position:absolute;top:-10px;left:15px;background:#7a64b8;color:#2d2a33;padding:2px 12px;border-radius:10px;font-size:.75rem;font-weight:700}
-        .legendary-card h4{color:#5a4a8a;font-size:1.35rem;margin:.5rem 0 .8rem 0}
-        .legendary-card .location{background:#fff;border:1px solid #d4c8e8;border-radius:6px;padding:.6rem 1rem;margin:.8rem 0;font-size:1rem}
-        .legendary-card .location strong{color:#7a64b8}
+ /* 传奇装备卡片 */
+ .legendary-card{background:linear-gradient(135deg,#faf8fc 0%,#f0ebfa 100%);border:2px solid #7a64b8;border-radius:8px;padding:1.5rem;margin:1.5rem 0;position:relative}
+ .legendary-card::before{content:"★ LEGENDARY";position:absolute;top:-10px;left:15px;background:#7a64b8;color:#2d2a33;padding:2px 12px;border-radius:10px;font-size:.75rem;font-weight:700}
+ .legendary-card h4{color:#5a4a8a;font-size:1.35rem;margin:.5rem 0 .8rem 0}
+ .legendary-card .location{background:#fff;border:1px solid #d4c8e8;border-radius:6px;padding:.6rem 1rem;margin:.8rem 0;font-size:1rem}
+ .legendary-card .location strong{color:#7a64b8}
 
-        /* Boss 卡片 */
-        .boss-card{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.3rem;margin:1.2rem 0}
-        .boss-card h5{color:#b84a3a;font-size:1.2rem;margin:0 0 .5rem 0}
-        .boss-difficulty{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.8rem;font-weight:700;margin-bottom:.8rem}
-        .boss-difficulty.easy{background:#d4edda;color:#155724}
-        .boss-difficulty.medium{background:#fff3cd;color:#856404}
-        .boss-difficulty.hard{background:#f8d7da;color:#721c24}
-        .boss-difficulty.extreme{background:#343a40;color:#2d2a33}
+ /* Boss 卡片 */
+ .boss-card{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.3rem;margin:1.2rem 0}
+ .boss-card h5{color:#b84a3a;font-size:1.2rem;margin:0 0 .5rem 0}
+ .boss-difficulty{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.8rem;font-weight:700;margin-bottom:.8rem}
+ .boss-difficulty.easy{background:#d4edda;color:#155724}
+ .boss-difficulty.medium{background:#fff3cd;color:#856404}
+ .boss-difficulty.hard{background:#f8d7da;color:#721c24}
+ .boss-difficulty.extreme{background:#343a40;color:#2d2a33}
 
-        /* NG+ 准备清单 */
-        .checklist{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.5rem;margin:1.5rem 0}
-        .checklist h4{color:#7a64b8;font-size:1.25rem;margin:0 0 1rem 0}
-        .checklist li{margin:.5rem 0;padding-left:.5rem}
-        .checklist .done{color:#2e7d32;font-weight:600}
-        .checklist .done::before{content:"✅ "}
+ /* NG+ 准备清单 */
+ .checklist{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.5rem;margin:1.5rem 0}
+ .checklist h4{color:#7a64b8;font-size:1.25rem;margin:0 0 1rem 0}
+ .checklist li{margin:.5rem 0;padding-left:.5rem}
+ .checklist .done{color:#2e7d32;font-weight:600}
+ .checklist .done::before{content:"✅ "}
 
-        /* 表格 */
-        .stat-table{width:100%;border-collapse:collapse;margin:1.2rem 0}
-        .stat-table th{background:#7a64b8;color:#2d2a33;padding:10px 14px;text-align:left;font-size:1rem}
-        .stat-table td{padding:10px 14px;border-bottom:1px solid #e0d8f0;font-size:1.02rem}
-        .stat-table tr:nth-child(even){background:#faf8fc}
-    </style>
+ /* 表格 */
+ .stat-table{width:100%;border-collapse:collapse;margin:1.2rem 0}
+ .stat-table th{background:#7a64b8;color:#2d2a33;padding:10px 14px;text-align:left;font-size:1rem}
+ .stat-table td{padding:10px 14px;border-bottom:1px solid #e0d8f0;font-size:1.02rem}
+ .stat-table tr:nth-child(even){background:#faf8fc}
+ </style>
 <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
 <meta name="author" content="OSRS Guru">
 </head>
@@ -359,7 +359,7 @@
 
             <h3>⑨ Activity #1: Mythic Contract Hunting (Best Gold and XP)</h3>
             <p>Mythic-tier contracts are the highest difficulty of side quests, recommended for level 80+ players with fully upgraded gear. They are essentially miniature boss runs — each contract sends you to a specific location to defeat an elite enemy or clear a high-level dungeon. The rewards are substantial: 15,000-25,000 gold per contract, legendary-tier crafting materials, and enough XP to reach level caps that were previously inaccessible. There are 12 Mythic contracts in total, and completing all 12 is required for the "Mythic Mercenary" achievement.</p>
-            <p><strong>Why it is the best activity:</strong> The gold-per-hour ratio of Mythic contracts is unmatched. If your goal is to farm gold for crafting or upgrading, this is where you do it. The contracts also drop rare materials that cannot be obtained任何其他方式, making them mandatory for players who want to max-out their legendary gear.</p>
+            <p><strong>Why it is the best activity:</strong> The gold-per-hour ratio of Mythic contracts is unmatched. If your goal is to farm gold for crafting or upgrading, this is where you do it. The contracts also drop rare materials that cannot be obtainedany other way, making them mandatory for players who want to max-out their legendary gear.</p>
 
             <h3>⑩ Activity #2: Endless Tower (Challenge Mode)</h3>
             <p>The Endless Tower is a post-story unlock — a roguelite-style challenge mode where you fight through waves of enemies in an ascending tower. Each floor has a random modifier (e.g., "All enemies have +50% health but deal -20% damage," or "Healing items are 50% less effective"). You can attempt the tower solo or with up to 2 co-op partners. The tower has 50 floors in total, and each 10th floor has a mini-boss. Reaching floor 50 awards the "Tower Master" title and a unique cosmetic armor set.</p>

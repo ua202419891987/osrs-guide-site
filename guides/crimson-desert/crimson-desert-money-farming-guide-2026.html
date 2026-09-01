@@ -15,70 +15,70 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
     <style>
-        /* ── 浅色主题 — 匹配 Violet Sunrise 全局CSS ── */
-        /* 字号放大：h2=1.85rem, h3=1.35rem, 正文=1.08rem */
+ /* ── 浅色主题 — 匹配 Violet Sunrise 全局CSS ── */
+ /* 字号放 ：h2=1.85rem, h3=1.35rem, 中文=1.08rem */
 
-        .guide-content h2{font-size:1.85rem !important}
-        .guide-content h3{font-size:1.35rem !important}
-        .guide-content h3 strong{font-size:1.35rem}
-        .guide-content p{font-size:1.08rem !important;line-height:1.85 !important}
-        .guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+ .guide-content h2{font-size:1.85rem !important}
+ .guide-content h3{font-size:1.35rem !important}
+ .guide-content h3 strong{font-size:1.35rem}
+ .guide-content p{font-size:1.08rem !important;line-height:1.85 !important}
+ .guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
 
-        /* 自定义提示/警告框 — 浅色底，四边完整边框 */
-        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
-        .tip-box strong{color:#7a64b8;font-size:1.06rem}
-        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
-        .warn-box strong{color:#b84a3a;font-size:1.06rem}
+ /* 义提示/警告框 — 浅色底，四边 整边框 */
+ .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+ .tip-box strong{color:#7a64b8;font-size:1.06rem}
+ .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+ .warn-box strong{color:#b84a3a;font-size:1.06rem}
 
-        /* 行动步骤 — 浅色风格，标题×1.4 */
-        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}
-        .action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#2d2a33;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
-        .action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
-        .action-step p{color:#2d2a33;font-size:1.08rem;line-height:1.75}
+ /* 行动步骤 — 浅色风格，标题×1.4 */
+ .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}
+ .action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#2d2a33;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+ .action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+ .action-step p{color:#2d2a33;font-size:1.08rem;line-height:1.75}
 
-        /* 方法盒子 — 浅色，标题×1.4 */
-        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}
-        .method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
-        .method-box p{color:#2d2a33;font-size:1.06rem;line-height:1.75}
+ /* Method盒子 — 浅色，标题×1.4 */
+ .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}
+ .method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+ .method-box p{color:#2d2a33;font-size:1.06rem;line-height:1.75}
 
-        /* FAQ */
-        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
-        .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
-        .faq-item p{color:#2d2a33;font-size:1.03rem;line-height:1.7}
+ /* FAQ */
+ .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+ .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+ .faq-item p{color:#2d2a33;font-size:1.03rem;line-height:1.7}
 
-        /* TOC — 四边完整边框，去掉单侧装饰 */
-        .toc{background:#fff;border:1px solid #e0d8f0 !important;border-left:1px solid #e0d8f0 !important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
-        .toc h3{color:#7a64b8 !important;font-size:1.1rem !important;margin-bottom:12px}
-        .guide-hero .subtitle{font-size:1.15rem !important;max-width:700px;margin:0 auto 1.2rem}
-        .guide-hero .breadcrumb{font-size:.95rem !important}
-        .guide-hero .weekly-badge{font-size:1rem !important}
+ /* TOC — 四边 整边框，去掉单侧装饰 */
+ .toc{background:#fff;border:1px solid #e0d8f0 !important;border-left:1px solid #e0d8f0 !important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+ .toc h3{color:#7a64b8 !important;font-size:1.1rem !important;margin-bottom:12px}
+ .guide-hero .subtitle{font-size:1.15rem !important;max-width:700px;margin:0 auto 1.2rem}
+ .guide-hero .breadcrumb{font-size:.95rem !important}
+ .guide-hero .weekly-badge{font-size:1rem !important}
 
-        /* 图片说明 */
-        .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}
+ /* 图片 */
+ .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}
 
-        /* 打赏前置提示 */
-        .inline-support-hint p{font-size:1rem}
+ /* before置提示 */
+ .inline-support-hint p{font-size:1rem}
 
-        /* li 文字颜色提升可读性 */
-        .guide-content li{color:#2d2a33 !important}
+ /* li 文字颜色Boost 读性 */
+ .guide-content li{color:#2d2a33 !important}
 
-        /* 隐藏 OSRS 进度条 — Crimson Desert 页面不需要 */
-        .progress-widget{display:none !important}
+ /* 隐藏 OSRS 进度条 — Crimson Desert 页面 need */
+ .progress-widget{display:none !important}
 
-        /* 农场路线特有样式 */
-        .farm-route{background:#f5faf5;border:1px solid #c8e0c8;border-radius:8px;padding:1.4rem;margin:1.5rem 0}
-        .farm-route h4{color:#4a8a4a;margin:0 0 .85rem 0;font-size:1.45rem}
-        .farm-route p{color:#2d2a33;font-size:1.06rem;line-height:1.75}
+ /* 农场路线特has样式 */
+ .farm-route{background:#f5faf5;border:1px solid #c8e0c8;border-radius:8px;padding:1.4rem;margin:1.5rem 0}
+ .farm-route h4{color:#4a8a4a;margin:0 0 .85rem 0;font-size:1.45rem}
+ .farm-route p{color:#2d2a33;font-size:1.06rem;line-height:1.75}
 
-        .gp-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:1.03rem}
-        .gp-table th{background:#7a64b8;color:#2d2a33;padding:10px 14px;text-align:left}
-        .gp-table td{padding:10px 14px;border-bottom:1px solid #e0d8f0}
-        .gp-table tr:nth-child(even){background:#faf8fc}
+ .gp-table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:1.03rem}
+ .gp-table th{background:#7a64b8;color:#2d2a33;padding:10px 14px;text-align:left}
+ .gp-table td{padding:10px 14px;border-bottom:1px solid #e0d8f0}
+ .gp-table tr:nth-child(even){background:#faf8fc}
 
-        .risk-low{color:#4a8a4a;font-weight:700}
-        .risk-medium{color:#b8a84a;font-weight:700}
-        .risk-high{color:#b84a3a;font-weight:700}
-    </style>
+ .risk-low{color:#4a8a4a;font-weight:700}
+ .risk-medium{color:#b8a84a;font-weight:700}
+ .risk-high{color:#b84a3a;font-weight:700}
+ </style>
 <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
 <meta name="author" content="OSRS Guru">
 </head>
@@ -279,7 +279,7 @@
             <div class="tip-box">
                 <strong>Pro Tip:</strong> Use the marketplace's "Price History" feature (accessible when listing an item) to see the average selling price of that item over the past 7 days. Price your item slightly below the average to ensure a quick sale, or slightly above the average if you are willing to wait for a buyer who does not check price history. Never list an item at the maximum price in the hope of getting lucky — overpriced items sit on the marketplace for weeks without selling.
             </div>
-            <h3>⑦ When NOT to Sell — Item有用性判断</h3>
+            <h3>⑦ When NOT to Sell — ItemUsefulness check</h3>
             <p>Not every item should be sold. Some items are more valuable to keep than to convert into gold, either because they are useful for your own progression or because their value will increase in the future. Here are some guidelines for when to hold onto items rather than selling them:</p>
             <p><strong>Crafting Materials:</strong> If you are working toward a specific crafting recipe, keep the materials even if they are worth good gold. The cost of buying them back later (if they are even available) will be higher than the gold you got from selling them. <strong>Upgrade Materials:</strong> Items used for weapon/armor upgrades (like "Upgrade Stones") should never be sold — they are scarce and essential. <strong>Quest Items:</strong> Some quest items can be sold after the quest is complete, but others are needed for later quests or achievements — when in doubt, keep them. <strong>Cosmetic Items:</strong> If you think you might want to use a cosmetic item for transmogrification later, keep it. Cosmetic items are account-bound and cannot be repurchased if you sell them.</p>
 
