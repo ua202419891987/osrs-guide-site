@@ -53,7 +53,7 @@
             <h1>Windrose Performance Guide 2026</h1>
             <p class="subtitle">Maximize your FPS in Windrose after the SSD patch â?best graphics settings for every PC tier, NVIDIA and AMD-specific tweaks, how to eliminate stuttering, reduce input lag, fix startup crashes and the loading screen stuck bug, plus the latest GPU driver recommendations.</p>
             <div class="weekly-badge">
-                <span class="badge-icon">â?/span> <strong>Windrose Guide</strong> â?Part of the <strong>Windrose Optimization Series</strong> Â· 15 min read
+                <span class="badge-icon">â?/span> <strong>Windrose Guide</strong> â?Part of the <strong>Windrose Optimization Series</strong> · 15 min read
             </div>
             <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: June 14, 2026</p>
         </div>
@@ -72,7 +72,7 @@
                 <li><a href="#faq">FAQ</a></li>
             </ol></div>
 
-            <h2 id="section1">ð® 1. Windrose Performance Overview â?What Changed After the Patch</h2>
+            <h2 id="section1">🎮 1. Windrose Performance Overview â?What Changed After the Patch</h2>
             <p>Windrose is built on Unreal Engine 5 with a stylized art style that blends cel-shaded character models with realistic water physics and dynamic lighting. The game scales surprisingly well across hardware tiers â?we have tested it on everything from a GTX 1060 to an RTX 5090 â?but the default graphics settings are conservatively high, leaving a significant amount of performance on the table for users who know where to tweak.</p>
             <p>The April 30 SSD hotfix (version 2026.04.30a) did more than fix the RocksDB write amplification bug. The patch also included minor engine-level optimizations that improved CPU utilization for world-state serialization. In our testing, the post-patch build showed a 3-5% FPS improvement across all hardware configurations, with the most significant gains (up to 8%) on systems with slower NVMe drives (PCIe 3.0) where the reduced disk I/O freed up DPC (Deferred Procedure Call) latency. The SSD fix effectively removed a hidden performance bottleneck that most players did not even know was affecting their framerate.</p>
 
@@ -80,11 +80,11 @@
 
             <p>Windrose performance depends on three main subsystems: the GPU (handles rendering, water simulation, lighting, shadows, and post-processing), the CPU (handles world-state logic, NPC AI, physics, and the procedural island generation system), and the storage subsystem (handles texture streaming, world-state saves, and RocksDB operations â?now vastly improved post-patch). If you identify which component is your bottleneck, you can target your tweaks more effectively. Use Task Manager (Ctrl+Shift+Esc > Performance tab) while playing to monitor GPU utilization vs. CPU utilization. If GPU is at 95-100% and CPU is below 80%, you are GPU-bound â?focus on resolution and graphics settings. If CPU is at 85-100% and GPU is below 90%, you are CPU-bound â?focus on draw distance, NPC density, and background processes.</p>
 
-            <h2 id="section2">âï¸ 2. Best Graphics Settings â?Low, Mid &amp; High-End PCs</h2>
+            <h2 id="section2">⚙️ 2. Best Graphics Settings â?Low, Mid &amp; High-End PCs</h2>
             <p>We tested Windrose across three hardware tiers to find the optimal balance between visual quality and performance. Below are the exact settings for each tier, the FPS we achieved in our benchmarking area (Dawnstar Harbor â?a densely built area with NPCs, water, and dynamic lighting), and the settings that make the biggest difference.</p>
 
             <table><tr><th>Setting</th><th>Low-End PC</th><th>Mid-Range PC</th><th>High-End PC</th></tr>
-            <tr><td>Resolution</td><td>1920Ã1080 (or 720p)</td><td>1920Ã1080</td><td>2560Ã1440 or 4K</td></tr>
+            <tr><td>Resolution</td><td>1920×1080 (or 720p)</td><td>1920×1080</td><td>2560×1440 or 4K</td></tr>
             <tr><td>Display Mode</td><td>Fullscreen</td><td>Fullscreen</td><td>Fullscreen</td></tr>
             <tr><td>VSync</td><td>Off</td><td>Off</td><td>Off (use G-Sync/FreeSync)</td></tr>
             <tr><td>Frame Rate Limit</td><td>60 FPS</td><td>120 FPS or Unlimited</td><td>Unlimited</td></tr>
@@ -106,7 +106,7 @@
 
             <p>For low-end PCs (GTX 1060-class or below), the most impactful change you can make is enabling FSR 2.0 at Ultra Performance mode. Windrose's FSR 2.0 implementation is excellent â?we measured a 2.1x FPS improvement on a GTX 1060 at 1080p (from 28 FPS native to 60 FPS with FSR Ultra Performance) with only a minor loss in image sharpness. Combined with setting View Distance to Low and Shadows to Low, this alone can make the game playable on hardware that was previously struggling at 25-35 FPS.</p>
 
-            <h2 id="section3">ð¥ï¸?3. NVIDIA &amp; AMD-Specific Optimizations</h2>
+            <h2 id="section3">🖥ï¸?3. NVIDIA &amp; AMD-Specific Optimizations</h2>
             <p>Windrose responds well to GPU driver-level optimizations. Both NVIDIA and AMD offer control panel settings that can override the game's internal settings and provide additional performance headroom. These tweaks are particularly effective for mid-range cards where every frame counts.</p>
 
             <div class="method-box"><h4>NVIDIA Control Panel Settings (All GeForce Cards)</h4>
@@ -117,7 +117,7 @@
 
             <div class="tip-box"><strong>DLSS vs. FSR vs. XeSS â?Which One to Use:</strong> If you have an RTX 20/30/40/50 series card, use DLSS Quality at 1080p/1440p or DLSS Performance at 4K. DLSS provides the best image quality of any upscaling method in Windrose. For AMD Radeon cards, use FSR 2.0 Balanced or Quality. For Intel Arc cards, use XeSS â?it performs nearly as well as DLSS on Arc hardware and significantly better than FSR. Do not use FSR 3.0 Frame Generation on any card unless you already have 60+ FPS base â?frame generation adds input lag that hurts combat responsiveness.</div>
 
-            <h2 id="section4">ð 4. How to Fix Stuttering in Windrose</h2>
+            <h2 id="section4">🔄 4. How to Fix Stuttering in Windrose</h2>
             <p>Stuttering in Windrose typically has three root causes: shader compilation stutter (the game compiling shaders as you encounter new visual elements for the first time), traversal stutter (the game loading new world chunks as you sail between islands), and CPU bottleneck stutter (the game's procedural generation system overwhelming the CPU). Each requires a different fix.</p>
 
             <p><strong>Shader Compilation Stutter â?The Most Common Cause:</strong> Windrose compiles shaders at runtime rather than pre-compiling them at the launcher screen. This means the first time you see a new island biome, a new enemy type, or a new weather effect, the game will hitch for 100-300ms while it compiles the necessary shaders. On subsequent visits, the shaders are cached and the stutter disappears. The permanent fix: play through all the major biomes (tropical, swamp, volcanic, desert, and the open ocean) once to build the shader cache. This takes approximately 45-60 minutes of deliberate exploration. After that, shader stutter should drop by 90%.</p>
@@ -128,7 +128,7 @@
 
             <div class="warn-box"><strong>Windows 11-Specific Stutter Fix:</strong> Windows 11 24H2 introduced a feature called "Memory Integrity" (Core Isolation) that is enabled by default on new installations. This feature adds a virtualization layer that can increase DPC latency by 300-500%, causing audio crackling and micro-stutters in games. If you are experiencing unexplained stutter in Windrose, test with Memory Integrity disabled: Windows Security > Device Security > Core Isolation > Memory Integrity > Off (requires restart). Note: disabling this reduces system-level security against kernel exploits, so only disable it for gaming sessions if you are certain the trade-off is worth it.</div>
 
-            <h2 id="section5">â¨ï¸ 5. Reducing Input Lag for Smoother Combat</h2>
+            <h2 id="section5">⌨️ 5. Reducing Input Lag for Smoother Combat</h2>
             <p>Windrose's soulslite combat demands precise timing â?parry windows of 0.35 seconds, dodge rolls that need to be frame-perfect against unblockable red-flash attacks, and cannon firing that requires leading moving targets. Input lag is the enemy of all these actions. Here is how to minimize it:</p>
 
             <p><strong>1. Disable VSync In-Game and Force It Off in the Driver:</strong> VSync introduces 1-3 frames of input lag because the game waits for the monitor's refresh cycle to present each frame. Turn VSync Off in Windrose's video settings. Then, in your GPU driver control panel, set "Vertical Sync" to "Off" or "Always Off" for the Windrose profile. This ensures VSync is not being forced by the driver even if the game setting fails to apply properly.</p>
@@ -141,7 +141,7 @@
 
             <div class="tip-box"><strong>Controller Players:</strong> If you play with a controller, enable "Game Mode" in Windows Settings (Gaming > Game Mode > On) and set Windrose to "High" in Graphics Settings (Settings > System > Display > Graphics > Windrose.exe > Options > High Performance). This ensures the game gets CPU priority when processing controller inputs, reducing Bluetooth polling latency by approximately 4-8ms.</div>
 
-            <h2 id="section6">ð¨ 6. Startup Crash &amp; Loading Screen Stuck Fix</h2>
+            <h2 id="section6">🚨 6. Startup Crash &amp; Loading Screen Stuck Fix</h2>
             <p>Two of the most common Windrose technical issues after the April 30 patch are the startup crash (game crashes before reaching the main menu) and the loading screen stuck bug (game hangs indefinitely on the loading screen between areas). Both have specific fixes that we have verified through community testing.</p>
 
             <div class="action-step"><div class="step-num">1</div><h4>Startup Crash â?Install or Repair C++ Redistributables</h4><p>Windrose depends on Microsoft Visual C++ Redistributables (2015-2022 x64 and x86). If these are missing or corrupted, the game will crash before the splash screen. Download the latest VC++ Redistributable package from Microsoft's official website (search "Microsoft Visual C++ Redistributable latest supported downloads"). Install both the x64 and x86 versions. Restart your PC. This fixes approximately 60% of startup crash cases. If the crash persists, move to the next step.</p></div>
@@ -154,7 +154,7 @@
 
             <div class="warn-box"><strong>Fresh Install Note:</strong> If none of these steps resolve startup crashes, perform a clean reinstall. Uninstall Windrose through Steam, then navigate to the install directory and delete any remaining Windrose folders (sometimes game settings persist in C:\Users\[YourName]\AppData\Local\Windrose). Then reinstall. A clean install resolves approximately 95% of persistent startup crashes by eliminating corrupted configuration files and orphaned cache data.</div>
 
-            <h2 id="section7">ð¥ï¸?7. GPU Driver Recommendations (2026)</h2>
+            <h2 id="section7">🖥ï¸?7. GPU Driver Recommendations (2026)</h2>
             <p>Driver version matters significantly for Windrose stability and performance. We have tested the latest drivers from all three GPU vendors and compiled specific recommendations based on crash rates, FPS deltas, and community feedback.</p>
 
             <table><tr><th>GPU Vendor</th><th>Recommended Driver</th><th>Notes</th></tr>
