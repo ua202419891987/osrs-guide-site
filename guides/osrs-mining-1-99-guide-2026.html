@@ -321,7 +321,7 @@
                     var exp = total/n;
                     document.getElementById('m_pet').innerHTML =
                         'Over <strong>'+total.toLocaleString()+' actions</strong> (~'+h+' hrs) you can expect about <strong>'+exp.toFixed(2)+'</strong> Rock Golem rolls.<br>'+
-                        '🎯 Chance of at least one pet: <strong>'+(100*(1-Math.pow(1-1/n, total))).toFixed(2)+'%</strong>.<br>'+
+                        '🎯 Chance of at least one pet: <strong>'+(100*(1-Math.pow(varies/n, total))).toFixed(2)+'%</strong>.<br>'+
                         '<span style="font-size:.8rem;opacity:.8">Rate is method-dependent &mdash; verify the exact 1/N on the OSRS Wiki "Skilling pets" page.</span>';
                 }
                 </script>
