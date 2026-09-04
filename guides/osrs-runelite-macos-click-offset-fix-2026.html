@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS RuneLite on macOS Click Offset Fix 2026 — Mouse Misalignment & HiDPI Retina Guide</title>
+    <meta name="description" content="Fix RuneLite click offset on macOS in 2026. Learn the HiDPI/Retina scaling root cause, resolution and client scaling fixes, Java requirements, and step-by-step recovery.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="OSRS RuneLite macOS click offset, RuneLite mouse misalignment, macOS Retina scaling fix, RuneLite HiDPI bug, RuneLite click offset 2026, Old School RuneScape macOS">
+    <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-runelite-macos-click-offset-fix-2026.html">
+    <link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body data-level="intermediate" data-category="client">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../index.html" class="logo">OSRSGuru</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../skill-training.html">Skill Training</a></li>
+                    <li><a href="../money-making.html">Money Making</a></li>
+                    <li><a href="../boss-guides.html">Boss Guides</a></li>
+<li><a href="../pvm-guides.html">PvM Guides</a></li>
+<li><a href="../mobile.html">Mobile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / <a href="../index.html#beginners">Stage 0</a> / OSRS RuneLite on macOS Click Offset / Mouse Misalignment Fix Guide 2026</p>
+            <h1>OSRS RuneLite on macOS — Click Offset &amp; Mouse Misalignment Fix Guide 2026</h1>
+<span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+            <div class="article-meta" style="margin-top:12px;color:#666;font-size:.9rem;line-height:1.6"><span>Updated August 29, 2026</span> &nbsp;|&nbsp; <span>15 min read</span> &nbsp;|&nbsp; <span>By Yanchun Wu</span></div><!-- meta-update-2026 -->
+
+            <p class="subtitle">Why your clicks land one screen away from where your cursor points on macOS, and exactly how to fix the HiDPI/Retina scaling mismatch that breaks RuneLite input on Apple Silicon and Intel Macs.</p>
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">🔧 Level: Beginner</div>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>Stage 0.11</strong> — Part of the <strong>Complete Beginner Series</strong> · 15 min read · Updated August 2026
+            </div>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="support-card" style="margin:8px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">🔓</span>
+        <div class="support-text">
+            <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+            <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+            <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                <li><strong>Avoid Scams & Phishing (Stop Bank Drains)</strong></li>
+                <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+            </ul>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+</div>
+
+            <div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#1a1a1a;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Click offset is a scaling bug, not a mouse problem</strong> — macOS renders RuneLite at logical pixels while the game expects physical pixels, so the click hitbox shifts.</li>
+                    <li>📌 <strong>Retina/HiDPI displays are the trigger</strong> — any display running above 1.0 scaling (1440p/4K/5K) with "More Space" or "Scaled" modes is the usual culprit.</li>
+                    <li>📌 <strong>The fix is a matched client + display scale</strong> — set the in-game "Display scaling" to match your OS scaling, update Java, and avoid mixed-DPI multi-monitor setups.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>① Table of Contents</h3>
+                <ol>
+                    <li><a href="#sec1">What the Click Offset Bug Looks Like on macOS</a></li>
+                    <li><a href="#sec2">The HiDPI / Retina Scaling Root Cause</a></li>
+                    <li><a href="#sec3">Resolution &amp; Client Scaling Fixes</a></li>
+                    <li><a href="#sec4">Java &amp; macOS Version Requirements</a></li>
+                    <li><a href="#sec5">Step-by-Step Fix Walkthrough</a></li>
+                    <li><a href="#sec6">Preventing the Offset From Coming Back</a></li>
+                    <li><a href="#faq">Frequently Asked Questions</a></li>
+                </ol>
+            </div>
+
+            <section id="sec1">
+                <h2>1. What the Click Offset Bug Looks Like on macOS</h2>
+                <p>The RuneLite click offset bug on macOS is one of the most confusing client problems a player can run into, because nothing about your mouse or trackpad is actually broken. What happens is that the spot where RuneLite <strong>registers the click</strong> is in a different place from where your cursor <strong>visually points</strong>. You click on a bank booth, but the game acts as if you clicked an empty tile three spaces to the right. You try to equip an item from your inventory, but the wrong slot gets activated. You attempt to move to a safe tile during a boss fight, and your character walks the wrong direction instead. To the eye, your cursor is perfectly accurate; to the game engine, the input coordinate has been translated by a consistent offset, usually diagonally.</p>
+                <p>This mismatch is almost always proportional to your display scaling ratio. On a Retina MacBook Pro running at the "More Space" setting, the offset can be large enough that the top-left of the game canvas maps to a click that lands far down and to the right of where you intended. On a non-Retina external monitor at 1.0 scaling the bug often disappears entirely, which is why many players only notice it after docking their laptop or after plugging in a high-resolution external display. The inconsistency between monitors is itself a strong clue that the problem is scaling-related rather than hardware-related.</p>
+                <div class="method-box highlight">
+                    <h4>🎯 Common Symptoms Checklist</h4>
+                    <ul>
+                        <li>Clicks register offset diagonally (most common: down-right) from the cursor.</li>
+                        <li>The offset grows larger as you increase macOS "Display scaling" toward "More Space".</li>
+                        <li>Bank pins, inventory slots, and chat-box buttons respond in the wrong place.</li>
+                        <li>Right-click menus appear over the wrong tile or NPC.</li>
+                        <li>Switching from a Retina laptop screen to a 1080p external monitor fixes it temporarily.</li>
+                        <li>Restarting RuneLite sometimes fixes it for one session, then it returns after a reboot.</li>
+                    </ul>
+                </div>
+                <p>It is important to understand that this is <strong>not</strong> the same as general input lag, nor is it a problem with your trackpad drivers, nor is it caused by a specific RuneLite plugin. Disabling plugins does not fix it. Lowering your mouse sensitivity does not fix it. The only thing that reliably changes the offset is changing how macOS and RuneLite agree on pixel coordinates. That is why the rest of this guide focuses entirely on scaling, resolution, and the Java runtime, the three layers that actually control coordinate mapping on macOS.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Quick Diagnostic Test</div>
+                    <p>Open the RuneLite Settings panel and enable the "Client" &rarr; "Show Mouse Crosshair" option if available, or simply try clicking the exact center of a known interface button like the "Log Out" button while watching where the highlight appears. If the highlight lands away from your cursor, you have a confirmed offset and should follow Section 5's step-by-step fix.</p>
+                </div>
+                <p>Players sometimes confuse the offset bug with a completely different issue: a stuck or ghost click caused by the "Mouse hover" plugin misreading coordinates. If your clicks are random rather than consistently offset, that is a different problem. The offset described here is <strong>consistent and proportional</strong>, which is the signature of a scaling mismatch. Keep this distinction in mind, because the fix for a random-click bug (usually a bad plugin or a corrupted config) is different from the scaling fix below.</p>
+                <table>
+                    <tr><th>Symptom</th><th>Likely Cause</th><th>Fix Section</th></tr>
+                    <tr><td>Clicks offset consistently</td><td>macOS/RuneLite scale mismatch</td><td>Section 2 &amp; 5</td></tr>
+                    <tr><td>Clicks random or flickering</td><td>Conflicting plugin or corrupted config</td><td>Reset plugins</td></tr>
+                    <tr><td>Offset only on external monitor</td><td>Mixed-DPI multi-display setup</td><td>Section 3 &amp; 6</td></tr>
+                    <tr><td>Offset after macOS update</td><td>Java runtime or DPI change</td><td>Section 4</td></tr>
+                </table>
+            </section>
+
+            <section id="sec2">
+                <h2>2. The HiDPI / Retina Scaling Root Cause</h2>
+                <p>To understand why the click offset happens, you need a basic mental model of how macOS handles high-density displays. A Retina screen has a very high physical pixel count, but macOS does not expose those physical pixels directly to applications. Instead, it works in "logical" points. On a Retina display, one logical point is usually backed by two physical pixels in each direction (a 2.0 backing scale), or by a fractional scale such as 1.5 or 1.25 when you pick a "Scaled" resolution in System Settings. The benefit is that text and UI stay a comfortable size while the screen stays sharp. The cost is that every application must translate between logical coordinates (where your cursor is) and physical coordinates (where pixels are actually drawn).</p>
+                <p>RuneLite is a Java application built on the AWT/Swing toolkit, and historically Java's handling of macOS HiDPI rendering has been fragile. When Java reports one scaling factor to the operating system but RuneLite's input handling computes click positions using a different factor, the game receives a click location that is multiplied or divided incorrectly. Concretely: macOS tells the OSRS client that the canvas is, say, 1280 logical points wide. RuneLite draws the game at 1280 logical points but, because of a Java backing-scale mismatch, the input subsystem maps a cursor at logical point 640 to physical pixel 960 instead of 1280 (or vice versa). The result is a click that is shifted by the ratio between the two scale factors. Because the ratio is constant across the whole window, the offset is uniform and proportional, which is exactly the pattern players observe.</p>
+                <div class="method-box highlight">
+                    <h4>🎯 Why Retina Triggers It and Non-Retina Does Not</h4>
+                    <ul>
+                        <li>Retina displays use a backing scale of 1.25, 1.5, or 2.0, forcing a coordinate translation.</li>
+                        <li>Standard 1080p monitors use 1.0 scale, so logical and physical pixels match and no translation error occurs.</li>
+                        <li>Java's older AWT pipeline assumed 1.0 scale on many code paths, so any non-1.0 scale exposes the bug.</li>
+                        <li>"More Space" scaling on macOS uses fractional ratios that are the hardest for Java to handle correctly.</li>
+                    </ul>
+                </div>
+                <p>The key historical detail is that this class of bug existed in the underlying Java runtime for years. Older builds of the JDK computed the device scale factor inconsistently between the rendering path and the event-dispatch path. When RuneLite was launched through a wrapper that did not pass the correct HiDPI flags, the canvas would render at one scale while mouse events were delivered at another. Jagex's official client behaves differently because it uses a different Java packaging and its own input layer, which is why many macOS players report the offset only in RuneLite and not in the official client. That contrast is useful confirmation that the root cause is the RuneLite-plus-Java-plus-macOS interaction, not the game servers.</p>
+                <p>There is a second, related mechanism worth knowing about: the macOS "Displays have separate Spaces" and "Automatically rearrange Spaces" options. When you drag the RuneLite window from a Retina laptop screen to a non-Retina external display, macOS changes the backing scale of the window on the fly. If Java caches the old scale factor instead of re-querying it, every subsequent click is computed with the stale factor until you restart the client. This explains the very common report that "the offset only appears after I move the window to my second monitor." The fix is twofold: keep displays at a matched scale when possible, and restart RuneLite after any monitor change so Java re-reads the correct factor.</p>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Fractional vs Integer Scaling</div>
+                    <p>If you must use scaling, prefer an integer ratio (such as the default "Default" Retina setting, which is a clean 2.0 backing scale) over a fractional "Scaled" setting like "More Space." Integer scales are far less likely to trigger the Java mismatch because the math stays whole-number and both rendering and input agree on it.</p>
+                </div>
+                <p>Finally, note that the GPU plugin and other rendering plugins can worsen the perceived problem. When the GPU plugin renders the game through a custom OpenGL surface, it sometimes compounds the scale mismatch because the plugin's framebuffer is sized in physical pixels while the input handler still works in logical points. If you have the GPU plugin enabled and still see an offset after applying the core fix, you may want to read our companion article on GPU performance, because tuning the renderer can interact with the scaling fix. We cover that alongside the offset repair in the next steps, and you can also consult our dedicated <a href="osrs-runelite-gpu-fps-drop-fix-2026.html">RuneLite GPU FPS drop fix guide</a> for the rendering-side details.</p>
+                <figure class="guide-img">
+                    <img src="https://cdn.runescape.com/assets/img/external/oldschool/2025/newsposts/2025-00-00/ControlPanel-Prayer.png" alt="macOS display scaling settings showing Retina resolution options" loading="lazy" width="500">
+                    <figcaption>macOS display scaling is the root trigger — pick a matched scale to fix click offset. — Source: Jagex Official</figcaption>
+                </figure>
+            </section>
+
+            <section id="sec3">
+                <h2>3. Resolution &amp; Client Scaling Fixes</h2>
+                <p>With the root cause clear, the practical fix is to make macOS and RuneLite agree on a single scale factor. There are three places where scale is decided: the macOS display setting, the RuneLite "Display scaling" option, and the game client's "Resizable" mode. Getting all three aligned is what eliminates the offset.</p>
+                <h3>3.1 Match macOS Display Scaling</h3>
+                <p>Open System Settings &rarr; Displays on your Mac. You will see a row of scaling options. The safest choice for RuneLite is the "Default" option for a Retina laptop (which uses a clean 2.0 backing scale) or, for an external monitor, the setting that yields a 1.0 backing scale. Avoid "More Space," which forces a fractional scale that Java struggles with. If you need more screen real estate, prefer reducing the RuneLite window size rather than pushing macOS into a fractional scale.</p>
+                <h3>3.2 Use RuneLite's Stretched Mode Carefully</h3>
+                <p>RuneLite has a "Stretched Mode" plugin that scales the fixed 765x503 game canvas up to fill a larger window. Stretched Mode is a frequent offender for click offset because it introduces its own scaling layer on top of macOS scaling. The plugin maintains a "Scaling factor" and a "Scaling type" (nearest-neighbor versus bilinear). If the stretched canvas scale does not match the OS scale, clicks drift. The reliable approach is to either disable Stretched Mode entirely and play in normal Resizable mode, or to set the stretched scaling so that one game pixel maps cleanly to an integer number of device pixels.</p>
+                <div class="method-box highlight">
+                    <h4>🎯 Stretched Mode Safe Settings</h4>
+                    <ul>
+                        <li>If you keep Stretched Mode on, set "Scaling type" to "Nearest-neighbor" for predictable mapping.</li>
+                        <li>Keep the "Maximum scaling" within an integer multiple of your OS backing scale.</li>
+                        <li>Disable "Scaling on keypress" so the scale does not change mid-session.</li>
+                        <li>Disable "Integer scaling" only if you have verified clean offset-free clicks without it.</li>
+                    </ul>
+                </div>
+                <h3>3.3 Prefer Resizable (not Fixed) or Vice Versa Consistently</h3>
+                <p>Some players fix the offset simply by switching between "Fixed" and "Resizable" client modes, because each mode computes its canvas origin differently. In Resizable mode the game canvas can be dragged, and its top-left origin shifts; if a stale origin is cached, clicks offset. Toggling the mode forces RuneLite to recompute the canvas rectangle and often clears a cached bad offset. This is a fast first attempt before deeper changes.</p>
+                <h3>3.4 Watch External Monitors</h3>
+                <p>If you play on an external display, set that display's scaling to match the laptop's backing scale as closely as possible, or accept 1.0 on the external and keep RuneLite on the external only. Mixed-DPI across two screens is the single most common cause of recurring offset. When in doubt, play fullscreen on a single display and close the laptop lid or mirror rather than extend.</p>
+                <table>
+                    <tr><th>Setting</th><th>Recommended Value</th><th>Why</th></tr>
+                    <tr><td>macOS display scale</td><td>Default (Retina) or 1.0</td><td>Avoids fractional backing scale</td></tr>
+                    <tr><td>RuneLite Stretched Mode</td><td>Off, or integer scaling</td><td>Removes extra scaling layer</td></tr>
+                    <tr><td>Client mode</td><td>Consistent Fixed or Resizable</td><td>Prevents cached-origin drift</td></tr>
+                    <tr><td>Multi-monitor</td><td>Single display preferred</td><td>Avoids mixed-DPI</td></tr>
+                </table>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Test After Every Change</div>
+                    <p>After changing any scale setting, restart RuneLite completely (quit from the menu bar, do not just close the window) and re-run the diagnostic click test from Section 1. Java only re-reads the scale factor at launch, so a mere settings change without a restart will not fix the offset.</p>
+                </div>
+                <p>Players coming from our combat content will recognize that a misaligned click during a dangerous fight can be fatal. If you are training at aggressive monsters or learning bosses while fighting this bug, consider pausing PvM until the offset is gone. Our <a href="osrs-combat-training-beginner-2026.html">combat training beginner guide</a> assumes accurate input, and so should you before grinding. Likewise, the survival habits in our <a href="osrs-new-player-boss-survival-guide-2026.html">new player boss survival guide</a> only work if your clicks land where you aim.</p>
+            </section>
+
+            <section id="sec4">
+                <h2>4. Java &amp; macOS Version Requirements</h2>
+                <p>Because the bug lives in the Java runtime's HiDPI handling, the version of Java that launches RuneLite matters as much as your display settings. RuneLite ships with its own bundled JRE on most platforms, but on macOS the exact build determines whether the scaling fix is even possible.</p>
+                <h3>4.1 Use a Modern, HiDPI-Aware Java</h3>
+                <p>Java 8 was where most of the original macOS Retina click-offset bugs lived, because early Java 8 builds had no proper backing-scale support in AWT. Java 11 and later (especially Java 17 and Java 21) corrected most of the coordinate translation logic, but only if RuneLite is actually launched with that runtime. Modern RuneLite releases bundle a current JRE, so the first step is to make sure you are on the latest RuneLite version, which pulls in a current Java. If you launched RuneLite through a manually installed JDK or through a third-party launcher, you may be on an old Java that reintroduces the bug.</p>
+                <div class="method-box highlight">
+                    <h4>🎯 Java Checklist</h4>
+                    <ul>
+                        <li>Update RuneLite to the newest release so the bundled JRE is current.</li>
+                        <li>If using a system JDK, use Java 17 or 21, never Java 8 for macOS HiDPI.</li>
+                        <li>Remove stale JAVA_HOME pointing at an old JDK if you launch from terminal.</li>
+                        <li>Let RuneLite manage its own Java; avoid forcing a custom runtime unless necessary.</li>
+                    </ul>
+                </div>
+                <h3>4.2 macOS Version Considerations</h3>
+                <p>Apple changed how display scale and "Displays have separate Spaces" behave across macOS releases. On macOS Sonoma and Sequoia the window-server handles per-display scale more aggressively, which can re-trigger offset after monitor changes. On older macOS versions the behavior was more stable but the underlying Java bug was worse. The practical advice is to stay on a current macOS that RuneLite's bundled Java supports, keep RuneLite updated, and avoid dragging the client between displays mid-session.</p>
+                <h3>4.3 Launch Flags That Help</h3>
+                <p>Advanced users can pass JVM flags that force correct HiDPI handling. The most relevant is enabling the modern AWT HiDPI pipeline. In current Java this is usually automatic, but if you must, launching with the flag that enables the unified HiDPI scale reporting can help. However, editing launch flags risks breaking the client, so only do this if the simpler scale-matching steps in Section 3 failed. Most players never need flags once RuneLite and Java are current and the display scale is matched.</p>
+                <table>
+                    <tr><th>Component</th><th>Minimum</th><th>Recommended</th></tr>
+                    <tr><td>RuneLite version</td><td>Latest 2026 build</td><td>Auto-update on</td></tr>
+                    <tr><td>Bundled Java</td><td>Java 11</td><td>Java 17 or 21</td></tr>
+                    <tr><td>macOS</td><td>Supported by RuneLite</td><td>Current stable release</td></tr>
+                    <tr><td>Display scale</td><td>1.0 or 2.0</td><td>Default Retina</td></tr>
+                </table>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Check Your Active Java</div>
+                    <p>You can confirm which Java RuneLite is using by opening the RuneLite log file (found in your RuneLite settings folder) and looking for the "Java version" line at startup. If it says Java 1.8 (Java 8), that is almost certainly your problem and you should reinstall the current RuneLite build.</p>
+                </div>
+                <p>Keeping Java current is also a security matter. Old Java runtimes have known vulnerabilities, and since RuneLite runs with access to your account session, an outdated runtime is a risk beyond just click offset. Treat a Java update as part of normal client hygiene, the same way you would keep your OS patched.</p>
+            </section>
+
+            <section id="sec5">
+                <h2>5. Step-by-Step Fix Walkthrough</h2>
+                <p>This is the ordered procedure that resolves the macOS click offset in the large majority of cases. Follow it in sequence and test after each major step rather than applying everything at once, so you know which change worked.</p>
+                <h3>Step 1 — Confirm the Offset</h3>
+                <p>Run the diagnostic from Section 1. Click a known interface element and observe whether the highlight lands away from your cursor. If there is no offset, you do not have this bug and should look at plugin conflicts instead.</p>
+                <h3>Step 2 — Quit RuneLite Fully</h3>
+                <p>Right-click the RuneLite icon in the macOS menu bar and choose Quit, or press Cmd+Q. Do not just close the game window; the Java process must exit so it re-reads scale factors at next launch.</p>
+                <h3>Step 3 — Set macOS Display Scaling</h3>
+                <p>Open System Settings &rarr; Displays. On a Retina MacBook choose "Default." On an external monitor choose the 1.0 (largest text is not needed; pick the native resolution) option. Avoid "More Space." If you use two displays, set them to the same backing scale or play on one display only.</p>
+                <h3>Step 4 — Update RuneLite and Java</h3>
+                <p>Launch the RuneLite installer/app and let it update. Confirm the bundled Java is version 11 or newer via the startup log. If you previously forced a custom JDK, remove that override.</p>
+                <h3>Step 5 — Disable or Reconfigure Stretched Mode</h3>
+                <p>Open RuneLite &rarr; Configuration &rarr; Stretched Mode. Either untick "Enabled," or keep it on but set "Scaling type" to "Nearest-neighbor" and ensure the scaling factor is an integer multiple of your OS backing scale. Restart RuneLite again.</p>
+                <h3>Step 6 — Toggle Client Mode</h3>
+                <p>In-game, open the Settings cog and switch between "Resizable" and "Fixed" once, then settle on the mode you prefer. This recomputes the canvas origin and clears any cached bad offset.</p>
+                <h3>Step 7 — Re-Test</h3>
+                <p>Repeat the Section 1 diagnostic. Clicks should now register exactly under the cursor. If a small residual offset remains, nudge the macOS scaling one notch toward "Default" and restart once more.</p>
+                <div class="method-box highlight">
+                    <h4>🎯 If It Still Fails</h4>
+                    <ul>
+                        <li>Delete the RuneLite settings file and reconfigure from scratch (back up first).</li>
+                        <li>Try the official Jagex launcher as a control test to confirm it is RuneLite-specific.</li>
+                        <li>Play fullscreen on a single non-Retina external monitor at 1.0 as a last resort.</li>
+                        <li>Report the exact macOS version, Java version, and display model to the RuneLite GitHub issues.</li>
+                    </ul>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Backup Before Resetting</div>
+                    <p>Before deleting any RuneLite config, export or copy your settings folder. You can lose plugin layouts and hotkeys. A settings reset is powerful but should be a deliberate last step, not your first move.</p>
+                </div>
+                <p>Most players resolve the offset at Step 3 or Step 5. The combination of a matched macOS scale and either disabled Stretched Mode or clean integer stretched scaling accounts for the overwhelming majority of fixes. Java updates (Step 4) handle the remaining cases where the runtime itself was the culprit.</p>
+            </section>
+
+            <section id="sec6">
+                <h2>6. Preventing the Offset From Coming Back</h2>
+                <p>Once fixed, the goal is to keep it fixed. The offset returns most often after a macOS update, after plugging in a new monitor, or after toggling scaling for a presentation. A few habits keep you safe.</p>
+                <h3>6.1 Lock Your Display Configuration</h3>
+                <p>Pick one scaling setting and keep it. If you need "More Space" for productivity work, consider playing RuneLite on a separate non-Retina monitor at 1.0, or accept that you may need to restart RuneLite after switching scale modes. The fewer scale changes your Mac makes, the fewer chances Java caches a stale factor.</p>
+                <h3>6.2 Restart RuneLite After Monitor Changes</h3>
+                <p>Any time you dock, undock, or move the window between displays, quit and relaunch RuneLite. This forces Java to re-query the current backing scale. It takes ten seconds and prevents the most common recurrence.</p>
+                <h3>6.3 Keep Auto-Update On</h3>
+                <p>RuneLite ships fixes for macOS input handling in regular updates. Leaving auto-update enabled means you pick up HiDPI corrections as soon as they are released. Disabling updates to "stay stable" often backfires on macOS because you miss the exact patches that fix offset bugs.</p>
+                <h3>6.4 Avoid Conflicting Launchers</h3>
+                <p>Do not run RuneLite through multiple launchers or wrappers that each bundle a different Java. Pick the official RuneLite macOS app as your single source of truth. Mixed runtimes are a quiet source of recurring offset.</p>
+                <table>
+                    <tr><th>Habit</th><th>Effort</th><th>Payoff</th></tr>
+                    <tr><td>Fixed display scale</td><td>Low</td><td>Prevents fractional-scale bug</td></tr>
+                    <tr><td>Relaunch after monitor change</td><td>10 seconds</td><td>Prevents stale cached scale</td></tr>
+                    <tr><td>Auto-update RuneLite</td><td>None</td><td>Gets HiDPI patches</td></tr>
+                    <tr><td>Single launcher</td><td>One-time</td><td>Avoids Java conflicts</td></tr>
+                </table>
+                <div class="tip-box">
+                    <div class="tip-title">💡 Make It a Routine</div>
+                    <p>Treat "relaunch RuneLite after any display change" as a reflex, the same way you would save your work before a reboot. It is the single cheapest insurance against the offset ever returning.</p>
+                </div>
+                <p>With these habits, the click offset becomes a one-time fix rather than a recurring frustration. The underlying macOS and Java behavior does not change on its own; it only bites when scale factors diverge, and you now control every factor that can diverge.</p>
+            </section>
+
+            <section id="faq">
+                <h2>7. macOS Click Offset FAQs</h2>
+                <div class="faq-item">
+                    <h4>Why do my clicks land to the bottom-right of where I point?</h4>
+                    <p>That diagonal shift is the classic signature of a scaling mismatch. macOS renders the game canvas at a logical scale while RuneLite's input handler uses a different scale factor, so every click coordinate is multiplied incorrectly and pushed down and to the right. Matching your macOS display scale to RuneLite's scaling (Section 3) and updating Java (Section 4) resolves it.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Does this bug happen on Windows or Linux too?</h4>
+                    <p>It is overwhelmingly a macOS problem because of how Apple's window server handles Retina backing scales and how Java's AWT toolkit historically translated them. Windows and Linux use different scaling models, and while a similar offset can appear with mismatched DPI there, the macOS Retina case is by far the most reported. The fix philosophy is the same: align the OS scale with the client scale.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Will disabling Stretched Mode lower my visual quality?</h4>
+                    <p>Stretched Mode upscales the fixed 765x503 canvas to fill a larger window, which can look softer. Disabling it means playing at the native canvas size or in Resizable mode, which is sharper and removes the extra scaling layer that causes offset. If you want a larger view, use Resizable mode rather than stretched scaling; it avoids the click-drift entirely.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>My offset only appears when I plug in an external monitor. Why?</h4>
+                    <p>You are running a mixed-DPI setup: a Retina laptop at 2.0 backing scale and an external monitor at 1.0. When you move RuneLite between them, Java can cache the old scale factor and compute clicks with the stale value until you restart. The fix is to relaunch RuneLite after any monitor change and, ideally, keep both displays at a matched scale or play on a single display.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Should I use the official Jagex client instead of RuneLite on Mac?</h4>
+                    <p>The official client uses a different Java packaging and input layer, so some players find it avoids the offset. However, you lose RuneLite's plugins. Most players prefer to keep RuneLite and apply the scaling fix in this guide, which restores accurate clicks while keeping all the quality-of-life features. Use the official client only as a diagnostic control if the offset persists.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Updating RuneLite did not fix it. What now?</h4>
+                    <p>If the offset remains after updating and matching scales, the cached config may be corrupt. Back up and delete your RuneLite settings file, then reconfigure from scratch. Also verify the bundled Java is version 11 or newer via the startup log. As a final test, play fullscreen on a single non-Retina monitor at 1.0 scale to confirm the input layer itself is healthy.</p>
+                </div>
+            </section>
+
+            <div class="next-steps">
+                <h3>🎯 What To Do After Fixing the macOS Click Offset</h3>
+                <p>Now that your clicks land exactly where you aim, put that accuracy to use. Start with safe, accurate training, then move into boss content where precise input matters most.</p>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 1:</strong> <a href="osrs-combat-training-beginner-2026.html" style="color:#8b6914; font-weight:bold;">Combat Training for Beginners</a> — grind your stats with clicks that finally land where you point.
+                    </div>
+                    <div style="padding:12px 16px; background:#fff; border-radius:8px; border-left:4px solid #8b6914;">
+                        <strong>→ Step 2:</strong> <a href="osrs-new-player-boss-survival-guide-2026.html" style="color:#8b6914; font-weight:bold;">New Player Boss Survival Guide</a> — take your accurate input into real fights with confidence.
+                    </div>
+                <a href="osrs-runelite-gpu-fps-drop-fix-2026.html" class="support-btn paypal-btn" style="display:inline-block; text-decoration:none; margin-top:20px;">Next: RuneLite GPU FPS Drop Fix →</a>
+            </div>
+
+            <div class="related-guides">
+      <h3>More Client &amp; Performance Guides</h3>
+      <div class="article-grid">
+        <a href="osrs-runelite-gpu-fps-drop-fix-2026.html" class="article-card">
+          <h3>RuneLite GPU FPS Drop Fix 2026</h3>
+          <p>Stop frame drops and stuttering by tuning the GPU plugin, renderer, and Mac graphics settings.</p>
+        </a>
+        <a href="osrs-combat-training-beginner-2026.html" class="article-card">
+          <h3>Combat Training for Beginners</h3>
+          <p>Build your melee, ranged, and magic levels efficiently once your clicks are accurate again.</p>
+        </a>
+      </div>    
+<div class="tool-callout" style="background:#2a1a0a;border:1px solid #d4af37;border-radius:8px;padding:1.2rem 1.5rem;margin:2rem 0 1.5rem 0;text-align:center;">
+    <p style="color:#1a1a1a;font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:0.3px;">🔧 Try Our OSRS Gear Recommender Tool</p>
+    <p style="color:#1a1a1a;font-size:0.9rem;margin-bottom:0.8rem;line-height:1.5;">Not sure what gear to use? Enter your combat level and budget — get personalized weapon &amp; armor recommendations for <strong>melee, ranged, and magic</strong> in seconds.</p>
+    <a href="/tools/gear-recommender/" style="display:inline-block;padding:0.65rem 1.8rem;background:#d4af37;color:#1a0f0a;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.85" onmouseout="this.style.opacity=1">Find Your Best Gear Setup →</a>
+</div>
+</div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>OSRSGuru</h4><p>Free OSRS guides updated weekly. No ads, no paywalls.</p></div>
+                <div class="footer-col"><h4>🗺️ New Players (Stage 0)</h4><ul>
+                    <li><a href="osrs-interface-controls-beginner-guide-2026.html">Game Interface</a></li>
+                    <li><a href="osrs-combat-triangle-explained-2026.html">Combat Triangle</a></li>
+                    <li><a href="osrs-skills-overview-beginner-2026.html">Skills Overview</a></li>
+                    <li><a href="osrs-bank-inventory-management-2026.html">Bank &amp; Inventory</a></li>
+                    <li><a href="osrs-maps-travel-guide-2026.html">Maps &amp; Travel</a></li>
+                    <li><a href="osrs-questing-beginner-guide-2026.html">Questing Basics</a></li>
+                    <li><a href="osrs-combat-training-beginner-2026.html">Combat Training</a></li>
+                    <li><a href="osrs-money-making-beginner-2026.html">Beginner Money Making</a></li>
+                    <li><a href="osrs-gear-beginner-guide-2026.html">Gear Guide</a></li>
+                    <li><a href="osrs-safe-spots-beginner-2026.html">Safe Spots</a></li>
+                    <li><a href="osrs-prayer-training-beginner-guide-2026.html">Prayer Training</a></li>
+                    <li><a href="osrs-f2p-to-p2p-membership-guide-2026.html">F2P to P2P Transition</a></li>
+                </ul></div>
+                <div class="footer-col"><h4>Popular Guides</h4><ul>
+                    <li><a href="../guides/osrs-new-player-guide-2026.html">New Player Guide</a></li>
+                    <li><a href="../guides/osrs-first-week-progression-guide-2026.html">First Week Progression</a></li>
+                    <li><a href="../guides/best-quests-new-members-2026.html">Best Quests</a></li>
+                </ul></div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 OSRSGuru &middot; Not affiliated with Jagex &middot; <a href="../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px;line-height:1.5">Created using intellectual property belonging to Jagex Limited under the terms of the <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#999;text-decoration:underline">Jagex Fan Content Policy</a>. This content is not endorsed by or affiliated with Jagex.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+<style>
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item,.guide-content .warning-box,.guide-content .info-box,.guide-content .pro-tip-box,.guide-content .note-box,.guide-content .highlight-box,.guide-content .strategy-box,.guide-content .gear-box,.guide-content .setup-box,.guide-content .location-box,.guide-content .next-steps,.guide-content .bond-roadmap{background:#fff!important;border:1px solid #e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p,.guide-content .warning-box p,.guide-content .warning-box li,.guide-content .info-box p,.guide-content .info-box li,.guide-content .pro-tip-box p,.guide-content .pro-tip-box li,.guide-content .note-box p,.guide-content .note-box li,.guide-content .highlight-box p,.guide-content .highlight-box li,.guide-content .strategy-box p,.guide-content .strategy-box li,.guide-content .gear-box p,.guide-content .gear-box li,.guide-content .setup-box p,.guide-content .setup-box li,.guide-content .location-box p,.guide-content .location-box li,.guide-content .next-steps p,.guide-content .next-steps li,.guide-content .bond-roadmap p,.guide-content .bond-roadmap li{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong,.guide-content .warning-box strong,.guide-content .info-box strong,.guide-content .pro-tip-box strong,.guide-content .note-box strong,.guide-content .highlight-box strong,.guide-content .strategy-box strong,.guide-content .gear-box strong,.guide-content .setup-box strong,.guide-content .location-box strong,.guide-content .next-steps strong,.guide-content .bond-roadmap strong{color:#3b2615!important}
+.guide-content [style*="border-left:4px"],.guide-content [style*="border-left: 4px"],.guide-content [style*="border-left:3px"],.guide-content [style*="border-left: 3px"]{border-left:0!important}
+.guide-content .related-guides .article-card{background:#f5f2f8!important;border-color:#D4CDE0!important}
+.guide-content .toc{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+@media (max-width: 768px) {
+    .guide-content table { font-size: 0.85rem; }
+    .guide-content table thead tr th { padding: 8px 10px; font-size: 0.8rem; }
+    .guide-content table tbody td { padding: 6px 10px; }
+    .guide-content h2 { font-size: 1.4em; }
+    .guide-content h3 { font-size: 1.15em; }
+}
+@media (max-width: 640px) {
+    .guide-content table { display: block; overflow-x: auto; }
+    .guide-content h2 { font-size: 1.25em; }
+    .guide-content h3 { font-size: 1.05em; }
+}
+</style>
+</body>
+</html>

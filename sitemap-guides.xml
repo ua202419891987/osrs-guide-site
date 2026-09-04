@@ -1717,6 +1717,12 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://osrsguru.com/guides/osrs-ultimate-ironman-beginner-survival-guide-2026.html</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://osrsguru.com/guides/osrs-viggora-chainmace-guide-2026.html</loc>
     <lastmod>2026-07-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -2215,6 +2221,12 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://osrsguru.com/guides/osrs-ironman-runs-out-of-brews-solution-2026.html</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://osrsguru.com/guides/osrs-runelite-gpu-fps-drop-fix-2026.html</loc>
     <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -2275,25 +2287,13 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://osrsguru.com/guides/osrs-runelite-macos-click-offset-fix-2026.html</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://osrsguru.com/guides/osrs-runelite-must-have-plugins-2026.html</loc>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://osrsguru.com/guides/osrs-group-ironman-getting-started-2026.html</loc>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://osrsguru.com/guides/osrs-runelite-ground-items-setup-guide-2026.html</loc>
-    <lastmod>2026-08-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://osrsguru.com/guides/osrs-runelite-tilemarkers-overlays-guide-2026.html</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
