@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert Excavator Boss Guide 2026 — Break the Drill Loop Without Getting Stun-Locked | CD Guru</title>
+    <meta name="description" content="Crimson Desert Excavator boss guide 2026 — how to break the drill loop, why a light dodge tap only gives you a side-step instead of a roll, and how to escape the stun-lock once the drilling starts. Attack-response table, phase plan, and dodge settings check.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Crimson Desert Excavator boss, Crimson Desert drill boss, Crimson Desert stun-lock, Crimson Desert dodge roll hold, Crimson Desert quarry boss 2026">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-excavator-boss-guide-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <style>
+        /* ── 浅色主题 — 匹配 Violet Sunrise 全局CSS ── */
+        .guide-content h2{font-size:1.85rem !important}
+        .guide-content h3{font-size:1.35rem !important}
+        .guide-content h3 strong{font-size:1.35rem}
+        .guide-content p{font-size:1.08rem !important;line-height:1.85 !important}
+        .guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+
+        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .tip-box strong{color:#7a64b8;font-size:1.06rem}
+        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .warn-box strong{color:#b84a3a;font-size:1.06rem}
+
+        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}
+        .action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#2d2a33;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+        .action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+        .action-step p{color:#2d2a33;font-size:1.08rem;line-height:1.75}
+
+        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}
+        .method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .method-box p{color:#2d2a33;font-size:1.06rem;line-height:1.75}
+
+        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .faq-item p{color:#2d2a33;font-size:1.03rem;line-height:1.7}
+
+        .toc{background:#fff;border:1px solid #e0d8f0 !important;border-left:1px solid #e0d8f0 !important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .toc h3{color:#7a64b8 !important;font-size:1.1rem !important;margin-bottom:12px}
+        .guide-hero .subtitle{font-size:1.15rem !important;max-width:700px;margin:0 auto 1.2rem}
+        .guide-hero .breadcrumb{font-size:.95rem !important}
+        .guide-hero .weekly-badge{font-size:1rem !important}
+
+        .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}
+        .inline-support-hint p{font-size:1rem}
+        .guide-content li{color:#2d2a33 !important}
+        .progress-widget{display:none !important}
+    </style>
+<meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<meta name="author" content="OSRS Guru">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Crimson Desert <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section2">Prep</a></li>
+                    <li><a href="#section3">Moves</a></li>
+                    <li><a href="#section4">Drill Loop</a></li>
+                    <li><a href="#section5">Escape</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#crimson-desert">Crimson Desert</a> / Excavator Boss Guide</p>
+            <h1>Crimson Desert Excavator Boss Guide 2026</h1>
+      <div class="cd-level-badge" style="display:inline-block;background:#f0ebfa;color:#5a4a8a;border:1px solid #7a64b8;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">⚔️ Boss Guide</div>
+      <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px 10px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+            <p class="subtitle">The drill boss is the single most complained-about fight of the last month — and almost every complaint has the same root cause: a light dodge tap gives you a side-step, not a roll. Fix that one input and the fight changes completely.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>CD Guide</strong> — Part of the <strong>Crimson Desert Series</strong> · 15 min read
+            </div>
+            <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: August 31, 2026</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="toc"><h3>Table of Contents</h3><ol>
+                <li><a href="#section1">Why the Excavator Punishes the Wrong Dodge</a></li>
+                <li><a href="#section2">Pre-Fight Prep — Settings, Gear, Food</a></li>
+                <li><a href="#section3">Attack → Response Table</a></li>
+                <li><a href="#section4">Breaking the Drill Loop</a></li>
+                <li><a href="#section5">Escaping the Stun-Lock — Recovery Windows</a></li>
+                <li><a href="#section6">Why This Boss Is the Best Test of Your Dodge Settings</a></li>
+                <li><a href="#section7">After the Fight — Rewards and Next Steps</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ol></div>
+
+            <h2 id="section1">Why the Excavator Punishes the Wrong Dodge</h2>
+            <p>The Excavator — the drill-armed machine boss that players usually meet around the quarry — has become the loudest Crimson Desert complaint of the past month. The main Steam thread on it has grown to well over a hundred replies, with players still posting into it in late August. The recurring quote is blunt: one player described being <em>"stun-locked into an endless amount of hits until he stops drilling."</em></p>
+            <p>That quote is the whole fight in one sentence. The complaint is not "he hits hard." It is "once he starts, I cannot leave." A boss that kills you in two swings is fair; a boss that removes your input for ten seconds is not. So the goal of this guide is not to teach you a damage rotation. It is to teach you how to <strong>never enter the loop in the first place</strong>, and what to do the moment you do.</p>
+            <div class="warn-box">
+                <strong>Sourcing note:</strong> Everything marked <em>players report</em> or <em>community reports</em> comes from Steam Community discussions and Reddit threads, not from Pearl Abyss. Only items explicitly marked <strong>official</strong> come from the Pearl Abyss 2.00.00 patch notes (client version 1.000.484, August 25, 2026). We do not invent move names, damage values, or health numbers anywhere in this guide.
+            </div>
+            <p>The root cause most players miss is an input issue, not a build issue. Crimson Desert's evasion has two outputs depending on how you press the button. A <strong>quick tap produces a short side-step</strong> — a small lateral shuffle with very few invulnerability frames and a short recovery. A <strong>held press produces an actual roll</strong> — the one with real i-frames and real distance. Players coming from other action games tap by reflex, get the side-step, eat the follow-up hit, and conclude that dodging is broken.</p>
+            <div class="tip-box">
+                <strong>The one-sentence fix:</strong> Hold the dodge input instead of tapping it. If you are being hit out of your dodges against the Excavator, you are almost certainly side-stepping when you think you are rolling.
+            </div>
+
+            <h2 id="section2">Pre-Fight Prep — Settings, Gear, Food</h2>
+            <p>Because this fight is decided by input quality rather than by stats, prep is short and unusually cheap. Three things matter: your evasion control setting, your stamina pool, and your food stack.</p>
+            <h3>1. Fix your evasion control before you walk in</h3>
+            <p>Go into the control settings and look at the evasion option. Players report that the default mapping makes it easy to trigger the side-step branch by accident, and that some players prefer switching the evasion control behaviour so that a single input commits to the full roll. If you rebind the dodge key, community reports also flag that the previous default key can remain live in certain versions — test your new key before the fight rather than discovering it mid-drill. Full keybinding walkthrough in our <a href="crimson-desert-controls-keybindings-guide-2026.html">Controls &amp; Keybindings Guide</a>.</p>
+            <h3>2. Stamina is your real health bar</h3>
+            <p>Every escape in this fight costs stamina. If your pool only covers two rolls, you will be forced to trade hits at exactly the moment you cannot afford to. Bring stamina-positive food, and check your allocation against our <a href="crimson-desert-stamina-management-guide-2026.html">Stamina Management Guide</a> before you commit. Crimson Desert has <strong>no potions</strong> — food is the only healing source in the game, which turns every boss attempt into a supply question as much as a skill question.</p>
+            <h3>3. Gear check</h3>
+            <p>Run the standard pre-boss checklist in our <a href="crimson-desert-pre-boss-gear-checklist-guide-2026.html">Pre-Boss Gear Checklist</a>. Two notes specific to this fight: favour mobility over raw defence (being able to roll twice in a row beats surviving one extra hit), and do not bring a slow weapon — the punish windows here are short and a greatsword wind-up will get you caught mid-animation.</p>
+            <table>
+                <thead>
+                    <tr><th>Prep item</th><th>Why it matters here</th><th>Priority</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Hold-to-roll muscle memory</td><td>Side-step has too few i-frames to escape the drill</td><td>Critical</td></tr>
+                    <tr><td>Stamina-positive food stack</td><td>Every escape costs stamina; no potions exist</td><td>Critical</td></tr>
+                    <tr><td>Mid-weight armour</td><td>Roll distance beats raw defence against a chasing boss</td><td>High</td></tr>
+                    <tr><td>Fast weapon with short recovery</td><td>Punish windows are brief and unsafe to over-commit into</td><td>High</td></tr>
+                    <tr><td>Camera distance maxed</td><td>You need to see the burrow tell off-screen</td><td>Medium</td></tr>
+                </tbody>
+            </table>
+
+            <h2 id="section3">Attack → Response Table</h2>
+            <p>We deliberately do not list invented move names. Crimson Desert's boss attacks are best learned by <strong>telegraph</strong>, and the telegraph is what you actually react to. Use this table as a mapping from "what you see" to "what you press."</p>
+            <table>
+                <thead>
+                    <tr><th>What you see (telegraph)</th><th>What it is</th><th>Safe response</th><th>Stamina cost</th><th>Common mistake</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Drill arm revs, machine lowers its stance, dust kicks up at its feet</td><td>Drill rush — the move that starts the stun-lock chain</td><td>Held roll <em>perpendicular</em> to its facing, then immediately roll again away</td><td>2 rolls</td><td>Rolling backwards in a straight line — it tracks straight lines</td></tr>
+                    <tr><td>Machine rears up and slams both arms down</td><td>Overhead slam with a shockwave</td><td>Held roll through the slam, punish once after the second impact</td><td>1 roll</td><td>Punishing after the first impact and eating the shockwave</td></tr>
+                    <tr><td>Whole body sinks into the ground, ground tremor marker appears</td><td>Burrow — the start of the underground cycle</td><td>Sprint in a wide arc, never a straight line; keep the camera on the ground</td><td>Sprint only</td><td>Standing still to heal; the surfacing point tracks you</td></tr>
+                    <tr><td>Drill emerges under you, debris ring</td><td>Surface strike</td><td>Roll on the <em>second</em> tremor, not the first</td><td>1 roll</td><td>Early roll — you land i-frame-less right into the hitbox</td></tr>
+                    <tr><td>Machine spins in place, drill sweeping horizontally</td><td>Sustained spin — the multi-hit trap</td><td>Create distance, do not try to roll through</td><td>0 (just run)</td><td>Rolling into the spin and being caught by hit 5 of many</td></tr>
+                    <tr><td>Arms fold in, brief pause, then a single fast thrust</td><td>Delayed poke</td><td>Wait for the thrust, then roll; parry is unreliable here</td><td>1 roll</td><td>Parrying on the fold-in and getting hit by the delay</td></tr>
+                </tbody>
+            </table>
+            <div class="tip-box">
+                <strong>Reading rule that applies to every row:</strong> react to the <em>limb</em>, not to the boss. The Excavator's body is large and noisy; the drill arm is what actually kills you. Keep your eyes on the arm and your peripheral vision handles the rest.
+            </div>
+
+            <h2 id="section4">Breaking the Drill Loop</h2>
+            <p>The "loop" players describe is a repeating cycle: burrow → surface strike → drill rush → spin → burrow again. Once you are hit by the surface strike, the following hits chain before you recover, and the loop restarts. The important structural fact is that <strong>the loop only sustains if you are grounded when it begins</strong>. It is not a scripted endless combo; it is a punish on a specific player state.</p>
+            <div class="action-step">
+                <span class="step-num">1</span>
+                <h4>Never be standing still when the tremor starts</h4>
+                <p>The moment the body sinks, begin a wide sprinting arc. Straight lines lose to the tracking; arcs do not. Stamina spent here is cheaper than the health you lose to a surface strike.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">2</span>
+                <h4>Count the tremor, do not guess</h4>
+                <p>There are two distinct ground tremors before the surfacing hit. Roll on the second. Rolling on the first puts you on the ground with zero i-frames exactly when the hitbox appears — this is the single most common cause of the "30 hits" experience.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">3</span>
+                <h4>Interrupt the burrow with a committed heavy, not a poke</h4>
+                <p>Community reports consistently point to landing a committed heavy attack on the machine as it begins to sink as the way to break the cycle before it starts. A light poke will not do it. Budget your stamina so you have one heavy available at every burrow tell.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">4</span>
+                <h4>During the spin, run — do not roll</h4>
+                <p>The sustained spin is a multi-hit box, and i-frames only cover a fraction of it. Sprinting out of range is strictly safer than any roll. Eat the lost damage uptime; you will get it back after the spin ends.</p>
+            </div>
+            <div class="method-box">
+                <h4>Stamina budget for one full loop</h4>
+                <p>Two held rolls to leave the burrow (2 units), one heavy committed to the burrow tell (1 unit), one sprint to exit the spin (sprint pool), one held roll back in to punish the recovery (1 unit). That is roughly four rolls' worth of stamina per cycle. If your pool cannot cover four rolls plus a heavy, every loop will end with you out of stamina — which is another way of saying dead.</p>
+            </div>
+
+            <h2 id="section5">Escaping the Stun-Lock — Recovery Windows</h2>
+            <p>Sooner or later you will get caught. The question is whether you panic-mash or escape. Players report that mashing the dodge input while being chain-hit tends to feed the side-step branch repeatedly, which is precisely the wrong output — you shuffle, get hit, shuffle, get hit.</p>
+            <ul>
+                <li><strong>Stop pressing buttons for one beat.</strong> Let the current hit resolve. Mashing during hitstun queues inputs that fire the instant you recover, usually into the next hit.</li>
+                <li><strong>Hold the dodge input, do not tap.</strong> A single held press on the first frame you regain control produces the roll with real i-frames. This is the actual escape.</li>
+                <li><strong>Roll away from the drill, not away from the body.</strong> Escaping along the drill's axis keeps you inside the hitbox longer.</li>
+                <li><strong>Expect one follow-up.</strong> Plan for a second roll immediately after the first. Escaping with exactly zero stamina left just means you die to the next swing instead.</li>
+                <li><strong>Heal only after two successful rolls.</strong> Food has a consumption animation; eating inside a chain is how players turn a survivable stun into a death.</li>
+            </ul>
+            <p>For a systematic breakdown of hitstun, recovery frames, and why some enemies seem to ignore your inputs entirely, see our dedicated <a href="crimson-desert-stunlock-hitstun-guide-2026.html">Stun-Lock &amp; Hitstun Guide</a>. The Excavator is the practical exam; that guide is the theory.</p>
+
+            <h2 id="section6">Why This Boss Is the Best Test of Your Dodge Settings</h2>
+            <p>Almost every boss in Crimson Desert will let you get away with sloppy dodge inputs. The Excavator will not. That makes it the single best diagnostic fight in the game: if you can hold-to-roll consistently through an entire Excavator loop, your evasion configuration is correct for everything that comes later.</p>
+            <table>
+                <thead>
+                    <tr><th>Symptom you are experiencing</th><th>What it usually means</th><th>Fix</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>You dodge and still get hit</td><td>You are side-stepping, not rolling</td><td>Hold the input; verify in a safe area first</td></tr>
+                    <tr><td>Your dodge goes the wrong direction</td><td>Camera-relative input plus lock-on drift</td><td>Release lock-on before the burrow, re-acquire after</td></tr>
+                    <tr><td>Dodge does nothing at all</td><td>Stamina exhausted or input eaten during recovery</td><td>Stop attacking earlier; leave a roll in reserve</td></tr>
+                    <tr><td>Old dodge key still works after rebinding</td><td>Known quirk: rebind does not always clear the default</td><td>Test both keys before the fight</td></tr>
+                    <tr><td>Movement feels heavy and unresponsive</td><td>General input-weight complaint, not specific to this boss</td><td>See our <a href="crimson-desert-clunky-movement-feel-fix-2026.html">Clunky Movement Fix</a></td></tr>
+                </tbody>
+            </table>
+            <div class="tip-box">
+                <strong>Two-minute drill:</strong> before the fight, stand in an open area and tap dodge ten times, then hold dodge ten times. If you cannot see a clear difference in distance and recovery between the two, your control config needs attention before you spend an hour wiping.
+            </div>
+            <p>If you want to tighten the timing side as well, our <a href="crimson-desert-parry-timing-dodge-guide-2026.html">Parry &amp; Dodge Timing Guide</a> covers the parry window and the attacks that deliberately ignore it.</p>
+
+            <h2 id="section7">After the Fight — Rewards and Next Steps</h2>
+            <p>Beating the Excavator is mostly a proof that your fundamentals work. The practical value is what it unlocks about your own setup: once you can clear it without being chain-hit, the mid-game bosses stop feeling unfair and start feeling like timing puzzles.</p>
+            <ul>
+                <li><strong>Re-check your Abyss Artifacts.</strong> The 2.00.00 update (official) reset all existing skill progress and fully refunded spent Abyss Artifacts, so if you have not rebuilt since August 25, your build may be weaker than you think. Start with our <a href="crimson-desert-2-0-enhanced-update-guide-2026.html">2.0 Enhanced Update Guide</a>.</li>
+                <li><strong>Rebuild in the right order.</strong> Stamina and survivability nodes first. See <a href="crimson-desert-2-0-skill-reset-rebuild-guide-2026.html">Skill Reset &amp; Rebuild</a>.</li>
+                <li><strong>Audit your other fights.</strong> If the Excavator felt manageable, the remaining walls are almost always supply or mechanic problems rather than reflexes — see our <a href="crimson-desert-difficulty-wall-guide-2026.html">Difficulty Wall Guide</a>.</li>
+                <li><strong>Broaden the boss list.</strong> Our <a href="crimson-desert-boss-guide-2026.html">full Boss Guide</a> covers the rest of the roster and where each fight sits on the difficulty curve.</li>
+            </ul>
+
+            <h2 id="faq">FAQ</h2>
+            <div class="faq-item"><h4>Why does my dodge only do a side-step and not a roll?</h4><p>Because you are tapping instead of holding. Crimson Desert's evasion produces a short lateral side-step on a quick tap and a full roll with real invulnerability frames on a held press. Players report this is the single biggest cause of feeling stun-locked.</p></div>
+            <div class="faq-item"><h4>Is the Excavator stun-lock a bug or intended design?</h4><p>Community reports are split, but the practical answer is the same either way: the chain sustains only while you are grounded and out of stamina. Holding your rolls and keeping one roll in reserve prevents it reliably.</p></div>
+            <div class="faq-item"><h4>How do I stop the drill loop from starting?</h4><p>React to the burrow tell. Sprint in a wide arc when the body sinks, roll on the second tremor rather than the first, and land a committed heavy on the machine as it begins to sink.</p></div>
+            <div class="faq-item"><h4>Should I parry the drill attacks?</h4><p>Be selective. Delayed thrusts in particular will catch an early parry. Rolling is the safer default; see our <a href="crimson-desert-unparryable-attacks-guide-2026.html">Unparryable Attacks Guide</a> for which attack types ignore parry entirely.</p></div>
+            <div class="faq-item"><h4>How much food should I bring?</h4><p>Enough to heal through two full mistakes, plus stamina food. Crimson Desert has no potions, so food is your only healing. The exact prep list is in our <a href="crimson-desert-healing-food-system-guide-2026.html">Healing &amp; Food System Guide</a>.</p></div>
+            <div class="faq-item"><h4>Does armour weight matter for this fight?</h4><p>Yes, indirectly. Heavier setups shorten roll distance and slow stamina recovery, and this fight is essentially a stamina exam. Mid-weight with good stamina recovery beats maximum defence here.</p></div>
+            <div class="faq-item"><h4>Is this boss easier after the 2.0 update?</h4><p>The official 2.00.00 patch notes did not list changes to this encounter. What 2.0 did change is your build — all skill progress was reset and Abyss Artifacts refunded (official), so any difficulty change you feel is more likely your own rebuild than a boss tuning pass.</p></div>
+            <div class="faq-item"><h4>Can I outrange the drill instead of dodging it?</h4><p>Partly. The sustained spin can be outrun, and the burrow can be outmanoeuvred with wide arcs. The drill rush tracks straight-line retreats, so distance alone will not save you from it.</p></div>
+            <div class="faq-item"><h4>Why do I keep getting hit during my heal animation?</h4><p>Because you are healing inside a chain. Escape with two successful rolls first, confirm the boss has committed to a recovery animation, then eat. Food consumption has an animation and is not cancellable.</p></div>
+            <div class="faq-item"><h4>What should I practise before retrying?</h4><p>Tap-versus-hold dodge discrimination in a safe area, and rolling perpendicular to a charging enemy rather than directly away. Ten minutes of that is worth more than ten attempts.</p></div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">&#127807;</span>
+        <div class="support-text">
+            <h3>This Crimson Desert guide stays free either way.</h3>
+            <p>If it saved you time, a $1 tip helps us keep writing more guides.</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn recommended">&#127807; Buy me a pack of gum — $1.00</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">No paywall, no subscription — just a thank-you if you can. &#129309;</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-bottom">&copy; 2026 CDGuru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px">Crimson Desert&trade; is a trademark of Pearl Abyss Corp. All game content and materials are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by Pearl Abyss.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>.guide-content li{color:#2d2a33!important}</style>
+</body>
+</html>
