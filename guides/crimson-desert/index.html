@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crimson Desert Guide 2026 — Complete Walkthroughs, Boss Strategies &amp; Builds</title>
+<link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/">
+<meta name="description" content="104 expert Crimson Desert guides for 2026: boss strategies, combat system, skill builds, farming routes, beginner roadmap, and more. Free, updated weekly.">
+<meta name="keywords" content="crimson desert guide 2026, crimson desert boss guide, crimson desert beginner, crimson desert skills, crimson desert farming, crimson desert tenebrum, crimson desert staglord, crimson desert matthias, pywel mercenary guide, pearl abyss crimson desert walkthrough">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta property="og:title" content="Crimson Desert Guru — 104 Expert Guides 2026">
+<meta property="og:description" content="Boss strategies, combat deep dives, farming routes, and a complete 4-week beginner roadmap. All free.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://osrsguru.com/guides/crimson-desert/">
+<link rel="stylesheet" href="../../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Crimson Desert Guide 2026 — 104 Expert Guides",
+  "url": "https://osrsguru.com/guides/crimson-desert/",
+  "description": "Complete Crimson Desert strategy hub with 104 guides covering bosses, combat, skills, farming, and beginner roadmap.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "OSRS Guru",
+    "url": "https://osrsguru.com"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I beat Tenebrum in Crimson Desert?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Use Blinding Flash to ground Tenebrum, follow up with Spot Weakness + Aerial Force Palm combo. Our full Tenebrum boss guide covers all phases." }
+    },
+    {
+      "@type": "Question",
+      "name": "What skills should I unlock first in Crimson Desert?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Start with core combat skills (Parry Master, Counter Attack), then stamina management, then crafting skills. See our Skills Priority Guide for the full order." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I farm Abyss Artifacts fast in Crimson Desert?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Pickpocketing is currently the fastest method at ~180/hour, followed by camp missions and elite enemy drops. Check our Abyss Artifacts Farming Guide for all 6 methods ranked." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a beginner roadmap for Crimson Desert?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes! We have a complete 4-Week New Player Roadmap covering controls, combat basics, resource gathering, and first boss preparation. Start at Week 1 on this page." }
+    }
+  ]
+}
+</script>
+<style>
+/* ===== CD PAGE-SPECIFIC STYLES ===== */
+body{background:#f5f2f8;}
+
+/* HEADER / NAV */
+.cd-header{
+  background:linear-gradient(135deg,#7A64B8 0%,#5B4A9C 100%);
+  padding:16px 0;
+  border-bottom:3px solid #d4af37;
+  position:sticky;top:0;z-index:100;box-shadow:0 4px 20px rgba(91,74,156,0.2);
+}
+.cd-header-inner{
+  max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+}
+.cd-logo{color:#fff;font-size:1.35rem;font-weight:900;text-decoration:none;font-family:'Cinzel',serif;letter-spacing:.5px;}
+.cd-logo span{color:#d4af37;}
+.cd-badge{background:rgba(255,255,255,.18);color:#fff;font-size:.72rem;padding:4px 12px;border-radius:20px;font-weight:700;border:1px solid rgba(255,255,255,.25);}
+.cd-nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-left:auto;}
+.cd-nav a{
+  color:rgba(255,255,255,.88);font-size:.78rem;font-weight:700;text-decoration:none;
+  padding:5px 11px;border-radius:20px;transition:all .2s ease;white-space:nowrap;
+  border:1px solid transparent;
+}
+.cd-nav a:hover{background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.25);}
+.cd-nav a.nav-active{background:#d4af37;color:#3b2615;border-color:#d4af37;}
+.cd-nav a.nav-highlight{color:#ffd54f;}
+
+/* SEARCH BOX */
+.cd-search-box{
+  background:#fff;border-radius:12px;padding:24px 28px;margin:20px auto;max-width:900px;
+  border:2px solid #D4CDE0;box-shadow:0 4px 24px rgba(122,100,184,0.10);text-align:center;
+}
+.cd-search-title{font-size:1.2rem;font-weight:800;color:#5B4A9C;margin-bottom:4px;}
+.cd-search-sub{font-size:.82rem;color:#888;margin-bottom:14px;}
+.cd-search-row{display:flex;max-width:620px;margin:0 auto;gap:8px;align-items:stretch;flex-wrap:nowrap;}
+.cd-search-input-wrp{flex:1;position:relative;min-width:0;}
+.cd-search-input{
+  width:100%;height:100%;padding:10px 14px 10px 38px;border-radius:6px;
+  border:1.5px solid #D4CDE0;background:#FAF9FC;color:#2D2A33;
+  font-size:.92rem;outline:none;box-sizing:border-box;
+}
+.cd-search-btn{
+  background:linear-gradient(135deg,#7A64B8,#5B4A9C);color:#fff;border:none;
+  padding:10px 18px;border-radius:6px;font-weight:700;font-size:.85rem;cursor:pointer;
+  white-space:nowrap;flex-shrink:0;box-shadow:0 2px 8px rgba(91,74,156,0.25);
+  min-width:fit-content;
+}
+
+/* CATEGORY GRID — 2 rows × 3 cols (main site style) */
+.cd-cat-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+  margin-top:20px;
+}
+/* Category cards — image + content (main site style) */
+.cd-cat-card{
+  background:#fff;
+  border:1.5px solid #D4CDE0;
+  border-radius:10px;
+  overflow:hidden;
+  text-decoration:none;display:block;cursor:pointer;
+  transition:all .25s ease;
+  box-shadow:0 2px 8px rgba(122,100,184,0.06);
+}
+.cd-cat-card:hover{
+  border-color:#7A64B8;
+  transform:translateY(-3px);
+  box-shadow:0 6px 20px rgba(122,100,184,0.14);
+  text-decoration:none;
+}
+.cd-cat-img-link{display:block;text-decoration:none;cursor:pointer;}
+.cd-cat-img-link:hover .cd-cat-img{filter:brightness(1.08);}
+.cd-cat-title-link{text-decoration:none;color:inherit;cursor:pointer;display:inline-block;}
+.cd-cat-title-link:hover h3{color:#7A64B8;}
+.cd-cat-img{
+  width:100%;height:160px;object-fit:cover;display:block;
+}
+.cd-cat-body{padding:18px 20px 16px;}
+.cd-cat-body h3{
+  font-family:'Cinzel',serif;
+  font-size:1.05rem;
+  font-weight:700;
+  color:#3b2615;
+  margin:0 0 6px;
+  display:flex;align-items:center;gap:6px;
+}
+.cd-cat-body p{
+  font-size:.85rem;
+  color:#666;
+  margin:0 0 12px;
+  line-height:1.5;
+}
+.cd-cat-preview{
+  display:flex;flex-direction:column;gap:3px;margin-bottom:12px;
+}
+.cd-cat-link{
+  display:block;color:#5B4A9C!important;font-weight:700;font-size:.82rem;
+  padding:5px 8px;margin:0 -4px;border-radius:6px;
+  text-decoration:none;cursor:pointer;
+  border-left:3px solid #D4CDE0;
+  transition:all .15s ease;
+}
+.cd-cat-link:hover{
+  color:#7A64B8!important;background:#f0ecfb;
+  border-left-color:#7A64B8;
+  padding-left:12px;
+  text-decoration:underline;
+}
+.cd-cat-preview span{font-size:.78rem;color:#555;padding:3px 0;border-bottom:1px dashed #f0ecfb;line-height:1.4;}
+.cd-cat-count{
+  display:inline-block;
+  background:linear-gradient(135deg,#7A64B8,#5B4A9C);
+  color:#fff;
+  font-size:.73rem;font-weight:700;
+  padding:4px 13px;border-radius:20px;
+}
+.cd-cat-arrow{float:right;color:#7A64B8;font-weight:700;font-size:.85rem;margin-top:3px;}
+
+/* SECTION HEADERS */
+.cd-section-header{
+  display:flex;align-items:center;justify-content:space-between;
+  background:#fff;padding:18px 24px;border-radius:12px;border:1.5px solid #D4CDE0;margin-top:32px;
+  flex-wrap:wrap;gap:10px;
+}
+.cd-section-title{font-size:1.4rem;font-weight:900;color:#5B4A9C;margin:0;font-family:'Cinzel',serif;}
+.cd-section-links a{color:#7A64B8;font-size:.85rem;font-weight:600;text-decoration:none;margin-left:14px;}
+.cd-section-links a:hover{text-decoration:underline;}
+.cd-see-all{color:#7A64B8;font-weight:700;font-size:.85rem;text-decoration:none;white-space:nowrap;}
+.cd-see-all:hover{text-decoration:underline;}
+
+/* NEW PLAYER ZONE */
+.cd-newplayer-banner{
+  display:flex;align-items:center;gap:20px;background:linear-gradient(135deg,#fffbf0,#fff);
+  padding:22px 28px;border-radius:12px;border:2px solid #d4af37;
+  text-decoration:none;color:inherit;margin-top:32px;transition:all .2s ease;
+}
+.cd-newplayer-banner:hover{box-shadow:0 4px 16px rgba(212,175,55,0.15);transform:translateY(-1px);}
+.cd-np-title strong{font-size:1.15rem;color:#3b2615;display:block;}
+.cd-np-badge{display:inline-block;background:#d4af37;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px;font-weight:700;margin-left:8px;vertical-align:middle;}
+.cd-np-sub{font-size:.85rem;color:#666;margin-top:4px;}
+.cd-np-btn{background:#d4af37;color:#fff;padding:10px 20px;border-radius:8px;font-weight:700;white-space:nowrap;margin-left:auto;flex-shrink:0;}
+
+/* WEEK GRID */
+.cd-week-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:16px;}
+.cd-week-card{
+  background:#fff;border-radius:12px;border:2px solid #e8e0f0;overflow:hidden;
+  transition:all .2s ease;
+}
+.cd-week-card:hover{border-color:#7A64B8;box-shadow:0 4px 16px rgba(122,100,184,0.1);}
+.cd-wh{padding:12px 16px;display:flex;align-items:center;justify-content:space-between;}
+.cd-wh-tag{background:linear-gradient(135deg,#7A64B8,#5B4A9C);color:#fff;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:12px;}
+.cd-wh-goal{font-size:.78rem;color:#888;font-weight:600;}
+.cd-wb{padding:14px 16px 10px;}
+.cd-wb h4{font-family:'Cinzel',serif;font-size:1rem;color:#3b2615;margin:0 0 4px;}
+.cd-wb p{font-size:.8rem;color:#777;margin:0 0 10px;line-height:1.4;}
+.cd-wl{list-style:none;padding:0;margin:0 0 12px;}
+.cd-wl li{padding:5px 0;border-bottom:1px dashed #f0f0f0;font-size:.85rem;}
+.cd-wl li:last-child{border-bottom:none;}
+.cd-wl li a{color:#5B4A9C;text-decoration:none;font-weight:600;display:flex;align-items:center;gap:5px;}
+.cd-wl li a:hover{color:#7A64B8;text-decoration:underline;}
+.cd-wl li a::before{content:"▸";color:#d4af37;font-size:.7rem;}
+
+/* HOT THIS WEEK & HOT PICKS — clean card grid */
+.cd-hot-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px;
+}
+.cd-hot-card{
+  background:#fff;border-radius:10px;border:1.5px solid #D4CDE0;padding:18px;
+  transition:all .25s ease;
+  box-shadow:0 2px 8px rgba(122,100,184,0.05);
+}
+.cd-hot-card:hover{border-color:#7A64B8;transform:translateY(-2px);box-shadow:0 4px 16px rgba(122,100,184,0.1);}
+.cd-hot-card h4{font-size:.92rem;color:#3b2615;margin:0 0 4px;font-family:'Cinzel',serif;}
+.cd-hot-card p{font-size:.78rem;color:#888;margin:0 0 10px;line-height:1.4;}
+.cd-hot-card ul{list-style:none;padding:0;margin:0;}
+.cd-hot-card ul li{padding:4px 0;border-bottom:1px solid #f5f3fa;font-size:.84rem;}
+.cd-hot-card ul li:last-child{border-bottom:none;}
+.cd-hot-card ul li a{color:#2D2A33;text-decoration:none;font-weight:600;display:flex;align-items:center;gap:4px;line-height:1.35;}
+.cd-hot-card ul li a:hover{color:#7A64B8;}
+.cd-hot-card ul li a::before{content:"▸";color:#d4af37;font-size:.7rem;flex-shrink:0;}
+.cd-mini-tag{display:inline-block;background:#f0ecfb;color:#5B4A9C;font-size:.6rem;padding:1px 6px;border-radius:6px;margin-left:4px;vertical-align:middle;}
+
+/* FOOTER AREA */
+.cd-footer{margin-top:40px;}
+
+@media(max-width:768px){
+  .cd-cat-grid{grid-template-columns:repeat(2,1fr);}
+  .cd-hot-grid{grid-template-columns:repeat(2,1fr);}
+  .cd-week-grid{grid-template-columns:1fr;}
+  .cd-nav{display:none;}
+  .cd-newplayer-banner{flex-direction:column;text-align:center;}
+  .cd-np-btn{margin-left:0;margin-top:12px;}
+  .cd-search-row{max-width:100%;}
+  .cd-search-btn{padding:10px 14px;font-size:.82rem;}
+}
+@media(max-width:540px){
+  .cd-cat-grid{grid-template-columns:1fr;}
+  .cd-hot-grid{grid-template-columns:1fr;}
+  .cd-search-row{flex-direction:column;max-width:100%;}
+  .cd-search-btn{width:100%;}
+}
+/* STAGE ROUTING (CD self-routing) */
+.cd-stage-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:18px;}
+.cd-stage-card{display:block;background:#fff;border:2px solid #D4CDE0;border-radius:12px;padding:18px 18px 16px;text-decoration:none;transition:all .2s ease;box-shadow:0 2px 8px rgba(122,100,184,0.06);}
+.cd-stage-card:hover{border-color:#7A64B8;transform:translateY(-3px);box-shadow:0 6px 20px rgba(122,100,184,0.14);}
+.cd-stage-emoji{font-size:1.9rem;line-height:1;}
+.cd-stage-name{font-size:1.05rem;font-weight:800;color:#5B4A9C;margin:8px 0 4px;font-family:'Cinzel',serif;}
+.cd-stage-desc{font-size:.8rem;color:#666;line-height:1.45;}
+.cd-stage-count{display:inline-block;margin-top:10px;background:linear-gradient(135deg,#7A64B8,#5B4A9C);color:#fff;font-size:.72rem;font-weight:700;padding:4px 13px;border-radius:20px;}
+.cd-stage-group{margin-top:22px;}
+.cd-stage-h3{color:#5B4A9C;font-family:'Cinzel',serif;font-size:1.2rem;margin:0 0 10px;border-bottom:2px solid #D4CDE0;padding-bottom:8px;}
+.cd-stage-hcount{display:inline-block;margin-left:8px;background:#f0ecfb;color:#5B4A9C;font-size:.7rem;font-weight:700;padding:2px 10px;border-radius:20px;vertical-align:middle;}
+.cd-stage-list{list-style:none;padding:0;margin:0;column-count:2;column-gap:30px;}
+.cd-stage-list li{padding:5px 0;border-bottom:1px dashed #f0ecfb;break-inside:avoid;}
+.cd-stage-list li a{color:#5B4A9C;text-decoration:none;font-weight:600;font-size:.9rem;}
+.cd-stage-list li a:hover{color:#7A64B8;text-decoration:underline;}
+@media(max-width:900px){.cd-stage-grid{grid-template-columns:repeat(2,1fr);}.cd-stage-list{column-count:1;}}
+@media(max-width:540px){.cd-stage-grid{grid-template-columns:1fr;}}
+
+/* ===== HERO BANNER ===== */
+.cd-hero-banner{
+  position:relative;background:linear-gradient(135deg,rgba(91,74,156,0.92),rgba(122,100,184,0.87)),url('./images/cd-combat.jpg');
+  background-size:cover;background-position:center 30%;padding:70px 24px 58px;text-align:center;
+  border-bottom:3px solid #d4af37;
+}
+.cd-hero-content{position:relative;z-index:1;max-width:800px;margin:0 auto;}
+.cd-hero-banner h1{font-family:'Cinzel',serif;font-size:2.8rem;color:#fff;margin:0 0 10px;text-shadow:0 2px 16px rgba(0,0,0,.4);}
+.cd-hero-banner p{color:rgba(255,255,255,.92);font-size:1.12rem;margin:0 0 20px;}
+.cd-hero-meta{display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+.cd-hero-meta span{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.25);padding:4px 14px;border-radius:20px;font-size:.78rem;font-weight:700;}
+
+/* ===== STAGE CARD IMAGES ===== */
+.cd-stage-img{width:calc(100% + 36px);height:120px;object-fit:cover;margin:-18px -18px 14px;border-radius:10px 10px 0 0;display:block;}
+
+/* ===== VIEW ALL CARD ===== */
+.cd-view-all-card{grid-column:1/-1;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#7A64B8,#5B4A9C);color:#fff;border:2px solid #7A64B8;border-radius:12px;padding:16px;text-decoration:none;transition:all .2s ease;gap:10px;}
+.cd-view-all-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(122,100,184,0.25);}
+.cd-view-all-card span{font-weight:800;font-size:1.05rem;}
+
+@media(max-width:540px){
+  .cd-hero-banner h1{font-size:2rem;}
+  .cd-hero-banner p{font-size:1rem;}
+}
+</style>
+<meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<meta name="author" content="OSRS Guru">
+</head>
+<body>
+
+<!-- ========== HEADER / NAV (OSRS style) ========== -->
+<header class="cd-header">
+  <div class="cd-header-inner">
+    <a href="../../index.html" class="cd-logo">⚔️ Crimson Desert <span>Guru</span></a>
+    <span class="cd-badge">104 Guides · Free · Updated June 29, 2026</span>
+    <nav class="cd-nav">
+      <a href="#roadmap" class="nav-active">🗺️ Roadmap</a>
+      <a href="#topics">📑 Topics</a>
+      <a href="#hot-this-week">🔥 Forum Hot</a>
+      <a href="#monthly-hot">📅 Monthly Hot</a>
+      <a href="#new-player-zone" class="nav-highlight">🆕 New Players</a>
+      <a href="../../index.html" style="color:#ffd54f;">← OSRS Guru</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ========== HERO BANNER ========== -->
+<div class="cd-hero-banner">
+  <div class="cd-hero-content">
+    <h1>Crimson Desert Guide 2026</h1>
+    <p>Your complete strategy hub for Pywel. 104 expert guides, from first login to endgame.</p>
+    <div class="cd-hero-meta">
+      <span>104 Guides</span>
+      <span>Free</span>
+      <span>Updated 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SEARCH WITH AI ========== -->
+<div class="container">
+<div class="cd-search-box">
+  <div class="cd-search-title">🔍 Find Your Perfect Crimson Desert Guide</div>
+  <div class="cd-search-sub">Search 104 guides, or ask AI any Crimson Desert question 🤖</div>
+  <div class="cd-search-row">
+    <div class="cd-search-input-wrp">
+      <input type="text" class="cd-search-input" placeholder="e.g., Tenebrum, Boss Strategy, Fishing... (ask AI 🍑)">
+      <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;pointer-events:none;opacity:0.5;">🔍</span>
+    </div>
+    <button class="cd-search-btn" id="cd-search-ai-btn">🔍 AI Search</button>
+  </div>
+  <div style="margin-top:8px;font-size:.72rem;color:#7A64B8;text-align:center;">
+    💡 Tip: Type any question or browse by topic below — all 104 guides are free!
+  </div>
+  <div style="margin-top:10px;font-size:.74rem;color:#aaa;">
+    <span>🔥 Popular:</span>
+    <a href="crimson-desert-tenebrum-boss-guide-2026.html" style="color:#7A64B8;margin:0 4px;">Tenebrum</a>·
+    <a href="crimson-desert-staglord-boss-strategy-guide-2026.html" style="color:#7A64B8;margin:0 4px;">Staglord</a>·
+    <a href="crimson-desert-fishing-guide-2026.html" style="color:#7A64B8;margin:0 4px;">Fishing</a>·
+    <a href="crimson-desert-beginner-mistakes-guide-2026.html" style="color:#7A64B8;margin:0 4px;">Beginner Mistakes</a>·
+    <a href="crimson-desert-known-bugs-fixes-guide-2026.html" style="color:#7A64B8;margin:0 4px;">Bug Fixes</a>
+  </div>
+</div>
+</div>
+
+<!-- ========== CD STAGE ROUTING ========== -->
+<div class="container" id="pick-your-stage" style="margin-top:28px;">
+  <div class="cd-section-header" style="border-color:#7A64B8;">
+    <div class="cd-section-title">🎯 Pick Your Stage</div>
+    <span style="background:#7A64B8;color:#fff;padding:3px 10px;border-radius:10px;font-size:.7rem;font-weight:700;">104 Guides · 5 Stages</span>
+  </div>
+  <p style="color:#666;font-size:.9rem;margin:8px 0 0;padding:0 4px;">New to Pywel or chasing 100%? Jump straight to the guides that match where you are right now.</p>
+  <div class="cd-stage-grid">
+  <a class="cd-stage-card" href="all-guides.html#stage-new">
+    <img src="./images/cd-getting-started.jpg" alt="Crimson Desert New Player" class="cd-stage-img" loading="lazy">
+    <div class="cd-stage-emoji">🌱</div>
+    <div class="cd-stage-name">New Player</div>
+    <div class="cd-stage-desc">New to Pywel? Start here — your first 0–10 hours.</div>
+    <div class="cd-stage-count">12 Guides</div>
+  </a>
+  <a class="cd-stage-card" href="all-guides.html#stage-early">
+    <img src="./images/cd-combat.jpg" alt="Crimson Desert Early Game" class="cd-stage-img" loading="lazy">
+    <div class="cd-stage-emoji">⚔️</div>
+    <div class="cd-stage-name">Early Game</div>
+    <div class="cd-stage-desc">Core combat, quests, and your first bosses.</div>
+    <div class="cd-stage-count">19 Guides</div>
+  </a>
+  <a class="cd-stage-card" href="all-guides.html#stage-mid">
+    <img src="./images/cd-farming.jpg" alt="Crimson Desert Mid Game" class="cd-stage-img" loading="lazy">
+    <div class="cd-stage-emoji">🛡️</div>
+    <div class="cd-stage-name">Mid Game</div>
+    <div class="cd-stage-desc">Builds, gear, farming routes, and world bosses.</div>
+    <div class="cd-stage-count">33 Guides</div>
+  </a>
+  <a class="cd-stage-card" href="all-guides.html#stage-end">
+    <img src="./images/cd-story.jpg" alt="Crimson Desert Endgame" class="cd-stage-img" loading="lazy">
+    <div class="cd-stage-emoji">👑</div>
+    <div class="cd-stage-name">Endgame</div>
+    <div class="cd-stage-desc">Post-game, Abyss Sanctum, PvP, and 100% completion.</div>
+    <div class="cd-stage-count">15 Guides</div>
+  </a>
+  <a class="cd-stage-card" href="all-guides.html#stage-tech">
+    <img src="./images/cd-skills.jpg" alt="Crimson Desert Technical Guides" class="cd-stage-img" loading="lazy">
+    <div class="cd-stage-emoji">🔧</div>
+    <div class="cd-stage-name">Technical & Fixes</div>
+    <div class="cd-stage-desc">Performance, settings, crashes, and known bug fixes.</div>
+    <div class="cd-stage-count">25 Guides</div>
+  </a>
+  <a class="cd-view-all-card" href="all-guides.html">
+    <span>📚 View All 104 Guides →</span>
+  </a>
+  </div>
+</div>
+
+<!-- ========== TOPIC CATEGORIES (Classic view — kept for returning users) ========== -->
+<div class="container" id="topics">
+<div class="cd-section-header">
+  <div class="cd-section-title">📑 Explore Pywel — Guide Categories</div>
+  <div class="cd-section-links">
+    <a href="#combat-category">Combat</a>
+    <a href="#bosses-category">Bosses</a>
+    <a href="#skills-category">Skills</a>
+    <a href="#farming-category">Farming</a>
+    <a href="#gear-category">Gear</a>
+    <a href="#story-category">Story</a>
+  </div>
+</div>
+
+<div class="cd-cat-grid">
+
+  <!-- ====== CATEGORY 1: GETTING STARTED ====== -->
+  <div class="cd-cat-card" id="gear-category" data-first-article="crimson-desert-beginner-mistakes-guide-2026.html">
+    <a href="crimson-desert-beginner-mistakes-guide-2026.html" class="cd-cat-img-link"><img src="./images/cd-getting-started.jpg" alt="Crimson Desert Getting Started" class="cd-cat-img" loading="lazy"></a>
+    <div class="cd-cat-body">
+      <a href="crimson-desert-beginner-mistakes-guide-2026.html" class="cd-cat-title-link"><h3>🚀 Getting Started</h3></a>
+      <p>New player essentials — controls, common mistakes, bugs, and your first steps in Pywel.</p>
+      <div class="cd-cat-preview">
+        <a href="crimson-desert-beginner-mistakes-guide-2026.html" class="cd-cat-link">• Beginner Mistakes to Avoid 🆕</a>
+        <a href="crimson-desert-first-2-hours-checklist-guide-2026.html" class="cd-cat-link">• First 2 Hours Checklist 🆕</a>
+        <a href="crimson-desert-known-bugs-fixes-guide-2026.html" class="cd-cat-link">• Known Bugs & Fixes 🆕</a>
+        <a href="crimson-desert-crash-fix-guide-2026.html" class="cd-cat-link">• Crash Fix Guide 🆕</a>
+        <a href="crimson-desert-console-settings-guide-2026.html" class="cd-cat-link">• Console Settings 🆕</a>
+        <a href="crimson-desert-steam-deck-guide-2026.html" class="cd-cat-link">• Steam Deck Guide 🆕</a>
+        <a href="crimson-desert-113-ps5-performance-fix-2026.html" class="cd-cat-link">• 1.13 PS5 Performance Fix 🆕</a>
+        <a href="crimson-desert-113-controller-fix-2026.html" class="cd-cat-link">• 1.13 Controller Regression Fix 🆕</a>
+      </div>
+      <div><span class="cd-cat-count">16 Guides</span><span class="cd-cat-arrow">See All →</span></div>
+    </div>
+  </div>
+
+  <!-- ====== CATEGORY 2: COMBAT & BATTLE ====== -->
+  <div class="cd-cat-card" id="combat-category" data-first-article="crimson-desert-combat-guide-2026.html">
+    <a href="crimson-desert-combat-guide-2026.html" class="cd-cat-img-link"><img src="./images/cd-combat.jpg" alt="Crimson Desert Combat System" class="cd-cat-img" loading="lazy"></a>
+    <div class="cd-cat-body">
+      <a href="crimson-desert-combat-guide-2026.html" class="cd-cat-title-link"><h3>⚔️ Combat & Battle</h3></a>
+      <p>Master Pywel's combat: weapon enhancement, character builds, combos, parry timing, and more.</p>
+      <div class="cd-cat-preview">
+        <a href="crimson-desert-weapon-enhancement-guide-2026.html" class="cd-cat-link">• Weapon Enhancement Guide 🆕</a>
+        <a href="crimson-desert-kliff-build-guide-2026.html" class="cd-cat-link">• Kliff Build Guide 🆕</a>
+        <a href="crimson-desert-oongka-build-guide-2026.html" class="cd-cat-link">• Oongka Build Guide 🆕</a>
+        <a href="crimson-desert-damiane-build-guide-2026.html" class="cd-cat-link">• Damiane Build Guide 🆕</a>
+        <a href="crimson-desert-combat-guide-2026.html" class="cd-cat-link">• Complete Combat Guide (Core) 🌟</a>
+        <a href="crimson-desert-boss-weakness-guide-2026.html" class="cd-cat-link">• Boss Weakness Guide</a>
+      </div>
+      <div><span class="cd-cat-count">20 Guides</span><span class="cd-cat-arrow">See All →</span></div>
+    </div>
+  </div>
+
+  <!-- ====== CATEGORY 3: BOSS STRATEGIES ====== -->
+  <div class="cd-cat-card" id="bosses-category" data-first-article="crimson-desert-tenebrum-boss-guide-2026.html">
+    <a href="crimson-desert-tenebrum-boss-guide-2026.html" class="cd-cat-img-link"><img src="./images/cd-bosses.jpg" alt="Crimson Desert Boss Fights" class="cd-cat-img" loading="lazy"></a>
+    <div class="cd-cat-body">
+      <a href="crimson-desert-tenebrum-boss-guide-2026.html" class="cd-cat-title-link"><h3>👹 Boss Strategies</h3></a>
+      <p>Detailed boss guides with phase breakdowns, including the new Abyss Sanctum dungeon.</p>
+      <div class="cd-cat-preview">
+        <a href="crimson-desert-abyss-sanctum-guide-2026.html" class="cd-cat-link">• Abyss Sanctum Dungeon 🆕</a>
+        <a href="crimson-desert-sanctum-rewards-guide-2026.html" class="cd-cat-link">• Sanctum Rewards & Boss Loot 🆕</a>
+        <a href="crimson-desert-abyss-core-guide-2026.html" class="cd-cat-link">• Abyss Core System Guide 🆕</a>
+        <a href="crimson-desert-core-farming-guide-2026.html" class="cd-cat-link">• Core Farming Locations 🆕</a>
+        <a href="crimson-desert-tenebrum-boss-guide-2026.html" class="cd-cat-link">• Tenebrum Flight Boss 🔥</a>
+        <a href="crimson-desert-world-bosses-guide-2026.html" class="cd-cat-link">• World Bosses Guide</a>
+      </div>
+      <div><span class="cd-cat-count">14 Guides</span><span class="cd-cat-arrow">See All →</span></div>
+    </div>
+  </div>
+
+  <!-- ====== CATEGORY 4: SKILLS & ABILITIES ====== -->
+  <div class="cd-cat-card" id="skills-category" data-first-article="crimson-desert-best-skills-unlock-first-guide-2026.html">
+    <a href="crimson-desert-best-skills-unlock-first-guide-2026.html" class="cd-cat-img-link"><img src="./images/cd-skills.jpg" alt="Crimson Desert Skills & Abilities" class="cd-cat-img" loading="lazy"></a>
+    <div class="cd-cat-body">
+      <a href="crimson-desert-best-skills-unlock-first-guide-2026.html" class="cd-cat-title-link"><h3>🎯 Skills & Abilities</h3></a>
+      <p>Skill trees, unlock priorities, Kuku Pot, card game, and character progression.</p>
+      <div class="cd-cat-preview">
+        <a href="crimson-desert-kuku-guide-2026.html" class="cd-cat-link">• Kuku Pot System Guide 🆕</a>
+        <a href="crimson-desert-kuku-evolution-guide-2026.html" class="cd-cat-link">• Kuku Evolution Routes 🆕</a>
+        <a href="crimson-desert-card-game-guide-2026.html" class="cd-cat-link">• Card Game Rules & Strategy 🆕</a>
+        <a href="crimson-desert-card-collection-guide-2026.html" class="cd-cat-link">• Card Collection Guide 🆕</a>
+        <a href="crimson-desert-best-skills-unlock-first-guide-2026.html" class="cd-cat-link">• Best Skills to Unlock First</a>
+        <a href="crimson-desert-faction-guide-2026.html" class="cd-cat-link">• Faction Guide</a>
+      </div>
+      <div><span class="cd-cat-count">11 Guides</span><span class="cd-cat-arrow">See All →</span></div>
+    </div>
+  </div>
+
+  <!-- ====== CATEGORY 5: FARMING & CRAFTING ====== -->
+  <div class="cd-cat-card" id="farming-category" data-first-article="crimson-desert-abyss-artifacts-farming-guide-2026.html">
+    <a href="crimson-desert-abyss-artifacts-farming-guide-2026.html" class="cd-cat-img-link"><img src="./images/cd-farming.jpg" alt="Crimson Desert Farming & Crafting" class="cd-cat-img" loading="lazy"></a>
+    <div class="cd-cat-body">
+      <a href="crimson-desert-abyss-artifacts-farming-guide-2026.html" class="cd-cat-title-link"><h3>💰 Farming & Crafting</h3></a>
+      <p>Mid-game gear, conversion farming, achievements, and efficient progression routes.</p>
+      <div class="cd-cat-preview">
+        <a href="crimson-desert-mid-game-gear-guide-2026.html" class="cd-cat-link">• Mid-Game Gear Transition 🆕</a>
+        <a href="crimson-desert-mid-gear-locations-guide-2026.html" class="cd-cat-link">• Mid Gear Locations 🆕</a>
+        <a href="crimson-desert-conversion-mechanics-guide-2026.html" class="cd-cat-link">• Conversion Mechanics Guide 🆕</a>
+        <a href="crimson-desert-conversion-farming-guide-2026.html" class="cd-cat-link">• Conversion Farming Routes 🆕</a>
+        <a href="crimson-desert-achievements-guide-2026.html" class="cd-cat-link">• Achievements Guide 🆕</a>
+        <a href="crimson-desert-achievement-speedrun-guide-2026.html" class="cd-cat-link">• Achievement Speedrun 🆕</a>
+      </div>
+      <div><span class="cd-cat-count">21 Guides</span><span class="cd-cat-arrow">See All →</span></div>
+    </div>
+  </div>
+
+  <!-- ====== CATEGORY 6: STORY & SECRETS ====== -->
+  <div class="cd-cat-card" id="story-category" data-first-article="crimson-desert-treasure-map-locations-guide-2026.html">
+    <a href="crimson-desert-treasure-map-locations-guide-2026.html" class="cd-cat-img-link"><img src="./images/cd-story.jpg" alt="Crimson Desert Story & Secrets" class="cd-cat-img" loading="lazy"></a>
+    <div class="cd-cat-body">
+      <a href="crimson-desert-treasure-map-locations-guide-2026.html" class="cd-cat-title-link"><h3>📜 Story & Secrets</h3></a>
+      <p>Lore exploration, post-game content, hidden secrets, and story progression across Pywel.</p>
+      <div class="cd-cat-preview">
+        <a href="crimson-desert-post-game-guide-2026.html" class="cd-cat-link">• Post Game Challenge Guide 🆕</a>
+        <a href="crimson-desert-post-game-secrets-guide-2026.html" class="cd-cat-link">• Post Game Secrets 🆕</a>
+        <a href="crimson-desert-collectibles-guide-2026.html" class="cd-cat-link">• Collectibles & Stones</a>
+        <a href="crimson-desert-npc-locations-guide-2026.html" class="cd-cat-link">• NPC Locations</a>
+        <a href="crimson-desert-side-quests-guide-2026.html" class="cd-cat-link">• Side Quests Guide</a>
+        <a href="crimson-desert-treasure-map-locations-guide-2026.html" class="cd-cat-link">• Treasure Maps (All 15) 🗺️</a>
+      </div>
+      <div><span class="cd-cat-count">14 Guides</span><span class="cd-cat-arrow">See All →</span></div>
+    </div>
+  </div>
+
+</div><!-- end cd-cat-grid -->
+</div><!-- end container -->
+
+<!-- ========== LATEST FIXES & TROUBLESHOOTING ========== -->
+<div class="container" id="latest-fixes">
+<div class="cd-section-header" style="border-color:#7A64B8;">
+  <div class="cd-section-title">🆕 This Week's Updates</div>
+  <span style="background:#7A64B8;color:#fff;padding:3px 10px;border-radius:10px;font-size:.7rem;font-weight:700;">🔧 11 New Fix Guides</span>
+</div>
+<p style="color:#666;font-size:.9rem;margin:8px 0 0;padding:0 4px;">Crash, launch, GPU, and gameplay bug fixes published this week</p>
+
+<div class="cd-hot-grid">
+
+  <div class="cd-hot-card">
+    <h4>🌧️ FSR4 Rain Rendering Bug Fix <span class="cd-mini-tag">Intermediate</span></h4>
+    <p>Fix FSR4 frame-gen rain blur and rendering corruption on AMD/FSR GPUs.</p>
+    <ul>
+      <li><a href="crimson-desert-fsr4-rain-bug-fix-2026.html">Read the Fix →</a></li>
+    </ul>
+  </div>
+
+  <div class="cd-hot-card">
+    <h4>🕹️ Clunky Movement Feel Fix <span class="cd-mini-tag">Beginner</span></h4>
+    <p>Smooth out sluggish, unresponsive movement and input lag on PC and console.</p>
+    <ul>
+      <li><a href="crimson-desert-clunky-movement-feel-fix-2026.html">Read the Fix →</a></li>
+    </ul>
+  </div>
+
+  <div class="cd-hot-card">
+    <h4>🌿 Shadow Flicker &amp; Vegetation Jitter Fix <span class="cd-mini-tag">Novice</span></h4>
+    <p>Stop flickering shadows and jittery foliage with these graphics tweaks.</p>
+    <ul>
+      <li><a href="crimson-desert-shadow-flicker-vegetation-fix-2026.html">Read the Fix →</a></li>
+    </ul>
+  </div>
+
+  <div class="cd-hot-card">
+    <h4>🖥️ GTX 1060 White Screen Fix <span class="cd-mini-tag">Novice</span></h4>
+    <p>Resolve the white screen crash on GTX 1060 at launch and in cutscenes.</p>
+    <ul>
+      <li><a href="crimson-desert-gtx1060-white-screen-fix-2026.html">Read the Fix →</a></li>
+    </ul>
+  </div>
+
+  <div class="cd-hot-card">
+    <h4>❤️ Blackstar Health Bar Not Refreshing Fix <span class="cd-mini-tag">Advanced</span></h4>
+    <p>Fix the Blackstar health bar that won't update or refresh during combat.</p>
+    <ul>
+      <li><a href="crimson-desert-blackstar-health-not-refreshing-fix-2026.html">Read the Fix →</a></li>
+    </ul>
+  </div>
+
+  <div class="cd-hot-card">
+    <h4>🎮 Xbox PC App Won't Launch Fix <span class="cd-mini-tag">Beginner</span></h4>
+    <p>Get Crimson Desert launching again through the Xbox PC app.</p>
+    <ul>
+      <li><a href="crimson-desert-xbox-pc-wont-launch-fix-2026.html">Read the Fix →</a></li>
+    </ul>
+  </div>
+
+  <div class="cd-hot-card">
+    <h4>🎮 ROG Ally Won't Launch Fix <span class="cd-mini-tag">Beginner</span></h4>
+    <p>Fix Crimson Desert failing to start on the ASUS ROG Ally handheld.</p>
+    <ul>
+      <li><a href="crimson-desert-rog-ally-wont-launch-fix-2026.html">Read the Fix →</a></li>
+    </ul>
+  </div>
+
+  <div class="cd-hot-card">
+    <h4>💡 Intel Arc GPU Support <span class="cd-mini-tag">Novice</span></h4>
+    <p>Enable Intel Arc GPU support and stable performance on Alchemist/Battlemage.</p>
+    <ul>
+      <li><a href="crimson-desert-intel-arc-support-fix-2026.html">Read the Fix →</a></li>
+    </ul>
+  </div>
+
+  <div class="cd-hot-card">
+    <h4>⚡ RTX 50-Series Crash Fix <span class="cd-mini-tag">Novice</span></h4>
+    <p>Stop RTX 5090/5080 crashes and driver errors in Crimson Desert.</p>
+    <ul>
+      <li><a href="crimson-desert-rtx50-crash-fix-2026.html">Read the Fix →</a></li>
+    </ul>
+  </div>
+
+  <div class="cd-hot-card">
+    <h4>🎣 Fishing Fish Won't Move Bug Fix <span class="cd-mini-tag">Novice</span></h4>
+    <p>Fix the bug where fish won't bite or move while fishing.</p>
+    <ul>
+      <li><a href="crimson-desert-fishing-fish-wont-move-fix-2026.html">Read the Fix →</a></li>
+    </ul>
+  </div>
+
+  <div class="cd-hot-card">
+    <h4>⌨️ PS5 Keyboard Stuck Fix <span class="cd-mini-tag">Novice</span></h4>
+    <p>Unstick a frozen keyboard input on PS5 when using chat/keyboard.</p>
+    <ul>
+      <li><a href="crimson-desert-ps5-keyboard-stuck-fix-2026.html">Read the Fix →</a></li>
+    </ul>
+  </div>
+
+</div><!-- end cd-hot-grid -->
+</div><!-- end container -->
+
+<!-- ========== THIS WEEK'S HOT ========== -->
+<div class="container" id="hot-this-week">
+<div class="cd-section-header" style="border-color:#d4af37;">
+  <div class="cd-section-title" style="color:#3b2615;">🔥 Forum Hottest This Week — What Players Are Asking Right Now</div>
+  <span style="background:#e74c3c;color:#fff;padding:3px 10px;border-radius:10px;font-size:.7rem;font-weight:700;">🆕 +45+ New This Month</span>
+</div>
+<p style="color:#666;font-size:.9rem;margin:8px 0 0;padding:0 4px;">From real player discussions — the guides you need right now</p>
+
+<div class="cd-hot-grid">
+
+  <div class="cd-hot-card">
+    <h4>🔰 New Player Essentials</h4>
+    <p>Fresh guides for beginners hitting Pywel this week.</p>
+    <ul>
+      <li><a href="crimson-desert-beginner-money-guide-2026.html">💰 Beginner Money Guide<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-lost-items-guide-2026.html">📦 Lost Items Recovery<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-vendor-guide-2026.html">🏪 Keep vs Sell Guide<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-console-settings-guide-2026.html">🎮 Console Settings<span class="cd-mini-tag">NEW</span></a></li>
+    </ul>
+  </div>
+
+  <div class="cd-hot-card">
+    <h4>⚔️ Combat & Bosses</h4>
+    <p>New combat and boss strategies trending now.</p>
+    <ul>
+      <li><a href="crimson-desert-world-bosses-guide-2026.html">🌍 All World Bosses Guide<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-boss-weakness-guide-2026.html">🎯 Boss Weak Points Guide<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-hidden-boss-guide-2026.html">👻 Hidden Bosses Guide<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-crash-fix-guide-2026.html">🔧 Frame Gen Crash Fix<span class="cd-mini-tag">NEW</span></a></li>
+    </ul>
+  </div>
+
+  <div class="cd-hot-card">
+    <h4>📜 Systems & Updates</h4>
+    <p>Latest patch analysis and system deep dives.</p>
+    <ul>
+      <li><a href="crimson-desert-1-12-update-guide-2026.html">📋 1.12 Update Guide<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-faction-guide-2026.html">🏴 Faction Guide<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-reputation-farming-guide-2026.html">⭐ Reputation Farming<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-commission-bounty-guide-2026.html">🎯 Commission & Bounty Guide<span class="cd-mini-tag">NEW</span></a></li>
+    </ul>
+  </div>
+
+  <div class="cd-hot-card">
+    <h4>🗺️ Exploration & Collectibles</h4>
+    <p>New guides for completionists and explorers.</p>
+    <ul>
+      <li><a href="crimson-desert-collectibles-guide-2026.html">💎 All Collectibles Guide<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-npc-locations-guide-2026.html">📍 NPC Locations Guide<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-side-quests-guide-2026.html">📜 Side Quests Guide<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-gold-farming-1-12-guide-2026.html">💰 Gold Farming Guide<span class="cd-mini-tag">NEW</span></a></li>
+    </ul>
+  </div>
+
+</div><!-- end cd-hot-grid -->
+</div>
+</div>
+</div>
+
+<!-- ========== MONTHLY HOT UPDATES — JUNE 2026 ========== -->
+<div class="container" id="monthly-hot">
+<div class="cd-section-header" style="border-color:#7A64B8;">
+  <div class="cd-section-title">📅 Monthly Hot Updates — June 2026</div>
+  <span style="background:#7A64B8;color:#fff;padding:3px 10px;border-radius:10px;font-size:.7rem;font-weight:700;">🔥 24 New Guides This Month</span>
+</div>
+<p style="color:#666;font-size:.9rem;margin:8px 0 0;padding:0 4px;">All 24 brand-new guides published in June — combat builds, bosses, systems, and endgame</p>
+
+<div class="cd-hot-grid">
+
+  <div class="cd-hot-card">
+    <h4>⚔️ Combat & Character Builds</h4>
+    <p>Weapon enhancement and character build guides.</p>
+    <ul>
+      <li><a href="crimson-desert-weapon-enhancement-guide-2026.html">🛠️ Weapon Enhancement Guide<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-enhancement-materials-guide-2026.html">📦 Enhancement Materials<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-kliff-build-guide-2026.html">🗡️ Kliff Build Guide<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-kliff-combos-guide-2026.html">💥 Kliff Advanced Combos<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-oongka-build-guide-2026.html">🪓 Oongka Build Guide<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-oongka-dual-wield-guide-2026.html">⚡ Oongka Dual Wield/Rage<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-damiane-build-guide-2026.html">🛡️ Damiane Build Guide<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-damiane-shield-guide-2026.html">🔰 Damiane Shield Survival<span class="cd-mini-tag">NEW</span></a></li>
+    </ul>
+  </div>
+
+  <div class="cd-hot-card">
+    <h4>👹 Bosses & Dungeons</h4>
+    <p>New Abyss Sanctum dungeon and Core system guides.</p>
+    <ul>
+      <li><a href="crimson-desert-abyss-sanctum-guide-2026.html">🏛️ Abyss Sanctum Dungeon<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-sanctum-rewards-guide-2026.html">💰 Sanctum Rewards & Boss Loot<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-abyss-core-guide-2026.html">💎 Abyss Core System Guide<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-core-farming-guide-2026.html">⛏️ Core Farming Locations<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-mid-game-gear-guide-2026.html">🔧 Mid-Game Gear Transition<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-mid-gear-locations-guide-2026.html">📍 Mid Gear Locations<span class="cd-mini-tag">NEW</span></a></li>
+    </ul>
+  </div>
+
+  <div class="cd-hot-card">
+    <h4>🎮 Systems & Minigames</h4>
+    <p>Kuku Pot, card game, and conversion mechanics.</p>
+    <ul>
+      <li><a href="crimson-desert-kuku-guide-2026.html">🫙 Kuku Pot System Guide<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-kuku-evolution-guide-2026.html">🔄 Kuku Evolution Routes<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-card-game-guide-2026.html">🃏 Card Game Rules & Strategy<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-card-collection-guide-2026.html">📚 Card Collection Guide<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-conversion-mechanics-guide-2026.html">🔄 Conversion Mechanics<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-conversion-farming-guide-2026.html">🌾 Conversion Farming Routes<span class="cd-mini-tag">NEW</span></a></li>
+    </ul>
+  </div>
+
+  <div class="cd-hot-card">
+    <h4>📈 Progression & Endgame</h4>
+    <p>Post-game, achievements, and endgame content.</p>
+    <ul>
+      <li><a href="crimson-desert-post-game-guide-2026.html">🏆 Post Game Challenge Guide<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-post-game-secrets-guide-2026.html">🔍 Post Game Hidden Secrets<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-achievements-guide-2026.html">🏅 Achievements Guide<span class="cd-mini-tag">NEW</span></a></li>
+      <li><a href="crimson-desert-achievement-speedrun-guide-2026.html">⚡ Achievement Speedrun<span class="cd-mini-tag">NEW</span></a></li>
+    </ul>
+  </div>
+
+</div><!-- end cd-hot-grid -->
+</div>
+</div>
+
+<!-- ========== NEW PLAYER ZONE (Below categories, accessible via nav) ========== -->
+<div class="container" id="new-player-zone">
+<a href="#new-player-zone" class="cd-newplayer-banner">
+  <div style="flex:1;">
+    <div class="cd-np-title">
+      <strong>New to Crimson Desert?</strong>
+      <span class="cd-np-badge">📅 4-Week Learning Path</span>
+    </div>
+    <div class="cd-np-sub">15+ guides organized into a step-by-step roadmap — from your first login to beating your first boss</div>
+  </div>
+  <span class="cd-np-btn">🧭 Jump to Roadmap ↓</span>
+</a>
+</div>
+
+<!-- ========== 4-WEEK ROADMAP ========== -->
+<div class="container" id="roadmap">
+<div class="cd-section-header" style="background:linear-gradient(135deg,#fffbf0,#fff);border-color:#d4af37;">
+  <div class="cd-section-title" style="color:#8b6914;" id="roadmap">🗺️ New Player Roadmap — Your First 4 Weeks in Pywel</div>
+  <a href="#new-player-zone" class="cd-see-all" style="color:#b8960f;">📚 All 20+ Beginner Guides →</a>
+</div>
+<p style="color:#666;font-size:.9rem;margin:8px 0 0;padding:0 4px;">Follow this week-by-week path from first login to boss-ready mercenary</p>
+
+<div class="cd-week-grid">
+
+  <!-- WEEK 1 -->
+  <div class="cd-week-card" id="week-1">
+    <div class="cd-wh">
+      <span class="cd-wh-tag">WEEK 1</span>
+      <span class="cd-wh-goal">🎯 Goal: Learn the Basics</span>
+    </div>
+    <div class="cd-wb">
+      <h4>🎮 First Steps in Pywel</h4>
+      <p>Master controls, interface, and core systems before your first fight.</p>
+      <ul class="cd-wl">
+        <li><a href="crimson-desert-controls-keybindings-guide-2026.html">Controls & Keybindings Deep Dive</a> <span style="background:#7A64B8;color:#fff;font-size:.6rem;padding:1px 6px;border-radius:6px;">🌟 START</span></li>
+        <li><a href="crimson-desert-first-2-hours-checklist-guide-2026.html">First 2 Hours Checklist</a></li>
+        <li><a href="crimson-desert-beginner-mistakes-guide-2026.html">10 Worst Beginner Mistakes</a></li>
+        <li><a href="crimson-desert-known-bugs-fixes-guide-2026.html">Known Bugs & Quick Fixes</a></li>
+        <li><a href="crimson-desert-inventory-backpack-guide-2026.html">Inventory & Backpack Guide</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WEEK 2 -->
+  <div class="cd-week-card" id="week-2">
+    <div class="cd-wh">
+      <span class="cd-wh-tag" style="background:linear-gradient(135deg,#e8734a,#d35400);">WEEK 2</span>
+      <span class="cd-wh-goal">🎯 Goal: Combat Ready</span>
+    </div>
+    <div class="cd-wb">
+      <h4>⚔️ Learn to Fight</h4>
+      <p>Combat fundamentals — parrying, dodging, combos, and stamina.</p>
+      <ul class="cd-wl">
+        <li><a href="crimson-desert-parry-timing-dodge-guide-2026.html">Parry Timing & Perfect Dodge</a></li>
+        <li><a href="crimson-desert-weapon-combos-beginner-guide-2026.html">Weapon Combos for Beginners</a></li>
+        <li><a href="crimson-desert-stamina-management-guide-2026.html">Stamina Management Guide</a></li>
+        <li><a href="crimson-desert-best-skills-unlock-first-guide-2026.html">Best Skills to Unlock First</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WEEK 3 -->
+  <div class="cd-week-card" id="week-3">
+    <div class="cd-wh">
+      <span class="cd-wh-tag" style="background:linear-gradient(135deg,#27ae60,#1e8449);">WEEK 3</span>
+      <span class="cd-wh-goal">🎯 Goal: Gather & Craft</span>
+    </div>
+    <div class="cd-wb">
+      <h4>💰 Build Your Resources</h4>
+      <p>Gathering routes, camp system, cooking, and preparing for harder content.</p>
+      <ul class="cd-wl">
+        <li><a href="crimson-desert-resource-gathering-routes-guide-2026.html">Resource Gathering Routes</a>
+        <a href="crimson-desert-beginner-money-guide-2026.html" class="cd-cat-link">• Beginner Money Making</a>
+        <a href="crimson-desert-gold-farming-1-12-guide-2026.html" class="cd-cat-link">• Gold Farming 1.12</a>
+        <a href="crimson-desert-commission-bounty-guide-2026.html" class="cd-cat-link">• Commission & Bounty System</a>
+        <a href="crimson-desert-reputation-farming-guide-2026.html" class="cd-cat-link">• Reputation Farming</a>
+        <a href="crimson-desert-npc-locations-guide-2026.html" class="cd-cat-link">• All NPC Locations</a>
+        <a href="crimson-desert-vendor-guide-2026.html" class="cd-cat-link">• Vendor & Shop Guide</a>
+        <a href="crimson-desert-money-farming-guide-2026.html" class="cd-cat-link">• Money Farming Methods</a>
+        <a href="crimson-desert-camp-farm-guide-2026.html" class="cd-cat-link">• Camp Farming Guide</a></li>
+        <li><a href="crimson-desert-camp-system-starter-guide-2026.html">Camp System Starter Guide</a></li>
+        <li><a href="crimson-desert-fishing-guide-2026.html">Fishing Complete Guide</a></li>
+        <li><a href="crimson-desert-cooking-alchemy-recipes-guide-2026.html">Cooking & Alchemy Recipes</a></li>
+        <li><a href="crimson-desert-abyss-artifacts-farming-guide-2026.html">Abyss Artifacts Farming</a></li>
+        <li><a href="crimson-desert-beginner-money-guide-2026.html">Beginner Money Making</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WEEK 4 -->
+  <div class="cd-week-card" id="week-4">
+    <div class="cd-wh">
+      <span class="cd-wh-tag" style="background:linear-gradient(135deg,#8e44ad,#6c3483);">WEEK 4</span>
+      <span class="cd-wh-goal">🎯 Goal: First Boss Victory</span>
+    </div>
+    <div class="cd-wb">
+      <h4>👹 Face Your First Boss</h4>
+      <p>Gear checklist, boss strategy prep, and defeating Staglord.</p>
+      <ul class="cd-wl">
+        <li><a href="crimson-desert-pre-boss-gear-checklist-guide-2026.html">Pre-Boss Gear Checklist</a></li>
+        <li><a href="crimson-desert-first-boss-staglord-prep-guide-2026.html">First Boss: Staglord Preparation</a></li>
+        <li><a href="crimson-desert-staglord-boss-strategy-guide-2026.html">Staglord Boss Full Strategy</a></li>
+        <li><a href="crimson-desert-treasure-map-locations-guide-2026.html">Treasure Maps (Bonus Content)</a></li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- end cd-week-grid -->
+</div><!-- end container -->
+
+<!-- ========== SUPPORT CARD ========== -->
+    <div class="related-guides">
+      <h3>More Crimson Desert Guides</h3>
+      <div class="article-grid">
+        <a href="crimson-desert-2-0-enhanced-update-guide-2026.html" class="article-card">
+          <h3>Crimson Desert Update 2.0 (Enhanced) Full Breakdown 2026 <span style="background:#d4af37;color:#fff;padding:2px 9px;border-radius:10px;font-size:11px;margin-left:6px;font-weight:700;">🆕 NEW</span></h3>
+          <p>The August 25 update wiped every skill tree, split the three characters' stat pools apart, and added Abyss Link, New Game Plus and phased world bosses. Here is what changed and what to do first.</p>
+        </a>
+        <a href="crimson-desert-2-0-skill-reset-rebuild-guide-2026.html" class="article-card">
+          <h3>Crimson Desert 2.0 Skill Reset Rebuild Guide 2026 <span style="background:#d4af37;color:#fff;padding:2px 9px;border-radius:10px;font-size:11px;margin-left:6px;font-weight:700;">🆕 NEW</span></h3>
+          <p>Your skill progress was cleared on first launch and your Abyss Artifacts were refunded in full. Rebuild Kliff, Damiane and Oongka in the right order instead of re-buying your old tree on autopilot.</p>
+        </a>
+        <a href="crimson-desert-abyss-link-system-guide-2026.html" class="article-card">
+          <h3>Crimson Desert Abyss Link System Guide 2026 <span style="background:#d4af37;color:#fff;padding:2px 9px;border-radius:10px;font-size:11px;margin-left:6px;font-weight:700;">🆕 NEW</span></h3>
+          <p>How the shared skill resource added in Update 2.0 actually works, what Pearl Abyss has confirmed versus what the community is still testing, and why spreading resources across all three characters is a mistake right now.</p>
+        </a>
+        <a href="crimson-desert-best-starter-build-comparison-2026.html" class="article-card">
+          <h3>Crimson Desert Best Starter Build Comparison 2026 <span style="background:#d4af37;color:#fff;padding:2px 9px;border-radius:10px;font-size:11px;margin-left:6px;font-weight:700;">🆕 NEW</span></h3>
+          <p>Kliff vs Damiane vs Oongka — ranked by solo survivability, co-op value, and late-game scaling. Pick the right starter and avoid new-player build mistakes.</p>
+        </a>
+        <a href="crimson-desert-new-game-plus-guide-2026.html" class="article-card">
+          <h3>Crimson Desert New Game Plus Guide 2026 <span style="background:#d4af37;color:#fff;padding:2px 9px;border-radius:10px;font-size:11px;margin-left:6px;font-weight:700;">🆕 NEW</span></h3>
+          <p>The exact unlock condition for NG+ added in Update 2.0, what officially carries over — Abyss Link and currency — what remains unverified, and whether a second run is actually worth your time.</p>
+        </a>
+        <a href="crimson-desert-forgotten-general-boss-guide-2026.html" class="article-card">
+          <h3>Crimson Desert Forgotten General Boss Guide 2026 <span style="background:#d4af37;color:#fff;padding:2px 9px;border-radius:10px;font-size:11px;margin-left:6px;font-weight:700;">🆕 NEW</span></h3>
+          <p>Why this fight is called the game's Malenia — the phantom knights mechanic and how 2.0 changed it, the aggression switch that punishes both passive and reckless play, plus Abyss Core setup and the common deaths explained.</p>
+        </a>
+        <a href="crimson-desert-excavator-boss-guide-2026.html" class="article-card">
+          <h3>Crimson Desert Excavator Boss Guide 2026 <span style="background:#d4af37;color:#fff;padding:2px 9px;border-radius:10px;font-size:11px;margin-left:6px;font-weight:700;">🆕 NEW</span></h3>
+          <p>The drill boss is the single most complained-about fight of the last month — and almost every complaint has the same root cause: a light dodge tap gives you a side-step, not a roll. Fix that one input and the fight changes completely.</p>
+        </a>
+        <a href="../../index.html" class="article-card">
+          <h3>Crimson Desert 1.10 Update Complete Guide 2026</h3>
+          <p>Crimson Desert 1.10 update complete guide — flying dragon mount, cuckoo pet, pinball and ball rol...</p>
+        </a>
+        <a href="../../index.html" class="article-card">
+          <h3>Crimson Desert 1.11 Update Complete Guide — Everything New in ...</h3>
+          <p>Crimson Desert 1.11 update complete guide — new pets, building rework, boss balance changes, mini...</p>
+        </a>
+        <a href="../../index.html" class="article-card">
+          <h3>Crimson Desert Full Achievement & Trophy Guide —Complete Unl...</h3>
+          <p>Complete Crimson Desert achievement and trophy guide. All 50+ achievements listed with unlock con...</p>
+        </a>
+        <a href="../osrs-ironman-beginner-guide-2026.html" class="article-card">
+          <h3>OSRS Ironman Beginner Guide 2026 — Complete Starter Guide</h3>
+          <p>Complete OSRS Ironman Beginner Guide 2026. Start your Ironman journey the right way — early goals...</p>
+        </a>
+        <a href="../osrs-new-player-guide-2026.html" class="article-card">
+          <h3>OSRS New Player Guide 2026 — Complete Beginner's Handbook</h3>
+          <p>Start OSRS in 2026 the right way. Complete step-by-step beginner guide covering account setup, tu...</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">&#127807;</span>
+        <div class="support-text">
+            <h3>This Crimson Desert guide stays free either way.</h3>
+            <p>If it saved you time, a $1 tip helps us keep writing more guides.</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn recommended">&#127807; Buy me a pack of gum — $1.00</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">No paywall, no subscription — just a thank-you if you can. &#129309;</p>
+        </div>
+    </div>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer" style="margin-top:40px;">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Crimson Desert Guru</div>
+        <p>Your go-to Crimson Desert guide hub. 104 expert articles updated for 2026. Part of OSRS Guru network.</p>
+        <p style="margin-top:8px"><a href="../../index.html" style="color:var(--text-muted)">About</a> · <a href="../../index.html" style="color:var(--text-muted)">Privacy Policy</a> · <a href="../../index.html" style="color:var(--text-muted)">← OSRS Guru Home</a></p>
+      </div>
+      <div class="footer-col"><h4>Getting Started</h4><ul>
+        <li><a href="crimson-desert-beginner-mistakes-guide-2026.html">Beginner Mistakes</a></li>
+        <li><a href="crimson-desert-controls-keybindings-guide-2026.html">Controls & Keys</a></li>
+        <li><a href="crimson-desert-known-bugs-fixes-guide-2026.html">Bug Fixes</a></li>
+        <li><a href="crimson-desert-inventory-backpack-guide-2026.html">Inventory Guide</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Combat &amp; Bosses</h4><ul>
+        <li><a href="crimson-desert-combat-guide-2026.html">Combat Guide (Core)</a></li>
+        <li><a href="crimson-desert-tenebrum-boss-guide-2026.html">Tenebrum Boss</a></li>
+        <li><a href="crimson-desert-staglord-boss-strategy-guide-2026.html">Staglord Boss</a></li>
+        <li><a href="crimson-desert-matthias-boss-guide-2026.html">Matthias Boss</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Farming &amp; Skills</h4><ul>
+        <li><a href="crimson-desert-abyss-artifacts-farming-guide-2026.html">Abyss Artifacts</a></li>
+        <li><a href="crimson-desert-fishing-guide-2026.html">Fishing Guide</a></li>
+        <li><a href="crimson-desert-best-skills-unlock-first-guide-2026.html">Skills Priority</a></li>
+        <li><a href="crimson-desert-cooking-alchemy-recipes-guide-2026.html">Cooking/Alchemy</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>🗺️ New Players</h4><ul>
+        <li><a href="#roadmap">4-Week Roadmap ↑</a></li>
+        <li><a href="crimson-desert-first-2-hours-checklist-guide-2026.html">First 2 Hours</a></li>
+        <li><a href="crimson-desert-parry-timing-dodge-guide-2026.html">Parry & Dodge</a></li>
+        <li><a href="crimson-desert-pre-boss-gear-checklist-guide-2026.html">Gear Checklist</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Crimson Desert Guru (OSRS Guru Network) — Fan site, not affiliated with Pearl Abyss Corp.</span>
+    </div>
+    <p class="footer-disclaimer">This site may contain affiliate links. We earn a small commission at no extra cost to you.</p>
+    <p class="footer-disclaimer" style="font-size:.78rem;color:var(--text-muted);margin-top:4px;line-height:1.5">
+      Created using Pearl Abyss Corporation's intellectual property. 
+      Complies with Pearl Abyss fan content guidelines. 
+      This content is not endorsed by or affiliated with Pearl Abyss. 
+      Crimson Desert is a trademark of <a href="https://pearlabyss.com" target="_blank" rel="noopener" style="color:var(--text-muted);text-decoration:underline">Pearl Abyss Corp</a>.
+    </p>
+  </div>
+        <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+
+<!-- ========== AI ASSISTANT WIDGET ========== -->
+<script src="../../js/ai-qa-widget.js"></script>
+<script>
+// Make category cards clickable → jump to first article
+document.querySelectorAll('.cd-cat-card').forEach(function(card) {
+  card.addEventListener('click', function(e) {
+    // If the clicked element is an <a> link itself, don't intercept (let it navigate naturally)
+    if (e.target.closest('a')) return;
+    var url = this.getAttribute('data-first-article');
+    if (url) window.location.href = url;
+  });
+});
+// Search box → trigger AI assistant
+document.getElementById('cd-search-ai-btn').addEventListener('click', function() {
+  var query = document.querySelector('.cd-search-input').value.trim();
+  var toggleBtn = document.getElementById('osrs-qa-toggle-btn');
+  if (toggleBtn) {
+    toggleBtn.click(); // open AI assistant
+    if (query) {
+      // Pre-fill the search term
+      setTimeout(function() {
+        var input = document.querySelector('#osrs-qa-widget .qa-input');
+        if (input) { input.value = query; }
+      }, 300);
+    }
+  } else {
+    alert('AI Assistant is loading... Please try again in a moment!');
+  }
+});
+// Enter key also triggers
+document.querySelector('.cd-search-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') document.getElementById('cd-search-ai-btn').click();
+});
+</script>
+
+</body>
+</html>
