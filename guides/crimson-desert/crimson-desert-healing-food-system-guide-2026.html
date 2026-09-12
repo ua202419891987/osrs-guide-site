@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert Healing &amp; Food System Guide 2026 — There Are No Potions | CD Guru</title>
+    <meta name="description" content="Crimson Desert has no healing potions. Food is your only way to recover HP, which turns every boss fight into an attrition check. Learn how to size your cooked food reserve, set up a minimum cooking and gathering loop, and time your mid-fight eating windows.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Crimson Desert healing, Crimson Desert no potions, Crimson Desert food system, Crimson Desert cooking guide, Crimson Desert grilled meat, Kearush 100 grilled meat">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-healing-food-system-guide-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <style>
+        /* ── Light theme — matches Violet Sunrise global CSS ── */
+        .guide-content h2{font-size:1.85rem !important}
+        .guide-content h3{font-size:1.35rem !important}
+        .guide-content h3 strong{font-size:1.35rem}
+        .guide-content p{font-size:1.08rem !important;line-height:1.85 !important}
+        .guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+
+        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .tip-box strong{color:#7a64b8;font-size:1.06rem}
+        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .warn-box strong{color:#b84a3a;font-size:1.06rem}
+
+        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}
+        .action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#2d2a33;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+        .action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+        .action-step p{color:#2d2a33;font-size:1.08rem;line-height:1.75}
+
+        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}
+        .method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .method-box p{color:#2d2a33;font-size:1.06rem;line-height:1.75}
+
+        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .faq-item p{color:#2d2a33;font-size:1.03rem;line-height:1.7}
+
+        .toc{background:#fff;border:1px solid #e0d8f0 !important;border-left:1px solid #e0d8f0 !important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .toc h3{color:#7a64b8 !important;font-size:1.1rem !important;margin-bottom:12px}
+        .guide-hero .subtitle{font-size:1.15rem !important;max-width:700px;margin:0 auto 1.2rem}
+        .guide-hero .breadcrumb{font-size:.95rem !important}
+        .guide-hero .weekly-badge{font-size:1rem !important}
+
+        .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}
+        .inline-support-hint p{font-size:1rem}
+        .guide-content li{color:#2d2a33 !important}
+        .progress-widget{display:none !important}
+    </style>
+<meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<meta name="author" content="OSRS Guru">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Crimson Desert <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section2">Boss Pacing</a></li>
+                    <li><a href="#section3">Reserve Math</a></li>
+                    <li><a href="#section4">Cooking Setup</a></li>
+                    <li><a href="#section5">Eat Windows</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#crimson-desert">Crimson Desert</a> / Healing &amp; Food System</p>
+            <h1>Crimson Desert Healing &amp; Food System Guide 2026</h1>
+      <div class="cd-level-badge" style="display:inline-block;background:#f0ebfa;color:#5a4a8a;border:1px solid #7a64b8;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">🧭 Mechanics</div>
+      <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px 10px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+            <p class="subtitle">Crimson Desert has no healing potions. Food is the only way to get HP back, which quietly turns every boss fight into a supply check. Here is how to size your reserve, build a cooking loop that keeps it full, and stop dying to an empty pouch instead of a hard boss.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>CD Guide</strong> — Part of the <strong>Crimson Desert Series</strong> · 15 min read
+            </div>
+            <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: August 31, 2026</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="toc"><h3>Table of Contents</h3><ol>
+                <li><a href="#section1">There Are No Potions — Food Is the Whole Healing System</a></li>
+                <li><a href="#section2">Why No Potions Rewrites Every Boss Fight</a></li>
+                <li><a href="#section3">How Much Cooked Food You Actually Need</a></li>
+                <li><a href="#section4">Cooking &amp; Gathering: The Minimum Setup</a></li>
+                <li><a href="#section5">When to Disengage and Eat Mid-Fight</a></li>
+                <li><a href="#section6">Why More Food Beats More Practice Right Now</a></li>
+                <li><a href="#section7">How to Verify This on Your Own Save</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ol></div>
+
+            <h2 id="section1">There Are No Potions — Food Is the Whole Healing System</h2>
+            <p>Players arriving from Dark Souls, Elden Ring, or any action RPG with a flask instinctively look for the quick-heal button. In Crimson Desert it does not exist. There is no reusable potion, no refill-on-rest flask, and no regenerating heal charge that comes back at the bonfire equivalent. What exists instead is food: raw ingredients you pick up or hunt, cooked dishes you prepare at a camp or cooking station, and a finite stack of those dishes you carry into a fight.</p>
+            <p>That single design choice has a consequence most new players discover the hard way. Healing is not a cooldown you manage — it is an inventory you budget. Every point of HP you get back is one item permanently gone from your pouch. Once the stack is empty, the fight is over regardless of how well you are playing.</p>
+            <div class="tip-box">
+                <strong>The one-line version:</strong> In a flask game, running out of healing means you played badly for thirty seconds. In Crimson Desert, running out of healing means you lost forty minutes ago when you decided how much food to carry.
+            </div>
+            <p>This is also why the community advice around the mid-game wall boss Kearush the Slayer is so blunt. The most repeated line in community guides for that fight is not a combo, a parry timing, or a gear recommendation — it is <strong>"BRING 100+ GRILLED MEAT."</strong> That is community consensus drawn from player testing, not an official figure published by Pearl Abyss, but the fact that supply advice outranks mechanical advice tells you everything about how this game's difficulty is actually structured. Our <a href="crimson-desert-kearush-boss-guide-2026.html">Kearush boss guide</a> builds directly on that premise.</p>
+            <div class="warn-box">
+                <strong>Sourcing note:</strong> Everything on this page about the food economy is <em>community observation and player testing</em>, not officially documented system data. The only officially documented material we rely on is the 2.00.00 patch notes (build 1.000.484, August 25, 2026) for general post-update context — covered in our <a href="crimson-desert-2-0-enhanced-update-guide-2026.html">2.0 Enhanced Update Guide</a>. We have deliberately not invented heal-per-item values, drop rates, or cooking yields. Where a number would have been a guess, we give you a way to measure it yourself instead.
+            </div>
+
+            <h2 id="section2">Why No Potions Rewrites Every Boss Fight</h2>
+            <p>Remove the flask and the entire risk calculus of a fight shifts. In a game with potions, you can trade hits with a boss as long as your flask count holds out, because the resource resets on death. In Crimson Desert, every exchange you lose costs you a physical item that you must go back and replace. The fight is not a DPS race against a health bar; it is a resource race against your own pouch.</p>
+            <table>
+                <thead>
+                    <tr><th>Behaviour</th><th>Flask-based action RPG</th><th>Crimson Desert (player reports)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Healing source</td><td>Reusable flask, refills at checkpoints</td><td>Consumable food, permanently consumed</td></tr>
+                    <tr><td>Cost of a mistake</td><td>One flask charge, restored on retry</td><td>One item, must be re-gathered and re-cooked</td></tr>
+                    <tr><td>Refill timing</td><td>Instantly on death or rest</td><td>Only by gathering and cooking again</td></tr>
+                    <tr><td>Failure state</td><td>Damage taken outpaced your flask</td><td>Pouch emptied before the boss's HP did</td></tr>
+                    <tr><td>Best response to a wall</td><td>Learn the move set</td><td>Learn the move set <em>and</em> raise your supply ceiling</td></tr>
+                </tbody>
+            </table>
+            <p>Three practical consequences follow from that table, and players report running into all three:</p>
+            <ul>
+                <li><strong>Aggressive trade windows get punished harder.</strong> In a flask game, eating a hit to land a big punish is often correct. Here, that hit has to be paid back with an item. Marginal trades that look fine on a damage spreadsheet are losing trades on a supply spreadsheet.</li>
+                <li><strong>You cannot heal through a mistake chain.</strong> A flask lets you stabilise mid-combo. Food takes longer to consume, which means a bad sequence that costs you sixty percent of your HP may simply be unrecoverable in that attempt no matter how much food you have.</li>
+                <li><strong>Attempt quality compounds.</strong> Every failed attempt burns food that you now have to replace, which pulls you out of the fight and into a gathering loop. Players report the frustration is less "I can't beat this boss" and more "I have to go farm again before I'm allowed to try."</li>
+            </ul>
+            <div class="tip-box">
+                <strong>Reframe the goal:</strong> Stop asking "how much damage can I fit into this opening?" and start asking "how much damage can I avoid paying for?" The first question wins fights in flask games. The second one wins them here.
+            </div>
+
+            <h2 id="section3">How Much Cooked Food You Actually Need</h2>
+            <p>We are not going to hand you a fixed number for every boss, because a fixed number would be wrong for your gear, your character, and your skill level — and a wrong number is worse than no number. What we can give you is a formula that uses your own measured inputs. Run it once against the boss you are stuck on and you will have a better answer than any listicle.</p>
+            <div class="method-box">
+                <h4>The reserve formula</h4>
+                <p><strong>Cooked dishes needed = (heals per attempt) × (attempts you expect to need) × (safety multiplier)</strong></p>
+                <p>All three inputs are things you can measure in a single sitting. None of them require a wiki. Use a safety multiplier of 1.5 while you are still learning a fight, and 1.2 once you are consistently reaching its later phases.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">1</span>
+                <h4>Measure your heals per attempt</h4>
+                <p>Fight the boss once with a comfortable stack and deliberately count how many times you eat before the attempt ends — whether it ends in a win, a death, or a pouch-empty retreat. Write the number down. That is your per-attempt burn rate at your current skill level.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">2</span>
+                <h4>Estimate your attempts</h4>
+                <p>Look at how far you are getting. If you are dying in the first phase, assume a high attempt count. If you are consistently reaching the final phase, assume a low one. Be pessimistic — the whole point of this exercise is that running dry mid-session is the failure you are trying to eliminate.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">3</span>
+                <h4>Multiply and apply the safety margin</h4>
+                <p>Multiply the two numbers, then multiply again by 1.5 while learning. If that total is dramatically larger than what you have been carrying, you have found your problem — and it was never your execution.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">4</span>
+                <h4>Track the trend across attempts</h4>
+                <p>Your heals-per-attempt should fall as you learn the fight. Recount every five attempts. When the number drops meaningfully, your required reserve drops with it — that is the signal that the fight has become a mechanics problem instead of a supply problem.</p>
+            </div>
+            <p>Worked example, using deliberately generic inputs: if a single attempt costs you eight heals and you expect to need roughly a dozen attempts, the base is ninety-six, and the learning-phase margin takes you past one hundred and forty. That is the arithmetic behind the community's "bring 100+ grilled meat" line — not a magic figure, just a plausible burn rate against a long boss with multiple phases. Your own inputs will produce your own number, and that number is the one that matters.</p>
+            <div class="warn-box">
+                <strong>Do not skip the margin.</strong> The purpose of the extra food is not to let you finish the fight. It is to let you attempt the fight several more times without leaving to farm. Every trip back to a gathering route is a chance to lose the session's momentum and quit instead of retrying.
+            </div>
+
+            <h2 id="section4">Cooking &amp; Gathering: The Minimum Setup</h2>
+            <p>You do not need an optimised economy. You need a loop that reliably converts twenty minutes of play into a boss-ready stack. Players who report never hitting a supply wall describe the same three-part setup: a repeatable source of raw material, a place to cook in bulk, and enough inventory discipline to keep a dedicated boss stack untouched.</p>
+            <h3>1. A repeatable ingredient route</h3>
+            <p>Pick one route you can run on autopilot and run it every time you resupply, rather than improvising a new one each session. Consistency beats efficiency here, because a familiar route costs you no attention. Our <a href="crimson-desert-resource-gathering-routes-guide-2026.html">Resource Gathering Routes Guide</a> covers route planning, and the <a href="crimson-desert-cooking-alchemy-recipes-guide-2026.html">Cooking &amp; Alchemy Recipes Guide</a> covers what each dish is actually for.</p>
+            <h3>2. A bulk cooking station</h3>
+            <p>Cook in batches, not on demand. Cooking one dish at a time as you need it is what creates the "I have to go farm again before I can try" feeling — it ties every retry to a crafting errand. Set up at your camp, convert the whole haul in one sitting, and restock. Camp setup basics are in our <a href="crimson-desert-camp-system-starter-guide-2026.html">Camp System Starter Guide</a>.</p>
+            <h3>3. A protected boss stack</h3>
+            <p>Keep a fixed quantity of cooked food that you do not consume during exploration. Exploration damage is cheap and usually avoidable; boss attempts are expensive and unavoidable. If you have been using your boss stack to top up between campsite skirmishes, you will arrive at the boss door with a third of what you planned.</p>
+            <div class="tip-box">
+                <strong>Two-stack rule:</strong> One stack for the open world, one stack for the boss door. Refill the exploration stack from leftovers; never touch the boss stack for anything that is not a boss attempt.
+            </div>
+
+            <h2 id="section5">When to Disengage and Eat Mid-Fight</h2>
+            <p>Eating is an action with a commitment window. Community reports are consistent on this point: treat eating like a slow, punishable attack rather than a free instant heal. That reframing produces better timing decisions than any specific rule.</p>
+            <table>
+                <thead>
+                    <tr><th>Situation</th><th>Eat?</th><th>Reasoning</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Boss just finished a long attack string and is in recovery</td><td>Yes</td><td>This is the safest reliable window in the fight</td></tr>
+                    <tr><td>Boss is mid-phase transition</td><td>Yes</td><td>Transitions are usually the longest free window available</td></tr>
+                    <tr><td>You are at high HP but want to pre-heal</td><td>No</td><td>You are spending a permanent item for nothing</td></tr>
+                    <tr><td>Boss is aggroed and closing distance</td><td>No</td><td>The commitment window will eat the hit for you</td></tr>
+                    <tr><td>You just took a big hit and are at low HP</td><td>Create distance first</td><td>Disengage, then eat — do not eat in the boss's face</td></tr>
+                    <tr><td>Boss has a delayed or unparryable attack winding up</td><td>No</td><td>Delayed attacks punish fixed-commitment animations hardest</td></tr>
+                </tbody>
+            </table>
+            <p>The two habits that most reliably reduce your per-attempt burn rate:</p>
+            <ul>
+                <li><strong>Disengage before you eat, not during.</strong> Put distance between yourself and the boss, confirm the boss has committed to something else, then eat. Eating while still in range is the most commonly reported way to waste both the food and the attempt.</li>
+                <li><strong>Eat at a threshold you choose in advance.</strong> Pick a point — low enough that you are not wasting food, high enough that one hit cannot kill you — and hold to it. Deciding in the moment is how players end up either chugging at full HP or dying with a full pouch.</li>
+            </ul>
+            <div class="warn-box">
+                <strong>Delayed attacks are the exception.</strong> Players report that some boss attacks are deliberately delayed or ignore parry, specifically to punish fixed-commitment animations. See our <a href="crimson-desert-unparryable-attacks-guide-2026.html">Unparryable Attacks Guide</a> before you settle into a rhythm against any boss with a wind-up feint.
+            </div>
+
+            <h2 id="section6">Why More Food Beats More Practice Right Now</h2>
+            <p>This section is not an argument against learning a boss. It is an argument about ordering. If your attempts are ending because the pouch is empty rather than because you misread a move, then practising the move set will not help — you will simply die at the same point with slightly better technique and no food left.</p>
+            <div class="method-box">
+                <h4>Three questions that tell you which wall you are actually hitting</h4>
+                <p><strong>1.</strong> When your best attempt ended, was your food empty? If yes, the limiter is supply.</p>
+                <p><strong>2.</strong> Are your attempts ending at roughly the same boss HP each time? If yes, that is a mechanics wall. If they are getting shorter as the session goes on, you are fatigued and under-supplied.</p>
+                <p><strong>3.</strong> Did you have to leave to farm during the session? If yes, you paid a momentum cost that no amount of technical practice can refund.</p>
+            </div>
+            <p>Raising your supply ceiling is also the fastest improvement available, because it is the only one that does not require you to get better at anything. Gathering another stack is a known, bounded task. Improving your parry timing is an unbounded one. When a fight has stalled, take the bounded win first — it converts a session-ending wall into a session you can actually grind through, and grinding through a session is how you incidentally learn the mechanics anyway.</p>
+            <div class="tip-box">
+                <strong>Order of operations for a stalled boss:</strong> Double your food reserve → confirm the run no longer ends on an empty pouch → then start working on mechanics. Players who do this in the other order report far more abandoned sessions.
+            </div>
+            <p>For the fights where this matters most, see our <a href="crimson-desert-boss-guide-2026.html">main Boss Guide</a> and the difficulty-wall breakdown in <a href="crimson-desert-difficulty-wall-guide-2026.html">Crimson Desert Difficulty Wall</a>. If the fight is ending in a stun-lock chain rather than an empty pouch, the problem is different — that is covered in our <a href="crimson-desert-stunlock-hitstun-guide-2026.html">Stunlock &amp; Hitstun Guide</a>.</p>
+
+            <h2 id="section7">How to Verify This on Your Own Save</h2>
+            <p>We have deliberately kept hard numbers off this page because the food economy varies with your gear, your character, and your patch version. That means the useful thing we can give you is a verification method. Run this once and you will have personal data that no guide can give you.</p>
+            <div class="action-step">
+                <span class="step-num">1</span>
+                <h4>Confirm the no-potion premise yourself</h4>
+                <p>Open your inventory and consumables before a boss and check whether any reusable healing item exists on your build. If the only healing entries are food dishes, the premise on this page applies to you directly.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">2</span>
+                <h4>Log one clean session</h4>
+                <p>Note your starting stack, count every heal per attempt, and note your ending stack. Five attempts of data is enough to run the section 3 formula with real inputs instead of estimates.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">3</span>
+                <h4>Test the eating window on a low-stakes enemy</h4>
+                <p>Before a boss, take your normal eat action next to a regular elite enemy and see how much of the animation is punishable. That tells you the real commitment length for your character and gear weight — see <a href="crimson-desert-elite-enemies-counter-guide-2026.html">Elite Enemies Counter Guide</a> for safe test targets.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">4</span>
+                <h4>Time one full resupply loop</h4>
+                <p>Start a timer when you leave to gather and stop when the cooked stack is stored. That number is your true retry cost, and it is the number that determines whether a boss session is sustainable for you.</p>
+            </div>
+            <p>If your measurements contradict anything on this page, trust your measurements and tell us. Community-sourced mechanics like this are confirmed or corrected by players running exactly these tests — and guides that publish the test method age far better than guides that publish a number that stops being true after the next patch.</p>
+
+            <h2 id="faq">FAQ</h2>
+            <div class="faq-item"><h4>Does Crimson Desert really have no healing potions?</h4><p>Players consistently report that there is no reusable flask or potion-style heal — food is the only way to recover HP. This is community observation rather than an officially published design statement, so verify it on your own save by checking your consumables list before a boss.</p></div>
+            <div class="faq-item"><h4>Why do community guides say "bring 100+ grilled meat" for Kearush?</h4><p>Because that fight is long, multi-phase, and has super-armour segments where you cannot interrupt. The figure is community consensus from player testing, not an official number. Use the reserve formula in section 3 to compute your own equivalent — our <a href="crimson-desert-kearush-boss-guide-2026.html">Kearush guide</a> applies it to that specific fight.</p></div>
+            <div class="faq-item"><h4>Is raw food worth eating, or should I always cook?</h4><p>Cooking is the standard recommendation because cooked dishes are the form players report relying on in boss attempts. Rather than trusting a ratio, cook a batch of both, take them to a low-stakes fight, and compare how many of each you need to survive the same encounter.</p></div>
+            <div class="faq-item"><h4>How do I know if I am under-supplied rather than under-skilled?</h4><p>Check whether your attempts end with an empty pouch. If they do, supply is the limiter. If the boss kills you at roughly the same HP every time with food left over, it is a mechanics problem — see <a href="crimson-desert-difficulty-wall-guide-2026.html">Difficulty Wall</a>.</p></div>
+            <div class="faq-item"><h4>Should I eat during a boss's attack string?</h4><p>No. Players report eating has a commitment window that behaves like a slow attack. Disengage first, wait for a recovery or a phase transition, then eat.</p></div>
+            <div class="faq-item"><h4>Does food also give combat buffs, or only healing?</h4><p>Players report food serves both healing and stat-buff roles depending on the dish, which is why pre-boss meals matter separately from your heal pouch. Dish-by-dish breakdowns are in our <a href="crimson-desert-cooking-alchemy-recipes-guide-2026.html">Cooking &amp; Alchemy Recipes Guide</a>.</p></div>
+            <div class="faq-item"><h4>What is the minimum cooking setup I need?</h4><p>A repeatable ingredient route, a place to cook in bulk, and a protected boss stack you never spend on exploration. Route planning is in our <a href="crimson-desert-resource-gathering-routes-guide-2026.html">Resource Gathering Routes Guide</a>.</p></div>
+            <div class="faq-item"><h4>Does the 2.0 update change the healing system?</h4><p>The officially documented 2.00.00 changes (build 1.000.484) concern Abyss Link, per-character skill resets, and new content — not a documented rework of the food economy. Full analysis is in our <a href="crimson-desert-2-0-enhanced-update-guide-2026.html">2.0 Enhanced Update Guide</a>.</p></div>
+            <div class="faq-item"><h4>My attempts keep ending in a stun-lock instead of running out of food. Is this the right guide?</h4><p>Partly. If you are being chain-hit rather than drained, the priority fix is different — start with our <a href="crimson-desert-stunlock-hitstun-guide-2026.html">Stunlock &amp; Hitstun Guide</a>, then come back for the supply maths.</p></div>
+            <div class="faq-item"><h4>How often should I recount my heals-per-attempt?</h4><p>Every five attempts is a reasonable cadence. The number should fall as you learn the fight, and when it drops sharply, your required reserve drops with it.</p></div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">&#127807;</span>
+        <div class="support-text">
+            <h3>This Crimson Desert guide stays free either way.</h3>
+            <p>If it saved you time, a $1 tip helps us keep writing more guides.</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn recommended">&#127807; Buy me a pack of gum — $1.00</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">No paywall, no subscription — just a thank-you if you can. &#129309;</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-bottom">&copy; 2026 CDGuru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px">Crimson Desert&trade; is a trademark of Pearl Abyss Corp. All game content and materials are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by Pearl Abyss.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>.guide-content li{color:#2d2a33!important}</style>
+</body>
+</html>

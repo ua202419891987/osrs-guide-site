@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windrose Force Relay Connection Guide 2026 — Fix Blocked P2P &amp; Non-English Usernames | Windrose Guru</title>
+    <meta name="description" content="Windrose Force Relay Connection guide 2026 — when to turn it on, what it costs you in ping, why it doesn't work with Direct IP, how to forward ports for Direct IP (TCP+UDP), and how to spot the non-English Windows username connection bug.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Windrose force relay connection, Windrose P2P blocked, Windrose direct IP port forward, Windrose all connectivity services not available, Windrose non-English username, Windrose co-op connection fix">
+    <link rel="canonical" href="https://osrsguru.com/guides/windrose/windrose-force-relay-connection-guide-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <style>
+        .guide-content h2{font-size:1.85rem !important}.guide-content h3{font-size:1.35rem !important}.guide-content p{font-size:1.08rem !important;line-height:1.85 !important}.guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}.tip-box strong{color:#7a64b8;font-size:1.06rem}
+        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}.warn-box strong{color:#b84a3a;font-size:1.06rem}
+        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}.action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#2d2a33;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}.action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}.method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}.faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .toc{background:#fff;border:1px solid #e0d8f0!important;border-left:1px solid #e0d8f0!important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}.toc h3{color:#7a64b8!important;font-size:1.1rem!important;margin-bottom:12px}
+        .guide-hero .subtitle{font-size:1.15rem!important;max-width:700px;margin:0 auto 1.2rem}.guide-hero .breadcrumb{font-size:.95rem!important}.guide-hero .weekly-badge{font-size:1rem!important}
+        .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}.inline-support-hint p{font-size:1rem}
+        .guide-content li{color:#2d2a33!important}.progress-widget{display:none!important}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Windrose <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section2">P2P vs Relay</a></li>
+                    <li><a href="#section3">When to Enable</a></li>
+                    <li><a href="#section4">Direct IP</a></li>
+                    <li><a href="#section5">Port Forward</a></li>
+                    <li><a href="#section6">Username Bug</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#windrose">Windrose</a> / Force Relay Connection Guide</p>
+            <h1>Windrose Force Relay Connection Guide 2026</h1>
+            <div class="wr-level-badge" style="display:inline-block;background:#f0ebfa;color:#5a4a8a;border:1px solid #7a64b8;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">🛠️ Technical</div>
+            <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px 10px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+            <p class="subtitle">If every connectivity service shows up as Not Available and your group cannot hold a session for more than a few minutes, your P2P traffic is almost certainly being blocked somewhere between the two machines. Force Relay Connection is the official escape hatch — here is exactly when to use it and what it costs you.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">⚓</span> <strong>Windrose Guide</strong> — Part of the <strong>Windrose Survival Series</strong> · 12 min read
+            </div>
+            <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: August 31, 2026</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="toc"><h3>Table of Contents</h3><ol>
+                <li><a href="#section1">What Force Relay Actually Does</a></li>
+                <li><a href="#section2">P2P vs Relay — The Honest Trade-off</a></li>
+                <li><a href="#section3">When You Should Turn It On</a></li>
+                <li><a href="#section4">When You Should Leave It Off</a></li>
+                <li><a href="#section5">Direct IP — The Mutually Exclusive Alternative</a></li>
+                <li><a href="#section6">Port Forwarding for Direct IP (TCP + UDP)</a></li>
+                <li><a href="#section7">The Non-English Windows Username Bug</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ol></div>
+
+            <h2 id="section1">What Force Relay Actually Does</h2>
+            <p>By default Windrose tries to connect players directly to each other — peer to peer. That is the fastest path when it works, because packets go straight from your machine to the host's with no middleman. The problem is that P2P needs both ends to accept an unsolicited inbound connection, and a lot of home networks refuse exactly that: strict NAT, carrier-grade NAT from the ISP, a router with UPnP disabled, a corporate or university firewall, or a third-party antivirus that quietly filters game traffic.</p>
+            <p>When that handshake fails, Windrose reports the failure generically. The symptom players search for is "all my connectivity services are shown as Not Available" — and that message tells you nothing about the cause, which is why so many people end up reinstalling the game.</p>
+            <p><strong>Force Relay Connection</strong> is the fix the developers shipped for this. It tells the game to stop attempting direct peer connections and route session traffic through relay servers instead. Those relays sit on networks that accept outbound connections from anywhere, so the block that killed your P2P handshake simply does not apply. The option was added in patch <strong>0.10.0.4.268</strong>.</p>
+            <div class="tip-box">
+                <strong>Where to find it:</strong> the connection / network section of the options menu. It is a toggle — flip it, restart the game, and have the host generate a fresh invite code before anyone tries to join.
+            </div>
+            <p>One thing to understand before you enable it: relay is not a performance feature. It is a reliability feature. You are deliberately accepting a worse path in exchange for a path that exists at all.</p>
+
+            <h2 id="section2">P2P vs Relay — The Honest Trade-off</h2>
+            <table>
+                <thead>
+                    <tr><th></th><th>Direct P2P</th><th>Force Relay</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Latency</td><td>Lowest possible — direct route</td><td>Higher — traffic detours through a relay</td></tr>
+                    <tr><td>Connection success</td><td>Fails behind strict NAT / blocking firewalls</td><td>Works in almost all blocked-network cases</td></tr>
+                    <tr><td>Host-side stability</td><td>Depends on the host's router</td><td>More consistent session to session</td></tr>
+                    <tr><td>Works with Direct IP</td><td>Yes — that is what Direct IP is</td><td><strong>No</strong> — mutually exclusive</td></tr>
+                    <tr><td>Best for</td><td>Players with a healthy, controllable home network</td><td>Dorms, shared housing, strict ISPs, anyone who cannot touch the router</td></tr>
+                </tbody>
+            </table>
+            <p>The trade in one sentence: <strong>you give up ping and you get stability.</strong> For a survival builder like Windrose, that is usually the right trade. Boarding actions and cannon volleys are not twitch-frame-critical the way a competitive shooter is, but a session that drops every fifteen minutes is unplayable. If your choice is between 40ms of extra latency and a world that stays up, take the latency.</p>
+            <div class="warn-box">
+                <strong>Do not enable it "just in case."</strong> If your P2P connection is already stable, forcing relay makes your ping worse for no benefit. This is a fix, not a buff.
+            </div>
+
+            <h2 id="section3">When You Should Turn It On</h2>
+            <p>Enable Force Relay if you recognise any of these situations.</p>
+            <ul>
+                <li><strong>Repeated join failures.</strong> You can see the session exists, you retry the code five times, and it never lands. Classic blocked-handshake behaviour.</li>
+                <li><strong>Frequent mid-session disconnects.</strong> You connect fine, play for ten minutes, then everyone drops at once or one person gets ejected. Relay holds sessions open that P2P cannot maintain.</li>
+                <li><strong>All connectivity services show "Not Available."</strong> The exact wording the official FAQ uses. This is the game telling you it cannot establish any working transport.</li>
+                <li><strong>The host's network is not theirs to configure.</strong> Dorm rooms, shared flats, work-provided housing, or a router locked down by a parent or landlord. If you cannot log into the router, you cannot port forward, and relay is your practical option.</li>
+                <li><strong>Your ISP uses carrier-grade NAT.</strong> Common on mobile broadband, some fibre providers, and most 4G/5G home internet. You do not have a real public IP, so no amount of port forwarding will help.</li>
+                <li><strong>Some players connect and others never can.</strong> Combined with matching regions already confirmed, this points at the failing clients being behind stricter NAT.</li>
+            </ul>
+            <div class="method-box">
+                <h4>Test it properly</h4>
+                <p>Enable relay on <em>every</em> machine, not just the host's. Restart all clients, have the host create a new session, then play for a full session before judging. A toggle on one side only produces inconsistent results that are hard to diagnose.</p>
+            </div>
+            <div class="method-box">
+                <h4>How to tell relay is actually doing something</h4>
+                <p>Turn it on for one session and watch two things: whether you connect on the first attempt instead of the fourth, and whether the session survives a full evening without dropping. Those are the only two metrics that matter. Do not judge it by the ping number alone — relay will almost always look worse there even when it is fixing your problem.</p>
+            </div>
+            <p>Before you go further, make sure you have already ruled out the much simpler region problem — a mismatched Connection Service region produces similar-looking failures and takes ninety seconds to check. See our <a href="windrose-connection-region-mismatch-fix-2026.html">Connection Region Mismatch Fix</a>.</p>
+
+            <h2 id="section4">When You Should Leave It Off</h2>
+            <p>Relay is not free, and enabling it by default costs you things you might not notice immediately.</p>
+            <ul>
+                <li><strong>Your P2P connection already works.</strong> If sessions are stable and your ping is good, leave it alone. You are only adding a hop.</li>
+                <li><strong>You are connecting over LAN.</strong> Two machines on the same local network do not need a relay — the direct route is already ideal, and relaying it out to the internet and back is actively worse.</li>
+                <li><strong>You are using Direct IP.</strong> These two options do not combine, and the official FAQ is explicit about it. Pick one.</li>
+                <li><strong>You care about latency-sensitive combat.</strong> Ship PvP and boarding bouts feel meaningfully worse with an extra hop. If you host competitive sessions on a good network, stay on P2P.</li>
+                <li><strong>You can fix the actual cause instead.</strong> If you have access to your router, forwarding the port properly gives you both stability <em>and</em> low ping. Relay is the workaround for when you cannot do that.</li>
+            </ul>
+            <p>Think of it as a fallback ladder: try P2P first, forward the port if you can, and drop to relay when neither is available. Relay is the safety net at the bottom of the ladder, not the first rung.</p>
+
+            <h2 id="section5">Direct IP — The Mutually Exclusive Alternative</h2>
+            <p>Direct IP is the other way to beat a blocked or unreliable P2P handshake: instead of asking the matchmaking service to find the session, you hand the client an explicit address and port. There is no discovery step to fail, which means no region lookup and no invite-code resolution to go wrong.</p>
+            <div class="warn-box">
+                <strong>Official wording:</strong> Force Relay "doesn't work with Direct IP connections." They are alternatives, not complements. If you are connecting by Direct IP, turn Force Relay off — leaving it on will not improve the Direct IP path and just adds confusion when you troubleshoot later.
+            </div>
+            <p>Which should you pick? Use Direct IP when you control the host's network and can forward the port. Use Force Relay when you cannot touch the router, or when the host is on carrier-grade NAT with no public IP at all. Direct IP gives you the better connection; relay gives you the one you can actually get.</p>
+            <p>Direct IP also has a nice side effect for small groups: it sidesteps the region question entirely, so if your group keeps tripping over region mismatch, this is worth setting up once and forgetting. See our <a href="windrose-connection-region-mismatch-fix-2026.html">Region Mismatch Fix</a> for the region side of that problem.</p>
+
+            <h2 id="section6">Port Forwarding for Direct IP (TCP + UDP)</h2>
+            <p>Per the official FAQ, Direct IP across the internet has two hard requirements: the host's router must have a <strong>public IP</strong>, and the game port must be forwarded on <strong>both TCP and UDP</strong>. The FAQ gives the rule in this form:</p>
+            <pre><code>external_ip:external_port (TCP+UDP) → internal_ip:gameserver_port (TCP+UDP)</code></pre>
+            <p>Two details people get wrong constantly. First, <strong>both protocols</strong> — forwarding only UDP is the single most common half-fix, and it produces a connection that partially works and then fails in confusing ways. Second, the <strong>internal IP</strong> must be the host machine's address on the local network, not the router's, and it should be a static or DHCP-reserved address so it does not change after a reboot.</p>
+            <div class="action-step">
+                <span class="step-num">1</span>
+                <h4>Confirm you actually have a public IP</h4>
+                <p>Compare the IP your router reports on its WAN/internet interface against the IP a public what-is-my-IP site shows you. If they differ, you are behind carrier-grade NAT and forwarding will do nothing — go use Force Relay instead.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">2</span>
+                <h4>Reserve the host's internal IP</h4>
+                <p>In your router's DHCP settings, bind the host PC's MAC address to a fixed internal IP. Without this, the forwarding rule points at the wrong machine the next time the router hands out a new address.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">3</span>
+                <h4>Create the rule for TCP and UDP</h4>
+                <p>Forward the external port to the host's internal IP and game server port, once for TCP and once for UDP. Some routers let you pick "Both" in a single rule — if yours does, use it, and verify both rows exist afterwards.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">4</span>
+                <h4>Test from outside your network</h4>
+                <p>Have a friend connect from their own home, or test with your phone on mobile data. Testing from the same WiFi as the host proves nothing — that path never touches the forwarding rule.</p>
+            </div>
+            <div class="tip-box">
+                <strong>LAN sessions skip all of this.</strong> If everyone is on the same local network, you do not need a public IP and you do not need to forward anything. Just use the host's internal IP plus the port and connect directly.
+            </div>
+            <p>For the specific port number and step-by-step router screens, see <a href="windrose-port-3478-coop-player-fix-2026.html">Port 3478 Fix for Co-op Players</a> and, if you are running a server rather than hosting from your own game, <a href="windrose-port-3478-dedicated-server-forward-fix-2026.html">Port 3478 Dedicated Server Forward Fix</a>.</p>
+
+            <h2 id="section7">The Non-English Windows Username Bug</h2>
+            <p>Here is a failure mode that defeats every bit of network troubleshooting: a Windows account whose username uses non-Latin characters. Windrose reads the Windows user profile path when it writes and reads local data, and a non-English username can break that path badly enough that the connection layer fails outright.</p>
+            <p>The signature is distinctive — <strong>one specific person</strong> cannot connect, while everyone else connects fine, and nothing about their internet, region, or firewall explains it. If that describes someone in your group, check their Windows username before you spend an evening on their router.</p>
+            <div class="method-box">
+                <h4>How to check</h4>
+                <p>Open File Explorer and look at <code>C:\Users\</code>. If the folder name for their account contains non-Latin characters, they are in the affected category. You can also press <code>Win + R</code>, type <code>cmd</code>, and the prompt will typically open into that user folder — the path shown is the username.</p>
+            </div>
+            <div class="method-box">
+                <h4>What to do about it</h4>
+                <p>This was a confirmed bug and it was fixed in the same wave of patches (0.10.0.4.268) — so the first step is simply to make sure everyone is on a current build. If a player is stuck on an older install, updating is the fix. If the symptom persists on a fully updated client, the practical workaround is a separate Windows account with an ASCII-only username used just for gaming, though that is a heavy step and should be a last resort rather than the first thing you try.</p>
+            </div>
+            <p>Even though it is fixed, this one is worth knowing about because the symptom search volume never went away and people keep landing on it. Recognising the pattern — one player, unfixable by network changes — is the useful part.</p>
+            <p>The related trap is assuming it must be the username because nothing else worked. It usually is not. Work the ladder in order: region, then relay or port forwarding, then the username check. Only reach for the account-level workaround once the first three are genuinely exhausted and one specific player still cannot connect.</p>
+            <p>One more edge case worth knowing: a PC that has had its Windows user folder renamed after the fact. The registry entry and the folder name can disagree, and applications that resolve the path get confused in ways that look exactly like this bug. If the affected machine has a renamed user directory, that is a stronger explanation than the character set.</p>
+            <p>If you have worked through region, relay, Direct IP, and the username check and still cannot hold a session, run the full <a href="windrose-server-setup-troubleshooting-guide-2026.html">Server Setup Troubleshooting Guide</a> next.</p>
+
+            <h2 id="faq">FAQ</h2>
+            <div class="faq-item"><h4>What does Force Relay Connection actually do?</h4><p>It stops Windrose from attempting direct peer-to-peer connections and routes session traffic through relay servers instead. That bypasses the router, ISP, or firewall blocks that kill P2P handshakes.</p></div>
+            <div class="faq-item"><h4>Why does it make my ping worse?</h4><p>Your traffic takes a detour through a relay instead of going straight to the host. You are trading latency for a connection that actually stays up.</p></div>
+            <div class="faq-item"><h4>Which patch added Force Relay Connection?</h4><p>Patch <strong>0.10.0.4.268</strong>. Make sure everyone is on a build at or after that before you go looking for the toggle.</p></div>
+            <div class="faq-item"><h4>Does Force Relay work with Direct IP?</h4><p>No. The official FAQ states it "doesn't work with Direct IP connections." They are alternative approaches — use one or the other, not both.</p></div>
+            <div class="faq-item"><h4>Should I enable it if my connection is already fine?</h4><p>No. If P2P is stable, relay only adds latency. It is a fix for blocked or unstable connections, not a general improvement.</p></div>
+            <div class="faq-item"><h4>Do I need to enable it on every machine or just the host?</h4><p>Enable it on all machines in the session, then restart and have the host generate a fresh invite code. Enabling it on one side gives inconsistent results.</p></div>
+            <div class="faq-item"><h4>What does "all my connectivity services are shown as Not Available" mean?</h4><p>Windrose cannot establish a working transport — usually because P2P traffic is being blocked. It is the headline symptom Force Relay was added to address.</p></div>
+            <div class="faq-item"><h4>Do I need a public IP for Direct IP?</h4><p>Yes, for connections across the internet. Check whether your router's WAN IP matches your public IP; if they differ you are behind carrier-grade NAT and should use relay instead.</p></div>
+            <div class="faq-item"><h4>Do I need to forward TCP, UDP, or both?</h4><p><strong>Both.</strong> The official rule is <code>external_ip:external_port (TCP+UDP) → internal_ip:gameserver_port (TCP+UDP)</code>. Forwarding only UDP is the most common half-fix.</p></div>
+            <div class="faq-item"><h4>Do I need port forwarding for a LAN session?</h4><p>No. On a single local network you need only the host's internal IP and the port — no public IP and no forwarding rule.</p></div>
+            <div class="faq-item"><h4>Can a non-English Windows username really stop me connecting?</h4><p>It was a confirmed bug affecting the Windows user profile path. It is fixed in current builds, but the symptom — one specific player who cannot connect no matter what — is still worth recognising.</p></div>
+            <div class="faq-item"><h4>What should I check before touching Force Relay at all?</h4><p>The Connection Service region. A region mismatch causes similar-looking failures and takes a minute to rule out. See the <a href="windrose-connection-region-mismatch-fix-2026.html">Region Mismatch Fix</a>.</p></div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">&#127807;</span>
+        <div class="support-text">
+            <h3>This Windrose guide stays free — tip if it helped.</h3>
+            <p>If it saved you time, a $1 tip helps us keep writing more guides.</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn recommended">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-bottom">&copy; 2026 WindroseGuru &middot; Not affiliated with Windrose Studio &middot; <a href="../../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px">All game content, trademarks, and copyrights are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by the game's developers.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>.guide-content li{color:#2d2a33!important}</style>
+<script src="../../js/anti-scraper.js"></script>
+</body>
+</html>
