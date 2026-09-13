@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windrose Ship Boarding Combat Guide 2026 — Fix the Most Broken Part of the Game | Windrose Guru</title>
+    <meta name="description" content="Windrose ship boarding combat guide 2026 — why enemies keep respawning after you clear the deck, how to free yourself when you get stuck on ship geometry, how to stop losing a full inventory on death, and when you should sink the ship instead of boarding it.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Windrose boarding combat, Windrose ship boarding guide 2026, Windrose boarding enemies respawn, Windrose stuck on ship, Windrose death loot drop, Windrose boarding loadout">
+    <link rel="canonical" href="https://osrsguru.com/guides/windrose/windrose-ship-boarding-combat-guide-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <style>
+        .guide-content h2{font-size:1.85rem !important}.guide-content h3{font-size:1.35rem !important}.guide-content p{font-size:1.08rem !important;line-height:1.85 !important}.guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}.tip-box strong{color:#7a64b8;font-size:1.06rem}
+        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}.warn-box strong{color:#b84a3a;font-size:1.06rem}
+        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}.action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#2d2a33;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}.action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}.method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}.faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .toc{background:#fff;border:1px solid #e0d8f0!important;border-left:1px solid #e0d8f0!important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}.toc h3{color:#7a64b8!important;font-size:1.1rem!important;margin-bottom:12px}
+        .guide-hero .subtitle{font-size:1.15rem!important;max-width:700px;margin:0 auto 1.2rem}.guide-hero .breadcrumb{font-size:.95rem!important}.guide-hero .weekly-badge{font-size:1rem!important}
+        .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}.inline-support-hint p{font-size:1rem}
+        .guide-content li{color:#2d2a33!important}.progress-widget{display:none!important}
+    </style>
+<meta name="author" content="OSRS Guru">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Windrose <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section2">Spawns</a></li>
+                    <li><a href="#section3">Stuck</a></li>
+                    <li><a href="#section4">Death Risk</a></li>
+                    <li><a href="#section5">Loadout</a></li>
+                    <li><a href="#section6">Skip Boarding</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#windrose">Windrose</a> / Ship Boarding Combat</p>
+            <h1>Windrose Ship Boarding Combat Guide 2026</h1>
+            <div class="wr-level-badge" style="display:inline-block;background:#f0ebfa;color:#5a4a8a;border:1px solid #7a64b8;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">⚔️ Combat · Core Loop</div>
+            <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px 10px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+            <p class="subtitle">Boarding is the fantasy Windrose sells — and, by a wide margin, the most reliable source of frustration players report. Enemies respawn after you clear the deck, ship geometry swallows you, and dying drops your whole pack. This guide splits the loop into the parts you can actually control.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">⚓</span> <strong>Windrose Guide</strong> — Part of the <strong>Windrose Survival Series</strong> · 14 min read
+            </div>
+            <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: August 31, 2026</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="toc"><h3>Table of Contents</h3><ol>
+                <li><a href="#section1">Why Boarding Feels Broken</a></li>
+                <li><a href="#section2">Enemy Spawn Rules — Clearing the Deck Is Not the Goal</a></li>
+                <li><a href="#section3">Stuck on Ship Geometry — Self-Rescue</a></li>
+                <li><a href="#section4">Death Drop Risk — Bank Before You Board</a></li>
+                <li><a href="#section5">Boarding Loadout: Weapons, Armor &amp; Consumables</a></li>
+                <li><a href="#section6">When You Should Not Board at All</a></li>
+                <li><a href="#section7">The Pre-Board Checklist</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ol></div>
+
+            <h2 id="section1">Why Boarding Feels Broken</h2>
+            <p>Boarding sits at the center of the Windrose fantasy: shoot a hull full of holes, grapple across, and take the ship deck by deck. It is also the system players complain about most consistently. One widely-read Steam review from a player with 30.7 hours puts it bluntly — <em>"omg one of the most important parts needs to be completely rebalanced."</em> That line gets quoted because it matches what everyone experiences.</p>
+            <p>The complaints collapse into three repeatable failure modes, and each one has a different fix:</p>
+            <ul>
+                <li><strong>Enemies that never stop coming.</strong> Players report clearing eight pirates off a deck only to have four more appear. This is not a bug you can out-damage — it is a spawn structure you have to play around.</li>
+                <li><strong>Ship geometry that traps you.</strong> Railings, cargo stacks, stairs and hatch lips catch the character. Players report being wedged in place while enemies hit them.</li>
+                <li><strong>Death costs the whole pack.</strong> Dying mid-board can drop your entire inventory, often on a ship that is itself sinking.</li>
+            </ul>
+            <div class="tip-box">
+                <strong>Reframe the fight:</strong> boarding is not a clear-the-room encounter. It is a <strong>timed objective run under pressure</strong>. Once you stop treating "deck empty" as the win condition, most of the frustration evaporates.
+            </div>
+            <p>If you are still learning the basic melee and gunplay layer underneath all of this, start with our <a href="windrose-combat-ship-guide-2026.html">Combat &amp; Naval Guide</a> — boarding punishes shaky fundamentals harder than open-field combat does.</p>
+
+            <h2 id="section2">Enemy Spawn Rules — Clearing the Deck Is Not the Goal</h2>
+            <p>The single biggest mindset error is counting bodies. Players report waves arriving <em>after</em> a deck looks clear: clear eight, four spawn; clear those, more arrive. Killing faster does not end it faster, because the fight is gated on something other than a fixed enemy count.</p>
+            <p>Treat every boarding run as an objective run with a spawn clock running behind it:</p>
+            <div class="method-box">
+                <h4>How to play against the respawn</h4>
+                <ul>
+                    <li><strong>Move toward the objective, not toward enemies.</strong> Every second spent chasing a straggler is a second the next wave spawns into your back.</li>
+                    <li><strong>Fight forward, never backward.</strong> Push toward the objective so fresh spawns land behind you in space you already cleared.</li>
+                    <li><strong>Do not stop to loot mid-fight.</strong> Looting during an active spawn window is how players report dying with a full pack.</li>
+                    <li><strong>Disengage is a valid outcome.</strong> If the wave count is outpacing you, back to your ship and sink the target instead. See <a href="#section6">section 6</a>.</li>
+                </ul>
+            </div>
+            <div class="warn-box">
+                <strong>Do not burn your best consumables early.</strong> Because you cannot know how many waves remain, treat healing and food buffs as a budget: spend the cheap ones first and keep one escape option unused until the objective is done.
+            </div>
+            <p>Group play changes the math significantly — two players splitting aggro clear the same objective in far less time, which means fewer waves total. For the specific positioning that makes that work, read our <a href="windrose-solo-duo-1vn-board-tactics-2026.html">Solo &amp; Duo 1vN Boarding Tactics</a>.</p>
+
+            <h2 id="section3">Stuck on Ship Geometry — Self-Rescue</h2>
+            <p>Getting wedged on ship geometry is the most demoralizing way to die in Windrose, because you are not outplayed — you are stuck. Players report catching on railings, cargo stacks, stair edges and hatch transitions while enemies swing freely.</p>
+            <div class="action-step">
+                <span class="step-num">1</span>
+                <h4>Stop mashing movement</h4>
+                <p>Sprinting into the obstacle is what keeps you pinned. Release all movement keys for a beat so the character settles, then move away from the obstruction in a straight line.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">2</span>
+                <h4>Change your stance</h4>
+                <p>Try crouch and jump in alternation. A standing collision capsule that is wedged often clears the moment the capsule shrinks or lifts.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">3</span>
+                <h4>Sheathe / swap weapons</h4>
+                <p>Weapon swaps change your character's collision state. Sheathing before you squeeze past tight gaps (hatch lips especially) prevents most wedging outright.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">4</span>
+                <h4>Recall your ship</h4>
+                <p>If you are truly pinned, press <strong>Esc</strong> then <strong>K</strong> to recall your ship. This is the built-in escape hatch for a character the world will not release.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">5</span>
+                <h4>Only then consider respawning</h4>
+                <p>Respawn is the last resort because of the drop penalty in the next section. Exhaust the four steps above first.</p>
+            </div>
+            <p>Prevention beats rescue: walk the tight sections, sheath before hatches, and never sprint a cargo deck you have not crossed before. Most "I got stuck" deaths are sprint-into-unknown-geometry deaths.</p>
+            <div class="tip-box">
+                <strong>Co-op note:</strong> players report the biggest frame drops during boarding fights on the host machine, since the host simulates ship physics, boarding NPCs, structures and quest state at once. If you are the host, expect the worst stutter — and stutter is when you sprint into geometry you would otherwise walk around.
+            </div>
+
+            <h2 id="section4">Death Drop Risk — Bank Before You Board</h2>
+            <p>The third complaint is the one that actually costs progress: dying mid-board drops your pack. The fix is boring and it works — <strong>do not board carrying anything you cannot replace.</strong></p>
+            <ul>
+                <li><strong>Empty your pack into ship or base storage first.</strong> Board with weapons, armor, ammo and consumables only. Everything else stays behind.</li>
+                <li><strong>Never board holding a rare crafting haul.</strong> If you just finished a big farm run, drop it at base before you take a single ship.</li>
+                <li><strong>Assume you might lose the pack.</strong> If losing it would end your session, you are carrying too much.</li>
+            </ul>
+            <p>This one habit converts the worst-case boarding outcome from "lost an hour" to "lost a repair bill." Our <a href="windrose-death-loot-recovery-2026.html">Death Loot Recovery Guide</a> covers what to do after the drop happens, including the awkward case where your body is on a ship that has since sunk.</p>
+            <div class="warn-box">
+                <strong>Also budget the hull.</strong> Boarding fights leave your own ship damaged. The damaged Ketch you recover in the quest <em>"I Need a Bigger Boat"</em> takes <strong>100 Wood / 20 Nails / 20 Coarse Fabric / 10 Rope</strong> to patch up, and you also need to rescue <strong>7 crew</strong>. Keep those numbers in your stockpile <em>before</em> you go looking for a boarding target.
+            </div>
+
+            <h2 id="section5">Boarding Loadout: Weapons, Armor &amp; Consumables</h2>
+            <p>Boarding is close-quarters, low-mobility and noisy. That dictates the kit more than your personal preference does.</p>
+            <table>
+                <thead>
+                    <tr><th>Slot</th><th>What to bring</th><th>Why for boarding</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Primary</td><td>Fast one-handed melee</td><td>Tight decks punish slow swings; you need to interrupt, not wind up</td></tr>
+                    <tr><td>Secondary</td><td>Ranged sidearm</td><td>Lets you kill a spawn across the deck before it closes</td></tr>
+                    <tr><td>Armor</td><td>Biome-appropriate set</td><td>Falling 2 tiers behind your biome's gear tier spikes difficulty hard</td></tr>
+                    <tr><td>Consumables</td><td>Food buffs + healing food</td><td>There is no potion system — food is your entire sustain layer</td></tr>
+                    <tr><td>Utility</td><td>Empty pack space</td><td>You need room for the objective loot, and a full pack is a lost pack</td></tr>
+                </tbody>
+            </table>
+            <p>Two rules that matter more than the specific items: keep your armor tier current for the biome you are sailing in, and never board without food buffs up. Food is the whole sustain system in Windrose — there are no potions to chug when a wave lands on you.</p>
+            <p>For the naval layer that decides <em>whether</em> you board at all — cannon loadouts, approach angles, hull HP management — see our <a href="windrose-ship-pvp-combat-guide-2026.html">Ship PvP Combat Guide</a>.</p>
+
+            <h2 id="section6">When You Should Not Board at All</h2>
+            <p>This is the section most boarding guides skip, and it is the one that saves the most time. Boarding is optional. Frequently, sinking the ship is simply better.</p>
+            <table>
+                <thead>
+                    <tr><th>Situation</th><th>Decision</th><th>Reasoning</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Low-value escort or stray patrol</td><td>Sink it</td><td>Gunpowder is cheaper than the death-drop risk on a trivial target</td></tr>
+                    <tr><td>You are carrying valuable cargo</td><td>Sink it</td><td>A pack you cannot afford to lose should never touch an enemy deck</td></tr>
+                    <tr><td>Your hull is already low</td><td>Sink it or disengage</td><td>A boarded fight leaves your ship exposed; a sinking ship takes your loot with it</td></tr>
+                    <tr><td>You are solo vs. a heavy garrison</td><td>Sink it</td><td>Solo players report wave counts outpacing them on large crews</td></tr>
+                    <tr><td>Host is lagging / you are mid-stutter</td><td>Disengage entirely</td><td>Geometry deaths spike when frames drop</td></tr>
+                    <tr><td>Target holds a quest item or unique blueprint</td><td>Board it</td><td>Some rewards only exist on the deck — this is what boarding is for</td></tr>
+                </tbody>
+            </table>
+            <p>Rule of thumb: board for <strong>unique rewards</strong>, sink for <strong>generic loot</strong>. Generic cargo is farmable anywhere; a lost pack is not.</p>
+
+            <h2 id="section7">The Pre-Board Checklist</h2>
+            <ul>
+                <li>Pack emptied of everything except weapons, armor, ammo and consumables ✅</li>
+                <li>Food buffs active and spare healing food in the quick slot ✅</li>
+                <li>Armor tier current for the biome you are sailing in ✅</li>
+                <li>Your own hull is healthy, not limping ✅</li>
+                <li>Escape route known: Esc then K recalls your ship ✅</li>
+                <li>Objective identified before you grapple over ✅</li>
+                <li>Ammunition topped up — you may need to sink the ship instead ✅</li>
+            </ul>
+            <p>Run this list for two or three sessions and it becomes automatic. The players who say boarding is fine are almost always the ones doing these seven things without thinking about it; the players calling for a rebalance are usually boarding with a full pack, no food buffs and no exit plan.</p>
+            <p>That does not excuse the systems underneath — the respawn structure, the geometry and the drop penalty all need work, and players are right to keep saying so. But until a patch lands, this checklist is the difference between a core loop that ruins your evening and one that pays.</p>
+
+            <h2 id="faq">FAQ</h2>
+            <div class="faq-item"><h4>Why do enemies keep spawning after I clear the deck?</h4><p>Players report waves arriving after a deck looks empty (clear eight, four more spawn). Treat boarding as a timed objective run rather than a kill-count encounter and push toward the objective instead of hunting stragglers.</p></div>
+            <div class="faq-item"><h4>Is the respawning a bug?</h4><p>It is reported consistently enough that you should plan around it rather than wait for it to change. Killing faster does not appear to end the fight sooner.</p></div>
+            <div class="faq-item"><h4>How do I get unstuck on a ship?</h4><p>Stop moving first, then alternate crouch and jump, then sheathe your weapon. If you are still pinned, press Esc then K to recall your ship. Respawn only as a last resort.</p></div>
+            <div class="faq-item"><h4>What is the ship recall hotkey?</h4><p>Press <strong>Esc</strong>, then <strong>K</strong>. Worth memorizing before your first boarding run.</p></div>
+            <div class="faq-item"><h4>Do I lose my whole inventory if I die while boarding?</h4><p>Players report losing the full pack. The counter is to bank everything except weapons, armor, ammo and consumables before you grapple across — see our <a href="windrose-death-loot-recovery-2026.html">Death Loot Recovery Guide</a> if it already happened.</p></div>
+            <div class="faq-item"><h4>What should I bring on a boarding run?</h4><p>A fast one-handed melee, a ranged sidearm, biome-appropriate armor, food buffs plus spare healing food, and empty pack space for the objective loot.</p></div>
+            <div class="faq-item"><h4>Is boarding ever worth skipping?</h4><p>Often. Sink low-value patrols, anything you meet while carrying valuable cargo, and any target that appears while your own hull is low. Board for unique rewards, sink for generic loot.</p></div>
+            <div class="faq-item"><h4>Why does my frame rate collapse during boarding?</h4><p>Players report the worst drops on the host machine, which simulates ship physics, boarding NPCs, structures and quest state simultaneously. Expect stutter, and stop sprinting when it hits — that is when geometry deaths happen.</p></div>
+            <div class="faq-item"><h4>Is boarding easier in co-op?</h4><p>Yes. Two players splitting aggro finish the objective faster, which means fewer waves spawn overall. See our <a href="windrose-solo-duo-1vn-board-tactics-2026.html">Solo &amp; Duo 1vN Boarding Tactics</a>.</p></div>
+            <div class="faq-item"><h4>How much does it cost to repair my ship after a boarding run?</h4><p>For the damaged Ketch in "I Need a Bigger Boat": 100 Wood / 20 Nails / 20 Coarse Fabric / 10 Rope, plus rescuing 7 crew. Keep that buffer stocked before you sail.</p></div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">&#127807;</span>
+        <div class="support-text">
+            <h3>This Windrose guide stays free — tip if it helped.</h3>
+            <p>If it saved you time, a $1 tip helps us keep writing more guides.</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn recommended">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-bottom">&copy; 2026 WindroseGuru &middot; Not affiliated with Windrose Studio &middot; <a href="../../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px">All game content, trademarks, and copyrights are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by the game's developers.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>.guide-content li{color:#2d2a33!important}</style>
+<script src="../../js/anti-scraper.js"></script>
+</body>
+</html>
