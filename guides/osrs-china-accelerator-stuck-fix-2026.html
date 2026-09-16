@@ -8,7 +8,7 @@
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="dns-prefetch" href="//www.google-analytics.com">
-    <meta name="keywords" content="OSRS stuck on Jagex logo China, Old School RuneScape China accelerator, OSRS loading stuck China VPN, OSRS anti-cheat block China, OSRS can't enter game China, OSRS black screen loading China, OSRS 国服外 accelerate器 卡死, OSRS Jagex logo stuck fix">
+    <meta name="keywords" content="OSRS stuck on Jagex logo China, Old School RuneScape China accelerator, OSRS loading stuck China VPN, OSRS anti-cheat block China, OSRS can't enter game China, OSRS black screen loading China, OSRS  accelerate , OSRS Jagex logo stuck fix">
     <meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
 <meta name="article:published_time" content="2026-07-30">
 <meta name="article:modified_time" content="2026-07-30">
@@ -122,7 +122,7 @@
                 <p>The official <a href="osrs-jagex-account-faq-2026.html" style="color:#8b6914;font-weight:bold;">Jagex account FAQ</a> confirms Jagex does not prohibit using a VPN or accelerator — but it also states they will act on behavior that looks like real cheating. So the goal is a <em>stable, single, clean route</em>, not a constantly-switching one.</p>
                 <div class="tip-box">
                     <div class="tip-title">💡 "Accelerator" vs "VPN" in China</div>
-                    <p>In China the word <strong>accelerate器 (accelerator)</strong> usually means a gaming-optimized tunnel with UDP forwarding and route optimization, while a plain "VPN" may only do TCP and get throttled. For OSRS you want the gaming accelerator behavior: low-latency UDP, a fixed node, and DNS handled inside the tunnel. A generic HTTP proxy will not work for the game socket.</p>
+                    <p>In China the word <strong>accelerate (accelerator)</strong> usually means a gaming-optimized tunnel with UDP forwarding and route optimization, while a plain "VPN" may only do TCP and get throttled. For OSRS you want the gaming accelerator behavior: low-latency UDP, a fixed node, and DNS handled inside the tunnel. A generic HTTP proxy will not work for the game socket.</p>
                 </div>
             </section>
 
@@ -137,7 +137,7 @@
                 <div class="action-step">
                     <h4>Fix 1 — Force DNS through the tunnel</h4>
                     <ul>
-                        <li>In your accelerator's settings, enable <strong>"Use tunnel DNS" / "Remote DNS" / "防止 DNS 泄漏"</strong>. If DNS leaks to a China resolver, it returns blocked/unreachable Jagex IPs.</li>
+                        <li>In your accelerator's settings, enable <strong>"Use tunnel DNS" / "Remote DNS" / " DNS "</strong>. If DNS leaks to a China resolver, it returns blocked/unreachable Jagex IPs.</li>
                         <li>Manually set the device DNS to a public resolver that the tunnel can reach, e.g. <strong>1.1.1.1 (Cloudflare)</strong> or <strong>8.8.8.8 (Google)</strong>, only while the accelerator is active.</li>
                         <li>Flush DNS: Windows <code>ipconfig /flushdns</code>; macOS <code>sudo dscacheutil -flushcache</code>; Android/iOS usually clears on tunnel reconnect.</li>
                     </ul>
@@ -146,9 +146,9 @@
                 <div class="action-step">
                     <h4>Fix 2 — Use a node that allows game traffic (not "streaming only")</h4>
                     <ul>
-                        <li>Many accelerator nodes are optimized for video and throttle or block game ports. Pick a node labeled <strong>"游戏 / Game / 全流量"</strong> (full traffic), not "Netflix/YouTube only."</li>
+                        <li>Many accelerator nodes are optimized for video and throttle or block game ports. Pick a node labeled <strong>" / Game / "</strong> (full traffic), not "Netflix/YouTube only."</li>
                         <li>Choose a node <strong>geographically close to Jagex's servers</strong> — EU (London/Frankfurt) or US West. A node in, say, Singapore may still route poorly to Cambridge.</li>
-                        <li>Avoid "smart route / 智能分流" modes that let OSRS traffic exit un-tunneled; force OSRS to go through the tunnel (see §4).</li>
+                        <li>Avoid "smart route / " modes that let OSRS traffic exit un-tunneled; force OSRS to go through the tunnel (see §4).</li>
                     </ul>
                 </div>
 
@@ -193,7 +193,7 @@
                 </div>
                 <div class="warning-box" style="border-left:4px solid #b8860b;padding:12px 16px;background:#fff;border-radius:6px;margin:14px 0;">
                     <div class="tip-title" style="color:#3b2615;">🚨 "Third-Party Client" Scams</div>
-                    <p>Some China-region sites sell "OSRS 国服版 / accelerate器内置客户端" claiming it bypasses region locks. These are modified clients and <strong>will</strong> get you banned under Jagex's third-party-client rules. Always download from the official Jagex site or the official RuneLite page. Secure your <a href="osrs-account-security-guide-2026.html" style="color:#8b6914;font-weight:bold;">account with 2FA</a> so a flag can't become an account theft.</p>
+                    <p>Some China-region sites sell "OSRS  / accelerate" claiming it bypasses region locks. These are modified clients and <strong>will</strong> get you banned under Jagex's third-party-client rules. Always download from the official Jagex site or the official RuneLite page. Secure your <a href="osrs-account-security-guide-2026.html" style="color:#8b6914;font-weight:bold;">account with 2FA</a> so a flag can't become an account theft.</p>
                 </div>
                 <div class="tip-box">
                     <div class="tip-title">💡 Is It the Anti-Cheat or Just Lag?</div>
@@ -211,10 +211,10 @@
                 <table>
                     <tr><th>Setting</th><th>Recommended</th><th>Why</th></tr>
                     <tr><td>Protocol</td><td>WireGuard / V2Ray / Trojan (UDP-capable)</td><td>OSRS uses UDP; TCP-only tunnels stall the game socket</td></tr>
-                    <tr><td>Mode</td><td>Global / 全局 (not split/app-only)</td><td>Split mode lets OSRS leak out un-tunneled and hangs on the logo</td></tr>
+                    <tr><td>Mode</td><td>Global /  (not split/app-only)</td><td>Split mode lets OSRS leak out un-tunneled and hangs on the logo</td></tr>
                     <tr><td>DNS</td><td>Remote/tunnel DNS + 1.1.1.1</td><td>Prevents DNS leak to blocked China resolvers</td></tr>
                     <tr><td>Node region</td><td>EU (London/Frankfurt) or US West</td><td>Closest to Jagex's actual server locations</td></tr>
-                    <tr><td>Node type</td><td>Game-optimized / 全流量 dedicated</td><td>Video-only nodes throttle game ports</td></tr>
+                    <tr><td>Node type</td><td>Game-optimized /  dedicated</td><td>Video-only nodes throttle game ports</td></tr>
                     <tr><td>MTU</td><td>1400 or lower (try 1380)</td><td>Default 1500 fragments inside the tunnel and causes stalls</td></tr>
                     <tr><td>Kill-switch</td><td>ON</td><td>Stops traffic leaking if the tunnel drops mid-session (avoids IP jump)</td></tr>
                 </table>
@@ -244,7 +244,7 @@
                 <h3>⑥ Android</h3>
                 <ul>
                     <li>Install a <strong>tunnel app (e.g., the accelerator's Android client, or a WireGuard/Shadowrocket-style app)</strong> and enable it system-wide so <em>all</em> OSRS traffic is tunneled.</li>
-                    <li>Set the app to <strong>start on boot</strong> and enable the <strong>kill-switch / "阻断无VPN流量"</strong> so a tunnel drop doesn't leak your real IP (which would cause the IP-jump flag from §3).</li>
+                    <li>Set the app to <strong>start on boot</strong> and enable the <strong>kill-switch / "VPN"</strong> so a tunnel drop doesn't leak your real IP (which would cause the IP-jump flag from §3).</li>
                     <li>Then follow the <a href="osrs-mobile-cant-login-fix-2026.html" style="color:#8b6914;font-weight:bold;">mobile login fix</a> for normal login issues, and the <a href="osrs-mobile-disconnect-background-fix-2026.html" style="color:#8b6914;font-weight:bold;">background-disconnect guide</a> so the OS doesn't kill the tunnel app in the background.</li>
                     <li>Whitelist <strong>both</strong> the accelerator app and OSRS Mobile from battery optimization, or Android will suspend the tunnel and you'll hang on the logo.</li>
                 </ul>
