@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windrose Host Performance &amp; 8-Player Guide 2026 — Who Is Actually Running the World | Windrose Guru</title>
+    <meta name="description" content="Windrose host performance guide 2026 — why the host machine simulates the entire world (ship physics, boarding NPCs, buildings, farms, quest state), why boarding fights tank your FPS, why 8 players is the cap but about 4 is what actually feels smooth, and when to move to a dedicated server.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Windrose host performance, Windrose 8 player co-op, Windrose host fps drop, Windrose boarding fight lag, Windrose dedicated server, Windrose 0.10.0.4.268">
+    <link rel="canonical" href="https://osrsguru.com/guides/windrose/windrose-host-performance-8-player-guide-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <style>
+        .guide-content h2{font-size:1.85rem !important}.guide-content h3{font-size:1.35rem !important}.guide-content p{font-size:1.08rem !important;line-height:1.85 !important}.guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}.tip-box strong{color:#7a64b8;font-size:1.06rem}
+        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}.warn-box strong{color:#b84a3a;font-size:1.06rem}
+        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}.action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#2d2a33;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}.action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}.method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}.faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .toc{background:#fff;border:1px solid #e0d8f0!important;border-left:1px solid #e0d8f0!important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}.toc h3{color:#7a64b8!important;font-size:1.1rem!important;margin-bottom:12px}
+        .guide-hero .subtitle{font-size:1.15rem!important;max-width:700px;margin:0 auto 1.2rem}.guide-hero .breadcrumb{font-size:.95rem!important}.guide-hero .weekly-badge{font-size:1rem!important}
+        .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}.inline-support-hint p{font-size:1rem}
+        .guide-content li{color:#2d2a33!important}.progress-widget{display:none!important}
+    </style>
+<meta name="author" content="OSRS Guru">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Windrose <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section2">Boarding</a></li>
+                    <li><a href="#section4">Player Count</a></li>
+                    <li><a href="#section5">Reduce Load</a></li>
+                    <li><a href="#section6">Dedicated</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#windrose">Windrose</a> / Host Performance &amp; 8-Player Guide</p>
+            <h1>Windrose Host Performance &amp; 8-Player Guide 2026</h1>
+            <div class="wr-level-badge" style="display:inline-block;background:#f0ebfa;color:#5a4a8a;border:1px solid #7a64b8;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">⚙️ Servers &amp; Performance</div>
+            <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px 10px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+            <p class="subtitle">In Windrose the host is not just a player — the host machine is the world. Ship physics, every NPC sailor on deck during a boarding fight, every building you placed, every farm plot and quest state is authoritatively simulated on one computer. That is why the moment you most need frames is the moment you have the fewest.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">⚓</span> <strong>Windrose Guide</strong> — Part of the <strong>Windrose Survival Series</strong> · 14 min read
+            </div>
+            <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: August 31, 2026</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="toc"><h3>Table of Contents</h3><ol>
+                <li><a href="#section1">The Host Is the Server: What One Machine Simulates</a></li>
+                <li><a href="#section2">The Boarding-Fight Paradox</a></li>
+                <li><a href="#section3">The Host Load Checklist</a></li>
+                <li><a href="#section4">8 Players Supported, About 4 Recommended</a></li>
+                <li><a href="#section5">How the Host Reduces Their Own Load</a></li>
+                <li><a href="#section6">When to Move to a Dedicated Server</a></li>
+                <li><a href="#section7">What 0.10.0.4.268 Fixed — and What It Did Not</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ol></div>
+
+            <h2 id="section1">The Host Is the Server: What One Machine Simulates</h2>
+            <p>Most co-op games split authority: each client simulates its own character and the server reconciles. Windrose does not work that way in a host-attended session. The person who starts the world is the authority for essentially everything happening in it, and everyone else is along for the ride.</p>
+            <p>Concretely, the host machine is responsible for:</p>
+            <ul>
+                <li><strong>Ship physics.</strong> Hull buoyancy, wave interaction, sail force, mass and drag — for every vessel in the session, not just the host's own.</li>
+                <li><strong>Boarding NPCs.</strong> The full deck of enemy sailors during a boarding action: their pathing, their weapons, their hit resolution. A packed deck is a crowd of independently simulated agents.</li>
+                <li><strong>Every placed structure.</strong> Not just the host's base. Every wall, floor, workbench, chest and decorative piece anyone in the session has built, including structural integrity recalculation when supports are destroyed.</li>
+                <li><strong>Farm plots and production.</strong> Growth timers, crop state, crafting queues and any automated production running while players are elsewhere.</li>
+                <li><strong>Quest and world state.</strong> Objective progression, POI status, faction reputation values, loot tables already rolled for the map.</li>
+                <li><strong>Enemy spawning and AI.</strong> Wildlife, patrols, raid parties, and the re-spawn behaviour that keeps a cleared POI repopulating.</li>
+            </ul>
+            <div class="tip-box">
+                <strong>The one-line version:</strong> a guest lagging is a guest problem. <strong>A host lagging is everybody's problem</strong> — because every guest's inputs are resolved against the host's simulation. This is why host performance deserves its own guide rather than being folded into a general optimisation list.
+            </div>
+            <p>That distinction also explains a pattern players report constantly: the game feels fine while four people are chopping trees in different corners of the map, and falls apart the instant the group stacks into a single boarding action. Nothing about the graphics got harder — the simulation load simply spiked.</p>
+
+            <h2 id="section2">The Boarding-Fight Paradox</h2>
+            <p>Boarding is the core loop of Windrose and the single worst-case scenario for a host machine. It concentrates every expensive system into one small volume of space at the exact moment when input latency is most punishing.</p>
+            <table>
+                <thead>
+                    <tr><th>What happens during a boarding</th><th>Why it is expensive for the host</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>A full deck of NPC sailors spawns</td><td>Each is an independent agent with pathing and attack state</td></tr>
+                    <tr><td>Two ships are physically coupled</td><td>Ship physics keeps running for both hulls, not one</td></tr>
+                    <tr><td>Melee resolution per swing</td><td>Hit checks multiply with every participant on the deck</td></tr>
+                    <tr><td>Players respawn and re-enter</td><td>Death, loot drop and re-entry all mutate world state</td></tr>
+                </tbody>
+            </table>
+            <p>This is the paradox: <strong>the fight that most needs your frames is the fight where the host has the fewest.</strong> And if you are the host, it is your frames. Guests may see a stutter; you get a slideshow while five pirates swing at you.</p>
+            <div class="warn-box">
+                <strong>Symptom to recognise:</strong> if your FPS collapses specifically when bodies pile onto a deck — but is fine while sailing, building, or farming — that is host simulation load, not a GPU problem. Lowering graphics settings will help far less than reducing the number of simulated entities.
+            </div>
+            <p>Practical takeaway: treat boarding as a load-management exercise, not just a combat exercise. Fewer simultaneous boarders, fewer surviving NPC crew, and a ship that is not simultaneously dragging a captured hull all directly reduce the spike.</p>
+
+            <h2 id="section3">The Host Load Checklist</h2>
+            <p>Before you change any settings, find out which category your session actually falls into. Work down this list in order — the top items dominate.</p>
+            <div class="method-box">
+                <h4>1. Entity and structure count (biggest lever)</h4>
+                <p>Built structures are simulated, not static decoration. A sprawling base with hundreds of placed pieces, multiple workbenches, farm plots and production queues costs the host continuously — even when nobody is standing in it. This is the same root cause behind dedicated-server entity bloat; see our <a href="windrose-server-entity-bloat-lag-fix-2026.html">Server Entity Bloat &amp; Lag Fix Guide</a> for the diagnostic approach.</p>
+            </div>
+            <div class="method-box">
+                <h4>2. Concurrent boarders</h4>
+                <p>Every extra player who climbs aboard during the same action adds their own combat resolution on top of the NPC crowd. Four players boarding at once is a very different load from two boarding while two hold the ship.</p>
+            </div>
+            <div class="method-box">
+                <h4>3. Fleet size</h4>
+                <p>Each vessel in the session is a physics body. A group that keeps three or four ships active in the same water is paying for all of them on the host, all the time.</p>
+            </div>
+            <div class="method-box">
+                <h4>4. Background production</h4>
+                <p>Farms, crafting queues and automated chains keep ticking. They are individually cheap and collectively not — particularly in a long-lived world where everyone has built out their own plot.</p>
+            </div>
+            <p>Notice that three of these four are group behaviour, not hardware. That is the point: in a hosted session the group's habits are the host's frame budget.</p>
+
+            <h2 id="section4">8 Players Supported, About 4 Recommended</h2>
+            <p>Windrose officially supports up to <strong>8 players</strong> in a session. That number is a support ceiling, not a comfort recommendation. Community experience — and the architecture described above — points to roughly <strong>4 players</strong> as the range where a hosted world stays responsive through ordinary play including boardings.</p>
+            <table>
+                <thead>
+                    <tr><th>Player count</th><th>What to expect on a hosted world</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>2 players</td><td>Smooth. Boarding spikes are manageable; host barely notices the load.</td></tr>
+                    <tr><td>3–4 players</td><td>The practical sweet spot. Comfortable in normal play, occasional dips in a heavy boarding.</td></tr>
+                    <tr><td>5–6 players</td><td>Playable, but the host should be on strong hardware and the group should moderate simultaneous boarding.</td></tr>
+                    <tr><td>7–8 players</td><td>Officially supported, frequently not smooth. Strongly consider a dedicated server at this size.</td></tr>
+                </tbody>
+            </table>
+            <div class="tip-box">
+                <strong>Rule of thumb:</strong> the supported cap of 8 tells you what the game will let you do. The ~4 guideline tells you what it will let you enjoy. If your group is regularly above 4, the honest fix is not settings tweaking — it is moving the world off somebody's gaming PC.
+            </div>
+            <p>Player count is not the only variable, of course. Four players with four sprawling bases and a four-ship fleet is heavier than six players travelling light. But count is the fastest predictor, and it is the one you can change before a session starts.</p>
+
+            <h2 id="section5">How the Host Reduces Their Own Load</h2>
+            <p>These are ordered by impact. Do the first two and most hosted sessions improve noticeably.</p>
+            <div class="action-step">
+                <span class="step-num">1</span>
+                <h4>Cut on-screen structures at the base</h4>
+                <p>Consolidate. A single dense base beats four scattered ones, because what matters is how much is actively simulated near players. Dismantle abandoned starter camps, redundant workbenches and decorative sprawl nobody visits. Keep one production hub per group rather than one per player.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">2</span>
+                <h4>Control fleet size</h4>
+                <p>Agree as a group to keep active vessels to what the current objective needs. Ships parked far away still cost physics. Scuttle or store what is not in use instead of leaving a small navy scattered across the map.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">3</span>
+                <h4>Limit how many board at once</h4>
+                <p>Two players board and clear; the rest hold their own ship and provide cover. This is both better tactics and dramatically cheaper for the host than four players stacking a single deck. Our <a href="windrose-solo-duo-1vn-board-tactics-2026.html">Solo &amp; Duo 1vN Board Tactics</a> covers the small-team approach in detail.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">4</span>
+                <h4>Trim background production before a session</h4>
+                <p>If everyone leaves six crafting queues and a full farm running while the group goes boarding, that is continuous background work. Pause what you do not need during group activities.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">5</span>
+                <h4>Host from a machine that is doing nothing else</h4>
+                <p>The host should not also be the person streaming, recording, or running a browser with forty tabs. Close background applications before opening the world — the simulation needs the CPU more than anything else on that machine does.</p>
+            </div>
+            <p>If the session still struggles after all five, you have learned something useful: your group has outgrown hosted play. That is not a failure, it is the signal to move on to the next section.</p>
+
+            <h2 id="section6">When to Move to a Dedicated Server</h2>
+            <p>A dedicated server moves the world simulation off a player's gaming PC onto a machine whose only job is running the world. Nobody has to be online for the world to exist, and the host-player's own frame rate stops being the group's shared resource.</p>
+            <p>Move to a dedicated server when any of these is true:</p>
+            <ul>
+                <li>Your regular group is <strong>above about 4 players</strong>.</li>
+                <li>People want to play <strong>when the host is asleep or at work</strong>.</li>
+                <li>The world has accumulated <strong>a lot of building</strong> across several players' plots.</li>
+                <li>Boarding fights are consistently <strong>a slideshow for the host</strong>.</li>
+                <li>You want to <strong>change world settings</strong> — which historically required a dedicated server and a world description file.</li>
+            </ul>
+            <p>Note the last point. World configuration is a dedicated-server capability, and for a long time it was a broken one. Our <a href="windrose-linux-docker-dedicated-server-guide-2026.html">Linux Docker Dedicated Server Guide</a> covers the deployment path and the world-description file, and our <a href="windrose-dedicated-server-admin-commands-2026.html">Dedicated Server Admin Commands Guide</a> covers day-to-day operation once it is up.</p>
+            <div class="tip-box">
+                <strong>Cheapest first step:</strong> you do not have to buy anything to test this. Run the dedicated server on the same machine that currently hosts, and have the group join it as clients. If the stutter disappears for everyone, the bottleneck was host-client contention and a separate box will confirm the fix permanently.
+            </div>
+
+            <h2 id="section7">What 0.10.0.4.268 Fixed — and What It Did Not</h2>
+            <p><strong>Patch 0.10.0.4.268</strong> addressed a real and widely felt problem: idle servers and clients were burning CPU while nothing was happening, and the game was writing to disk far more than it needed to. Both were fixed. An idle session stopped spinning, and disk write volume dropped.</p>
+            <p>What that patch did <strong>not</strong> do is change the architecture. The host still simulates the world. Adding players, ships, structures and boarding NPCs still increases the host's load by roughly the same amount as before. The patch removed waste; it did not redistribute work.</p>
+            <div class="warn-box">
+                <strong>The distinction that matters most:</strong> <strong>relay fixes connectivity, not compute.</strong> If your problem is "nobody can join me," that is a networking problem and relay-style connectivity work helps. If your problem is "everyone joins fine and then the host's frames die during a boarding," relay does nothing at all — the packets are arriving perfectly well, the simulation is simply too heavy. Two different failures, two different fixes, and confusing them is why so many groups chase the wrong one.
+            </div>
+            <p>If your symptom is the joining-and-connecting kind, start with our <a href="windrose-force-relay-connection-guide-2026.html">Force Relay Connection Guide</a>. If your symptom is frames-dropping-during-combat, everything above in this guide applies and connectivity settings will not save you.</p>
+            <p>For general client-side settings work that does help regardless of who is hosting, see our <a href="windrose-performance-optimization-2026.html">Performance Optimization Guide</a> — just keep expectations realistic: settings reduce rendering cost, and your bottleneck is simulation.</p>
+
+            <h2 id="faq">FAQ</h2>
+            <div class="faq-item"><h4>How many players can join a Windrose session?</h4><p>The game officially supports up to 8 players. In practice, hosted sessions feel smoothest at around 4 — above that, the host machine's simulation load becomes the limiting factor.</p></div>
+            <div class="faq-item"><h4>Why does my FPS drop specifically during boarding fights?</h4><p>Boarding stacks the most expensive systems at once: a full deck of NPC sailors, two coupled ship physics bodies, and melee resolution for every participant. That spike lands entirely on the host machine.</p></div>
+            <div class="faq-item"><h4>Does the host simulate other players' buildings?</h4><p>Yes. Every placed structure in the session — whoever built it — is part of the host's world simulation, including integrity recalculation when supports are destroyed.</p></div>
+            <div class="faq-item"><h4>Will lowering graphics settings fix host lag?</h4><p>Partially, and usually disappointingly. Settings reduce rendering cost; host lag during boarding is simulation cost. Reducing entities and concurrent boarders helps far more than reducing shadow quality.</p></div>
+            <div class="faq-item"><h4>Does patch 0.10.0.4.268 mean hosting is fixed now?</h4><p>No. That patch fixed idle CPU spin and excessive disk writes on idle servers and clients — real wins, but the host-authoritative architecture was unchanged.</p></div>
+            <div class="faq-item"><h4>Does enabling relay improve my frame rate?</h4><p>No. Relay addresses connectivity and routing so players can actually connect. It does nothing for simulation load, which is what causes host frame drops in combat.</p></div>
+            <div class="faq-item"><h4>Should our group of 6 use a dedicated server?</h4><p>Almost certainly yes. Six players is past the comfortable hosted range, and a dedicated server also lets the world stay up when the usual host is offline.</p></div>
+            <div class="faq-item"><h4>Can the world run while the host is offline?</h4><p>Not in a hosted session — the host's machine is the world. A dedicated server is required for a world that persists without any particular player being online.</p></div>
+            <div class="faq-item"><h4>Does having multiple ships active hurt performance?</h4><p>Yes. Each vessel is a physics body the host simulates continuously, whether or not anyone is near it. Keep the active fleet to what the current objective needs.</p></div>
+            <div class="faq-item"><h4>Is 8 players ever fine?</h4><p>It can be on a dedicated server with disciplined building, or in a fresh world with little built. In a hosted world with an established base, expect trouble.</p></div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">&#127807;</span>
+        <div class="support-text">
+            <h3>This Windrose guide stays free — tip if it helped.</h3>
+            <p>If it saved you time, a $1 tip helps us keep writing more guides.</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn recommended">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-bottom">&copy; 2026 WindroseGuru &middot; Not affiliated with Windrose Studio &middot; <a href="../../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px">All game content, trademarks, and copyrights are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by the game's developers.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>.guide-content li{color:#2d2a33!important}</style>
+<script src="../../js/anti-scraper.js"></script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert Mac Crash Fix 2026 — MetalFX, Cursor Offset &amp; Colour Filters | CD Guru</title>
+    <meta name="description" content="Crimson Desert Mac crash fix 2026 — how to fix the MetalFX Denoising Upscaler crash, the furniture placement cursor offset at certain resolutions, and colour blindness filters not applying to UI, using Pearl Abyss's own Known Issues list.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Crimson Desert Mac crash, Crimson Desert MetalFX crash, Crimson Desert Mac cursor offset, Crimson Desert colour blind filter UI, Crimson Desert Apple Silicon, Crimson Desert Mac known issues">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-mac-crash-fix-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <style>
+        /* ── Light theme — matches Violet Sunrise global CSS ── */
+        .guide-content h2{font-size:1.85rem !important}
+        .guide-content h3{font-size:1.35rem !important}
+        .guide-content h3 strong{font-size:1.35rem}
+        .guide-content p{font-size:1.08rem !important;line-height:1.85 !important}
+        .guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+
+        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .tip-box strong{color:#7a64b8;font-size:1.06rem}
+        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .warn-box strong{color:#b84a3a;font-size:1.06rem}
+
+        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}
+        .action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#2d2a33;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+        .action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+        .action-step p{color:#2d2a33;font-size:1.08rem;line-height:1.75}
+
+        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}
+        .method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .method-box p{color:#2d2a33;font-size:1.06rem;line-height:1.75}
+
+        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .faq-item p{color:#2d2a33;font-size:1.03rem;line-height:1.7}
+
+        .toc{background:#fff;border:1px solid #e0d8f0 !important;border-left:1px solid #e0d8f0 !important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .toc h3{color:#7a64b8 !important;font-size:1.1rem !important;margin-bottom:12px}
+        .guide-hero .subtitle{font-size:1.15rem !important;max-width:700px;margin:0 auto 1.2rem}
+        .guide-hero .breadcrumb{font-size:.95rem !important}
+        .guide-hero .weekly-badge{font-size:1rem !important}
+
+        .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}
+        .inline-support-hint p{font-size:1rem}
+        .guide-content li{color:#2d2a33 !important}
+        .progress-widget{display:none !important}
+    </style>
+<meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<meta name="author" content="OSRS Guru">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Crimson Desert <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section2">Triage Table</a></li>
+                    <li><a href="#section3">MetalFX</a></li>
+                    <li><a href="#section4">Cursor</a></li>
+                    <li><a href="#section5">Filters</a></li>
+                    <li><a href="#section6">Backup</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#crimson-desert">Crimson Desert</a> / Mac Crash Fix</p>
+            <h1>Crimson Desert Mac Crash Fix 2026</h1>
+      <div class="cd-level-badge" style="display:inline-block;background:#f0ebfa;color:#5a4a8a;border:1px solid #7a64b8;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">🛠️ Technical</div>
+      <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px 10px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+            <p class="subtitle">Three Mac problems are on Pearl Abyss's own Known Issues list: a hard crash from the MetalFX Denoising Upscaler, furniture that lands away from your cursor at certain resolutions, and colour blindness filters that skip the UI. Here is how to identify each one and what to actually do about it.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>CD Guide</strong> — Part of the <strong>Crimson Desert Series</strong> · 13 min read
+            </div>
+            <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: August 31, 2026</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="toc"><h3>Table of Contents</h3><ol>
+                <li><a href="#section1">What Pearl Abyss Officially Acknowledges on Mac</a></li>
+                <li><a href="#section2">Symptom → Cause → Fix → Verify (Master Table)</a></li>
+                <li><a href="#section3">Issue 1 — MetalFX Denoising Upscaler Crash</a></li>
+                <li><a href="#section4">Issue 2 — Furniture Placement Cursor Offset</a></li>
+                <li><a href="#section5">Issue 3 — Colour Blindness Filters Skip the UI</a></li>
+                <li><a href="#section6">Back Up the User Engine Option File Before You Delete It</a></li>
+                <li><a href="#section7">Living With the Mac Port on Apple Silicon</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ol></div>
+
+            <h2 id="section1">What Pearl Abyss Officially Acknowledges on Mac</h2>
+            <p>Mac coverage for Crimson Desert is thin everywhere, and most of what exists is guesswork copied between aggregator sites. This page works from a different source: <strong>Pearl Abyss's own Known Issues list for Crimson Desert, updated 1 August 2026</strong>. That document names three Mac-specific problems outright, which means we are not asking you to trust a forum thread — we are asking you to trust the developer's own bug tracker.</p>
+            <p>The three officially listed items are: (1) enabling the <strong>MetalFX Denoising Upscaler</strong> causes the client to crash, with the official remedy being to delete the <strong>User Engine Option</strong> file; (2) when playing with keyboard and mouse at certain resolutions, the <strong>placement point for furniture does not line up with the cursor</strong>; and (3) the <strong>colour blindness filter does not apply to UI elements</strong>, only to the rendered game scene.</p>
+            <p>The current client is <strong>version 1.000.484 (2.00.00, released 25 August 2026)</strong>. As of that build these three items are still on the official Known Issues list — they are not listed among the fixes that shipped in patch 1.18.02 on 17 August 2026. We re-check the list each patch cycle and update this page, so if you are reading this months from now, treat the status line here as the current one.</p>
+            <div class="tip-box">
+                <strong>Why this matters:</strong> knowing a bug is <em>officially confirmed</em> changes what you do next. For a confirmed bug you stop troubleshooting your own machine and start applying the official workaround, because no amount of driver reinstalling will fix a defect the developer has already acknowledged.
+            </div>
+
+            <h2 id="section2">Symptom → Cause → Fix → Verify (Master Table)</h2>
+            <p>Start here. Find the row that matches what you are seeing, then jump to the detailed section. The "verify" column is the part most guides skip — it is how you know the fix actually took, rather than how you hope it did.</p>
+            <table>
+                <thead>
+                    <tr><th>Symptom</th><th>Cause (official)</th><th>Fix</th><th>Verify</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Crash to desktop on or right after enabling MetalFX Denoising Upscaler; repeatable</td><td>Officially listed defect in the MetalFX denoising path</td><td>Delete the User Engine Option file, relaunch with defaults, leave the option off</td><td>Game launches and the upscaler option reads as off; no crash across two area loads</td></tr>
+                    <tr><td>Furniture lands offset from where your cursor points; gap changes with resolution</td><td>Officially listed: placement point and cursor disagree at certain resolutions with mouse and keyboard</td><td>Change resolution, or place furniture using a connected gamepad</td><td>Place a test item in housing mode — it lands exactly under the cursor</td></tr>
+                    <tr><td>Colour blind mode changes the world but not menus, HUD or subtitles</td><td>Officially listed: the filter is applied to the rendered scene, not UI elements</td><td>Use macOS system-level colour filters, which cover the whole window</td><td>Open a menu with the filter on — UI colours shift along with the scene</td></tr>
+                    <tr><td>Crash persists after deleting the options file</td><td>Not the MetalFX defect — different root cause</td><td>Work through section 7's general triage</td><td>Crash stops, or you have a reproducible case to report</td></tr>
+                </tbody>
+            </table>
+
+            <h2 id="section3">Issue 1 — MetalFX Denoising Upscaler Crash</h2>
+            <p>This is the one that actually costs people playtime. MetalFX is Apple's upscaling family, and the denoising upscaler is the aggressive variant that reconstructs a higher-resolution frame from a lower-resolution one while cleaning up noise. Enabling it in Crimson Desert triggers a crash — officially confirmed, not a hardware defect on your end.</p>
+            <h3>How to recognise it</h3>
+            <ul>
+                <li>The crash is <strong>repeatable and tied to the setting</strong>, not random. If your game runs for hours and then dies once, this is not your bug.</li>
+                <li>It happens <strong>on or immediately after enabling the option</strong>, or on the first frame the upscaler actually has work to do.</li>
+                <li>Because the setting is written to your <strong>User Engine Option</strong> file, relaunching re-applies it. That is the practical reason the official workaround is file-level rather than menu-level: if the client dies before you can navigate back and switch the option off, the menu route is closed to you.</li>
+            </ul>
+            <h3>The fix</h3>
+            <div class="action-step">
+                <span class="step-num">1</span>
+                <h4>Quit the game completely</h4>
+                <p>Close the window and confirm the process is gone. If the client is hung on the crash, force-quit it. Do not proceed while the game is still running, or it may rewrite the file you are about to delete.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">2</span>
+                <h4>Back up the User Engine Option file</h4>
+                <p>Copy it somewhere safe before touching it — Desktop is fine. Section 6 covers exactly how to find it and what else to copy while you are there.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">3</span>
+                <h4>Delete it (or move it out of the folder)</h4>
+                <p>Moving it to a folder on your Desktop is safer than deleting outright: same result for the game, fully reversible for you. This is the remedy Pearl Abyss itself specifies.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">4</span>
+                <h4>Relaunch and let the client rebuild defaults</h4>
+                <p>The game regenerates a fresh options file on startup. Everything will be back at default values, which means the MetalFX Denoising Upscaler is off.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">5</span>
+                <h4>Verify, then re-tune everything except that one toggle</h4>
+                <p>Load a save, move the camera, and cross at least one area boundary. If it holds, you are clear. Re-apply your other display settings one at a time so that if something else crashes, you know exactly which setting did it.</p>
+            </div>
+            <div class="warn-box">
+                <strong>Expect a full settings reset:</strong> the User Engine Option file holds your engine and graphics configuration as a whole, not just the upscaler toggle. Deleting it resets <em>all</em> of those options, so budget a few minutes to put your display, quality and control preferences back the way you like them.
+            </div>
+
+            <h2 id="section4">Issue 2 — Furniture Placement Cursor Offset</h2>
+            <p>The official wording is that when using keyboard and mouse at certain resolutions, the point where furniture is placed does not match the cursor position. In practice that means housing and camp decoration becomes a guessing game: you aim at a spot, commit, and the item appears somewhere else by a consistent-looking margin.</p>
+            <h3>How to recognise it</h3>
+            <ul>
+                <li>It is <strong>placement-mode specific</strong>. Combat, dialogue and general navigation feel normal; only the placement preview is wrong.</li>
+                <li>The mismatch is <strong>resolution-dependent</strong>. Players report it appearing at some resolutions and not others, and the size of the gap changing when they switch resolution — which is the tell that separates this bug from a general "the placement system is clunky" complaint.</li>
+                <li>It is tied to <strong>mouse and keyboard input</strong>. The official note scopes it that way, so a connected controller is a legitimate workaround rather than a superstitious one.</li>
+            </ul>
+            <h3>The fix</h3>
+            <p>Pearl Abyss lists this as a known issue without a menu-level remedy, so what you have are workarounds that avoid the broken code path:</p>
+            <div class="method-box">
+                <h4>Option A — Change your resolution</h4>
+                <p>Since the defect is resolution-dependent, switching to a different resolution moves you out of the affected case. Try your display's native resolution first, then one step down. Re-test placement after each change rather than assuming the first switch worked.</p>
+            </div>
+            <div class="method-box">
+                <h4>Option B — Place with a gamepad</h4>
+                <p>Because the official note scopes the bug to mouse and keyboard, connecting a controller and using it for placement mode specifically gets you correct alignment while you keep mouse and keyboard for everything else. This is the least disruptive workaround if you own a pad.</p>
+            </div>
+            <div class="method-box">
+                <h4>Option C — Defer the decorating</h4>
+                <p>If neither of the above is practical, park your furnishing plans. This is a confirmed defect sitting on a public list, which makes it a reasonable candidate for a future fix — unlike an undocumented quirk that nobody at Pearl Abyss knows about.</p>
+            </div>
+            <div class="tip-box">
+                <strong>Verify before you commit:</strong> place one cheap, easily-moved item as a test. If it lands precisely under the cursor, your workaround is working. Do not spend twenty minutes arranging a room before you have run that test.
+            </div>
+
+            <h2 id="section5">Issue 3 — Colour Blindness Filters Skip the UI</h2>
+            <p>Crimson Desert ships colour blindness filters, and they do work — on the game world. What they do not cover, per the official Known Issues list, is <strong>UI elements</strong>. Menus, HUD elements and interface text keep their original colours while the scene behind them shifts. For players who rely on the filter to read threat indicators or loot rarity cues that live in the interface, that gap is the whole problem.</p>
+            <h3>How to recognise it</h3>
+            <ul>
+                <li>Turning the filter on produces an obvious change <strong>in the 3D scene only</strong>. If you open a menu and the colours look untouched while the world behind it has shifted, you are looking at this exact issue.</li>
+                <li>The behaviour is <strong>consistent across all UI surfaces</strong>, not intermittent. A filter that works on some menus and not others would be something else.</li>
+                <li>The in-game filter strength slider does not close the gap — it intensifies the scene effect and leaves the UI alone.</li>
+            </ul>
+            <h3>The fix</h3>
+            <p>The reliable workaround is to move the filtering one level up, to macOS itself. System-level colour filters are applied to everything the display outputs, including a full-screen game and its interface.</p>
+            <div class="action-step">
+                <span class="step-num">1</span>
+                <h4>Open the macOS accessibility display settings</h4>
+                <p>Go to <strong>System Settings → Accessibility → Display → Color Filters</strong>. If you are on an older macOS release the same pane lives under <strong>System Preferences → Accessibility → Display</strong>. The exact wording varies slightly between macOS versions.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">2</span>
+                <h4>Enable Color Filters and pick your type</h4>
+                <p>Choose the filter that matches your need (the same categories the game offers) and adjust intensity with the slider.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">3</span>
+                <h4>Turn the in-game filter off and verify on a menu</h4>
+                <p>Running both stacks two filters on the scene and one on the UI, which usually looks wrong — let the system filter handle everything uniformly. Then open your inventory or map: if the interface colours shift along with the scene, you are done.</p>
+            </div>
+            <p>Beyond colour handling, if dense interface text is part of the problem, raise UI scale and contrast in the game's display options where those are offered. For a broader look at what the options menu can and cannot do for readability, see our <a href="crimson-desert-console-settings-guide-2026.html">Settings Guide</a>.</p>
+
+            <h2 id="section6">Back Up the User Engine Option File Before You Delete It</h2>
+            <p>Deleting a file a support document tells you to delete is fine. Deleting it without a copy is how a five-minute fix becomes an afternoon of re-tuning settings you had carefully dialled in. Two minutes of copying first.</p>
+            <h3>How to find it</h3>
+            <p>The file is part of Crimson Desert's user data on your Mac, alongside your saves. Its <strong>exact folder path depends on how and where the client was installed, and can shift between client versions</strong> — so rather than trusting a hardcoded path, locate it directly:</p>
+            <ul>
+                <li>Open the folder where Crimson Desert stores its user data for your installation and look for a configuration file named along the lines of <strong>User Engine Option</strong> — that is the name Pearl Abyss uses in its own instructions. If browsing fails, use Finder's search within that folder or Spotlight and match on the file name.</li>
+                <li>When in doubt, take a copy of the <strong>entire user data folder</strong> rather than gambling on one file.</li>
+            </ul>
+            <h3>What to copy, and what is safe</h3>
+            <ul>
+                <li><strong>User Engine Option file</strong> — copy it first, always. Losing it costs your graphics, display and engine settings.</li>
+                <li><strong>Progression save data</strong> — back it up if you can locate it, though the official workaround does <em>not</em> target it.</li>
+                <li><strong>Cloud save state</strong> — confirm it has synced so you have a rollback option if anything local goes wrong.</li>
+            </ul>
+            <div class="tip-box">
+                <strong>Scope check:</strong> the official instruction is to delete the <em>User Engine Option</em> file — an options file, not a save file. Deleting it resets your settings, not your progress. That said, if you are touching files in a folder that also holds your saves, copy the whole folder first. Confirm your cloud save has synced before you start anything.
+            </div>
+
+            <h2 id="section7">Living With the Mac Port on Apple Silicon</h2>
+            <p>We are not going to quote frame rates for specific M-series chips. We have not benchmarked them, Pearl Abyss has not published per-chip numbers, and any site giving you a confident "M3 Pro gets X fps in Pywel" is inventing it. Here is what can be said honestly.</p>
+            <h3>What the Mac build is working with</h3>
+            <p>The Mac client runs on Metal, and MetalFX upscaling is the main lever you have for trading internal resolution for smoothness. That is precisely why the crash issue stings: the setting you would most want to reach for on an integrated-GPU Mac is the one setting that is currently off the table. Until it is fixed, your realistic levers are internal resolution, the non-denoising upscaler path if one is offered, and the usual quality presets.</p>
+            <h3>Practical expectations</h3>
+            <p>Expect to run at a reduced internal resolution, since upscaling is doing the heavy lifting and the denoising variant is unavailable. Favour stable frame delivery over peak settings — a locked, consistent frame rate beats a higher average that stutters through combat. And do not assume Windows tuning advice transfers: most Crimson Desert performance guides are written for NVIDIA and AMD hardware, where the option names may match but the tradeoffs do not.</p>
+            <p>For the general settings walkthrough, start with our <a href="crimson-desert-best-settings-performance-2026.html">Best Settings for Performance</a> guide and cross-check against the platform notes in our <a href="crimson-desert-platform-comparison-guide-2026.html">Platform Comparison</a>. The 2.0 update changed several graphics-adjacent defaults, so also skim our <a href="crimson-desert-2-0-enhanced-update-guide-2026.html">2.0 Enhanced Update Guide</a> before you settle on a configuration.</p>
+            <h3>If your crash is not the MetalFX one</h3>
+            <p>Work down this list in order. It is generic on purpose — these steps are safe regardless of what is actually wrong, and they rule out the common causes before you spend time on anything exotic.</p>
+            <div class="method-box">
+                <h4>General triage, in order</h4>
+                <ol>
+                    <li><strong>Confirm your client version.</strong> Check that you are on 1.000.484 (2.00.00) or later — an outdated client crashes for reasons that are already fixed.</li>
+                    <li><strong>Verify game files.</strong> Use your storefront's verify-integrity function; a corrupted install is the most common cause of crashes that survive a settings reset.</li>
+                    <li><strong>Update macOS.</strong> Metal and MetalFX behaviour is tied to the OS, so install pending system updates before assuming the game is at fault.</li>
+                    <li><strong>Re-add settings one at a time.</strong> You are already at defaults after deleting the options file. Change one thing, play, repeat — slow, but the only reliable way to find a setting-specific crash.</li>
+                    <li><strong>Report it with reproduction steps.</strong> Note your Mac model, macOS version, client version and exact steps. Reproducible reports get triaged; "it crashes sometimes" does not.</li>
+                </ol>
+            </div>
+            <p>If you have hit any of the broader crash patterns rather than a Mac-specific one, our <a href="crimson-desert-crash-fix-guide-2026.html">Crash Fix Guide</a> covers the platform-agnostic cases.</p>
+
+            <h2 id="faq">FAQ</h2>
+            <div class="faq-item"><h4>Is the MetalFX crash an officially confirmed issue?</h4><p>Yes. Pearl Abyss's Known Issues list for Crimson Desert, updated 1 August 2026, names it directly and specifies deleting the User Engine Option file as the remedy. This is not a community theory.</p></div>
+            <div class="faq-item"><h4>Will deleting the User Engine Option file delete my save?</h4><p>It should not — the official instruction targets an options file, not your progression saves. The two live in your user data folder, though, so copy the whole folder before deleting anything and confirm your cloud save has synced.</p></div>
+            <div class="faq-item"><h4>What exactly do I lose by deleting that file?</h4><p>Your engine and graphics configuration: resolution, quality presets, display mode and anything else stored there. The game rebuilds a default version on next launch. Your campaign progress is unaffected.</p></div>
+            <div class="faq-item"><h4>Can I just turn the upscaler back off in the menu instead?</h4><p>If the client stays alive long enough for you to reach the menu, yes — that is the cleaner route. The file-deletion method exists for the case where the crash happens before you can navigate back and undo the setting.</p></div>
+            <div class="faq-item"><h4>Why does my furniture land away from the cursor?</h4><p>It is an officially listed issue: with keyboard and mouse at certain resolutions, the placement point does not line up with the cursor. Change resolution or place with a gamepad.</p></div>
+            <div class="faq-item"><h4>Is the cursor offset a mouse sensitivity or DPI problem?</h4><p>No. The official note attributes it to resolution, and the tell is that the gap changes when you change resolution rather than when you change sensitivity. Adjusting DPI will not close it.</p></div>
+            <div class="faq-item"><h4>Do the colour blindness filters work at all?</h4><p>Yes, on the rendered game scene. The officially listed limitation is that they do not apply to UI elements such as menus and HUD. Use macOS system colour filters if you need the interface covered too.</p></div>
+            <div class="faq-item"><h4>Should I run the in-game filter and the macOS filter together?</h4><p>Usually not. Stacking them double-filters the scene while the UI gets one pass, which looks inconsistent. Pick the system filter if you need uniform coverage.</p></div>
+            <div class="faq-item"><h4>Will these three issues be fixed?</h4><p>We cannot promise that. What we can say is that all three are on a public list maintained by Pearl Abyss, which is a much better position than an undocumented bug nobody has acknowledged. We update this page each patch cycle.</p></div>
+            <div class="faq-item"><h4>Does any of this affect the Windows version?</h4><p>No — all three are Mac-specific entries. Windows players dealing with visual corruption should look at our <a href="crimson-desert-gpu-driver-guide-2026.html">GPU Driver Guide</a> instead.</p></div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">&#127807;</span>
+        <div class="support-text">
+            <h3>This Crimson Desert guide stays free either way.</h3>
+            <p>If it saved you time, a $1 tip helps us keep writing more guides.</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn recommended">&#127807; Buy me a pack of gum — $1.00</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">No paywall, no subscription — just a thank-you if you can. &#129309;</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-bottom">&copy; 2026 CDGuru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px">Crimson Desert&trade; is a trademark of Pearl Abyss Corp. All game content and materials are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by Pearl Abyss.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>.guide-content li{color:#2d2a33!important}</style>
+</body>
+</html>
