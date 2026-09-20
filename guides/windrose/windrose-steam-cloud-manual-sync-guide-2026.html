@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windrose Steam Cloud Manual Sync 2026 — Force Upload &amp; Download Your Saves | Windrose Guru</title>
+    <meta name="description" content="Windrose Steam Cloud manual sync 2026 — force upload and download your saves with the Steam console. Copy-paste cloud_sync_up / cloud_sync_down 3041230 commands, the RocksDB_v2_Backups local path, and the set_spew_level log check.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Windrose Steam Cloud sync, cloud_sync_up 3041230, cloud_sync_down 3041230, Windrose steam console save sync, Windrose RocksDB_v2_Backups, set_spew_level 4 4">
+    <link rel="canonical" href="https://osrsguru.com/guides/windrose/windrose-steam-cloud-manual-sync-guide-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <style>
+        .guide-content h2{font-size:1.85rem !important}.guide-content h3{font-size:1.35rem !important}.guide-content p{font-size:1.08rem !important;line-height:1.85 !important}.guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}.tip-box strong{color:#7a64b8;font-size:1.06rem}
+        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}.warn-box strong{color:#b84a3a;font-size:1.06rem}
+        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}.action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#2d2a33;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}.action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}.method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}.faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .toc{background:#fff;border:1px solid #e0d8f0!important;border-left:1px solid #e0d8f0!important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}.toc h3{color:#7a64b8!important;font-size:1.1rem!important;margin-bottom:12px}
+        .guide-hero .subtitle{font-size:1.15rem!important;max-width:700px;margin:0 auto 1.2rem}.guide-hero .breadcrumb{font-size:.95rem!important}.guide-hero .weekly-badge{font-size:1rem!important}
+        .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}.inline-support-hint p{font-size:1rem}
+        .guide-content li{color:#2d2a33!important}.progress-widget{display:none!important}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Windrose <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section2">Up vs Down</a></li>
+                    <li><a href="#section3">Commands</a></li>
+                    <li><a href="#section4">Verify</a></li>
+                    <li><a href="#section5">Folders</a></li>
+                    <li><a href="#section6">Scenarios</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#windrose">Windrose</a> / Steam Cloud Manual Sync</p>
+            <h1>Windrose Steam Cloud Manual Sync 2026</h1>
+            <div class="wr-level-badge" style="display:inline-block;background:#f0ebfa;color:#5a4a8a;border:1px solid #7a64b8;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">☁️ Cloud Saves</div>
+            <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px 10px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+            <p class="subtitle">Steam Cloud is supposed to be invisible. When it is not — and with Windrose it often is not — you can force it by hand from the Steam console. The official FAQ documents the whole sequence, and it takes about two minutes once you have done it once.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">⚓</span> <strong>Windrose Guide</strong> — Part of the <strong>Windrose Survival Series</strong> · 11 min read
+            </div>
+            <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: August 31, 2026</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="toc"><h3>Table of Contents</h3><ol>
+                <li><a href="#section1">Why You Have to Sync Windrose by Hand</a></li>
+                <li><a href="#section2">Upload or Download? Get This Right First</a></li>
+                <li><a href="#section3">The Full Command Sequence</a></li>
+                <li><a href="#section4">Reading the Log to Confirm It Worked</a></li>
+                <li><a href="#section5">The Three RocksDB Folders</a></li>
+                <li><a href="#section6">Real Scenarios — New PC, Reinstall, Rollback</a></li>
+                <li><a href="#section7">When Manual Sync Is Not Enough</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ol></div>
+
+            <h2 id="section1">Why You Have to Sync Windrose by Hand</h2>
+            <p>Windrose saves are not a tidy single file. They are a RocksDB database, which means the save is a directory of many small interlocking files rather than one blob you can copy. That structure is good for the game and awkward for sync engines: if Steam Cloud decides a directory is unchanged, or partially syncs it, or loses its place mid-upload, you get a state where the cloud copy and the local copy disagree and nothing tells you which one is newer.</p>
+            <p>The symptoms are familiar if you have been burned by it: you boot up on a different machine and your world is hours behind, or the game hangs on the loading screen because it is waiting on cloud data, or a save that was definitely there last night is simply absent today.</p>
+            <p>Steam does expose a manual sync path — it is just buried in the Steam console rather than in any menu. The official Windrose FAQ documents the exact commands, and this guide reproduces them so you can copy and paste.</p>
+            <div class="tip-box">
+                <strong>Before you start:</strong> close the game completely. Running a sync while Windrose has the save files open is the fastest way to produce a half-written cloud copy. Exit to desktop, confirm the process is gone, then sync.
+            </div>
+
+            <h2 id="section2">Upload or Download? Get This Right First</h2>
+            <p>There are two commands and they do opposite things. Picking the wrong one does not damage your disk, but it will overwrite the copy you wanted. Read this table before you type anything.</p>
+            <table>
+                <thead>
+                    <tr><th>Command</th><th>Direction</th><th>Use it when</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>cloud_sync_up 3041230</code></td><td>Local → Cloud</td><td>You just played on this machine and want the cloud updated to match</td></tr>
+                    <tr><td><code>cloud_sync_down 3041230</code></td><td>Cloud → Local</td><td>This machine's local save is missing, older, or corrupted</td></tr>
+                </tbody>
+            </table>
+            <p>The number <strong>3041230</strong> is Windrose's Steam App ID. It is what tells Steam which game's cloud storage you mean, and it is the same for the up and down commands.</p>
+            <div class="warn-box">
+                <strong>The one rule that prevents disasters:</strong> <code>cloud_sync_down</code> overwrites your local save with the cloud copy. If your local save is the good one and the cloud is stale, running "down" destroys it. Always confirm which side holds the progress you want to keep before you press enter.
+            </div>
+            <div class="method-box">
+                <h4>Quick decision rule</h4>
+                <p><strong>Played here last?</strong> Run <code>up</code>.<br>
+                <strong>Playing here for the first time, or this machine's save is wrong?</strong> Run <code>down</code>.<br>
+                <strong>Not sure which copy is newer?</strong> Open the local folder and check file timestamps against the last time you played, then decide.</p>
+            </div>
+            <p>If you are on a brand-new machine with no local save at all, "down" is always safe — there is nothing local to lose.</p>
+
+            <h2 id="section3">The Full Command Sequence</h2>
+            <p>This is the official procedure from the Windrose FAQ, in order. Follow the sequence rather than cherry-picking steps; the logging parts are what let you confirm it actually worked.</p>
+            <div class="action-step">
+                <span class="step-num">1</span>
+                <h4>Close the game</h4>
+                <p>Exit Windrose fully. Do not leave it running in the background or minimised to the tray.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">2</span>
+                <h4>Open the Steam console</h4>
+                <p>Press <code>Win + R</code>, type the following, and press Enter:</p>
+                <pre><code>steam://open/console</code></pre>
+                <p>Steam will open a window with an extra <strong>Console</strong> tab alongside your library.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">3</span>
+                <h4>Turn on verbose logging</h4>
+                <p>Type this into the console and press Enter. It raises the log level so you can actually see what the sync is doing:</p>
+                <pre><code>set_spew_level 4 4</code></pre>
+            </div>
+            <div class="action-step">
+                <span class="step-num">4</span>
+                <h4>Run the sync you need</h4>
+                <p>To push your local save up to the cloud:</p>
+                <pre><code>cloud_sync_up 3041230</code></pre>
+                <p>To pull the cloud save down onto this machine:</p>
+                <pre><code>cloud_sync_down 3041230</code></pre>
+                <p>Run one or the other, not both. Wait for it to finish — the console will scroll a lot of output, and you want to let it settle before judging the result.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">5</span>
+                <h4>Check the log for the backup files</h4>
+                <p>Scroll the console output and confirm the <strong>RocksDB V2 backup files</strong> synced successfully. You are looking for those specific backup files being reported as transferred, not just a generic "sync complete" line. Details in the next section.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">6</span>
+                <h4>Turn the logging back down</h4>
+                <p>Once you are satisfied, reset the spew level so Steam stops writing enormous logs:</p>
+                <pre><code>set_spew_level 0 0</code></pre>
+            </div>
+            <div class="tip-box">
+                <strong>Do not skip step 6.</strong> Leaving the log level at 4 4 makes Steam write a lot of noise to disk indefinitely, which is exactly the kind of thing that quietly slows a machine down over weeks.
+            </div>
+
+            <h2 id="section4">Reading the Log to Confirm It Worked</h2>
+            <p>The whole point of <code>set_spew_level 4 4</code> is verification. Without it you get a silent success-or-failure and no way to tell which happened.</p>
+            <p>In the console output, look for entries naming files under the <strong>RocksDB V2 backups</strong> path. What you want to see is those backup files being uploaded or downloaded as part of the sync — that is the signal the save database travelled, not just some unrelated config file.</p>
+            <p>If you see the backup files listed with successful transfer lines, you are done. If the sync reports success but no RocksDB V2 backup files appear anywhere in the output, treat it as a failed sync and investigate before you trust the cloud copy.</p>
+            <div class="method-box">
+                <h4>Local path to verify by hand</h4>
+                <p>You can confirm the result on disk at:</p>
+                <pre><code>C:\Users\%username%\AppData\Local\R5\Saved\SaveProfiles\%your_Steam_ID%\RocksDB_v2_Backups</code></pre>
+                <p>Two substitutions: <code>%username%</code> is your Windows account name, and <code>%your_Steam_ID%</code> is your numeric Steam ID — the folder is named after it, so if you have more than one account that has played Windrose on this PC, make sure you are in the right one. Check the timestamp on the backup files to confirm the sync actually landed.</p>
+            </div>
+            <p>If you are stuck on a loading screen while the game waits on cloud data, that is a related but distinct problem — see our <a href="windrose-loading-screen-steam-cloud-fix-2026.html">Loading Screen Steam Cloud Fix</a>.</p>
+
+            <h2 id="section5">The Three RocksDB Folders</h2>
+            <p>Inside your save profile folder you will see three similarly named directories. They are not duplicates, and knowing which is which saves you from restoring the wrong thing.</p>
+            <table>
+                <thead>
+                    <tr><th>Folder</th><th>What it is</th><th>Should you touch it?</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>RocksDB</code></td><td>The legacy save format directory</td><td>Leave alone unless a guide tells you otherwise</td></tr>
+                    <tr><td><code>RocksDB_v2</code></td><td>The current live save database the game reads and writes during play</td><td>This is your actual world — never delete it</td></tr>
+                    <tr><td><code>RocksDB_v2_Backups</code></td><td>Backup snapshots of the v2 database</td><td><strong>This is the recovery source</strong> — read-only in practice</td></tr>
+                </tbody>
+            </table>
+            <p>The practical takeaway: <strong>RocksDB_v2</strong> is where your game lives right now, and <strong>RocksDB_v2_Backups</strong> is the pool of snapshots you fall back on when something goes wrong. Anything you do manually should be a copy <em>out of</em> the backups folder, never a deletion of either.</p>
+            <div class="warn-box">
+                <strong>Never delete RocksDB or RocksDB_v2 to "clean up."</strong> They are not cache. Deleting them removes your world, and the only thing standing between you and total loss is the backups folder.
+            </div>
+            <p>This matters for cloud sync specifically because it is the <code>RocksDB_v2_Backups</code> files the official procedure tells you to confirm in the log. If only the live database synced and the backups did not, you have a cloud copy with no recovery depth.</p>
+
+            <h2 id="section6">Real Scenarios — New PC, Reinstall, Rollback</h2>
+            <div class="method-box">
+                <h4>Moving to a new PC</h4>
+                <p>On the old machine: close the game, run <code>cloud_sync_up 3041230</code>, verify the backup files in the log. On the new machine: install Windrose, launch it once and quit, then run <code>cloud_sync_down 3041230</code>. Launch and your world should be there. Checking the log before you wipe or sell the old machine is the step people skip and regret.</p>
+            </div>
+            <div class="method-box">
+                <h4>Reinstalling Windows or the game</h4>
+                <p>Before the reinstall, force an <code>up</code> and confirm it. A clean Windows install removes everything under <code>AppData\Local\R5</code>, so the cloud copy is your only safety net. After reinstalling, run <code>down</code> before you start a new world — if you create a fresh world first, you may overwrite the cloud copy with the empty new save.</p>
+            </div>
+            <div class="method-box">
+                <h4>Rolling back after something broke</h4>
+                <p>If your current save is corrupted or a patch chewed through your world, the recovery path runs through the backups folder rather than through cloud sync. That is a different procedure with its own steps — our <a href="windrose-save-backup-data-recovery-guide-2026.html">Save Backup &amp; Data Recovery Guide</a> covers restoring from <code>RocksDB_v2_Backups</code> and the in-game Data Recovery screen, and <a href="windrose-save-loss-recovery-2026.html">Save Loss Recovery</a> covers the wider picture.</p>
+            </div>
+            <div class="method-box">
+                <h4>Two machines, one world</h4>
+                <p>If you alternate between a desktop and a laptop, get in the habit of running <code>up</code> at the end of every session on whichever machine you just used, and <code>down</code> at the start of a session on the other one. It is mildly annoying and it completely removes the "which machine has my progress" problem.</p>
+            </div>
+
+            <h2 id="section7">When Manual Sync Is Not Enough</h2>
+            <p>Forcing a sync fixes disagreement between your local and cloud copies. It does not fix a cloud copy that is itself wrong. If you synced up after your world was already corrupted, the cloud now holds a corrupted save — syncing again will not help, and syncing down will just re-download the damage.</p>
+            <p>In that situation stop and move to recovery instead. Windrose creates backup snapshots during play and when you exit to the desktop, and those snapshots are your rollback target. The <a href="windrose-save-backup-data-recovery-guide-2026.html">Save Backup &amp; Data Recovery Guide</a> walks the restore path for both local play and dedicated servers.</p>
+            <p>If the game will not get past the loading screen at all, deal with that first — see <a href="windrose-loading-screen-steam-cloud-fix-2026.html">Loading Screen Steam Cloud Fix</a> — because a manual sync is not going to rescue a hang.</p>
+
+            <h2 id="faq">FAQ</h2>
+            <div class="faq-item"><h4>How do I open the Steam console?</h4><p>Press <code>Win + R</code>, type <code>steam://open/console</code>, and press Enter. Steam gains a Console tab where you type the sync commands.</p></div>
+            <div class="faq-item"><h4>What is 3041230?</h4><p>Windrose's Steam App ID. Both <code>cloud_sync_up</code> and <code>cloud_sync_down</code> take it as the argument so Steam knows which game's cloud storage to act on.</p></div>
+            <div class="faq-item"><h4>Should I use cloud_sync_up or cloud_sync_down?</h4><p>Use <code>up</code> if you last played on this machine and want the cloud updated. Use <code>down</code> if this machine's save is missing, older, or broken. <code>down</code> overwrites your local save, so be certain first.</p></div>
+            <div class="faq-item"><h4>Do I need to close the game first?</h4><p>Yes. Syncing while Windrose has the save files open risks a half-written cloud copy. Exit to desktop before you start.</p></div>
+            <div class="faq-item"><h4>What does set_spew_level 4 4 do?</h4><p>It raises Steam's log verbosity so you can see the sync details and confirm the RocksDB V2 backup files transferred. Reset it afterwards with <code>set_spew_level 0 0</code>.</p></div>
+            <div class="faq-item"><h4>Why should I reset the spew level to 0 0?</h4><p>Leaving it at 4 4 makes Steam write very large logs continuously, which wastes disk and can slow things down over time.</p></div>
+            <div class="faq-item"><h4>Where are my Windrose saves stored locally?</h4><p><code>C:\Users\%username%\AppData\Local\R5\Saved\SaveProfiles\%your_Steam_ID%\</code> — the <code>RocksDB_v2_Backups</code> subfolder holds the backup snapshots.</p></div>
+            <div class="faq-item"><h4>What is the difference between RocksDB, RocksDB_v2 and RocksDB_v2_Backups?</h4><p><code>RocksDB</code> is the legacy directory; <code>RocksDB_v2</code> is your live save database; <code>RocksDB_v2_Backups</code> holds backup snapshots and is what you restore from. Do not delete either of the first two.</p></div>
+            <div class="faq-item"><h4>The sync said success but my world is still old. What now?</h4><p>Check whether the RocksDB V2 backup files actually appeared in the log. A generic success line without those files means the save data did not really transfer.</p></div>
+            <div class="faq-item"><h4>Can I use this to recover a corrupted save?</h4><p>Not by itself. If your cloud copy is also corrupted, syncing just moves the damage around. Use the backup snapshots and the Data Recovery screen instead — see our <a href="windrose-save-backup-data-recovery-guide-2026.html">Save Backup &amp; Data Recovery Guide</a>.</p></div>
+            <div class="faq-item"><h4>Does this work for dedicated server saves?</h4><p>No — dedicated server saves live with the server, not in your Steam Cloud. This procedure is for your local single-player and client saves.</p></div>
+            <div class="faq-item"><h4>I have two Steam accounts on this PC. Which folder is mine?</h4><p>The <code>SaveProfiles</code> folder names each subfolder after the numeric Steam ID. Check which ID you are logged in as and open the matching folder.</p></div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">&#127807;</span>
+        <div class="support-text">
+            <h3>This Windrose guide stays free — tip if it helped.</h3>
+            <p>If it saved you time, a $1 tip helps us keep writing more guides.</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn recommended">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-bottom">&copy; 2026 WindroseGuru &middot; Not affiliated with Windrose Studio &middot; <a href="../../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px">All game content, trademarks, and copyrights are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by the game's developers.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>.guide-content li{color:#2d2a33!important}</style>
+<script src="../../js/anti-scraper.js"></script>
+</body>
+</html>
