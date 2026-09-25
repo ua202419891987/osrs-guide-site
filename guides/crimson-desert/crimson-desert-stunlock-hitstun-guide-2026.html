@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert Stunlock &amp; Hitstun Guide 2026 — How to Stop Getting Chained to Death | CD Guru</title>
+    <meta name="description" content="Crimson Desert stunlock and hitstun explained: why the soulslike 'roll away after getting hit' instinct fails, hold-vs-tap dodge (evasive roll vs side step), the first-frame escape window, landing recovery after being launched, and how to survive Excavator's drill.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Crimson Desert stunlock, Crimson Desert hitstun, Crimson Desert can't dodge after being hit, Crimson Desert evasive roll vs side step, Crimson Desert Excavator drill stunlock, Crimson Desert getting thrown around">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-stunlock-hitstun-guide-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <style>
+        /* ── Light theme — matches Violet Sunrise global CSS ── */
+        .guide-content h2{font-size:1.85rem !important}
+        .guide-content h3{font-size:1.35rem !important}
+        .guide-content h3 strong{font-size:1.35rem}
+        .guide-content p{font-size:1.08rem !important;line-height:1.85 !important}
+        .guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+
+        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .tip-box strong{color:#7a64b8;font-size:1.06rem}
+        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .warn-box strong{color:#b84a3a;font-size:1.06rem}
+
+        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}
+        .action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#2d2a33;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+        .action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+        .action-step p{color:#2d2a33;font-size:1.08rem;line-height:1.75}
+
+        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}
+        .method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .method-box p{color:#2d2a33;font-size:1.06rem;line-height:1.75}
+
+        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .faq-item p{color:#2d2a33;font-size:1.03rem;line-height:1.7}
+
+        .toc{background:#fff;border:1px solid #e0d8f0 !important;border-left:1px solid #e0d8f0 !important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .toc h3{color:#7a64b8 !important;font-size:1.1rem !important;margin-bottom:12px}
+        .guide-hero .subtitle{font-size:1.15rem !important;max-width:700px;margin:0 auto 1.2rem}
+        .guide-hero .breadcrumb{font-size:.95rem !important}
+        .guide-hero .weekly-badge{font-size:1rem !important}
+
+        .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}
+        .inline-support-hint p{font-size:1rem}
+        .guide-content li{color:#2d2a33 !important}
+        .progress-widget{display:none !important}
+    </style>
+<meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<meta name="author" content="OSRS Guru">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Crimson Desert <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section2">Hitstun</a></li>
+                    <li><a href="#section3">Hold vs Tap</a></li>
+                    <li><a href="#section4">Escape</a></li>
+                    <li><a href="#section6">Bosses</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#crimson-desert">Crimson Desert</a> / Stunlock &amp; Hitstun</p>
+            <h1>Crimson Desert Stunlock &amp; Hitstun Guide 2026 — How to Stop Getting Chained to Death</h1>
+      <div class="cd-level-badge" style="display:inline-block;background:#f0ebfa;color:#5a4a8a;border:1px solid #7a64b8;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">⚔️ Combat Guide</div>
+      <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px 10px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+            <p class="subtitle">You got clipped once and then died without touching the controller again. That is not bad luck — Crimson Desert's hitstun does not behave like a soulslike's, and every reflex you imported from Elden Ring is working against you. Here is the actual escape system.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>CD Guide</strong> — Part of the <strong>Crimson Desert Series</strong> · 15 min read
+            </div>
+            <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: August 31, 2026</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="toc"><h3>Table of Contents</h3><ol>
+                <li><a href="#section1">Why "I Got Hit, Now I Roll Away" Fails Here</a></li>
+                <li><a href="#section2">What Actually Causes Hitstun and Chain Control</a></li>
+                <li><a href="#section3">Hold vs Tap — Evasive Roll vs Side Step</a></li>
+                <li><a href="#section4">The First Frame After Hitstun Ends</a></li>
+                <li><a href="#section5">Landing Recovery After Being Launched</a></li>
+                <li><a href="#section6">Bosses That Punish Not Knowing This</a></li>
+                <li><a href="#section7">Three Drills to Build the Habit</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ol></div>
+
+            <h2 id="section1">Why "I Got Hit, Now I Roll Away" Fails Here</h2>
+            <p>Every soulslike trains the same reflex: you eat a hit, the flinch ends, you roll out, you reset. In Crimson Desert that reflex gets you killed, and the community has been saying so loudly for months. Three separate large Steam discussion threads — running at roughly 289, 98, and 20 replies — have carried the same complaint from around three months ago right up to now, with players reporting that they simply cannot dodge out of a hit once it lands.</p>
+            <p>One widely echoed community report puts it plainly: <em>"you cant really dodge like in soulsgames - you get stunlocked, trown around."</em> The spelling is the player's; the sentiment is the thread's. Another cluster of reports describes the same thing from the boss side — being caught by one attack and then held through a full sequence with no window to act.</p>
+            <p>The important thing to understand is that this is <strong>not</strong> one single bug and it is <strong>not</strong> purely the game's fault. Community reports consistently point at three stacked causes, and only one of them is fully under your control. This guide separates them so you can stop dying to the part you can fix.</p>
+            <div class="tip-box">
+                <strong>The one-line fix:</strong> stop mashing. Crimson Desert appears to buffer inputs made during hitstun and release them the instant control returns — which means the roll you "queued" while being thrown around fires straight into the next hit instead of away from it.
+            </div>
+
+            <h2 id="section2">What Actually Causes Hitstun and Chain Control</h2>
+            <p>Chain control in Crimson Desert is best understood as three separate states that players often describe with the same word. Separating them is what makes the problem solvable.</p>
+            <h3>The three states players call "stunlock"</h3>
+            <ul>
+                <li><strong>Repeated light hitstun.</strong> A multi-hit attack — a drill, a flurry, a spinning sweep — re-applies a small flinch faster than it decays. You are technically never "stunned"; you are permanently one frame into a flinch.</li>
+                <li><strong>Launch / knockdown.</strong> A single heavy blow converts you into an airborne or prone state with its own recovery animation. During this you have no control at all, and it is the state players describe as being "trown around."</li>
+                <li><strong>Pin against geometry.</strong> A wall, a rock, a prop, or a ledge. Your recovery animation plays but your displacement is blocked, so the follow-up hit lands for free.</li>
+            </ul>
+            <p>The second and third states are where the deaths actually happen. The first is survivable if you stop inputting; the second and third kill you because the recovery animation has no cancel and your queued input is waiting behind it.</p>
+            <h3>Why your input makes it worse</h3>
+            <p>Players across the Steam threads report the same pattern: they mash evade while being hit, and the character does nothing — then performs a single dodge at the worst possible moment, directly into the follow-up. Whether or not the game is formally buffering inputs, the practical lesson reported over and over is that <strong>input made during hitstun is input wasted or input weaponized against you</strong>.</p>
+            <div class="warn-box">
+                <strong>The habit to break:</strong> mashing evade is not "trying to escape." In this game it is pre-loading an animation you cannot cancel, timed by the game instead of by you.
+            </div>
+
+            <h2 id="section3">Hold vs Tap — Evasive Roll vs Side Step</h2>
+            <p>This is the single highest-value mechanic in this guide, and it is the one most players report discovering far too late. Your evade input in Crimson Desert produces <strong>two different moves depending on how you press it</strong>.</p>
+            <table>
+                <thead>
+                    <tr><th>Input</th><th>Move</th><th>What it's for</th><th>Why it fails as an escape</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Tap</strong> (quick press, release)</td><td>Side step</td><td>Repositioning inside a fight, baiting a whiff, staying close for a punish</td><td>Short displacement — it does not clear sweeping or drilling attack arcs</td></tr>
+                    <tr><td><strong>Hold</strong> (press and keep holding)</td><td>Evasive roll</td><td>Escaping hitstun, leaving an attack arc, creating real distance</td><td>Longer recovery — never roll back into a boss that is still swinging</td></tr>
+                </tbody>
+            </table>
+            <p>The Excavator / quarry drill threads are the clearest evidence of how much this matters. Players there report being stun-locked <em>"into an endless amount of hits until he stops drilling"</em> — and in the same breath report that their dodge only ever produced a side step, never a roll. They were tapping. Tapping gave them the shortest possible displacement, which kept them inside the drill's arc, which re-applied the flinch, which kept them tapping.</p>
+            <div class="tip-box">
+                <strong>The tell:</strong> if you are dying inside an attack that "should" have missed, film yourself. Nine times out of ten the character is doing the small hop, not the full roll. That means you are tapping.
+            </div>
+            <h3>One officially listed wrinkle to check first</h3>
+            <p>Before you blame your own hands, check your settings. Pearl Abyss's 1.18.02 Known Issues list includes an issue where, after setting <strong>Evasion Control</strong> to "Hold", the default dodge key from before rebinding still functions. If you rebound dodge and feel like the game is ignoring half your inputs, test the original key before you retrain your muscle memory.</p>
+
+            <h2 id="section4">The First Frame After Hitstun Ends</h2>
+            <p>Escaping chain control is a five-step sequence, and steps one and two are the ones everybody skips. Run it in this order.</p>
+            <div class="action-step">
+                <span class="step-num">1</span>
+                <h4>Stop inputting entirely</h4>
+                <p>The moment you realize you are being hit, take your hands off. Let the full knockback or flinch play out. This is the hardest step and the most important one — you are sacrificing the illusion of control for an actual escape window.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">2</span>
+                <h4>Identify the first actionable frame</h4>
+                <p>Watch for your character settling into a stance from which an idle or a move could begin. That settle is the first frame the game will accept input again. Do not guess it — learn to see it. It is earlier than you think and much later than your panic says.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">3</span>
+                <h4>Hold evade — do not tap</h4>
+                <p>On that frame, press and <strong>hold</strong>. You want the evasive roll, not the side step. A side step here reproduces the exact loop that killed you.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">4</span>
+                <h4>Roll away from the attacker's facing, not sideways</h4>
+                <p>Rolling laterally keeps you inside sweeping and drilling arcs. Roll along the attacker's facing axis — usually straight back, or through and behind them if the move has a committed recovery. Creating distance is the goal; punishing is not.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">5</span>
+                <h4>Only now, spend the window</h4>
+                <p>Once you have distance, that is your window to eat, re-buff, or reposition. Crimson Desert has no potions — healing is food, and boss fights are attrition. Our <a href="crimson-desert-healing-food-system-guide-2026.html">Healing &amp; Food System Guide</a> covers how much to carry.</p>
+            </div>
+            <div class="warn-box">
+                <strong>Do not attack on the recovery frame.</strong> The most common way players re-enter the chain is landing one greedy hit instead of rolling. Damage you deal while stunned is not damage you get to keep.
+            </div>
+
+            <h2 id="section5">Landing Recovery After Being Launched</h2>
+            <p>Being launched is its own problem with its own timing, and community reports on it are consistent enough to build a method around.</p>
+            <h3>While airborne</h3>
+            <p>Do not spam. Players report that inputs made during the airborne portion fire on landing and eat the follow-up, exactly like inputs made during grounded hitstun. Use directional influence to steer where you come down — away from the attacker, and critically, <strong>away from walls</strong>.</p>
+            <h3>On the landing frame</h3>
+            <p>Treat the landing exactly like the end of a grounded hitstun: one held evade input, timed to the moment your character touches down and can act. Rolling out of the get-up is the difference between a launcher being a scare and a launcher being a death.</p>
+            <h3>If you landed against geometry</h3>
+            <p>Priority changes. A wall defeats the roll, so your first job is to get off the wall — roll along it or perpendicular to it, then re-assess. If a boss is drilling you into a rock face, the mistake happened before the launch: you were standing with your back to geometry. Fight in the open whenever the arena allows it.</p>
+            <div class="tip-box">
+                <strong>Arena rule:</strong> before any boss pull, look behind you. If there is a wall, a cliff, or a prop within a roll's distance, relocate the fight. Geometry is the silent partner in almost every stunlock clip.
+            </div>
+
+            <h2 id="section6">Bosses That Punish Not Knowing This</h2>
+            <p>Some encounters are specifically tuned to punish players who are still playing this like a soulslike. The table below maps the ones the community names most often to the mechanic being tested and the correct response.</p>
+            <table>
+                <thead>
+                    <tr><th>Encounter</th><th>What chains you</th><th>Correct response</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Excavator / quarry drill</strong></td><td>Sustained multi-hit drill re-applying flinch; side step never leaves the arc</td><td>Hold for the evasive roll, create real distance, do not re-enter until the drill cycle visibly ends. Full breakdown in our <a href="crimson-desert-excavator-boss-guide-2026.html">Excavator Boss Guide</a></td></tr>
+                    <tr><td><strong>Kearush the Slayer</strong> (Ch. 5)</td><td>Multiple health bars plus a super-armor phase; being thrown out of the church restarts the attempt</td><td>Treat it as an attrition check — arrive with a large cooked-food stock and never trade during the armored phase</td></tr>
+                    <tr><td><strong>Forgotten General</strong></td><td>Community calls it "the Malenia of Crimson Desert" — both passive and aggressive play are punished</td><td>Escape first, punish only on confirmed recoveries. See the <a href="crimson-desert-forgotten-general-boss-guide-2026.html">Forgotten General Boss Guide</a></td></tr>
+                    <tr><td><strong>General elite packs</strong></td><td>Enemies that out-prioritize your input and open before you can act</td><td>Do not contest the opener. Priority and super armor are covered in our <a href="crimson-desert-elite-enemies-counter-guide-2026.html">Elite Enemies Counter Guide</a></td></tr>
+                </tbody>
+            </table>
+            <p>If you want the underlying defensive timing rather than per-boss scripts, our <a href="crimson-desert-parry-timing-dodge-guide-2026.html">Parry &amp; Dodge Guide</a> and the general <a href="crimson-desert-boss-guide-2026.html">Boss Guide</a> build on the escape sequence above.</p>
+            <div class="warn-box">
+                <strong>2.0 changed your defensive kit.</strong> The official 2.00.00 patch notes (version 1.000.484, August 25, 2026) state that all existing skill progress was reset on first launch after the update, with spent Abyss Artifacts fully refunded, and that skill progression is now reset per individual character. If your evasion or recovery skills felt weaker after 2.0, they may simply be unspent — see our <a href="crimson-desert-2-0-enhanced-update-guide-2026.html">2.0 Enhanced Update Guide</a> for the rebuild order.
+            </div>
+
+            <h2 id="section7">Three Drills to Build the Habit</h2>
+            <div class="method-box">
+                <h4>Drill 1 — The no-mash challenge</h4>
+                <p>Pick a mid-tier enemy you can comfortably beat. Fight it under one rule: the instant you are hit, you stop touching the controls until your character fully settles. You will lose the habit of panic-inputting faster than any amount of reading.</p>
+            </div>
+            <div class="method-box">
+                <h4>Drill 2 — Roll-only escapes</h4>
+                <p>Same enemy, added rule: every escape must be a <em>held</em> evade. If you see the small side step, you failed the rep. The goal is to make "hold" the default under pressure so that it survives contact with a real boss.</p>
+            </div>
+            <div class="method-box">
+                <h4>Drill 3 — Wall awareness</h4>
+                <p>Before every pull in an open-world camp, name your escape lane out loud. If you cannot name one, reposition. This turns the geometry problem from something you notice while dying into something you notice while walking up.</p>
+            </div>
+            <svg viewBox="0 0 640 230" style="width:100%;height:auto;max-width:640px;margin:1rem 0" role="img" aria-label="Chain control loop versus escape loop diagram">
+                <rect x="0" y="0" width="640" height="230" fill="#faf8fc"/>
+                <text x="20" y="26" font-size="14" font-weight="700" fill="#5a4a8a">The chain loop vs. the escape loop</text>
+                <text x="30" y="60" font-size="12" font-weight="700" fill="#b84a3a">CHAIN LOOP</text>
+                <rect x="30" y="70" width="118" height="34" rx="6" fill="#f6e3d8" stroke="#e8c8a0"/><text x="44" y="91" font-size="11" fill="#2d2a33">get clipped</text>
+                <rect x="168" y="70" width="118" height="34" rx="6" fill="#f6e3d8" stroke="#e8c8a0"/><text x="182" y="91" font-size="11" fill="#2d2a33">mash evade</text>
+                <rect x="306" y="70" width="118" height="34" rx="6" fill="#f6e3d8" stroke="#e8c8a0"/><text x="318" y="91" font-size="11" fill="#2d2a33">side step only</text>
+                <rect x="444" y="70" width="118" height="34" rx="6" fill="#f6e3d8" stroke="#e8c8a0"/><text x="462" y="91" font-size="11" fill="#2d2a33">hit again</text>
+                <text x="592" y="91" font-size="16" fill="#b84a3a">↻</text>
+                <text x="30" y="150" font-size="12" font-weight="700" fill="#5a4a8a">ESCAPE LOOP</text>
+                <rect x="30" y="160" width="118" height="34" rx="6" fill="#ece5f8" stroke="#7a64b8"/><text x="44" y="181" font-size="11" fill="#2d2a33">get clipped</text>
+                <rect x="168" y="160" width="118" height="34" rx="6" fill="#ece5f8" stroke="#7a64b8"/><text x="180" y="181" font-size="11" fill="#2d2a33">hands off</text>
+                <rect x="306" y="160" width="118" height="34" rx="6" fill="#ece5f8" stroke="#7a64b8"/><text x="316" y="181" font-size="11" fill="#2d2a33">hold evade</text>
+                <rect x="444" y="160" width="118" height="34" rx="6" fill="#ece5f8" stroke="#7a64b8"/><text x="462" y="181" font-size="11" fill="#2d2a33">distance</text>
+                <text x="592" y="181" font-size="16" fill="#5a4a8a">✓</text>
+                <text x="20" y="220" font-size="11" fill="#999">Escape loop runs on one timed input, not on input volume. Diagram is conceptual, not frame-data.</text>
+            </svg>
+            <p>None of this makes Crimson Desert's hitstun feel generous, but it does make it predictable, and predictable is the only thing a combat system owes you. For the wider progression picture after the 2.0 reset, start with our <a href="crimson-desert-2-0-enhanced-update-guide-2026.html">2.0 Enhanced Update Guide</a>.</p>
+
+            <h2 id="faq">FAQ</h2>
+            <div class="faq-item"><h4>Why can't I dodge after being hit in Crimson Desert?</h4><p>Community reports across three large Steam threads say the recovery window does not behave like a soulslike's, and that inputs made during hitstun appear to be buffered and released the moment control returns — firing your roll into the next hit. The practical fix is to stop inputting until your character settles, then hold evade once.</p></div>
+            <div class="faq-item"><h4>Is stunlock a bug that Pearl Abyss is going to fix?</h4><p>We have not seen an official statement confirming a fix, so treat it as a system to play around rather than a bug waiting on a patch. Nothing in the official 2.00.00 patch notes (1.000.484) addresses it.</p></div>
+            <div class="faq-item"><h4>What is the difference between tapping and holding the dodge button?</h4><p>Tapping produces a short side step; holding produces a full evasive roll with real displacement. Players in the Excavator drill threads report only ever getting the side step, which keeps them inside the attack arc. If you are trying to escape, hold.</p></div>
+            <div class="faq-item"><h4>Why does my dodge sometimes not respond at all?</h4><p>Check your keybindings first. Pearl Abyss's 1.18.02 Known Issues list includes an issue where, after setting Evasion Control to "Hold", the pre-rebind default dodge key still works. Test the original key before assuming the input is being dropped.</p></div>
+            <div class="faq-item"><h4>How do I get out of the Excavator drill combo?</h4><p>Create distance with a held evasive roll and do not re-enter until the drill visibly ends. Tapping keeps you in the arc. Our <a href="crimson-desert-excavator-boss-guide-2026.html">Excavator Boss Guide</a> covers the full cycle.</p></div>
+            <div class="faq-item"><h4>Should I attack right after escaping?</h4><p>No. Roll first, then decide. Attacking on the recovery frame is the most commonly reported way players re-enter the chain and lose the health they just spent escaping to protect.</p></div>
+            <div class="faq-item"><h4>What do I do after being launched into the air?</h4><p>Steer your landing away from the attacker and away from walls, then hold evade on the landing frame to roll out of the get-up. Do not mash during the airborne portion — reports consistently say buffered inputs fire on landing and eat the follow-up.</p></div>
+            <div class="faq-item"><h4>Does armor or poise stop stunlock?</h4><p>Players report gear matters, but no loadout removes the need for the escape timing. Armor stat visibility is its own known complaint — see our <a href="crimson-desert-armor-stats-research-guide-2026.html">Armor Stats &amp; Research Guide</a>.</p></div>
+            <div class="faq-item"><h4>Why do I get chained against walls specifically?</h4><p>A wall blocks your roll's displacement while the recovery animation still plays, so follow-ups land free. Always check what is behind you before a pull and relocate if there is geometry within a roll's distance.</p></div>
+            <div class="faq-item"><h4>Did the 2.0 update change any of this?</h4><p>The official 2.00.00 notes confirm that skill progress was reset on first launch with Abyss Artifacts refunded, and that skill progression is now reset per character. That means defensive skills may need re-purchasing — see our <a href="crimson-desert-2-0-enhanced-update-guide-2026.html">2.0 Enhanced Update Guide</a>.</p></div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">&#127807;</span>
+        <div class="support-text">
+            <h3>This Crimson Desert guide stays free either way.</h3>
+            <p>If it saved you time, a $1 tip helps us keep writing more guides.</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn recommended">&#127807; Buy me a pack of gum — $1.00</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">No paywall, no subscription — just a thank-you if you can. &#129309;</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-bottom">&copy; 2026 CDGuru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px">Crimson Desert&trade; is a trademark of Pearl Abyss Corp. All game content and materials are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by Pearl Abyss.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>.guide-content li{color:#2d2a33!important}</style>
+</body>
+</html>

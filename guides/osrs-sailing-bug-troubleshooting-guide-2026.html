@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSRS Sailing Bug &amp; Troubleshooting Guide 2026 — Stuck Boat, Cargo Loss, Plugin Fixes | OSRS Guru</title>
+<meta name="description" content="The 2026 OSRS Sailing bug and troubleshooting guide: fix a boat stuck at the dock or at sea, recover lost cargo, stop plugin and client crashes, understand the Wyrmscraig narrow-river jam, and survive the cargo-hold death penalty.">
+<meta name="keywords" content="osrs sailing bug, sailing stuck boat fix, sailing cargo loss, sailing plugin crash, wyrmscraig narrow river, sailing death penalty, sailing troubleshooting 2026, osrs sailing help">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="canonical" href="https://osrsguru.com/guides/osrs-sailing-bug-troubleshooting-guide-2026.html">
+<link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S1BGC91MYV');
+</script>
+</head>
+<body data-site="osrsguru" data-version="2026.06">
+<header class="site-header">
+    <div class="header-inner">
+        <a href="/" class="logo">OSRS <span>Guru</span></a>
+        <nav>
+            <ul style="list-style:none;display:flex;gap:18px;margin:0;padding:0;">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../skill-training.html">Skill Training</a></li>
+                <li><a href="../money-making.html">Money Making</a></li>
+                <li><a href="../boss-guides.html">Boss Guides</a></li>
+                <li><a href="../pvm-guides.html">PvM Guides</a></li>
+                <li><a href="../mobile.html">Mobile</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../index.html">Home</a> / Skill Training / OSRS Sailing Bug &amp; Troubleshooting Guide 2026</p>
+            <h1>OSRS Sailing Bug &amp; Troubleshooting Guide 2026 — Stuck Boat, Cargo Loss, Plugin Fixes</h1>
+<span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:10px 0 4px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+
+<div class="article-meta" style="margin-top:12px;color:#666;font-size:.9rem;line-height:1.6"><span>Published September 25, 2026</span> &nbsp;|&nbsp; <span>13 min read</span> &nbsp;|&nbsp; <span>By Yanchun Wu</span></div><!-- meta-update-2026 -->
+
+            <p class="subtitle">Sailing is the first new skill since 2005, and like every major release it shipped with rough edges. This page is the fix-it desk: a boat stuck at the dock, a ship frozen at sea, cargo that vanished on death, plugin or client crashes, the Wyrmscraig narrow-river jam, and the rest of the known bugs — with the exact steps Jagex and the community use to recover.</p>
+            <div class="level-badge" style="display:inline-block;margin:6px 0 10px;padding:5px 16px;border:1px solid #E6A817;border-radius:20px;background:rgba(230,168,23,0.14);color:#E6A817;font-weight:700;font-size:.86rem;letter-spacing:.4px;">⛵ Level: Beginner</div>
+            <div class="weekly-badge">
+                <span class="badge-icon">⛵</span> <strong>Skill Training</strong> — Sailing Fixes &amp; Bugs · Published September 2026
+            </div>
+        </div>
+    </section>
+
+<main class="guide-content">
+        <div class="container">
+
+<div class="quick-summary" style="background:#f5f2f8;border:1px solid #D4CDE0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.5rem auto 2rem;max-width:780px;">
+                <h3 style="color:#1a1a1a;font-size:1.05rem;margin:0 0 .8rem;font-weight:700;">⏱️ Quick Summary &mdash; 30-Second Read</h3>
+                <ul style="margin:0;padding-left:1.2rem;list-style:none;color:#1a1a1a;font-size:.92rem;line-height:1.8;">
+                    <li>📌 <strong>Stuck at the dock?</strong> Walk the gangplank off the ship, then right-click the gangplank to re-board. Your cargo stays safe.</li>
+                    <li>📌 <strong>Stuck at sea?</strong> Right-click the helm, choose Escape, and log out then back in. You may lose the cargo in the hold, but your bank is untouched.</li>
+                    <li>📌 <strong>Plugin or client crash?</strong> Turn off Legacy GPU and 117HD, then restart the client. Invisible boats and black screens are almost always a renderer conflict.</li>
+                    <li>📌 <strong>Wyrmscraig narrow river:</strong> you need forward momentum to turn. Slow down, point into the bend, and let the NPC prompt guide you through.</li>
+                    <li>📌 <strong>Death penalty:</strong> capsizing sends you to port with a reclaim fee and loses the cargo in the hold — never your bank. A death pile on the boat is recoverable at the mooring.</li>
+                </ul>
+            </div>
+
+            <div class="toc">
+                <h3>📋 Table of Contents</h3>
+                <ol>
+                    <li><a href="#dock">Boat Stuck at the Dock</a></li>
+                    <li><a href="#sea">Boat Stuck at Sea</a></li>
+                    <li><a href="#plugin">Plugin &amp; Client Crashes</a></li>
+                    <li><a href="#helm">Helm Ignores Commands</a></li>
+                    <li><a href="#wyrmscraig">Wyrmscraig Narrow River Jam</a></li>
+                    <li><a href="#cargo">Cargo Hold &amp; Death Penalty</a></li>
+                    <li><a href="#other">Other Known Bugs &amp; Fixes</a></li>
+                    <li><a href="#faq">Sailing Bug FAQs</a></li>
+                </ol>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="dock">
+                <h2>1. 🚢 Boat Stuck at the Dock</h2>
+                <p>The most common "bug" is not a bug at all — it is the gangplank. When you build or upgrade a ship at a port, the boat spawns with the gangplank down, and the game treats the deck as walkable ground. If you click the helm before stepping off, the helm often refuses because you are technically "docked" and the travel option is disabled.</p>
+                <h3>How to fix it</h3>
+                <ul>
+                    <li><strong>Step off the ship.</strong> Walk down the gangplank to the dock tiles. This flips the boat into "moored" state.</li>
+                    <li><strong>Right-click the gangplank</strong> and select the board option to step back on. The helm should now respond.</li>
+                    <li><strong>If it still will not move,</strong> log out to the lobby and log back in. The dock state resets on reload.</li>
+                </ul>
+                <p>Your cargo in the hold is safe the entire time — docking bugs never delete items. If you were mid-upgrade and the ship looks "broken," open the shipwright menu again; the upgrade usually completed server-side even if the model did not refresh. For a full walkthrough of building and upgrading your first vessel, see our <a href="osrs-sailing-1-99-guide-2026.html">1-99 Sailing guide</a>.</p>
+                <div class="tip-box">
+                    <div class="tip-title">⚠️ The quick rule</div>
+                    <p>If the helm ignores you, your problem is almost always that you are standing on the dock-loading tiles, not a server fault. Step off, re-board, and try again before filing a bug report.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="sea">
+                <h2>2. 🌊 Boat Stuck at Sea</h2>
+                <p>A ship that freezes mid-voyage — the helm spins, the world scrolls, but the boat will not change heading — is the second classic. It happens most often when you click the helm while the travel animation is already resolving, or when the client loses a packet during a region transition.</p>
+                <h3>Recovery steps</h3>
+                <ul>
+                    <li><strong>Right-click the helm</strong> and pick <em>Escape</em> to cancel the current route.</li>
+                    <li><strong>Log out to the lobby and back in.</strong> This is the reliable fix; the boat reloads at its last valid position.</li>
+                    <li><strong>Re-plot the route</strong> from the helm once you are back.</li>
+                </ul>
+                <p>The catch: a hard logout at sea can drop the cargo currently in your hold. Your <strong>bank is never touched</strong>, but anything loaded for delivery can be lost. If you were carrying high-value trade goods, reload at the nearest port and reclaim from the cargo office if the option appears. Players who primarily AFK-train on long routes should read our <a href="osrs-sailing-afk-training-guide-2026.html">Sailing AFK training guide</a> for safe route choices.</p>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="plugin">
+                <h2>3. 🔌 Plugin &amp; Client Crashes</h2>
+                <p>Sailing pushes the old client renderer hard — large water planes, dynamic lighting on the hull, and the 117HD water shaders are the usual suspects. The symptom set is consistent: boats render invisible, the screen goes black when you board, or the client hard-crashes to desktop within seconds of entering a port.</p>
+                <h3>What actually fixes it</h3>
+                <ul>
+                    <li><strong>Disable Legacy GPU</strong> in the GPU plugin settings, or switch the renderer to the new Official client renderer.</li>
+                    <li><strong>Disable 117HD</strong> temporarily. Many Sailing crashes are a 117HD water-reflection conflict that the team is still patching.</li>
+                    <li><strong>Update RuneLite</strong> — Sailing support shipped in a specific client build; an out-of-date client crashes on the new map chunks.</li>
+                    <li><strong>Lower the draw distance</strong> if you are on integrated graphics.</li>
+                </ul>
+                <p>If the client crashes specifically when opening the ship-management interface, that is a known memory spike in the inventory model preview; closing other heavy plugins (Ground Items, GPU with high samples) frees enough headroom. The crashes are client-side and never affect your account or items.</p>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="helm">
+                <h2>4. 🎮 Helm Ignores Commands</h2>
+                <p>Sometimes the helm accepts a click but the boat does nothing. Before assuming a bug, rule out the three "not a bug" causes:</p>
+                <ul>
+                    <li><strong>Speed is not zero.</strong> The boat will not turn instantly at full sail. Drop to a low speed, then steer.</li>
+                    <li><strong>You are in shallow water.</strong> A boat on a sandbar or against a bank cannot change heading until it is in deep water.</li>
+                    <li><strong>You double-reversed.</strong> The helm has a brief lock after a hard reverse; a second reverse input is dropped.</li>
+                </ul>
+                <p>If none of those apply and the helm genuinely eats inputs, click the helm twice with a one-second gap and re-select the destination from the map rather than the compass rose. That forces a fresh pathing request. This is the same root cause as the "stuck at sea" packet loss, so the logout-and-return fix in section 2 also works here.</p>
+            </section>
+
+            <!-- SECTION 5 -->
+            <section id="wyrmscraig">
+                <h2>5. 🏞️ Wyrmscraig Narrow River Jam</h2>
+                <p>The Wyrmscraig river became infamous in July 2026 for a "Suez Canal" style traffic jam: boats stacking up at a sharp bend where the channel narrows, each waiting on the one ahead, until the whole stretch locks solid. It is not strictly a bug — it is the momentum model doing exactly what it was designed to do, badly, in a tight space.</p>
+                <h3>How the river expects you to drive</h3>
+                <ul>
+                    <li><strong>You need forward momentum to turn.</strong> A boat at crawl speed cannot pivot. Keep a moderate speed into the bend.</li>
+                    <li><strong>Point into the bend early.</strong> Start the turn before the channel narrows, not at the apex.</li>
+                    <li><strong>Watch the NPC prompt.</strong> The river pilot NPC pops a hint when you enter the danger stretch — follow it rather than free-steering.</li>
+                    <li><strong>Do not stop.</strong> A dead-stop boat in the narrows blocks everyone behind it. If you must wait, pull to the wider pool before the bend.</li>
+                </ul>
+                <p>If you are already jammed, the only clean exit is to reverse out to the wider pool and re-enter at the correct speed. Our <a href="osrs-sailing-wyrmscraig-guide-2026.html">Wyrmscraig guide</a> maps the safe entry speed and the exact tile where the bend begins.</p>
+                <div class="tip-box">
+                    <div class="tip-title">⚠️ Avoid the jam entirely</div>
+                    <p>The river jam is worst during double-XP and community events. Route around Wyrmscraig at peak times, or accept a slightly longer path on open water where momentum steering is forgiving.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 6 -->
+            <section id="cargo">
+                <h2>6. 📦 Cargo Hold &amp; Death Penalty</h2>
+                <p>The cargo hold is the single most misunderstood Sailing system, and most "I lost everything" posts come from not knowing the rules. Here is exactly what happens.</p>
+                <table>
+                    <tr><th>Situation</th><th>What You Keep</th><th>What You Lose</th></tr>
+                    <tr><td><strong>Capsize (boat destroyed)</strong></td><td>Your entire bank, worn gear, and inventory</td><td>The cargo loaded in the hold, plus a reclaim fee at the port</td></tr>
+                    <tr><td><strong>Death on the boat</strong></td><td>Bank and most inventory</td><td>A death pile spawns at the mooring — recoverable if you return</td></tr>
+                    <tr><td><strong>Ship facilities moved/removed</strong></td><td>Banked items</td><td>Cargo stored in that facility, if you ignore the warning</td></tr>
+                </table>
+                <p>The key reassurance: <strong>your bank is never at risk from Sailing.</strong> Only the loose cargo in the hold is on the line. When you capsize, you respawn at the home port with a reclaim window; pay the fee and your hold contents (if any survived) return. A death pile left on the boat is recoverable at the mooring for a short window, exactly like a normal wilderness death pile.</p>
+                <p>The one trap is the <strong>facility-moved warning</strong>. If you store cargo in a ship facility and then move or scrap the ship, the game warns you that the contents will be destroyed. Confirm the move only after emptying the facility, or the cargo is gone with no reclaim. Our <a href="osrs-sailing-gim-facilities-bug-fix-2026.html">Group Ironman facilities bug-fix guide</a> covers the GIM-specific version of this warning.</p>
+            </section>
+
+            <!-- SECTION 7 -->
+            <section id="other">
+                <h2>7. 🧰 Other Known Bugs &amp; Fixes</h2>
+                <p>A running list of the smaller Sailing defects players hit, with the community-tested workaround for each.</p>
+                <table>
+                    <tr><th>Symptom</th><th>Fix</th></tr>
+                    <tr><td><strong>Lost Crates not appearing in the hold</strong></td><td>Use Telekinetic Grab on the crate tile, or relog. The crate is there server-side; the model failed to draw.</td></tr>
+                    <tr><td><strong>Boat Bottle direction indicator hidden</strong></td><td>Toggle the Sailing overlay plugin off and on. A client patch restored the indicator after it was briefly broken.</td></tr>
+                    <tr><td><strong>Death's Coffer appears locked after a Sailing death</strong></td><td>Visit a banker once; the coffer re-syncs. The lock is a display bug, not a real state change.</td></tr>
+                    <tr><td><strong>Ship name or paint not saving</strong></td><td>Re-open the cosmetics menu and click Confirm twice. The first click is sometimes dropped on laggy connections.</td></tr>
+                    <tr><td><strong>Crew member freezes at a dock</strong></td><td>Dismiss and re-hire the crew from the crew manager. The pathing AI occasionally stalls on a staircase tile.</td></tr>
+                </table>
+                <p>Most of these are cosmetic or recoverable and Jagex patches them in the weekly game updates. If a bug is not on this list and is costing you items, screenshot it and report through the in-game bug report — Sailing bugs are triaged fast because the skill is still new. For the deeper mechanics behind these glitches, our <a href="osrs-sailing-deep-dive-2026.html">Sailing deep-dive guide</a> explains how the cargo and momentum systems are built.</p>
+                <p>New to the skill and hitting walls that are not bugs? Start with our <a href="osrs-sailing-top-10-beginner-problems-guide-2026.html">Sailing top 10 beginner problems guide</a> — it covers the non-bug confusion that looks identical to a fault.</p>
+            </section>
+
+            <!-- FAQ -->
+            <section id="faq">
+                <h2>8. Sailing Bug FAQs</h2>
+
+                <div class="faq-item">
+                    <h4>Q: My boat is stuck at the dock and will not move. What do I do?</h4>
+                    <p>Walk down the gangplank to the dock, then right-click the gangplank to re-board. The helm only responds once the boat is in a clean moored state. If it still will not move, log out to the lobby and back in to reset the dock state. Your cargo is safe the whole time.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: I logged out at sea and my cargo disappeared. Is it gone?</h4>
+                    <p>A hard logout at sea can drop the cargo currently in your hold. Your bank is never affected. Reload at the nearest port and check the cargo office reclaim option; some lost cargo is recoverable there for a short window.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: Why does my client crash every time I board a ship?</h4>
+                    <p>That is almost always a renderer conflict — Legacy GPU or 117HD struggling with Sailing's water shaders. Disable Legacy GPU, turn off 117HD temporarily, and update RuneLite to the Sailing-support build. The crash is client-side and never touches your account.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: The helm eats my clicks but the boat will not turn. Bug?</h4>
+                    <p>Often not. Check that your speed is not at zero, that you are in deep water (not a sandbar), and that you did not just reverse (the helm locks briefly). If those are fine, click the helm twice with a gap and re-pick the destination from the map to force a fresh pathing request.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: What is the Wyrmscraig narrow-river jam and how do I avoid it?</h4>
+                    <p>It is a momentum-model traffic jam at a sharp, narrow bend — boats stack because a stopped boat blocks everyone behind. Keep forward speed into the bend, turn early, follow the pilot NPC prompt, and never stop in the narrows. Route around it during double-XP events.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: Does Sailing death delete my bank?</h4>
+                    <p>No. Capsizing or dying on a boat only risks the loose cargo in the hold. Your bank, worn gear, and inventory are safe. A death pile on the boat is recoverable at the mooring for a short window.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: I moved my ship and the cargo in its facility vanished. Can I get it back?</h4>
+                    <p>Only if you ignored the move warning. When you move or scrap a ship with cargo stored in a facility, the game warns that contents will be destroyed. Once confirmed, there is no reclaim. Always empty the facility first.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: Lost Crates are not showing in my hold. Bug?</h4>
+                    <p>The crate exists server-side but the model failed to draw. Use Telekinetic Grab on the crate tile or simply relog; it will appear. This is a display glitch, not a lost item.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: Death's Coffer is locked after a Sailing death. Is my stuff stuck?</h4>
+                    <p>No — it is a display bug. Visit any banker once and the coffer re-syncs. The lock never reflects a real state change.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: Where do I report a Sailing bug that is not listed here?</h4>
+                    <p>Use the in-game bug report with a screenshot. Sailing bugs are triaged quickly because the skill is recent. Cosmetic and recoverable defects are patched in the weekly game updates.</p>
+                </div>
+            </section>
+
+            <!-- Related Guides -->
+            <section class="related-guides" style="margin-top:32px;">
+                <h3>📚 Related Guides</h3>
+                <div class="article-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:12px;">
+                    <a href="osrs-sailing-1-99-guide-2026.html" class="article-card" style="display:block;padding:16px;border:1px solid #e0d5c0;border-radius:8px;background:#faf8f5;text-decoration:none;">
+                        <h4 style="color:#3b2615;margin:0 0 6px;">OSRS Sailing 1-99 Guide</h4>
+                        <p style="color:#1a1a1a;font-size:.9rem;margin:0;">Build, upgrade, and level your first ship the right way so you never hit the dock bugs in the first place.</p>
+                    </a>
+                    <a href="osrs-sailing-wyrmscraig-guide-2026.html" class="article-card" style="display:block;padding:16px;border:1px solid #e0d5c0;border-radius:8px;background:#faf8f5;text-decoration:none;">
+                        <h4 style="color:#3b2615;margin:0 0 6px;">OSRS Wyrmscraig Guide</h4>
+                        <p style="color:#1a1a1a;font-size:.9rem;margin:0;">The safe entry speed and exact bend tile that keeps you out of the famous narrow-river jam.</p>
+                    </a>
+                    <a href="osrs-sailing-gim-facilities-bug-fix-2026.html" class="article-card" style="display:block;padding:16px;border:1px solid #e0d5c0;border-radius:8px;background:#faf8f5;text-decoration:none;">
+                        <h4 style="color:#3b2615;margin:0 0 6px;">GIM Facilities Bug Fix</h4>
+                        <p style="color:#1a1a1a;font-size:.9rem;margin:0;">The Group Ironman version of the facility-moved cargo warning, and how to move ships without losing loot.</p>
+                    </a>
+                    <a href="osrs-sailing-deep-dive-2026.html" class="article-card" style="display:block;padding:16px;border:1px solid #e0d5c0;border-radius:8px;background:#faf8f5;text-decoration:none;">
+                        <h4 style="color:#3b2615;margin:0 0 6px;">OSRS Sailing Deep Dive</h4>
+                        <p style="color:#1a1a1a;font-size:.9rem;margin:0;">How the cargo, momentum, and death-penalty systems are actually built under the hood.</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Support Card -->
+            <div class="support-card" style="margin:8px 0 0 0">
+                <div class="support-inner">
+                    <span class="support-icon">🔓</span>
+                    <div class="support-text">
+                        <h3>OSRS Guru Pain Point Fixes Pack — 5 PDFs</h3>
+                        <p>All online guides stay free. This $1.90 PDF pack gives you 5 printable, offline-ready fixes:</p>
+                        <ul style="margin:8px 0 14px 18px;padding:0;color:#ffffff;font-size:0.92rem;line-height:1.7">
+                            <li><strong>Authenticator Lost? Recover 2FA Access</strong></li>
+                            <li><strong>Avoid Scams &amp; Phishing (Stop Bank Drains)</strong></li>
+                            <li><strong>Recover Items Lost to Bugs / Updates / Rollbacks</strong></li>
+                            <li><strong>Sailing Nerf Survival Guide (Bounty XP Cut)</strong></li>
+                            <li><strong>DPS Lower Than Calculator? 7-Step Fix</strong></li>
+                        </ul>
+                        <div class="support-amounts">
+                            <a href="https://payhip.com/b/MVzaS" target="_blank" rel="noopener" class="support-amount-btn recommended">$1.90 — Get the Pain Point Fixes Pack</a>
+                            <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn">$1 — Tip</a>
+                        </div>
+                        <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+                    </div>
+                </div>
+            </div>
+
+<!-- Copyright & Anti-Scraping Notice -->
+<div class="copyright-protection" style="background:#faf8f5;border:1px solid #e0d5c0;border-left:3px solid #d4af37;border-radius:4px;padding:10px 16px;margin:16px auto;max-width:780px">
+    <p style="color:#1a1a1a;margin:0;font-size:0.78rem;line-height:1.55;">(c) 2026 <strong>OSRS Guru (osrsguru.com)</strong>. All rights reserved. This content is protected by copyright law. Unauthorized scraping, crawling, auto-republishing, or AI training data extraction is prohibited. Violations will be reported to search engines and hosting providers. | Content created under <a href="https://legal.jagex.com/docs/policies/fan-content-policy" target="_blank" rel="noopener" style="color:#3b2615;">Jagex Fan Content Policy</a>. Wiki content under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener" style="color:#3b2615;">CC BY-SA 3.0</a>. Not affiliated with Jagex Ltd.</p>
+</div>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 OSRS Guru — Independent fan site. Not affiliated with Jagex Ltd. Old School RuneScape is a trademark of Jagex Ltd.</p>
+            <p><a href="../about.html">About</a> · <a href="../privacy-policy.html">Privacy</a> · <a href="../terms-of-service.html">Terms</a> · <a href="../contact.html">Contact</a></p>
+        </div>
+    </footer>
+
+<style>
+/* P0 Standard: force dark text + light backgrounds on light theme */
+.guide-content{color:#1a1a1a!important}
+.guide-content li,.guide-content p,.guide-content td,.guide-content th,.guide-content h3,.guide-content h4{color:#1a1a1a!important}
+.guide-content .tip-box,.guide-content .method-box,.guide-content .action-step,.guide-content .quick-verdict,.guide-content .faq-item{background:#faf8f5!important;border-color:#e0d5c0!important}
+.guide-content .tip-box p,.guide-content .tip-box li,.guide-content .method-box p,.guide-content .method-box li,.guide-content .faq-item p,.guide-content .faq-item li,.guide-content .quick-verdict p,.guide-content .action-step p{color:#1a1a1a!important}
+.guide-content .faq-item h3,.guide-content .faq-item h4,.guide-content .method-box h3,.guide-content .method-box h4,.guide-content .quick-verdict h3,.guide-content .action-step h4,.guide-content .tip-box strong,.guide-content .method-box strong{color:#3b2615!important}
+.guide-content .quick-summary{background:#f5f2f8!important;border:1px solid #D4CDE0!important}
+.guide-content h2,.guide-content h3{color:#3b2615!important}
+.guide-content table{width:100%;border-collapse:collapse;margin:1rem 0}
+.guide-content table th{background:#3b2615;color:#fff;padding:8px;text-align:left}
+.guide-content table td{border:1px solid #e0d5c0;padding:8px}
+</style>
+
+<!-- Features + AI QA Widget -->
+<script src="../js/features.js"></script>
+<script src="../js/ai-qa-widget.js"></script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-S1BGC91MYV');
+</script>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+
+</body>
+</html>
