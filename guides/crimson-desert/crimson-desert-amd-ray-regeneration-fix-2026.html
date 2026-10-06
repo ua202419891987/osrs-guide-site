@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crimson Desert AMD Ray Regeneration Fix 2026 — RX 9070 XT Visual Corruption | CD Guru</title>
+    <meta name="description" content="Crimson Desert AMD Ray Regeneration fix 2026 — Pearl Abyss lists visual corruption on RX 9070 XT and newer GPUs when Ray Regeneration is enabled. Identify the symptom, turn it off, and see what image quality you actually lose.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Crimson Desert ray regeneration, Crimson Desert RX 9070 XT, Crimson Desert AMD visual corruption, Crimson Desert ray regeneration glitch, Crimson Desert AMD settings 2026">
+    <link rel="canonical" href="https://osrsguru.com/guides/crimson-desert/crimson-desert-amd-ray-regeneration-fix-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <style>
+        /* ── Light theme — matches Violet Sunrise global CSS ── */
+        .guide-content h2{font-size:1.85rem !important}
+        .guide-content h3{font-size:1.35rem !important}
+        .guide-content h3 strong{font-size:1.35rem}
+        .guide-content p{font-size:1.08rem !important;line-height:1.85 !important}
+        .guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+
+        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .tip-box strong{color:#7a64b8;font-size:1.06rem}
+        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}
+        .warn-box strong{color:#b84a3a;font-size:1.06rem}
+
+        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}
+        .action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#2d2a33;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+        .action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+        .action-step p{color:#2d2a33;font-size:1.08rem;line-height:1.75}
+
+        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}
+        .method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .method-box p{color:#2d2a33;font-size:1.06rem;line-height:1.75}
+
+        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}
+        .faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .faq-item p{color:#2d2a33;font-size:1.03rem;line-height:1.7}
+
+        .toc{background:#fff;border:1px solid #e0d8f0 !important;border-left:1px solid #e0d8f0 !important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}
+        .toc h3{color:#7a64b8 !important;font-size:1.1rem !important;margin-bottom:12px}
+        .guide-hero .subtitle{font-size:1.15rem !important;max-width:700px;margin:0 auto 1.2rem}
+        .guide-hero .breadcrumb{font-size:.95rem !important}
+        .guide-hero .weekly-badge{font-size:1rem !important}
+
+        .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}
+        .inline-support-hint p{font-size:1rem}
+        .guide-content li{color:#2d2a33 !important}
+        .progress-widget{display:none !important}
+    </style>
+<meta name="copyright" content="(c) 2026 OSRS Guru (osrsguru.com). All rights reserved.">
+<meta name="author" content="OSRS Guru">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Crimson Desert <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section2">Triage Table</a></li>
+                    <li><a href="#section3">Symptoms</a></li>
+                    <li><a href="#section4">Turn It Off</a></li>
+                    <li><a href="#section5">Cost</a></li>
+                    <li><a href="#section6">Wait or Not</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#crimson-desert">Crimson Desert</a> / AMD Ray Regeneration Fix</p>
+            <h1>Crimson Desert AMD Ray Regeneration Fix 2026</h1>
+      <div class="cd-level-badge" style="display:inline-block;background:#f0ebfa;color:#5a4a8a;border:1px solid #7a64b8;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">🛠️ Technical</div>
+      <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px 10px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+            <p class="subtitle">Pearl Abyss's Known Issues list confirms visual corruption on AMD RX 9070 XT and newer GPUs when Ray Regeneration is enabled, and the official advice is to leave it disabled. Here is how to tell if that is what you are seeing, how to switch it off, and what it actually costs you.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">📅</span> <strong>CD Guide</strong> — Part of the <strong>Crimson Desert Series</strong> · 13 min read
+            </div>
+            <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: August 31, 2026</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="toc"><h3>Table of Contents</h3><ol>
+                <li><a href="#section1">What Ray Regeneration Is, and Why It Is Officially Flagged</a></li>
+                <li><a href="#section2">Symptom → Cause → Fix → Verify (Master Table)</a></li>
+                <li><a href="#section3">What the Corruption Actually Looks Like</a></li>
+                <li><a href="#section4">How to Turn Ray Regeneration Off</a></li>
+                <li><a href="#section5">What You Lose by Disabling It</a></li>
+                <li><a href="#section6">Should You Leave It Off Until It Is Fixed?</a></li>
+                <li><a href="#section7">If What You Are Seeing Is Not This</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ol></div>
+
+            <h2 id="section1">What Ray Regeneration Is, and Why It Is Officially Flagged</h2>
+            <p>Ray Regeneration is a reconstruction and denoising step used alongside ray traced effects. Ray tracing works by sampling a limited number of light paths per pixel, which leaves noisy results; a regeneration pass fills in the gaps and produces a clean image. It is a feature associated with AMD's newest graphics hardware, which is why the affected list starts where it does.</p>
+            <p>Pearl Abyss's <strong>Known Issues list for Crimson Desert, updated 1 August 2026</strong>, states that visual corruption occurs when Ray Regeneration is enabled on <strong>AMD RX 9070 XT and newer GPUs</strong>, and the guidance is to <strong>keep the setting disabled</strong>. Two things follow from that wording, and both matter:</p>
+            <ul>
+                <li><strong>This is a confirmed defect, not a tuning problem.</strong> You are not going to fix it by lowering other settings, reinstalling drivers, or running the game at a different resolution. The developer has acknowledged the feature is broken on this hardware.</li>
+                <li><strong>The remedy is a setting, not a workaround.</strong> Unlike some entries on the same list, you do not need to delete files or reset your configuration. You turn one option off.</li>
+            </ul>
+            <p>The current client is <strong>version 1.000.484 (2.00.00, released 25 August 2026)</strong>. As of that build this item remains on the official Known Issues list. We re-check the list each patch cycle and update this page accordingly.</p>
+            <div class="tip-box">
+                <strong>Who this affects:</strong> if you are on an RX 9070 XT or a newer AMD card and you have ever touched the ray tracing options, read on. If you are on older AMD hardware, on NVIDIA, or on Intel Arc, this specific entry does not apply to you — jump to section 7 for the other confirmed PC visual issues.
+            </div>
+
+            <h2 id="section2">Symptom → Cause → Fix → Verify (Master Table)</h2>
+            <p>Use this as your entry point. The middle two columns are the ones that save you time: they separate the officially confirmed Ray Regeneration defect from the two other PC visual problems Pearl Abyss has also acknowledged.</p>
+            <table>
+                <thead>
+                    <tr><th>Symptom</th><th>Cause (official)</th><th>Fix</th><th>Verify</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Broken, smeared or artefact-laden lighting on RX 9070 XT or newer, appearing once ray traced effects are active</td><td>Confirmed: Ray Regeneration defect on RX 9070 XT and newer</td><td>Disable Ray Regeneration in the graphics options and leave it off</td><td>Artefacts disappear in the same scene without any other setting change</td></tr>
+                    <tr><td>White or blank screen when FSR and Frame Generation are both enabled on a GTX 1060</td><td>Confirmed on the same Known Issues list</td><td>Disable Frame Generation, or FSR, on that GPU</td><td>Picture returns and stays stable through a scene transition</td></tr>
+                    <tr><td>Rendering anomalies during rainy weather with FSR4 enabled</td><td>Confirmed on the same Known Issues list</td><td>Switch away from FSR4, or accept it during rain</td><td>Rain scenes render correctly after the switch</td></tr>
+                    <tr><td>Artefacts on RX 9070 XT with Ray Regeneration already off</td><td>Not this defect — different cause</td><td>Work through the general triage in section 7</td><td>Artefacts resolve, or you have a reproducible report</td></tr>
+                </tbody>
+            </table>
+            <p>If your row is the second or third one, we have dedicated pages for both: see our <a href="crimson-desert-gtx1060-white-screen-fix-2026.html">GTX 1060 White Screen Fix</a> and our <a href="crimson-desert-fsr4-rain-bug-fix-2026.html">FSR4 Rain Bug Fix</a>.</p>
+
+            <h2 id="section3">What the Corruption Actually Looks Like</h2>
+            <p>The single most useful thing this section can do is let you decide whether your problem is <em>this</em> bug before you spend an evening changing settings. Visual corruption is a broad phrase, so here are the discriminating features.</p>
+            <h3>Signs it is the Ray Regeneration defect</h3>
+            <ul>
+                <li><strong>It is tied to the setting, not to a location.</strong> It appears wherever ray traced effects are being processed, and it vanishes in the same spot the moment you disable Ray Regeneration. A texture bug or a broken asset would stay put.</li>
+                <li><strong>It moves with the camera.</strong> Denoising artefacts are reconstruction artefacts: they are generated per frame from the samples available in that frame. If the disturbance shifts, crawls or re-forms as you pan, that points at a reconstruction pass rather than at stored geometry or texture data.</li>
+                <li><strong>It worsens in the situations that make denoising work hardest</strong> — heavy contrast, complex lighting, or fast motion, where there is the least information to reconstruct from.</li>
+                <li><strong>Everything else about the image is fine.</strong> Geometry is intact, textures are correct, the frame rate is normal. If the whole scene is a mess rather than the lighting being wrong, you have a different problem.</li>
+            </ul>
+            <h3>Signs it is something else</h3>
+            <ul>
+                <li>Artefacts that appear only in <strong>rain</strong> — that is the separately listed FSR4 issue in section 7.</li>
+                <li>A <strong>white or blank screen</strong> rather than corrupted imagery — that is the GTX 1060 FSR plus Frame Generation issue.</li>
+                <li><strong>Shadow flicker or shimmering vegetation</strong> — a different class of problem entirely, covered in our <a href="crimson-desert-shadow-flicker-vegetation-fix-2026.html">Shadow Flicker &amp; Vegetation Fix</a>.</li>
+                <li>Problems on <strong>NVIDIA RTX 50-series</strong> hardware — see our <a href="crimson-desert-rtx50-crash-fix-2026.html">RTX 50 Crash Fix</a>.</li>
+            </ul>
+            <div class="warn-box">
+                <strong>Do not start by reinstalling drivers.</strong> Because this is a confirmed defect with a specific acknowledged cause, driver reinstalling is the most common waste of an hour here. Confirm the setting is off first, then only troubleshoot further if artefacts persist.
+            </div>
+
+            <h2 id="section4">How to Turn Ray Regeneration Off</h2>
+            <p>The exact location of the option <strong>varies by client version</strong>, and we are not going to print a menu path we cannot verify for your build. What we can give you is a reliable way to find it, plus the fallback if the corruption is severe enough that you cannot read the menu.</p>
+            <div class="action-step">
+                <span class="step-num">1</span>
+                <h4>Open the graphics options</h4>
+                <p>From the main menu or the pause menu, go into the graphics or display settings. On PC the ray tracing related options are grouped together, and Ray Regeneration sits with them rather than with the upscaling choices.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">2</span>
+                <h4>Set Ray Regeneration to Off</h4>
+                <p>If you cannot find it by scrolling, look for a search or filter function in the options menu — many current builds have one, and searching the setting name is faster than hunting through submenus. The exact wording and location may differ slightly between versions.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">3</span>
+                <h4>Apply, then reload the scene</h4>
+                <p>Some graphics options only take effect on a reload. Apply the change, then re-enter the area where you first noticed the artefacts rather than judging from the menu background.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">4</span>
+                <h4>Verify with an A/B test</h4>
+                <p>Stand in the exact spot where the corruption was worst, camera at the same angle. Artefacts gone? Confirmed. Still there? The setting may not have applied, or you have a different issue — go to section 7.</p>
+            </div>
+            <div class="method-box">
+                <h4>If the menu is unreadable</h4>
+                <p>In severe cases the artefacts cover the interface too. Launch the game and get to the options as quickly as you can, or check whether your installation exposes a configuration file you can edit outside the game. Failing that, resetting graphics options to defaults will clear the setting, since disabled is the state the game should be recommending on affected hardware. Expect to re-tune your other settings afterwards.</p>
+            </div>
+
+            <h2 id="section5">What You Lose by Disabling It</h2>
+            <p>This is the question nobody answers properly, so here is the honest version: <strong>less than the setting's name suggests.</strong></p>
+            <p>Ray Regeneration is a quality pass on top of ray traced lighting, not the ray tracing itself. Turning it off does not switch off ray traced reflections, shadows or global illumination where those are separately enabled. What it removes is the reconstruction step that cleans up the noise those effects produce.</p>
+            <table>
+                <thead><tr><th>Aspect</th><th>Ray Regeneration ON</th><th>Ray Regeneration OFF</th></tr></thead>
+                <tbody>
+                    <tr><td>Ray traced effects</td><td>Active</td><td>Still active (if enabled separately)</td></tr>
+                    <tr><td>Noise in lit areas</td><td>Cleaned up by the reconstruction pass</td><td>More visible noise or grain, especially in motion</td></tr>
+                    <tr><td>Image stability in motion</td><td>Smoother in theory</td><td>Potential shimmer or crawling in complex lighting</td></tr>
+                    <tr><td>Correctness of the image</td><td>Officially broken on RX 9070 XT and newer</td><td>Correct</td></tr>
+                    <tr><td>Performance</td><td>Costs frame time</td><td>Some frame time returned</td></tr>
+                </tbody>
+            </table>
+            <div class="tip-box">
+                <strong>The trade, stated plainly:</strong> you are exchanging a modest amount of extra noise or shimmer in complex lighting for an image that is actually correct. On hardware where the feature is confirmed broken, that is not a real trade at all — you are giving up something you were never receiving.
+            </div>
+            <p>There is also a performance side effect worth noting: a reconstruction pass costs frame time. Disabling it returns that headroom. Some players report the game running slightly better with it off, though frame rate was never the reason to turn it off here.</p>
+
+            <h2 id="section6">Should You Leave It Off Until It Is Fixed?</h2>
+            <p>Yes — and the reasoning is worth spelling out, because "wait for the fix" is usually weak advice and in this case it is not.</p>
+            <h3>Why waiting costs you almost nothing</h3>
+            <ul>
+                <li><strong>The feature is not functional on your hardware.</strong> You cannot be losing a benefit you are not receiving. Whatever Ray Regeneration is supposed to look like, it is not what you are seeing.</li>
+                <li><strong>Disabling it is reversible in seconds.</strong> When a fix ships, you re-enable one toggle. There is no configuration to rebuild, no files to restore, no progress at risk.</li>
+                <li><strong>You gain frame time in the meantime.</strong> A pass you are not using is a pass you are not paying for.</li>
+            </ul>
+            <h3>When you should reconsider</h3>
+            <p>Only one scenario: a patch ships that explicitly lists a Ray Regeneration fix for AMD hardware, and you confirm on your own machine that the artefacts are gone. At that point re-enable it, run the same A/B test from section 4, and keep it on if the image holds up.</p>
+            <p>One caveat on expectations. Pearl Abyss stated at Gamescom 2026 that the scope and pace of free updates will not stay as consistent as it has been, with resources shifting toward paid DLC and additional platform versions. That does not mean bugs stop getting fixed, but it is a reason not to sit on a broken setting waiting for a specific date. Turn it off, play the game, check back after patches.</p>
+            <p>We update this page each patch cycle. Bookmark it rather than relying on a forum thread that stopped being maintained in 2026.</p>
+
+            <h2 id="section7">If What You Are Seeing Is Not This</h2>
+            <p>Pearl Abyss's Known Issues list covers several PC visual problems beyond the AMD one. Ruling through them in order is faster than generic troubleshooting, because each has a known trigger.</p>
+            <div class="method-box">
+                <h4>GTX 1060 — white screen with FSR and Frame Generation</h4>
+                <p>Also on the official list: enabling FSR together with Frame Generation on a GTX 1060 produces a white or blank screen. If that is your GPU and your symptom is a blank picture rather than corrupted lighting, this is your answer. Full walkthrough in our <a href="crimson-desert-gtx1060-white-screen-fix-2026.html">GTX 1060 White Screen Fix</a>.</p>
+            </div>
+            <div class="method-box">
+                <h4>FSR4 — rendering anomalies in rain</h4>
+                <p>Also officially listed: FSR4 exhibits rendering problems specifically during rainy weather. If your artefacts appear with the weather and not otherwise, this is the branch to follow. Details in our <a href="crimson-desert-fsr4-rain-bug-fix-2026.html">FSR4 Rain Bug Fix</a>.</p>
+            </div>
+            <div class="method-box">
+                <h4>NVIDIA RTX 50-series and Intel Arc</h4>
+                <p>Both have their own covered issues. See our <a href="crimson-desert-rtx50-crash-fix-2026.html">RTX 50 Crash Fix</a> and <a href="crimson-desert-intel-arc-support-fix-2026.html">Intel Arc Support Fix</a>.</p>
+            </div>
+            <div class="method-box">
+                <h4>None of the above — general triage</h4>
+                <p>Confirm you are on client 1.000.484 (2.00.00) or later, verify your game files, update your GPU driver, then reset graphics options to defaults and re-apply them one at a time. Our <a href="crimson-desert-gpu-driver-guide-2026.html">GPU Driver Guide</a> covers the driver side, and our <a href="crimson-desert-best-settings-performance-2026.html">Best Settings for Performance</a> gives you a sane baseline to rebuild from. For crash-type failures rather than visual ones, start with the <a href="crimson-desert-crash-fix-guide-2026.html">Crash Fix Guide</a>.</p>
+            </div>
+            <p>Finally, check whether the 2.0 update changed anything relevant to your configuration — it touched graphics-adjacent defaults, and our <a href="crimson-desert-2-0-enhanced-update-guide-2026.html">2.0 Enhanced Update Guide</a> breaks down what moved.</p>
+
+            <h2 id="faq">FAQ</h2>
+            <div class="faq-item"><h4>Is the RX 9070 XT Ray Regeneration issue officially confirmed?</h4><p>Yes. Pearl Abyss's Known Issues list for Crimson Desert, updated 1 August 2026, names visual corruption on AMD RX 9070 XT and newer GPUs when Ray Regeneration is enabled, and advises keeping it disabled.</p></div>
+            <div class="faq-item"><h4>Which GPUs are affected?</h4><p>Per the official wording: AMD RX 9070 XT and newer. Older AMD cards, NVIDIA and Intel hardware are not covered by this specific entry.</p></div>
+            <div class="faq-item"><h4>Does turning off Ray Regeneration disable ray tracing entirely?</h4><p>No. It disables the reconstruction and denoising pass that cleans up ray traced lighting. Ray traced effects that are enabled separately remain active.</p></div>
+            <div class="faq-item"><h4>How much image quality do I actually lose?</h4><p>Primarily additional noise or shimmer in complex lighting and motion. You are not losing ray traced effects themselves, and on affected hardware you were not getting a correct image with the setting on anyway.</p></div>
+            <div class="faq-item"><h4>Will a driver update fix this?</h4><p>Not predictably. This is a defect in how the game uses the feature, acknowledged by the game's developer. Treat a patch to Crimson Desert, not a driver release, as the thing that fixes it.</p></div>
+            <div class="faq-item"><h4>Where exactly is the Ray Regeneration option?</h4><p>It sits with the ray tracing related graphics options, but the precise menu path varies by client version. Use the options menu search if your build has one, and treat any site quoting an exact path for your version with suspicion.</p></div>
+            <div class="faq-item"><h4>The artefacts are still there with the setting off. Now what?</h4><p>Then it is a different problem. Check the FSR4 rain issue and the GTX 1060 white screen issue, both separately confirmed, then work through the general triage in section 7.</p></div>
+            <div class="faq-item"><h4>Could my card be faulty?</h4><p>Possibly, but test the cheap explanation first. If artefacts appear only in Crimson Desert with this one setting, the officially confirmed defect is overwhelmingly the better explanation. If they appear across many games and benchmarks, look at hardware.</p></div>
+            <div class="faq-item"><h4>Does this affect performance?</h4><p>Disabling the pass should return some frame time. Frame rate is not the reason to turn it off, but it is a small consolation.</p></div>
+            <div class="faq-item"><h4>Should I re-enable it after a future patch?</h4><p>Yes, once a patch explicitly mentions a fix for it. Re-enable, then re-run the same A/B test in the spot where you first saw the artefacts before trusting that it is resolved.</p></div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">&#127807;</span>
+        <div class="support-text">
+            <h3>This Crimson Desert guide stays free either way.</h3>
+            <p>If it saved you time, a $1 tip helps us keep writing more guides.</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn recommended">&#127807; Buy me a pack of gum — $1.00</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">No paywall, no subscription — just a thank-you if you can. &#129309;</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-bottom">&copy; 2026 CDGuru &middot; Not affiliated with Pearl Abyss &middot; <a href="../../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px">Crimson Desert&trade; is a trademark of Pearl Abyss Corp. All game content and materials are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by Pearl Abyss.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>.guide-content li{color:#2d2a33!important}</style>
+</body>
+</html>

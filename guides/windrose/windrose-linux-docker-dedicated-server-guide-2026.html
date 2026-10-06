@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windrose Linux Docker Dedicated Server Guide 2026 — Deploy, Configure &amp; Fix WorldDescription.json | Windrose Guru</title>
+    <meta name="description" content="Windrose Linux Docker dedicated server guide 2026 — why to run one, the general Docker deployment flow, how WorldDescription.json world settings work and when changes take effect, and how Linux Docker compares to self-hosting on Windows.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Windrose dedicated server, Windrose Linux server, Windrose Docker server, Windrose WorldDescription.json, Windrose server config 2026, Windrose 0.10.0.7">
+    <link rel="canonical" href="https://osrsguru.com/guides/windrose/windrose-linux-docker-dedicated-server-guide-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <style>
+        .guide-content h2{font-size:1.85rem !important}.guide-content h3{font-size:1.35rem !important}.guide-content p{font-size:1.08rem !important;line-height:1.85 !important}.guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}.tip-box strong{color:#7a64b8;font-size:1.06rem}
+        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}.warn-box strong{color:#b84a3a;font-size:1.06rem}
+        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}.action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#2d2a33;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}.action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}.method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}.faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .toc{background:#fff;border:1px solid #e0d8f0!important;border-left:1px solid #e0d8f0!important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}.toc h3{color:#7a64b8!important;font-size:1.1rem!important;margin-bottom:12px}
+        .guide-hero .subtitle{font-size:1.15rem!important;max-width:700px;margin:0 auto 1.2rem}.guide-hero .breadcrumb{font-size:.95rem!important}.guide-hero .weekly-badge{font-size:1rem!important}
+        .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}.inline-support-hint p{font-size:1rem}
+        .guide-content li{color:#2d2a33!important}.progress-widget{display:none!important}
+    </style>
+<meta name="author" content="OSRS Guru">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8532760886171435" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Windrose <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section2">History</a></li>
+                    <li><a href="#section4">Deploy</a></li>
+                    <li><a href="#section5">WorldDescription</a></li>
+                    <li><a href="#section6">vs Windows</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#windrose">Windrose</a> / Linux Docker Dedicated Server</p>
+            <h1>Windrose Linux Docker Dedicated Server Guide 2026</h1>
+            <div class="wr-level-badge" style="display:inline-block;background:#f0ebfa;color:#5a4a8a;border:1px solid #7a64b8;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">🐳 Server Ops</div>
+            <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px 10px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+            <p class="subtitle">A dedicated server keeps your Windrose world alive when nobody is home and takes the simulation off a player's gaming PC. Linux support only arrived in patch 0.10.0.7 as a Docker image, and the ability to actually edit world settings on a dedicated server only landed in 0.10.0.6. Here is what that means for you, and how to get one running.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">⚓</span> <strong>Windrose Guide</strong> — Part of the <strong>Windrose Survival Series</strong> · 13 min read
+            </div>
+            <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: August 31, 2026</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="toc"><h3>Table of Contents</h3><ol>
+                <li><a href="#section1">Why Run a Dedicated Server at All</a></li>
+                <li><a href="#section2">Two Blockers That Only Recently Cleared</a></li>
+                <li><a href="#section3">Before You Deploy: Requirements &amp; Decisions</a></li>
+                <li><a href="#section4">Docker Deployment — The General Flow</a></li>
+                <li><a href="#section5">WorldDescription.json — What It Controls</a></li>
+                <li><a href="#section6">Linux Docker vs Windows Self-Host</a></li>
+                <li><a href="#section7">Post-Deploy Checklist &amp; Troubleshooting</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ol></div>
+
+            <h2 id="section1">Why Run a Dedicated Server at All</h2>
+            <p>In a normal hosted session, the person who opens the world <em>is</em> the world: that one machine simulates ship physics, boarding NPCs, every placed structure, farms and quest state for everyone. Our <a href="windrose-host-performance-8-player-guide-2026.html">Host Performance &amp; 8-Player Guide</a> breaks down exactly what that costs. A dedicated server moves that job to a machine whose only responsibility is running the world.</p>
+            <p>Three concrete things you gain:</p>
+            <ul>
+                <li><strong>The world persists.</strong> Nobody has to be at their PC. Friends can play at 2am in your time zone without you leaving a machine on in your bedroom.</li>
+                <li><strong>The host-player's frame rate stops being a shared resource.</strong> The person who used to host can now just play, like everyone else.</li>
+                <li><strong>You can change world settings.</strong> World configuration lives in a world description file — which is a dedicated-server capability, and the reason the 0.10.0.6 fix below mattered so much.</li>
+            </ul>
+            <div class="tip-box">
+                <strong>Who actually needs one:</strong> groups larger than about four players, groups spread across time zones, and any group whose world has accumulated enough building that the host's frame rate suffers. Solo players and pairs hosting on a decent gaming PC usually do not.
+            </div>
+            <p>It is worth being honest about the trade too: a dedicated server is something you now maintain. There are updates to apply, a world to back up, and a box that can be misconfigured. Do not stand one up because it sounds impressive — stand one up because your group hit one of the three gains above.</p>
+
+            <h2 id="section2">Two Blockers That Only Recently Cleared</h2>
+            <p>Dedicated servers in Windrose have a short and slightly awkward history, and knowing it saves you from following outdated advice.</p>
+            <div class="method-box">
+                <h4>WorldDescription.json could not be edited — fixed in 0.10.0.6</h4>
+                <p>For a period, running a dedicated server meant <strong>you could not modify the world description configuration</strong>. You could stand the server up, but the world settings were effectively locked — which defeated a large part of the reason to run one in the first place. <strong>Patch 0.10.0.6 fixed this.</strong> If you are on a build at or after 0.10.0.6, editing your world settings on a dedicated server is expected to work; if something still will not stick, confirm your server build first before assuming you did it wrong.</p>
+            </div>
+            <div class="method-box">
+                <h4>Linux support arrived in 0.10.0.7 — as a Docker image</h4>
+                <p><strong>Linux dedicated server support landed in patch 0.10.0.7 (late June), and it is delivered as a Docker image rather than a bare tarball or a package.</strong> Before that, the practical option for a dedicated server was Windows. If you are reading a guide that assumes a native Linux binary and a manual startup script, it predates this.</p>
+            </div>
+            <div class="warn-box">
+                <strong>Do not copy-paste deployment commands from old guides or forums.</strong> Because Linux support shipped as a Docker image in a specific patch, the exact image name, tags, volume mount paths and environment variables are defined by the official image documentation for the build you are running. They change between patches. Treat any exact command you find elsewhere as a starting point to verify, not as truth.
+            </div>
+            <p>The practical consequence of the Docker delivery model is good news: you do not need to care much which distro you run. Anything that runs a current Docker engine will do. The thing that actually varies between builds is the image itself and how it expects to be configured.</p>
+
+            <h2 id="section3">Before You Deploy: Requirements &amp; Decisions</h2>
+            <p>Decide these four things before you touch a terminal. Changing your mind later usually means rebuilding the world.</p>
+            <div class="action-step">
+                <span class="step-num">1</span>
+                <h4>Where the box lives</h4>
+                <p>A home machine, a spare mini-PC, or a rented VPS/cloud instance. A home box is free and fine for a small group if your upload is decent; a VPS costs money but gives you a stable address and someone else's uptime. For a group spread across regions, latency to the server matters more than raw CPU.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">2</span>
+                <h4>How much world you are going to run</h4>
+                <p>Server load scales with player count and with how much your group has built. A four-player world with one tidy base is a very different machine from an eight-player world with five sprawling plots. Entity count is the dominant cost — see our <a href="windrose-server-entity-bloat-lag-fix-2026.html">Server Entity Bloat &amp; Lag Fix Guide</a>.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">3</span>
+                <h4>Persistent storage, outside the container</h4>
+                <p>Your world must live in a mounted volume or a host directory, <strong>not</strong> inside the container filesystem. A container is disposable; your world is not. If the world data lives only in the container, the next image update is a world deletion.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">4</span>
+                <h4>Networking and port forwarding</h4>
+                <p>Players have to be able to reach the server. Forward the ports the server actually uses on your router or cloud firewall, and confirm from outside your own network that it is reachable. Port work is its own subject — our <a href="windrose-port-3478-dedicated-server-forward-fix-2026.html">Port 3478 Dedicated Server Forwarding Fix</a> covers the dedicated-server side, and the <a href="windrose-port-3478-coop-player-fix-2026.html">Port 3478 Co-op Player Fix</a> covers the client side.</p>
+            </div>
+            <p>Also decide now who is the administrator. Somebody needs to own updates and backups, and "everybody" is not an answer that survives contact with a corrupted save.</p>
+
+            <h2 id="section4">Docker Deployment — The General Flow</h2>
+            <p>The steps below are deliberately generic. Exact image names, tags, environment variables, mount paths and command-line flags are defined by the official image documentation for the specific build you are running, and they do change between patches — so <strong>check the official image instructions alongside this</strong> and treat them as authoritative over anything you read here.</p>
+            <div class="action-step">
+                <span class="step-num">1</span>
+                <h4>Install a current Docker engine</h4>
+                <p>Use your distribution's supported method or Docker's own repository. Confirm the install works before continuing, and make sure the Docker service starts on boot — a server that does not come back after a reboot is not a server.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">2</span>
+                <h4>Create a host directory for world data</h4>
+                <p>Make a dedicated directory on the host for the server's persistent data (world save, configuration, logs). Give it to the user the container runs as, so the server can actually write to it. This directory is your world — back it up.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">3</span>
+                <h4>Pull the server image</h4>
+                <p>Obtain the Windrose dedicated server image from the official source for your build. Pin to a specific version rather than tracking "latest" blindly, so you know exactly what you are running and can roll back if an update misbehaves.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">4</span>
+                <h4>Run it with the persistent directory mounted in</h4>
+                <p>Start the container with your host data directory mounted at the path the image expects, and with the ports the server needs published to the host. Use a managed container definition (Compose file or an equivalent) rather than a one-off shell command, so the configuration is written down and repeatable.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">5</span>
+                <h4>Verify from the outside first</h4>
+                <p>Before inviting anyone: confirm the container is running, confirm the server is listening on the expected ports, and confirm a player can connect from outside your own network. Only then start customising world settings.</p>
+            </div>
+            <div class="tip-box">
+                <strong>Set a restart policy.</strong> Configure the container to restart automatically unless you explicitly stop it. A dedicated server that dies overnight and waits for you to notice is worse than no dedicated server, because everybody's plans depended on it.
+            </div>
+            <p>If the container starts and then immediately exits, the two usual causes are a data directory it cannot write to and a port that is already taken. Check the container logs first — they are more informative than any guess.</p>
+
+            <h2 id="section5">WorldDescription.json — What It Controls</h2>
+            <p><strong>WorldDescription.json</strong> is the world description file for your dedicated server: the file that describes the world you are serving rather than the server process itself. It is where world-level settings live. If you have ever wanted a fresh world to start differently from the defaults, this is the file.</p>
+            <div class="warn-box">
+                <strong>Edit it stopped, not running.</strong> Edit the world description file <strong>while the server is shut down</strong>, then start the server so it reads the file on startup. Editing a live file risks the server overwriting your changes on exit, or reading a half-written file. Stop, edit, verify, start.
+            </div>
+            <p>How changes take effect is the part people get wrong, so be precise about the two different cases:</p>
+            <table>
+                <thead>
+                    <tr><th>Situation</th><th>Do changes apply?</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Editing before the world has ever been generated</td><td>Yes — the new world is created from the file.</td></tr>
+                    <tr><td>Editing an already-generated world</td><td>Only settings the server re-reads at startup. Generation-time settings are already baked into the save.</td></tr>
+                    <tr><td>Editing while the server is running</td><td>No reliable effect, and it risks being overwritten on shutdown.</td></tr>
+                </tbody>
+            </table>
+            <p>That middle row is the source of most "I changed it and nothing happened" reports. A world that already exists has already committed a lot of its state; changing a generation-time setting afterwards will not retroactively reshape it. If a change genuinely requires regeneration, that means a new world — which means saying goodbye to the old one.</p>
+            <div class="tip-box">
+                <strong>Always back up the world first.</strong> Copy the server's world data directory to somewhere safe before touching configuration. Save recovery on a dedicated server is a manual, path-level operation, not a button — our <a href="windrose-save-backup-data-recovery-guide-2026.html">Save Backup &amp; Data Recovery Guide</a> covers the procedure.
+            </div>
+            <p>Remember the historical note from section 2: editing this file on a dedicated server was not possible before <strong>0.10.0.6</strong>. If your changes seem to be ignored, confirm your server build is at or past that patch before you blame your own syntax.</p>
+
+            <h2 id="section6">Linux Docker vs Windows Self-Host</h2>
+            <table>
+                <thead>
+                    <tr><th>Factor</th><th>Linux + Docker</th><th>Windows self-host</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Availability</td><td>Only since 0.10.0.7, as a Docker image</td><td>Available from earlier builds</td></tr>
+                    <tr><td>Setup difficulty</td><td>Moderate — needs Docker familiarity</td><td>Simpler for most players</td></tr>
+                    <tr><td>Idle resource use</td><td>Low; a headless box is cheap to leave on</td><td>Higher; a desktop OS is running</td></tr>
+                    <tr><td>Updates</td><td>Pull a new image, recreate the container</td><td>Run the updater, restart</td></tr>
+                    <tr><td>Remote administration</td><td>Shell access, standard tooling</td><td>Remote desktop usually required</td></tr>
+                    <tr><td>Best for</td><td>Always-on worlds, VPS hosting, tinkerers</td><td>Quick setup on a spare Windows PC</td></tr>
+                </tbody>
+            </table>
+            <p>The honest recommendation: <strong>if you already have a Windows machine that is going to be on anyway</strong>, self-hosting on it is the lower-friction path and completely fine. <strong>If you want an always-on world, or you are renting a VPS</strong>, Linux with Docker is the better fit — lower idle overhead, cleaner remote administration, and no desktop environment eating resources. The two blockers that once made Linux awkward are both resolved.</p>
+            <p>Whichever you choose, the day-to-day operating work is the same: admin commands, backups, and the occasional restart. Our <a href="windrose-dedicated-server-admin-commands-2026.html">Dedicated Server Admin Commands Guide</a> covers that side, and our <a href="windrose-server-setup-troubleshooting-guide-2026.html">Server Setup Troubleshooting Guide</a> is where to go when it will not come up.</p>
+
+            <h2 id="section7">Post-Deploy Checklist &amp; Troubleshooting</h2>
+            <p>Work this list top to bottom whenever something is wrong. Most dedicated-server problems are one of these five.</p>
+            <div class="method-box">
+                <h4>Container starts then exits immediately</h4>
+                <p>Almost always permissions on the mounted data directory, or a port already in use. Check the container logs before changing anything else.</p>
+            </div>
+            <div class="method-box">
+                <h4>Nobody can see or join the server</h4>
+                <p>Networking, not Docker. Confirm the ports are published on the host, forwarded on the router, allowed through the firewall, and reachable from outside your own network. See the two port guides linked in section 3.</p>
+            </div>
+            <div class="method-box">
+                <h4>World settings changes are ignored</h4>
+                <p>Confirm the edit was made while the server was stopped, and confirm the server build is at or after 0.10.0.6. Also confirm the setting is one the server re-reads on an existing world rather than a generation-time setting.</p>
+            </div>
+            <div class="method-box">
+                <h4>Server lags once the group builds up</h4>
+                <p>Entity and structure load, not connectivity. Consolidate bases, retire unused vessels, and review the entity-bloat diagnostics.</p>
+            </div>
+            <div class="method-box">
+                <h4>Players connect but desync or rubber-band</h4>
+                <p>That is connectivity quality, and it is the one case where relay-style options are relevant. Our <a href="windrose-force-relay-connection-guide-2026.html">Force Relay Connection Guide</a> and <a href="windrose-connection-region-mismatch-fix-2026.html">Connection Region Mismatch Fix</a> cover it. Keep the distinction straight: relay fixes how packets travel, it does not reduce how much the server has to simulate.</p>
+            </div>
+            <p>Finally, make backups routine rather than heroic. A scheduled copy of the world directory to a second location costs nothing and turns the worst possible server day into an inconvenience.</p>
+
+            <h2 id="faq">FAQ</h2>
+            <div class="faq-item"><h4>When did Windrose get Linux dedicated server support?</h4><p>Linux support arrived in patch 0.10.0.7, in late June, and it is delivered as a Docker image rather than a standalone binary.</p></div>
+            <div class="faq-item"><h4>Can I edit WorldDescription.json on a dedicated server?</h4><p>Yes, on builds from 0.10.0.6 onward. Before that patch, dedicated servers could not modify the world description configuration at all — that was the fix.</p></div>
+            <div class="faq-item"><h4>Do world description changes apply to an existing world?</h4><p>Only for settings the server re-reads at startup. Settings that are applied during world generation are already baked into an existing save and will not retroactively change it.</p></div>
+            <div class="faq-item"><h4>Should I edit the file while the server is running?</h4><p>No. Stop the server, edit the file, verify it is valid, then start the server so it reads the new values on startup.</p></div>
+            <div class="faq-item"><h4>Can I run the server without Docker on Linux?</h4><p>Officially Linux support is delivered as a Docker image. Anything else is unsupported and will vary by build — check the official documentation for your version.</p></div>
+            <div class="faq-item"><h4>Where should the world save live?</h4><p>In a host directory or volume mounted into the container, never inside the container filesystem. Containers are disposable; your world is not.</p></div>
+            <div class="faq-item"><h4>Which ports do I need to forward?</h4><p>Forward the ports your server build actually uses and verify reachability from outside your network. Our port forwarding guides cover the dedicated-server and co-op client sides separately.</p></div>
+            <div class="faq-item"><h4>Is a VPS better than hosting at home?</h4><p>A VPS gives a stable address and someone else's uptime, which usually wins for a group spread across regions. A home box is free and fine for a small local group with decent upload.</p></div>
+            <div class="faq-item"><h4>Why does my container exit right after starting?</h4><p>Most often the mounted data directory is not writable by the container's user, or a required port is already in use. The container logs will tell you which.</p></div>
+            <div class="faq-item"><h4>Does a dedicated server improve my own frame rate?</h4><p>Yes, if you were previously the host. The world simulation moves off your gaming PC, so you become an ordinary client like everyone else.</p></div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">&#127807;</span>
+        <div class="support-text">
+            <h3>This Windrose guide stays free — tip if it helped.</h3>
+            <p>If it saved you time, a $1 tip helps us keep writing more guides.</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn recommended">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-bottom">&copy; 2026 WindroseGuru &middot; Not affiliated with Windrose Studio &middot; <a href="../../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px">All game content, trademarks, and copyrights are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by the game's developers.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>.guide-content li{color:#2d2a33!important}</style>
+<script src="../../js/anti-scraper.js"></script>
+</body>
+</html>
