@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windrose Save Backup &amp; Data Recovery 2026 — Restore a Corrupted or Rolled-Back World | Windrose Guru</title>
+    <meta name="description" content="Windrose save backup and data recovery 2026 — how the 10-minute backup system works since 0.10.0.5.120, what RocksDB / RocksDB_v2 / RocksDB_v2_Backups do, how to restore locally via the Data Recovery screen, and how to copy a recovery back onto a dedicated server.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+    <meta name="keywords" content="Windrose save recovery, Windrose Data Recovery screen, Windrose RocksDB_v2_Backups, Windrose corrupted save fix, Windrose dedicated server restore, Windrose world rollback">
+    <link rel="canonical" href="https://osrsguru.com/guides/windrose/windrose-save-backup-data-recovery-guide-2026.html">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1BGC91MYV"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-S1BGC91MYV');</script>
+    <style>
+        .guide-content h2{font-size:1.85rem !important}.guide-content h3{font-size:1.35rem !important}.guide-content p{font-size:1.08rem !important;line-height:1.85 !important}.guide-content li{font-size:1.08rem !important;line-height:1.85 !important}
+        .tip-box{background:#f8f6fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}.tip-box strong{color:#7a64b8;font-size:1.06rem}
+        .warn-box{background:#fef9f5;border:1px solid #e8c8a0;border-radius:8px;padding:1.2rem 1.5rem;font-size:1.06rem;color:#2d2a33;margin:1.5rem 0}.warn-box strong{color:#b84a3a;font-size:1.06rem}
+        .action-step{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.2rem 1.5rem;margin:1.2rem 0;position:relative}.action-step .step-num{position:absolute;left:-14px;top:-14px;background:#7a64b8;color:#2d2a33;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}.action-step h4{color:#7a64b8;margin:0 0 .6rem 0;font-size:1.4rem}
+        .method-box{background:#faf8fc;border:1px solid #e0d8f0;border-radius:8px;padding:1.4rem;margin:1.25rem 0}.method-box h4{color:#7a64b8;margin:0 0 .85rem 0;font-size:1.45rem}
+        .faq-item{margin:1rem 0;border-bottom:1px solid #e0d8f0;padding-bottom:1rem}.faq-item h4{color:#7a64b8;font-size:1.15rem;margin-bottom:.6rem}
+        .toc{background:#fff;border:1px solid #e0d8f0!important;border-left:1px solid #e0d8f0!important;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:2rem}.toc h3{color:#7a64b8!important;font-size:1.1rem!important;margin-bottom:12px}
+        .guide-hero .subtitle{font-size:1.15rem!important;max-width:700px;margin:0 auto 1.2rem}.guide-hero .breadcrumb{font-size:.95rem!important}.guide-hero .weekly-badge{font-size:1rem!important}
+        .guide-img figcaption{font-size:.85rem;font-style:italic;text-align:center;margin-top:.5rem}.inline-support-hint p{font-size:1rem}
+        .guide-content li{color:#2d2a33!important}.progress-widget{display:none!important}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="../../index.html" class="logo">Windrose <span>Guru</span></a>
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="#section2">10-Min Backups</a></li>
+                    <li><a href="#section3">Folders</a></li>
+                    <li><a href="#section4">Local Restore</a></li>
+                    <li><a href="#section5">Server Restore</a></li>
+                    <li><a href="#section6">Damage Control</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../../index.html#windrose">Windrose</a> / Save Backup &amp; Data Recovery</p>
+            <h1>Windrose Save Backup &amp; Data Recovery 2026</h1>
+            <div class="wr-level-badge" style="display:inline-block;background:#f0ebfa;color:#5a4a8a;border:1px solid #7a64b8;border-radius:20px;padding:4px 14px;font-size:.85rem;font-weight:600;margin:8px 0">💾 Data Recovery</div>
+            <span class="wk-badge wk-badge-starting" style="background:#d4af37;color:#fff;display:inline-block;margin:6px 0 12px 10px;font-size:.82rem;padding:3px 11px;">🆕 NEW</span>
+            <p class="subtitle">Your world is not gone. Since patch 0.10.0.5.120 Windrose backs itself up every ten minutes while you play, and there is an in-game Data Recovery screen to roll back to. Here is how the backup system actually works and the exact restore path for both local play and dedicated servers.</p>
+            <div class="weekly-badge">
+                <span class="badge-icon">⚓</span> <strong>Windrose Guide</strong> — Part of the <strong>Windrose Survival Series</strong> · 12 min read
+            </div>
+            <p class="publish-date" style="color:#7A64B8;margin-top:8px;font-size:.85rem;">Published: August 31, 2026</p>
+        </div>
+    </section>
+
+    <main class="guide-content">
+        <div class="container">
+            <div class="toc"><h3>Table of Contents</h3><ol>
+                <li><a href="#section1">What Breaks a Windrose Save</a></li>
+                <li><a href="#section2">The Backup System Since 0.10.0.5.120</a></li>
+                <li><a href="#section3">RocksDB, RocksDB_v2 &amp; RocksDB_v2_Backups</a></li>
+                <li><a href="#section4">Local Restore — The Data Recovery Screen</a></li>
+                <li><a href="#section5">Dedicated Server Restore — Worlds → World_ID → Latest</a></li>
+                <li><a href="#section6">Damage Control Before You Restore</a></li>
+                <li><a href="#section7">Building a Habit That Makes This Rare</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ol></div>
+
+            <h2 id="section1">What Breaks a Windrose Save</h2>
+            <p>Windrose saves are a RocksDB database, which is robust in normal use and unforgiving when a write is interrupted. A save problem usually shows up in one of these forms.</p>
+            <ul>
+                <li><strong>World rolled back.</strong> You load in and your last hour — or three — is simply missing. Buildings gone, stockpile reverted, ship where it used to be.</li>
+                <li><strong>Corrupted save.</strong> The world fails to load, crashes on load, or loads into a broken state with missing terrain or entities.</li>
+                <li><strong>Stuck after a crash.</strong> The game hard-crashed mid-session, and on relaunch the database is in a state it cannot cleanly resume from.</li>
+                <li><strong>Cloud overwriting local.</strong> You played on another machine, Steam Cloud pulled an older copy down, and your newer progress vanished. This one is a sync problem first and a recovery problem second — see our <a href="windrose-steam-cloud-manual-sync-guide-2026.html">Steam Cloud Manual Sync Guide</a>.</li>
+            </ul>
+            <p>These are all recoverable in the same basic way: find a backup snapshot from before the damage and roll back to it. The details below tell you where those snapshots live and how to apply them.</p>
+            <div class="tip-box">
+                <strong>The one thing that makes this worse:</strong> continuing to play on a broken save. Every minute you play after corruption creates new writes that overwrite older, cleaner backups. If something looks wrong, stop and deal with it immediately.
+            </div>
+
+            <h2 id="section2">The Backup System Since 0.10.0.5.120</h2>
+            <p>This is the part most guides get wrong, because the system changed. Patch <strong>0.10.0.5.120</strong> replaced the old rolling-backup mechanism with a simpler and much more predictable scheme:</p>
+            <ul>
+                <li>The game takes a <strong>backup every 10 minutes of active gameplay</strong>.</li>
+                <li>It takes <strong>one more backup when you exit to the desktop</strong>.</li>
+                <li>A <strong>Data Recovery</strong> interface was added so you can pick a restore point in-game instead of digging through folders blind.</li>
+                <li>The <strong>old rolling backup mechanism was removed</strong>. Anything you read about it dated before 30 April is describing behaviour that no longer exists.</li>
+            </ul>
+            <div class="warn-box">
+                <strong>If your Windrose information predates 0.10.0.5.120, throw it out.</strong> The pre-30 April rolling backups are gone. Current builds use the 10-minute active-play snapshots plus the exit-to-desktop snapshot, and only the Data Recovery screen is guaranteed to present them correctly.
+            </div>
+            <p>Two practical consequences. First, your worst-case loss in normal play is roughly the last ten minutes — not hours. Second, the exit-to-desktop snapshot is usually your most recent clean state, so if something broke during a session, whatever you get from Data Recovery will typically be at least as good as what you have.</p>
+            <p>Note the phrase "active gameplay." Backups are tied to you actually playing, not to wall-clock time. Sitting on the main menu does not generate snapshots.</p>
+
+            <h2 id="section3">RocksDB, RocksDB_v2 &amp; RocksDB_v2_Backups</h2>
+            <p>Inside your save profile you will find three similarly named folders. They are not copies of each other and confusing them is how people lose worlds.</p>
+            <table>
+                <thead>
+                    <tr><th>Folder</th><th>Role</th><th>Safe to delete?</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>RocksDB</code></td><td>Legacy save format directory, kept from the older save system</td><td>No — leave it alone</td></tr>
+                    <tr><td><code>RocksDB_v2</code></td><td>The live save database. This is the world the game reads and writes right now</td><td><strong>No — this IS your world</strong></td></tr>
+                    <tr><td><code>RocksDB_v2_Backups</code></td><td>The backup snapshots taken every 10 minutes and on exit</td><td><strong>No — this is your recovery source</strong></td></tr>
+                </tbody>
+            </table>
+            <p>Your local save profile lives at:</p>
+            <pre><code>C:\Users\%username%\AppData\Local\R5\Saved\SaveProfiles\%your_Steam_ID%\</code></pre>
+            <p>where <code>%username%</code> is your Windows account name and <code>%your_Steam_ID%</code> is the folder named after your numeric Steam ID.</p>
+            <div class="method-box">
+                <h4>Mental model</h4>
+                <p><code>RocksDB_v2</code> is the working copy. <code>RocksDB_v2_Backups</code> is the history. Recovery means taking a snapshot out of the history and making it the working copy. You never delete either folder — you copy forward, never backward.
+                </p>
+            </div>
+            <p>Every manual step in this guide follows that rule: copy <em>out of</em> the backups folder, never into it, and never delete the live database until you have confirmed a restore worked.</p>
+
+            <h2 id="section4">Local Restore — The Data Recovery Screen</h2>
+            <p>For a single-player or locally hosted world, do not start moving folders by hand. Use the Data Recovery interface — it exists precisely because manual folder surgery is easy to get wrong.</p>
+            <div class="action-step">
+                <span class="step-num">1</span>
+                <h4>Close the game completely</h4>
+                <p>Exit to desktop. Do not attempt a restore while the world is loaded; the game has the database open and your changes will not stick.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">2</span>
+                <h4>Open the Data Recovery interface</h4>
+                <p>From the main menu, find the Data Recovery option in the world / save management area. This is the screen added in 0.10.0.5.120 for exactly this purpose.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">3</span>
+                <h4>Pick a restore point</h4>
+                <p>You will see the available snapshots — the 10-minute backups and the exit-to-desktop backup. Choose the most recent one from <em>before</em> the problem started. If you are not sure when it started, go one step further back than you think you need; losing ten extra minutes beats restoring a snapshot that already contains the corruption.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">4</span>
+                <h4>Confirm and load</h4>
+                <p>Apply the restore, then load the world and check the things that matter: your base, your stockpile, your ship, your quest state. Do not just glance at the spawn point — walk to your base before you trust it.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">5</span>
+                <h4>Disable cloud sync until you are sure</h4>
+                <p>If Steam Cloud is enabled, it may pull the newer, damaged copy back down over your restored world. Confirm the restore locally, and if you plan to keep it, push it to the cloud deliberately afterwards — see the <a href="windrose-steam-cloud-manual-sync-guide-2026.html">Steam Cloud Manual Sync Guide</a> for forcing that by hand.</p>
+            </div>
+            <div class="warn-box">
+                <strong>Restoring is one-way.</strong> Once you apply a snapshot, the state it replaces is gone. If there is any chance your current save holds something you need, copy the whole save profile folder somewhere safe before you touch Data Recovery.
+            </div>
+
+            <h2 id="section5">Dedicated Server Restore — Worlds → World_ID → Latest</h2>
+            <p>Dedicated servers have no Data Recovery screen to click through. The restore is manual, and the official procedure is a copy-back operation out of the backups folder. This is the sequence:</p>
+            <div class="action-step">
+                <span class="step-num">1</span>
+                <h4>Stop the server</h4>
+                <p>Shut the server process down fully before touching any save files. Copying data out from under a running server produces a snapshot that is internally inconsistent.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">2</span>
+                <h4>Take the recovery data from RocksDB_v2_Backups</h4>
+                <p>On the machine that holds the world data, go to the <strong>RocksDB_v2_Backups</strong> folder and locate the snapshot you want to restore. Choose the most recent one from before the corruption or rollback.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">3</span>
+                <h4>Navigate to Worlds → World_ID → Latest</h4>
+                <p>Inside the backup snapshot, navigate down to <code>Worlds → World_ID → Latest</code>. <code>World_ID</code> is the identifier for the specific world you are restoring — if the server hosts more than one world, make sure you have the right one before you copy anything.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">4</span>
+                <h4>Copy it back to the dedicated server's save location</h4>
+                <p>Copy the contents of that <code>Latest</code> folder into the dedicated server's save location, replacing the current world data. Copy forward out of the backup — never the other direction.</p>
+            </div>
+            <div class="action-step">
+                <span class="step-num">5</span>
+                <h4>Restart the server and verify</h4>
+                <p>Start the server, then have one player connect and confirm the world state before announcing it as fixed. If it loads and the base is intact, open it up to everyone.</p>
+            </div>
+            <div class="tip-box">
+                <strong>Copy the damaged state aside first.</strong> Before overwriting anything, move the server's current save folder to a backup directory outside the game folders. It costs nothing and it is the difference between a botched restore and a disaster.
+            </div>
+            <p>For the command-side of running a dedicated server — saving, restarting, and managing worlds — see our <a href="windrose-dedicated-server-admin-commands-2026.html">Dedicated Server Admin Commands</a>. If the damage came from a connection or crash issue rather than the save itself, start with the <a href="windrose-server-setup-troubleshooting-guide-2026.html">Server Setup Troubleshooting Guide</a>.</p>
+
+            <h2 id="section6">Damage Control Before You Restore</h2>
+            <p>A few things worth doing before you commit to any restore, in order.</p>
+            <div class="method-box">
+                <h4>1. Duplicate the whole save profile</h4>
+                <p>Copy <code>C:\Users\%username%\AppData\Local\R5\Saved\SaveProfiles\%your_Steam_ID%\</code> to a folder on your desktop or an external drive. Everything else in this guide is recoverable if you have this copy.</p>
+            </div>
+            <div class="method-box">
+                <h4>2. Work out roughly when it broke</h4>
+                <p>When did you last see the world in a good state? That timestamp tells you which snapshot to aim for, and stops you restoring to a point from three days ago when you only needed to go back two hours.</p>
+            </div>
+            <div class="method-box">
+                <h4>3. Decide whether this is really a save problem</h4>
+                <p>Not every "world looks wrong" report is corruption. Loot in a friend's world being empty is a character-bound loot mechanic, not a save issue. If you are unsure, check our <a href="windrose-save-loss-recovery-2026.html">Save Loss Recovery</a> guide before you roll anything back — an unnecessary restore loses real progress.</p>
+            </div>
+            <div class="method-box">
+                <h4>4. Take cloud sync out of the equation</h4>
+                <p>If Steam Cloud is on, it can silently re-download the damaged copy after you restore. Handle the sync deliberately, using the console commands in the <a href="windrose-steam-cloud-manual-sync-guide-2026.html">Steam Cloud Manual Sync Guide</a>, once the local restore is confirmed.</p>
+            </div>
+
+            <h2 id="section7">Building a Habit That Makes This Rare</h2>
+            <p>The ten-minute backup system means you are rarely more than ten minutes from safety. Two habits turn that into near-total immunity.</p>
+            <ul>
+                <li><strong>Exit to the desktop rather than alt-F4 or killing the process.</strong> The clean exit triggers that final backup, which is almost always your best snapshot. Force-quitting skips it.</li>
+                <li><strong>Make an occasional manual copy of the save profile folder.</strong> Ten-minute backups protect you from the last ten minutes. A weekly copy to an external drive protects you from a corrupted backup chain, a bad patch, or an accidental restore of the wrong snapshot.</li>
+            </ul>
+            <p>If you play on a dedicated server, schedule a copy of the world folder on the same rhythm. Server operators who have never tested a restore are the ones who discover their backups do not work at the worst possible moment — do a dry run once, on a quiet afternoon, so you know the path works before you need it.</p>
+            <p>Windrose has been in a quiet patch period since 0.10.0.8, and the developers have said the near-term focus is connectivity, performance, and stability. That is good news for save integrity but it is not a reason to skip backups. Take the ten minutes, set the habit, and stop thinking about it.</p>
+
+            <h2 id="faq">FAQ</h2>
+            <div class="faq-item"><h4>How often does Windrose back up my save?</h4><p>Since patch 0.10.0.5.120: once every 10 minutes of active gameplay, plus one more backup when you exit to the desktop.</p></div>
+            <div class="faq-item"><h4>What happened to the old rolling backups?</h4><p>The pre-30 April rolling backup mechanism was replaced by the 10-minute active-play system in 0.10.0.5.120. Any guide describing the old behaviour is out of date.</p></div>
+            <div class="faq-item"><h4>What is the Data Recovery screen?</h4><p>An in-game interface added in 0.10.0.5.120 that lists your available backup snapshots and lets you roll back to one without editing folders by hand.</p></div>
+            <div class="faq-item"><h4>Where are my saves on disk?</h4><p><code>C:\Users\%username%\AppData\Local\R5\Saved\SaveProfiles\%your_Steam_ID%\</code>, with <code>RocksDB_v2</code> as the live world and <code>RocksDB_v2_Backups</code> as the snapshots.</p></div>
+            <div class="faq-item"><h4>What is the difference between RocksDB, RocksDB_v2 and RocksDB_v2_Backups?</h4><p><code>RocksDB</code> is the legacy directory, <code>RocksDB_v2</code> is your live save database, and <code>RocksDB_v2_Backups</code> holds the recovery snapshots. Never delete either of the first two.</p></div>
+            <div class="faq-item"><h4>How much progress will I lose if I restore?</h4><p>In normal play, at most the last ten minutes. Restoring to an older snapshot loses whatever you did after it — which is why you should pick the newest snapshot from before the problem.</p></div>
+            <div class="faq-item"><h4>Can I restore a dedicated server world?</h4><p>Yes, manually. Stop the server, take the recovery data from <code>RocksDB_v2_Backups</code>, navigate to <code>Worlds → World_ID → Latest</code>, copy it back to the dedicated server's save location, and restart.</p></div>
+            <div class="faq-item"><h4>Should I copy the damaged save somewhere first?</h4><p>Always. Duplicate the entire save profile folder before touching Data Recovery or overwriting anything on a server. Restore is one-way.</p></div>
+            <div class="faq-item"><h4>Why did my restore get overwritten again?</h4><p>Steam Cloud pulled the newer, damaged copy back down. Confirm the local restore first, then force the sync deliberately with the Steam console commands.</p></div>
+            <div class="faq-item"><h4>Does alt-F4 or a crash skip the backup?</h4><p>A crash or force-quit skips the clean exit-to-desktop backup. You still have the last 10-minute snapshot, but the final one is missing.</p></div>
+            <div class="faq-item"><h4>Are backups taken while I sit in the menu?</h4><p>No — the 10-minute backup is tied to active gameplay. Idling on the main menu does not generate snapshots.</p></div>
+            <div class="faq-item"><h4>My chests are empty in a friend's world — is my save broken?</h4><p>No. Loot is character-bound, so points of interest you have already looted in your own world appear empty in someone else's. That is intended, not corruption.</p></div>
+
+            <div class="support-card" style="margin:32px 0 0 0">
+    <div class="support-inner">
+        <span class="support-icon">&#127807;</span>
+        <div class="support-text">
+            <h3>This Windrose guide stays free — tip if it helped.</h3>
+            <p>If it saved you time, a $1 tip helps us keep writing more guides.</p>
+            <div class="support-amounts">
+                <a href="https://payhip.com/b/qkmVs" target="_blank" rel="noopener" class="support-amount-btn recommended">$1 — Tip</a>
+            </div>
+            <p style="font-size:14px;margin:6px 0 0 0;opacity:0.85">Prefer free? Every online guide stays free — no paywalls, no catch.</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-bottom">&copy; 2026 WindroseGuru &middot; Not affiliated with Windrose Studio &middot; <a href="../../index.html">Home</a></p>
+            <p style="font-size:.78rem;color:#999;margin-top:4px">All game content, trademarks, and copyrights are property of their respective owners. This guide is for informational purposes only and is not affiliated with, endorsed, or sponsored by the game's developers.</p>
+        </div>
+            <div class="footer-trust-links" style="margin-top:12px;font-size:.8rem;text-align:center;line-height:1.8">
+            <a href="../../about.html" style="color:#999;margin:0 6px;text-decoration:none">About</a> &middot;
+            <a href="../../contact.html" style="color:#999;margin:0 6px;text-decoration:none">Contact</a> &middot;
+            <a href="../../privacy-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Privacy Policy</a> &middot;
+            <a href="../../terms-of-service.html" style="color:#999;margin:0 6px;text-decoration:none">Terms of Service</a> &middot;
+            <a href="../../disclaimer.html" style="color:#999;margin:0 6px;text-decoration:none">Disclaimer</a> &middot;
+            <a href="../../cookie-policy.html" style="color:#999;margin:0 6px;text-decoration:none">Cookie Policy</a>
+        </div>
+</footer>
+    <script src="../../js/features.js"></script>
+    <script src="../../js/ai-qa-widget.js"></script>
+    <style>.guide-content li{color:#2d2a33!important}</style>
+<script src="../../js/anti-scraper.js"></script>
+</body>
+</html>
